@@ -1,0 +1,280 @@
+<!--begin::Edit Email Action-->
+<div class="modal fade" id="kt_modal_edit_action_email" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('services.automations.edit_action.email_invitee_action') %></h5>
+
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+		            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+		              <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+		                <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1"/>
+		                <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                          x="0" y="7" width="16" height="2" rx="1"/>
+		              </g>
+		            </svg>
+		          </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+
+      <div class="modal-body">
+        <!--begin::Field-->
+        <div class="mb-7">
+          <label class="form-label"><%= t('services.automations.edit_action.choose_template') %></label>
+          <select id="kt_select_edit_action_email_choose_a_template" class="form-select" data-control="select2" data-placeholder="<%= t('common.select_placeholder') %>" data-minimum-results-for-search="Infinity">
+            <option></option>
+            <option value="confirmation" selected><%= t('services.automations.confirmation') %></option>
+            <option value="reminder"><%= t('services.automations.reminders') %></option>
+            <option value="cancellation"><%= t('services.automations.cancellation') %></option>
+            <option value="rescheduling"><%= t('services.automations.rescheduling') %></option>
+            <option value="followup"><%= t('services.automations.follow_up') %></option>
+            <option value="custom"><%= t('services.automations.custom') %></option>
+          </select>
+        </div>
+        <!--end::Field-->
+        <!--begin::Field-->
+        <div class="mb-7">
+          <label class="form-label d-flex justify-content-between">
+            <%= t('services.automations.edit_action.subject') %>
+            <a id="kt_restore_default_edit_action_email_subject" class="text-decoration-underline" href="javascript:void(0)"><%= t('services.automations.edit_action.restore_default') %></a>
+          </label>
+          <input id="kt_field_edit_action_email_subject" class="form-control" type="text">
+        </div>
+        <!--end::Field-->
+        <!--begin::Field-->
+        <div class="mb-7">
+          <label class="form-label d-flex justify-content-between">
+            <%= t('services.automations.edit_action.body') %>
+            <a id="kt_restore_default_edit_action_email_body" class="text-decoration-underline" href="javascript:void(0)"><%= t('services.automations.edit_action.restore_default') %></a>
+          </label>
+          <textarea id="kt_field_edit_action_email_body" name="kt_field_edit_action_email_body" class="tox-target kt_field_email_body"></textarea>
+        </div>
+        <!--end::Field-->
+        <!--begin::Field-->
+        <div class="mb-0">
+          <label class="form-check form-check-custom form-check-solid align-self-start">
+            <input class="form-check-input" type="checkbox" checked />
+            <span class="form-check-label"><%= t('services.automations.edit_action.include_link') %>
+              <i class="fas fa-info-circle text-primary ms-1" data-bs-toggle="tooltip" title="<%= t('services.automations.edit_action.include_link_tooltip') %>"></i>
+								</span>
+          </label>
+        </div>
+        <!--end::Field-->
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal"><%= t('common.button.cancel') %></button>
+        <button type="button" id="email_action_done" class="btn btn-primary" data-bs-dismiss="modal"><%= t('services.automations.done') %></button>
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+<!--end::Edit Email Action-->
+
+<script>
+    (function () {
+        const addNewActionDoThisOptionFormat = function (item) {
+            if (!item.id) return item.text;
+
+            const span = document.createElement('span');
+            if (item.disabled) {
+                span.classList.add('d-flex');
+                span.classList.add('justify-content-between');
+                span.innerHTML = item.disabled ? `
+                    <span>
+                      <span class="d-block">${item.text}</span>
+                      <span class="d-block small">${item.element.dataset.ktSelect2Description || ''}</span>
+                    </span>
+                    <span class="badge badge-info align-self-center">Coming Soon</span>` : item.text;
+            } else {
+                span.innerHTML = `
+                  <span class="d-block">${item.text}</span>
+                  <span class="d-block small">${item.element.dataset.ktSelect2Description || ''}</span>
+						`;
+            }
+
+            return $(span);
+        }
+
+        $('select#kt_select_add_new_action_do_this').select2({
+            templateResult: addNewActionDoThisOptionFormat
+        })
+
+        $('select#kt_select_add_new_action_do_this').on('change', function () {
+            const elVal = $(this).val();
+            const $hiddenEmailSection = $('div#kt_hidden_section_add_new_action_choose_a_template_email');
+            const $hiddenSmsSection = $('div#kt_hidden_section_add_new_action_choose_a_template_sms');
+
+            if (elVal === 'emailToInvitee' || elVal === 'emailToHost') {
+                $hiddenEmailSection.show();
+                $hiddenSmsSection.hide();
+            } else {
+                $hiddenSmsSection.show();
+                $hiddenEmailSection.hide();
+            }
+        });
+    })();
+
+    // begin Edit Email Action
+    (function () {
+
+        const templatesMapping = {
+            confirmation: {
+                subject: "<%= t("mails.confirmation_email_invitee.subject") %>",
+                body: "<%= raw t("mails.confirmation_email_invitee.body") %>",
+            },
+            reminder: {
+                subject: "<%= t('mails.reminder_email_invitee.subject') %>",
+                body: "<%= raw t('mails.reminder_email_invitee.body') %>",
+            },
+            cancellation: {
+                subject: "<%= t('mails.cancellation_email_invitee.subject') %>",
+                body: "<%= raw t('mails.cancellation_email_invitee.body') %>",
+            },
+            rescheduling: {
+                subject: "<%= t('mails.rescheduling_email_invitee.subject') %>",
+                body: "<%= raw t('mails.rescheduling_email_invitee.body') %>",
+            },
+            followup: {
+                subject: "",
+                body: "",
+            },
+        };
+
+        let elVal = $('#kt_select_edit_action_email_choose_a_template').val();
+
+        tinymce.init({
+            selector: 'textarea.kt_field_email_body',
+            menubar: false,
+            plugins: 'lists link',
+            toolbar: 'undo redo bold italic underline bullist numlist link variables',
+            setup: function (editor) {
+                let toggleState = false;
+
+                editor.ui.registry.addMenuButton('variables', {
+                    text: 'Variables',
+                    fetch: function (callback) {
+                        var items = [
+                            {
+                                type: 'menuitem',
+                                text: 'Invitee Full Name',
+                                onAction: function () {
+                                    editor.insertContent('%{full_name}');
+                                }
+                            },
+                            {
+                                type: 'menuitem',
+                                text: 'Invite First Name',
+                                onAction: function () {
+                                    editor.insertContent('%{first_name}');
+                                }
+                            },
+                            {
+                                type: 'menuitem',
+                                text: 'Invite Last Name',
+                                onAction: function () {
+                                    editor.insertContent('%{last_name}');
+                                }
+                            },
+                            {
+                                type: 'menuitem',
+                                text: 'Resource Name',
+                                onAction: function () {
+                                    editor.insertContent('%{resource_name}');
+                                }
+                            },
+                            {
+                                type: 'menuitem',
+                                text: 'Event Name',
+                                onAction: function () {
+                                    editor.insertContent('%{event_name}');
+                                }
+                            },
+                            {
+                                type: 'menuitem',
+                                text: 'Event Date',
+                                onAction: function () {
+                                    editor.insertContent('%{event_date}');
+                                }
+                            },
+                            {
+                                type: 'menuitem',
+                                text: 'Event Time',
+                                onAction: function () {
+                                    editor.insertContent('%{event_time}');
+                                }
+                            },
+                            {
+                                type: 'menuitem',
+                                text: 'Event Day',
+                                onAction: function () {
+                                    editor.insertContent('%{event_day}');
+                                }
+                            },
+                        ];
+
+                        callback(items);
+                    }
+                });
+            },
+        });
+
+        // Email Invitee action edit
+        $('a.action_email_invitee').on('click', function() {
+            $('input#kt_field_edit_action_email_subject').val($('input[name=email_invitee_subject]').val());
+            tinymce.get('kt_field_edit_action_email_body').setContent($('input[name=email_invitee_body]').val());
+        });
+
+        // Email Host action edit
+        $('a.action_email_host').on('click', function() {
+            $('input#kt_field_edit_action_email_subject').val($('input[name=email_host_subject]').val());
+            tinymce.get('kt_field_edit_action_email_body').setContent($('input[name=email_host_body]').val());
+        });
+
+        // SMS Invitee action edit
+        $('a.action_sms_invitee').on('click', function() {
+            tinymce.get('kt_field_edit_action_sms_body').setContent($('input[name=sms_invitee_body]').val());
+        });
+
+        // SMS Host action edit
+        $('a.action_sms_host').on('click', function() {
+            tinymce.get('kt_field_edit_action_sms_body').setContent($('input[name=sms_host_body]').val());
+        });
+
+
+        $('#kt_select_edit_action_email_choose_a_template').on('change', function () {
+        });
+
+        $('#kt_restore_default_edit_action_email_subject').on('click', function () {
+            if (elVal === 'custom') return false;
+            $('input#kt_field_edit_action_email_subject').val(templatesMapping[$('input[name=automation_type]').val()].subject);
+        });
+
+        $('#kt_restore_default_edit_action_email_body').on('click', function () {
+            if (elVal === 'custom') return false;
+            tinymce.get('kt_field_edit_action_email_body').setContent(templatesMapping[$('input[name=automation_type]').val()].body);
+        });
+
+        $('#kt_restore_default_add_new_action_email_subject').on('click', function () {
+            const template = $('select#kt_select_add_new_action_email_choose_a_template').val();
+            if (template === 'custom') return false;
+            $('input#kt_field_add_new_action_email_subject').val(templatesMapping[template].subject);
+        });
+
+        $('#kt_restore_default_add_new_action_email_body').on('click', function () {
+            const template = $('select#kt_select_add_new_action_email_choose_a_template').val();
+            if (template === 'custom') return false;
+            tinymce.get('kt_field_add_new_action_email_body').setContent(templatesMapping[template].body);
+        });
+    })();
+    // end Edit Email Action
+</script>

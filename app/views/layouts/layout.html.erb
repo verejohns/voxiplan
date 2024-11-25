@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <%= google_tag_manager_script_tag('voxiplan') %>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, , shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Voxiplan <%= ENV['APP_ENV'] == "prod" ? "" : "- #{ENV['APP_ENV'].upcase}" %></title>
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <![endif]-->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.2.0/line-awesome/css/line-awesome.min.css" integrity="sha256-zmGhjPCE8VADeYNABEZD8ymsX5AEWsstnneDaL15mFQ=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <%= stylesheet_link_tag "https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" %>
+
+  <!--begin::Fonts -->
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CRoboto:300,400,500,600,700" media="all">
+  <script>
+    // WebFont.load({
+    //   google: {
+    //     "families": ["Poppins:300,400,500,600,700", "Roboto:300,400,500,600,700"]
+    //   },
+    //   active: function() {
+    //     sessionStorage.fonts = true;
+    //   }
+    // });
+  </script>
+  <!--end::Fonts -->
+
+  <%= stylesheet_link_tag    'application-v3', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'plugins/plugins.bundle', media: 'all', 'data-turbolinks-track' => true %>
+
+
+  <%= javascript_include_tag 'plugins/plugins.bundle', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application-v3', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+
+  <!-- begin:: Page Level assets -->
+  <%= yield(:page_level_stylesheets) %>
+  <%= yield(:page_level_javascripts) %>
+  <!-- end:: Page Level assets -->
+
+  <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'voxiplan_favicon.png' %>
+</head>
+<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed toolbar-tablet-and-mobile-fixed"
+      style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
+<%= google_tag_manager_noscript_tag('voxiplan') %>
+<!-- begin:: Page -->
+<div class="d-flex flex-column flex-root">
+  <div class="loader-body" style="display: none;">
+    <div class="loader"></div>
+  </div>
+  <div class="page d-flex flex-row flex-column-fluid">
+
+    <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+      <div id="kt_header" class="header align-items-stretch">
+        <div class="container-fluid d-flex align-items-stretch justify-content-between">
+          <%= render 'theme/metronic_v8_partials/header-base' %>
+        </div>
+      </div>
+
+      <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+        <%#= render 'theme/metronic_v8_partials/content-base' %>
+        <%= flash_messages %>
+        <%= yield %>
+      </div>
+
+      <div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
+        <%#= render 'theme/metronic_v8_partials/footer-base' %>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- end:: Page -->
+
+<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+  <%= render 'theme/metronic_v8_partials/scroll-top' %>
+</div>
+
+</body>
+
+</html>
+
+
+
+

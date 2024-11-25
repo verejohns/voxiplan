@@ -1,0 +1,22 @@
+<div class="card-header card-header-stretch px-5 px-md-9">
+  <div class="card-toolbar">
+    <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent flex-nowrap">
+      <!--begin::Nav item-->
+      <li class="nav-item">
+        <a class="nav-link text-active-primary me-6 <%= 'active' if report_type == 'call_report' %>" href="<%= calls_reports_path %>"><%= t('stats.heading') %></a>
+      </li>
+      <!--end::Nav item-->
+      <!--begin::Nav item-->
+      <li class="nav-item">
+        <a class="nav-link text-active-primary me-6 <%= 'active' if report_type == 'sms_report' %>" href="<%= sms_reports_path %>"><%= t('sms_stats.heading') %></a>
+      </li>
+      <!--end::Nav item-->
+      <!--begin::Nav item-->
+      <li class="nav-item">
+        <a class="nav-link text-active-primary me-6 <%= 'active' if report_type == 'click_report' %>" href="<%= url_reports_path %>"><%= t('url_stats.heading') %></a>
+      </li>
+      <!--end::Nav item-->
+    </ul>
+  </div>
+  <div class="card-toolbar"></div>
+</div>

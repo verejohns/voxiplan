@@ -1,0 +1,778 @@
+<div class="toolbar" id="kt_toolbar">
+  <!--begin::Container-->
+  <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+    <!--begin::Page title-->
+    <div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}" class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
+      <!--begin::Title-->
+      <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3"><%= t('integrations.sms_connection.sms') %></h1>
+      <!--end::Title-->
+    </div>
+    <!--end::Page title-->
+    <!--begin::Actions-->
+    <div class="d-flex align-items-center py-1"></div>
+    <!--end::Actions-->
+  </div>
+  <!--end::Container-->
+</div>
+<!--end::Toolbar-->
+<!--begin::Post-->
+<div class="post d-flex flex-column-fluid" id="kt_post">
+  <!--begin::Container-->
+  <div id="kt_content_container" class="container">
+    <div class="card" >
+      <div class="card-header card-header-stretch">
+        <div class="card-toolbar">
+          <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder flex-nowrap">
+            <!--begin::Nav item-->
+            <li class="nav-item">
+              <a class="nav-link text-active-primary me-6" href="<%= phone_integrations_path %>"><%= t('integrations.phone_number.title') %></a>
+            </li>
+            <!--end::Nav item-->
+            <!--begin::Nav item-->
+            <li class="nav-item">
+              <a class="nav-link text-active-primary me-6 active" href="<%= sms_integrations_path %>"><%= t('integrations.sms_connection.sms') %></a>
+            </li>
+            <!--end::Nav item-->
+          </ul>
+        </div>
+        <div class="card-toolbar">
+          <label id="kt_switch_enable_alphanumeric_sender_id" class="form-check form-switch form-check-custom form-check-solid form-check-primary my-2 me-5" style="display:none">
+            <input id="kt_alphanumeric_sender_id" class="form-check-input h-30px w-50px" type="checkbox" <%= (@alpha_from&.match?("^(?![0-9]+$)[a-zA-Z0-9 ]{2,}$") && @alpha_from.match("[a-zA-Z]")) ? 'checked' : '' %>/>
+            <span class="form-check-label"><%= t('integrations.sms_connection.enable_alpha_senderid') %></span>
+          </label>
+        </div>
+      </div>
+      <div class="card-body">
+        <div id="kt_alphanumeric_sender_id_disabled">
+          <!--begin::Stepper-->
+          <div class="stepper stepper-pills stepper-column d-flex flex-column flex-xl-row flex-row-fluid" id="kt_create_sms_channel_stepper">
+            <!--begin::Aside-->
+            <div class="d-flex justify-content-center bg-body rounded justify-content-xl-start flex-row-auto w-100 w-xl-300px me-9">
+              <!--begin::Wrapper-->
+              <div>
+                <!--begin::Nav-->
+                <div class="stepper-nav">
+                  <!--begin::Step 1-->
+                  <div class="stepper-item current" data-kt-stepper-element="nav">
+                    <!--begin::Line-->
+                    <div class="stepper-line w-40px"></div>
+                    <!--end::Line-->
+                    <!--begin::Icon-->
+                    <div class="stepper-icon w-40px h-40px">
+                      <i class="stepper-check fas fa-check"></i>
+                      <span class="stepper-number">1</span>
+                    </div>
+                    <!--end::Icon-->
+                    <!--begin::Label-->
+                    <div class="stepper-label">
+                      <h3 class="stepper-title"><%= t('integrations.sms_connection.select_route') %></h3>
+                      <div class="stepper-desc fw-bold"><%= t('integrations.sms_connection.select_route_help') %></div>
+                    </div>
+                    <!--end::Label-->
+                  </div>
+                  <!--end::Step 1-->
+                  <!--begin::Step 2-->
+                  <div class="stepper-item" data-kt-stepper-element="nav">
+                    <!--begin::Line-->
+                    <div class="stepper-line w-40px"></div>
+                    <!--end::Line-->
+                    <!--begin::Icon-->
+                    <div class="stepper-icon w-40px h-40px">
+                      <i class="stepper-check fas fa-check"></i>
+                      <span class="stepper-number">2</span>
+                    </div>
+                    <!--end::Icon-->
+                    <!--begin::Label-->
+                    <div class="stepper-label">
+                      <h3 class="stepper-title"><%= t('integrations.sms_connection.setup_route') %></h3>
+                      <div class="stepper-desc fw-bold"><%= t('integrations.sms_connection.setup_route_help') %></div>
+                    </div>
+                    <!--end::Label-->
+                  </div>
+                  <!--end::Step 2-->
+                </div>
+                <!--end::Nav-->
+              </div>
+              <!--end::Wrapper-->
+            </div>
+            <!--end::Aside-->
+            <!--begin::Content-->
+            <div class="d-flex flex-column flex-center bg-body w-100 rounded">
+              <!--begin::Form-->
+              <form class="w-100 ps-9" id="kt_create_sms_channel_form" novalidate="novalidate" action="/integrations/sms?locale=en" accept-charset="UTF-8" method="post">
+                <!--begin::Step 1-->
+                <div class="w-100 current" data-kt-stepper-element="content">
+                  <input type="hidden" name="phone_value" />
+                  <!--begin::Wrapper-->
+                  <div class="flex-column w-100">
+                    <h4 class="fs-4 fw-bolder mb-3"><%= t('integrations.sms_connection.select_sms_channel') %></h4>
+                    <p class="text-muted mb-7"><%= t('integrations.sms_connection.select_sms_channel_help') %></p>
+                    <div class="row mb-7">
+                      <div class="col">
+                        <label class="form-label"><%= t('integrations.sms_connection.workspaces') %>: </label>
+                        <%= select_tag :selected_ivr, options_for_select(current_client.ivrs.order('id').map {|ivr| [ivr.name == "Default" ? current_client.full_name : ivr.name, ivr.id] }), id: "selected_ivr",  class: "form-select", data: { control: 'select2', placeholder: t('integrations.sms_connection.select_workspace') } %>
+                      </div>
+                    </div>
+                    <!--begin::Row-->
+                    <div class="row">
+                      <!--begin::Col-->
+                      <div class="col-md-6">
+                        <!--begin::Option-->
+                        <input type="radio" name="preference[sms_engin]" class="btn-check" id="kt_mega_checkbox_01" value="twilio" <%= 'checked' if @first_ivr.preference['sms_engin'] == 'twilio' %> />
+                        <label class="btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center h-md-100" for="kt_mega_checkbox_01">
+                          <!--begin::Svg Icon | path: icons/duotone/Code/Time-schedule.svg-->
+                          <span class="svg-icon svg-icon-3x me-5">
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                      <rect x="0" y="0" width="24" height="24"/>
+                                      <path d="M11.914857,14.1427403 L14.1188827,11.9387145 C14.7276032,11.329994 14.8785122,10.4000511 14.4935235,9.63007378 L14.3686433,9.38031323 C13.9836546,8.61033591 14.1345636,7.680393 14.7432841,7.07167248 L17.4760882,4.33886839 C17.6713503,4.14360624 17.9879328,4.14360624 18.183195,4.33886839 C18.2211956,4.37686904 18.2528214,4.42074752 18.2768552,4.46881498 L19.3808309,6.67676638 C20.2253855,8.3658756 19.8943345,10.4059034 18.5589765,11.7412615 L12.560151,17.740087 C11.1066115,19.1936265 8.95659008,19.7011777 7.00646221,19.0511351 L4.5919826,18.2463085 C4.33001094,18.1589846 4.18843095,17.8758246 4.27575484,17.613853 C4.30030124,17.5402138 4.34165566,17.4733009 4.39654309,17.4184135 L7.04781491,14.7671417 C7.65653544,14.1584211 8.58647835,14.0075122 9.35645567,14.3925008 L9.60621621,14.5173811 C10.3761935,14.9023698 11.3061364,14.7514608 11.914857,14.1427403 Z" fill="#000000"/>
+                                  </g>
+                              </svg>
+                          </span>
+                          <!--end::Svg Icon-->
+                          <!--begin::Info-->
+                          <span class="d-block fw-bold text-start">
+                              <span class="text-dark fw-bolder d-block fs-4 mb-2"><%= t('integrations.sms_connection.telco') %></span>
+                              <span class="text-muted fw-bold fs-6"><%= t('integrations.sms_connection.telco_help') %></span>
+                          </span>
+                          <!--end::Info-->
+                        </label>
+                        <!--end::Option-->
+                      </div>
+                      <!--end::Col-->
+                      <!--begin::Col-->
+                      <div class="col-md-6">
+                        <!--begin::Option-->
+                        <input type="radio" name="preference[sms_engin]" class="btn-check" id="kt_mega_checkbox_02" value="voxi_sms" <%= 'checked' if @first_ivr.preference['sms_engin'] == 'voxi_sms' %> />
+                        <label class="btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center h-md-100 mb-10 mb-md-0" for="kt_mega_checkbox_02">
+                          <!--begin::Svg Icon | path: icons/duotone/Code/Time-schedule.svg-->
+                          <span class="svg-icon svg-icon-3x me-5">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                  <path opacity="0.3" d="M8 8C8 7.4 8.4 7 9 7H16V3C16 2.4 15.6 2 15 2H3C2.4 2 2 2.4 2 3V13C2 13.6 2.4 14 3 14H5V16.1C5 16.8 5.79999 17.1 6.29999 16.6L8 14.9V8Z" fill="black"/>
+                                  <path d="M22 8V18C22 18.6 21.6 19 21 19H19V21.1C19 21.8 18.2 22.1 17.7 21.6L15 18.9H9C8.4 18.9 8 18.5 8 17.9V7.90002C8 7.30002 8.4 6.90002 9 6.90002H21C21.6 7.00002 22 7.4 22 8ZM19 11C19 10.4 18.6 10 18 10H12C11.4 10 11 10.4 11 11C11 11.6 11.4 12 12 12H18C18.6 12 19 11.6 19 11ZM17 15C17 14.4 16.6 14 16 14H12C11.4 14 11 14.4 11 15C11 15.6 11.4 16 12 16H16C16.6 16 17 15.6 17 15Z" fill="black"/>
+                              </svg>
+                          </span>
+                          <!--end::Svg Icon-->
+                          <!--begin::Info-->
+                          <span class="d-block fw-bold text-start">
+                              <span class="text-dark fw-bolder d-block fs-4 mb-2"><%= t('integrations.sms_connection.voxisms') %></span>
+                              <span class="text-muted fw-bold fs-6"><%= t('integrations.sms_connection.voxisms_help') %></span>
+                          </span>
+                          <!--end::Info-->
+                        </label>
+                        <!--end::Option-->
+                      </div>
+                      <!--end::Col-->
+                    </div>
+                    <!--end::Row-->
+                  </div>
+                  <!--end::Wrapper-->
+                </div>
+                <!--end::Step 1-->
+                <!--begin::Step 2-->
+                <div class="w-100" data-kt-stepper-element="content">
+                  <!--begin::Wrapper-->
+                  <div class="w-100">
+
+                    <h4 class="fs-4 fw-bolder mb-3"><%= t('integrations.sms_connection.config_sms_channel') %></h4>
+
+                    <div id="kt_mega_checkbox_01_content">
+                      <p class="text-muted mb-3"><%= t('integrations.sms_connection.config_sms_channel_help') %></p>
+                      <div>
+                        <label class="form-label"><%= t('integrations.sms_connection.select_phone_number') %></label>
+                        <!--begin::Input-->
+                        <select name="phone-number" aria-label="<%= t('integrations.sms_connection.select_phone_number') %>" class="form-select" data-control="select2" data-placeholder="<%= t('integrations.sms_connection.select_phone_number') %>..." data-allow-clear="true" >
+                          <% if @phone_numbers.length === 0 %>
+                            <option value='-'><%= t('integrations.sms_connection.default') %></option>
+                          <% else %>
+                            <% @phone_numbers.each do |phone_number| %>
+                              <% pn = phone_number.number.gsub('+','') %>
+                              <option value="<%= pn %>" <%= 'selected' if @first_ivr.preference["sms_from"] == pn %>><%= phone_number.number %></option>
+                            <% end %>
+                          <% end %>
+                        </select>
+                        <!--end::Input-->
+                      </div>
+                    </div>
+
+                    <div id="kt_mega_checkbox_02_content" style="display: none;">
+                      <div class="alert alert-dismissible bg-light-info border border-info d-flex flex-column flex-sm-row w-100 p-5 mb-10">
+                        <!--begin::Icon-->
+                        <i class="fab fa-android fs-2hx text-info me-4 mb-5 mb-sm-0"></i>
+                        <!--end::Icon-->
+                        <!--begin::Content-->
+                        <div class="d-flex flex-column pe-0 pe-sm-10">
+                          <h5 class="text-info mb-1"><%= t('integrations.sms_connection.connect_android_phone') %></h5>
+                          <p class="text-info mb-3"><%= t('integrations.sms_connection.download_android_phone') %></p>
+                          <div>
+                            <a class="btn btn-sm btn-outline btn-outline-info btn-active-color-white" href="#"><%= t('integrations.sms_connection.download') %></a>
+                          </div>
+                        </div>
+                        <!--end::Content-->
+                      </div>
+
+                      <div class="stepper stepper-pills stepper-column">
+                        <div class="stepper-nav">
+                          <div class="stepper-item">
+                            <!--begin::Line-->
+                            <div class="stepper-line w-40px"></div>
+                            <!--end::Line-->
+                            <!--begin::Icon-->
+                            <div class="stepper-icon w-40px h-40px">
+                              <span class="stepper-number">1</span>
+                            </div>
+                            <!--end::Icon-->
+                            <!--begin::Label-->
+                            <div class="stepper-label">
+                              <div class="stepper-desc fw-bold"><%= raw t('integrations.sms_connection.config_sms_step1') %></div>
+                            </div>
+                            <!--end::Label-->
+                          </div>
+                          <div class="stepper-item" style="align-items: unset">
+                            <!--begin::Line-->
+                            <div class="stepper-line w-40px"></div>
+                            <!--end::Line-->
+                            <!--begin::Icon-->
+                            <div class="stepper-icon w-40px h-40px">
+                              <span class="stepper-number">2</span>
+                            </div>
+                            <!--end::Icon-->
+                            <div class="d-block w-100">
+                              <!--begin::Label-->
+                              <div class="stepper-label">
+                                <div class="stepper-desc fw-bold mb-2" ><%= raw t('integrations.sms_connection.config_sms_step2') %></div>
+                              </div>
+                              <!--end::Label-->
+                              <div class="row">
+                                <div class="col-md-6 mb-7 mb-md-0">
+                                  <input type="hidden" id="sms_country" value="<%= @country_code %>" />
+                                  <input type="text" name="phone" id="phone" value="<%= @first_ivr.preference["sms_from"] if @first_ivr.preference["sms_engin"] == "voxi_sms" %>" class="form-control" placeholder="<%= t('integrations.sms_connection.enter_mobile_phone') %>" />
+                                  <div class="phone-valid-msg" style="display:none;color: #00C900"><%= t('customers.valid_phone_number') %></div>
+                                  <div class="phone-error-msg" style="display:none;color: #f4516c"><%= t('customers.invalid_mobile_number') %></div>
+                                </div>
+                                <div class="col-md-6 mb-7 mb-md-0">
+                                  <% if @first_ivr.preference["sms_engin"] == "voxi_sms" && @first_ivr.preference["sms_from"].present? %>
+                                    <button type="button" class="btn btn-primary confirm_edit_phone" data-button-type="edit_phone" >
+                                      <i class="bi bi-pencil-square me-1"></i>
+                                      <span><%= t('integrations.sms_connection.edit_phone') %></span>
+                                    </button>
+                                  <% else %>
+                                    <button type="button" class="btn btn-primary confirm_edit_phone" data-button-type="confirm_phone" >
+                                      <i class="bi bi-check-lg me-1"></i>
+                                      <span><%= t('integrations.sms_connection.confirm_phone') %></span>
+                                    </button>
+                                  <% end %>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+
+                          <div class="stepper-item pb-0" style="align-items: unset">
+                            <!--begin::Line-->
+                            <div class="stepper-line w-40px"></div>
+                            <!--end::Line-->
+                            <!--begin::Icon-->
+                            <div class="stepper-icon w-40px h-40px">
+                              <span class="stepper-number">3</span>
+                            </div>
+                            <!--end::Icon-->
+                            <!--begin::Label-->
+                            <div class="stepper-label">
+                              <div class="stepper-desc fw-bold mb-2"><%= raw t('integrations.sms_connection.config_sms_step3') %></div>
+
+                              <div class="row">
+                                <!--begin::Input group-->
+                                <div class="col-md-6">
+                                  <input name="secret" class="form-control" value="<%= @first_ivr.preference["voxi_sms_secret"] %>" placeholder="<%= t('integrations.sms_connection.enter_secret_key') %>">
+                                </div>
+                                <!--end::Input group-->
+                              </div>
+                            </div>
+                            <!--end::Label-->
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="separator mt-10"></div>
+                    </div>
+                  </div>
+                  <!--end::Wrapper-->
+                </div>
+                <!--end::Step 2-->
+                <!--begin::Actions-->
+                <div class="d-flex flex-stack w-100 pt-10">
+                  <!--begin::Wrapper-->
+                  <div class="mr-2">
+                    <button type="button" class="btn btn-lg btn-light-primary me-3" data-kt-stepper-action="previous">
+                      <!--begin::Svg Icon | path: icons/duotone/Navigation/Left-2.svg-->
+                      <span class="svg-icon svg-icon-4 me-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                  <polygon points="0 0 24 0 24 24 0 24" />
+                                  <rect fill="#000000" opacity="0.3" transform="translate(15.000000, 12.000000) scale(-1, 1) rotate(-90.000000) translate(-15.000000, -12.000000)"                                                                          x="14"
+                                    y="7" width="2" height="10" rx="1"/>
+                                  <path d="M3.7071045,15.7071045 C3.3165802,16.0976288 2.68341522,16.0976288 2.29289093,15.7071045 C1.90236664,15.3165802 1.90236664,14.6834152 2.29289093,14.2928909 L8.29289093,8.29289093 C8.67146987,7.914312 9.28105631,7.90106637 9.67572234,8.26284357 L15.6757223,13.7628436 C16.0828413,14.136036 16.1103443,14.7686034 15.7371519,15.1757223 C15.3639594,15.5828413 14.7313921,15.6103443 14.3242731,15.2371519 L9.03007346,10.3841355 L3.7071045,15.7071045 Z"
+                                    fill="#000000" fill-rule="nonzero" transform="translate(9.000001, 11.999997) scale(-1, -1) rotate(90.000000) translate(-9.000001, -11.999997)"
+                                    />
+                              </g>
+                          </svg>
+                      </span>
+                      <!--end::Svg Icon-->
+                      <%= t('common.button.back') %>
+                    </button>
+                  </div>
+                  <!--end::Wrapper-->
+                  <!--begin::Wrapper-->
+                  <div>
+                    <button type="button" class="btn btn-lg btn-primary me-3" data-kt-stepper-action="submit">
+                      <span class="indicator-label"><%= t('button.save') %></span>
+                      <span class="indicator-progress"><%= t('common.please_wait') %>
+                          <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                      </span>
+                    </button>
+                    <button type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="next">
+                      <%= t('common.button.continue') %>
+                      <!--begin::Svg Icon | path: icons/duotone/Navigation/Right-2.svg-->
+                      <span class="svg-icon svg-icon-4 ms-1 me-0">
+                          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                  <polygon points="0 0 24 0 24 24 0 24" />
+                                  <rect fill="#000000" opacity="0.5" transform="translate(8.500000, 12.000000) rotate(-90.000000) translate(-8.500000, -12.000000)"
+                                    x="7.5" y="7.5" width="2" height="9" rx="1"/>
+                                  <path d="M9.70710318,15.7071045 C9.31657888,16.0976288 8.68341391,16.0976288 8.29288961,15.7071045 C7.90236532,15.3165802 7.90236532,14.6834152 8.29288961,14.2928909 L14.2928896,8.29289093 C14.6714686,7.914312 15.281055,7.90106637 15.675721,8.26284357 L21.675721,13.7628436 C22.08284,14.136036 22.1103429,14.7686034 21.7371505,15.1757223 C21.3639581,15.5828413 20.7313908,15.6103443 20.3242718,15.2371519 L15.0300721,10.3841355 L9.70710318,15.7071045 Z"
+                                    fill="#000000" fill-rule="nonzero" transform="translate(14.999999, 11.999997) scale(1, -1) rotate(90.000000) translate(-14.999999, -11.999997)"/>
+                              </g>
+                          </svg>
+                      </span>
+                      <!--end::Svg Icon-->
+                    </button>
+                  </div>
+                  <!--end::Wrapper-->
+                </div>
+                <!--end::Actions-->
+              </form>
+              <!--end::Form-->
+            </div>
+            <!--end::Content-->
+          </div>
+          <!--end::Stepper-->
+        </div>
+
+        <div id="kt_alphanumeric_sender_id_enabled" style="display: none;">
+          <h4 class="fs-4 fw-bolder mb-3"><%= t('integrations.sms_connection.enter_alpha_senderid') %></h4>
+
+          <div class="mb-5">
+            <label class="form-label"><%= t('integrations.sms_connection.senderid') %></label>
+            <input class="form-control" type="text" id="alphanumeric_from" maxlength="11" value="<%= (@alpha_from&.match?("^(?![0-9]+$)[a-zA-Z0-9 ]{2,}$") && @alpha_from.match("[a-zA-Z]")) ? @alpha_from : '' %>"/>
+          </div>
+
+          <div class="alert alert-dismissible bg-light-info border border-info d-flex flex-column flex-sm-row w-100 p-5 mb-0">
+            <!--begin::Icon-->
+            <span class="svg-icon svg-icon-2hx svg-icon-info me-4 mb-5 mb-sm-0">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+												<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"></rect>
+												<rect x="11" y="14" width="7" height="2" rx="1" transform="rotate(-90 11 14)" fill="black"></rect>
+												<rect x="11" y="17" width="2" height="2" rx="1" transform="rotate(-90 11 17)" fill="black"></rect>
+											</svg>
+										</span>
+            <!--end::Icon-->
+            <!--begin::Content-->
+            <div class="d-flex flex-column pe-0 pe-sm-10">
+              <h5 class="text-info mb-1"><%= t('integrations.sms_connection.senderid_condition.title') %></h5>
+              <ul class="text-info pl-0 mb-0">
+                <li><%= t('integrations.sms_connection.senderid_condition.upper_case') %></li>
+                <li><%= t('integrations.sms_connection.senderid_condition.lower_case') %></li>
+                <li><%= t('integrations.sms_connection.senderid_condition.number') %></li>
+                <li><%= t('integrations.sms_connection.senderid_condition.space') %></li>
+                <li><%= t('integrations.sms_connection.senderid_condition.letter') %></li>
+                <li><%= t('integrations.sms_connection.senderid_condition.special_char') %></li>
+              </ul>
+            </div>
+            <!--end::Content-->
+          </div>
+
+          <div class="mt-5 text-end">
+            <button type="button" class="btn btn-lg btn-primary" id="alphanumeric_from_save"><%= t('button.save') %></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end::Container-->
+</div>
+<!--end::Post-->
+
+<link rel="stylesheet" href="/assets/intlTelInput.min.css">
+<script src="/assets/intlTelInput.min.js"></script>
+
+<script>
+
+    // Options
+    (function () {
+        $('#kt_alphanumeric_sender_id').on('change', function () {
+            if ($(this).is(':checked')) {
+                $('#kt_alphanumeric_sender_id_enabled').show();
+                $('#kt_alphanumeric_sender_id_disabled').hide();
+            } else {
+                $('#kt_alphanumeric_sender_id_disabled').show();
+                $('#kt_alphanumeric_sender_id_enabled').hide();
+            }
+        });
+
+        $('#kt_mega_checkbox_01').on('change', function () {
+            if ($(this).is(':checked')) {
+                $('#kt_mega_checkbox_01_content').show();
+                $('#kt_mega_checkbox_02_content').hide();
+            }
+        });
+
+        $('#kt_mega_checkbox_02').on('change', function () {
+            if ($(this).is(':checked')) {
+                $('#kt_mega_checkbox_02_content').show();
+                $('#kt_mega_checkbox_01_content').hide();
+            }
+        });
+
+        $('button#alphanumeric_from_save').on('click', function() {
+            const sender_id = $("input#alphanumeric_from").val();
+            if(sender_id.match("^(?![0-9]+$)[a-zA-Z0-9 ]{2,}$") && sender_id.match("[a-zA-Z]")) {
+                $.ajax({
+                    type: "POST",
+                    url: "<%= alpha_sms_integrations_path %>",
+                    data: {
+                        selected_ivr: $('select#selected_ivr').val(),
+                        alpha_from: sender_id
+                    },
+                    success: function (response) {
+                        showMessage(response.result, response.message);
+                    },
+                    error: function (error) {
+                        console.log(error);
+                        showMessage('error', error);
+                    },
+                });
+            } else {
+                showMessage('error', "<%= t('integrations.sms_connection.invalid_senderid') %>");
+            }
+        })
+
+        $('select#selected_ivr').on('change', function() {
+            const selected_ivr = $(this).val();
+            $.ajax({
+                url: "<%= get_sms_channel_integrations_path %>",
+                method: 'GET',
+                data: { selected_ivr: selected_ivr},
+                success: function(response) {
+                    if (response.result == 'error') {
+                        showMessage(response.result, response.message);
+                        return;
+                    }
+
+                    const preference = response.ivr_preference;
+                    const phone_numbers = response.phone_numbers;
+                    const alpha_from = response.alpha_from;
+
+                    if (preference.sms_engin == 'twilio') {
+                        $('input#kt_mega_checkbox_01').prop('checked', true);
+                        $('input#kt_mega_checkbox_02').prop('checked', false);
+                        $('input#phone').val('');
+                    }
+
+                    if (preference.sms_engin == 'voxi_sms') {
+                        $('input#kt_mega_checkbox_01').prop('checked', false);
+                        $('input#kt_mega_checkbox_02').prop('checked', true);
+                        $('input#phone').val(preference.sms_from);
+                    }
+
+                    $('select[name=phone-number]').html('');
+                    if (phone_numbers.length == 0) {
+                        $('select[name=phone-number]').append(`<option value='-'><%= t('integrations.sms_connection.default') %></option>`);
+                    }
+                    else {
+                        $.each(phone_numbers, function(index, phone_number) {
+                            const number = phone_number.number;
+                            const pn = number.split('+').join(''); // all replace '+' to ''
+                            const selected = preference.sms_from == pn ? 'selected' : '';
+                            $('select[name=phone-number]').append(`<option value="${pn}" ${selected}>${number}</option>`);
+                        })
+                    }
+                    $('select[name=phone-number]').select2();
+
+                    $('input[name=secret]').val(preference.voxi_sms_secret);
+                    $('input#alphanumeric_from').val(alpha_from);
+                    $('input#kt_alphanumeric_sender_id').prop('checked', alpha_from == '' ? false : true);
+
+                }
+            })
+        })
+    })();
+
+    const IPdata_key = "<%= ENV['IPdata_key'] %>";
+    const input = document.querySelector("#phone");
+    iti = window.intlTelInput(input, {
+        initialCountry: "auto",
+        utilsScript: "/assets/utils.js",
+        preferredCountries: ["fr", "be", "de", "gb", "us", "ca"],
+        geoIpLookup: function (callback) {
+            $.get("https://api.ipdata.co?api-key=" + IPdata_key, function () {
+            }, "jsonp").always(function (resp) {
+                const countryCode = (resp && resp.country_code) ? resp.country_code : "fr";
+                callback(countryCode);
+            }).fail(function() {
+                callback('fr');
+            });
+        }
+    });
+
+    if ($('button.confirm_edit_phone').attr('data-button-type') == 'edit_phone') $('input[name=phone]').attr('disabled', 'disabled');
+    if ($('button.confirm_edit_phone').attr('data-button-type') == 'confirm_phone') $('input[name=phone]').removeAttr('disabled');
+
+    const selected_country_code = $("input#sms_country").val();
+    if (selected_country_code == '')
+        $("label#kt_switch_enable_alphanumeric_sender_id").hide();
+    else {
+        $.getJSON('/alpha_countries.json', function(data) {
+            const country_record = _.find(data, { 'iso': selected_country_code });
+            if (country_record.alphanumaric === "Yes") {
+                $("label#kt_switch_enable_alphanumeric_sender_id").show();
+            } else {
+                $("label#kt_switch_enable_alphanumeric_sender_id").hide();
+            }
+        });
+    }
+
+    if ($('input#kt_alphanumeric_sender_id').is(':checked')) {
+        $('#kt_alphanumeric_sender_id_enabled').show();
+        $('#kt_alphanumeric_sender_id_disabled').hide();
+        $("label#kt_switch_enable_alphanumeric_sender_id").show();
+    }
+    else {
+        $('#kt_alphanumeric_sender_id_disabled').show();
+        $('#kt_alphanumeric_sender_id_enabled').hide();
+        $("label#kt_switch_enable_alphanumeric_sender_id").hide();
+    }
+
+    // Class definition
+    var KTCreateAccount = function () {
+        // Elements
+        let modal;
+        let modalEl;
+
+        let stepper;
+        let form;
+        let formSubmitButton;
+
+        // Variables
+        let stepperObj;
+        let validations = [];
+
+        // Private Functions
+        let initStepper = function () {
+            // Initialize Stepper
+            stepperObj = new KTStepper(stepper);
+
+            // Validation before going to next page
+            stepperObj.on('kt.stepper.next', function (stepper) {
+                // Validate form before change stepper step
+                const validator = validations[stepper.getCurrentStepIndex() - 1]; // get validator for currnt step
+
+                if (validator) {
+                    validator.validate().then(function (status) {
+                        if (status == 'Valid') {
+                            stepper.goNext();
+                            KTUtil.scrollTop();
+                        } else {
+                            Swal.fire({
+                                text: "<%= t('common.normal_error_text') %>",
+                                icon: 'error',
+                                buttonsStyling: false,
+                                confirmButtonText: "<%= t('sweetalert.ok_got_it') %>",
+                                customClass: {
+                                    confirmButton: 'btn btn-light'
+                                }
+                            }).then(function () {
+                                KTUtil.scrollTop();
+                            });
+                        }
+                    });
+                } else {
+                    stepper.goNext();
+                    KTUtil.scrollTop();
+                }
+
+                if (stepper.currentStepIndex === 2 && $('#kt_mega_checkbox_01').is(':checked')) {
+                    $('#kt_switch_enable_alphanumeric_sender_id').show();
+                    $('#kt_mega_checkbox_01_content').show();
+                    $('#kt_mega_checkbox_02_content').hide();
+                } else {
+                    $('#kt_switch_enable_alphanumeric_sender_id').hide();
+                    $('#kt_mega_checkbox_01_content').hide();
+                    $('#kt_mega_checkbox_02_content').show();
+                }
+            });
+
+            // Prev event
+            stepperObj.on('kt.stepper.previous', function (stepper) {
+                console.log('stepper.previous');
+                stepper.goPrevious();
+                KTUtil.scrollTop();
+
+                if (stepper.currentStepIndex === 2 && $('#kt_mega_checkbox_01').is(':checked')) {
+                    $('#kt_switch_enable_alphanumeric_sender_id').show();
+                    $('#kt_mega_checkbox_01_content').show();
+                    $('#kt_mega_checkbox_02_content').hide();
+                } else {
+                    $('#kt_switch_enable_alphanumeric_sender_id').hide();
+                    $('#kt_mega_checkbox_01_content').hide();
+                    $('#kt_mega_checkbox_02_content').show();
+                }
+            });
+        }
+
+        let handleForm = function () {
+            formSubmitButton.addEventListener('click', function (e) {
+                e.preventDefault();
+                if ($('#kt_mega_checkbox_02').is(':checked') && $('button.confirm_edit_phone').attr('data-button-type') == 'confirm_phone') {
+                    showMessage('info', "<%= raw t('integrations.sms_connection.need_confirm_phone') %>");
+                    return;
+                }
+
+                formSubmitButton.disabled = true;
+                formSubmitButton.setAttribute('data-kt-indicator', 'on');
+
+                const voxisms_phone = iti.getNumber();
+                const twilio_phone = $('select[name=phone-number]').val();
+                $("input[name=phone_value]").val($('#kt_mega_checkbox_01').is(':checked') ? twilio_phone : voxisms_phone);
+
+                $(form).ajaxSubmit({
+                    success: function(response) {
+                        formSubmitButton.removeAttribute('data-kt-indicator'); // Hide loading indication
+                        formSubmitButton.disabled = false; // Enable button
+
+                        showMessage(response.result, response.message);
+                    }
+                })
+
+            });
+        }
+
+        let initValidation = function () {
+            // Init form validation rules. For more info check the FormValidation plugin's official documentation:https://formvalidation.io/
+            // Step 1
+            validations.push(FormValidation.formValidation(
+                form,
+                {
+                    fields: {},
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        bootstrap: new FormValidation.plugins.Bootstrap5({
+                            rowSelector: '.fv-row',
+                            eleInvalidClass: '',
+                            eleValidClass: ''
+                        }),
+                    }
+                }
+            ));
+            // Step 2
+            validations.push(FormValidation.formValidation(
+                form,
+                {
+                    fields: {},
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        bootstrap: new FormValidation.plugins.Bootstrap5({
+                            rowSelector: '.fv-row',
+                            eleInvalidClass: '',
+                            eleValidClass: ''
+                        }),
+                    }
+                }
+            ));
+        }
+
+        return {
+            // Public Functions
+            init: function () {
+                // Elements
+                modalEl = document.querySelector('#kt_modal_create_sms_channel');
+                if (modalEl) modal = new bootstrap.Modal(modalEl);
+
+                stepper = document.querySelector('#kt_create_sms_channel_stepper');
+                form = stepper.querySelector('#kt_create_sms_channel_form');
+                formSubmitButton = stepper.querySelector('[data-kt-stepper-action="submit"]');
+
+                initStepper();
+                // initValidation();
+                handleForm();
+            }
+        };
+    }();
+
+    // On document ready
+    KTUtil.onDOMContentLoaded(function () {
+        KTCreateAccount.init();
+    });
+
+
+    $('input[name=phone]').on('change', function () {
+        $("div.phone-valid-msg").hide();
+        $("div.phone-error-msg").hide();
+        const phone_number_type = iti.getNumberType();
+        if (iti.isValidNumber() && phone_number_type === intlTelInputUtils.numberType.MOBILE) {
+            $('input[name=phone]').css("border-color", "");
+            $("div.phone-valid-msg").show();
+        } else {
+            $('input[name=phone]').css("border-color", "#f4516c");
+            $("div.phone-error-msg").show();
+        }
+    })
+
+    $('button.confirm_edit_phone').on('click', function() {
+        const button_type = $(this).attr('data-button-type');
+        if (button_type == 'confirm_phone') {
+            const phone_number_type = iti.getNumberType();
+            if (iti.isValidNumber() && phone_number_type === intlTelInputUtils.numberType.MOBILE) {
+                $(this).attr('data-button-type', 'edit_phone');
+                $(this).find('span').text("<%= t('integrations.sms_connection.edit_phone') %>");
+                $(this).find('i').removeClass('bi-check-lg').addClass('bi-pencil-square');
+                $('input[name=phone]').attr('disabled', 'disabled');
+                $("div.phone-valid-msg").hide();
+                $("div.phone-error-msg").hide();
+            }
+            else {
+                showMessage('error', "<%= t('integrations.sms_connection.confirm_phone_error_msg') %>")
+            }
+        }
+
+        if (button_type == 'edit_phone') {
+            $(this).attr('data-button-type', 'confirm_phone');
+            $(this).find('span').text("<%= t('integrations.sms_connection.confirm_phone') %>");
+            $(this).find('i').removeClass('bi-pencil-square').addClass('bi-check-lg');
+            $('input[name=phone]').removeAttr('disabled');
+            $("div.phone-valid-msg").hide();
+            $("div.phone-error-msg").hide();
+        }
+    })
+
+</script>
+
+<style type="text/css">
+    .iti {
+        width: 300px;
+    }
+    #phone-clone-box .phone-group {
+        margin-top: 10px;
+    }
+
+    #phone-clone-box .phone-group:first-of-type {
+        margin-top: 0px;
+    }
+    .iti__flag {
+        background-image: url("/assets/flags.png");
+    }
+
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .iti__flag {background-image: url("/assets/flags@2x.png");}
+    }
+</style>

@@ -1,0 +1,17 @@
+<% if @invalid_email_content.blank? %>
+  <%= t('mails.pre_confirmation_invitee.body_line1') %>,
+  <br />
+  <br />
+  <%= t('mails.pre_confirmation_invitee.body_line2') %>
+  <%= @start_formatted %>
+  <br />
+  <br />
+  <%= t('mails.pre_confirmation_invitee.body_line3') %>
+  <br />
+  <br />
+  <%= t('mails.pre_confirmation_invitee.body_line4') %>
+  <br />
+  <br />
+<% else %>
+  <%= @invalid_email_content %>
+<% end %>

@@ -1,0 +1,170 @@
+---
+it:
+  activerecord:
+    attributes:
+      client:
+        confirmation_sent_at: Data di invio della conferma
+        confirmation_token: Jeton di conferma
+        confirmed_at: Confermato a
+        created_at: Creato da
+        current_password: Motto di passaggio attuale
+        current_sign_in_at: Data di connessione attiva
+        current_sign_in_ip: IP di connessione attivo
+        email: Email
+        encrypted_password: Codice di passaggio criptato
+        failed_attempts: Tentativi di ricerca
+        last_sign_in_at: Data della prima connessione
+        last_sign_in_ip: IP della precedente connessione
+        locked_at: Verrouillé a
+        password: Motto di passaggio
+        password_confirmation: Conferma del messaggio di passaggio
+        remember_created_at: Mémorisé à
+        remember_me: Se souvenir de moi?
+        reset_password_sent_at: Clé de réinitialisation créée à
+        reset_password_token: Codice di reinizializzazione del messaggio di passaggio
+        sign_in_count: Nome della connessione
+        unconfirmed_email: Email non confermata
+        unlock_token: Codice di sicurezza
+        updated_at: Data di entrata in funzione
+      user:
+        confirmation_sent_at: Conferma inviata a
+        confirmation_token: Token di conferma
+        confirmed_at: Confermato a
+        created_at: Creato a
+        current_password: Password attuale
+        current_sign_in_at: Accesso corrente a
+        current_sign_in_ip: IP di accesso corrente
+        email: E-mail
+        encrypted_password: Password crittografata
+        failed_attempts: Tentativi falliti
+        last_sign_in_at: Ultimo accesso alle
+        last_sign_in_ip: Ultimo accesso IP
+        locked_at: Bloccato a
+        password: Parola d'ordine
+        password_confirmation: conferma password
+        remember_created_at: Ricorda creato a
+        remember_me: Ricordati di me
+        reset_password_sent_at: Reimposta la password inviata a
+        reset_password_token: Reimposta il token della password
+        sign_in_count: Conteggio accessi
+        unconfirmed_email: Email non confermata
+        unlock_token: Sblocca gettone
+        updated_at: Aggiornato a
+    models:
+      client: Utilisateur
+      user: Utente
+  devise:
+    confirmations:
+      confirmed: Il tuo indirizzo email è stato confermato con successo.
+      new:
+        resend_confirmation_instructions: Invia di nuovo le istruzioni di conferma
+      send_instructions: Riceverai un'e-mail con le istruzioni su come confermare il tuo indirizzo e-mail in pochi minuti.
+      send_paranoid_instructions: Se il tuo indirizzo email esiste nel nostro database, riceverai un'e-mail con le istruzioni su come confermare il tuo indirizzo email in pochi minuti.
+    failure:
+      already_authenticated: Sei già iscritto.
+      inactive: Il tuo account non è ancora attivato.
+      invalid: "%{authentication_keys} o password non validi."
+      last_attempt: Hai ancora un tentativo prima che il tuo account venga bloccato.
+      locked: Il tuo account è bloccato.
+      not_found_in_database: Indirizzo o password %{authentication_keys} non validi.
+      timeout: La tua sessione è scaduta. Accedi di nuovo per continuare.
+      unauthenticated: Devi accedere o registrarti prima di continuare.
+      unconfirmed: Devi confermare il tuo indirizzo email prima di continuare.
+    mailer:
+      confirmation_instructions:
+        action: Conferma il mio account
+        greeting: Benvenuto %{recipient}!
+        instruction: 'Puoi confermare l''email del tuo account tramite il link sottostante:'
+        subject: Istruzioni di conferma
+      password_change:
+        greeting: Ciao %{recipient}!
+        message: Ti stiamo contattando per informarti che la tua password è stata modificata.
+        subject: Password cambiata
+      reset_password_instructions:
+        action: Cambia la mia password
+        greeting: Ciao %{recipient}!
+        instruction: Qualcuno ha richiesto un collegamento per modificare la password e puoi farlo tramite il collegamento sottostante.
+        instruction_2: Se non l'hai richiesto, ignora questa email.
+        instruction_3: La tua password non cambierà finché non accedi al link sopra e ne crei uno nuovo.
+        subject: Reimposta le istruzioni per la password
+      unlock_instructions:
+        action: Sblocca il mio account
+        greeting: Ciao %{recipient}!
+        instruction: 'Fare clic sul collegamento sottostante per sbloccare il proprio account:'
+        message: Il tuo account è stato bloccato a causa di un numero eccessivo di tentativi di accesso non riusciti.
+        subject: Sblocca le istruzioni
+    omniauth_callbacks:
+      failure: Impossibile autenticarti da %{kind} perché "%{reason}".
+      success: Autenticato con successo dall'account %{kind}.
+    passwords:
+      edit:
+        change_my_password: Cambia la mia password
+        change_your_password: Cambia la tua password
+        confirm_new_password: Conferma la nuova password
+        new_password: Nuova password
+      new:
+        forgot_your_password: Hai dimenticato la password?
+        forgot_your_password_heading: Enter your email to reset your password
+        send_me_reset_password_instructions: Inviami le istruzioni per reimpostare la password
+      no_token: Non puoi accedere a questa pagina senza ricevere un'email di reimpostazione della password. Se provieni da un'e-mail di reimpostazione della password, assicurati di aver utilizzato l'URL completo fornito.
+      send_instructions: Riceverai una mail con le istruzioni su come reimpostare la tua password in pochi minuti.
+      send_paranoid_instructions: Se il tuo indirizzo email è presente nel nostro database, riceverai un link per il recupero della password al tuo indirizzo email in pochi minuti.
+      updated: La tua password è stata cambiata con successo. Ora sei connesso.
+      updated_not_active: La tua password è stata cambiata con successo.
+    registrations:
+      destroyed: Ciao! Il tuo account è stato cancellato con successo. Speriamo di rivedervi presto.
+      edit:
+        are_you_sure: Sei sicuro?
+        cancel_my_account: Cancellare il mio account
+        currently_waiting_confirmation_for_email: 'Attualmente in attesa di conferma per: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: lasciare vuoto se non si desidera modificarlo
+        title: Modifica %{resource}
+        unhappy: Infelice?
+        update: Aggiornare
+        we_need_your_current_password_to_confirm_your_changes: abbiamo bisogno della tua password attuale per confermare le modifiche
+      new:
+        already_account: Hai già un account?
+        join_signin: Per aderire, accedi o
+        join_to_organization: creare un account
+        sign_in: Accedi qui
+        sign_in_heading: Iscriviti a Voxiplan
+        sign_up: Iscriviti
+        sign_up_heading: Crea una cuenta
+        welcome_join: Benvenuti a %{organizzazione} su Voxiplan
+      signed_up: Benvenuto! Ti sei registrato con successo.
+      signed_up_but_inactive: Ti sei registrato con successo. Tuttavia, non siamo riusciti ad accedere perché il tuo account non è ancora attivato.
+      signed_up_but_locked: Ti sei registrato con successo. Tuttavia, non siamo riusciti ad accedere perché il tuo account è bloccato.
+      signed_up_but_unconfirmed: Un messaggio con un link di conferma è stato inviato al tuo indirizzo email. Segui il link per attivare il tuo account.
+      update_needs_confirmation: Hai aggiornato correttamente il tuo account, ma dobbiamo verificare il tuo nuovo indirizzo email. Controlla la tua e-mail e segui il link di conferma per confermare il tuo nuovo indirizzo e-mail.
+      updated: Il tuo account è stato aggiornato con successo.
+    sessions:
+      already_signed_out: Disconnesso con successo.
+      new:
+        sign_in: registrati
+      signed_in: Accesso eseguito con successo.
+      signed_out: Disconnesso con successo.
+    shared:
+      links:
+        back: Indietro
+        didn_t_receive_confirmation_instructions: Non hai ricevuto le istruzioni di conferma?
+        didn_t_receive_unlock_instructions: Non hai ricevuto le istruzioni di sblocco?
+        forgot_your_password: Hai dimenticato la password?
+        sign_in: registrati
+        sign_in_with_provider: Accedi con %{provider}
+        sign_up: Iscriviti
+    unlocks:
+      new:
+        resend_unlock_instructions: Invia di nuovo le istruzioni di sblocco
+      send_instructions: Riceverai una mail con le istruzioni su come sbloccare il tuo account in pochi minuti.
+      send_paranoid_instructions: Se il tuo account esiste, riceverai un'e-mail con le istruzioni su come sbloccarlo in pochi minuti.
+      unlocked: Il tuo account è stato sbloccato con successo. Accedi per continuare.
+  errors:
+    messages:
+      already_confirmed: è già stato confermato, prova ad accedere
+      confirmation_period_expired: deve essere confermato entro %{period}, richiedine uno nuovo
+      expired: è scaduto, richiedine uno nuovo
+      not_found: non trovato
+      not_locked: non era bloccato
+      not_saved:
+        one: '1 errore ha impedito il salvataggio di questo %{resource}:'
+        other: 'Gli errori %{count} impedivano il salvataggio di questo %{resource}:'

@@ -1,0 +1,24 @@
+<%# @email_body = @email_body.gsub('%{event_date_time}', @event_date_time) %>
+<%# @email_body = @email_body.gsub('%{my_phone}', @phone) %>
+<%#= raw @email_body %>
+<% if @invalid_email_content.blank? %>
+  <%= raw @email_body % {full_name: @full_name,
+                         first_name: @first_name,
+                         last_name: @last_name,
+                         resource_name: @resource_name,
+                         event_name: @event_name,
+                         event_date: @event_date,
+                         event_time: @event_time,
+                         event_day: @event_day} %>
+
+  <% if @email_cancel_link.present? && @email_reschedule_link.present? %>
+    <br><br>
+    <%= I18n.t('mails.cancel_reschedule_text') %>
+    <br>
+    <%= I18n.t('mails.cancel_link_text') %>: <%= @email_cancel_link %>
+    <br>
+    <%= I18n.t('mails.reschedule_link_text') %>: <%= @email_reschedule_link %>
+  <% end %>
+<% else %>
+  <%= @invalid_email_content %>
+<% end %>

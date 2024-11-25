@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <%= google_tag_manager_script_tag('voxiplan') %>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, , shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Voxiplan</title>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <![endif]-->
+    <%#= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js" %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.2.0/line-awesome/css/line-awesome.min.css" integrity="sha256-zmGhjPCE8VADeYNABEZD8ymsX5AEWsstnneDaL15mFQ=" crossorigin="anonymous" />
+    <!--begin::Fonts -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700%7CRoboto:300,400,500,600,700" media="all"><script>
+      WebFont.load({
+        google: {
+          "families": ["Poppins:300,400,500,600,700", "Roboto:300,400,500,600,700"]
+        },
+        active: function() {
+          sessionStorage.fonts = true;
+        }
+      });
+    </script>
+    <!--end::Fonts -->
+    <%= stylesheet_link_tag    'application-v2', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application-v2', 'data-turbolinks-track' => true %>
+    <!-- begin:: Page Level assets -->
+    <%= yield(:page_level_stylesheets) %>
+    <%= yield(:page_level_javascripts) %>
+    <!-- end:: Page Level assets -->
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'voxiplan_favicon.png' %>
+  </head>
+  <body class="widget-body">
+    <%= google_tag_manager_noscript_tag('voxiplan') %>
+    <div id="loaderSection"></div>
+    <%= yield %>
+  </body>
+</html>

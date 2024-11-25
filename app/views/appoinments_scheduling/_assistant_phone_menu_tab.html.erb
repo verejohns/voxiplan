@@ -1,0 +1,99 @@
+<!--begin::Field-->
+<div class="mb-10">
+  <label class="form-label"><%= t("greetings.say_label") %></label>
+  <%= text_area_tag "announcement[#{menu_type}][text]", menu_node.text, class: "form-control", id: "welcome_opened_message", rows: 4,
+          placeholder: menu_type == 'open' ? t('announcement.open_example_message') : t('announcement.closed_example_message') %>
+  <a href="javascript:;" class="kt_drawer_chat_toggle form-text text-decoration-underline"><%= t("greetings.preview_label") %></a>
+</div>
+<!--end::Field-->
+
+<h2 class="fw-bolder text-dark mb-5">
+  <%= t('phone_menu.configure_menu_options') %>
+</h2>
+<div class="row">
+  <% node_count = nodes.compact.count %>
+  <% nodes.compact.each do |node|%>
+    <% extension_number = (menu_node.choices.key(node.name).split('_')[1].to_i rescue '') %>
+    <div class="col-md-6 col-lg-4 col-xl-3 mb-6">
+      <div class="position-relative h-md-100">
+        <!--begin::Mixed Widget-->
+        <div class="card h-md-100 bg-light rounded-bottom-0 border-bottom border-4 border-primary">
+          <div class="card-header min-h-50px border-0 pt-4 px-6">
+            <div class="card-title">
+              <div class="card-label"><%= I18n.t("static_ivr.#{node.ext_action}") %></div>
+            </div>
+            <div class="card-toolbar">
+              <div class="position-relative z-index-2">
+                <!--begin::Menu-->
+                <a href="javascript:;" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
+                  <!--begin::Svg Icon | path: icons/duotone/General/Other2.svg-->
+                  <span class="svg-icon svg-icon-2x svg-icon-primary">
+                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <rect x="0" y="0" width="24" height="24" />
+                                                    <circle fill="#000000" cx="5" cy="12" r="2" />
+                                                    <circle fill="#000000" cx="12" cy="12" r="2" />
+                                                    <circle fill="#000000" cx="19" cy="12" r="2" />
+                                                </g>
+                                            </svg>
+                                          </span>
+                  <!--end::Svg Icon-->
+                </a>
+                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-100px py-3 mt-4" data-kt-menu="true">
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <a href="#kt_modal_phone_menu_extension" class="kt_alert_edit_menu_option menu-link px-3" data-bs-toggle="modal" data-action="<%= node.ext_action %>"
+                       data-node="<%= node.name%>" data-nodeType="<%= menu_type %>"><%= t('button.edit') %>
+                    </a>
+                  </div>
+                  <!--end::Menu item-->
+                  <!--begin::Menu item-->
+                  <% if node_count > 1 %>
+                    <div class="menu-item px-3">
+                      <a href="javascript:;" class="kt_alert_delete_menu_option menu-link px-3" data-node="<%= node.name%>" data-nodeType="<%= menu_type %>"
+                         extension_number="<%= extension_number%>"><%= t('button.delete') %>
+                      </a>
+                    </div>
+                  <% end %>
+                  <!--end::Menu item-->
+                </div>
+                <!--end::Menu-->
+              </div>
+            </div>
+          </div>
+          <!--begin::Body-->
+          <div class="card-body pt-4 pb-2 px-6">
+            <% title = node.ext_title %>
+            <% user_name = ext_users_names(node) %>
+            <div class="text-muted fw-bolder fs-4"><%= title.blank? || title.nil? ? "" : title %></div>
+            <div class="d-flex flex-wrap">
+              <% if user_name.present?  %>
+                <span class="badge badge-primary my-2 me-2"><%= user_name %></span>
+              <% end %>
+            </div>
+          </div>
+          <!--end::Body-->
+        </div>
+        <!--end::Mixed Widget-->
+        <% if node.ext_action == 'ext_action_appointment_bot' %>
+          <label class="position-absolute bottom-0 form-check form-switch form-check-custom form-check-solid form-check-info mb-4 ms-5 enable_ai_bot_section">
+            <input name="enable_ai_bot" id="enable_ai_bot" class="form-check-input h-25px w-40px opacity-100 me-1" type="checkbox"
+                    <%= 'checked' if @ivr.preference["ai_bot_enabled"] == true %>
+                    <%= 'disabled' if @subscription_plan == 'trial' || @subscription_plan == 'basic' || @dedicated_phone_numbers.count.zero? %>>
+            <input type="hidden" name="enable_ai_bot_value" value="<%= @ivr.preference["ai_bot_enabled"] == true ? true : false %>" />
+            <%= t('preference.enable_ai_bot') %>
+          </label>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="col-md-6 col-lg-3 mb-6 new_phone_menu_card">
+    <a href="#kt_modal_phone_menu_extension" data-bs-toggle="modal" data-action="new_phone_menu_extension" class="d-flex flex-center h-md-100 text-primary text-hover-white bg-light bg-hover-primary rounded">
+      <div class="text-center">
+        <i class="bi bi-plus-lg text-inherit fs-1"></i>
+        <div class="fw-bold fs-6 text-inherit mt-2"><%= t('extensions.add_new_extension') %></div>
+      </div>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,185 @@
+<div class="py-8 px-9">
+  <%= render 'shared/availability_days', day: :mon, day_hours: availability['mon'] || availability[:mon] || [{}] %>
+  <%= render 'shared/availability_days', day: :tue, day_hours: availability['tue'] || availability[:tue] || [{}] %>
+  <%= render 'shared/availability_days', day: :wed, day_hours: availability['wed'] || availability[:wed] || [{}] %>
+  <%= render 'shared/availability_days', day: :thu, day_hours: availability['thu'] || availability[:thu] || [{}] %>
+  <%= render 'shared/availability_days', day: :fri, day_hours: availability['fri'] || availability[:fri] || [{}] %>
+  <%= render 'shared/availability_days', day: :sat, day_hours: availability['sat'] || availability[:sat] || [{}] %>
+  <%= render 'shared/availability_days', day: :sun, day_hours: availability['sun'] || availability[:sun] || [{}] %>
+</div>
+<script>
+    $('.check-week').change(function() {
+        let parent_obj = $(this).parent().parent().parent();
+        if ($(this).prop('checked') == false) {
+            $(parent_obj).find("div.clone_box").html("");
+            $(parent_obj).find("div.time-section").addClass("d-none");
+            $(parent_obj).find("div.unavailable-section").removeClass("d-none");
+        }
+        else {
+            $(parent_obj).find("div.time-section").removeClass("d-none");
+            $(parent_obj).find("div.unavailable-section").addClass("d-none");
+        }
+        default_time_validation($(this).data('day'));
+    })
+
+    $(".timepicker-default").flatpickr({
+        enableTime: true,
+        noCalendar: true,
+        time_24hr: true,
+        dateFormat: "H:i",
+        onChange: function(selectedDates, dateStr, instance) {
+            default_time_validation(this.input.id);
+        }
+    });
+
+    $('button.add-availability').on('click', function() {
+        const checkbox_id = 'business_hours_' + $(this).data('day') + '_on';
+        if ($('#' + checkbox_id).prop('checked') == false) {
+            // if check day(ex: Monday, Tuesday, etc...)
+            const parent_obj = $(this).parent().parent().parent();
+            $('#' + checkbox_id).prop('checked', true);
+            $('#' + checkbox_id).change();
+        }
+        else {
+            let id = '#' + $(this).data('repeater-item-id');
+            const clone_box = '#clone_box_' + $(this).data('repeater-item-id');
+            const clone_obj = $(id).clone();
+
+            // begin - get hour and minute of next slot
+            let prev_to_time = '';
+            if ($('#clone_box_time_slot_' + $(this).data('day')).find('input.from_time_default').length == 0)
+                prev_to_time = $('#time_slot_' + $(this).data('day')).find('input.to_time_default').val();
+            else
+                prev_to_time = $('#clone_box_time_slot_' + $(this).data('day')).find('input.to_time_default:last').val();
+
+            const prev_time_info = prev_to_time.split(':');
+            const prev_hours = prev_time_info[0];
+            const prev_minutes = prev_time_info[1];
+
+            let theAdd = new Date();
+            theAdd.setHours(prev_hours, prev_minutes, 0, 0); // Set Hours, minutes, secons and miliseconds
+            theAdd.setHours(theAdd.getHours() + 1);
+
+            let next_hours = theAdd.getHours();
+            let next_minutes = theAdd.getMinutes();
+            const next_from_time = ('0' + next_hours).slice(-2) + ':' + ('0' + next_minutes).slice(-2);
+
+            theAdd.setHours(theAdd.getHours() + 1);
+            next_hours = theAdd.getHours();
+            next_minutes = theAdd.getMinutes();
+            const next_to_time = ('0' + next_hours).slice(-2) + ':' + ('0' + next_minutes).slice(-2);
+            // end - get hour and minute of next slot
+
+            $(clone_obj).find('button.add-availability').remove();
+            $(clone_obj).find('div.copy-dropdown').remove();
+            $(clone_obj).find('button.remove-availability').show();
+            $(clone_obj).find('input.from_time_default').attr('name', 'business_hours[' + $(this).data('day') + '][from][]');
+            $(clone_obj).find('input.from_time_default').val(next_from_time);
+            $(clone_obj).find('input.from_time_default').attr('value', next_from_time);
+            $(clone_obj).find('input.to_time_default').attr('name', 'business_hours[' + $(this).data('day') + '][to][]');
+            $(clone_obj).find('input.to_time_default').val(next_to_time);
+            $(clone_obj).find('input.to_time_default').attr('value', next_to_time);
+            $(clone_obj).find('input.from_time_default, input.to_time_default').flatpickr({
+                enableTime: true,
+                noCalendar: true,
+                time_24hr: true,
+                dateFormat: "H:i",
+                onChange: function (selectedDates, dateStr, instance) {
+                    default_time_validation(this.input.id);
+                }
+            })
+            $(clone_box).append(clone_obj);
+            default_time_validation($(this).data('day'));
+        }
+    });
+
+    $('body').on('click', 'button.remove-availability', function() {
+        $(this).parent().parent().parent().remove();
+        default_time_validation($(this).data('day'));
+    })
+
+    $('button.copy-dropdonw-button').on('click', function () {
+        const copy_checkbox_class = 'copy_' + $(this).data('day');
+        $(this).parent().find('input.' + copy_checkbox_class).prop('checked', true);
+        $(this).parent().find('input.' + copy_checkbox_class).attr('disabled', 'disabled');
+    })
+
+    $('button.apply-copy').on('click', function() {
+        const source_day = $(this).data('day');
+        const source_clonebox_id = "clone_box_time_slot_" + source_day;
+        const source_clonbox_html = $('#' + source_clonebox_id).html();
+
+        $.each($(this).parent().find('input.copy_day:checked'), function(key, checkbox) {
+            if ($(checkbox).attr('disabled') != 'disabled') {
+                const target_day = $(checkbox).data('day');
+                const target_clonbox_id = "clone_box_time_slot_" + target_day;
+                const target_clonbox_html = source_clonbox_html.replace(new RegExp(source_day, "g"), target_day);
+                $('#' + target_clonbox_id).html(target_clonbox_html);
+
+                $('#' + target_clonbox_id).find('input.from_time_default, input.to_time_default').flatpickr({
+                    enableTime: true,
+                    noCalendar: true,
+                    time_24hr: true,
+                    dateFormat: "H:i",
+                    onChange: function (selectedDates, dateStr, instance) {
+                        default_time_validation(this.input.id);
+                    }
+                })
+
+                const target_checkbox_id = 'business_hours_' + target_day + '_on';
+                if ($('#' + target_checkbox_id).prop('checked') == false) {
+                    $('#' + target_checkbox_id).prop('checked', true);
+                    $('#' + target_checkbox_id).change();
+                }
+
+                $('#time_slot_' + target_day).find('input.from_time_default').val($('#time_slot_' + source_day).find('input.from_time_default').val());
+                $('#time_slot_' + target_day).find('input.to_time_default').val($('#time_slot_' + source_day).find('input.to_time_default').val());
+
+                default_time_validation(target_day);
+            }
+
+        })
+
+        $(this).parent().parent().parent().find('button.copy-dropdonw-button').click();     // close copy dialog
+        $(this).parent().parent().parent().find('input.copy_day').prop('checked', false);   // uncheck all input of copy dialog
+    })
+
+    function default_time_validation(current_time_field_id) {
+        var time_slot_from = []
+        var time_slot_to = []
+        var fromList = document.querySelectorAll('#business_hours_default_' + current_time_field_id + '_on_time .from_time_default');
+        var toList = document.querySelectorAll('#business_hours_default_' + current_time_field_id + '_on_time .to_time_default');
+        var isOverLap = false;
+
+        for (let i = 0; i < toList.length; i++) {
+            time_slot_from[i]  = parseInt(fromList[i].value.replace(":", ""));
+            time_slot_to[i]    = parseInt(toList[i].value.replace(":", ""));
+            if(time_slot_from[i] >= time_slot_to[i]){
+                isOverLap = true;
+                break;
+            }
+            if(time_slot_to[i-1] >= time_slot_from[i]) {
+                isOverLap = true;
+                break;
+            }
+        }
+
+        submit_button = document.getElementById("save_default_hours");
+        if(isOverLap == true){
+            for (let i = 0; i < toList.length; i++) {
+                fromList[i].style.color = "red";
+                toList[i].style.color = "red";
+            }
+            submit_button.disabled = true;
+        }
+        else{
+            for (let i = 0; i < toList.length; i++) {
+                fromList[i].style.color = "black";
+                toList[i].style.color = "black";
+            }
+            submit_button.disabled = false;
+        }
+    }
+
+
+</script>

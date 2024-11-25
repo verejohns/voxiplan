@@ -1,0 +1,69 @@
+# All the rates here must be in USD
+# Margin is how much percent we want to increase e.g. if we want to charge 10% then margin = 10
+appointments:
+  :first_x: 0.49
+  :next_y: 0.31
+  :next_z: 0.25
+  :margin: 0
+agenda_connection:
+  :first_x: 1.5
+  :next_y: 1.0
+  :margin: 0
+sip:
+  :mobile_make: 0.0004
+  :local_make: 0.0004
+  :mobile_receive: 0.0004
+  :local_receive: 0.0004
+  :margin: 100
+sms:
+  :margin: 50
+  :inbound: 51
+  :outbound: 52
+  de:
+    :margin: 53
+  fr:
+    :inbound: 54
+    :outbound: 55
+  be:
+    :inbound: 56
+  es:
+    :outbound: 57
+phone_number:
+  :margin: 200
+  :national: 201
+  :mobile: 202
+  :local: 203
+  de:
+    :margin: 204
+  fr:
+    :margin: 205
+    :national: 206
+  be:
+    :mobile: 207
+    :local: 208
+  es:
+    :local: 209
+voice:
+  :margin: 50
+  inbound:
+    :local: 8
+    :mobile: 5
+  :outbound: 7
+  de:
+    :margin: 20
+    inbound:
+      :local: 12
+      :mobile: 13
+    :outbound: 14
+  fr:
+    :inbound: 5
+    :outbound: 6
+  be:
+    :margin: 11
+  es:
+    inbound:
+      :mobile: 9
+  ru:
+    :inbound: 15
+    inbound:
+      :mobile: 16

@@ -1,0 +1,836 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api-de.cronofy.com/v1/availability
+    body:
+      encoding: UTF-8
+      string: '{"participants":[],"required_duration":{"minutes":30},"query_periods":[{"start":"2019-04-23T04:00:05Z","end":"2019-04-23T12:00:00Z"},{"start":"2019-04-24T04:00:00Z","end":"2019-04-24T12:00:00Z"},{"start":"2019-04-25T04:00:00Z","end":"2019-04-25T12:00:00Z"},{"start":"2019-04-26T04:00:00Z","end":"2019-04-26T12:00:00Z"},{"start":"2019-04-29T04:00:00Z","end":"2019-04-29T12:00:00Z"},{"start":"2019-04-30T04:00:00Z","end":"2019-04-30T12:00:00Z"},{"start":"2019-05-01T04:00:00Z","end":"2019-05-01T12:00:00Z"},{"start":"2019-05-02T04:00:00Z","end":"2019-05-02T12:00:00Z"},{"start":"2019-05-03T04:00:00Z","end":"2019-05-03T12:00:00Z"},{"start":"2019-05-06T04:00:00Z","end":"2019-05-06T12:00:00Z"},{"start":"2019-05-07T04:00:00Z","end":"2019-05-07T12:00:00Z"},{"start":"2019-05-08T04:00:00Z","end":"2019-05-08T12:00:00Z"},{"start":"2019-05-09T04:00:00Z","end":"2019-05-09T12:00:00Z"},{"start":"2019-05-10T04:00:00Z","end":"2019-05-10T12:00:00Z"},{"start":"2019-05-13T04:00:00Z","end":"2019-05-13T12:00:00Z"},{"start":"2019-05-14T04:00:00Z","end":"2019-05-14T12:00:00Z"},{"start":"2019-05-15T04:00:00Z","end":"2019-05-15T12:00:00Z"},{"start":"2019-05-16T04:00:00Z","end":"2019-05-16T12:00:00Z"},{"start":"2019-05-17T04:00:00Z","end":"2019-05-17T12:00:00Z"},{"start":"2019-05-20T04:00:00Z","end":"2019-05-20T12:00:00Z"},{"start":"2019-05-21T04:00:00Z","end":"2019-05-21T12:00:00Z"},{"start":"2019-05-22T04:00:00Z","end":"2019-05-22T12:00:00Z"},{"start":"2019-05-23T04:00:00Z","end":"2019-05-23T12:00:00Z"}],"start_interval":{"minutes":30},"response_format":"slots","buffer":{"before":{"minutes":0},"after":{"minutes":0}},"max_results":512}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer CRN_vg4dRm7LXAVWf21yzlGvZMGW1eztuNYMQ6m7ub
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      Date:
+      - Fri, 26 Aug 2022 18:27:59 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 422 Unprocessable Entity
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31536000
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Request-Id:
+      - 738c5fa5
+      X-Download-Options:
+      - noopen
+      X-Runtime:
+      - '0.039735'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - Phusion Passenger(R)
+      Server:
+      - nginx + Phusion Passenger(R)
+    body:
+      encoding: UTF-8
+      string: '{"errors":{"query_periods[0].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[1].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[2].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[3].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[4].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[5].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[6].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[7].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[8].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[9].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[10].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[11].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[12].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[13].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[14].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[15].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[16].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[17].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[18].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[19].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[20].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[21].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[22].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"participants":[{"key":"errors.must_not_be_empty","description":"must
+        not be empty"}]}}'
+  recorded_at: Tue, 23 Apr 2019 04:00:00 GMT
+- request:
+    method: post
+    uri: https://api-de.cronofy.com/v1/availability
+    body:
+      encoding: UTF-8
+      string: '{"participants":[],"required_duration":{"minutes":30},"query_periods":[{"start":"2019-04-24T04:00:00Z","end":"2019-04-24T12:00:00Z"},{"start":"2019-04-25T04:00:00Z","end":"2019-04-25T12:00:00Z"},{"start":"2019-04-26T04:00:00Z","end":"2019-04-26T12:00:00Z"},{"start":"2019-04-29T04:00:00Z","end":"2019-04-29T12:00:00Z"},{"start":"2019-04-30T04:00:00Z","end":"2019-04-30T12:00:00Z"},{"start":"2019-05-01T04:00:00Z","end":"2019-05-01T12:00:00Z"},{"start":"2019-05-02T04:00:00Z","end":"2019-05-02T12:00:00Z"},{"start":"2019-05-03T04:00:00Z","end":"2019-05-03T12:00:00Z"},{"start":"2019-05-06T04:00:00Z","end":"2019-05-06T12:00:00Z"},{"start":"2019-05-07T04:00:00Z","end":"2019-05-07T12:00:00Z"},{"start":"2019-05-08T04:00:00Z","end":"2019-05-08T12:00:00Z"},{"start":"2019-05-09T04:00:00Z","end":"2019-05-09T12:00:00Z"},{"start":"2019-05-10T04:00:00Z","end":"2019-05-10T12:00:00Z"},{"start":"2019-05-13T04:00:00Z","end":"2019-05-13T12:00:00Z"},{"start":"2019-05-14T04:00:00Z","end":"2019-05-14T12:00:00Z"},{"start":"2019-05-15T04:00:00Z","end":"2019-05-15T12:00:00Z"},{"start":"2019-05-16T04:00:00Z","end":"2019-05-16T12:00:00Z"},{"start":"2019-05-17T04:00:00Z","end":"2019-05-17T12:00:00Z"},{"start":"2019-05-20T04:00:00Z","end":"2019-05-20T12:00:00Z"},{"start":"2019-05-21T04:00:00Z","end":"2019-05-21T12:00:00Z"},{"start":"2019-05-22T04:00:00Z","end":"2019-05-22T12:00:00Z"},{"start":"2019-05-23T04:00:00Z","end":"2019-05-23T12:00:00Z"},{"start":"2019-05-24T04:00:00Z","end":"2019-05-24T12:00:00Z"}],"start_interval":{"minutes":30},"response_format":"slots","buffer":{"before":{"minutes":0},"after":{"minutes":0}},"max_results":512}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer CRN_vg4dRm7LXAVWf21yzlGvZMGW1eztuNYMQ6m7ub
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      Date:
+      - Fri, 26 Aug 2022 18:28:01 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 422 Unprocessable Entity
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31536000
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Request-Id:
+      - 6ab6ceb4
+      X-Download-Options:
+      - noopen
+      X-Runtime:
+      - '0.032135'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - Phusion Passenger(R)
+      Server:
+      - nginx + Phusion Passenger(R)
+    body:
+      encoding: UTF-8
+      string: '{"errors":{"query_periods[0].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[1].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[2].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[3].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[4].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[5].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[6].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[7].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[8].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[9].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[10].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[11].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[12].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[13].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[14].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[15].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[16].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[17].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[18].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[19].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[20].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[21].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[22].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"participants":[{"key":"errors.must_not_be_empty","description":"must
+        not be empty"}]}}'
+  recorded_at: Tue, 23 Apr 2019 04:00:00 GMT
+- request:
+    method: post
+    uri: https://api-de.cronofy.com/v1/availability
+    body:
+      encoding: UTF-8
+      string: '{"participants":[],"required_duration":{"minutes":30},"query_periods":[{"start":"2019-04-25T04:00:00Z","end":"2019-04-25T12:00:00Z"},{"start":"2019-04-26T04:00:00Z","end":"2019-04-26T12:00:00Z"},{"start":"2019-04-29T04:00:00Z","end":"2019-04-29T12:00:00Z"},{"start":"2019-04-30T04:00:00Z","end":"2019-04-30T12:00:00Z"},{"start":"2019-05-01T04:00:00Z","end":"2019-05-01T12:00:00Z"},{"start":"2019-05-02T04:00:00Z","end":"2019-05-02T12:00:00Z"},{"start":"2019-05-03T04:00:00Z","end":"2019-05-03T12:00:00Z"},{"start":"2019-05-06T04:00:00Z","end":"2019-05-06T12:00:00Z"},{"start":"2019-05-07T04:00:00Z","end":"2019-05-07T12:00:00Z"},{"start":"2019-05-08T04:00:00Z","end":"2019-05-08T12:00:00Z"},{"start":"2019-05-09T04:00:00Z","end":"2019-05-09T12:00:00Z"},{"start":"2019-05-10T04:00:00Z","end":"2019-05-10T12:00:00Z"},{"start":"2019-05-13T04:00:00Z","end":"2019-05-13T12:00:00Z"},{"start":"2019-05-14T04:00:00Z","end":"2019-05-14T12:00:00Z"},{"start":"2019-05-15T04:00:00Z","end":"2019-05-15T12:00:00Z"},{"start":"2019-05-16T04:00:00Z","end":"2019-05-16T12:00:00Z"},{"start":"2019-05-17T04:00:00Z","end":"2019-05-17T12:00:00Z"},{"start":"2019-05-20T04:00:00Z","end":"2019-05-20T12:00:00Z"},{"start":"2019-05-21T04:00:00Z","end":"2019-05-21T12:00:00Z"},{"start":"2019-05-22T04:00:00Z","end":"2019-05-22T12:00:00Z"},{"start":"2019-05-23T04:00:00Z","end":"2019-05-23T12:00:00Z"},{"start":"2019-05-24T04:00:00Z","end":"2019-05-24T12:00:00Z"}],"start_interval":{"minutes":30},"response_format":"slots","buffer":{"before":{"minutes":0},"after":{"minutes":0}},"max_results":512}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer CRN_vg4dRm7LXAVWf21yzlGvZMGW1eztuNYMQ6m7ub
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      Date:
+      - Fri, 26 Aug 2022 18:28:03 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 422 Unprocessable Entity
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31536000
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Request-Id:
+      - '09f5130b'
+      X-Download-Options:
+      - noopen
+      X-Runtime:
+      - '0.029467'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - Phusion Passenger(R)
+      Server:
+      - nginx + Phusion Passenger(R)
+    body:
+      encoding: UTF-8
+      string: '{"errors":{"query_periods[0].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[1].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[2].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[3].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[4].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[5].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[6].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[7].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[8].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[9].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[10].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[11].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[12].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[13].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[14].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[15].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[16].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[17].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[18].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[19].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[20].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[21].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"participants":[{"key":"errors.must_not_be_empty","description":"must
+        not be empty"}]}}'
+  recorded_at: Tue, 23 Apr 2019 04:00:00 GMT
+- request:
+    method: post
+    uri: https://api-de.cronofy.com/v1/availability
+    body:
+      encoding: UTF-8
+      string: '{"participants":[],"required_duration":{"minutes":30},"query_periods":[{"start":"2019-04-26T04:00:00Z","end":"2019-04-26T12:00:00Z"},{"start":"2019-04-29T04:00:00Z","end":"2019-04-29T12:00:00Z"},{"start":"2019-04-30T04:00:00Z","end":"2019-04-30T12:00:00Z"},{"start":"2019-05-01T04:00:00Z","end":"2019-05-01T12:00:00Z"},{"start":"2019-05-02T04:00:00Z","end":"2019-05-02T12:00:00Z"},{"start":"2019-05-03T04:00:00Z","end":"2019-05-03T12:00:00Z"},{"start":"2019-05-06T04:00:00Z","end":"2019-05-06T12:00:00Z"},{"start":"2019-05-07T04:00:00Z","end":"2019-05-07T12:00:00Z"},{"start":"2019-05-08T04:00:00Z","end":"2019-05-08T12:00:00Z"},{"start":"2019-05-09T04:00:00Z","end":"2019-05-09T12:00:00Z"},{"start":"2019-05-10T04:00:00Z","end":"2019-05-10T12:00:00Z"},{"start":"2019-05-13T04:00:00Z","end":"2019-05-13T12:00:00Z"},{"start":"2019-05-14T04:00:00Z","end":"2019-05-14T12:00:00Z"},{"start":"2019-05-15T04:00:00Z","end":"2019-05-15T12:00:00Z"},{"start":"2019-05-16T04:00:00Z","end":"2019-05-16T12:00:00Z"},{"start":"2019-05-17T04:00:00Z","end":"2019-05-17T12:00:00Z"},{"start":"2019-05-20T04:00:00Z","end":"2019-05-20T12:00:00Z"},{"start":"2019-05-21T04:00:00Z","end":"2019-05-21T12:00:00Z"},{"start":"2019-05-22T04:00:00Z","end":"2019-05-22T12:00:00Z"},{"start":"2019-05-23T04:00:00Z","end":"2019-05-23T12:00:00Z"},{"start":"2019-05-24T04:00:00Z","end":"2019-05-24T12:00:00Z"}],"start_interval":{"minutes":30},"response_format":"slots","buffer":{"before":{"minutes":0},"after":{"minutes":0}},"max_results":512}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer CRN_vg4dRm7LXAVWf21yzlGvZMGW1eztuNYMQ6m7ub
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      Date:
+      - Fri, 26 Aug 2022 18:28:05 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 422 Unprocessable Entity
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31536000
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Request-Id:
+      - '08d03678'
+      X-Download-Options:
+      - noopen
+      X-Runtime:
+      - '0.033303'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - Phusion Passenger(R)
+      Server:
+      - nginx + Phusion Passenger(R)
+    body:
+      encoding: UTF-8
+      string: '{"errors":{"query_periods[0].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[1].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[2].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[3].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[4].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[5].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[6].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[7].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[8].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[9].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[10].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[11].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[12].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[13].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[14].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[15].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[16].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[17].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[18].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[19].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[20].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"participants":[{"key":"errors.must_not_be_empty","description":"must
+        not be empty"}]}}'
+  recorded_at: Tue, 23 Apr 2019 04:00:00 GMT
+- request:
+    method: post
+    uri: https://api-de.cronofy.com/v1/availability
+    body:
+      encoding: UTF-8
+      string: '{"participants":[],"required_duration":{"minutes":30},"query_periods":[{"start":"2019-04-29T04:00:00Z","end":"2019-04-29T12:00:00Z"},{"start":"2019-04-30T04:00:00Z","end":"2019-04-30T12:00:00Z"},{"start":"2019-05-01T04:00:00Z","end":"2019-05-01T12:00:00Z"},{"start":"2019-05-02T04:00:00Z","end":"2019-05-02T12:00:00Z"},{"start":"2019-05-03T04:00:00Z","end":"2019-05-03T12:00:00Z"},{"start":"2019-05-06T04:00:00Z","end":"2019-05-06T12:00:00Z"},{"start":"2019-05-07T04:00:00Z","end":"2019-05-07T12:00:00Z"},{"start":"2019-05-08T04:00:00Z","end":"2019-05-08T12:00:00Z"},{"start":"2019-05-09T04:00:00Z","end":"2019-05-09T12:00:00Z"},{"start":"2019-05-10T04:00:00Z","end":"2019-05-10T12:00:00Z"},{"start":"2019-05-13T04:00:00Z","end":"2019-05-13T12:00:00Z"},{"start":"2019-05-14T04:00:00Z","end":"2019-05-14T12:00:00Z"},{"start":"2019-05-15T04:00:00Z","end":"2019-05-15T12:00:00Z"},{"start":"2019-05-16T04:00:00Z","end":"2019-05-16T12:00:00Z"},{"start":"2019-05-17T04:00:00Z","end":"2019-05-17T12:00:00Z"},{"start":"2019-05-20T04:00:00Z","end":"2019-05-20T12:00:00Z"},{"start":"2019-05-21T04:00:00Z","end":"2019-05-21T12:00:00Z"},{"start":"2019-05-22T04:00:00Z","end":"2019-05-22T12:00:00Z"},{"start":"2019-05-23T04:00:00Z","end":"2019-05-23T12:00:00Z"},{"start":"2019-05-24T04:00:00Z","end":"2019-05-24T12:00:00Z"},{"start":"2019-05-27T04:00:00Z","end":"2019-05-27T12:00:00Z"}],"start_interval":{"minutes":30},"response_format":"slots","buffer":{"before":{"minutes":0},"after":{"minutes":0}},"max_results":512}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer CRN_vg4dRm7LXAVWf21yzlGvZMGW1eztuNYMQ6m7ub
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      Date:
+      - Fri, 26 Aug 2022 18:28:07 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 422 Unprocessable Entity
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31536000
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Request-Id:
+      - 55d0afbb
+      X-Download-Options:
+      - noopen
+      X-Runtime:
+      - '0.029456'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - Phusion Passenger(R)
+      Server:
+      - nginx + Phusion Passenger(R)
+    body:
+      encoding: UTF-8
+      string: '{"errors":{"query_periods[0].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[1].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[2].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[3].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[4].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[5].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[6].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[7].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[8].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[9].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[10].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[11].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[12].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[13].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[14].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[15].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[16].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[17].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[18].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[19].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[20].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"participants":[{"key":"errors.must_not_be_empty","description":"must
+        not be empty"}]}}'
+  recorded_at: Tue, 23 Apr 2019 04:00:00 GMT
+- request:
+    method: post
+    uri: https://api-de.cronofy.com/v1/availability
+    body:
+      encoding: UTF-8
+      string: '{"participants":[],"required_duration":{"minutes":30},"query_periods":[{"start":"2019-04-29T04:00:00Z","end":"2019-04-29T12:00:00Z"},{"start":"2019-04-30T04:00:00Z","end":"2019-04-30T12:00:00Z"},{"start":"2019-05-01T04:00:00Z","end":"2019-05-01T12:00:00Z"},{"start":"2019-05-02T04:00:00Z","end":"2019-05-02T12:00:00Z"},{"start":"2019-05-03T04:00:00Z","end":"2019-05-03T12:00:00Z"},{"start":"2019-05-06T04:00:00Z","end":"2019-05-06T12:00:00Z"},{"start":"2019-05-07T04:00:00Z","end":"2019-05-07T12:00:00Z"},{"start":"2019-05-08T04:00:00Z","end":"2019-05-08T12:00:00Z"},{"start":"2019-05-09T04:00:00Z","end":"2019-05-09T12:00:00Z"},{"start":"2019-05-10T04:00:00Z","end":"2019-05-10T12:00:00Z"},{"start":"2019-05-13T04:00:00Z","end":"2019-05-13T12:00:00Z"},{"start":"2019-05-14T04:00:00Z","end":"2019-05-14T12:00:00Z"},{"start":"2019-05-15T04:00:00Z","end":"2019-05-15T12:00:00Z"},{"start":"2019-05-16T04:00:00Z","end":"2019-05-16T12:00:00Z"},{"start":"2019-05-17T04:00:00Z","end":"2019-05-17T12:00:00Z"},{"start":"2019-05-20T04:00:00Z","end":"2019-05-20T12:00:00Z"},{"start":"2019-05-21T04:00:00Z","end":"2019-05-21T12:00:00Z"},{"start":"2019-05-22T04:00:00Z","end":"2019-05-22T12:00:00Z"},{"start":"2019-05-23T04:00:00Z","end":"2019-05-23T12:00:00Z"},{"start":"2019-05-24T04:00:00Z","end":"2019-05-24T12:00:00Z"},{"start":"2019-05-27T04:00:00Z","end":"2019-05-27T12:00:00Z"},{"start":"2019-05-28T04:00:00Z","end":"2019-05-28T12:00:00Z"}],"start_interval":{"minutes":30},"response_format":"slots","buffer":{"before":{"minutes":0},"after":{"minutes":0}},"max_results":512}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer CRN_vg4dRm7LXAVWf21yzlGvZMGW1eztuNYMQ6m7ub
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      Date:
+      - Fri, 26 Aug 2022 18:28:08 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 422 Unprocessable Entity
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31536000
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Request-Id:
+      - 3823041a
+      X-Download-Options:
+      - noopen
+      X-Runtime:
+      - '0.040741'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - Phusion Passenger(R)
+      Server:
+      - nginx + Phusion Passenger(R)
+    body:
+      encoding: UTF-8
+      string: '{"errors":{"query_periods[0].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[1].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[2].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[3].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[4].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[5].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[6].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[7].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[8].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[9].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[10].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[11].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[12].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[13].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[14].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[15].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[16].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[17].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[18].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[19].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[20].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[21].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"participants":[{"key":"errors.must_not_be_empty","description":"must
+        not be empty"}]}}'
+  recorded_at: Tue, 23 Apr 2019 04:00:00 GMT
+- request:
+    method: post
+    uri: https://api-de.cronofy.com/v1/availability
+    body:
+      encoding: UTF-8
+      string: '{"participants":[],"required_duration":{"minutes":30},"query_periods":[{"start":"2019-04-29T04:00:00Z","end":"2019-04-29T12:00:00Z"},{"start":"2019-04-30T04:00:00Z","end":"2019-04-30T12:00:00Z"},{"start":"2019-05-01T04:00:00Z","end":"2019-05-01T12:00:00Z"},{"start":"2019-05-02T04:00:00Z","end":"2019-05-02T12:00:00Z"},{"start":"2019-05-03T04:00:00Z","end":"2019-05-03T12:00:00Z"},{"start":"2019-05-06T04:00:00Z","end":"2019-05-06T12:00:00Z"},{"start":"2019-05-07T04:00:00Z","end":"2019-05-07T12:00:00Z"},{"start":"2019-05-08T04:00:00Z","end":"2019-05-08T12:00:00Z"},{"start":"2019-05-09T04:00:00Z","end":"2019-05-09T12:00:00Z"},{"start":"2019-05-10T04:00:00Z","end":"2019-05-10T12:00:00Z"},{"start":"2019-05-13T04:00:00Z","end":"2019-05-13T12:00:00Z"},{"start":"2019-05-14T04:00:00Z","end":"2019-05-14T12:00:00Z"},{"start":"2019-05-15T04:00:00Z","end":"2019-05-15T12:00:00Z"},{"start":"2019-05-16T04:00:00Z","end":"2019-05-16T12:00:00Z"},{"start":"2019-05-17T04:00:00Z","end":"2019-05-17T12:00:00Z"},{"start":"2019-05-20T04:00:00Z","end":"2019-05-20T12:00:00Z"},{"start":"2019-05-21T04:00:00Z","end":"2019-05-21T12:00:00Z"},{"start":"2019-05-22T04:00:00Z","end":"2019-05-22T12:00:00Z"},{"start":"2019-05-23T04:00:00Z","end":"2019-05-23T12:00:00Z"},{"start":"2019-05-24T04:00:00Z","end":"2019-05-24T12:00:00Z"},{"start":"2019-05-27T04:00:00Z","end":"2019-05-27T12:00:00Z"},{"start":"2019-05-28T04:00:00Z","end":"2019-05-28T12:00:00Z"},{"start":"2019-05-29T04:00:00Z","end":"2019-05-29T12:00:00Z"}],"start_interval":{"minutes":30},"response_format":"slots","buffer":{"before":{"minutes":0},"after":{"minutes":0}},"max_results":512}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer CRN_vg4dRm7LXAVWf21yzlGvZMGW1eztuNYMQ6m7ub
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      Date:
+      - Fri, 26 Aug 2022 18:28:10 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 422 Unprocessable Entity
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31536000
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Request-Id:
+      - 2e13a9be
+      X-Download-Options:
+      - noopen
+      X-Runtime:
+      - '0.029706'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - Phusion Passenger(R)
+      Server:
+      - nginx + Phusion Passenger(R)
+    body:
+      encoding: UTF-8
+      string: '{"errors":{"query_periods[0].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[1].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[2].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[3].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[4].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[5].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[6].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[7].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[8].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[9].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[10].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[11].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[12].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[13].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[14].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[15].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[16].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[17].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[18].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[19].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[20].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[21].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[22].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"participants":[{"key":"errors.must_not_be_empty","description":"must
+        not be empty"}]}}'
+  recorded_at: Tue, 23 Apr 2019 04:00:00 GMT
+- request:
+    method: post
+    uri: https://api-de.cronofy.com/v1/availability
+    body:
+      encoding: UTF-8
+      string: '{"participants":[],"required_duration":{"minutes":30},"query_periods":[{"start":"2019-04-30T04:00:00Z","end":"2019-04-30T12:00:00Z"},{"start":"2019-05-01T04:00:00Z","end":"2019-05-01T12:00:00Z"},{"start":"2019-05-02T04:00:00Z","end":"2019-05-02T12:00:00Z"},{"start":"2019-05-03T04:00:00Z","end":"2019-05-03T12:00:00Z"},{"start":"2019-05-06T04:00:00Z","end":"2019-05-06T12:00:00Z"},{"start":"2019-05-07T04:00:00Z","end":"2019-05-07T12:00:00Z"},{"start":"2019-05-08T04:00:00Z","end":"2019-05-08T12:00:00Z"},{"start":"2019-05-09T04:00:00Z","end":"2019-05-09T12:00:00Z"},{"start":"2019-05-10T04:00:00Z","end":"2019-05-10T12:00:00Z"},{"start":"2019-05-13T04:00:00Z","end":"2019-05-13T12:00:00Z"},{"start":"2019-05-14T04:00:00Z","end":"2019-05-14T12:00:00Z"},{"start":"2019-05-15T04:00:00Z","end":"2019-05-15T12:00:00Z"},{"start":"2019-05-16T04:00:00Z","end":"2019-05-16T12:00:00Z"},{"start":"2019-05-17T04:00:00Z","end":"2019-05-17T12:00:00Z"},{"start":"2019-05-20T04:00:00Z","end":"2019-05-20T12:00:00Z"},{"start":"2019-05-21T04:00:00Z","end":"2019-05-21T12:00:00Z"},{"start":"2019-05-22T04:00:00Z","end":"2019-05-22T12:00:00Z"},{"start":"2019-05-23T04:00:00Z","end":"2019-05-23T12:00:00Z"},{"start":"2019-05-24T04:00:00Z","end":"2019-05-24T12:00:00Z"},{"start":"2019-05-27T04:00:00Z","end":"2019-05-27T12:00:00Z"},{"start":"2019-05-28T04:00:00Z","end":"2019-05-28T12:00:00Z"},{"start":"2019-05-29T04:00:00Z","end":"2019-05-29T12:00:00Z"},{"start":"2019-05-30T04:00:00Z","end":"2019-05-30T12:00:00Z"}],"start_interval":{"minutes":30},"response_format":"slots","buffer":{"before":{"minutes":0},"after":{"minutes":0}},"max_results":512}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer CRN_vg4dRm7LXAVWf21yzlGvZMGW1eztuNYMQ6m7ub
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      Date:
+      - Fri, 26 Aug 2022 18:28:12 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 422 Unprocessable Entity
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31536000
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Request-Id:
+      - 5349bd73
+      X-Download-Options:
+      - noopen
+      X-Runtime:
+      - '0.036266'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - Phusion Passenger(R)
+      Server:
+      - nginx + Phusion Passenger(R)
+    body:
+      encoding: UTF-8
+      string: '{"errors":{"query_periods[0].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[1].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[2].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[3].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[4].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[5].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[6].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[7].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[8].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[9].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[10].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[11].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[12].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[13].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[14].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[15].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[16].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[17].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[18].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[19].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[20].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[21].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[22].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"participants":[{"key":"errors.must_not_be_empty","description":"must
+        not be empty"}]}}'
+  recorded_at: Tue, 23 Apr 2019 04:00:00 GMT
+- request:
+    method: post
+    uri: https://api-de.cronofy.com/v1/availability
+    body:
+      encoding: UTF-8
+      string: '{"participants":[],"required_duration":{"minutes":30},"query_periods":[{"start":"2019-05-01T04:00:00Z","end":"2019-05-01T12:00:00Z"},{"start":"2019-05-02T04:00:00Z","end":"2019-05-02T12:00:00Z"},{"start":"2019-05-03T04:00:00Z","end":"2019-05-03T12:00:00Z"},{"start":"2019-05-06T04:00:00Z","end":"2019-05-06T12:00:00Z"},{"start":"2019-05-07T04:00:00Z","end":"2019-05-07T12:00:00Z"},{"start":"2019-05-08T04:00:00Z","end":"2019-05-08T12:00:00Z"},{"start":"2019-05-09T04:00:00Z","end":"2019-05-09T12:00:00Z"},{"start":"2019-05-10T04:00:00Z","end":"2019-05-10T12:00:00Z"},{"start":"2019-05-13T04:00:00Z","end":"2019-05-13T12:00:00Z"},{"start":"2019-05-14T04:00:00Z","end":"2019-05-14T12:00:00Z"},{"start":"2019-05-15T04:00:00Z","end":"2019-05-15T12:00:00Z"},{"start":"2019-05-16T04:00:00Z","end":"2019-05-16T12:00:00Z"},{"start":"2019-05-17T04:00:00Z","end":"2019-05-17T12:00:00Z"},{"start":"2019-05-20T04:00:00Z","end":"2019-05-20T12:00:00Z"},{"start":"2019-05-21T04:00:00Z","end":"2019-05-21T12:00:00Z"},{"start":"2019-05-22T04:00:00Z","end":"2019-05-22T12:00:00Z"},{"start":"2019-05-23T04:00:00Z","end":"2019-05-23T12:00:00Z"},{"start":"2019-05-24T04:00:00Z","end":"2019-05-24T12:00:00Z"},{"start":"2019-05-27T04:00:00Z","end":"2019-05-27T12:00:00Z"},{"start":"2019-05-28T04:00:00Z","end":"2019-05-28T12:00:00Z"},{"start":"2019-05-29T04:00:00Z","end":"2019-05-29T12:00:00Z"},{"start":"2019-05-30T04:00:00Z","end":"2019-05-30T12:00:00Z"},{"start":"2019-05-31T04:00:00Z","end":"2019-05-31T12:00:00Z"}],"start_interval":{"minutes":30},"response_format":"slots","buffer":{"before":{"minutes":0},"after":{"minutes":0}},"max_results":512}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer CRN_vg4dRm7LXAVWf21yzlGvZMGW1eztuNYMQ6m7ub
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      Date:
+      - Fri, 26 Aug 2022 18:28:14 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 422 Unprocessable Entity
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31536000
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Request-Id:
+      - 6b3a882c
+      X-Download-Options:
+      - noopen
+      X-Runtime:
+      - '0.035248'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - Phusion Passenger(R)
+      Server:
+      - nginx + Phusion Passenger(R)
+    body:
+      encoding: UTF-8
+      string: '{"errors":{"query_periods[0].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[1].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[2].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[3].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[4].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[5].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[6].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[7].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[8].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[9].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[10].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[11].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[12].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[13].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[14].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[15].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[16].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[17].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[18].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[19].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[20].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[21].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[22].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"participants":[{"key":"errors.must_not_be_empty","description":"must
+        not be empty"}]}}'
+  recorded_at: Tue, 23 Apr 2019 04:00:00 GMT
+- request:
+    method: post
+    uri: https://api-de.cronofy.com/v1/availability
+    body:
+      encoding: UTF-8
+      string: '{"participants":[],"required_duration":{"minutes":30},"query_periods":[{"start":"2019-05-02T04:00:00Z","end":"2019-05-02T12:00:00Z"},{"start":"2019-05-03T04:00:00Z","end":"2019-05-03T12:00:00Z"},{"start":"2019-05-06T04:00:00Z","end":"2019-05-06T12:00:00Z"},{"start":"2019-05-07T04:00:00Z","end":"2019-05-07T12:00:00Z"},{"start":"2019-05-08T04:00:00Z","end":"2019-05-08T12:00:00Z"},{"start":"2019-05-09T04:00:00Z","end":"2019-05-09T12:00:00Z"},{"start":"2019-05-10T04:00:00Z","end":"2019-05-10T12:00:00Z"},{"start":"2019-05-13T04:00:00Z","end":"2019-05-13T12:00:00Z"},{"start":"2019-05-14T04:00:00Z","end":"2019-05-14T12:00:00Z"},{"start":"2019-05-15T04:00:00Z","end":"2019-05-15T12:00:00Z"},{"start":"2019-05-16T04:00:00Z","end":"2019-05-16T12:00:00Z"},{"start":"2019-05-17T04:00:00Z","end":"2019-05-17T12:00:00Z"},{"start":"2019-05-20T04:00:00Z","end":"2019-05-20T12:00:00Z"},{"start":"2019-05-21T04:00:00Z","end":"2019-05-21T12:00:00Z"},{"start":"2019-05-22T04:00:00Z","end":"2019-05-22T12:00:00Z"},{"start":"2019-05-23T04:00:00Z","end":"2019-05-23T12:00:00Z"},{"start":"2019-05-24T04:00:00Z","end":"2019-05-24T12:00:00Z"},{"start":"2019-05-27T04:00:00Z","end":"2019-05-27T12:00:00Z"},{"start":"2019-05-28T04:00:00Z","end":"2019-05-28T12:00:00Z"},{"start":"2019-05-29T04:00:00Z","end":"2019-05-29T12:00:00Z"},{"start":"2019-05-30T04:00:00Z","end":"2019-05-30T12:00:00Z"},{"start":"2019-05-31T04:00:00Z","end":"2019-05-31T12:00:00Z"}],"start_interval":{"minutes":30},"response_format":"slots","buffer":{"before":{"minutes":0},"after":{"minutes":0}},"max_results":512}'
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer CRN_vg4dRm7LXAVWf21yzlGvZMGW1eztuNYMQ6m7ub
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      Date:
+      - Fri, 26 Aug 2022 18:28:16 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 422 Unprocessable Entity
+      Cache-Control:
+      - no-cache
+      Strict-Transport-Security:
+      - max-age=31536000
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Request-Id:
+      - 06e8aa5d
+      X-Download-Options:
+      - noopen
+      X-Runtime:
+      - '0.028353'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - Phusion Passenger(R)
+      Server:
+      - nginx + Phusion Passenger(R)
+    body:
+      encoding: UTF-8
+      string: '{"errors":{"query_periods[0].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[1].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[2].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[3].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[4].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[5].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[6].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[7].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[8].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[9].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[10].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[11].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[12].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[13].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[14].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[15].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[16].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[17].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[18].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[19].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[20].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"query_periods[21].start":[{"key":"errors.min_date_exceeded","description":"date
+        is too far in the past"}],"participants":[{"key":"errors.must_not_be_empty","description":"must
+        not be empty"}]}}'
+  recorded_at: Tue, 23 Apr 2019 04:00:00 GMT
+recorded_with: VCR 6.0.0

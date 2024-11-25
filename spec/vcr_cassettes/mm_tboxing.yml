@@ -1,0 +1,333 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.mobminder.com/query/config.php?kid=MM_KEY&lgn=MM_LOGIN&pwd=MM_PASSWORD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 09 Dec 2022 12:58:56 GMT
+      Server:
+      - Apache
+      Connection:
+      - close
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - text/plain; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        PGRhdGE+I0NfZFNfYWNjb3VudA0yODYwfE9saXZpZXIgRXllRGVzaWduZXIgKFNhbmRib3gpfDM2MDB8MXwxMDB8NHwzMnwzfDB8MzB8NDB8ODB8cmllQHJpZW4uYmUNI0NfZFNfcmVzb3VyY2UNNjk3OHwyfENsaW5pcXVlIDJ8fEplIHN1aXMgbGEgc2V1bGUgcmVzb3VyY2UgZGFucyBjZXQgYWdlbmRhIDopfA0xMzEzNXwyfENsaW5pcXVlIDF8fHwNMTMxMzZ8MnxDbGluaXF1ZSAzfHx8DTE4MjMyfDF8QXhlbHx8fA0xODIzM3wxfFJ1YmF8fHwNMTMxMzl8NHxmQ2FsczF8fHwNI0NfZFNfY3VzdG9tQ3NzDTE0MjJ8MTF8ODB8ZXh0ZW5zaW9uIGRlIGNpbHMgZ2xhbW91cnwxMDZ8Mmh8DTE0MjN8M3w4MHx6YXBwZSB0dCBsZSB0ZW1wc3wxODN8cGFzIGZpYWJsZXwNMTQyNHwxMXw4MXxob25ub3LDqXw4MDJ8fA0xNDI1fDExfDgxfG5vbiBob25vcsOpfDkwM3x8DTIxNTc0fDExfDgwfFBlcm1hbmVudHwxNzN8fA0yOTc3MXwzfDgwfG5ld3wxMTB8fA0jQ19kU190aW1lYm94aW5nDTEwMDM3OTV8VGltZSBibG9jayAyfDEwM3wwfDB8DTEwMDMxNTZ8VGltZSBibG9ja3wyNTR8MHwwfA0jQ19kU193b3JrZXhwZXJ0DTE1NjUwfDY5NzgNMTg0NDV8Njk3OA0xNTY0OXw2OTc4DTE1NjQ4fDY5NzgNMTM4MDV8Njk3OA0xMzgwN3w2OTc4DTEzODA4fDY5NzgNMTY5ODZ8Njk3OA0xNTQxNHw2OTc4DTI2OTgzfDY5NzgNMTg0NDV8MTMxMzUNMTg0NDR8MTMxMzUNMTU2NDh8MTMxMzUNMTY5ODZ8MTMxMzUNMTU0MTR8MTMxMzUNMTg0NDV8MTMxMzYNMjY5ODN8MTMxMzYNMTU2NDh8MTMxMzYNMTY5ODZ8MTMxMzYNMzk5Mjh8MTMxMzYNMTg0NDV8MTMxMzkNMTg0NDR8MTMxMzkNMzk5Mjh8MTgyMzINMzk5Mjh8MTgyMzMNI0NfZFNfd29ya3Rib3hpbmcNMTU0MTR8MTAwMzE1Ng0xNTQxNHwxMDAzNzk1DTE4NDQ1fDEwMDMxNTYNI0NfZFNfd29ya2NvZGUNMTM4MDV8Qy4gTWFxdWlsbGFnZSBwZXJtYW5lbnR8fDR8MXwyMTU3NHwwfDANMTM4MDd8RC4gUmV0b3VjaGUgbWFxdWlsbGFnZXx8MnwxfDIxNTc0fDB8MQ0xMzgwOHxCLiBFeHRlbnNpb24gZGUgY2lscyBnbGFtb3VyfG9oIG1vbiBkaWV1eCBjb21tZSB0dSB2YXMgw6p0cmUgYmVsbGUhfDN8MXwxNDIyfDB8MQ0xNTQxNHxELiBUYm94aW5nIHNlcnZpY2V8fDJ8MXwwfDB8MA0xNTY0OHxBLiBDb25zdWx0YXRpb24gYmllbi1ldHJlfHwyfDF8MHwwfDANMTU2NDl8Q29uc3VsdGF0aW9ufHwyfDF8MHwwfDENMTU2NTB8U3Vpdml8fDJ8MXwwfDB8MQ0xNjk4NnxCLiBDb25zdWx0YXRpb24gVGVzdHx8MnwxfDB8MHwwDTE4NDQ0fGZDYWxzfHwyfDF8MHwwfDANMTg0NDV8ZkNhbHMyfHwyfDF8MHwwfDANMjY5ODN8VGVzdHx8MnwxfDB8MHwxDTM5OTI4fE5vdmVtYmVydGVzdHNlcnZpY2V8fDF8MnwwfDB8MQ08L2RhdGE+DQ1QZXJmIFJlcG9ydDoNICAgICAxNjcwNTkwNzM2LjQ2MDggc2VjICgrMCBtcykgPC0+IGluaXQNICAgICAxNjcwNTkwNzM2LjQ2OTIgc2VjICgrOCBtcykgPC0+IDo6dGltZSBuZWVkZWQgdG8gcmV0cmlldmUgY29udGV4dCBhbmQgcG9zdGVkIHBhcmFtZXRlcnMNICAgICAxNjcwNTkwNzM2LjQ2OTQgc2VjICgrMCBtcykgPC0+IDo6cHJvdG9jb2wgc3RyZWFtZWQNDSAgICAgVG90YWwgZGVsdGE6ICAoKzggbXMpMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMQ==
+  recorded_at: Fri, 08 Dec 2023 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.mobminder.com/query/availabilities.php?bCals=6978&duration=2&from=2023-12-08&kid=MM_KEY&lgn=MM_LOGIN&pwd=MM_PASSWORD&tboxing=1003156!1003795&uCals=13138
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 09 Dec 2022 12:58:58 GMT
+      Server:
+      - Apache
+      Connection:
+      - close
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - text/plain; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: "<data>#C_dS_attendee\r-1|2|6978\r-1|1|13138\r-2|2|6978\r-2|1|13138\r-3|2|6978\r-3|1|13138\r-4|2|6978\r-4|1|13138\r-5|2|6978\r-5|1|13138\r-6|2|6978\r-6|1|13138\r-7|2|6978\r-7|1|13138\r-8|2|6978\r-8|1|13138\r-9|2|6978\r-9|1|13138\r-10|2|6978\r-10|1|13138\r-11|2|6978\r-11|1|13138\r-12|2|6978\r-12|1|13138\r-13|2|6978\r-13|1|13138\r-14|2|6978\r-14|1|13138\r-15|2|6978\r-15|1|13138\r-16|2|6978\r-16|1|13138\r-17|2|6978\r-17|1|13138\r-18|2|6978\r-18|1|13138\r-19|2|6978\r-19|1|13138\r-20|2|6978\r-20|1|13138\r-21|2|6978\r-21|1|13138\r-22|2|6978\r-22|1|13138\r-23|2|6978\r-23|1|13138\r-24|2|6978\r-24|1|13138\r-25|2|6978\r-25|1|13138\r-26|2|6978\r-26|1|13138\r-27|2|6978\r-27|1|13138\r-28|2|6978\r-28|1|13138\r-29|2|6978\r-29|1|13138\r-30|2|6978\r-30|1|13138\r-31|2|6978\r-31|1|13138\r-32|2|6978\r-32|1|13138\r-33|2|6978\r-33|1|13138\r-34|2|6978\r-34|1|13138\r-35|2|6978\r-35|1|13138\r-36|2|6978\r-36|1|13138\r-37|2|6978\r-37|1|13138\r-38|2|6978\r-38|1|13138\r-39|2|6978\r-39|1|13138\r-40|2|6978\r-40|1|13138\r-41|2|6978\r-41|1|13138\r-42|2|6978\r-42|1|13138\r-43|2|6978\r-43|1|13138\r-44|2|6978\r-44|1|13138\r-45|2|6978\r-45|1|13138\r-46|2|6978\r-46|1|13138\r-47|2|6978\r-47|1|13138\r-48|2|6978\r-48|1|13138\r-49|2|6978\r-49|1|13138\r-50|2|6978\r-50|1|13138\r-51|2|6978\r-51|1|13138\r-52|2|6978\r-52|1|13138\r-53|2|6978\r-53|1|13138\r-54|2|6978\r-54|1|13138\r-55|2|6978\r-55|1|13138\r-56|2|6978\r-56|1|13138\r-57|2|6978\r-57|1|13138\r-58|2|6978\r-58|1|13138\r-59|2|6978\r-59|1|13138\r-60|2|6978\r-60|1|13138\r#C_dS_resapart\r#C_dS_reservation\r-1|2023-12-09
+        16:00|2023-12-09 16:30|0\r-2|2023-12-09 16:30|2023-12-09 17:00|0\r-3|2023-12-16
+        16:00|2023-12-16 16:30|0\r-4|2023-12-16 16:30|2023-12-16 17:00|0\r-5|2023-12-23
+        16:00|2023-12-23 16:30|0\r-6|2023-12-23 16:30|2023-12-23 17:00|0\r-7|2023-12-30
+        16:00|2023-12-30 16:30|0\r-8|2023-12-30 16:30|2023-12-30 17:00|0\r-9|2024-01-06
+        16:00|2024-01-06 16:30|0\r-10|2024-01-06 16:30|2024-01-06 17:00|0\r-11|2024-01-13
+        16:00|2024-01-13 16:30|0\r-12|2024-01-13 16:30|2024-01-13 17:00|0\r-13|2024-01-20
+        16:00|2024-01-20 16:30|0\r-14|2024-01-20 16:30|2024-01-20 17:00|0\r-15|2024-01-27
+        16:00|2024-01-27 16:30|0\r-16|2024-01-27 16:30|2024-01-27 17:00|0\r-17|2024-02-03
+        16:00|2024-02-03 16:30|0\r-18|2024-02-03 16:30|2024-02-03 17:00|0\r-19|2024-02-10
+        16:00|2024-02-10 16:30|0\r-20|2024-02-10 16:30|2024-02-10 17:00|0\r-21|2024-02-17
+        16:00|2024-02-17 16:30|0\r-22|2024-02-17 16:30|2024-02-17 17:00|0\r-23|2024-02-24
+        16:00|2024-02-24 16:30|0\r-24|2024-02-24 16:30|2024-02-24 17:00|0\r-25|2024-03-02
+        16:00|2024-03-02 16:30|0\r-26|2024-03-02 16:30|2024-03-02 17:00|0\r-27|2024-03-09
+        16:00|2024-03-09 16:30|0\r-28|2024-03-09 16:30|2024-03-09 17:00|0\r-29|2024-03-16
+        16:00|2024-03-16 16:30|0\r-30|2024-03-16 16:30|2024-03-16 17:00|0\r-31|2024-03-23
+        16:00|2024-03-23 16:30|0\r-32|2024-03-23 16:30|2024-03-23 17:00|0\r-33|2024-03-30
+        16:00|2024-03-30 16:30|0\r-34|2024-03-30 16:30|2024-03-30 17:00|0\r-35|2024-04-06
+        16:00|2024-04-06 16:30|0\r-36|2024-04-06 16:30|2024-04-06 17:00|0\r-37|2024-04-13
+        16:00|2024-04-13 16:30|0\r-38|2024-04-13 16:30|2024-04-13 17:00|0\r-39|2024-04-20
+        16:00|2024-04-20 16:30|0\r-40|2024-04-20 16:30|2024-04-20 17:00|0\r-41|2024-04-27
+        16:00|2024-04-27 16:30|0\r-42|2024-04-27 16:30|2024-04-27 17:00|0\r-43|2024-05-04
+        16:00|2024-05-04 16:30|0\r-44|2024-05-04 16:30|2024-05-04 17:00|0\r-45|2024-05-11
+        16:00|2024-05-11 16:30|0\r-46|2024-05-11 16:30|2024-05-11 17:00|0\r-47|2024-05-18
+        16:00|2024-05-18 16:30|0\r-48|2024-05-18 16:30|2024-05-18 17:00|0\r-49|2024-05-25
+        16:00|2024-05-25 16:30|0\r-50|2024-05-25 16:30|2024-05-25 17:00|0\r-51|2024-06-01
+        16:00|2024-06-01 16:30|0\r-52|2024-06-01 16:30|2024-06-01 17:00|0\r-53|2024-06-08
+        16:00|2024-06-08 16:30|0\r-54|2024-06-08 16:30|2024-06-08 17:00|0\r-55|2024-06-15
+        16:00|2024-06-15 16:30|0\r-56|2024-06-15 16:30|2024-06-15 17:00|0\r-57|2024-06-22
+        16:00|2024-06-22 16:30|0\r-58|2024-06-22 16:30|2024-06-22 17:00|0\r-59|2024-06-29
+        16:00|2024-06-29 16:30|0\r-60|2024-06-29 16:30|2024-06-29 17:00|0\r</data>\r\rPerf
+        Report:\r     1670590738.0334 sec (+0 ms) <-> init\r     1670590738.0337 sec
+        (+0 ms) <-> \textractslots()->querycues() - query reservations\r     1670590738.0348
+        sec (+1 ms) <-> \textractslots()->setmasks()\r     1670590738.0349 sec (+0
+        ms) <-> \textractslots()->scancombination()\r     1670590738.0349 sec (+0
+        ms) <-> extractslots()\r     1670590738.0352 sec (+0 ms) <-> \textractslots()->querycues()
+        - query reservations\r     1670590738.0364 sec (+1 ms) <-> \textractslots()->setmasks()\r
+        \    1670590738.0365 sec (+0 ms) <-> \textractslots()->scancombination()\r
+        \    1670590738.0365 sec (+0 ms) <-> extractslots()\r     1670590738.0368
+        sec (+0 ms) <-> \textractslots()->querycues() - query reservations\r     1670590738.0379
+        sec (+1 ms) <-> \textractslots()->setmasks()\r     1670590738.038 sec (+0
+        ms) <-> \textractslots()->scancombination()\r     1670590738.038 sec (+0 ms)
+        <-> extractslots()\r     1670590738.0383 sec (+0 ms) <-> \textractslots()->querycues()
+        - query reservations\r     1670590738.0394 sec (+1 ms) <-> \textractslots()->setmasks()\r
+        \    1670590738.0395 sec (+0 ms) <-> \textractslots()->scancombination()\r
+        \    1670590738.0395 sec (+0 ms) <-> extractslots()\r     1670590738.0398
+        sec (+0 ms) <-> \textractslots()->querycues() - query reservations\r     1670590738.0409
+        sec (+1 ms) <-> \textractslots()->setmasks()\r     1670590738.0411 sec (+0
+        ms) <-> \textractslots()->scancombination()\r     1670590738.0411 sec (+0
+        ms) <-> extractslots()\r     1670590738.0414 sec (+0 ms) <-> \textractslots()->querycues()
+        - query reservations\r     1670590738.0425 sec (+1 ms) <-> \textractslots()->setmasks()\r
+        \    1670590738.0426 sec (+0 ms) <-> \textractslots()->scancombination()\r
+        \    1670590738.0426 sec (+0 ms) <-> extractslots()\r     1670590738.0431
+        sec (+0 ms) <-> \textractslots()->querycues() - query reservations\r     1670590738.044
+        sec (+0 ms) <-> \textractslots()->setmasks()\r     1670590738.0441 sec (+0
+        ms) <-> \textractslots()->scancombination()\r     1670590738.0441 sec (+0
+        ms) <-> extractslots()\r     1670590738.0445 sec (+0 ms) <-> \textractslots()->querycues()
+        - query reservations\r     1670590738.0466 sec (+2 ms) <-> \textractslots()->setmasks()\r
+        \    1670590738.0469 sec (+0 ms) <-> \textractslots()->scancombination()\r
+        \    1670590738.0469 sec (+0 ms) <-> extractslots()\r     1670590738.0474
+        sec (+0 ms) <-> \textractslots()->querycues() - query reservations\r     1670590738.0493
+        sec (+1 ms) <-> \textractslots()->setmasks()\r     1670590738.0495 sec (+0
+        ms) <-> \textractslots()->scancombination()\r     1670590738.0495 sec (+0
+        ms) <-> extractslots()\r     1670590738.0499 sec (+0 ms) <-> \textractslots()->querycues()
+        - query reservations\r     1670590738.0518 sec (+1 ms) <-> \textractslots()->setmasks()\r
+        \    1670590738.0519 sec (+0 ms) <-> \textractslots()->scancombination()\r
+        \    1670590738.0519 sec (+0 ms) <-> extractslots()\r     1670590738.0524
+        sec (+0 ms) <-> \textractslots()->querycues() - query reservations\r     1670590738.0542
+        sec (+1 ms) <-> \textractslots()->setmasks()\r     1670590738.0544 sec (+0
+        ms) <-> \textractslots()->scancombination()\r     1670590738.0544 sec (+0
+        ms) <-> extractslots()\r     1670590738.0548 sec (+0 ms) <-> \textractslots()->querycues()
+        - query reservations\r     1670590738.0557 sec (+0 ms) <-> \textractslots()->setmasks()\r
+        \    1670590738.0558 sec (+0 ms) <-> \textractslots()->scancombination()\r
+        \    1670590738.0558 sec (+0 ms) <-> extractslots()\r     1670590738.0561
+        sec (+0 ms) <-> \textractslots()->querycues() - query reservations\r     1670590738.057
+        sec (+0 ms) <-> \textractslots()->setmasks()\r     1670590738.0571 sec (+0
+        ms) <-> \textractslots()->scancombination()\r     1670590738.0571 sec (+0
+        ms) <-> extractslots()\r     1670590738.0574 sec (+0 ms) <-> \textractslots()->querycues()
+        - query reservations\r     1670590738.0582 sec (+0 ms) <-> \textractslots()->setmasks()\r
+        \    1670590738.0583 sec (+0 ms) <-> \textractslots()->scancombination()\r
+        \    1670590738.0583 sec (+0 ms) <-> extractslots()\r     1670590738.0585
+        sec (+0 ms) <-> \textractslots()->querycues() - query reservations\r     1670590738.0594
+        sec (+0 ms) <-> \textractslots()->setmasks()\r     1670590738.0595 sec (+0
+        ms) <-> \textractslots()->scancombination()\r     1670590738.0595 sec (+0
+        ms) <-> extractslots()\r     1670590738.0599 sec (+0 ms) <-> \textractslots()->querycues()
+        - query reservations\r     1670590738.0608 sec (+0 ms) <-> \textractslots()->setmasks()\r
+        \    1670590738.0609 sec (+0 ms) <-> \textractslots()->scancombination()\r
+        \    1670590738.0609 sec (+0 ms) <-> extractslots()\r     1670590738.0611
+        sec (+0 ms) <-> \textractslots()->querycues() - query reservations\r     1670590738.0619
+        sec (+0 ms) <-> \textractslots()->setmasks()\r     1670590738.062 sec (+0
+        ms) <-> \textractslots()->scancombination()\r     1670590738.062 sec (+0 ms)
+        <-> extractslots()\r     1670590738.0623 sec (+0 ms) <-> \textractslots()->querycues()
+        - query reservations\r     1670590738.0631 sec (+0 ms) <-> \textractslots()->setmasks()\r
+        \    1670590738.0632 sec (+0 ms) <-> \textractslots()->scancombination()\r
+        \    1670590738.0632 sec (+0 ms) <-> extractslots()\r     1670590738.0639
+        sec (+0 ms) <-> makechunks()\r     1670590738.0674 sec (+3 ms) <-> datasets()\r\r
+        \    Total delta:  (+34 ms)"
+  recorded_at: Fri, 08 Dec 2023 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.mobminder.com/query/config.php?kid=MM_KEY&lgn=MM_LOGIN&pwd=MM_PASSWORD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 09 Dec 2022 12:58:59 GMT
+      Server:
+      - Apache
+      Connection:
+      - close
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - text/plain; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        PGRhdGE+I0NfZFNfYWNjb3VudA0yODYwfE9saXZpZXIgRXllRGVzaWduZXIgKFNhbmRib3gpfDM2MDB8MXwxMDB8NHwzMnwzfDB8MzB8NDB8ODB8cmllQHJpZW4uYmUNI0NfZFNfcmVzb3VyY2UNNjk3OHwyfENsaW5pcXVlIDJ8fEplIHN1aXMgbGEgc2V1bGUgcmVzb3VyY2UgZGFucyBjZXQgYWdlbmRhIDopfA0xMzEzNXwyfENsaW5pcXVlIDF8fHwNMTMxMzZ8MnxDbGluaXF1ZSAzfHx8DTE4MjMyfDF8QXhlbHx8fA0xODIzM3wxfFJ1YmF8fHwNMTMxMzl8NHxmQ2FsczF8fHwNI0NfZFNfY3VzdG9tQ3NzDTE0MjJ8MTF8ODB8ZXh0ZW5zaW9uIGRlIGNpbHMgZ2xhbW91cnwxMDZ8Mmh8DTE0MjN8M3w4MHx6YXBwZSB0dCBsZSB0ZW1wc3wxODN8cGFzIGZpYWJsZXwNMTQyNHwxMXw4MXxob25ub3LDqXw4MDJ8fA0xNDI1fDExfDgxfG5vbiBob25vcsOpfDkwM3x8DTIxNTc0fDExfDgwfFBlcm1hbmVudHwxNzN8fA0yOTc3MXwzfDgwfG5ld3wxMTB8fA0jQ19kU190aW1lYm94aW5nDTEwMDM3OTV8VGltZSBibG9jayAyfDEwM3wwfDB8DTEwMDMxNTZ8VGltZSBibG9ja3wyNTR8MHwwfA0jQ19kU193b3JrZXhwZXJ0DTE1NjUwfDY5NzgNMTg0NDV8Njk3OA0xNTY0OXw2OTc4DTE1NjQ4fDY5NzgNMTM4MDV8Njk3OA0xMzgwN3w2OTc4DTEzODA4fDY5NzgNMTY5ODZ8Njk3OA0xNTQxNHw2OTc4DTI2OTgzfDY5NzgNMTg0NDV8MTMxMzUNMTg0NDR8MTMxMzUNMTU2NDh8MTMxMzUNMTY5ODZ8MTMxMzUNMTU0MTR8MTMxMzUNMTg0NDV8MTMxMzYNMjY5ODN8MTMxMzYNMTU2NDh8MTMxMzYNMTY5ODZ8MTMxMzYNMzk5Mjh8MTMxMzYNMTg0NDV8MTMxMzkNMTg0NDR8MTMxMzkNMzk5Mjh8MTgyMzINMzk5Mjh8MTgyMzMNI0NfZFNfd29ya3Rib3hpbmcNMTU0MTR8MTAwMzE1Ng0xNTQxNHwxMDAzNzk1DTE4NDQ1fDEwMDMxNTYNI0NfZFNfd29ya2NvZGUNMTM4MDV8Qy4gTWFxdWlsbGFnZSBwZXJtYW5lbnR8fDR8MXwyMTU3NHwwfDANMTM4MDd8RC4gUmV0b3VjaGUgbWFxdWlsbGFnZXx8MnwxfDIxNTc0fDB8MQ0xMzgwOHxCLiBFeHRlbnNpb24gZGUgY2lscyBnbGFtb3VyfG9oIG1vbiBkaWV1eCBjb21tZSB0dSB2YXMgw6p0cmUgYmVsbGUhfDN8MXwxNDIyfDB8MQ0xNTQxNHxELiBUYm94aW5nIHNlcnZpY2V8fDJ8MXwwfDB8MA0xNTY0OHxBLiBDb25zdWx0YXRpb24gYmllbi1ldHJlfHwyfDF8MHwwfDANMTU2NDl8Q29uc3VsdGF0aW9ufHwyfDF8MHwwfDENMTU2NTB8U3Vpdml8fDJ8MXwwfDB8MQ0xNjk4NnxCLiBDb25zdWx0YXRpb24gVGVzdHx8MnwxfDB8MHwwDTE4NDQ0fGZDYWxzfHwyfDF8MHwwfDANMTg0NDV8ZkNhbHMyfHwyfDF8MHwwfDANMjY5ODN8VGVzdHx8MnwxfDB8MHwxDTM5OTI4fE5vdmVtYmVydGVzdHNlcnZpY2V8fDF8MnwwfDB8MQ08L2RhdGE+DQ1QZXJmIFJlcG9ydDoNICAgICAxNjcwNTkwNzM5LjY0NzUgc2VjICgrMCBtcykgPC0+IGluaXQNICAgICAxNjcwNTkwNzM5LjY1NTcgc2VjICgrOCBtcykgPC0+IDo6dGltZSBuZWVkZWQgdG8gcmV0cmlldmUgY29udGV4dCBhbmQgcG9zdGVkIHBhcmFtZXRlcnMNICAgICAxNjcwNTkwNzM5LjY1NiBzZWMgKCswIG1zKSA8LT4gOjpwcm90b2NvbCBzdHJlYW1lZA0NICAgICBUb3RhbCBkZWx0YTogICgrOCBtcykxMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMQ==
+  recorded_at: Fri, 08 Dec 2023 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.mobminder.com/query/availabilities.php?bCals=6978&duration=2&from=2023-12-10&kid=MM_KEY&lgn=MM_LOGIN&pwd=MM_PASSWORD&tboxing=1003156!1003795&uCals=13138
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 09 Dec 2022 12:59:01 GMT
+      Server:
+      - Apache
+      Connection:
+      - close
+      Vary:
+      - Accept-Encoding
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - text/plain; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: "<data>#C_dS_attendee\r-1|2|6978\r-1|1|13138\r-2|2|6978\r-2|1|13138\r-3|2|6978\r-3|1|13138\r-4|2|6978\r-4|1|13138\r-5|2|6978\r-5|1|13138\r-6|2|6978\r-6|1|13138\r-7|2|6978\r-7|1|13138\r-8|2|6978\r-8|1|13138\r-9|2|6978\r-9|1|13138\r-10|2|6978\r-10|1|13138\r-11|2|6978\r-11|1|13138\r-12|2|6978\r-12|1|13138\r-13|2|6978\r-13|1|13138\r-14|2|6978\r-14|1|13138\r-15|2|6978\r-15|1|13138\r-16|2|6978\r-16|1|13138\r-17|2|6978\r-17|1|13138\r-18|2|6978\r-18|1|13138\r-19|2|6978\r-19|1|13138\r-20|2|6978\r-20|1|13138\r-21|2|6978\r-21|1|13138\r-22|2|6978\r-22|1|13138\r-23|2|6978\r-23|1|13138\r-24|2|6978\r-24|1|13138\r-25|2|6978\r-25|1|13138\r-26|2|6978\r-26|1|13138\r-27|2|6978\r-27|1|13138\r-28|2|6978\r-28|1|13138\r-29|2|6978\r-29|1|13138\r-30|2|6978\r-30|1|13138\r-31|2|6978\r-31|1|13138\r-32|2|6978\r-32|1|13138\r-33|2|6978\r-33|1|13138\r-34|2|6978\r-34|1|13138\r-35|2|6978\r-35|1|13138\r-36|2|6978\r-36|1|13138\r-37|2|6978\r-37|1|13138\r-38|2|6978\r-38|1|13138\r-39|2|6978\r-39|1|13138\r-40|2|6978\r-40|1|13138\r-41|2|6978\r-41|1|13138\r-42|2|6978\r-42|1|13138\r-43|2|6978\r-43|1|13138\r-44|2|6978\r-44|1|13138\r-45|2|6978\r-45|1|13138\r-46|2|6978\r-46|1|13138\r-47|2|6978\r-47|1|13138\r-48|2|6978\r-48|1|13138\r-49|2|6978\r-49|1|13138\r-50|2|6978\r-50|1|13138\r-51|2|6978\r-51|1|13138\r-52|2|6978\r-52|1|13138\r-53|2|6978\r-53|1|13138\r-54|2|6978\r-54|1|13138\r-55|2|6978\r-55|1|13138\r-56|2|6978\r-56|1|13138\r-57|2|6978\r-57|1|13138\r-58|2|6978\r-58|1|13138\r-59|2|6978\r-59|1|13138\r-60|2|6978\r-60|1|13138\r#C_dS_resapart\r#C_dS_reservation\r-1|2023-12-16
+        16:00|2023-12-16 16:30|0\r-2|2023-12-16 16:30|2023-12-16 17:00|0\r-3|2023-12-23
+        16:00|2023-12-23 16:30|0\r-4|2023-12-23 16:30|2023-12-23 17:00|0\r-5|2023-12-30
+        16:00|2023-12-30 16:30|0\r-6|2023-12-30 16:30|2023-12-30 17:00|0\r-7|2024-01-06
+        16:00|2024-01-06 16:30|0\r-8|2024-01-06 16:30|2024-01-06 17:00|0\r-9|2024-01-13
+        16:00|2024-01-13 16:30|0\r-10|2024-01-13 16:30|2024-01-13 17:00|0\r-11|2024-01-20
+        16:00|2024-01-20 16:30|0\r-12|2024-01-20 16:30|2024-01-20 17:00|0\r-13|2024-01-27
+        16:00|2024-01-27 16:30|0\r-14|2024-01-27 16:30|2024-01-27 17:00|0\r-15|2024-02-03
+        16:00|2024-02-03 16:30|0\r-16|2024-02-03 16:30|2024-02-03 17:00|0\r-17|2024-02-10
+        16:00|2024-02-10 16:30|0\r-18|2024-02-10 16:30|2024-02-10 17:00|0\r-19|2024-02-17
+        16:00|2024-02-17 16:30|0\r-20|2024-02-17 16:30|2024-02-17 17:00|0\r-21|2024-02-24
+        16:00|2024-02-24 16:30|0\r-22|2024-02-24 16:30|2024-02-24 17:00|0\r-23|2024-03-02
+        16:00|2024-03-02 16:30|0\r-24|2024-03-02 16:30|2024-03-02 17:00|0\r-25|2024-03-09
+        16:00|2024-03-09 16:30|0\r-26|2024-03-09 16:30|2024-03-09 17:00|0\r-27|2024-03-16
+        16:00|2024-03-16 16:30|0\r-28|2024-03-16 16:30|2024-03-16 17:00|0\r-29|2024-03-23
+        16:00|2024-03-23 16:30|0\r-30|2024-03-23 16:30|2024-03-23 17:00|0\r-31|2024-03-30
+        16:00|2024-03-30 16:30|0\r-32|2024-03-30 16:30|2024-03-30 17:00|0\r-33|2024-04-06
+        16:00|2024-04-06 16:30|0\r-34|2024-04-06 16:30|2024-04-06 17:00|0\r-35|2024-04-13
+        16:00|2024-04-13 16:30|0\r-36|2024-04-13 16:30|2024-04-13 17:00|0\r-37|2024-04-20
+        16:00|2024-04-20 16:30|0\r-38|2024-04-20 16:30|2024-04-20 17:00|0\r-39|2024-04-27
+        16:00|2024-04-27 16:30|0\r-40|2024-04-27 16:30|2024-04-27 17:00|0\r-41|2024-05-04
+        16:00|2024-05-04 16:30|0\r-42|2024-05-04 16:30|2024-05-04 17:00|0\r-43|2024-05-11
+        16:00|2024-05-11 16:30|0\r-44|2024-05-11 16:30|2024-05-11 17:00|0\r-45|2024-05-18
+        16:00|2024-05-18 16:30|0\r-46|2024-05-18 16:30|2024-05-18 17:00|0\r-47|2024-05-25
+        16:00|2024-05-25 16:30|0\r-48|2024-05-25 16:30|2024-05-25 17:00|0\r-49|2024-06-01
+        16:00|2024-06-01 16:30|0\r-50|2024-06-01 16:30|2024-06-01 17:00|0\r-51|2024-06-08
+        16:00|2024-06-08 16:30|0\r-52|2024-06-08 16:30|2024-06-08 17:00|0\r-53|2024-06-15
+        16:00|2024-06-15 16:30|0\r-54|2024-06-15 16:30|2024-06-15 17:00|0\r-55|2024-06-22
+        16:00|2024-06-22 16:30|0\r-56|2024-06-22 16:30|2024-06-22 17:00|0\r-57|2024-06-29
+        16:00|2024-06-29 16:30|0\r-58|2024-06-29 16:30|2024-06-29 17:00|0\r-59|2024-07-06
+        16:00|2024-07-06 16:30|0\r-60|2024-07-06 16:30|2024-07-06 17:00|0\r</data>\r\rPerf
+        Report:\r     1670590741.1593 sec (+0 ms) <-> init\r     1670590741.1597 sec
+        (+0 ms) <-> \textractslots()->querycues() - query reservations\r     1670590741.1606
+        sec (+0 ms) <-> \textractslots()->setmasks()\r     1670590741.1606 sec (+0
+        ms) <-> \textractslots()->scancombination()\r     1670590741.1606 sec (+0
+        ms) <-> extractslots()\r     1670590741.1608 sec (+0 ms) <-> \textractslots()->querycues()
+        - query reservations\r     1670590741.1618 sec (+0 ms) <-> \textractslots()->setmasks()\r
+        \    1670590741.1619 sec (+0 ms) <-> \textractslots()->scancombination()\r
+        \    1670590741.1619 sec (+0 ms) <-> extractslots()\r     1670590741.1621
+        sec (+0 ms) <-> \textractslots()->querycues() - query reservations\r     1670590741.163
+        sec (+0 ms) <-> \textractslots()->setmasks()\r     1670590741.1631 sec (+0
+        ms) <-> \textractslots()->scancombination()\r     1670590741.1631 sec (+0
+        ms) <-> extractslots()\r     1670590741.1633 sec (+0 ms) <-> \textractslots()->querycues()
+        - query reservations\r     1670590741.1642 sec (+0 ms) <-> \textractslots()->setmasks()\r
+        \    1670590741.1642 sec (+0 ms) <-> \textractslots()->scancombination()\r
+        \    1670590741.1642 sec (+0 ms) <-> extractslots()\r     1670590741.1644
+        sec (+0 ms) <-> \textractslots()->querycues() - query reservations\r     1670590741.1653
+        sec (+0 ms) <-> \textractslots()->setmasks()\r     1670590741.1654 sec (+0
+        ms) <-> \textractslots()->scancombination()\r     1670590741.1654 sec (+0
+        ms) <-> extractslots()\r     1670590741.1655 sec (+0 ms) <-> \textractslots()->querycues()
+        - query reservations\r     1670590741.1665 sec (+0 ms) <-> \textractslots()->setmasks()\r
+        \    1670590741.1666 sec (+0 ms) <-> \textractslots()->scancombination()\r
+        \    1670590741.1666 sec (+0 ms) <-> extractslots()\r     1670590741.1669
+        sec (+0 ms) <-> \textractslots()->querycues() - query reservations\r     1670590741.1679
+        sec (+1 ms) <-> \textractslots()->setmasks()\r     1670590741.168 sec (+0
+        ms) <-> \textractslots()->scancombination()\r     1670590741.168 sec (+0 ms)
+        <-> extractslots()\r     1670590741.1682 sec (+0 ms) <-> \textractslots()->querycues()
+        - query reservations\r     1670590741.1691 sec (+0 ms) <-> \textractslots()->setmasks()\r
+        \    1670590741.1692 sec (+0 ms) <-> \textractslots()->scancombination()\r
+        \    1670590741.1692 sec (+0 ms) <-> extractslots()\r     1670590741.1693
+        sec (+0 ms) <-> \textractslots()->querycues() - query reservations\r     1670590741.1703
+        sec (+0 ms) <-> \textractslots()->setmasks()\r     1670590741.1704 sec (+0
+        ms) <-> \textractslots()->scancombination()\r     1670590741.1704 sec (+0
+        ms) <-> extractslots()\r     1670590741.1707 sec (+0 ms) <-> \textractslots()->querycues()
+        - query reservations\r     1670590741.1717 sec (+0 ms) <-> \textractslots()->setmasks()\r
+        \    1670590741.1718 sec (+0 ms) <-> \textractslots()->scancombination()\r
+        \    1670590741.1718 sec (+0 ms) <-> extractslots()\r     1670590741.172 sec
+        (+0 ms) <-> \textractslots()->querycues() - query reservations\r     1670590741.1729
+        sec (+0 ms) <-> \textractslots()->setmasks()\r     1670590741.173 sec (+0
+        ms) <-> \textractslots()->scancombination()\r     1670590741.173 sec (+0 ms)
+        <-> extractslots()\r     1670590741.1733 sec (+0 ms) <-> \textractslots()->querycues()
+        - query reservations\r     1670590741.1742 sec (+0 ms) <-> \textractslots()->setmasks()\r
+        \    1670590741.1743 sec (+0 ms) <-> \textractslots()->scancombination()\r
+        \    1670590741.1743 sec (+0 ms) <-> extractslots()\r     1670590741.1746
+        sec (+0 ms) <-> \textractslots()->querycues() - query reservations\r     1670590741.1756
+        sec (+0 ms) <-> \textractslots()->setmasks()\r     1670590741.1757 sec (+0
+        ms) <-> \textractslots()->scancombination()\r     1670590741.1757 sec (+0
+        ms) <-> extractslots()\r     1670590741.1761 sec (+0 ms) <-> \textractslots()->querycues()
+        - query reservations\r     1670590741.177 sec (+0 ms) <-> \textractslots()->setmasks()\r
+        \    1670590741.1771 sec (+0 ms) <-> \textractslots()->scancombination()\r
+        \    1670590741.1771 sec (+0 ms) <-> extractslots()\r     1670590741.1775
+        sec (+0 ms) <-> \textractslots()->querycues() - query reservations\r     1670590741.1783
+        sec (+0 ms) <-> \textractslots()->setmasks()\r     1670590741.1783 sec (+0
+        ms) <-> \textractslots()->scancombination()\r     1670590741.1783 sec (+0
+        ms) <-> extractslots()\r     1670590741.1786 sec (+0 ms) <-> \textractslots()->querycues()
+        - query reservations\r     1670590741.1796 sec (+0 ms) <-> \textractslots()->setmasks()\r
+        \    1670590741.1797 sec (+0 ms) <-> \textractslots()->scancombination()\r
+        \    1670590741.1797 sec (+0 ms) <-> extractslots()\r     1670590741.1802
+        sec (+0 ms) <-> \textractslots()->querycues() - query reservations\r     1670590741.1815
+        sec (+1 ms) <-> \textractslots()->setmasks()\r     1670590741.1817 sec (+0
+        ms) <-> \textractslots()->scancombination()\r     1670590741.1817 sec (+0
+        ms) <-> extractslots()\r     1670590741.1819 sec (+0 ms) <-> \textractslots()->querycues()
+        - query reservations\r     1670590741.1828 sec (+0 ms) <-> \textractslots()->setmasks()\r
+        \    1670590741.1828 sec (+0 ms) <-> \textractslots()->scancombination()\r
+        \    1670590741.1828 sec (+0 ms) <-> extractslots()\r     1670590741.1836
+        sec (+0 ms) <-> makechunks()\r     1670590741.1872 sec (+3 ms) <-> datasets()\r\r
+        \    Total delta:  (+27 ms)"
+  recorded_at: Fri, 08 Dec 2023 04:00:00 GMT
+recorded_with: VCR 6.1.0

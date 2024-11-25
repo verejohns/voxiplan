@@ -1,0 +1,20 @@
+<p>A new number is requested by <%= @client&.first_name + ' ' + @client&.last_name %></p>
+
+<h4>Details</h4>
+Email: <%= @client&.email %><br>
+Client ID: <%= @client&.id %> <br>
+Account ID: <%= @account&.id %><br>
+Workspace: <%= @account&.name %><br>
+
+Phone Number: <%= @number %><br>
+<%= @phone_user_label %><br>
+<% if @phone_user == 'individual' %>
+  First Name: <%= @individual_first_name %><br>
+  Last Name: <%= @individual_last_name %><br>
+<% else %>
+  Business Name: <%= @business_name %><br>
+  Business Registration Number: <%= @business_number %><br>
+  First Name: <%= @business_first_name %><br>
+  Last Name: <%= @business_last_name %><br>
+  Business Address: <%= @business_address %><br>
+<% end %>

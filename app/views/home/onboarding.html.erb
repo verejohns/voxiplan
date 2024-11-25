@@ -1,0 +1,192 @@
+
+<!--begin::Authentication - Sign-up -->
+<div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed">
+  <!--begin::Content-->
+  <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
+    <!--begin::Logo-->
+    <a href="/" class="mb-12">
+      <img alt="Logo" src="/assets/voxi_logo.png" class="h-45px" />
+    </a>
+    <!--end::Logo-->
+    <!--begin::Wrapper-->
+    <div class="bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
+      <!--begin::Stepper-->
+      <div class="stepper stepper-pills stepper-column d-flex flex-column flex-xl-row flex-row-fluid" id="kt_create_account_stepper">
+        <!--begin::Aside-->
+        <div class="d-flex justify-content-center bg-body rounded justify-content-xl-start flex-row-auto w-100 w-xl-300px me-9">
+          <!--begin::Nav-->
+          <div class="stepper-nav">
+            <!--begin::Step 1-->
+            <div class="stepper-item current" data-kt-stepper-element="nav">
+              <!--begin::Line-->
+              <div class="stepper-line w-40px"></div>
+              <!--end::Line-->
+              <!--begin::Icon-->
+              <div class="stepper-icon w-40px h-40px">
+                <i class="stepper-check fas fa-check"></i>
+                <span class="stepper-number">1</span>
+              </div>
+              <!--end::Icon-->
+              <!--begin::Label-->
+              <div class="stepper-label">
+                <h3 class="stepper-title"><%= t('onboarding.general_info.menu_name') %></h3>
+                <div class="stepper-desc fw-bold"><%= t('onboarding.general_info.menu_description') %></div>
+              </div>
+              <!--end::Label-->
+            </div>
+            <!--end::Step 1-->
+            <!--begin::Step 2-->
+            <div class="stepper-item" data-kt-stepper-element="nav">
+              <!--begin::Line-->
+              <div class="stepper-line w-40px"></div>
+              <!--end::Line-->
+              <!--begin::Icon-->
+              <div class="stepper-icon w-40px h-40px">
+                <i class="stepper-check fas fa-check"></i>
+                <span class="stepper-number">2</span>
+              </div>
+              <!--end::Icon-->
+              <!--begin::Label-->
+              <div class="stepper-label">
+                <h3 class="stepper-title"><%= t('onboarding.connect_calendar.menu_name') %></h3>
+                <div class="stepper-desc fw-bold"><%= t('onboarding.connect_calendar.menu_description') %></div>
+              </div>
+              <!--end::Label-->
+            </div>
+            <!--end::Step 2-->
+            <!--begin::Step 3-->
+            <div class="stepper-item" data-kt-stepper-element="nav">
+              <!--begin::Line-->
+              <div class="stepper-line w-40px"></div>
+              <!--end::Line-->
+              <!--begin::Icon-->
+              <div class="stepper-icon w-40px h-40px">
+                <i class="stepper-check fas fa-check"></i>
+                <span class="stepper-number">3</span>
+              </div>
+              <!--end::Icon-->
+              <!--begin::Label-->
+              <div class="stepper-label">
+                <h3 class="stepper-title"><%= t('onboarding.set_availability.menu_name') %></h3>
+                <div class="stepper-desc fw-bold"><%= t('onboarding.set_availability.menu_description') %></div>
+              </div>
+              <!--end::Label-->
+            </div>
+            <!--end::Step 3-->
+          </div>
+          <!--end::Nav-->
+        </div>
+        <!--begin::Aside-->
+        <!--begin::Content-->
+        <%= form_for(current_client.agenda_apps, as: :agenda_app, :url => save_agenda_info_agenda_app_path, method: :post, html: {class: "w-100 w-lg-800px", id: "kt_create_account_form"}) do |f| %>
+        <div class="d-flex flex-row-fluid flex-center bg-body rounded">
+          <!--begin::Form-->
+
+            <!--begin::Step 1-->
+            <div class="w-100 <%= params[:success].present? ? 'completed' : 'current' %>" data-kt-stepper-element="content">
+              <%= render 'onboarding_general' %>
+            </div>
+            <!--end::Step 1-->
+            <!--begin::Step 2-->
+            <div class="w-100 <%= params[:success].present? ? 'current' : '' %>" data-kt-stepper-element="content">
+              <%= render 'onboarding_connect', form: f %>
+            </div>
+            <!--end::Step 2-->
+            <!--begin::Step 3-->
+            <div class="w-100" data-kt-stepper-element="content">
+              <%= render 'onboarding_availability' %>
+            </div>
+            <!--end::Step 3-->
+
+        </div>
+        <!--begin::Actions-->
+        <div class="d-flex flex-stack pt-10">
+          <!--begin::Wrapper-->
+          <div class="mr-2">
+            <button type="button" class="btn btn-lg btn-light-primary me-3" data-kt-stepper-action="previous">
+              <%= t('common.button.back') %>
+            </button>
+          </div>
+          <!--end::Wrapper-->
+          <!--begin::Wrapper-->
+          <div>
+            <button type="submit" class="btn btn-lg btn-primary me-3" data-kt-stepper-action="submit">
+              <span class="indicator-label"><%= t('common.button.finish') %></span>
+              <span class="indicator-progress"><%= t('common.please_wait') %>
+                <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+              </span>
+            </button>
+            <button type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="next">
+              <%= t('common.button.continue') %>
+            </button>
+          </div>
+          <!--end::Wrapper-->
+        </div>
+        <!--end::Actions-->
+        <% end %>
+        <!--end::Form-->
+        <!--end::Content-->
+      </div>
+      <!--end::Stepper-->
+    </div>
+    <!--end::Wrapper-->
+  </div>
+  <!--end::Content-->
+</div>
+<input type="hidden" id="ok_got_it" value="<%= t('sweetalert.ok_got_it') %>" />
+<input type="hidden" id="normal_error_text" value="<%= t('common.normal_error_text') %>" />
+
+<%= javascript_include_tag 'onboarding', 'data-turbolinks-track' => true %>
+<!--begin::Page Custom Javascript(used by this page)-->
+<script>
+    $('input').keydown(function(event){
+        if(event.keyCode == 13) {
+            event.preventDefault();
+            return false;
+        }
+    });
+
+    // Input Mask
+    (function () {
+        const $from = document.querySelectorAll(".mask-from");
+        const $to = document.querySelectorAll(".mask-to");
+
+        Inputmask({
+            alias: 'datetime',
+            inputFormat: 'H2:MM',
+            placeholder: '00:00',
+            min: '00:00',
+            max: '23:59'
+        }).mask($from);
+
+        Inputmask({
+            alias: 'datetime',
+            inputFormat: 'H2:MM',
+            placeholder: '00:00',
+            min: '00:00',
+            max: '23:59',
+        }).mask($to);
+    })();
+
+    $('button.btn-connect').on('click', function() {
+        const provider_name = $(this).data('provider-name');
+        const auth = $('[name="csrf-token"]')[0].content;
+        $.ajax({
+            url: "/agenda_app/create_new_agenda",
+            type: "POST",
+            data: {
+                authenticity_token: auth,
+                browser_locale: "<%= @browser_locale %>"
+            },
+            success: function(response){
+                window.location.href = response.cronofy_auth_url + "&provider_name=" + provider_name + "&state=<%= SecureRandom.hex(24) %>" + "&locale=" + response.user_locale;
+            }
+        });
+    })
+
+</script>
+<!--end::Page Custom Javascript-->
+<!--end::Javascript-->
+</body>
+<!--end::Body-->
+</html>

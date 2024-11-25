@@ -1,0 +1,2 @@
+class TestIdentifier < ApplicationRecord
+end

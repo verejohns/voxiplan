@@ -1,0 +1,170 @@
+---
+nl:
+  activerecord:
+    attributes:
+      client:
+        confirmation_sent_at: Datum d'envoi de la confirmation
+        confirmation_token: Jeton de confirmation
+        confirmed_at: Confirmé à
+        created_at: Créé à
+        current_password: Mot de passe actuel
+        current_sign_in_at: Datum van actieve aansluiting
+        current_sign_in_ip: IP de connexion active
+        email: E-mail
+        encrypted_password: Mot de passe encrypté
+        failed_attempts: Tentatieven échouées
+        last_sign_in_at: Date de la dernière connexion
+        last_sign_in_ip: IP de la dernière connexion
+        locked_at: Verrouillé à
+        password: Mot de passe
+        password_confirmation: Bevestiging van het passeermotief
+        remember_created_at: Mémorisé à
+        remember_me: Se souvenir de moi ?
+        reset_password_sent_at: Clé de réinitialisation créée à
+        reset_password_token: Clé de réinitialisation du mot de passe
+        sign_in_count: Naam van aansluiting(en)
+        unconfirmed_email: E-mail niet bevestigd
+        unlock_token: Clé de déverrouillage
+        updated_at: Datum van inwerkingstelling
+      user:
+        confirmation_sent_at: Bevestiging verzonden naar
+        confirmation_token: Bevestigingsteken
+        confirmed_at: Bevestigd op
+        created_at: Gemaakt op
+        current_password: Huidig wachtwoord
+        current_sign_in_at: Huidige aanmelding bij
+        current_sign_in_ip: Huidig aangemelde IP
+        email: E-mail
+        encrypted_password: Gecodeerd wachtwoord
+        failed_attempts: Mislukte pogingen
+        last_sign_in_at: Laatste aanmelding bij
+        last_sign_in_ip: Laatst aangemelde IP
+        locked_at: Vergrendeld op
+        password: Wachtwoord
+        password_confirmation: Wachtwoord bevestiging
+        remember_created_at: Onthoud gemaakt op
+        remember_me: Herinner mij
+        reset_password_sent_at: Reset wachtwoord verzonden naar
+        reset_password_token: Reset wachtwoord token
+        sign_in_count: Tellen
+        unconfirmed_email: Onbevestigde e-mail
+        unlock_token: Ontgrendelen token
+        updated_at: Bijgewerkt op
+    models:
+      client: Utilisateur
+      user: Gebruiker
+  devise:
+    confirmations:
+      confirmed: Uw e-mailadres is succesvol bevestigd.
+      new:
+        resend_confirmation_instructions: Bevestigingsinstructies opnieuw verzenden
+      send_instructions: U zult binnen enkele minuten een e-mail ontvangen met instructies over hoe u uw e-mailadres kunt bevestigen.
+      send_paranoid_instructions: Als uw e-mailadres in onze database voorkomt, ontvangt u binnen enkele minuten een e-mail met instructies over hoe u uw e-mailadres kunt bevestigen.
+    failure:
+      already_authenticated: U bent al aangemeld.
+      inactive: Uw account is nog niet geactiveerd.
+      invalid: Ongeldige %{authentication_keys} of wachtwoord.
+      last_attempt: Je hebt nog één poging voordat je account vergrendeld wordt.
+      locked: Uw account is vergrendeld.
+      not_found_in_database: Ongeldig %{authentication_keys} adres of wachtwoord.
+      timeout: Uw sessie is verlopen. Gelieve opnieuw in te loggen om verder te gaan.
+      unauthenticated: U moet zich aanmelden of registreren voordat u verder kunt gaan.
+      unconfirmed: U moet uw emailadres bevestigen voordat u verder gaat.
+    mailer:
+      confirmation_instructions:
+        action: Bevestig mijn rekening
+        greeting: Welkom %{ontvanger}!
+        instruction: 'U kunt uw account e-mail bevestigen via de onderstaande link:'
+        subject: Instructies voor bevestiging
+      password_change:
+        greeting: Hallo %{ontvanger}!
+        message: We nemen contact met u op om u te laten weten dat uw wachtwoord is gewijzigd.
+        subject: Wachtwoord gewijzigd
+      reset_password_instructions:
+        action: Wijzig mijn wachtwoord
+        greeting: Hallo %{ontvanger}!
+        instruction: Iemand heeft om een link gevraagd om uw wachtwoord te wijzigen, en u kunt dit doen via de onderstaande link.
+        instruction_2: Als je dit niet aangevraagd hebt, negeer deze e-mail dan.
+        instruction_3: Uw wachtwoord zal niet veranderen totdat u de bovenstaande link opent en een nieuw wachtwoord aanmaakt.
+        subject: Reset wachtwoord instructies
+      unlock_instructions:
+        action: Mijn account deblokkeren
+        greeting: Hallo %{ontvanger}!
+        instruction: 'Klik op de link hieronder om uw account te deblokkeren:'
+        message: Uw account is geblokkeerd wegens een excessief aantal mislukte inlogpogingen.
+        subject: Instructies voor ontgrendelen
+    omniauth_callbacks:
+      failure: Kon u niet authenticeren van %{kind} omdat "%{reason}".
+      success: Met succes geauthenticeerd van %{kind} account.
+    passwords:
+      edit:
+        change_my_password: Wijzig mijn wachtwoord
+        change_your_password: Wijzig uw wachtwoord
+        confirm_new_password: Bevestig nieuw wachtwoord
+        new_password: Nieuw wachtwoord
+      new:
+        forgot_your_password: Wachtwoord vergeten?
+        forgot_your_password_heading: Voer uw e-mailadres in om uw wachtwoord te resetten
+        send_me_reset_password_instructions: Stuur mij instructies om mijn wachtwoord te resetten
+      no_token: U kunt geen toegang krijgen tot deze pagina als u niet van een e-mail komt om uw wachtwoord te resetten. Als u van een e-mail komt om uw wachtwoord te resetten, zorg er dan voor dat u de volledige URL gebruikt.
+      send_instructions: U zult binnen enkele minuten een e-mail ontvangen met instructies over hoe u uw wachtwoord opnieuw kunt instellen.
+      send_paranoid_instructions: Als uw e-mailadres in onze database voorkomt, ontvangt u binnen enkele minuten op uw e-mailadres een link om uw wachtwoord te herstellen.
+      updated: Uw wachtwoord is succesvol gewijzigd. U bent nu aangemeld.
+      updated_not_active: Uw wachtwoord is succesvol gewijzigd.
+    registrations:
+      destroyed: Tot ziens Uw account is succesvol geannuleerd. We hopen u snel weer te zien.
+      edit:
+        are_you_sure: Ben je zeker?
+        cancel_my_account: Mijn rekening annuleren
+        currently_waiting_confirmation_for_email: 'Wacht momenteel op bevestiging voor: %{email}'
+        leave_blank_if_you_don_t_want_to_change_it: laat leeg als u het niet wilt veranderen
+        title: Bewerk %{resource}
+        unhappy: Ongelukkig?
+        update: Update
+        we_need_your_current_password_to_confirm_your_changes: we hebben uw huidige wachtwoord nodig om uw wijzigingen te bevestigen
+      new:
+        already_account: Heb je al een account?
+        join_signin: Om lid te worden, meldt u zich aan of
+        join_to_organization: een account aanmaken
+        sign_in: Meld je hier aan
+        sign_in_heading: Teken naar Voxiplan
+        sign_up: Aanmelden
+        sign_up_heading: Maak een account aan
+        welcome_join: Welkom bij %{organisatie} op Voxiplan
+      signed_up: Welkom! U heeft zich succesvol aangemeld.
+      signed_up_but_inactive: U heeft zich succesvol aangemeld. We konden u echter niet aanmelden omdat uw account nog niet geactiveerd is.
+      signed_up_but_locked: U heeft zich succesvol aangemeld. We konden u echter niet aanmelden omdat uw account is geblokkeerd.
+      signed_up_but_unconfirmed: Een bericht met een bevestigingslink is naar uw e-mailadres verzonden. Volg de link om uw account te activeren.
+      update_needs_confirmation: U heeft uw account succesvol geupdate, maar we moeten uw nieuwe emailadres nog verifiëren. Controleer uw e-mail en volg de bevestigingslink om uw nieuwe e-mailadres te bevestigen.
+      updated: Uw account is succesvol bijgewerkt.
+    sessions:
+      already_signed_out: Succesvol afgemeld.
+      new:
+        sign_in: Meld je aan
+      signed_in: Succesvol aangemeld.
+      signed_out: Succesvol afgemeld.
+    shared:
+      links:
+        back: Terug
+        didn_t_receive_confirmation_instructions: Heb je geen bevestigingsinstructies ontvangen?
+        didn_t_receive_unlock_instructions: Heb je geen instructies voor het ontgrendelen ontvangen?
+        forgot_your_password: Wachtwoord vergeten?
+        sign_in: Meld je aan
+        sign_in_with_provider: Log in met %{provider}
+        sign_up: Aanmelden
+    unlocks:
+      new:
+        resend_unlock_instructions: Stuur de instructies voor ontgrendeling opnieuw
+      send_instructions: U ontvangt binnen enkele minuten een e-mail met instructies over hoe u uw account kunt deblokkeren.
+      send_paranoid_instructions: Als uw account bestaat, ontvangt u binnen enkele minuten een e-mail met instructies over hoe u deze kunt deblokkeren.
+      unlocked: Uw account is met succes gedeblokkeerd. Log in om verder te gaan.
+  errors:
+    messages:
+      already_confirmed: al bevestigd was, probeer in te loggen
+      confirmation_period_expired: moet worden bevestigd binnen %{period}, gelieve een nieuwe aan te vragen
+      expired: verlopen is, gelieve een nieuwe aan te vragen
+      not_found: niet gevonden
+      not_locked: was niet vergrendeld
+      not_saved:
+        one: 'Door 1 fout kon deze %{resource} niet worden opgeslagen:'
+        other: "%{count} fouten verhinderden dat deze %{resource} werd opgeslagen:"

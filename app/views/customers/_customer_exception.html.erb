@@ -1,0 +1,69 @@
+<!--begin::Exception List-->
+<div class="modal fade" id="kt_modal_exception_list" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered mw-500px">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('customers.exception_list') %></h5>
+
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+              <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+                <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
+                <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                      x="0" y="7" width="16" height="2" rx="1" />
+              </g>
+            </svg>
+          </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+
+      <div class="modal-body">
+        <select class="form-select exceptional-list" multiple data-control="select2" data-placeholder="<%= t('customers.select_phones') %>">
+          <option></option>
+          <option value="1">+1(234)567-8901</option>
+          <option value="2">+1(234)567-8902</option>
+          <option value="3">+1(234)567-8903</option>
+        </select>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal"><%= t('common.button.cancel') %></button>
+        <button type="button" class="btn btn-primary apply-exception"><%= t('button.apply') %></button>
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+<!--end::Exception List-->
+
+<script>
+    $('button.apply-exception').click(function() {
+        const auth = $('[name="csrf-token"]')[0].content;
+        const exception_list = $('select.exceptional-list').select2('data');
+        let checked_exception_list = [];
+
+        exception_list.forEach(function(phone_number, index) {
+            checked_exception_list.push(phone_number.id);
+        });
+        $.ajax({
+            url: "<%= customers_exception_list_path %>",
+            type: "POST",
+            data: {
+                authenticity_token: auth,
+                customer_id: $('input#selected_customer_id').val(),
+                exception_list : checked_exception_list
+            },
+            success: function(response){
+                window.location.reload();
+            }
+        });
+    })
+</script>

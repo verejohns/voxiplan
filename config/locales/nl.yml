@@ -1,0 +1,2370 @@
+---
+nl:
+  activerecord:
+    models:
+      ivr: Account
+  activity_summary:
+    heading: Samenvatting van de activiteiten
+    total_confirmed_appointments: Totaal aantal bevestigde afspraken
+    total_incoming_calls: Totaal inkomende gesprekken
+    total_incoming_calls_minutes: Totaal aantal minuten inkomende gesprekken
+    total_outgoing_calls: Totaal uitgaande gesprekken
+    total_outgoing_calls_minutes: Totaal aantal minuten uitgaande gesprekken
+    total_sms: Totaal aantal sms'jes
+  add_workspace:
+    button:
+      add_new_workspace: Nieuwe werkruimte toevoegen
+    create_message: Een nieuwe werkruimte succesvol toegevoegd
+    new_workspace: Nieuwe werkruimte
+    required_name: Verplichte werkruimte naam!
+    required_url: Vereiste Voxiplan Url!
+    voxiplan_url: Voxiplan URL
+    workspace_name: Naam werkruimte
+  administrate:
+    actions:
+      reify: Terugkeren
+  agenda_apps:
+    change_agenda: Veranderingsagenda
+    choose: Kies een agenda
+    filters:
+      all: Alle
+      calenders: Online agenda's
+      systems: Online reserveringssystemen
+    login: Autoriseer
+    set_as_default: Instellen als standaard
+    try_it: Probeer het gratis
+  ai_bot:
+    appointment_failed: Sorry, we konden uw afspraak niet maken
+    appointment_success: Dank u, uw afspraak voor %{tijd} is bevestigd.
+    available_free_slots: We hebben gratis gokkasten op %{time1}, %{time2} en %{time3}. Welke werkt het beste voor jou?
+    slot_available: We hebben een vrij slot voor %{tijd}. Wil je dat bevestigen?
+    slot_not_available: Sorry. We hebben geen vrije slots op deze dag
+  ai_phone_assistant_enabled: Telefoon schakelaar
+  announce:
+    alert: Uw assistent kan aan het begin van elk gesprek een aankondiging doen. Gebruik dit om de aandacht te vestigen op speciale openingstijden, promoties of andere belangrijke informatie waarvan u wilt dat mensen op de hoogte zijn.
+    closed_hours: Maak een aankondiging tijdens gesloten uren
+    heading: Maak een speciale aankondiging
+    open_hours: Maak een aankondiging tijdens de openingsuren
+    preview: Voorbeeld
+    say_label: Zeg
+    should_i: Moet ik
+  announcement:
+    accept_callers_phone: Laat boekingen toe van nieuwe klanten
+    anonymous: Bellers vragen een telefoonnummer in te voeren als de identiteit van de beller anoniem is?
+    anonymous_text: Indien ingeschakeld, zullen bellers met verborgen nummers worden gevraagd hun nummer in te voeren voordat ze uw afspraakslots te horen krijgen.
+    booking_example_message: Voer uw telefoonnummer in gevolgd door de hash sleutel.
+    closed: Speel aankondiging tijdens gesloten uren
+    closed_example_message: 'Voorbeeld: Hallo, ik ben Laura. U belt buiten onze openingstijden, maar ik ben er om u te helpen een afspraak te maken op een tijdstip dat u het beste uitkomt.'
+    dont_accept_new_client: Indien uitgeschakeld, kunnen nieuwe klanten geen afspraak maken.
+    hangup_caller_sms_heading: Hangup SMS
+    make_announcement_1: De beller is in uw afspraak menu gekomen.
+    make_announcement_2: Wat wil je dat ik zeg voordat ik afspraken ga voorstellen?
+    make_announcement_note: 'Opmerking: dit is facultatief. De aankondiging kan verschillend zijn tijdens open en gesloten uren.'
+    open: Speel aankondiging tijdens open uren
+    open_example_message: 'Voorbeeld: Hallo, ik ben Laura en ik ben hier om u te helpen een afspraak te vinden op een tijdstip dat u het beste uitkomt. Als u op elk moment met een agent wilt spreken, drukt u op de ster-toets.'
+    record_user_name: Vraag de beller om zijn naam op te schrijven?
+  appoinments_scheduling_sidebar:
+    announcement: Aankondiging
+    cancellation_changes: Annuleringen & wijzigingen
+    confirmation: Bevestiging
+    services_resources: Diensten en middelen
+    suggesting_appointments: Afspraken voorstellen
+  appointment_widget:
+    appointment_duration: Duur
+    appointment_not_booked: Afspraak niet geboekt
+    appointment_static_error: Er is een fout
+    back_button: Terug
+    book_heading: Een afspraak maken
+    book_success_title: Afspraak succesvol geboekt!
+    cancel_event: Annuleer evenement
+    cancel_heading: Een afspraak annuleren
+    cancel_success_title: Afspraak succesvol geannuleerd!
+    check_validity: Schema
+    create_customer_button: Een account aanmaken
+    email_address_label: E-mail
+    email_help_text: Voer een e-mail in om verder te gaan
+    email_invalid_help_text: E-mail is niet geldig!
+    enter_details: Details invoeren
+    error_help_text: Sorry, je hebt geen toegang tot deze pagina. Neem contact op met support via chat of e-mail.
+    error_label: Oeps, er ging iets mis
+    first_name_help_text: De voornaam is verplicht en moet minstens 2 tekens bevatten
+    first_name_label: Voornaam
+    full_name_help_text: Volledige naam is vereist en moet minstens 2 tekens bevatten
+    full_name_label: Volledige naam
+    heading: Maak een afspraak
+    invalid_cancel: De afspraak is niet afgezegd.
+    invalid_email: Sorry, uw e-mailadres is ongeldig
+    invalid_event: De gebeurtenis bestaat niet.
+    invalid_number: Ongeldig nummer
+    last_name_help_text: Achternaam is verplicht en moet minstens 2 tekens bevatten
+    last_name_label: Achternaam
+    last_step: Nog één stap om verder te gaan...
+    more_info: Meer informatie is nodig om verder te gaan...
+    next_button: Volgende
+    next_slots_button: Volgende beschikbaarheid op
+    no_resource_service: Er is geen optie beschikbaar
+    no_slots_button: Geen slots beschikbaar
+    phone_number_help_text: Voer een telefoonnummer in om verder te gaan
+    phone_number_label: Telefoonnummer
+    phone_number_not_valid: Voer een geldig telefoonnummer in!
+    powered_by: Aangedreven door
+    questions_heading: De volgende vragen worden niet beantwoord
+    questions_title: Extra details
+    reason: 'Reden:'
+    reschedule_heading: Een afspraak verzetten
+    reschedule_success_title: Afspraak verzet!
+    select_a_time: Selecteer een tijd
+    select_placeholder: Selecteer een optie
+    select_resource: Wählen Sie Ressourcen
+    select_services: Wählen Sie Dienste
+    select_time_slot: Selecteer een datum en tijd
+    service_resource_help_text: Maak een selectie
+    success_detail: Afspraak Details
+    success_duration: Duur
+    success_email: E-mail
+    success_name: Naam
+    success_phone: Telefoonnummer
+    success_selected_slot: Geselecteerde tijd
+    success_time: Tijdzone
+    success_title: Afspraak met succes geboekt!
+    time_format_label: Tijdformaat
+    time_range_afternoon: Middag
+    time_range_label: Kies de tijdspanne die het best bij uw schema past.
+    time_range_monring: Ochtend
+    time_range_no_preference: Geen voorkeur
+    time_zone_label: Tijdzone
+    valid_number: "✓ Geldig"
+  availabilities:
+    add_new_schedule: Nieuwe planning toevoegen
+    clone: Kloon
+    cloned_ok: Succesvol gekloond
+    copy_times: Kopieer tijden naar...
+    default_ok: Het schema met succes als standaard ingesteld
+    delete_ok: Met succes verwijderd
+    delete_schedule_confirm: Deze actie kan niet ongedaan worden gemaakt. Weet u zeker dat u deze agenda wilt verwijderen?
+    edit_name: Naam bewerken
+    edit_schedule: Wijzig schema
+    from: Van
+    new_schedule: Nieuw schema
+    override:
+      add_override: Een datumoverschrijding toevoegen
+      header: Datumoverschrijdingen toevoegen
+      helper: Voeg data toe wanneer uw beschikbaarheid verandert ten opzichte van uw wekelijkse uren
+      modal_help: Welke uren ben je beschikbaar?
+      modal_title: Selecteer de datum(s) waarop u specifieke uren wilt toekennen
+    required_schedule_name: De naam van het schema is vereist
+    save_as_schedule_help: Bewaar deze uren om ze opnieuw te gebruiken voor andere soorten evenementen. Beheer al uw roosters onder beschikbaarheid.
+    save_as_schedule_title: Wil je dit opslaan als een nieuw schema
+    save_success: Met succes opgeslagen als een nieuwe agenda.
+    schedule_name: Naam schema
+    schedule_name_placeholder: Werktijden, exclusieve uren, enz...
+    set_as_default: Instellen als standaard
+    to: Naar
+    unavailable: Niet beschikbaar
+    working_hours: Werktijden
+  billing:
+    add_seat:
+      add_seats: Zetels toevoegen
+      due_today: vandaag
+      per_year: per jaar
+      price_usd: Prijzen zijn in USD
+      save: red
+      upgrade_essential: Upgrade naar Essentials
+      usd_annually: "/ gebruiker / mo jaarlijks betaald"
+      usd_monthly: "/ gebruiker / mo maandelijks betaald"
+    aggregate:
+      all_account_total: Alle rekeningen Totaal
+      appointment: afspraken
+      appointments: Afspraken
+      as_of_utc: Vanaf 00:00 UTC
+      assistant: Assistent
+      basic: Basis
+      cost: Kosten
+      inbound: Inkomend
+      local: Lokaal
+      looking_event: Wil je nog meer uit Voxiplan halen?
+      manage_subscription: Abonnement beheren
+      message: Berichten
+      minutes: minuut(pen)
+      mobile: Mobiel
+      monthly: Maandelijks
+      national: Nationaal
+      no_any_data: Er zijn geen gegevens voor facturering.
+      numbers: nummer(s)
+      outbound: Uitgaande
+      phone_number: Telefoonnummers
+      pick_month: Kies een maand
+      premium: Premium
+      product: Product
+      quantity: Hoeveelheid
+      seat: plaats(en)
+      seats: Zetels
+      segments: segment(en)
+      sip: SIP
+      sms: SMS
+      subscription: Abonnement
+      task: taken
+      tasks: Taken
+      telecom: Telecom
+      unit: Eenheden
+      view_all_plans: Alle plannen bekijken
+      voice: Stem
+      yearly: Jaarlijks
+    billing_plan:
+      free_plan: Gratis plan
+      trail_plan: Premium proef
+      upgrade_now: Nu upgraden
+      want_upgrade_account: Wilt u uw account opwaarderen?
+      you_downgraded: wordt u gedegradeerd naar de
+      you_enjoying: U geniet momenteel van de
+      you_on: Je bent op de
+      you_trial_end: Je proef eindigde op
+    title: Facturering
+    upgrade_plan:
+      active_event_type: Actief evenementtype
+      ai_assistant: AI-Assistent
+      always_free: Altijd gratis
+      appointment_scheduling: Planning van afspraken
+      automated_event_notifications: Geautomatiseerde gebeurtenismeldingen
+      basic: Basis
+      basic_features_plus: Alle basisfuncties plus
+      billed_yearly: Jaarlijks gefactureerd
+      booking_widget: Reservering Widget
+      call_recovery_followup: Herstel van gesprekken / Follow-ups
+      choose_subscription: Kies het juiste abonnement voor u
+      config_service_integration: Integratie van conferentiediensten
+      connect_agenda: Verbinding met Google agenda, Exchange, Outlook, Office 365, iCloud integratie
+      conversation_ai_tech: Gespreks-AI technologie
+      custom_questions: Aangepaste vragen
+      customize_notifications: Meldingen aanpassen
+      email_reminder: Herinneringen per e-mail en SMS
+      enterprise: Onderneming
+      features_seats_individual: Alle kenmerken en aantallen stoelen zijn individueel.
+      free_features_plus: Alle Altijd Gratis-functies plus
+      languages: talen
+      most_popular: Meest populaire
+      multi_channel: Multikanaals sms, telefoon, webchat, WhatsApp
+      no_shows_recovery: No-shows Herstel
+      pay_per_use_telecom: Pay-per-use Telecom
+      payment_stripe: Verzamel betalingen via Stripe
+      per_seat_month: per plaats /maand
+      phone_menu_tech: Telefoonmenu (IVR) technologie
+      phone_single_channel: Telefoon Enkel kanaal
+      premium: Premium
+      pricing_euro: De prijzen zijn in EUR voor Europa (inclusief UK) en in USD voor de rest van de wereld (exclusief BTW)
+      receptionist: Receptioniste
+      redirect_after_booking: Redirect na boeking
+      redirect_your_invitee: Stuur uw genodigden door
+      remove_voxiplan_branding: Voxiplan branding verwijderen
+      select: Selecteer
+      send_sms_campaigns: SMS Campagnes versturen
+      unlimited_event_types: Onbeperkt actieve evenementtypes
+      unlimted_appointments: Onbeperkte afspraken
+  breadcrumb:
+    appoinments_scheduling: Afspraken Planning
+    my_assistant: Mijn assistent
+  business_hours:
+    add: Toevoegen
+    alert: Tijdens kantooruren worden bellers naar uw telefoonmenu geleid met de verschillende keuzes die u hebt gedefinieerd. Buiten kantooruren horen bellers de menuopties niet en worden ze direct doorgeschakeld naar een afspraak.
+    heading: Kantooruren
+    help_text: Selecteer de dagen en tijden waarop u open bent om oproepen te behandelen
+    remove: Verwijder
+  button:
+    add: Toevoegen
+    apply: Toepassen
+    cancel: Annuleren
+    close: Sluit
+    create: Maak
+    delete: Verwijder
+    edit: Bewerk
+    new: Nieuw
+    save: Sla
+    save_and_continue: Opslaan en doorgaan
+    save_changes: Wijzigingen opslaan
+    submit: Dien  in
+  calendar_connection:
+    add_new_calendar_connection: Nieuwe kalenderverbinding toevoegen
+    add_to_calendar:
+      add_to: Toevoegen aan
+      calendar_not_selected: Kalender niet geselecteerd
+      cancel_event: Als u een gebeurtenis in uw agenda verwijdert of weigert, wordt deze ook in Voxiplan geannuleerd.
+      caption: Toevoegen aan kalender
+      description: Stel de kalender in waaraan u nieuwe gebeurtenissen wilt toevoegen als ze gepland zijn.
+      dialog_title: Aan welke kalender moeten we nieuwe evenementen toevoegen?
+      donot_add_an_event: Geen nieuwe gebeurtenissen aan een kalender toevoegen
+      donot_add_any_event: Voeg geen nieuwe gebeurtenissen toe aan een kalender
+      select_calendar: Selecteer een kalender
+      sync_cancellations: Sync annuleringen
+      there_is_no_calendar: Er is geen kalender geselecteerd om evenementen aan toe te voegen.<br />Geboekte evenementen worden niet automatisch toegevoegd aan uw kalender.
+    alert_message1: We moeten alle agenda's loskoppelen om de regio te veranderen. Wil je doorgaan?
+    alert_message2: U verliest uw afspraakgegevens als u van regio verandert. Wilt u doorgaan?
+    button:
+      add_new: Nieuwe kalender
+    calendar: Kalenderverbindingen
+    calendar_enable:
+      content: Vraag de eigenaar om de kalender voor u te activeren
+      title: Kalender uitgeschakeld
+    caption: Agenda's beheren
+    check_conflicts:
+      check: Controleer
+      check_places: Controleer deze plaatsen op conflicten
+      description: Welke kalenders moeten we controleren op conflicten?
+      donot_check_conflict: Controleer deze kalender niet op conflicten
+    check_for_conflicts: Controleren op conflicten
+    check_for_conflicts_detail: Stel de kalender(s) zo in dat ze controleren op conflicten om dubbele boekingen te voorkomen.
+    disconnect_calendar_confirm: Wil je de kalender loskoppelen?
+    my_calendar: Mijn kalender
+    voxiplan_calendar: Voxiplan Kalender
+  call_forwarding:
+    caller_msg: Als een beller meer dan 2 keer een verkeerde keuze maakt, schakel ik de oproep door naar u of een lid van uw team.
+    heading: Fouten en doorschakeling
+    note: 'Opmerking: Als u nog geen gebruiker hebt toegevoegd, kunt u dit doen onder Instellingen --> Gebruikers.'
+    prefer_voice_mail_istead_of_transfer: Voorkeur voor voicemail in plaats van doorverbinden
+    selected_appointment: Wat moet ik zeggen om een gekozen afspraak te bevestigen?
+    when_we_will_transfer_or_voice_mail: Wij kunnen u doorverbinden of een voicemail sturen in geval van fouten, time-outs, bereikte afspraaklimiet en andere soortgelijke zaken
+  call_stats:
+    forwarded: Doorgestuurd
+    forwarded_tooltip: De beller werd doorgeschakeld naar een teamlid of liet een bericht achter
+    new: Nieuw
+    no_appointment: Geen
+    not_completed: Niet voltooid
+    not_completed_tooltip: De beller hing op voordat hij actie ondernam
+    processed: Verwerkt
+    processed_tooltip: De oproep werd met succes verwerkt
+    undefined: Niet-gearchiveerde
+    unknown: Onbekend
+    yes_appointment: Ja
+  cancelation:
+    cancel_sms: SMS sturen over annulering?
+  chat_enabled: Chat schakelaar
+  classic_agenda:
+    event_summary: "%{people_name} - %{service}"
+  clients:
+    agenda: Agenda
+    created: Datum oprichting
+    email: E-mail
+    heading: Klanten
+    name: Naam
+    phone: Telefoon
+    widget: Online Widget
+  coming_soon:
+    contact_support: Wilt u dit meteen gaan gebruiken? Neem contact op met ons ondersteuningsteam en laat het ons weten.
+    email_address: E-mailadres
+    email_below: 'Vul hieronder uw e-mail in om als eerste te weten wanneer het klaar is:'
+    enter_email: Voer e-mail in
+    feature_not_released_yet: Deze functie is nog niet vrijgegeven.
+    heading: Binnenkort
+  common:
+    allow_image: 'Toegestane bestandstypen: png, jpg, jpeg.'
+    allow_image_size: 'Grootte: 100x100px.'
+    badge:
+      connected: Aangesloten
+      disconnected: Ontkoppeld
+      unverified: Niet gecontroleerd
+      verified: Geverifieerd
+      verify: Controleer nu
+    button:
+      add: Toevoegen
+      back: Terug
+      cancel: Annuleren
+      close: Sluit
+      connect: Verbind
+      continue: Ga verder
+      copy: Kopie
+      csv: CSV
+      discard: Gooi
+      disconnect: Ontkoppelen
+      excel: Excel
+      exception_list: Uitzonderingslijst
+      export: Export
+      finish: Afwerking
+      import: Import
+      import_csv: CSV importeren
+      pdf: PDF
+      print: Afdrukken
+      remove_content: Weet je zeker dat je het wilt verwijderen?
+      save_change: Wijzigingen opslaan
+      simple_file: Eenvoudig bestand
+      skip: Skip
+      submit: Dien  in
+      update: Update
+      upgrade: Upgrade
+      view_details: Details bekijken
+    change: Verander
+    coming_soon: binnenkort
+    configuration: Configuratie
+    copied: Gekopieerd!
+    day:
+      friday: Vrijdag
+      monday: Maandag
+      saturday: Zaterdag
+      sunday: Zondag
+      thursday: Donderdag
+      tuesday: Dinsdag
+      wednesday: Woensdag
+    friday: Vrijdag
+    monday: Maandag
+    network_error: Sorry, het lijkt erop dat er wat fouten zijn gedetecteerd, controleer de netwerkverbinding.
+    normal_error_text: Sorry, het lijkt erop dat er wat fouten zijn gedetecteerd, probeer het opnieuw.
+    or: OF
+    please_wait: Wacht even...
+    saturday: Zaterdag
+    save_failure: Er ging iets mis!
+    save_success: Uw wijzigingen zijn opgeslagen.
+    select_placeholder: Selecteer een optie
+    sunday: Zondag
+    table:
+      selected: Geselecteerde
+      selection_action: Selectie Actie
+    thursday: Donderdag
+    'true': true
+    tuesday: Dinsdag
+    validation_error: Validatie fout! Controleer wat u heeft ingevoerd.
+    wednesday: Woensdag
+  confirmation:
+    appointment_confirmation_header: Bevestiging van de afspraak
+    post_appointment_header: Post afspraak
+    post_confirmation_reminder: Zeg een herinnering na de afspraak
+    record_name: Bellers vragen een bericht achter te laten?
+    say_msg_after_recording: Spreek een bericht in na het opnemen
+    send_sms_confirmation_header: SMS bevestiging sturen
+    sms_confirmation: SMS bevestiging
+    sms_text: SMS Tekst
+    sms_to_client: SMS naar klant
+    sms_to_user: SMS naar gebruiker
+    text: Vraag de beller om een bericht achter te laten
+  contact_us:
+    company: Bedrijf
+    email: E-mail
+    enter_detail: Vul de details van uw vraag of zorg in
+    first_name: Voornaam
+    last_name: Achternaam
+    phone_number: Telefoonnummer
+    title: Contacteer ons
+  context:
+    appointment_confirmed: Bedankt %{klant_voornaam}, uw afspraak voor %{chat_afspraak_start_tijd} is bevestigd.
+    select_resource: Voor %{bron_1}, druk op 1. Voor %{resource_2}, druk op 2. Of druk op 9 om deze opties te herhalen.
+    select_time: Voor morgen, om 04:00 PM druk 1. Om deze optie te herhalen, druk op 9. Of wacht om meer beschikbaarheid te horen.
+  custom_text:
+    alert: Pas de teksten aan die in verschillende stadia van het boekingsproces worden gezegd.
+    all_availabilities: Alle volgende beschikbaarheden
+    appointment_booked: Afspraak succesvol geboekt
+    ask_customer_for_message: Vraag de klant een bericht achter te laten
+    avaiable_times: Beschikbare tijdslots presenteren
+    cancellations_changes: Annuleringen en wijzigingen
+    changes_existing_apointment: Wijzigingen aanbrengen in een bestaande afspraak
+    close_hour_check: Maak een aankondiging tijdens gesloten uren
+    confirm_appointment_message: Neem een bericht na het bevestigen van de afspraak
+    confirmation1: Bevestiging nodig
+    confirmation2: Wanneer u een tijdslot selecteert of wijzigingen aanbrengt in een bestaande afspraak
+    customer_announcement: Aankondiging voor klanten die voor een nieuwe afspraak komen
+    double_confirmation: Dubbele bevestiging
+    first_availability: Eerste beschikbaarheid
+    heading: Aangepaste teksten
+    last_message_for_hanging_call: Geef een laatste bericht door voordat je ophangt
+    next_availabilities: Volgende beschikbaarheden
+    open_hour_check: Maak een aankondiging tijdens de openingsuren
+    post_confirmation: Post-bevestiging
+    present_service_resource: Keuzes voor diensten en middelen presenteren
+    selecting_time_slot: Een tijdslot kiezen
+    simple_confirmation: Eenvoudige bevestiging
+    system_field_note: 'Opmerking: %{system_field} zijn systeemvelden en mogen niet worden bewerkt.'
+    thank_for_message: Bedankt voor het achterlaten van een bericht
+    too_late_to_edit_appointment: Te laat om een afspraak te wijzigen
+    too_many_appointments_booked: Te veel geboekte afspraken
+  customers:
+    actions: Acties
+    add_phone_number: Telefoonnummer toevoegen
+    already_registered: Het e-mailadres of telefoonnummer was al geregistreerd
+    birthday: Verjaardag
+    birthday_PH: Voer verjaardag in
+    city: Stad
+    city_PH: Voer stad in
+    contact_details: Contactgegevens
+    contacts: Contacten
+    contacts_title: Contacten beheren
+    country: Land
+    country_code: Land Code
+    created_at: Gemaakt op
+    edit_customer: Contact bewerken
+    email: E-mail
+    email_PH: Voer e-mail in
+    exception_list: Uitzonderingslijst
+    female: Vrouw
+    first_name: Voornaam
+    first_name_PH: Voer voornaam in
+    gender: Geslacht
+    heading: Contacten
+    invalid_mobile_number: Ongeldig mobiel nummer
+    invalid_phone_number: Ongeldig nummer
+    last_name: Achternaam
+    last_name_PH: Voer achternaam in
+    male: Mannelijk
+    name_recording: Naam opname
+    new_customer: Nieuw contact
+    new_record: Nieuw contact
+    not_applicable: Niet van toepassing
+    notes: Opmerkingen
+    notes_PH: Notities invoeren
+    phone: Telefoon
+    phone_country: Telefoon Land
+    phone_number: Telefoonnummer
+    record_id: Record ID
+    search_contacts: Contacten zoeken
+    select_phones: Selecteer telefoon(s)
+    street: Straat
+    street_PH: Straat invoeren
+    valid_phone_number: "✓ Geldig"
+    want_delete: Weet u zeker dat u wilt verwijderen
+    want_delete_selected: Weet u zeker dat u de geselecteerde contacten wilt verwijderen?
+    zipcode: Postcode
+    zipcode_PH: Voer postcode in
+  dashboard:
+    all_records: Alle Records
+    amount: Percentage
+    appointments: Status van de afspraak
+    bot_intro: Ik ben Laura, uw virtuele assistent. Ik ben hier om u te helpen bij het opzetten van uw afspraak systeem. U kunt beginnen met het selecteren van uw online agenda.
+    calls: Oproepen
+    cancelled_appointment: Geannuleerd
+    contacts_by_types: Contacten per type
+    custom_range: Aangepast bereik
+    dashboard_title: Dashboard
+    follow_up_sms: Verzonden follow-up SMS
+    greeting: Hoi, %{naam}!
+    last_30_days: Laatste 30 dagen
+    last_7_days: Laatste 7 dagen
+    last_month: Laatste maand
+    modified_appointment: Gewijzigd
+    month: Maand
+    new_appointment: Nieuw
+    new_appointments: Nieuwe benoemingen
+    new_calls: Nieuw
+    new_contacts: Nieuwe contacten
+    new_vs_returning_customer: Nieuwe vs Geregistreerde contacten
+    no_record: Geen record gevonden!
+    recent_calls: Recente gesprekken
+    returning_calls: Terugkerend
+    this_month: Deze maand
+    today: Vandaag
+    unknown_appointment: Onbekend
+    view_all: Bekijk alles
+    year: Jaar
+    yesterday: Gisteren
+  date:
+    formats:
+      weekday_and_num: "%A, %{dag} van %B"
+    today: vandaag
+    tomorrow: morgen
+  errors:
+    donot_agree: Controleer dit om verder te gaan
+    existed_identity: Bestaande e-mail of telefoonnummer!
+    invalid_confirm_email: Bevestig e-mail is niet afgestemd
+    invalid_email: Ongeldige e-mail verstrekt!
+    invalid_email_password: Ongeldig e-mailadres of wachtwoord!
+    invalid_password: Ongeldig wachtwoord verstrekt!
+    invalid_phone: Ongeldig telefoonnummer opgegeven!
+    something_wrong: Er is iets mis, probeer het later nog eens...
+  extensions:
+    add_new_extension: Nieuwe uitbreiding toevoegen
+    availabilities: Beschikbaarheid
+    configure_extension: Extensies configureren
+    default: Standaard
+    delete_confirm: Weet u zeker dat u deze optie wilt verwijderen?
+    edit_extension: Uitbreiding bewerken
+    email: E-mailadres
+    enable_notifications: Meldingen inschakelen
+    enter_email: Voer e-mail in
+    enter_name: Volledige naam
+    name: Naam
+    new_extension: Nieuwe uitbreiding
+    phone: Telefoonnummer
+    required_name: Verplichte naam van de extensie
+    set_default: Als standaard ingesteld
+    sip_account: SIP-rekening
+    title: Uitbreidingen
+  follow_up:
+    alert: Ik kan automatisch een follow-up SMS sturen naar gebruikers die een gesprek hebben geïnitieerd, maar geen bericht hebben achtergelaten of een afspraak hebben gemaakt.
+    heading: Follow-up
+    max_symbols: Max. symbolen = 160
+    send_follow_up_sms: Verzend follow-up SMS
+    sms_text: SMS Tekst
+    want_to_follow_up: Wilt u follow-up als er geen actie is ondernomen?
+  footer:
+    about: Over
+    terms: T&C
+  greetings:
+    alert: De hoofdgroet is het eerste wat uw bellers horen. Hier heten we ze welkom. Ik kan verschillende dingen zeggen tijdens openings- en sluitingsuren.
+    closed_hours: Gesloten uren
+    during_closed_hours: 'Gesloten uren groet:'
+    during_opening_hours: 'Openingstijden groet:'
+    heading: Groeten
+    help_text: Hoe wilt u dat ik uw klanten begroet?
+    opening_hours: Geopende uren
+    preview_label: Voorbeeld
+    say_label: Zeg
+  hello: Hallo wereld
+  integrations:
+    api_webhooks: API & Webhooks
+    api_webhooks_help: Bouw aangepaste integraties die gegevens van Voxiplan gebruiken.
+    partner_agenda: Agenda's van de partners
+    partner_agenda_help: Verbind uw agenda met Voxiplan en beheer uw agenda-instellingen.
+    phone_booking: Telefoon Reservering
+    phone_booking_help: Vestibulum eleifend a est quis mollis. Nullam tincidunt pulvinar efficitur.
+    phone_connection:
+      help: Nullam urna dui, lobortis sed urna in, interdum elementum turpis.
+      title: Telefoonverbindingen
+    phone_number:
+      actions: Acties
+      capabilities: Mogelijkheden
+      disable_inbound_sms: SMS uitschakelen
+      disabled_inbound_sms: Inkomende SMS met succes uitgeschakeld
+      edit_phone_number: Telefoonnummer bewerken
+      enable_inbound_sms: Inkomende SMS
+      enabled_inbound_sms: Inkomende SMS met succes ingeschakeld
+      friendly_name: Vriendelijke naam
+      local: Lokaal
+      mobile: Mobiel
+      name: Naam
+      number: Nummer
+      phone: Telefoon
+      search_phone_number: Telefoonnummer zoeken
+      selected: Geselecteerde
+      selection_action: Selectie Actie
+      sms: SMS
+      title: Telefoonnummers
+      type: Type
+      unknown: Onbekend
+    sms_connection:
+      config_sms_channel: Uw SMS-kanaal configureren
+      config_sms_channel_help: Wijzig het standaard telefoonnummer om met uw contacten te communiceren
+      config_sms_step1: Open de webbrowser op uw Android-telefoon en ga naar <a href="#">voxiplan.com/voxisms</a> om de VoxiSMS-app te downloaden.
+      config_sms_step2: Voer hieronder uw mobiele nummer in om de app te activeren en open vervolgens de VoxiSMS app.
+      config_sms_step3: Ga naar Instellingen in VoxiSMS en voer onderstaande Token in om de setup te voltooien. Nu kan uw assistent SMS-berichten verzenden en ontvangen vanaf uw Android-telefoon.
+      confirm_phone: Klik om te bevestigen
+      confirm_phone_error_msg: Je kunt de telefoon niet bevestigen omdat het een ongeldig nummer is.
+      connect_android_phone: Sluit uw Android-telefoon aan
+      default: Standaard
+      download: Download
+      download_android_phone: Download VoxiSMS app op je Android telefoon.
+      edit_phone: Klik om te bewerken
+      enable_alpha_senderid: Alfanumerieke afzenderID inschakelen
+      enter_alpha_senderid: Alfanumerieke afzenderID invoeren
+      enter_mobile_phone: Voer uw telefoonnummer in
+      enter_secret_key: Voer uw token in
+      help: Vivamus id ligula id est viverra maximus.
+      invalid_senderid: Ongeldige afzender ID.
+      mobile_phone: Mobiele telefoon
+      need_confirm_phone: U moet het telefoonnummer bevestigen door op de knop <b>Klik om te bevestigen</b> te klikken
+      secret_key: Geheime sleutel
+      select_phone_number: Selecteer uw telefoonnummer
+      select_route: Route kiezen
+      select_route_help: Selecteer uw SMS-kanaal
+      select_sms_channel: Selecteer een SMS-kanaal
+      select_sms_channel_help: Om met contacten op mobiele telefoons via SMS te communiceren, moet uw assistent een route gebruiken. Er zijn meerdere opties om een route op te zetten. De beste optie hangt af van uw locatie, berichtvolume en budget.
+      select_workspace: Selecteer een werkruimte
+      senderid: Afzender ID
+      senderid_condition:
+        letter: Afzender-ID's moeten ten minste één letter bevatten
+        lower_case: Kleine letters a - z
+        number: Nummers 0 - 9
+        space: Ruimtes
+        special_char: Speciale tekens en leestekens zijn niet toegestaan
+        title: 'Alfanumerieke afzender-ID''s kunnen maximaal 11 tekens bevatten uit de volgende categorieën:'
+        upper_case: Hoofdletters A - Z
+      setup_route: Route instellen
+      setup_route_help: Uw SMS-kanaal configureren
+      sms: SMS
+      telco: Telco - virtueel telefoonnummer
+      telco_help: Met een virtueel nummer kan je assistent SMS berichten versturen en ontvangen zonder dat je een fysieke telefoon nodig hebt. Om een virtueel nummer te gebruiken met Voxi.ai, hoef je alleen maar deze optie te selecteren en de telecomoperators de rest voor je te laten regelen.
+      title: SMS-verbindingen
+      voxisms: VoxiSMS - Android telefoon app
+      voxisms_help: Met de VoxiSMS app kan uw assistent rechtstreeks vanaf uw Android telefoon SMS-berichten versturen en ontvangen. Als je nog geen Android telefoon hebt, geen zorgen! Veel gebruikers krijgen een speciale Android telefoon voor Voxi.ai, in plaats van hun persoonlijke mobiele telefoon te gebruiken.
+      workspaces: Werkruimten
+  language:
+    alert: Selecteer de primaire taal en stem van uw assistent.
+    assistant_name: Assistent naam
+    assistant_name_help: Kies een naam voor je AI-assistent.
+    heading: Taal
+    language_and_voice: Taal en stem
+    phone_settings: Telefooninstellingen
+  locales:
+    de: Deutsch
+    el: Ελληνικά
+    en: Engels
+    fr: Français
+    it: Italiano
+    language: Engels
+  mails:
+    cancel_link_text: Annuleren
+    cancel_reschedule_text: Wilt u wijzigingen aanbrengen in dit evenement?
+    cancellation_email_host:
+      body: Uw afspraak voor %{event_day} %{event_date} om %{event_time} is geannuleerd.
+      greetings: Hoi, %{full_name}
+      subject: Reservering geannuleerd
+      title: Uw reservering is geannuleerd
+    cancellation_email_invitee:
+      body: Uw afspraak voor %{event_day} %{event_date} om %{event_time} is geannuleerd.
+      greetings: Hoi, %{full_name}
+      subject: Reservering geannuleerd
+      title: Uw reservering is geannuleerd
+    cancellation_sms_host:
+      body: Uw afspraak voor %{event_day} %{event_date} om %{event_time} is geannuleerd. We zien u graag een volgende keer.
+    cancellation_sms_invitee:
+      body: Uw afspraak voor %{event_day} %{event_date} om %{event_time} is geannuleerd. We zien u graag een volgende keer.
+    client_appointment_confirmed:
+      booking_details: Reservering Details
+      caller: 'Beller: %{email_full_name} ''%{caller_id}'' (%{email_contact_type})'
+      conclusion: De afspraak staat in uw agenda
+      date: 'Datum: %{choosen_slot_start}'
+      greetings: Goed nieuws, %{client_first_name}
+      new_caller: 'Contact: %{caller_id}'
+      new_summary: Je hebt een nieuwe afspraak
+      play_recording_btn_text: Klik hier om te spelen
+      play_recording_btn_url: "%{benoeming_succes_record}"
+      summary: U heeft een nieuwe afspraak met %{caller_id}.
+      title: Nieuwe benoeming bevestigd
+    client_call_hangup:
+      greetings: Hallo, %{client_first_name}
+      summary: 'De oproep werd niet voltooid door %{email_full_name} ''%{caller_id}'' (%{email_contact_type}). De beller hing op voordat hij actie ondernam: hij sprak niet met een agent, liet geen bericht achter en maakte geen afspraak.'
+      title: Nieuwe gemiste oproep
+    client_new_voicemail:
+      greetings: Hallo, %{client_first_name}
+      play_recording_btn_text: Klik hier om te spelen
+      play_recording_btn_url: "%{%{var}}"
+      summary: U heeft een nieuw bericht van %{caller_id}.
+      title: Nieuw ingesproken bericht
+    confirmation:
+      body_line1: Hallo
+      body_line2: U heeft een nieuwe bevestigde boeking.
+      body_line3: 'Details:'
+      body_line4: 'Wanneer:'
+      body_line5: 'Telefoon:'
+      body_line6: Gelieve dit bericht niet te beantwoorden, het werd automatisch gegenereerd. Uw reactie op deze e-mail wordt niet bekeken!
+      body_line7: Je hebt een verschoven boeking.
+      body_line8: Uw reservering is verplaatst
+      body_line9: Gelieve dit bericht niet te beantwoorden, het werd automatisch gegenereerd. Uw reactie op deze e-mail wordt niet bekeken!
+      rescheduled_subject: Reservering verplaatst
+      subject: Nieuwe boeking bevestigd
+    confirmation_email_host:
+      body: 'Hallo <br>Uw reservering is bevestigd. <br><b>Details: </b> <br>Wanneer: %{event_day} %{event_date} om %{event_time} <br>Beantwoord dit bericht niet, het is automatisch gegenereerd. Uw reactie op deze e-mail wordt niet bekeken!'
+      body_line1: Hallo
+      body_line2: Uw reservering is bevestigd.
+      body_line3: 'Details:'
+      body_line4: 'Wanneer:'
+      body_line5: 'Telefoon:'
+      body_line6: Gelieve dit bericht niet te beantwoorden, het werd automatisch gegenereerd. Uw reactie op deze e-mail wordt niet bekeken!
+      subject: Nieuwe boeking bevestigd
+    confirmation_email_invitee:
+      body: 'Hallo <br>Uw reservering is bevestigd. <br><b>Details: </b> <br>Wanneer: %{event_day} %{event_date} om %{event_time} <br>Beantwoord dit bericht niet, het is automatisch gegenereerd. Uw reactie op deze e-mail wordt niet bekeken!'
+      body_line1: Hallo
+      body_line2: Uw reservering is bevestigd.
+      body_line3: 'Details:'
+      body_line4: 'Wanneer:'
+      body_line5: 'Telefoon:'
+      body_line6: Gelieve dit bericht niet te beantwoorden, het werd automatisch gegenereerd. Uw reactie op deze e-mail wordt niet bekeken!
+      subject: Nieuwe boeking bevestigd
+    confirmation_invitee:
+      body_line1: Hallo
+      body_line2: Uw reservering is bevestigd.
+      body_line3: 'Details:'
+      body_line4: 'Wanneer:'
+      body_line5: 'Telefoon:'
+      body_line6: Gelieve niet te antwoorden op dit bericht, het werd automatisch gegenereerd. Uw reactie op deze e-mail zal niet worden bekeken!
+      subject: Nieuwe reservering bevestigd
+    confirmation_sms_host:
+      body: Een afspraak voor %{event_day} %{event_date} om %{event_time} is bevestigd.
+    confirmation_sms_invitee:
+      body: Een afspraak voor %{event_day} %{event_date} om %{event_time} is bevestigd.
+    copyright: 2022 voxi.ai. Alle rechten voorbehouden.
+    default_reminder:
+      reminder_email_subject: 'Herinnering: afspraak op %{event_day} %{event_date} om %{event_time}'
+      reminder_email_subject_host: 'Herinnering: afspraak op %{event_day} %{event_date} om %{event_time}'
+      reminder_sms_text: 'Hallo %{first_name}, Herinnering: afspraak morgen, %{event_day} %{event_date} om %{event_time}'
+      reminder_text: Hallo %{full_name}, <br> Dit is een herinnering voor uw afspraak morgen, %{event_day} %{event_date} om %{event_time}. <br> Groeten,
+      reminder_text_host: Hallo %{full_name}, <br> Dit is een herinnering voor uw afspraak morgen, %{event_day} %{event_date} om %{event_time}. <br> Groeten,
+    followup_email_host:
+      body: ''
+      subject: Bedankt voor uw telefoontje!
+    followup_email_invitee:
+      body: ''
+      subject: Bedankt voor uw telefoontje!
+    followup_sms_host:
+      body: ''
+    followup_sms_invitee:
+      body: Bedankt voor uw telefoontje. We zijn momenteel in vergadering of niet beschikbaar. Om een afspraak te maken, bezoek ons online www.voxiplan.com of bel ons op +3228084080.
+    generic_email:
+      title: Voxiplan Email
+    no_availability:
+      body: Ik kon geen vrije plaatsen vinden in uw agenda. Voeg beschikbare plaatsen toe in uw agenda om verstoring te voorkomen.
+      standard_error: Client %{client_email_locale} heeft geen beschikbaarheid!
+      subject: Geen beschikbaarheid in uw agenda
+    organization_invitation:
+      body: Ik wil je graag uitnodigen bij mijn organisatie..
+      content: Klik op de link om lid te worden van Voxiplan.
+      subject: Uitnodiging voor mijn organisaties
+    pre_confirmation:
+      accept: Accepteer
+      body_line1: Hallo
+      body_line2: U heeft een nieuwe reservering in behandeling.
+      body_line3: U kunt
+      body_line4: " of"
+      body_line5: Fijne dag,
+      decline: Daling
+      subject: Nieuwe lopende boeking
+    pre_confirmation_invitee:
+      body_line1: Hallo
+      body_line2: Je hebt een afspraak gepland voor
+      body_line3: Wij sturen u een bevestigingsmail zodra deze afspraak is goedgekeurd.
+      body_line4: Fijne dag,
+      body_line5: Gelieve dit bericht niet te beantwoorden, het werd automatisch gegenereerd. Uw reactie op deze e-mail wordt niet bekeken!
+      subject: Afspraak verzoek bevestigd
+    rejected_invitee:
+      body_line1: Hallo
+      body_line2: Uw afspraak verzoek werd geweigerd voor
+      body_line3: Fijne dag,
+      body_line4: Gelieve dit bericht niet te beantwoorden, het werd automatisch gegenereerd. Uw reactie op deze e-mail wordt niet bekeken!
+      subject: Afwijzing afspraak
+    reminder_email_host:
+      body: Hallo %{full_name}, <br> Dit is een herinnering voor uw afspraak morgen, %{event_day} %{event_date} om %{event_time}. <br> Groeten,
+      subject: 'Herinnering: afspraak op %{event_day} %{event_date} om %{event_time}'
+    reminder_email_invitee:
+      body: Hallo %{full_name}, <br> Dit is een herinnering voor uw afspraak morgen, %{event_day} %{event_date} om %{event_time}. <br> Groeten,
+      subject: 'Herinnering: afspraak op %{event_day} %{event_date} om %{event_time}'
+    reminder_sms_host:
+      body: ''
+    reminder_sms_invitee:
+      body: 'Hallo %{first_name}, Herinnering: afspraak morgen, %{event_day} %{event_date} om %{event_time}'
+    reply_to_or_contact_us: Vragen? Beantwoord deze e-mail of neem contact met ons op via
+    reschedule_appointment:
+      conclusion: De afspraak is verplaatst in uw agenda.
+      greetings: Hoi, %{client_first_name}
+    reschedule_link_text: Herschikking
+    rescheduling_email_host:
+      body: 'Uw afspraak voor %{event_day} %{event_date} om %{event_time} is verplaatst. <br><b>Details: </b> <br>Wanneer: %{event_day} %{event_date} om %{event_time}'
+      subject: Reservering verplaatst
+    rescheduling_email_invitee:
+      body: 'Uw afspraak voor %{event_day} %{event_date} om %{event_time} is verplaatst. <br><b>Details: </b> <br>Wanneer: %{event_day} %{event_date} om %{event_time}'
+      subject: Reservering verplaatst
+    rescheduling_sms_host:
+      body: Uw afspraak voor %{event_day} %{event_date} om %{event_time} is verplaatst.
+    rescheduling_sms_invitee:
+      body: Uw afspraak voor %{event_day} %{event_date} om %{event_time} is verplaatst.
+    transcription_title: Transcriptie
+  manage_resource:
+    add_service_modal:
+      error: Agenda App niet geconfigureerd
+      heading1: Nieuw toevoegen
+      heading1a: Service
+      heading1b: Middelen
+      heading2: " naar het telefoonmenu"
+      tab_head1: Diensten
+      tab_head2: Middelen
+    addition_questions_modal:
+      add_another: Nog een toevoeging
+      add_question: Vraag toevoegen
+      answer: Antwoorden
+      answer1: Antwoord
+      answer_type: Antwoord Type
+      enabled: Ingeschakeld
+      heading: Aanvullende vragen
+      questions: Vragen
+      required: Vereist
+      type1: Een lijn
+      type2: Meervoudige lijnen
+      type3: Radio Knoppen
+      type4: Keuzevakjes
+    default_avail_modal:
+      heading: Standaard beschikbaarheid definiëren
+    default_availabilities: Standaard beschikbaarheid instellen
+    edit_modal:
+      heading: Bewerk
+      name: Naam
+      price: Prijs
+    form_modal:
+      heading: Nieuw toevoegen
+    heading: Soorten evenementen
+    heading1: Soorten evenementen en middelen beheren
+    listing_modal:
+      additional_tooltip: Extra vraag toevoegen
+      heading: Type evenement en keuze van middelen
+      tab1: Nr
+      tab2: Naam
+      tab3a: In kaart gebrachte bron
+      tab3b: Afhankelijkheden
+      tab3c: Diensten in kaart gebracht
+      tab4: Duur
+      tab4a: Duur (minuten)
+      tab5: Buffer
+      tab5a: Buffer (minuten)
+      tab6: Actie
+      tab7: Beschikbaarheid
+      tab8: Kalender
+      tab9: Kaart
+    tab1: Soorten evenementen
+    tab2: Middelen
+    widget_heading: 'Deel uw Booking Widget:'
+  menu:
+    allow_bookings: Laat alleen boekingen toe van bestaande klanten
+    before_caller_enters: De meldtekst wordt direct na uw hoofdbegroeting afgespeeld, voordat de bellers uw telefoonmenu horen.
+    business_hours_title: Vul uw openingstijden in
+    call_forwarding: Doorschakelen
+    call_fwd_number: Doorschakelnummer
+    call_transfer_announcement_text: Wacht alstublieft terwijl ik u doorverbind met een agent
+    caller_announcement: Bericht van de beller
+    calls_are_only: Oproepen worden alleen doorgeschakeld tijdens actieve kantooruren.
+    close_time_greeting: Hoofdgroet tijdens gesloten uren
+    close_time_greeting_example: 'Voorbeeld: Welkom bij Bedrijf XYZ. U belt buiten onze openingstijden.'
+    confirm_appointment: Bedankt. Uw afspraak voor %{tijd1} is bevestigd.
+    copy_example_url: Voorbeeld URL toevoegen
+    departments: Afdelingen
+    enable: Schakel  in
+    enter_message: Voer het bericht in dat u de bellers wilt laten horen en klik op "Opslaan".
+    enter_the_close_time_greeting: Voer de hoofdbegroeting in die bellers te horen krijgen tijdens de gesloten uren.
+    enter_the_greeting: Voer de hoofdbegroeting in die u uw bellers wilt laten horen en klik op "Opslaan".
+    example_booking: 'Voorbeeld: Uw reservering bij ABC Company op %{tijd} is bevestigd. We kijken er naar uit u daar te zien! PS: Vergeet niet een glimlach mee te nemen.'
+    example_message: 'Voorbeeld: Beste beller, onze kantoren zijn gesloten tijdens de kerstvakantie van 24 tot 26 december'
+    first_suggestion_text: Onze volgende mogelijke afspraak is op %{tijd1}. Druk op 1 om deze afspraak te bevestigen. Druk op 2 om andere beschikbaarheid te horen.
+    first_suggestion_text_error: Het spijt me, dit is geen juiste optie.
+    general: Algemeen
+    greeting_example: 'Voorbeeld: Welkom bij Bedrijf XYZ.'
+    i_am_laura_closed: Hallo, ik ben Laura. Onze agenten zijn momenteel niet beschikbaar, dus ik ben hier om u te helpen een afspraak te maken.
+    i_am_laura_opened: Ik ben Laura, uw virtuele assistente die u zal helpen een beschikbaarheid te vinden die u het beste past.
+    introduction: Inleiding
+    language_and_voice: Taal en stem
+    main_greeting: Hoofdgroet
+    next_availabilities_text: Druk op 1 voor %{time1}. Druk op 2 voor %{time2}. Druk op 3 voor andere beschikbaarheid. Of druk op 9 om met een agent te spreken.
+    phone_menu: Het telefoonmenu vertelt uw bellers welke toetsen ze moeten indrukken voor de verschillende afdelingen. Voer het bericht in dat u uw bellers wilt laten horen en klik op 'Opslaan'.
+    phone_menu_example: Druk op 1 om een afspraak te maken. Druk op 2 voor verkoop. Druk op 3 voor ondersteuning.
+    phone_number_should: Het telefoonnummer waarnaar oproepen moeten worden doorgeschakeld als uw klant u wil spreken.
+    phone_receptionist: Telefoon receptionist
+    receiving_calls: Oproepen ontvangen
+    record_client_name: Neem de naam van de cliënt op
+    record_name: Naam opname
+    record_name_text: Om een afspraak te maken, noteer uw naam na de toon.
+    request_phone_number: Om verder te gaan, voer uw telefoonnummer in gevolgd door de hash sleutel.
+    select_assistant: Selecteer uw virtuele assistent
+    send_sms_confirm: SMS reserveringsbevestiging sturen
+    send_sms_confirmation: SMS bevestiging sturen
+    send_sms_confirmation_text: 'Voorbeeld: Uw reservering bij ABC Company op %{tijd} is bevestigd. We kijken er naar uit u daar te zien! PS: Vergeet niet een glimlach mee te nemen.'
+    services: Diensten
+    smart_services: Slimme diensten
+    sms_confirmation: SMS bevestigingstekst
+    tracking_url_enter: Voer de URL in en klik op "Opslaan". Deze URL wordt geactiveerd nadat het gesprek is beëindigd.
+    variables: 'Volgvariabelen:'
+    virtual_assistant: Virtuele assistent
+  menu_type:
+    no_cronofy_help_text: Deze dienst is niet beschikbaar met de momenteel gesynchroniseerde agenda. Neem contact op met <strong>support</strong> voor meer informatie.
+    online: Online
+    online_text: Reservering Widget
+    phone: Telefoon
+    service_change_heading: Diensten
+    voice_assistant: Spraakassistent
+  nav_menu:
+    activity: Inzichten
+    announce: Kondig  aan
+    appointment_widget: Afspraak Widget
+    automations: Automatiseringen
+    availability: Beschikbaarheid
+    billing: Facturering
+    booking_widgets: Online reserveringswidget
+    business_hours: Kantooruren
+    calls: Oproepen
+    chat: Chat
+    clicks: Clicks
+    communication_channels: Communicatiekanalen
+    configure: Instellingen
+    confirmation: Bevestiging
+    contacts: Contacten
+    custom_texts: Aangepaste teksten
+    dashboard: Dashboard
+    event_selection: Boekingsopties toevoegen
+    event_types: Soorten evenementen
+    follow_up: Follow-up
+    forward: Vooruit
+    greetings: Welkom
+    group: Bulkberichten
+    home: Home
+    integrations: Integraties
+    interact: Campagnes
+    language: Taal
+    language_lv1: Taal en stem
+    language_lv2: Meertalig (binnenkort)
+    menu: Telefoon Menu
+    my_account: Mijn rekening
+    my_team: Mijn team
+    notifications: Meldingen
+    notify: SMS verzenden
+    online_agenda: Kalenderverbinding
+    phone_menu: Telefoon Menu
+    phone_numbers: Telefoonnummers
+    preferences: Voorkeuren
+    private: Snel verzenden
+    receptionist: Receptioniste
+    reminders: Herinneringen
+    reports: Overzicht
+    say_opening_hours: Zeg openingsuren
+    scheduled_events: Kalenders
+    scheduling_rules: Afspraakplanning
+    select_agenda: Selecteer agenda
+    services_resources: Evenementen toevoegen
+    sms: SMS
+    take_messages: Berichten aannemen (Voicemail naar e-mail)
+    tracking_analytics: Analytics en tracering
+    voice: Stem
+  notification:
+    alert: Stuur SMS-berichten over afspraakbevestigingen en -wijzigingen naar uw klanten en uzelf.
+    appointment_cofirmation_sms: Afspraakbevestiging SMS
+    cancellation_sms: Annulering SMS
+    check1: Stuur een SMS bevestiging naar U wanneer de afspraak is bevestigd
+    check2: Stuur een SMS-bevestiging naar KLANTEN wanneer de afspraak is bevestigd
+    check3: Stuur een SMS-bericht naar KLANTEN wanneer een afspraak wordt geannuleerd
+    heading: Meldingen
+    sms_notifications: SMS-berichten versturen
+    sms_text: SMS Tekst
+  onboarding:
+    call_modal_text_1: Bel
+    call_modal_text_2: om je assistent te testen
+    call_modal_text_3: 'Opmerking: plaats de oproep vanaf uw telefoonnummer'
+    call_modal_upgrade_plan: Een plan upgraden
+    connect_calendar:
+      apple_company: Apple
+      auth_failure_content: Kon de agenda niet goedkeuren!
+      auth_failure_title: Autoriseer falen!
+      calendar_processed_in: Uw kalendergegevens worden verwerkt in
+      exchange: Kalender
+      exchange_detail: Exchange Server 2013, 2016 of 2019
+      google: Google Agenda
+      google_company: Google
+      google_detail: Gmail, G Suite
+      icloud: iCloud Kalender
+      icloud_detail: Standaard kalender voor alle Apple producten
+      menu_description: Google, Microsoft, Apple
+      menu_name: Kalender aansluiten
+      microsoft_company: Microsoft
+      office_365: Office 365 Agenda
+      office_365_detail: Office 365, Outlook.com, live.com of hotmail agenda
+      outlook: Outlook Plug-In
+      outlook_detail: Outlook 2007 en hoger, met Windows 7 en hoger
+      region: Regio
+      server_region_tooltip: Als u niet zeker weet welke locatie u moet gebruiken, is het waarschijnlijk de locatie <img class='h-15px' src='/assets/flags/united-states.svg' alt='voxiplan' /> US.
+      title: Sluit uw agenda aan
+      title_description: Sluit uw agenda aan om automatisch te controleren op drukke tijden en nieuwe evenementen toe te voegen wanneer ze gepland zijn.
+      title_warning: Als u verder wilt gaan zonder selectie van de kalenderaanbieder, klikt u gewoon op de knop "Doorgaan" zonder selectie.
+      voxiplan: Voxiplan Kalender
+      voxiplan_detail: Voxiplan Kalender
+      voxiplan_title: Voxiplan
+    general_info:
+      create_url: Maak uw Voxiplan URL aan
+      create_url_description: Kies een URL die u of uw bedrijf op een beknopte manier beschrijft. Maak hem kort en gemakkelijk te onthouden, zodat u gemakkelijk links kunt delen.
+      menu_description: URL, Tijdzone
+      menu_name: Algemene informatie
+      organization_name: Naam organisatie
+      organization_name_description: Maak uw organisatie die u bezit.
+      timezone: Tijdzone
+      title: Welkom bij Voxiplan!
+      title_description: Wij nemen het werk uit de verbinding met anderen, zodat u meer kunt bereiken.
+    online_booking_appointment: Online afspraken maken
+    order_your_number: Bestel uw telefoonnummer
+    order_your_number_text: Een Voxiplan agent zal contact met u opnemen om uw bestelling te verwerken.
+    phone_appointment_booking: Reservering van telefonische afspraken
+    set_availability:
+      available_days: Beschikbare dagen
+      available_hours: Beschikbare uren
+      fridays: Vrijdag
+      from: Van
+      menu_description: Beschikbare uren, Beschikbare dagen
+      menu_name: Stel uw beschikbaarheid in
+      mondays: Maandag
+      saturdays: Zaterdag
+      sundays: Zondag
+      thursdays: Donderdag
+      title: Stel uw beschikbaarheid in
+      title_description: Laat Voxiplan weten wanneer je gewoonlijk beschikbaar bent om vergaderingen aan te nemen.
+      to: Naar
+      tuesdays: Dinsdag
+      wednesdays: Woensdag
+    step1_button: Demo starten
+    step1_heading: Hier is een snelle demo
+    step1_help_text: Het is de snelste manier om op snelheid te komen met je nieuwe gereedschap.
+    step2_button: Kijk maar
+    step2_heading: Stel je voor dat iemand een afspraak met je wil maken
+    step2_help_text: Uw nieuwe planning tools zullen hen helpen het beste slot te vinden, of het nu online of via de telefoon is.
+    step3_button: Ga verder
+    step3_heading: Mensen kunnen online of via de telefoon afspraken maken
+    step3_sub_heading: Klik op elke knop om een afspraak te maken
+    step4_button: Terug
+    step4_heading: Laten we nu uw agenda aansluiten
+    step4_sub_heaidng: Hiermee kunt u boekingen accepteren
+    try_it_now: Probeer het nu
+    welcome:
+      menu_description: Beoordelen en indienen
+      menu_name: Welkom
+      title: Laat los!
+      title_description: Dien uw app in bij Voxiplan.
+  organization:
+    add_to_group: Toevoegen aan groep
+    add_user: Lid toevoegen
+    apply_templates: Sjablonen toepassen
+    calendar:
+      add: Toevoegen
+      cancel: Annuleren
+      disabled: Uitgeschakeld
+      edit: Bewerk
+      edit_calendar: Kalender bewerken
+      enabled: Ingeschakeld
+      go_back: Ga terug
+      name: Naam
+      new_calendar: Nieuwe kalender
+      remove: Verwijder
+      resource: Middelen
+      select_user: Selecteer een gebruiker
+      title: Voxiplan Kalender
+      user: Gebruiker
+    change_role: Rol wijzigen
+    delete_customer_confirm: Weet u zeker dat u geselecteerde klanten wilt verwijderen?
+    deleted_all: Je hebt alle geselecteerde klanten verwijderd!
+    deleted_one: Je hebt verwijderd
+    disable_calendar: Kalender uitschakelen
+    enable_calendar: Kalender inschakelen
+    export: Export
+    filter:
+      button:
+        apply: Toepassen
+        reset: Reset
+      label:
+        group: Groep
+        role: Rol
+      options: Filteropties
+      placeholder: Selecteer optie
+      title: Filter
+    message:
+      add_calendar_success: Nieuwe toepassingskalender met succes toegevoegd
+      already_accepted: De gebruiker met deze email heeft uw uitnodiging al geaccepteerd.
+      already_pending: Je hebt deze gebruiker al een uitnodiging gestuurd en deze is nog in behandeling.
+      calendar_enable_changed: De kalender voor het lid met succes gewijzigd
+      edit_calendar_success: Toepassingskalender met succes bijgewerkt
+      failed_invitation_email: Uitnodigingsmail niet verzonden
+      invalid_email: Ongeldige e-mail
+      non_existed_calendar: Niet bestaande voxiplan kalender
+      non_id: Kalender ID niet verstrekt!
+      owner_calendar_enable_changed: Eigenaar moet kalender hebben
+      remove_calendar_success: Toepassingskalender succesvol verwijderd
+      success_sent: Je hebt met succes een uitnodiging gestuurd naar %{email}.
+    modal:
+      discard: Gooi
+      enable_calendar: Kalender inschakelen
+      member: Lid
+      please_wait: Wacht even...
+      role: Rol
+      select_role: Selecteer een rol
+      submit: Dien  in
+    owner_cannot_remove: Eigenaar kan niet worden verwijderd!
+    placeholder:
+      search: Zoek...
+    remove: Verwijder
+    remove_member: Lid verwijderen
+    remove_user_confirm: Weet je zeker dat je
+    selected: Geselecteerde
+    thead:
+      calendar_enabled: Kalenderstatus
+      email: E-mail
+      group: Groep
+      name: Naam
+      role: Rol
+      voxiplan_page: Voxiplan Pagina
+    title: Beheer organisatieleden
+  ory:
+    error:
+      button: Terug
+      content: Ga terug en probeer het later nog eens
+      title: Er is een fout opgetreden
+    infor:
+      session_expired: Sessie is verlopen, log opnieuw in!
+    recovery:
+      caption: Voer uw e-mailadres in om uw wachtwoord opnieuw in te stellen
+    verification:
+      button: Ga verder
+      content: Klik op de onderstaande knop om door te gaan naar uw account
+      title: E-mail succesvol geverifieerd
+  phone_assistant_enabled: Telefoonboekingsschakelaar
+  phone_menu:
+    Offer_closed_hours: Menu-opties aanbieden tijdens gesloten uren
+    Offer_opening_hours: Menuopties aanbieden tijdens de openingsuren
+    action: Actie
+    alert: Gebruik het telefoonmenu om bellers verschillende keuzes te geven. Er kunnen verschillende menuopties zijn tijdens openings- en sluitingsuren. Uw bellers zullen dit horen na de hoofdbegroeting.
+    alert1: Gebruik het telefoonmenu om bellers verschillende keuzes te geven. Er kunnen verschillende opties zijn tijdens openings- en sluitingsuren.
+    alert2: Uw bellers zullen dit horen na de hoofdbegroeting.
+    call_rings_text: Hoe lang het gesprek overgaat voordat het naar de voicemail gaat.
+    call_transfer: Oproepoverdracht
+    closed_hours: Gesloten uren menu
+    configure_caller_menu: 'Configureer uw bellersmenu:'
+    configure_menu_options: Uw menu-opties configureren
+    edit_extension: Uitbreiding bewerken
+    enable_phone_menu: Telefoonmenu activeren
+    extension: 'Extension #'
+    extension_enable_say: Informeer de klant alvorens een bericht aan te nemen
+    extension_enable_say2: Hoe moet ik het contact informeren voordat ik een bericht aanneem?
+    extension_number: Uitbreidingsnummer
+    heading: Menu
+    menu_options: Menu-opties
+    new_extension: Nieuwe uitbreiding
+    no_title: Geen titel
+    no_user: Geen gebruikers
+    opening_hours: Openingstijden menu
+    present_choices: 'Het presenteren van uw telefoon menu opties:'
+    select_user: Selecteer Gebruikers
+    should_i: Moet ik
+    should_i_present: Moet ik
+    title: Titel
+    transfer_extension_enable_say: Iets zeggen voordat ze doorverbinden?
+    transfer_extension_say_custom_message: Type hier uw bericht
+    type: Type
+    users: Gebruikers
+    voicemail_extension_enable_say: Iets zeggen voordat je een bericht aanneemt?
+    wait_time: Wachttijd voordat ik aanbied een bericht aan te nemen
+  pre_confirmation:
+    accepted: Afspraak gekoppeld aan deze link is succesvol geaccepteerd!
+    already_confirmed: Afspraak in verband met deze link is al bevestigd!
+    already_rejected: Afspraak gekoppeld aan deze link is al afgewezen!
+    no_association: Er is geen afspraak verbonden aan deze link!
+    non_pre_confirm_appointment: Afspraak gekoppeld aan deze link is niet ingeschakeld voor PRE-CONFIRMATIE!
+    rejected: Afspraak gekoppeld aan deze link is succesvol geannuleerd!
+  preference:
+    ai_bot_switch: Gespreks-AI
+    ai_bot_title: Type assistent
+    alert: Beslis of klanten zich moeten registreren, hoe ze afspraken mogen boeken en wat er moet gebeuren als een afspraak is bevestigd
+    booking_limits: Reserveringslimieten
+    check1: Vraag anonieme klanten om hun telefoonnummer
+    check2: Vraag nieuwe klanten naar hun naam
+    check3: Laat boekingen toe van nieuwe klanten
+    check4: Voorkom het boeken van afspraken minder dan
+    check5: Sta klanten toe afspraken te annuleren of te wijzigen aan de telefoon tot
+    check6a: Sta klanten toe om tot
+    check6b: afspraken per keer (laat leeg voor geen limiet).
+    check7: Vraag klanten om een bericht achter te laten
+    check8: Herinner klanten eraan iets niet te vergeten
+    check9a: Vraag klanten om het gekozen tijdslot te bevestigen.
+    check9b: Kies hieronder een type bevestiging.
+    confirmation: Bevestiging
+    enable_ai_bot: AI inschakelen
+    heading: Voorkeuren
+    post_confirmation: Post-bevestiging
+    radio1_head: Dubbele bevestiging
+    radio1_text1: Herhaal het gekozen tijdslot en vraag nogmaals om bevestiging voordat de afspraak wordt geboekt.
+    radio1_text2: '"U heeft morgen om 10 uur gekozen. Om uw keuze te bevestigen, drukt u op 1."'
+    radio2_head: Eenvoudige bevestiging
+    radio2_text1: Boek het geselecteerde tijdslot en geef hen de optie om terug te gaan en hun keuze te wijzigen.
+    radio2_text2: '"U heeft morgen om 10 uur geselecteerd. Om dit te veranderen, druk op 0."'
+    registration: Registratie
+  pricing:
+    additional_fee: Extra vervoerderskosten per vervoerder
+    agenda_connection_pricing: Agenda Verbinding
+    appointment: afspraak
+    appointment_Pricing_help_text: 'Om onze tarieven zo laag mogelijk te houden en u alleen te laten betalen wanneer uw assistent u iets oplevert. Bijvoorbeeld: afspraaktarief alleen wanneer een afspraak geboekt, geannuleerd of verplaatst wordt.'
+    appointment_pricing: Assistent honorarium
+    appointment_rate: Afspraken percentage
+    appointments: Afspraken
+    assistant: Assistent
+    assistant_tooltip: Om het werk van je assistent alleen te betalen als hij een taak met succes heeft volbracht
+    assistant_type: Assistent Type
+    assistant_type_help: Supercoole testtip!
+    automation: AI-Assistent
+    beta: BETA
+    check_rates: Tarieven controleren
+    comming_soon: binnenkort!
+    communication_channel: Communicatiekanalen
+    communication_channel_help: Supercoole testtip!
+    converstation_ai: Gespreks-AI
+    country_label: Kies uw land
+    currency_label: Valuta
+    estimated: Geschat
+    first_50_tasks: Eerste 50 taken GRATIS per maand
+    first_x_agendas: Eerste X verbindingen
+    first_x_appointments: Tot 100 afspraken
+    language_label: Taal
+    local: Lokaal
+    mobile: Mobiel
+    next_y_agendas: Volgende Y-verbindingen
+    next_y_appointments: Tot 250 afspraken
+    next_z_appointments: Tot 400 afspraken
+    online: Reservering Widget
+    pay_per_use: Pay-per-use
+    pay_per_use_desc: '- Pay-per-use Telecom (<a class="text-decoration-underline text-info" href="#kt_modal_telecom_pricing#kt_tab_pane_telecom_fee_voice">Check Rates</a>)'
+    pay_per_use_formula: pay-per-use vergoeding = dienstvergoeding + assistentvergoeding + telecomvergoeding
+    pay_per_use_help_text: Onze telefoon & AI assistenten worden aangerekend op een pay-per-use basis. Niet van toepassing op de boeking Widget.
+    pay_per_use_pricing: Prijs per gebruik
+    per_appointmnet: per afspraak
+    per_seat_month: Per stoel / maand
+    per_user_month: per gebruiker / maand
+    phone: Telefoon assistent
+    phone_&_text: Telefoon en sms
+    phone_and_ai_pricing: Prijzen telefoon & AI-assistent
+    phone_number_pricing: Telefoonnummers
+    plan_description: Al onze plannen bevatten een <strong>chat widget</strong> die u kunt toevoegen aan uw website
+    plan_name: Prijzen
+    pricing: Afspraakkosten
+    session_desc: Sessies zijn alle berichten die worden verzonden en ontvangen als reactie op een door een gebruiker geïnitieerde communicatie met uw assistent. Een sessie begint wanneer een gebruiker communiceert met uw assistent, en duurt 24 uur vanaf de laatst ontvangen interactie.
+    session_line_1: 50 sessies inbegrepen
+    session_line_2: "/mo per 50 extra sessies"
+    session_tooltip: Om VoxiPlan forfaitair per sessie te betalen
+    sessions: Dienstvergoeding
+    sessions_help_text: Om de kosten van het Voxiplan platform te dekken (servers, e-mails, automatisering, chats, run/train/onderhoud assistenten) en uw assistent 24/7 beschikbaar te maken, rekent Voxiplan sessievergoedingen aan.
+    sip_pricing: SIP
+    sms_pricing: SMS
+    sms_pricing_modal: Voor meer informatie over de SMS prijzen, klik hier
+    task_rate: Tempo van de taken
+    tasks: Taken
+    technology: Technologie
+    technology_help: Supercoole testtip!
+    telecom_rates: Telecom Prijzen. Pay-per-use.
+    telecom_rates_help_text: Uw assistent werkt met meerdere communicatiemiddelen die verschillende tarieven hanteren. Raadpleeg onderstaande tarieven afhankelijk van het land en het communicatiekanaal.
+    telecom_tooltip: Om variabele telecomkosten te betalen
+    to_make_calls: Uitgaande gesprekken
+    to_receive_calls: Inkomende gesprekken
+    to_recieve: Inkomend
+    to_recieve_calls: Inkomende gesprekken
+    to_send: Uitgaande
+    top_section:
+      annual: Jaarplannen
+      heading: Transparante en eenvoudige prijzen
+      help_text: De prijzen zijn in EUR voor Europa (incl. VK) en in USD voor de rest van de wereld (excl. BTW).
+      monthly: Maandelijkse plannen
+      plan_comparison: Planvergelijking
+      plan_comparison_description: Kies de functies die voor uw bedrijf het meest zinvol zijn.
+      save_annual_plans: Bespaar 20%
+      virtual:
+        answer_faq: FAQ beantwoorden (verschijnt binnenkort!)
+        answer_faq_tooltip: Beantwoorden van verzoeken om adres, openingsuren, prijzen, betalingswijzen, enz.
+        appoinments_scheduling_skills: Planning van afspraken
+        appoinments_scheduling_skills_help: Supercoole testtip!
+        channel_1: Stam
+        channel_2: Chat & SMS (verschijnt binnenkort!)
+        channel_3: Whatsapp
+        channel_4: Webhooks (verschijnt binnenkort!)
+        collect_feedback: Verzamel Feebacks & Reviews (verschijnt binnenkort!)
+        comm_channel: "(communicatiekanalen)"
+        detail_1: 51 talen
+        detail_10: Multichannel
+        detail_1_1: Meertalig
+        detail_1_1_help: Supercoole testtip!
+        detail_2: Receptioniste
+        detail_2_help: Supercoole testtip!
+        detail_3: Gasten verwelkomen, berichten aannemen, gesprekken doorverbinden, aankondigingen doen
+        detail_4: Planning van afspraken
+        detail_4_1: boeken, annuleren & herplannen
+        detail_5: Herstel van gesprekken / Follow-ups
+        detail_5_help: Supercoole testtip!
+        detail_6: SMS Campagnes versturen
+        detail_6_help: Supercoole testtip!
+        detail_7: Telefoonmenu (IVR)
+        detail_7_1: Enkel kanaal
+        detail_8: Kenmerken
+        detail_9: 3 talen
+        heading: Virtuele assistent
+        included: Inbegrepen in het Basic of Premium plan voor een beperkte tijd
+        no_show_recovery: No-shows Herstel
+        no_show_recovery_help: Supercoole testtip!
+        no_show_recovery_tooltip: herinneringen en follow-up berichten beantwoorden
+        pay_per: Betalen per gebruik
+        phone: Telefoon
+        plus: 'Alles in Premium, plus:'
+        plus_1: 'Alles in Pro, plus:'
+        rates_below: "(zie tarieven hieronder)"
+        skills: Vaardigheden
+        sms: SMS
+        tools: 'Gereedschap:'
+        type_1: Pro
+        type_2: AI
+        web_chat: Web Chat
+      widget:
+        active_event_type: Actieve soorten gebeurtenissen
+        active_event_type_help: Supercoole testtip!
+        automated_notification: Geautomatiseerde gebeurtenismeldingen
+        automated_notification_help: Supercoole testtip!
+        custom_questions: Aangepaste vragen
+        custom_questions_help: Supercoole testtip!
+        detail_0: Kalenderaansluitingen per zitplaats
+        detail_1: Onbeperkte afspraken
+        detail_1_help: Supercoole testtip!
+        detail_2: Verbinding met Google agenda, Exchange, Outlook, Office 365, iCloud integratie
+        detail_2_help: Supercoole testtip!
+        detail_3: Herinneringen per e-mail en SMS
+        detail_3_help: Supercoole testtip!
+        detail_4: Verwijderbaar Voxiplan merk
+        detail_4_help: Supercoole testtip!
+        detail_5: Redirect na boeking
+        detail_5_help: Supercoole testtip!
+        detail_6: Integratie van conferentiediensten
+        detail_6_help: Supercoole testtip!
+        detail_7: Verzamel betalingen via Stripe
+        detail_7_help: Supercoole testtip!
+        detail_8: Meldingen aanpassen
+        detail_8_help: Supercoole testtip!
+        detail_9: Basis invoerformulier
+        heading: Widget voor online boeken
+        included: 'Wat is inbegrepen:'
+        plus: 'Alles in Basic, plus:'
+        sms_rates: SMS-tarieven
+        type_0: Altijd gratis
+        type_1: Basis
+        type_2: Premium
+        voxisms_help: Supercoole testtip!
+    type: Type
+    unlimited: Onbeperkt
+    voice_pricing: Stem
+    voice_pricing_modal: Voor meer informatie over de prijzen voor spraak, klik hier
+  profile:
+    close_account:
+      deactivated: Uw account is gedeactiveerd
+      deactivated_help: Dit is uw kans om creatieve geweldige mogelijkheden <br>die de lezers een idee geven
+      goto_voxiplan: Ga naar Voxiplan
+    faq: FAQ
+    my_profile: Mijn Profiel
+    overview:
+      allow_changes: Wijzigingen toestaan
+      allow_marketing: Marketing toestaan
+      communication: Communicatie
+      company: Bedrijf
+      country: Land
+      edit_profile: Profiel bewerken
+      full_name: Volledige naam
+      organization: Organisatie
+      phone: Contact Telefoon
+      title: Profiel overzicht
+    overview_title: Overzicht
+    setting_title: Instellingen
+    settings:
+      deactivate_account:
+        deactivate_confirmation: Ik bevestig de deactivering van mijn account
+        learn_more: Meer informatie
+        need_confirmation: U moet het vakje voor deactivering aanvinken
+        notification_help: Voor extra veiligheid moet u uw e-mail of telefoonnummer bevestigen wanneer u uw wachtwoord opnieuw instelt.
+        notification_title: U deactiveert uw account
+        title: Account deactiveren
+      first_name: Voornaam
+      invalid_email_text: De waarde is geen geldig e-mailadres
+      language: Taal
+      language_tooltip: Selecteer een voorkeurstaal, inclusief datum, tijd en getalnotatie.
+      last_name: Achternaam
+      matchnot_confirm_password_text: Het wachtwoord en zijn bevestiging zijn niet hetzelfde
+      password_invalid: Het huidige wachtwoord is ongeldig
+      require_confirm_password_text: Bevestig wachtwoord is vereist
+      require_current_password_text: Huidig wachtwoord is vereist
+      require_email: E-mail is vereist
+      require_new_password_text: Nieuw wachtwoord is vereist
+      require_password_text: Wachtwoord is vereist
+      signin-method:
+        change_email: Verander e-mail
+        change_password: Wachtwoord wijzigen
+        confirm_new_password: Nieuw wachtwoord bevestigen
+        confirm_password: Wachtwoord bevestigen
+        current_password: Huidig wachtwoord
+        email_address: E-mailadres
+        new_email_address: Nieuw e-mailadres invoeren
+        new_password: Nieuw wachtwoord
+        password: Wachtwoord
+        password_tooltip: Wachtwoord moet minstens 8 tekens en symbolen bevatten
+        title: Aanmeldingsmethode
+        update_email: Update e-mail
+        update_password: Wachtwoord bijwerken
+      timezone: Tijdzone
+      title: Profiel details
+    support: Steun
+    title: Profielinstellingen
+  reminders:
+    before_appointment: voor de afspraak
+    before_day_reminders: Herinneringen voor de dag van de afspraak
+    before_day_reminders_tooltip: Als u deze optie selecteert, worden <b>herinneringen</b> verstuurd <u>vóór de dag</u> waarop <b>afspraken</b> plaatsvinden op basis van uw <b>voorkeuren</b>.
+    days: Dagen
+    email_subject: 'Herinnering: afspraak op %{event_date} om %{event_time}'
+    email_template: Hallo %{full_name}, <br> Dit is een herinnering voor uw afspraak morgen, %{event_day} %{event_date} om %{event_time}. <br> Groeten,
+    for_email: E-mail
+    for_sms: SMS-inhoud
+    for_subject: E-mail Onderwerp
+    heading: Herinneringen
+    help_text: We sturen herinneringen naar uw klanten op basis van uw voorkeuren.
+    hours: Uren
+    in_advance: bij voorbaat
+    in_advance_at: vooraf bij
+    minutes: Notulen
+    months: Maanden
+    notify_through_email: Kennisgeving per e-mail
+    notify_through_sms: SMS-melding
+    overwite_deny_button: Annuleren
+    overwite_ok_button: Overschrijven
+    overwrite_error: Wilt u de bestaande tekst overschrijven?
+    prefill_templates: Voorvullen met sjablonen
+    reminder_channels: Soorten herinneringen
+    reminder_text: Herinneringstekst
+    reminder_types: Soorten herinneringen
+    same_day_reminders: Herinneringen voor dezelfde dag
+    same_day_reminders_tooltip: Als u deze optie selecteert, worden <b>herinneringen</b> verstuurd op dezelfde dag</u> waarop <b>afspraken</b> plaatsvinden, gebaseerd op uw <b>voorkeuren</b>.
+    save_changes: Wijzigingen opslaan
+    send_reminders: Herinneringen sturen
+    sms_template: 'Hallo %{first_name}, Herinnering: afspraak morgen, %{event_day} %{event_date} om %{event_time}'
+    time_preferences: Tijd voorkeuren
+    weeks: Weken
+  schedule_event:
+    add_event:
+      added_success: Nieuw evenement toegevoegd aan de kalender!
+      all_day: De hele dag
+      contact: Neem contact op met
+      deleted_success: De gebeurtenis is succesvol verwijderd!
+      event_description: Beschrijving
+      event_end_date: Einddatum
+      event_end_time: Eindtijd
+      event_notification: Kennisgeving van gebeurtenissen
+      event_start_date: Startdatum
+      event_start_time: Starttijd
+      event_title: Titel
+      pick_end_time: Kies een eindtijd
+      pick_start_time: Kies een starttijd
+      resources: Middelen
+      select_contact: Selecteer een contactpersoon
+      select_resource: Selecteer een bron
+      select_service: Selecteer een dienst
+      services: Diensten
+      title: Een nieuw evenement toevoegen
+      updated_success: Het evenement is succesvol bijgewerkt!
+    add_event_button: Boek
+    calendar: Kalender
+    delete_event_confirm: Weet u zeker dat u deze gebeurtenis wilt verwijderen?
+    edit_event: Een gebeurtenis bewerken
+    event_end_date_required: Einddatum is vereist
+    event_end_time_required: Eindtijd is vereist
+    event_name_required: De naam van het evenement is verplicht
+    event_reorder: Weet u zeker dat u dit evenement opnieuw wilt bestellen?
+    event_start_date_required: Startdatum is vereist
+    event_start_time_required: Starttijd is vereist
+    setting:
+      hours: uren
+      max_time: Maximale tijd
+      max_time_help: Bepaalt het laatste tijdslot dat voor elke dag wordt weergegeven.
+      min: min.
+      min_time: Min tijd
+      min_time_help: Bepaalt het eerste tijdslot dat voor elke dag wordt weergegeven.
+      pick_time: Kies een tijd
+      select_day: Kies een dag
+      select_time_format: Selecteer een tijdformaat
+      snap_duration: Snap Duur
+      snap_duration_help: Het tijdsinterval waarin een gesleepte gebeurtenis op de tijdas zal vastklikken.
+      start_week: Start week op
+      start_week_help: De dag dat elke week begint.
+      time_format: Tijdformaat
+      time_increments: Tijdsstappen
+      time_increments_help: De frequentie voor het weergeven van tijdslots.
+      title: Instellingen
+      weekends: Weekends
+      weekends_help: Of zaterdag/zondag-kolommen moeten worden opgenomen in de kalenderweergaven.
+    submit_failure: Sorry, het lijkt erop dat er wat fouten zijn gedetecteerd, probeer het opnieuw.
+    view_event:
+      change_event_condition: Dit evenement is gemaakt buiten Voxiplan om. Gebruik uw online agenda om dit evenement te wijzigen.
+      contact: Evenement contact
+      end: Einde
+      reschedule: Opnieuw plannen via widget
+      resource: Evenementenbron
+      service: Evenementendienst
+      start: Start
+  select_agenda:
+    back_selection: Terug naar selectie
+    connect_failure: Verbindingsfout! Controleer uw gegevens.
+    mobminder:
+      autrization_key: Authrizatie sleutel
+      caption: Mobminder
+      connect_success: Uw Mobminder is succesvol verbonden.
+      description: Lorem Ipsum is gewoon dummytekst van de drukkerij en zetterij scrambled een type specimen boek tekst van de dummytekst van de drukkerij en zetterij industrie scrambled dummytekst van de drukkerij.
+      disconnect_success: Uw Mobminder heeft de verbinding succesvol verbroken.
+      login: Inloggen
+      password: Wachtwoord
+    notice_link: Meer informatie.
+    notice_message: Voxi.ai moet verbinding maken met uw agenda, zodat we uw beschikbaarheid kunnen bepalen en ervoor kunnen zorgen dat u nooit dubbel geboekt wordt.
+    notice_title: Waarom moet ik mijn agenda aansluiten?
+    sign_up: Aanmelden
+    timify:
+      caption: Timify
+      company_id: Bedrijf ID
+      connect_success: Je Timify is succesvol verbonden.
+      description: Lorem Ipsum is gewoon dummytekst van de drukkerij en zetterij scrambled een type specimen boek tekst van de dummytekst van de drukkerij en zetterij industrie scrambled dummytekst van de drukkerij.
+      disconnect_success: Je Timify heeft de verbinding succesvol verbroken.
+    title: Laten we uw agenda aansluiten. Hiermee kunt u boekingen accepteren.
+    title_description: Voxi.ai moet verbinding maken met uw agenda, zodat we uw beschikbaarheid kunnen bepalen en ervoor kunnen zorgen dat u nooit dubbel geboekt wordt.
+  services:
+    ai: AI
+    ai_assistant_setting: AI-Assistent Instellingen
+    assistant_booking_setting: Assistent Boekingsinstellingen
+    automations:
+      automation: Automatisering
+      booking_widget: Boeking widget
+      cancellation: Annulering
+      cancellation_description: Kennisgevingen van annulering sturen
+      confirmation: Bevestiging
+      confirmation_description: Boekingsbevestigingen versturen
+      custom: Aangepaste
+      done: Gedaan
+      edit: Bewerk
+      edit_action:
+        body: Lichaam
+        choose_template: Kies een sjabloon
+        email_host_action: Bewerk "Stuur e-mail naar host" Actie
+        email_invitee_action: Bewerk "Stuur e-mail naar genodigde" Actie
+        include_link: Koppelingen opnemen voor annuleren en opnieuw inplannen
+        include_link_tooltip: Uw genodigden zien knoppen waarmee ze uw evenement kunnen annuleren of verzetten.
+        restore_default: Standaardinstellingen herstellen
+        sms_host_action: Bewerk "Stuur SMS naar host" Actie
+        sms_invitee_action: Bewerk "Stuur SMS naar genodigde" Actie
+        sms_text: SMS Tekst
+        subject: Onderwerp
+      edit_automation:
+        action: Actie(s)
+        add_new_action: Nieuwe actie toevoegen
+        all_resources: Alle middelen
+        all_services: Alle diensten
+        booking_widget: Boeking widget
+        channel: Kanaal
+        email_host: Stuur een e-mail naar de gastheer
+        email_invitee: Stuur een e-mail naar de genodigde
+        filter: Filter(s)
+        invitee: Uitgenodigde
+        is_include_agenda: Externe gebeurtenissen opnemen
+        is_include_agenda_help: Externe evenementen zijn evenementen die niet via Voxiplan zijn geboekt
+        name: Naam
+        phone: Telefoon
+        resource: Bron(nen)
+        service: Dienst(en)
+        sms_host: Stuur SMS naar gastheer
+        sms_invitee: Stuur SMS naar genodigde
+        trigger: Trekker
+      edit_trigger:
+        days: Dagen
+        group_event_options: Opties voor groepsevenementen
+        hours: Uren
+        in_advance_at: vooraf bij
+        minutes: Notulen
+        modal_title: Trigger bewerken
+        months: Maanden
+        weeks: Weken
+        when_each_invitee: Wanneer elke genodigde boekt (standaard)
+        when_first_invitee: Wanneer alleen de eerste genodigde boekt
+        when_happen: Wanneer dit gebeurt
+        when_trigger_happen: Voor groepsgebeurtenissen, wanneer moet deze trigger plaatsvinden?
+      email: E-mail
+      event_before_start_help: Hoe lang voordat het evenement begint?
+      event_cancel_help: Hoe lang nadat het evenement is geannuleerd?
+      event_end_help: Hoe lang na afloop van het evenement?
+      event_new_help: Hoe lang nadat een nieuw evenement is gepland?
+      event_not_completed_help: Hoe lang nadat de gespreksstatus niet is voltooid?
+      event_reschedule_help: Hoe lang nadat het evenement is verplaatst?
+      event_specific_time_help: Herinneringen sturen
+      event_start_help: Hoe lang na aanvang van het evenement?
+      follow_up: Follow-up
+      follow_up_description: Stuur follow-up SMS voor oproepen zonder afspraakacties
+      immediately_event_cancel: Onmiddellijk wanneer het evenement wordt geannuleerd
+      immediately_event_end: Onmiddellijk na afloop van het evenement
+      immediately_event_new: Onmiddellijk wanneer een nieuwe gebeurtenis is gepland
+      immediately_event_not_completed: Onmiddellijk wanneer de gespreksstatus niet is voltooid
+      immediately_event_reschedule: Onmiddellijk wanneer het evenement wordt verplaatst
+      immediately_event_start: Onmiddellijk wanneer het evenement begint
+      invitee: Uitgenodigde
+      new_automation: Nieuwe automatisering toevoegen
+      notifications: Kennisgevingen
+      other: Andere
+      phone_assistant: Telefoon assistent
+      reminder_description: Stuur automatische herinneringen
+      reminders: Herinneringen
+      rescheduling: Herschikking
+      rescheduling_description: Kennisgevingen voor herschikking versturen
+      sms: SMS
+      tinymce:
+        event_date: Evenement Datum
+        event_day: Evenement Dag
+        event_name: Naam evenement
+        event_time: Tijd van het evenement
+        invitee_first_name: Uitnodigen Voornaam
+        invitee_full_name: Volledige naam genodigde
+        invitee_last_name: Achternaam uitnodigen
+        resource_name: Naam van de bron
+      trigger_event_before_start: Voordat het evenement begint
+      trigger_event_cancel: Het evenement is geannuleerd
+      trigger_event_end: Einde evenement
+      trigger_event_new: Nieuw evenement is gepland
+      trigger_event_not_completed: Gespreksstatus is Niet Voltooid
+      trigger_event_reschedule: Het evenement is verplaatst
+      trigger_event_specific_time: Voordat het evenement op een bepaald tijdstip begint
+      trigger_event_start: Het evenement begint
+      widget: Widget reserveren
+    available_for: Beschikbaar voor
+    booking_time:
+      availability_additional_rules:
+        response_type_overlapping: starttijdstappen
+        response_type_slot: duur van het evenement
+        start_time_helper: Stel de frequentie in van beschikbare tijdslots voor genodigden.
+        start_time_increments: Starttijdstappen
+        start_time_label: Toon beschikbare starttijden in stappen van...
+        time_slot_helper: Stel de lengte van beschikbare tijdslots van genodigden in.
+        time_slot_label: Toon beschikbare tijdslots met lengte gelijk aan...
+        time_slot_length: Lengte tijdslots
+        title: Aanvullende regels voor uw beschikbaarheid
+      availability_help: Selecteer een van uw roosters of bepaal aangepaste uren voor dit type evenement.
+      buffer: Voeg een buffer toe voor/na de gebeurtenis
+      buffer_after: Voeg een buffer toe na de gebeurtenis
+      buffer_after_help: Maak na het evenement tijd vrij om het evenement voor te bereiden of af te ronden.
+      buffer_after_placeholder: Tijd na uw evenementen
+      buffer_before: Voeg een buffer toe vóór de gebeurtenis
+      buffer_before_help: Maak vóór het evenement tijd vrij die u kunt gebruiken om u voor te bereiden op of af te sluiten van het evenement.
+      buffer_before_placeholder: Tijd voor uw evenementen
+      buffer_extra_time: Voeg een extra tijd toe
+      buffer_extra_time_help: Toon de duur van de dienst in de widget voor genodigden, maar verleng de lengte van de tijdsloten door extra tijd toe te voegen aan de duur van de dienst
+      buffer_extra_time_placeholder: Duur van de dienst verlengen
+      buffer_help: Maak tijd vrij voor en na het evenement dat u kunt gebruiken om u voor te bereiden of af te leiden.
+      choose_duration: Kies een duur
+      confirm_remove_slot: Weet je zeker dat je dit element wilt verwijderen?
+      custom_hours_long: Aangepaste beschikbaarheid definiëren, specifiek voor het evenementtype
+      custom_hours_short: Aangepaste uren instellen
+      default_hours_long: Gebruik standaard beschikbaarheid ingesteld op je profiel voor alle evenementen
+      default_hours_short: Standaarduren gebruiken
+      event_length: Bepaal hoe lang uw evenement zal duren
+      set_custom_hours: Aangepaste uren instellen
+      set_custom_hours_help: Aangepaste uren definiëren die specifiek zijn voor het evenementtype
+      use_default_hours: Standaarduren gebruiken
+      use_default_hours_help: Gebruik standaard uren ingesteld op uw profiel voor alle evenementen
+    booking_widget: Reservering Widget
+    bought_number: Je hebt met succes een telefoonnummer gekocht.
+    button:
+      add_new_event: Nieuw evenement toevoegen
+      assistant_settings: Assistent instellingen
+      bulk_actions: Bulkacties
+      copy_link: Link kopiëren
+      create: Service creëren
+      edit: Bewerk
+      new_event_for_all: Nieuw evenement voor iedereen
+      remove: Verwijder
+      turn_off: Uitschakelen
+      turn_on: Aanzetten
+      turn_on_off: Zet aan/uit
+      update: Update dienst
+      widget_settings: Widget Instellingen
+    buy_number: Nummer kopen
+    buy_number_modal:
+      address_requirement: Adres Vereiste
+      advanced_search: Geavanceerd zoeken
+      buy: Koop
+      capabilities: Mogelijkheden
+      local: Lokaal
+      mobile: Mobiel
+      monthly_fee: Maandelijkse bijdrage
+      number: Nummer
+      number_type: Nummer Type
+      reset: Reset
+      search: Zoek op
+      select_country: Selecteer een land
+      sms: SMS
+      title: Koop een nummer
+      toll_free: Gratis
+      type: Type
+      voice: Stem
+    calendar_connection:
+      add_new_calendar_connection: Nieuwe kalenderverbinding toevoegen
+      add_to_calendar:
+        add_to: Toevoegen aan
+        caption: Toevoegen aan kalender
+        description: Stel de kalender in waaraan u nieuwe gebeurtenissen wilt toevoegen als ze gepland zijn.
+        dialog_title: Aan welke kalender moeten we nieuwe evenementen toevoegen?
+      button:
+        add_new: Nieuw toevoegen
+      calendar: Kalender
+      caption: Kalenderverbindingen
+      check_for_conflicts: Controle op conflicten
+      check_for_conflicts_detail: Stel de kalender(s) in om te controleren op conflicten om dubbele boekingen te voorkomen.
+    chat_widget:
+      error_content: Sorry, U heeft geen toegang tot deze pagina. Neem contact op met Voxiplan Support via chat of e-mail (support@voxiplan.com)
+      error_title: Er ging iets mis
+    common:
+      allow_image: 'Toegestane bestandstypen: png, jpg, jpeg.'
+      button:
+        add: Toevoegen
+        back: Terug
+        cancel: Annuleren
+        close: Sluiten
+        connect: Verbind
+        contact_us: Contacteer ons
+        continue: Ga deur
+        disconnect: Loskoppelen
+        submit: Indienen
+        update: Update
+      configuration: Configuratie
+      please_wait: Wacht alstublieft...
+      save_failure: Er is iets fout gegaan!!!
+      save_success: Uw wijzigingen zijn opgeslagen.
+    copy_phone: Telefoon kopiëren
+    demo:
+      label1: 15 minuten vergadering
+      label2: 30 minuten vergadering
+      label3: 60 minuten vergadering
+    disable_service_paid_plan: U moet ten minste één ingeschakelde dienst houden met telefonische boeking.
+    edit_url: URL bewerken
+    event_delete_confirm: Weet u zeker dat u deze gebeurtenis wilt verwijderen?
+    'false': false
+    filter: Filter
+    general:
+      advanced_rules: Regels vooraf
+      event_name_help: Voer een standaardnaam in voor je evenement. Deze naam wordt standaard gebruikt voor al je kanalen.
+      event_name_label: Naam evenement
+      event_other_name: Gebruik een andere evenementnaam voor telefonische boeking
+      event_other_name_help: Voer een standaardnaam in voor je evenement. Deze naam wordt standaard gebruikt voor al je kanalen.
+      select_resource_name: Selecteer de naam van de bron
+      service_exist: De dienst bestaat al.
+    keep_one_phone_service: Voor telefoonboekingen moet ten minste één dienst zijn ingeschakeld.
+    keep_one_service: U moet ten minste één ingeschakelde dienst houden.
+    menu: Actieve en inactieve diensten
+    messaging: Berichten
+    minutes: minuten
+    new_event_type: Nieuw evenementtype
+    new_number_request_title: Nieuw nummer aangevraagd
+    new_number_requested: Uw verzoek is verzonden naar het Voxiplan team.
+    new_number_requested_title: U heeft een nieuw nummer aangevraagd
+    no_calendars_modal:
+      button: OK
+      content: De eigenaar moet een toepassingskalender voor dit lid aanmaken en toewijzen of dit lid moet zijn externe kalender aansluiten.
+      title: Lege kalender
+    order_phone_modal:
+      content: Uw assistent is momenteel telefonisch niet bereikbaar. <br> Om deze functie te gebruiken, kunt u een speciaal telefoonnummer bestellen. <br><br>Of klik op Voorbeeld om een testgesprek te voeren
+      order_button: Koop nummer
+      title: Telefoonboeking activeren
+    phone_booking: Telefoon Reservering
+    phone_call: min. - Telefoongesprek
+    preview: Voorbeeld
+    resources:
+      add_resource: Nieuwe bron toevoegen
+      advance_settings: Geavanceerde instellingen
+      app_calendar: Toepassingskalender
+      availability: Beschikbaarheid
+      calendar: Kalender
+      changed_enable: Ingeschakelde bron met succes gewijzigd
+      choose_calendar: Kalender kiezen
+      create_failed: Hulpbron niet aangemaakt
+      create_modal_title: Nieuwe bron
+      created_error: Er is een fout opgetreden bij het aanmaken van de bron.
+      created_success: De bron is succesvol aangemaakt.
+      custom_configuration: Een aangepaste configuratie instellen
+      different_resource_name: Gebruik een andere bronnaam voor telefoonboekingen
+      distribution_collective: Collectieve distributie
+      distribution_collective_help: Boeken wanneer alle middelen in één keer beschikbaar zijn (many-to-one)
+      distribution_invitee: Selectie van genodigden
+      distribution_invitee_help: Laat genodigden een bron uit een lijst kiezen (één-op-één)
+      distribution_one: Eén op één
+      distribution_one_help: Laat genodigden een tijd met je boeken (één-op-één)
+      distribution_random: Willekeurige verdeling
+      distribution_random_help: Een bron willekeurig toewijzen (één op één)
+      duration_help: Met deze functie kan een andere duur voor de aanbieder worden vastgesteld.
+      duration_label: Kies een providerduur (komt binnenkort!)
+      edit_modal_title: Bewerk bron
+      existing_user_calendar: Bestaande gebruiker(s) met kalender
+      goto_availability: Ga naar Beschikbaarheid
+      individual_resource: Individuele middelen
+      invite_user: Nieuwe gebruiker uitnodigen
+      keep_one_resource: U moet ten minste één ingeschakelde bron behouden.
+      multi_resources: Meerdere bronnen
+      my_calendar: Mijn kalender
+      name_label: Naam van de bron
+      override_help: Om uw uren op specifieke data te verschuiven, werkt u uw schema bij onder "Beschikbaarheid".
+      removed_success: De bron is succesvol verwijderd.
+      required_name: Vereiste bronnaam
+      resource_already_using: De bron wordt gebruikt door een andere bron. Dus ik kan de bron niet verwijderen.
+      resource_delete_confirm: Weet u zeker dat u deze bron wilt verwijderen?
+      resource_distribution_strategy: Selecteer distributiestrategie
+      resource_distribution_strategy_tooltip: Bepaal hoe de afspraken van dit gebeurtenistype worden verdeeld over de middelen
+      resource_exist: De bron bestaat al.
+      saveas_schedule: Opslaan als nieuwe planning
+      schedule: Schema
+      select_users: Selecteer gebruiker(s)
+      setting_help1: 'Opmerking: Om dit te controleren moet je meerdere bronnen hebben en de <b>Diensten eerst</b> optie instellen op de <i>Widget instellingen</i> pagina'
+      setting_help2: 'Opmerking: Om dit te controleren moet je meerdere bronnen hebben en de <b>Resource first</b> optie instellen op de <i>Widget Setting</i> pagina'
+      synced_calendar: Gesynchroniseerde kalender
+      team_calendar: Teamledenkalender
+      update_failed: Hulpbron niet bijgewerkt
+      updated_error: Er is een fout opgetreden tijdens het bijwerken van de bron.
+      updated_success: De bron is succesvol bijgewerkt.
+      use_default: Standaardconfiguratie gebruiken (beheren op de pagina "kalenderverbindingen")
+      what_resource: Welke bron is dit?
+      when_book_resource: Wanneer kunnen mensen deze bron boeken?
+      which_calendar: Welke kalender moet het gebruiken?
+      which_schedule: Welk schema wilt u gebruiken voor dit type evenement?
+    review_phone_number:
+      add_information: Selecteer Eindgebruiker en voeg informatie toe.
+      back: Terug
+      business: Business
+      business_address: Zakelijk adres
+      business_description: Een bedrijf zal bellen of gebeld worden met dit telefoonnummer.
+      business_first_name: Voornaam
+      business_last_name: Achternaam
+      business_name: Bedrijfsnaam
+      business_number: Bedrijfsregistratienummer
+      business_represent: Naam van de gemachtigde vertegenwoordiger
+      cancel: Annuleren
+      comply: Voldoen aan de wettelijke vereisten.
+      comply_content1: Om aan de plaatselijke voorschriften te voldoen, moeten wij bewijsstukken verstrekken aan vervoerders of plaatselijke handhavingsinstanties. Ondersteunende informatie wordt gebruikt om uw identiteitsgegevens te verifiëren.
+      comply_content2: Een Voxiplan agent neemt binnenkort contact met u op om een reguleringsbundel voor u aan te maken, zodat u legaal telefoonnummers kunt verstrekken en gebruiken.
+      individual: Individueel
+      individual_description: Een persoon zal bellen of gebeld worden met dit telefoonnummer.
+      individual_first_name: Voornaam
+      individual_last_name: Achternaam
+      infor: Er wordt onmiddellijk $1.00 in rekening gebracht. Daarna wordt u $1.00/maand in rekening gebracht bovenop het gebruik dat u maakt van het telefoonnummer.
+      next: Volgende
+      please_wait: Wacht even...
+      select_end_user: Selecteer Eindgebruiker en voeg informatie toe
+      sms_content: Tekstberichten verzenden en ontvangen.
+      step_1: Stap 1
+      step_2: Stap 2
+      step_3: Stap 3
+      title: Review Telefoonnummer
+      voice_content: Inkomende gesprekken ontvangen en uitgaande gesprekken voeren.
+      who_will_use: Wie gebruikt
+    share: Deel
+    share_messaging:
+      button: Knop
+      button_help: Voeg een knop toe aan uw site die doorverwijst naar uw chatwidget.
+      chat_subtitle: Widget Chatten
+      chat_title: Voxiplan
+      copy_link_help: Kopieer de link en voeg hem toe aan de knop.
+      title: Hoe wilt u de chatwidget aan uw website toevoegen?
+      widget: Widget
+      widget_code_help: Script toevoegen aan uw website.
+      widget_help: Laadt uw chatwidget rechtstreeks in uw website.
+    share_phone:
+      forward: Vooruit
+      forward_condition: Voorwaarde
+      forward_condition_1: Altijd doorschakelen (onvoorwaardelijk alle inkomende oproepen doorschakelen naar het telefoonnummer van uw virtuele assistent)
+      forward_condition_2: Voorwaardelijk doorschakelen (wanneer bezet, wanneer onbeantwoord, wanneer onbereikbaar)
+      forward_description: Schakel inkomende oproepen door naar het telefoonnummer van uw virtuele assistent (alleen u kunt het nummer zien, genodigden blijven uw hoofdnummer gebruiken).
+      forward_help: Behoud uw bestaande telefoonnummer als primair telefoonnummer.
+      share: Deel
+      share_description: Geef het telefoonnummer van uw virtuele assistent rechtstreeks door aan de genodigden (de genodigden kunnen het nummer zien).
+      share_help: Gebruik het Voxiplan telefoonnummer als primair telefoonnummer.
+      title: Hoe wil je dat mensen je assistent bereiken?
+    share_web_widget:
+      button: Knop
+      button_help: Voeg een knop toe aan uw site die doorverwijst naar uw boekingswidget.
+      copy_link_help: Kopieer de link en voeg hem toe aan de knop.
+      title: Hoe wilt u Voxiplan aan uw website toevoegen?
+      voxiplan_widget: Voxiplan Widget
+      widget: Widget
+      widget_code_help: Widget als iframe aan uw website toevoegen.
+      widget_help: Laadt uw boekingswidget rechtstreeks in uw website.
+    test_phone_modal:
+      content1: 'Bel ons testnummer <a class=''text-nowrap'' href=''tel:%{phone_number}''>%{phone_number}</a> om telefonische boeking met uw assistent uit te proberen. <br> Let op: bel vanaf uw telefoonnummer %{klant_nummer}. <br><br> Om deze functie te activeren, moet u een speciaal telefoonnummer bestellen.'
+      content2: Bel %{phone_number} om telefonische boeking te testen met uw assistent.
+      content3: 'Bel ons testnummer <a class=''text-nowrap'' href=''tel:%{phone_number}''>%{phone_number}</a> om telefonische boeking met uw assistent uit te proberen. <br> Let op: bel vanaf uw telefoonnummer %{klant_nummer}. <br><br> Om deze functie te activeren, kunt u uw abonnement upgraden en vervolgens een speciaal telefoonnummer bestellen.'
+      order_button: Koop nummer
+      title: Test Telefoon Reservering
+      upgrade_button: Upgrade
+    title:
+      additional_options: Aanvullende opties
+      automations: Automatiseringen
+      automations_tooltip: Eerst moet u een evenement selecteren
+      booking_time: Wanneer kunnen mensen dit evenement boeken?
+      edit_service: Type gebeurtenis bewerken
+      general: Welke gebeurtenis is dit?
+      invitee_questions:
+        add_new: Nieuw toevoegen
+        add_new_question: Nieuwe vraag toevoegen
+        allow_invitee: Laat genodigden extra gasten toevoegen
+        answer: Antwoord
+        answer_type: Type antwoord
+        answer_type_content: 'De genodigde kan een of meer van de volgende opties kiezen:'
+        autofill_invitee: Automatisch invullen van naam, e-mail en telefoonnummer van de uitgenodigde persoon (indien van toepassing) uit eerdere boekingen
+        caption: Vragen van genodigden
+        checkbox: Selectievakjes
+        edit_name_question: Vraag over naam bewerken
+        'false': false
+        multiline: Meerdere lijnen
+        name_input: Naam invoer
+        new_question_modal: Nieuwe vraag
+        oneline: Een lijn
+        question: Vraag
+        question_validation: Ten minste 4 karakters
+        radio_button: Radioknoppen
+        required: Vereist
+        'true': true
+      new_service: Nieuw evenementtype
+      reosurces_tooltip: Eerst moet u een bronnaam selecteren
+      resources: Teamleden? Middelen?
+      services_tooltip: Eerst moet u een servicenaam aanmaken
+    toggle:
+      ai_assistant: AI-Assistent
+      all: Alle
+      assistant: Assistent
+      chat: Chat
+      phone: Telefoon
+      sms: SMS
+      web: Web
+      widget: Widget
+    'true': true
+    update_event_type: Type gebeurtenis bijwerken
+    upgrade_plan_modal:
+      cancel_button: Annuleren
+      current_plan: U bevindt zich momenteel in het <span class='fw-bolder'>%{plan}</span> abonnement.
+      title: Upgrade uw abonnement
+      to_upgrade: Om deze functie te gebruiken, kunt u uw abonnement upgraden.
+      to_upgrade_for_buy_number: Om deze functie te activeren, kunt u uw abonnement upgraden en vervolgens een speciaal telefoonnummer bestellen.
+      to_upgrade_for_trial_plan: U kunt uw abonnement upgraden en dan een speciaal telefoonnummer bestellen om telefoonboekingen mogelijk te maken. <br><br>Of klik op <b>Preview</b> om een testgesprek te voeren.
+      upgrade_button: Upgrade
+    upgrade_seats_modal:
+      cancel_button: Annuleren
+      current_plan: U heeft momenteel 0 beschikbare plaatsen in uw organisatie.
+      title: Een nieuwe stoel toevoegen
+      to_upgrade: Om een nieuwe bron toe te voegen, kunt u een extra stoel kopen.
+      upgrade_button: Zetel toevoegen
+    was_set_to: was ingesteld op
+    web_booking: Web Reservering
+    web_booking_setting: Web Boeking Instellingen
+    workspace_header:
+      tooltip:
+        copy: Kopie
+        edit: Bewerk
+  services_resource:
+    Actions: Acties
+    add_new_to_phone_number: Nieuwe %{service_of_resource} toevoegen aan telefoonmenu
+    agenda_not_configured: Agenda App niet geconfigureerd
+    alert: Maak en bewerk de verschillende boekingsopties die uw klanten kunnen boeken. Resources zijn teamleden, personeel of kamers die kunnen worden toegewezen aan elke boekingsoptie.
+    heading: Boekingsmogelijkheden & middelen
+    manage_resource_&_services: Beheer boekingsopties & middelen
+    options: Opties
+    presenting_choices: Keuzes presenteren
+    randomly_select_resources: Willekeurig middelen selecteren
+    randomly_select_resources_booking_widget: Willekeurige selectie van middelen in boekingswidget
+    resources_first: Middelen eerst
+    service_&_resource_choices: Boekingsmogelijkheden en keuzes van middelen
+    services_first: Reserveringsopties eerst
+    sr_no: Nr
+    title: Titel
+  settings:
+    phone_numbers:
+      sub_account_info: Wilt u meerdere organisaties toevoegen? Maak voor elke organisatie een sub-account aan.
+  sidebar_menu:
+    accounts_numbers: Rekeningen / Cijfers
+    agenda_settings: Agenda-instellingen
+    analytics_tracking: Analytics / Tracking
+    announcements: Aankondigingen
+    appointment_scheduling: Planning van afspraken
+    business_hours: Kantooruren
+    call_forwarding: Oproepomleiding
+    call_recording: Gespreksopname
+    call_settings: Gespreksinstellingen
+    calls_appointments: Gesprekken & Afspraken
+    clients: Klanten
+    customers: Klanten
+    dashboard: Dashboard
+    extras: Extra's
+    general: Algemeen
+    language_menu: Taalmenu
+    my_agenda: Mijn agenda
+    my_virtual_assistant: Mijn virtuele assistent
+    online_agenda: Online agenda
+    phone_menu: Telefoonmenu
+    redirect_URL: Omleiding URL
+    reports: Rapporten
+    resources: Middelen
+    settings: Instellingen
+    users: Gebruikers
+    voicemail_to_email: Voicemail naar e-mail
+    welcome_message: Hoofdgroet
+  sms_enabled: SMS-schakelaar
+  sms_stats:
+    action: Acties
+    call: Bel
+    date: Datum
+    delivered: Geleverd
+    delivery_failed: Levering mislukt
+    delivery_report: Leveringsrapport
+    direction: Richting
+    from: Van
+    heading: SMS-verslag
+    incoming: Inkomend
+    incoming_sms: Inkomende SMS
+    message: Bericht
+    outgoing: Uitgaande
+    outgoing_sms: Uitgaande SMS
+    search_date: Zoekdatum
+    sending_failed: Verzenden mislukt
+    sent: Verzonden
+    to: Naar
+    total_sms: Totaal SMS
+  static_ivr:
+    announcement_closed: Heb je het gehoord? U kunt nu *de SmartCard* gebruiken om al uw patiëntgegevens met één klik veilig te verzenden. Een lid van ons team kan u meer informatie geven.
+    announcement_closed_strip_ssmd: Heb je het gehoord? U kunt nu de SmartCard gebruiken om al uw patiëntgegevens met één klik veilig te verzenden. Een lid van ons team kan u meer informatie geven.
+    announcement_open: Heb je het gehoord? U kunt nu *de SmartCard* gebruiken om al uw patiëntgegevens veilig te verzenden in één klik. Vraag een lid van ons team om meer informatie.
+    announcement_open_strip_ssmd: Heb je het gehoord? U kunt nu de SmartCard gebruiken om al uw patiëntgegevens met één klik veilig te verzenden. Vraag een lid van ons team om meer informatie.
+    appointment_announcement_closed: Hallo %{klant_voor_naam}! *Geweldig* dat u er bent!* Ons team is momenteel niet beschikbaar, dus *ik* ga u *helpen* uw volgende afspraak in te plannen.
+    appointment_announcement_closed_strip_ssmd: Hallo %{klant_voor_naam}! Fijn dat u er bent! Ons team is momenteel niet beschikbaar, dus ik ga u helpen om uw volgende afspraak in te plannen.
+    appointment_announcement_open: Hallo %{klant_voor_naam}! *Hoe gaat het vandaag met u? ...c Laten we *kijken* wanneer u *kan komen* voor uw *volgende* afspraak.
+    appointment_announcement_open_strip_ssmd: Hallo %{klant_voor_naam}! Hoe gaat het met u vandaag? Laten we eens kijken wanneer u kunt komen voor uw volgende afspraak.
+    appointment_cancel_caller_sms: Uw afspraak voor %{%{var}} is geannuleerd. We zien u graag een volgende keer.
+    appointment_cancelled: Dank u %{klant_voornaam}, Uw afspraak is geannuleerd. Als u nog vragen heeft, kunt u ons bellen of mailen. We hopen u snel weer te zien. Een fijne dag verder.
+    appointment_cancelled_strip_ssmd: Dank u %{klant_voornaam}, Uw afspraak is geannuleerd. Als u nog vragen heeft, kunt u ons bellen of mailen. We hopen u snel weer te zien. Een fijne dag verder.
+    appointment_cofirmation: Om uw keuze te bevestigen, drukt u op 1. Of druk op 0 om terug te keren naar de vorige stap.
+    appointment_cofirmation_implicit: U hebt %{%{tijd}} geselecteerd. Druk op 0 om uw keuze te wijzigen.
+    appointment_cofirmation_implicit_strip_ssmd: U hebt %{%{tijd}} geselecteerd. Druk op 0 om uw keuze te wijzigen.
+    appointment_cofirmation_strip_ssmd: Om uw keuze te bevestigen, drukt u op 1. Of druk op 0 om terug te keren naar de vorige stap.
+    appointment_fail: Sorry, We konden uw afspraak niet maken.
+    appointment_fail_strip_ssmd: Sorry, We konden uw afspraak niet maken.
+    appointment_group_menu:
+      generic:
+        multiple: "%{dag}, tussen %{start} en %{finish}, druk op %{num}.< ...c"
+        multiple_strip_ssmd: Voor %{dag}, tussen %{start} en %{finish}, druk op %{num}
+        single: "%{dag}, op %{tijd} druk %{num}.< ...c"
+        single_strip_ssmd: Voor %{dag}, druk op %{tijd}
+      other: Om deze optie te herhalen, druk op 9. Of *hold* om meer beschikbaarheid te horen
+      other_strip_ssmd: Om deze optie te herhalen, drukt u op 9. Of houd ingedrukt om meer beschikbaarheid te horen
+    appointment_group_menu2_no_slot_found: We hebben geen beschikbaarheid meer op deze dag. Om uw opties te herhalen, druk op 1. Of druk op 2 om de beschikbaarheid op de volgende dagen te horen.
+    appointment_group_menu2_no_slot_found_strip_ssmd: We hebben geen beschikbaarheid meer op deze dag. Om uw opties te herhalen, druk op 1. Of druk op 2 om de beschikbaarheid op de volgende dagen te horen.
+    appointment_group_menu3:
+      manual_other: Om andere beschikbaarheid te horen, druk 4. Of druk op 0 om met een agent te spreken
+      manual_other_strip_ssmd: Om andere beschikbaarheid te horen, druk 4. Of druk op 0 om met een agent te spreken.
+      other: " Druk op 9 om deze beschikbaarheid te herhalen. Of *Houd* de lijn vast voor meer opties."
+      other_strip_ssmd: " Druk op 9 om deze beschikbaarheid te herhalen. Of houd de lijn vast voor meer opties."
+      time1: " Voor %{%{time1}}, druk op 1. ...400ms"
+      time1_strip_ssmd: " Voor %{%{tijd1}}, druk op 1"
+      time2: " Voor %{%{time2}}, druk op 2. ...400ms"
+      time2_strip_ssmd: " Voor %{%{time2}}, druk op 2"
+      time3: " Voor %{%{time3}}, druk op 3. ...400ms"
+      time3_strip_ssmd: " Voor %{%{time3}}, druk op 3"
+    appointment_group_menu4: Om te zoeken op datum, druk op 1. Om te zoeken op weekdag, druk op 2. Om te zoeken op ochtend of middag, druk op 3. Om te zoeken op tijd, druk op 4
+    appointment_group_menu4_no_slot_found: Om te herhalen, druk op 1. Om het opnieuw te proberen, druk op 2. Om een andere voorkeur te kiezen, druk je op 3
+    appointment_group_menu4_no_slot_found_strip_ssmd: Om te herhalen, druk op 1. Om het opnieuw te proberen, druk op 2. Om een andere voorkeur te kiezen, druk je op 3
+    appointment_group_menu4_strip_ssmd: Om te zoeken op datum, druk op 1. Om te zoeken op weekdag, druk op 2. Om te zoeken op ochtend of middag, druk op 3. Om te zoeken op tijd, druk op 4
+    appointment_max_limit_reached: U kunt geen nieuwe afspraak maken omdat u het maximum aantal toegestane afspraken heeft bereikt. Vraag een lid van ons team om u te helpen.
+    appointment_max_limit_reached_strip_ssmd: U kunt geen nieuwe afspraak maken omdat u het maximum aantal toegestane afspraken heeft bereikt. Vraag een lid van ons team om u te helpen.
+    appointment_menu1: Voor %{%{tijd1}}, druk op 1.  Wacht om de volgende beschikbaarheid te horen, of druk op 9 om deze optie te herhalen.
+    appointment_menu1_manual: De dokter zei me u de eerstvolgende mogelijke afspraak aan te bieden op %{%{tijd1}}. Druk op 1 om deze afspraak te bevestigen. Druk op 2 om andere beschikbaarheid te horen
+    appointment_menu1_manual_strip_ssmd: De dokter zei me u de eerstvolgende mogelijke afspraak aan te bieden op %{%{tijd1}}. Druk op 1 om deze afspraak te bevestigen. Druk op 2 om andere beschikbaarheid te horen
+    appointment_menu1_strip_ssmd: Voor %{%{tijd1}}, druk op 1.  Wacht om de volgende beschikbaarheid te horen, of druk op 9 om deze optie te herhalen.
+    appointment_menu2: Voor %{%{time1}}, druk op 1. Voor %{%{time2}}, druk op 2. Wacht om de volgende beschikbaarheid te horen. Of druk op 9 om te herhalen
+    appointment_menu2_manual: U hoort nu de volgende mogelijke beschikbaarheden Druk op 1 voor %{%{time1}}. Druk op 2 voor %{%{time2}}. Druk op 3 om andere beschikbaarheden te horen. Of druk op 0 om met de klant te praten.
+    appointment_menu2_manual_strip_ssmd: U hoort nu de volgende mogelijke beschikbaarheden Druk op 1 voor %{%{time1}}. Druk op 2 voor %{%{time2}}. Druk op 3 om andere beschikbaarheden te horen. Of druk op 0 om met de klant te praten.
+    appointment_menu2_strip_ssmd: Voor %{%{time1}}, druk op 1. Voor %{%{time2}}, druk op 2. Wacht om de volgende beschikbaarheid te horen. Of druk op 9 om te herhalen
+    appointment_modified: Bedankt %{klant_voornaam}, uw afspraak is geannuleerd. Kies een van de volgende opties om een nieuwe afspraak te maken.
+    appointment_modified_strip_ssmd: Bedankt %{klant_voornaam}, uw afspraak is geannuleerd. Kies een van de volgende opties om een nieuwe afspraak te maken.
+    appointment_success: Dank u %{%{naam}}, uw afspraak voor %{%{tijd}} is bevestigd.
+    appointment_success_caller_sms: Een afspraak voor %{%{tijd}} is bevestigd.
+    appointment_success_client_sms: Een afspraak voor %{%{tijd}} is bevestigd door %{%{caller}}
+    appointment_success_mail_body: |-
+      Een afspraak voor %{%{tijd}} is bevestigd
+       %{%{record}}
+    appointment_success_mail_sub: Nieuwe bevestigde benoeming
+    appointment_success_record: Als u wilt dat ik een boodschap over uw afspraak doorgeef, neemt u die na de toon op en drukt u op de hasjtoets. Anders kunt u ophangen.
+    appointment_success_record_strip_ssmd: Als u wilt dat ik een boodschap over uw afspraak doorgeef, neemt u die na de toon op en drukt u op de hasjtoets. Anders kunt u ophangen.
+    appointment_success_recorded: Bedankt voor uw bericht, %{klant_voornaam}. Ik zal het doorgeven aan het team. We kijken uit naar uw komst! Tot ziens.
+    appointment_success_recorded_strip_ssmd: Bedankt voor uw bericht, %{klant_voornaam}. Ik zal het doorgeven aan het team. We kijken uit naar uw komst! Tot ziens.
+    appointment_success_strip_ssmd: Dank u %{%{naam}}, uw afspraak voor %{%{tijd}} is bevestigd.
+    call_hangup_mail_body: 'Opgehangen door: %{caller_id}'
+    call_hangup_mail_subject: Voxiplan oproep hangup
+    cancel_appointment:
+      generic: Om uw afspraak op %{%{var}} te annuleren, drukt u op %{%{num}}
+      generic_strip_ssmd: Om uw afspraak op %{%{var}} te annuleren, drukt u op %{%{num}}
+      other: " Of druk op 9 om te herhalen."
+      other_strip_ssmd: " Of druk op 9 om te herhalen."
+    cancel_time_limit_reached: U kunt uw afspraak niet op zo'n korte termijn wijzigen.
+    cancel_time_limit_reached_strip_ssmd: U kunt uw afspraak niet op zo'n korte termijn wijzigen.
+    cmd_menu:
+      create: " Om een nieuwe afspraak te maken, druk op 3"
+      create_strip_ssmd: " Om een nieuwe afspraak te maken, druk op 3"
+      delete: " Om een bestaande afspraak te *annuleren*, drukt u op 2"
+      delete_strip_ssmd: " Om een bestaande afspraak te annuleren, drukt u op 2"
+      modify: " Om een bestaande afspraak te wijzigen, drukt u op 1"
+      modify_strip_ssmd: " Om een bestaande afspraak te wijzigen, drukt u op 1"
+      more_then_one_appointments: " Je hebt al %{%{count}} bevestigde afspraken. ...400ms"
+      more_then_one_appointments_strip_ssmd: " Je hebt al %{%{count}} bevestigde afspraken"
+      only_one_appointment: " Je hebt al een bevestigde afspraak voor %{%{tijd}}. ...400ms"
+      only_one_appointment_strip_ssmd: " U heeft al een bevestigde afspraak voor %{%{tijd}}"
+    ext_action_appointment_bot: Afspraak Bot
+    ext_action_say_message: Zeg bericht
+    ext_action_send_to_voicemail: Stuur naar voicemail
+    ext_action_transfer_call: Doorverbinden
+    gather_number: Voer uw telefoonnummer in gevolgd door de hash sleutel.
+    gather_number_strip_ssmd: Voer uw telefoonnummer in gevolgd door de hash sleutel.
+    hangup_caller_sms: Bedankt voor uw telefoontje. We zijn momenteel in vergadering of niet beschikbaar. Om een afspraak te maken, bezoek ons online www.voxiplan.com of bel ons op +3228084080.
+    internal_error: Sorry, we konden uw verzoek niet verwerken.
+    internal_error_strip_ssmd: Sorry, we konden uw verzoek niet verwerken.
+    invalid: U heeft geen geldige optie geselecteerd
+    invalid_strip_ssmd: U heeft geen geldige optie geselecteerd
+    menu_closed: Om een afspraak te boeken, te wijzigen of te annuleren, drukt u op 1. Om een bericht achter te laten, druk op 2
+    menu_closed_strip_ssmd: Om een afspraak te boeken, te wijzigen of te annuleren, drukt u op 1. Om een bericht achter te laten, druk op 2
+    menu_open: Om een afspraak te boeken, te wijzigen of te annuleren, druk 1. Om met verkoop te spreken, druk 2
+    menu_open_strip_ssmd: Om een afspraak te boeken, te wijzigen of te annuleren, druk 1. Om met verkoop te spreken, druk 2
+    modify_appointment:
+      generic: Om uw afspraak op %{%{var}} te wijzigen, drukt u op %{%{num}}
+      generic_strip_ssmd: Om uw afspraak op %{%{var}} te wijzigen, drukt u op %{%{num}}
+      other: " Of druk op 9 om te herhalen."
+      other_strip_ssmd: " Of druk op 9 om te herhalen."
+    new_customer_enter_your_name: Neem na de toon uw naam op, gevolgd door de hashsleutel.
+    new_customer_enter_your_name_strip_ssmd: Neem na de toon uw naam op, gevolgd door de hashsleutel.
+    new_customer_not_allowed: Sorry, ik mag geen afspraken maken voor nieuwe klanten.
+    new_customer_not_allowed_strip_ssmd: Sorry, ik mag geen afspraken maken voor nieuwe klanten.
+    post_confirmation_reminder: Vergeet niet een glimlach mee te nemen
+    post_confirmation_reminder_strip_ssmd: Vergeet niet een glimlach mee te nemen
+    record_your_message: Neem uw bericht op na de toon, gevolgd door de hash-toets.
+    record_your_message_strip_ssmd: Neem uw bericht op na de toon, gevolgd door de hash-toets.
+    resources:
+      generic: Voor %{%{var}}, druk op %{%{num}}. ...400ms
+      generic_strip_ssmd: Voor %{%{var}}, druk op %{%{num}}
+      other: " Of druk op 9 om deze opties te herhalen."
+      other_strip_ssmd: " Of druk op 9 om deze opties te herhalen."
+    say_invalid_number: U heeft geen geldig nummer ingevoerd.
+    say_invalid_number_strip_ssmd: U heeft geen geldig nummer ingevoerd.
+    search_by_ampm: Voor de ochtend, druk op 1. Voor de middag, druk op 2.
+    search_by_ampm_strip_ssmd: Voor de ochtend, druk op 1. Voor de middag, druk op 2.
+    search_by_date: Voer een datum in, gevolgd door de hashsleutel
+    search_by_date_strip_ssmd: Voer een datum in, gevolgd door de hashsleutel
+    search_by_time: Voer een tijdsbestek in, gevolgd door de hashsleutel.
+    search_by_time_strip_ssmd: Voer een tijdsbestek in, gevolgd door de hashsleutel.
+    search_by_weekday: Voor maandag, druk op 1. Dinsdag, druk op 2. Woensdag, druk op 3. Donderdag, druk op 4. Vrijdag, druk op 5. Zaterdag, druk op 6. Zondag, pers 7.
+    search_by_weekday_strip_ssmd: Voor maandag, druk op 1. Dinsdag, druk op 2. Woensdag, druk op 3. Donderdag, druk op 4. Vrijdag, druk op 5. Zaterdag, druk op 6. Zondag, pers 7.
+    services:
+      generic: Voor %{%{var}}, druk op %{%{num}}. ...400ms
+      generic_strip_ssmd: Voor %{%{var}}, druk op %{%{num}}
+      other: " Of druk op 9 om deze opties te herhalen."
+      other_strip_ssmd: " Of druk op 9 om deze opties te herhalen."
+    timeout: Je hebt geen enkele toets ingedrukt
+    timeout_strip_ssmd: Je hebt geen enkele toets ingedrukt
+    to_repeat_and_other: " Of druk op 9 om uw opties te herhalen"
+    to_repeat_and_other_strip_ssmd: " Of druk op 9 om uw opties te herhalen"
+    transfer_menu_closed: Kunt u geen beschikbaarheid vinden? Druk op 0 om uw bericht in te spreken of wacht op meer beschikbaarheid
+    transfer_menu_closed_strip_ssmd: Kunt u geen beschikbaarheid vinden? Druk op 0 om uw bericht in te spreken of wacht op meer beschikbaarheid
+    transfer_menu_open: Kunt u geen beschikbaarheid vinden? Druk op 0 om iemand te spreken of wacht op meer beschikbaarheid
+    transfer_menu_open_strip_ssmd: Kunt u geen beschikbaarheid vinden? Druk op 0 om iemand te spreken of wacht op meer beschikbaarheid
+    voice_mail_subject: Je hebt een gesproken e-mail
+    welcome_closed: Hallo!, en bedankt voor het bellen naar *Dr. John's kliniek*! Je belt buiten onze openingstijden.  Ik ben Laura, en ik ben hier om u te helpen
+    welcome_closed_strip_ssmd: Hallo, en bedankt voor het bellen naar Dr. John's kliniek! U belt buiten onze openingstijden.  Ik ben Laura, en ik ben hier om u te helpen
+    welcome_open: Hallo, en bedankt voor het bellen naar Dr. John's kliniek! Ik ben Laura, en ik ben hier om u te helpen met uw telefoontje.
+    welcome_open_strip_ssmd: Hallo, en bedankt voor het bellen van Dr. John's kliniek! Ik ben Laura, en ik ben hier om u te helpen met uw telefoontje.
+    your_call_being_transfer: Wacht even. Uw gesprek wordt doorverbonden.
+    your_call_being_transfer_strip_ssmd: Wacht even. Uw gesprek wordt doorverbonden.
+  stats:
+    appointment_status: Status van de afspraak
+    call_for_appointment: Bel voor afspraak
+    call_title: Bel
+    contact_type: Type contact
+    date: Datum
+    date_range: Datumbereik
+    direction: Richting
+    duration: Duur
+    duration_minutes: "#Minutes"
+    entered_number: Beller
+    from: Van
+    heading: Gespreksverslag
+    incoming: Inkomend
+    incoming_calls: Inkomende gesprekken
+    outgoing: Uitgaand
+    outgoing_calls: Uitgaande gesprekken
+    parsed_from: Ontleed van
+    record_id: Record ID
+    recordings: "#&nbsp;of Recordings"
+    reset: Reset
+    search: Zoek op
+    search_date: Zoekdatum
+    search_report: Zoekrapport
+    sms: "#&nbsp;of&nbsp;SMS"
+    sms_title: SMS
+    status: Status
+    to: Naar
+    total: Totaal
+    total_calls: Totaal aantal oproepen
+  sweetalert:
+    cancel_button: Annuleren
+    confirmation_text: Je kunt dit niet terugdraaien!
+    confirmation_title: Weet je het zeker?
+    delete_confirm_button: Ja, wis het!
+    no_cancel: Nee, annuleer
+    ok_got_it: Ok, ik heb het!
+    yes_change: Ja, verander het!
+    yes_delete: Ja, wis het!
+    yes_disconnect: Ja, ontkoppelen!
+    yes_reorder: Ja, bestel het opnieuw!
+  time:
+    formats:
+      custom: "%A, %{dag} van %B om %I:%M %p"
+      date: "%{dag} van %B"
+      day: "%A"
+      hour: "%I:%M %p"
+  url_stats:
+    breadcrumb_title: Klik op
+    clicks: Clicks
+    contact_name: Naam contactpersoon
+    contact_number: Contactgegevens
+    heading: Klik Rapport
+    last_clicked_at: Laatst geklikt op
+    sent_on: Verzonden op
+    short_url: Korte URL
+    target_url: Doel-URL
+  user_bar_new_ui:
+    billing: Facturering
+    call: Bel +%{nummer}
+    call_desc: om je assistent te testen
+    my_profile: Mijn profiel
+    my_profile_desc: Mijn profiel
+    my_team: Mijn team
+    my_team_desc: Gebruikers
+    plans_and_invoices: Plannen en facturen
+    pricing: Prijzen
+  user_menu:
+    billing: Facturering
+    calendar_connection: Agenda's beheren
+    language: Taal
+    my_organization: Mijn organisatie
+    my_profile: Mijn profiel
+    my_team: Mijn team
+    pricing: Prijzen
+    sign_out: Afmelden
+    switch_organization: Switch Organisatie
+  validation:
+    available: Beschikbaar
+    detected_key: Kan "spatie, &, /, ?" niet gebruiken
+    not_empty: Kan niet leeg zijn
+    unavailable: Niet beschikbaar
+  verification:
+    button: Voorlopig overslaan
+    first_content: We hebben u een verificatielink gestuurd om uw e-mailadres te bevestigen. Controleer uw inbox en spamfolder.
+    second_content: Heb de e-mail niet ontvangen op
+    title: Controleer uw e-mailadres
+    try_again: Stuur  opnieuw
+  widget_preference:
+    24_hour: 24 uur
+    allow_clients_to_schedule: Laat contacten toe om tot
+    am_pm: AM/PM
+    company_title: Titel boekingswidget
+    custom_text_enable_help: U kunt deze functie gebruiken wanneer "AI Bot inschakelen" van het telefoonmenu is uitgeschakeld.
+    days_in_future: dagen in de toekomst
+    empty_select_error: Selecteer een optie
+    give_an_order: Een bestelling definiëren
+    give_an_order_help_text: Toon eerst het ene type dropdown en dan het andere.
+    heading: Boeking widget
+    hide_resources: Verberg middelen
+    hide_resouse_help_text: Toon alleen diensten dropdown en verberg middelen dropdown.
+    language: Taal
+    language_help_text: Standaardtaal die moet worden gebruikt in de boekingswidget.
+    morning_afternoon: Ochtend/middag
+    options_heading: Instellingen boekingswidget
+    preference_disable_tooltip: U kunt deze functie gebruiken wanneer Phone:ivr
+    preference_phone_ai_disable_tooltip: U kunt deze functie gebruiken wanneer Appointment Bot bestaat
+    resource_first: Bronnen eerst
+    resource_first_help_text: Geef de resources dropdown en de services dropdown tegelijkertijd weer.
+    resource_first_note_text: 'Opmerking: Om het te veranderen, moet u de distributie van middelen van alle diensten instellen op één-op-één of selectie van genodigden'
+    resource_service_options_heading: Dropdown menu voor boekingsopties
+    scheduling_conditions: Planningsvoorwaarden
+    select_order: Selecteer eerst
+    service_first: Service eerst
+    service_first_help_text: Geef de services dropdown en de resources dropdown tegelijkertijd weer.
+    service_resource_help_text: Geef de services dropdown en de resources dropdown tegelijkertijd weer.
+    time_format: Tijdformaat
+    time_format_help_text: Standaard tijdformaat dat moet worden gebruikt in de boekingswidget.
+    timezone: Tijdzone
+    timezone_help_text: Standaard tijdzone die moet worden gebruikt in de boekingswidget.
+    widget_branding:
+      description: Beschrijving
+      logo: Logo
+      menu: Widget Branding
+      no_logo: Geen logo
+      remove_branding: Voxiplan Branding verwijderen
+      remove_branding_helper: Hiermee kunt u bepalen hoe het merk Voxiplan wordt weergegeven op uw planningspagina.
+      require_description: Beschrijving vereist.
+      use_branding: Gebruik aangepaste branding

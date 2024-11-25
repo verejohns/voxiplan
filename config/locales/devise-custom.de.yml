@@ -1,0 +1,38 @@
+---
+de:
+  devise:
+    registrations:
+      new:
+        agree_terms: Ich habe die Website gelesen und bin damit einverstanden
+        and: und
+        i_agree_the: Ich habe die ... gelesen und stimme ihnen zu
+        privacy_policy: Datenschutz-Bestimmungen
+        receive_email: Ich möchte per E-Mail über neue Funktionen und Neuigkeiten bei Voxiplan informiert werden.
+        terms_and_conditions: Geschäftsbedingungen
+    sessions:
+      new:
+        forgot_your_password: Passwort vergessen?
+        remember_me: Behalte mich in Erinnerung
+    shared:
+      links:
+        do_not_have_account: Sie haben noch keinen Account?
+        new_here: Neu hier?
+  login:
+    message:
+      html: 'Arbeiten Sie effizienter mit Ihrem KI-Assistenten <br> sich auf das konzentrieren, was am wichtigsten ist: Ihre Kunden.'
+    welcome: Erledigen Sie mehr mit Ihrem KI-Assistenten
+  placeholders:
+    company: Unternehmen
+    confirm_email: Bestätigungs-E-Mail
+    confirm_password: Bestätige das Passwort
+    email: Email
+    first_name: Vorname
+    fullname: Vollständiger Name
+    industry: Industrie
+    last_name: Nachname
+    passwd: Passwort
+    passwd_help: Verwenden Sie 8 oder mehr Zeichen mit einer Mischung aus Buchstaben, Zahlen und Symbolen.
+    password: Passwort
+    password_error: Passwort bestätigen bedeutet nicht das Passwort.
+    password_instructions: mindestens 6 Zeichen
+    phone: Telefon

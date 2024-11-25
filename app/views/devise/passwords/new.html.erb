@@ -1,0 +1,30 @@
+<%= form_for(resource, as: resource_name, url: recovery_client_path(resource_name), html: { method: :post, class: "form w-100" }) do |f| %>
+  <!--begin::Heading-->
+  <div class="text-center mb-10">
+    <!--begin::Title-->
+    <h1 class="text-dark mb-3"><%= t('.forgot_your_password', default: 'Forgot your password?') %></h1>
+    <!--end::Title-->
+    <!--begin::Link-->
+    <div class="text-gray-400 fw-bold fs-4"><%= t('.forgot_your_password_heading') %></div>
+    <!--end::Link-->
+  </div>
+  <!--begin::Heading-->
+  <!--begin::Input group-->
+  <div class="fv-row mb-10">
+    <label class="form-label fw-bolder text-gray-900 fs-6"><%= t('placeholders.email') %></label>
+    <%= f.email_field :email, autofocus: true, class: "form-control form-control-lg form-control-solid", id: "m_inputmask_9", autocomplete: "off", required: true %>
+    <span class="text-danger fw-bolder"><%= error_on(resource, :email) %></span>
+  </div>
+  <!--end::Input group-->
+  <!--begin::Actions-->
+  <div class="d-flex flex-wrap justify-content-center pb-lg-0">
+    <button type="submit" id="kt_password_reset_submit" class="btn btn-lg btn-primary fw-bolder mb-4">
+      <span class="indicator-label"><%= t('.send_me_reset_password_instructions', default: 'Send me reset password instructions') %></span>
+      <span class="indicator-progress"><%= t('common.please_wait') %>
+										<span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+									</span>
+    </button>
+    <a href="<%= new_session_path(resource_name) %>" class="btn btn-lg btn-light-primary fw-bolder"><%= t('button.cancel') %></a>
+  </div>
+  <!--end::Actions-->
+<% end %>

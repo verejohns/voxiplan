@@ -1,0 +1,36 @@
+<div class="tab-pane" id="tab_contact" role="tabpanel">
+  <div class="row">
+    <label class="col-xl-3"></label>
+    <div class="col-lg-9 col-xl-6">
+      <h3 class="kt-section__title kt-section__title-sm">Account:</h3>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-xl-3 col-lg-3 col-form-label">Phone</label>
+    <div class="col-lg-6 col-xl-6">
+      <%= f.text_field :phone, class: "form-control m-input tel", id: "phone", value: (@client.phone.blank? ? '' : "#{@client.phone}") %>
+      <span id="valid-msg" class="hide" style="display: none;float: left;color: #00C900">✓ Valid</span>
+      <span id="error-msg" class="hide" style="display: none;float: left;color: #f4516c">Invalid number</span>
+      <%= f.hidden_field :phone_country, class: "form-control m-input", id: "phone_country", value: (@client.phone_country.blank? ? '' : "#{@client.phone_country}")  %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-xl-3 col-lg-3 col-form-label">Email Address</label>
+    <div class="col-lg-6 col-xl-6">
+      <%= f.text_field :email, autofocus: true, class: "form-control m-input" %>
+    </div>
+  </div>
+  <!-- <div class="form-group row">
+    <label class="col-xl-3 col-lg-3 col-form-label">Language</label>
+    <div class="col-lg-6 col-xl-6">
+      <%#= f.text_field :language, autofocus: true, class: "form-control m-input" %>
+    </div>
+  </div> -->
+  <div class="form-group row">
+    <label class="col-xl-3 col-lg-3 col-form-label">Time Zone</label>
+    <div class="col-lg-6 col-xl-6">
+      <%= f.time_zone_select :time_zone, nil, {}, {:class => 'form-control m-input'} %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,615 @@
+<!--begin::Post-->
+<input type="hidden" name="cur_ivr" value="<%= service.ivr_id %>" />
+<div class="post d-flex flex-column-fluid" id="kt_post">
+  <input type="hidden" name="manage_type" id="manage_type" value="<%= manage_type %>" />
+  <input type="hidden" name="selected_service" id="selected_service" value="<%= services.count.zero? ? 0 : services[0][:id] %>" />
+  <!--begin::Container-->
+  <div id="kt_content_container"
+       class="container-fluid">
+    <!--begin::Stepper-->
+    <div class="stepper stepper-pills stepper-column d-flex flex-column flex-md-row">
+      <!--begin::Aside-->
+      <div class="d-flex justify-content-center bg-body rounded justify-content-xl-start flex-row-auto w-100 w-md-300px me-9">
+        <!--begin::Wrapper-->
+        <div class="w-100 p-9">
+          <a class="btn btn-sm btn-outline btn-outline-primary btn-color-primary btn-active-color-white"
+             href="<%= services_services_path() %>">
+            <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+            <span class="svg-icon svg-icon-2">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<polygon points="0 0 24 0 24 24 0 24" />
+															<rect fill="#000000" opacity="0.3"
+                                    transform="translate(15.000000, 12.000000) scale(-1, 1) rotate(-90.000000) translate(-15.000000, -12.000000) "
+                                    x="14" y="7" width="2" height="10" rx="1" />
+															<path d="M3.7071045,15.7071045 C3.3165802,16.0976288 2.68341522,16.0976288 2.29289093,15.7071045 C1.90236664,15.3165802 1.90236664,14.6834152 2.29289093,14.2928909 L8.29289093,8.29289093 C8.67146987,7.914312 9.28105631,7.90106637 9.67572234,8.26284357 L15.6757223,13.7628436 C16.0828413,14.136036 16.1103443,14.7686034 15.7371519,15.1757223 C15.3639594,15.5828413 14.7313921,15.6103443 14.3242731,15.2371519 L9.03007346,10.3841355 L3.7071045,15.7071045 Z"
+                                    fill="#000000"
+                                    fill-rule="nonzero"
+                                    transform="translate(9.000001, 11.999997) scale(-1, -1) rotate(90.000000) translate(-9.000001, -11.999997) " />
+														</g>
+													</svg>
+												</span>
+            <!--end::Svg Icon-->
+            <%= t('common.button.back') %>
+          </a>
+
+          <div class="separator my-8"></div>
+
+          <!--begin::Nav-->
+          <ul class="position-sticky stepper-nav nav nav-tabs border-0" style="top: 150px;">
+            <!--begin::Step 1-->
+            <li class="nav-item">
+              <a href="#kt_tab_pane_01" class="stepper-item nav-link border-0 active" data-bs-toggle="tab">
+                <!--begin::Label-->
+                <div class="stepper-label">
+                  <h3 class="stepper-title"><%= t('services.title.general') %></h3>
+                  <!--															<div class="stepper-desc fw-bold"></div>-->
+                </div>
+                <!--end::Label-->
+              </a>
+            </li>
+            <!--end::Step 1-->
+            <!--begin::Step 2-->
+            <li class="nav-item d-flex">
+              <i class="las la-info-circle position-absolute end-100 align-self-start fs-2 text-dark me-1"
+                title="<%= t('services.title.services_tooltip') %>" data-bs-toggle="tooltip"></i>
+              <a href="#kt_tab_pane_02" class="stepper-item nav-link border-0 pb-0 <%= @service.ename.blank? ? 'disabled' : '' %>" data-bs-toggle="tab">
+                <!--begin::Label-->
+                <div class="stepper-label">
+                  <h3 class="stepper-title"><%= t('services.title.resources') %></h3>
+                  <!--															<div class="stepper-desc fw-bold"></div>-->
+                </div>
+                <!--end::Label-->
+              </a>
+            </li>
+            <!--end::Step 2-->
+            <!--begin::Separator-->
+            <li class="nav-item separator my-8"></li>
+            <!--end::Separator-->
+
+            <!--begin::Step 3-->
+            <li class="nav-item">
+              <i class="las la-info-circle position-absolute end-100 align-self-start fs-2 text-dark me-1"
+                 title="<%= t('services.title.automations_tooltip') %>" data-bs-toggle="tooltip"></i>
+              <a href="#kt_tab_pane_03" class="stepper-item nav-link border-0 pb-0 <%= @service.ename.blank? ? 'disabled' : '' %>" data-bs-toggle="tab">
+                <!--begin::Label-->
+                <div class="stepper-label">
+                  <h3 class="stepper-title"><%= t('services.title.automations') %></h3>
+                  <!--															<div class="stepper-desc fw-bold"></div>-->
+                </div>
+                <!--end::Label-->
+              </a>
+            </li>
+            <!--end::Step 3-->
+          </ul>
+          <!--end::Nav-->
+        </div>
+        <!--end::Wrapper-->
+      </div>
+      <!--begin::Aside-->
+      <!--begin::Content-->
+
+      <div class="bg-body w-100 rounded">
+        <!--begin::Form-->
+        <%= form_for(@service, html: {class: "d-flex flex-column h-100 p-9"}) do |f| %>
+          <!--begin::Tab content-->
+          <div class="tab-content pb-10">
+            <!--begin::Step 1-->
+            <div class="tab-pane fade show active" id="kt_tab_pane_01" role="tabpanel">
+              <%= form_for(@service, html: {class: "d-flex flex-column h-100 p-9"}) do |f| %>
+              <!--begin::Wrapper-->
+              <div class="w-100">
+                <!--begin::Field-->
+                <div class="mb-10">
+                  <label class="form-label"><%= t('services.general.event_name_label') %></label>
+                  <% if manage_type == 'edit' %>
+                    <%= select_tag :kt_select_event_name, options_for_select(services.map {|s| [s[:ename], s[:id]] }, services[0][:id]), :include_blank=> true, class: "form-select", disabled: true, data: { control: 'select2', placeholder: 'Select event name', 'hide-search': true } %>
+                  <% else %>
+                    <%= select_tag :kt_select_event_name, options_for_select(services.map {|s| [s[:name], s[:id]] }), :include_blank=> true, class: "form-select", data: { control: 'select2', placeholder: 'Select event name', 'hide-search': true } %>
+                  <% end %>
+                </div>
+                <!--end::Field-->
+
+                <div id="kt_accordion_01">
+                  <a href="javascript:;" class="fw-bold text-decoration-underline" data-bs-toggle="collapse" data-bs-target="#kt_accordion_01_item_01">
+                    <%= t('services.general.advanced_rules') %>>
+                    <i class="fas fa-angle-right text-primary mt-1 ps-1"></i>
+                  </a>
+                  <div id="kt_accordion_01_item_01" class="collapse pt-4" data-bs-parent="#kt_accordion_01">
+                    <!--begin::Field-->
+                    <div>
+                      <label class="form-label"><%= t('services.general.event_other_name') %></label>
+                      <%= f.text_field :name, class: "form-control" %>
+                      <span class="form-text"><%= t('services.general.event_other_name_help') %></span>
+                    </div>
+                    <!--end::Field-->
+                  </div>
+                </div>
+              </div>
+
+              <div class="separator mt-10 mb-10"></div>
+
+              <div class="d-flex justify-content-end flex-stack">
+                <button type="button" class="btn btn-outline btn-outline-primary btn-color-primary btn-active-color-white ms-5 btn-save">
+                  <!--begin::Svg Icon | path: icons/duotone/Navigation/Double-check.svg-->
+                  <span class="svg-icon svg-icon-2x me-1">
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                  <polygon points="0 0 24 0 24 24 0 24" />
+                                  <path d="M9.26193932,16.6476484 C8.90425297,17.0684559 8.27315905,17.1196257 7.85235158,16.7619393 C7.43154411,16.404253 7.38037434,15.773159 7.73806068,15.3523516 L16.2380607,5.35235158 C16.6013618,4.92493855 17.2451015,4.87991302 17.6643638,5.25259068 L22.1643638,9.25259068 C22.5771466,9.6195087 22.6143273,10.2515811 22.2474093,10.6643638 C21.8804913,11.0771466 21.2484189,11.1143273 20.8356362,10.7474093 L17.0997854,7.42665306 L9.26193932,16.6476484 Z"
+                                        fill="#000000" fill-rule="nonzero" opacity="0.5" transform="translate(14.999995, 11.000002) rotate(-180.000000) translate(-14.999995, -11.000002) " />
+                                  <path d="M4.26193932,17.6476484 C3.90425297,18.0684559 3.27315905,18.1196257 2.85235158,17.7619393 C2.43154411,17.404253 2.38037434,16.773159 2.73806068,16.3523516 L11.2380607,6.35235158 C11.6013618,5.92493855 12.2451015,5.87991302 12.6643638,6.25259068 L17.1643638,10.2525907 C17.5771466,10.6195087 17.6143273,11.2515811 17.2474093,11.6643638 C16.8804913,12.0771466 16.2484189,12.1143273 15.8356362,11.7474093 L12.0997854,8.42665306 L4.26193932,17.6476484 Z"
+                                        fill="#000000" fill-rule="nonzero" transform="translate(9.999995, 12.000002) rotate(-180.000000) translate(-9.999995, -12.000002) " />
+                                </g>
+                              </svg>
+                            </span>
+                  <!--end::Svg Icon-->
+                  <%= t('button.save') %>
+                </button>
+              </div>
+
+              <!--end::Wrapper-->
+              <% end %>
+            </div>
+            <!--end::Step 1-->
+            <!--begin::Step 2-->
+            <div class="tab-pane fade" id="kt_tab_pane_02" role="tabpanel">
+              <div class="w-100">
+                <div class="row resource-list" id="resource-list">
+
+                </div>
+              </div>
+
+              <div class="separator mt-10 mb-10"></div>
+
+              <div class="d-flex justify-content-end flex-stack">
+                <button type="button" class="btn btn-outline btn-outline-primary btn-color-primary btn-active-color-white ms-5 btn-save">
+                  <!--begin::Svg Icon | path: icons/duotone/Navigation/Double-check.svg-->
+                  <span class="svg-icon svg-icon-2x me-1">
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                  <polygon points="0 0 24 0 24 24 0 24" />
+                                  <path d="M9.26193932,16.6476484 C8.90425297,17.0684559 8.27315905,17.1196257 7.85235158,16.7619393 C7.43154411,16.404253 7.38037434,15.773159 7.73806068,15.3523516 L16.2380607,5.35235158 C16.6013618,4.92493855 17.2451015,4.87991302 17.6643638,5.25259068 L22.1643638,9.25259068 C22.5771466,9.6195087 22.6143273,10.2515811 22.2474093,10.6643638 C21.8804913,11.0771466 21.2484189,11.1143273 20.8356362,10.7474093 L17.0997854,7.42665306 L9.26193932,16.6476484 Z"
+                                        fill="#000000" fill-rule="nonzero" opacity="0.5" transform="translate(14.999995, 11.000002) rotate(-180.000000) translate(-14.999995, -11.000002) " />
+                                  <path d="M4.26193932,17.6476484 C3.90425297,18.0684559 3.27315905,18.1196257 2.85235158,17.7619393 C2.43154411,17.404253 2.38037434,16.773159 2.73806068,16.3523516 L11.2380607,6.35235158 C11.6013618,5.92493855 12.2451015,5.87991302 12.6643638,6.25259068 L17.1643638,10.2525907 C17.5771466,10.6195087 17.6143273,11.2515811 17.2474093,11.6643638 C16.8804913,12.0771466 16.2484189,12.1143273 15.8356362,11.7474093 L12.0997854,8.42665306 L4.26193932,17.6476484 Z"
+                                        fill="#000000" fill-rule="nonzero" transform="translate(9.999995, 12.000002) rotate(-180.000000) translate(-9.999995, -12.000002) " />
+                                </g>
+                              </svg>
+                            </span>
+                  <!--end::Svg Icon-->
+                  <%= t('button.save') %>
+                </button>
+              </div>
+
+
+              <!--begin::Edit resource-->
+              <div class="modal fade" id="kt_modal_new_resource" tabindex="-1" aria-hidden="true">
+                <!--begin::Modal dialog-->
+                <div class="modal-dialog modal-dialog-centered mw-500px">
+                  <!--begin::Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title"><%= t('services.resources.add_resource') %></h5>
+
+                      <!--begin::Close-->
+                      <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+                        <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+                        <span class="svg-icon svg-icon-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                          <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+                            <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
+                            <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                                  x="0" y="7" width="16" height="2" rx="1"/>
+                          </g>
+                        </svg>
+                      </span>
+                        <!--end::Svg Icon-->
+                      </div>
+                      <!--end::Close-->
+                    </div>
+
+                    <div class="modal-body">
+                      <!--begin::Field-->
+                      <div class="mb-5">
+                        <label class="form-label"><%= t('manage_resource.add_service_modal.heading1b') %></label>
+                        <%= select_tag :kt_select_resource_name, options_for_select([]), :include_blank=> true, class: "form-select", data: { control: 'select2', placeholder: t('services.general.select_resource_name'), 'hide-search': false } %>
+                      </div>
+                      <!--end::Field-->
+                      <div id="kt_accordion_02">
+                        <a href="javascript:;" class="fw-bold text-decoration-underline" data-bs-toggle="collapse" data-bs-target="#kt_accordion_02_item_01">
+                          <%= t('services.general.advanced_rules') %><i class="fas fa-angle-right text-primary mt-1 ps-1"></i>
+                        </a>
+                        <div id="kt_accordion_02_item_01" class="collapse pt-4" data-bs-parent="#kt_accordion_01">
+                          <!--begin::Field-->
+                          <div>
+                            <label class="form-label"><%= t('services.general.event_other_name') %></label>
+                            <input type="text" class="form-control" name="resource_add_name" id="resource_add_name"/>
+                            <span class="form-text"><%= t('services.general.event_other_name_help') %></span>
+                          </div>
+                          <!--end::Field-->
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-light" data-bs-dismiss="modal" id="btn-cancel" ><%= t('button.cancel') %></button>
+                      <button type="button" class="btn btn-primary" id="btn-add-apply"><%= t('button.apply') %></button>
+                    </div>
+                  </div>
+                  <!--end::Modal content-->
+                </div>
+                <!--end::Modal dialog-->
+              </div>
+              <!--end::Edit resource-->
+
+              <!--begin::Edit resource-->
+              <div class="modal fade" id="kt_modal_edit_resource" tabindex="-1" aria-hidden="true">
+                <!--begin::Modal dialog-->
+                <div class="modal-dialog modal-dialog-centered mw-500px">
+                  <!--begin::Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title"><%= t('services.resources.edit_modal_title') %></h5>
+
+                      <!--begin::Close-->
+                      <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+                        <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+                        <span class="svg-icon svg-icon-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                            <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+                              <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
+                              <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                                x="0" y="7" width="16" height="2" rx="1"/>
+                            </g>
+                          </svg>
+                        </span>
+                        <!--end::Svg Icon-->
+                      </div>
+                      <!--end::Close-->
+                    </div>
+
+                    <div class="modal-body">
+                      <!--begin::Field-->
+                      <div class="mb-5">
+                        <label class="form-label"><%= t('services.resources.name_label') %></label>
+                        <input type="hidden" name="selected_resource_id" id="selected_resource_id" />
+                        <input type="text" class="form-control" name="resource_edit_name" id="resource_edit_name"/>
+                      </div>
+                    </div>
+
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-light" data-bs-dismiss="modal" id="btn-cancel" ><%= t('button.cancel') %></button>
+                      <button type="button" class="btn btn-primary" id="btn-edit-apply"><%= t('button.apply') %></button>
+                    </div>
+                  </div>
+                  <!--end::Modal content-->
+                </div>
+                <!--end::Modal dialog-->
+              </div>
+              <!--end::Edit resource-->
+              <!--end::Modals-->
+            </div>
+            <!--end::Step 2-->
+
+            <!--begin::Step 3-->
+            <div class="tab-pane fade" id="kt_tab_pane_03" role="tabpanel">
+              <!--begin::Wrapper-->
+              <%= render 'event_automations', service: @service %>
+
+              <div class="separator mt-15 mb-10"></div>
+
+              <div class="d-flex justify-content-end flex-stack">
+                <button type="submit" class="btn btn-outline btn-outline-primary btn-color-primary btn-active-color-white ms-5 send-json-to-backend123">
+                  <!--begin::Svg Icon | path: icons/duotone/Navigation/Double-check.svg-->
+                  <span class="svg-icon svg-icon-2x me-1">
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                  <polygon points="0 0 24 0 24 24 0 24" />
+                                  <path d="M9.26193932,16.6476484 C8.90425297,17.0684559 8.27315905,17.1196257 7.85235158,16.7619393 C7.43154411,16.404253 7.38037434,15.773159 7.73806068,15.3523516 L16.2380607,5.35235158 C16.6013618,4.92493855 17.2451015,4.87991302 17.6643638,5.25259068 L22.1643638,9.25259068 C22.5771466,9.6195087 22.6143273,10.2515811 22.2474093,10.6643638 C21.8804913,11.0771466 21.2484189,11.1143273 20.8356362,10.7474093 L17.0997854,7.42665306 L9.26193932,16.6476484 Z"
+                                        fill="#000000" fill-rule="nonzero" opacity="0.5" transform="translate(14.999995, 11.000002) rotate(-180.000000) translate(-14.999995, -11.000002) " />
+                                  <path d="M4.26193932,17.6476484 C3.90425297,18.0684559 3.27315905,18.1196257 2.85235158,17.7619393 C2.43154411,17.404253 2.38037434,16.773159 2.73806068,16.3523516 L11.2380607,6.35235158 C11.6013618,5.92493855 12.2451015,5.87991302 12.6643638,6.25259068 L17.1643638,10.2525907 C17.5771466,10.6195087 17.6143273,11.2515811 17.2474093,11.6643638 C16.8804913,12.0771466 16.2484189,12.1143273 15.8356362,11.7474093 L12.0997854,8.42665306 L4.26193932,17.6476484 Z"
+                                        fill="#000000" fill-rule="nonzero" transform="translate(9.999995, 12.000002) rotate(-180.000000) translate(-9.999995, -12.000002) " />
+                                </g>
+                              </svg>
+                            </span>
+                  <!--end::Svg Icon-->
+                  <%= t('button.save') %>
+                </button>
+              </div>
+              <!--end::Wrapper-->
+            </div>
+            <!--end::Step 5-->
+          </div>
+          <!--end::Tab content-->
+        <% end %>
+        <!--end::Form-->
+      </div>
+      <!--end::Content-->
+    </div>
+    <!--end::Stepper-->
+  </div>
+  <!--end::Container-->
+</div>
+<!--end::Post-->
+
+<%= render 'event_automations_modal' %>
+
+<script>
+    $("#resource_edit_name").bind("keypress", function(e) {
+        if (e.keyCode == 13) {
+            e.preventDefault();
+            $('#btn-edit-apply').click();
+        }
+    });
+
+    if ($('input#manage_type').val() == 'edit') {
+        loadResourceList($('input#selected_service').val());
+    }
+
+    $('select#kt_select_event_name').on('change', function () {
+        loadResourceList($(this).val());
+    })
+
+    $('button.btn-save').click(function() {
+        let resource_agenda_ids = [];
+        let resource_agenda_names = [];
+        let resource_names = [];
+        $.each($('div.resource-cards'), function(index, resource_card) {
+            resource_agenda_ids.push($(resource_card).attr('data-resource-agenda-id'));
+            resource_agenda_names.push($(resource_card).attr('data-resource-agenda-name'));
+            resource_names.push($(resource_card).attr('data-resource-name'))
+        });
+
+        $.ajax({
+            url: "<%= save_agenda_service_resource_services_path() %>",
+            type: "POST",
+            data: {
+                resource_eid: resource_agenda_ids.toString(),
+                resource_ename: resource_agenda_names.toString(),
+                resource_name: resource_names.toString(),
+                service_eid: $('select#kt_select_event_name').val(),
+                service_name: $('input#service_name').val(),
+                service_ename: $('select#kt_select_event_name option:selected').text(),
+                cur_ivr: $('input[name=cur_ivr]').val()
+            },
+            success: function (response) {
+                window.location.href = "<%= services_path() %>";
+            }
+        });
+    })
+    $('button#btn-add-apply').click(function() {
+        if ($('select#kt_select_resource_name').val()) {
+            const resource_agenda_id = $('select#kt_select_resource_name').val();
+            const resource_name = $('input#resource_add_name').val() == '' ? $('select#kt_select_resource_name option:selected').text() : $('input#resource_add_name').val();
+
+            $('a#add-resource').parent().before(`
+                <div class="col-md-6 col-lg-3 mb-6">
+                    <div class="position-relative min-h-md-150px h-md-100 resource-cards" id='card_` + resource_agenda_id + `' data-resource-name='` + resource_name + `'
+                    data-resource-id='' data-resource-agenda-id=` + $('select#kt_select_resource_name').val() + ` data-resource-agenda-name='` + $('select#kt_select_resource_name option:selected').text() + `'>
+                      <!--begin::Mixed Widget-->
+                        <div class="card h-md-100 bg-light-warning rounded-bottom-0 border-bottom border-4 border-warning">
+                            <div class="card-header min-h-50px border-0 pt-4 px-6">
+                                <div class="card-title">
+                                    <div class="card-label">` + resource_name + `</div>
+                                </div>
+                                <div class="card-toolbar">
+                                    <div>
+                                      <!--begin::Menu-->
+                                      <!--begin::Svg Icon | path: icons/duotone/Design/Edit.svg-->
+                                        <span name='edit-icon' class="svg-icon svg-icon-2x svg-icon-warning" role="button" data-kt-menu-trigger="click" id="menu_icon_` + resource_agenda_id + `" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end" onclick="openEditPopup(this)">
+                                          <svg name='edit-icon' xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                              <path name='edit-icon' d="M8,17.9148182 L8,5.96685884 C8,5.56391781 8.16211443,5.17792052 8.44982609,4.89581508 L10.965708,2.42895648 C11.5426798,1.86322723 12.4640974,1.85620921 13.0496196,2.41308426 L15.5337377,4.77566479 C15.8314604,5.0588212 16,5.45170806 16,5.86258077 L16,17.9148182 C16,18.7432453 15.3284271,19.4148182 14.5,19.4148182 L9.5,19.4148182 C8.67157288,19.4148182 8,18.7432453 8,17.9148182 Z"
+                                                  fill="#000000" fill-rule="nonzero" transform="translate(12.000000, 10.707409) rotate(-135.000000) translate(-12.000000, -10.707409) "
+                                              />
+                                              <rect fill="#000000" opacity="0.3" x="5" y="20" width="15" height="2" rx="1"/>
+                                          </svg>
+                                        </span>
+                                      <!--end::Svg Icon-->
+                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-125px py-3 mt-4" data-kt-menu="true" >
+                                          <!--begin::Menu item-->
+                                            <div class="menu-item px-3">
+                                                <a href="#kt_modal_edit_resource" class="menu-link px-3" data-bs-toggle="modal">
+                                                    <i class="menu-icon text-hover-inherit fs-4 fas fa-edit"></i>` + "<%= t('button.edit') %>" + `
+                                                </a>
+                                            </div>
+                                            <div class="menu-item px-3">
+                                                <a href="#" class="menu-link px-3" onclick="removeResource('card_` + resource_agenda_id + `')">
+                                                    <i class="menu-icon text-hover-inherit fs-4 fas fa-trash"></i>` + "<%= t('button.delete') %>" + `
+                                                </a>
+                                            </div>
+                                          <!--end::Menu item-->
+                                        </div>
+                                      <!--end::Menu-->
+                                    </div>
+                                </div>
+                            </div>
+                          <!--begin::Body-->
+                            <div class="card-body pt-0 pb-4 px-6">
+                                <span class="d-block text-muted fw-bold fs-6">` + "<%= t('services.resources.schedule') %>" + `</span>
+                            </div>
+                          <!--end::Body-->
+                        </div>
+                      <!--end::Mixed Widget-->
+                    </div>
+                </div>
+            `);
+        }
+
+        $('input#resource_add_name').val('');
+        $('#kt_modal_new_resource').modal('hide');
+    })
+
+    $('button#btn-edit-apply').click(function() {
+        if ($('input#resource_edit_name').val() != '') {
+            const card_id = 'card_' + $('input#selected_resource_id').val();
+            $('div#' + card_id).attr('data-resource-name', $('input#resource_edit_name').val());
+            $('div#' + card_id + ' div.card-label').html($('input#resource_edit_name').val());
+
+            $('input#resource_add_name').val('');
+            $('#kt_modal_edit_resource').modal('hide');
+        }
+    })
+
+    $(document).on('click', function(e) {
+        if ($(e.target).attr('name') != 'edit-icon') {
+            if ($('div.resource-list div.menu.menu-sub.menu-sub-dropdown').hasClass('show')) $('div.menu.menu-sub.menu-sub-dropdown').removeClass('show');
+        }
+    })
+
+    function loadResourceList(service_agenda_id) {
+        if (service_agenda_id) {
+            // $('[href="#kt_tab_pane_02"]').removeClass('disabled');
+            // $('[href="#kt_tab_pane_02"]').siblings('[data-bs-toggle="tooltip"]').addClass('d-none');
+            //
+            // $('[href="#kt_tab_pane_03"]').removeClass('disabled');
+            // $('[href="#kt_tab_pane_03"]').siblings('[data-bs-toggle="tooltip"]').addClass('d-none');
+
+            $.ajax({
+                type: "POST",
+                url: "<%= get_resources_of_selected_service_services_path %>",
+                data: {service_id: service_agenda_id, cur_ivr: $('input[name=cur_ivr]').val()},
+                success: function(response){
+                    let resource_card = '';
+                    if (response.result == 'success') {
+                        $.each(response.resources, function (index, resource) {
+                            resource_card += `
+                            <div class="col-md-6 col-lg-3 mb-6">
+                                <div class="position-relative min-h-md-150px h-md-100 resource-cards" id='card_` + resource['eid'] + `' data-resource-name='` + resource['name'] + `'
+                                data-resource-id=` + resource['id'] + ` data-resource-agenda-id=` + resource['eid'] + ` data-resource-agenda-name='` + resource['ename'] + `'>
+                                  <!--begin::Mixed Widget-->
+                                    <div class="card h-md-100 bg-light-warning rounded-bottom-0 border-bottom border-4 border-warning">
+                                        <div class="card-header min-h-50px border-0 pt-4 px-6">
+                                            <div class="card-title">
+                                                <div class="card-label">` + resource['name'] + `</div>
+                                            </div>
+                                            <div class="card-toolbar">
+                                                <div>
+                                                  <!--begin::Menu-->
+                                                  <!--begin::Svg Icon | path: icons/duotone/Design/Edit.svg-->
+                                                    <span name='edit-icon' class="svg-icon svg-icon-2x svg-icon-warning" role="button" data-kt-menu-trigger="click" id="menu_icon_` + resource['eid'] + `" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end" onclick="openEditPopup(this)">
+                                                      <svg name='edit-icon' xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                          <path name='edit-icon' d="M8,17.9148182 L8,5.96685884 C8,5.56391781 8.16211443,5.17792052 8.44982609,4.89581508 L10.965708,2.42895648 C11.5426798,1.86322723 12.4640974,1.85620921 13.0496196,2.41308426 L15.5337377,4.77566479 C15.8314604,5.0588212 16,5.45170806 16,5.86258077 L16,17.9148182 C16,18.7432453 15.3284271,19.4148182 14.5,19.4148182 L9.5,19.4148182 C8.67157288,19.4148182 8,18.7432453 8,17.9148182 Z"
+                                                              fill="#000000" fill-rule="nonzero" transform="translate(12.000000, 10.707409) rotate(-135.000000) translate(-12.000000, -10.707409) "
+                                                          />
+                                                          <rect fill="#000000" opacity="0.3" x="5" y="20" width="15" height="2" rx="1"/>
+                                                      </svg>
+                                                    </span>
+                                                  <!--end::Svg Icon-->
+                                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-125px py-3 mt-4" data-kt-menu="true" >
+                                                      <!--begin::Menu item-->
+                                                        <div class="menu-item px-3">
+                                                            <a href="#kt_modal_edit_resource" class="menu-link px-3" data-bs-toggle="modal">
+                                                                <i class="menu-icon text-hover-inherit fs-4 fas fa-edit"></i>` + "<%= t('button.edit') %>" + `
+                                                            </a>
+                                                        </div>
+                                                        <div class="menu-item px-3">
+                                                            <a href="#" class="menu-link px-3" onclick="removeResource('card_` + resource['eid'] + `')">
+                                                                <i class="menu-icon text-hover-inherit fs-4 fas fa-trash"></i>` + "<%= t('button.delete') %>" + `
+                                                            </a>
+                                                        </div>
+                                                      <!--end::Menu item-->
+                                                    </div>
+                                                  <!--end::Menu-->
+                                                </div>
+                                            </div>
+                                        </div>
+                                      <!--begin::Body-->
+                                        <div class="card-body pt-0 pb-4 px-6">
+                                            <span class="d-block text-muted fw-bold fs-6">` + "<%= t('services.resources.schedule') %>" + `</span>
+                                        </div>
+                                      <!--end::Body-->
+                                    </div>
+                                  <!--end::Mixed Widget-->
+                                </div>
+                            </div>`;
+
+                        })
+                    }
+                    resource_card += `<div class="col-md-6 col-lg-3 mb-6 ">
+                              <a href="#" id="add-resource" onclick="openAddPopup(this)"
+                                 class="d-flex flex-center h-md-100 text-primary text-hover-white bg-light-primary bg-hover-primary border-dashed border-primary border-2 rounded">
+                                <div class="text-center">
+                                  <i class="fas fa-plus text-inherit fs-2hx"></i>
+                                  <div class="fw-bold fs-6 text-inherit mt-2"><%= t('services.resources.add_resource') %></div>
+                                </div>
+                              </a>
+                            </div>`;
+                    $('div#resource-list').html(resource_card);
+
+
+                }
+            });
+        } else {
+            $('[href="#kt_tab_pane_02"]').addClass('disabled');
+            $('[href="#kt_tab_pane_02"]').siblings('[data-bs-toggle="tooltip"]').removeClass('d-none');
+
+            $('[href="#kt_tab_pane_03"]').addClass('disabled');
+            $('[href="#kt_tab_pane_03"]').siblings('[data-bs-toggle="tooltip"]').removeClass('d-none');
+        }
+    }
+
+    function openEditPopup(obj) {
+        const popupmenu = $(obj).next();
+        if ($(popupmenu).hasClass('show')) {
+            $(popupmenu).removeClass('show');
+            $(popupmenu).css('position', 'unset');
+            $(popupmenu).css('inset', 'unset');
+            $(popupmenu).css('transform', 'none');
+        }
+        else {
+            const obj_id = $(obj).attr('id');
+            const card_id = $(obj).parent().parent().parent().parent().parent().attr('id');
+            const menu_icon_dom_obj = document.getElementById(obj_id);
+            const card_dom_obj = document.getElementById(card_id);
+
+            $('div.menu.menu-sub.menu-sub-dropdown').removeClass('show');
+            $(popupmenu).addClass('show');
+            $(popupmenu).css('position', 'fixed');
+            $(popupmenu).css('inset', '0px auto auto 0px');
+            $(popupmenu).css('transform', 'translate(' + (card_dom_obj.offsetLeft + menu_icon_dom_obj.offsetLeft - 125) + 'px, 220px)');
+
+            $('input#resource_edit_name').val($('div#' + card_id).data('resource-name'));
+            $('input#selected_resource_id').val($('div#' + card_id).data('resource-agenda-id'));
+        }
+
+    }
+
+    function openAddPopup(obj) {
+        let resource_agenda_ids = [];
+        $.each($('div.resource-cards'), function(index, resource_card) {
+            resource_agenda_ids.push($(resource_card).attr('data-resource-agenda-id'));
+        });
+
+        $.ajax({
+            url: "<%= get_resources_appoinments_scheduling_index_path() %>",
+            type: "GET",
+            data: {
+                id: $('select#kt_select_event_name').val(),
+                ivr_id: $('input[name=cur_ivr]').val(),
+                resources: resource_agenda_ids.length ? resource_agenda_ids : ''
+            },
+            success: function (response) {
+                let exist_resources = [];
+                $.each($('div.resource-cards'), function(index, resource_card) {
+                    exist_resources.push($(resource_card).data('resource-agenda-id'));
+                });
+
+                let resources = [];
+                response.forEach((resource) => {
+                    let element = [];
+                    element['id'] = resource[1];
+                    element['text'] = resource[0];
+                    if ( ! exist_resources.includes(parseInt(resource[1])))
+                        resources.push(element);
+                })
+                $('select#kt_select_resource_name').html('');
+                $('select#kt_select_resource_name').select2({ data: resources, minimumResultsForSearch: Infinity });
+                $('#kt_modal_new_resource').modal('show');
+            }
+        });
+    }
+
+    function removeResource(card_id) {
+        $('div#' + card_id).parent().remove();
+    }
+</script>

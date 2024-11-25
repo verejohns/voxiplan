@@ -1,0 +1,39 @@
+---
+en:
+  devise:
+    registrations:
+      new:
+        agree_terms: I have read and agree to the site‘s
+        and: and
+        i_agree_the: I agree to the
+        privacy_policy: Privacy Policy
+        receive_email: I would like to receive emails about new features and news at Voxiplan.
+        terms_and_conditions: Terms & conditions
+    sessions:
+      new:
+        forgot_your_password: Forgot password?
+        remember_me: Remember me
+    shared:
+      links:
+        do_not_have_account: Don't have an account yet ?
+        new_here: New Here?
+  login:
+    message:
+      html: 'Work more efficiently with your AI assistant<br> to focus on what matters most: your clients.'
+    welcome: Get more done with your AI assistant
+  placeholders:
+    code: Code
+    company: Company
+    confirm_email: Confirm Email
+    confirm_password: Confirm Password
+    email: Email
+    first_name: First name
+    fullname: Fullname
+    industry: Industry
+    last_name: Last name
+    passwd: Password
+    passwd_help: Use 8 or more characters with a mix of letters, numbers & symbols.
+    password: Wachtwoord
+    password_error: Confirm password doesn't the password.
+    password_instructions: Minimum 6 characters
+    phone: Phone

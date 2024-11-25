@@ -1,0 +1,139 @@
+<%= form_tag({controller: "appoinments_scheduling", action: "save_announce"}, remote: true, class: 'form', method: "post") do %>
+  <%= hidden_field_tag :ivr_id, params[:ivr_id] %>
+  <div class="d-flex flex-column h-100">
+    <!--begin::Wrapper-->
+    <div class="w-100">
+      <!--begin::Alert-->
+      <div
+        class="alert alert-dismissible bg-light-warning border border-warning d-flex align-items-center flex-column flex-sm-row w-100 py-3 px-5 mb-10">
+        <!--begin::Icon-->
+        <!--begin::Svg Icon | path: icons/duotone/Code/Warning-2.svg-->
+        <span class="svg-icon svg-icon-2x svg-icon-warning me-3 mb-5 mb-sm-0">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+            <path d="M11.1669899,4.49941818 L2.82535718,19.5143571 C2.557144,19.9971408 2.7310878,20.6059441 3.21387153,20.8741573 C3.36242953,20.9566895 3.52957021,21 3.69951446,21 L21.2169432,21 C21.7692279,21 22.2169432,20.5522847 22.2169432,20 C22.2169432,19.8159952 22.1661743,19.6355579 22.070225,19.47855 L12.894429,4.4636111 C12.6064401,3.99235656 11.9909517,3.84379039 11.5196972,4.13177928 C11.3723594,4.22181902 11.2508468,4.34847583 11.1669899,4.49941818 Z"
+              fill="#000000" opacity="0.3" />
+            <rect fill="#000000" x="11" y="9" width="2" height="7" rx="1" />
+            <rect fill="#000000" x="11" y="17" width="2" height="2" rx="1" />
+          </svg>
+        </span>
+        <!--end::Svg Icon-->
+        <!--end::Icon-->
+        <!--begin::Content-->
+        <div class="d-flex flex-column pe-0 pe-sm-10">
+          <span class="fw-bold text-warning"><%= t('announce.alert') %></span>
+        </div>
+        <!--end::Content-->
+        <!--begin::Close-->
+        <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon w-auto h-auto ms-sm-auto" data-bs-dismiss="alert">
+          <i class="bi bi-x fs-1 text-warning"></i>
+        </button>
+        <!--end::Close-->
+      </div>
+      <!--end::Alert-->
+
+      <!--begin::Group-->
+      <h2 class="fw-bolder text-dark mb-5"><%= t('announce.heading') %></h2>
+      <!--begin::Field-->
+      <div class="mb-10">
+        <label class="form-label"><%= t('announce.should_i') %></label>
+        <label class="form-check form-check-custom form-check-solid mb-4">
+          <%= check_box_tag("announcement_open[enabled]",(@announcement_open.enabled ? true : false), (@announcement_open.enabled ? true : false), class: 'form-check-input') %>
+          <span class="form-check-label"><%= t('announce.open_hours') %></span>
+        </label>
+        <label class="form-check form-check-custom form-check-solid">
+          <%= check_box_tag("announcement_closed[enabled]",(@announcement_closed.enabled ? true : false), (@announcement_closed.enabled ? true : false), class: 'form-check-input') %>
+          <span class="form-check-label"><%= t('announce.closed_hours') %></span>
+        </label>
+      </div>
+      <!--end::Field-->
+      <ul class="nav nav-tabs nav-pills border-0 mb-4 fw-bold fs-6">
+        <li class="nav-item">
+          <a class="nav-link border border-primary active" href="#kt_tab_pane_03_01" data-bs-toggle="tab"><%= t('phone_menu.opening_hours') %></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link border border-primary" href="#kt_tab_pane_03_02" data-bs-toggle="tab"><%= t('phone_menu.closed_hours') %></a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div id="kt_tab_pane_03_01" class="tab-pane fade show active" role="tabpanel">
+          <!--begin::Field-->
+          <div>
+            <label class="form-label"><%= t("greetings.say_label") %></label>
+            <%= text_area_tag 'announcement_open[text]', @announcement_open.text, class: "form-control", id: "welcome_opened_message", rows: 4, placeholder: t('announcement.open_example_message') %>
+            <a href="javascript:;" class="kt_drawer_chat_toggle form-text text-decoration-underline"><%= t('announce.preview') %></a>
+          </div>
+          <!--end::Field-->
+        </div>
+        <div id="kt_tab_pane_03_02" class="tab-pane fade" role="tabpanel">
+          <!--begin::Field-->
+          <div>
+            <label class="form-label"><%= t("greetings.say_label") %></label>
+            <%= text_area_tag 'announcement_closed[text]', @announcement_closed.text, class: "form-control", id: "welcome_closed_message", rows: 4, placeholder: t('announcement.closed_example_message') %>
+            <a href="javascript:;" class="kt_drawer_chat_toggle form-text text-decoration-underline"><%= t('announce.preview') %></a>
+          </div>
+          <!--end::Field-->
+        </div>
+      </div>
+      <!--end::Group-->
+    </div>
+    <!--end::Wrapper-->
+
+    <div class="separator mt-10 mb-10"></div>
+
+    <!--begin::Actions-->
+    <div class="d-flex justify-content-end flex-stack">
+      <button type="submit" class="btn btn-outline btn-outline-primary btn-color-primary btn-active-color-white ms-5">
+        <!--begin::Svg Icon | path: icons/duotone/Navigation/Double-check.svg-->
+        <span class="svg-icon svg-icon-2x me-1">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <polygon points="0 0 24 0 24 24 0 24" />
+                        <path d="M9.26193932,16.6476484 C8.90425297,17.0684559 8.27315905,17.1196257 7.85235158,16.7619393 C7.43154411,16.404253 7.38037434,15.773159 7.73806068,15.3523516 L16.2380607,5.35235158 C16.6013618,4.92493855 17.2451015,4.87991302 17.6643638,5.25259068 L22.1643638,9.25259068 C22.5771466,9.6195087 22.6143273,10.2515811 22.2474093,10.6643638 C21.8804913,11.0771466 21.2484189,11.1143273 20.8356362,10.7474093 L17.0997854,7.42665306 L9.26193932,16.6476484 Z"
+                              fill="#000000" fill-rule="nonzero" opacity="0.5" transform="translate(14.999995, 11.000002) rotate(-180.000000) translate(-14.999995, -11.000002) " />
+                        <path d="M4.26193932,17.6476484 C3.90425297,18.0684559 3.27315905,18.1196257 2.85235158,17.7619393 C2.43154411,17.404253 2.38037434,16.773159 2.73806068,16.3523516 L11.2380607,6.35235158 C11.6013618,5.92493855 12.2451015,5.87991302 12.6643638,6.25259068 L17.1643638,10.2525907 C17.5771466,10.6195087 17.6143273,11.2515811 17.2474093,11.6643638 C16.8804913,12.0771466 16.2484189,12.1143273 15.8356362,11.7474093 L12.0997854,8.42665306 L4.26193932,17.6476484 Z"
+                              fill="#000000" fill-rule="nonzero" transform="translate(9.999995, 12.000002) rotate(-180.000000) translate(-9.999995, -12.000002) " />
+                    </g>
+                </svg>
+              </span>
+        <!--end::Svg Icon-->
+        <%= t('button.save') %>
+      </button>
+    </div>
+    <!--end::Actions-->
+
+  </div>
+<% end %>
+
+<script type="text/javascript">
+    $("textarea[name='announcement_closed[text]']").on("input",function (event) {
+        $('#kt-chat__text-s01').text(set_text($("textarea[name='announcement_closed[text]']").val()));
+    });
+    $("textarea[name='announcement_closed[text]']").on("click",function (event) {
+        $('#kt-chat__text-s01').text(set_text($("textarea[name='announcement_closed[text]']").val()));
+    });
+
+    $("#welcome_opened_message").on("input",function (event) {
+        $('#kt-chat__text-s01').text(set_text($("textarea[name='announcement_open[text]']").val()));
+    });
+
+    $('#welcome_opened_message').on('click', function(e){
+        $('#kt-chat__text-s01').text(set_text($("textarea[name='announcement_open[text]']").val()));
+    });
+
+    function set_text(text){
+        new_text = text;
+        key_maping = {client_name: "client_first_name", caller_id: "caller_id", appointment_start_time: "choosen_slot_start",choosen_service: "choosen_service", choosen_resource: "choosen_resource", customer_first_name: "customer_first_name", resource_1: "resource_1", resource_2: "resource_2", chat_appointment_start_time: "chat_appointment_start_time"}
+
+        call_data = {client_first_name: "David", caller_id: 12345, chat_user_name: "Laura", customer_first_name: "Robert", resource_1: "Jackson", resource_2: "Rauba"}
+
+        keys = text.match(/%{(\w+)}/g)
+        if (keys) {
+            keys = keys.map(function(x){return x.replace(/%{/g, '').replace(/}/g, '');});
+            console.log(keys);
+            for (const key of keys) {
+                new_text = new_text.replace("%{"+key+"}", call_data[key]);
+            }
+        }
+        return new_text
+    };
+</script>

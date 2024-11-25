@@ -1,0 +1,2388 @@
+---
+en:
+  activerecord:
+    models:
+      ivr: Account
+  activity_summary:
+    heading: Activity Summary
+    total_confirmed_appointments: Total confirmed appointments
+    total_incoming_calls: Total incoming calls
+    total_incoming_calls_minutes: Total incoming calls minutes
+    total_outgoing_calls: Total outgoing calls
+    total_outgoing_calls_minutes: Total outgoing calls minutes
+    total_sms: Total sms
+  add_workspace:
+    button:
+      add_new_workspace: Add New Workspace
+    create_message: A new workspace added successfully
+    new_workspace: New Workspace
+    required_name: Required Workspace Name!
+    required_url: Required Voxiplan Url!
+    voxiplan_url: Voxiplan URL
+    workspace_name: Workspace name
+  administrate:
+    actions:
+      reify: Revert
+  agenda_apps:
+    change_agenda: Change Agenda
+    choose: Choose an Agenda
+    filters:
+      all: All
+      calenders: Online agendas
+      systems: Online booking systems
+    login: Authorize
+    set_as_default: Set as Default
+    try_it: Try it free
+  ai_bot:
+    appointment_failed: 'Sorry, we could not create your appointment. '
+    appointment_success: Thank you, your appointment for %{time} is confirmed.
+    available_free_slots: We have free slots at %{time1}, %{time2} and %{time3}. Which one works best for you?
+    slot_available: We have a free slot for %{time}. Do you want to confirm that.?
+    slot_not_available: 'Sorry. We do not have any free slots on this day. '
+  ai_phone_assistant_enabled: Phone switch
+  announce:
+    alert: Your assistant can make an announcement at the beginning of each conversation. Use this to draw attention to special opening hours, promotions or other important information you want people to know about.
+    closed_hours: Make an announcement during closed hours
+    heading: Make a special announcement
+    open_hours: Make an announcement during opening hours
+    preview: Preview
+    say_label: Say
+    should_i: Should I
+  announcement:
+    accept_callers_phone: Allow bookings from new clients
+    anonymous: Ask callers to enter a phone number if caller identity is anonymous?
+    anonymous_text: When enabled, callers with hidden numbers will be asked to enter their number before hearing your appointment slots.
+    booking_example_message: Please enter your phone number followed by the hash key.
+    closed: Play announcement during closed hours
+    closed_example_message: 'Example: Hello, I am Laura. You are calling outside our opening hours, but I am here to help you book an appointment at a time that suits you best.'
+    dont_accept_new_client: When disabled, new clients will not be able to book an appointment.
+    hangup_caller_sms_heading: Hangup SMS
+    make_announcement_1: The caller has entered your appointment menu.
+    make_announcement_2: What would you like me to say before I start suggesting appointments?
+    make_announcement_note: 'Note: this is optional. The announcement can be different during open and closed hours.'
+    open: Play announcement during open hours
+    open_example_message: 'Example: Hello, I am Laura and I am here to help you find an appointment at a time that suits you best. If you wish to speak to an agent at any moment, press the star key.'
+    record_user_name: Ask caller to record their name?
+  appoinments_scheduling_sidebar:
+    announcement: Announcement
+    cancellation_changes: Cancellation & Changes
+    confirmation: Confirmation
+    services_resources: Services & Resources
+    suggesting_appointments: Suggesting Appointments
+  appointment_widget:
+    already_cancelled: The appointment was already cancelled.
+    appointment_duration: Duration
+    appointment_not_booked: Appointment not booked
+    appointment_static_error: There is some error
+    back_button: Back
+    book_heading: Book an appointment
+    book_success_title: Appointment booked successfully!
+    cancel_event: Cancel Event
+    cancel_heading: Cancel an appointment
+    cancel_success_title: Appointment cancelled successfully!
+    cannot_cancel: You can't cancel the appointment
+    cannot_reschedule: You can't reschedule the appointment
+    check_validity: Schedule
+    create_customer_button: Create an account
+    email_address_label: Email
+    email_help_text: Please enter an email to continue
+    email_invalid_help_text: Email is not valid!
+    enter_details: Enter Details
+    error_help_text: Sorry, you can't access this page. Please contact support by chat or by email.
+    error_label: Oops, something went wrong
+    first_name_help_text: First Name is required and must contain at least 2 character
+    first_name_label: First Name
+    full_name_help_text: Full Name is required and must contain at least 2 character
+    full_name_label: Full Name
+    heading: Maak een afspraak
+    invalid_cancel: The appointment didn't cancel.
+    invalid_email: Sorry, your email address is invalid
+    invalid_event: The event is not exist.
+    invalid_number: Invalid number
+    last_name_help_text: Last Name is required and must contain at least 2 character
+    last_name_label: Last Name
+    last_step: One more step to continue...
+    more_info: More information are required to continue...
+    next_button: Next
+    next_slots_button: 'Next availability on '
+    no_resource_service: No option is available
+    no_slots_button: No Slots Available
+    phone_number_help_text: Please enter a phone number to continue
+    phone_number_label: Phone number
+    phone_number_not_valid: Please enter a valid Phone Number!
+    powered_by: Powered by
+    questions_heading: Following Questions are not answered
+    questions_title: Additional details
+    reason: 'Reason:'
+    reschedule_heading: Reschedule an appointment
+    reschedule_success_title: Appointment rescheduled successfully!
+    select_a_time: Select a Time
+    select_placeholder: Select an option
+    select_resource: Wählen Sie Ressourcen
+    select_services: Wählen Sie Dienste
+    select_time_slot: Select a Date & Time
+    service_resource_help_text: Make a selection
+    success_detail: Appointment Details
+    success_duration: Duration
+    success_email: Email
+    success_name: Name
+    success_phone: Phone Number
+    success_selected_slot: Selected Time
+    success_time: Time Zone
+    success_title: Afspraak met succes geboekt!
+    time_format_label: Time Format
+    time_range_afternoon: Afternoon
+    time_range_label: Select the time range that best fit your schedule.
+    time_range_monring: Morning
+    time_range_no_preference: No Preference
+    time_zone_label: Time Zone
+    valid_number: "✓ Valid"
+  availabilities:
+    add_new_schedule: Add new schedule
+    clone: Clone
+    cloned_ok: Cloned successfully
+    copy_times: Copy times to...
+    default_ok: Setted the schedule as default successfully
+    delete_ok: Deleted successfully
+    delete_schedule_confirm: This action cannot be undone. Are you sure you would like to delete this schedule?
+    edit_name: Edit Name
+    edit_schedule: Edit Schedule
+    from: From
+    new_schedule: New Schedule
+    override:
+      add_override: Add a date override
+      header: Add date overrides
+      helper: Add dates when your availability changes from your weekly hours
+      modal_help: What hours are you available?
+      modal_title: Select the date(s) you want to assign specific hours
+    required_schedule_name: Schedule name is required
+    save_as_schedule_help: Save these hours to reuse with other event types. Manage all your schedules under availability.
+    save_as_schedule_title: Want to save this as a new schedule
+    save_success: Saved successfully as a new schedule.
+    schedule_name: Schedule name
+    schedule_name_placeholder: Working Hours, Exclusive Hours, etc...
+    set_as_default: Set as Default
+    to: To
+    unavailable: Unavailable
+    working_hours: Working Hours
+  billing:
+    add_seat:
+      add_seats: Add seats
+      due_today: due today
+      per_year: per year
+      price_usd: Prices are in %{currency}
+      save: save
+      upgrade_essential: Upgrade to Essentials
+      usd_annually: "/ user / mo paid annually"
+      usd_monthly: "/ user / mo paid monthly"
+    aggregate:
+      all_account_total: All Accounts Total
+      appointment: appointments
+      appointments: Appointments
+      as_of_utc: As of 00:00 UTC
+      assistant: Assistant
+      basic: Basic
+      cost: Cost
+      inbound: Inbound
+      local: Local
+      looking_event: Looking to get even more from Voxiplan?
+      manage_subscription: Manage Subscription
+      message: Messaging
+      minutes: minute(s)
+      mobile: Mobile
+      monthly: Monthly
+      national: National
+      no_any_data: There are no any data for billing.
+      numbers: number(s)
+      outbound: Outbound
+      phone_number: Phone Numbers
+      pick_month: Pick a month
+      premium: Premium
+      product: Product
+      quantity: Quantity
+      seat: seat(s)
+      seats: Seats
+      segments: segment(s)
+      sip: SIP
+      sms: SMS
+      subscription: Subscription
+      task: tasks
+      tasks: Tasks
+      telecom: Telecom
+      unit: Units
+      view_all_plans: View all plans
+      voice: Voice
+      yearly: Yearly
+    billing_plan:
+      free_plan: Free plan
+      trail_plan: Premium trial
+      upgrade_now: Upgrade Now
+      want_upgrade_account: Want to upgrade your account?
+      you_downgraded: you'll be downgraded to the
+      you_enjoying: You are currently enjoying the
+      you_on: You're on the
+      you_trial_end: Your trial ended on
+    title: Billing
+    upgrade_plan:
+      active_event_type: Active Event Type
+      ai_assistant: AI Assistant
+      always_free: Always Free
+      appointment_scheduling: Appointment scheduling
+      automated_event_notifications: Automated event notifications
+      basic: Basic
+      basic_features_plus: All Basic features plus
+      billed_yearly: Billed yearly
+      booking_widget: Booking Widget
+      call_recovery_followup: Call recovery / Follow-ups
+      choose_subscription: Choose the right subscription for you
+      config_service_integration: Conferencing services integration
+      connect_agenda: Connect to Google calendar, Exchange, Outlook, Office 365, iCloud integration
+      conversation_ai_tech: Conversational AI technology
+      custom_questions: Custom questions
+      customize_notifications: Customize notifications
+      email_reminder: Email & SMS Reminders
+      enterprise: Enterprise
+      features_seats_individual: All features and seats quantity are individual.
+      free_features_plus: All Always Free features plus
+      languages: languages
+      most_popular: Most Popular
+      multi_channel: Multichannel SMS, Phone, Web chat, WhatsApp
+      no_shows_recovery: No-shows Recovery
+      pay_per_use_telecom: Pay-per-use Telecom
+      payment_stripe: Collect payments via Stripe
+      per_seat_month: per seat /month
+      phone_menu_tech: Phone Menu (IVR) technology
+      phone_single_channel: Phone Single channel
+      premium: Premium
+      pricing_euro: Pricing is in EUR for Europe (incl. UK) and in USD for the rest of the world (VAT excluded)
+      receptionist: Receptionist
+      redirect_after_booking: Redirect after booking
+      redirect_your_invitee: Redirect your invitees
+      remove_voxiplan_branding: Remove Voxiplan branding
+      select: Select
+      send_sms_campaigns: Send SMS Campaigns
+      unlimited_event_types: Unlimited Active Event Types
+      unlimted_appointments: Unlimited Appointments
+  breadcrumb:
+    appoinments_scheduling: Appoinments Scheduling
+    my_assistant: My Assistant
+  business_hours:
+    add: Add
+    alert: During business hours callers will be directed to your phone menu with the different choices you defined. Outside business hours callers don’t hear the menu options and are directly transferred to schedule an appointment.
+    heading: Business Hours
+    help_text: Please select the days and times when you are open to handle calls
+    remove: Delete
+  button:
+    add: Add
+    apply: Apply
+    cancel: Cancel
+    close: Close
+    create: Create
+    delete: Delete
+    edit: Edit
+    new: New
+    save: Save
+    save_and_continue: Save & continue
+    save_changes: Save Changes
+    submit: Submit
+  calendar_connection:
+    add_new_calendar_connection: Add new calendar connection
+    add_to_calendar:
+      add_to: 'Add to '
+      calendar_not_selected: Calendar not selected
+      cancel_event: Deleting or declining an event in your calendar will also cancel it in Voxiplan.
+      caption: Add to calendar
+      description: Set the calendar you would like to add new events to as they're scheduled.
+      dialog_title: Which calendar should we add new events to?
+      donot_add_an_event: Do not add new events to a calendar
+      donot_add_any_event: Do not add new events to any calendar
+      select_calendar: Select a calendar
+      sync_cancellations: Sync cancellations
+      there_is_no_calendar: There is no calendar selected to add event to.<br />Events booked will not be automatically added to your calendar.
+    alert_message1: We need to disconnect all agenda first for change region. Are you want to continue?
+    alert_message2: You will be lost the appointment data if change region. Are you want to continue?
+    button:
+      add_new: New Calendar
+    calendar: Calendar Connections
+    calendar_enable:
+      content: Please ask for owner to enable calendar for you
+      title: Calendar Disabled
+    caption: Manage Calendars
+    check_conflicts:
+      check: Check
+      check_places: Check these places for conflicts
+      description: Which calendars should we check for conflicts?
+      donot_check_conflict: Do not check this calendar for conflicts
+    check_for_conflicts: Check for conflicts
+    check_for_conflicts_detail: Set the calendar(s) to check for conflicts to prevent double bookings.
+    disconnect_calendar_confirm: Do you want to disconnect the calendar?
+    my_calendar: My Calendar
+    voxiplan_calendar: Voxiplan Calendar
+  call_forwarding:
+    caller_msg: If a caller makes a wrong selection more than 2 times, I will forward the call to you or a member of your team.
+    heading: Errors & Call Forwarding
+    note: 'Note: If you didn''t add any user yet, you can do this under Settings --> Users.'
+    prefer_voice_mail_istead_of_transfer: Prefer voicemail instead of call transfer
+    selected_appointment: What should I say to confirm a selected appointment?
+    when_we_will_transfer_or_voice_mail: We can transfer or send you voice mail in case of errors, timeouts, appointment limit reached and other similar things
+  call_stats:
+    forwarded: Forwarded
+    forwarded_tooltip: The caller was forwarded to a team member or left a message
+    new: New
+    no_appointment: 'No'
+    not_completed: Not Completed
+    not_completed_tooltip: The caller hung up before taking any action
+    processed: Processed
+    processed_tooltip: The call was successfully processed
+    undefined: Unfiled
+    unknown: Unknown
+    yes_appointment: 'Yes'
+  cancelation:
+    cancel_sms: Send SMS about cancellation?
+  chat_enabled: Chat switch
+  classic_agenda:
+    event_summary: "%{people_name} - %{service}"
+  clients:
+    agenda: Agenda
+    created: Creation Date
+    email: Email
+    heading: Clients
+    name: Name
+    phone: Phone
+    widget: Online Widget
+  coming_soon:
+    contact_support: Need to start using this right away? Get in touch with our support team to let us know.
+    email_address: Email address
+    email_below: 'Enter your email below to be the first to know when it''s ready:'
+    enter_email: Enter email
+    feature_not_released_yet: This feature has not been released yet.
+    heading: Coming Soon
+  common:
+    allow_image: 'Allowed file types: png, jpg, jpeg.'
+    allow_image_size: 'Size: 100x100px.'
+    badge:
+      connected: Connected
+      disconnected: Disconnected
+      unverified: Unverified
+      verified: Verified
+      verify: Verify now
+    button:
+      add: Add
+      back: Back
+      cancel: Cancel
+      close: Close
+      connect: Connect
+      continue: Continue
+      copy: Copy
+      csv: CSV
+      discard: Discard
+      disconnect: Disconnect
+      excel: Excel
+      exception_list: Exception List
+      export: Export
+      finish: Finish
+      import: Import
+      import_csv: Import CSV
+      pdf: PDF
+      print: Print
+      remove_content: Are you sure you want to remove?
+      save_change: Save Changes
+      simple_file: Simple File
+      skip: Skip
+      submit: Submit
+      update: Update
+      upgrade: Upgrade
+      view_details: View Details
+    change: Change
+    coming_soon: coming soon
+    configuration: Configuration
+    copied: Copied!
+    day:
+      friday: Friday
+      monday: Monday
+      saturday: Saturday
+      sunday: Sunday
+      thursday: Thursday
+      tuesday: Tuesday
+      wednesday: Wednesday
+    friday: Vrijdag
+    monday: Maandag
+    network_error: Sorry, looks like there are some errors detected, please check network connection.
+    normal_error_text: Sorry, looks like there are some errors detected, please try again.
+    or: OR
+    phone_number_required: You need to enter a at least one phone number.
+    please_wait: Please wait...
+    saturday: Zaterdag
+    save_failure: Something went wrong!!!
+    save_success: Your changes were saved.
+    select_placeholder: Select an option
+    sunday: Zondag
+    table:
+      selected: Selected
+      selection_action: Selection Action
+    thursday: Donderdag
+    'true': true
+    tuesday: Dinsdag
+    validation_error: Validation Error! Please check what you entered.
+    wednesday: Woensdag
+  confirmation:
+    appointment_confirmation_header: Appointment Confirmation
+    post_appointment_header: Post appointment
+    post_confirmation_reminder: Say a reminder after appointment
+    record_name: Ask callers to leave a message?
+    say_msg_after_recording: Say a message after recording
+    send_sms_confirmation_header: Send SMS confirmation
+    sms_confirmation: SMS confirmation
+    sms_text: SMS Text
+    sms_to_client: SMS to client
+    sms_to_user: SMS to user
+    text: Ask caller to leave a message
+  contact_us:
+    company: Company
+    email: Email
+    enter_detail: Enter the details of your question or concern
+    first_name: First name
+    last_name: Last name
+    phone_number: Phone number
+    title: Contact Us
+  context:
+    appointment_confirmed: Thank you %{customer_first_name}., your appointment for %{chat_appointment_start_time} is confirmed.
+    select_resource: For %{resource_1}, press 1. For %{resource_2}, press 2. Or press 9 to repeat these options.
+    select_time: For tomorrow, at 04:00 PM press 1. To repeat this option, press 9. Or hold to hear more availabilities.
+  custom_text:
+    alert: Customize the texts that will be said at different stages of the booking process.
+    all_availabilities: All following availabilities
+    appointment_booked: Appointment successfully booked
+    ask_customer_for_message: Ask customer to leave a message
+    avaiable_times: Present available time slots
+    cancellations_changes: Cancellations and changes
+    changes_existing_apointment: Making changes to an existing appointment
+    close_hour_check: Make an announcement during closed hours
+    confirm_appointment_message: Take a Message after confirming the appointment
+    confirmation1: Require Confirmation
+    confirmation2: When selecting a time slot or making changes to an existing appointment
+    customer_announcement: Announcement for customers coming for a new appointment
+    double_confirmation: Double confirmation
+    first_availability: First availability
+    heading: Custom Texts
+    last_message_for_hanging_call: Pass a last message before hanging up the call
+    next_availabilities: Next availabilities
+    open_hour_check: Make an announcement during open hours
+    post_confirmation: Post-confirmation
+    present_service_resource: Present service and resource choices
+    selecting_time_slot: Selecting a time slot
+    simple_confirmation: Simple confirmation
+    system_field_note: 'Note: %{system_field} are system fields and should not be edited.'
+    thank_for_message: Thank you for leaving a message
+    too_late_to_edit_appointment: Too late to edit an appointment
+    too_many_appointments_booked: Too many appointments booked
+  customers:
+    actions: Actions
+    add_phone_number: Add Phone Number
+    already_registered: The email or phone number was already registered
+    birthday: Birthday
+    birthday_PH: Enter birthday
+    city: City
+    city_PH: Enter City
+    contact_details: Contact Details
+    contacts: Contacts
+    contacts_title: Manage Contacts
+    country: Country
+    country_code: Country Code
+    created_at: Created at
+    edit_customer: Edit Contact
+    email: Email
+    email_PH: Enter Email
+    exception_list: Exception List
+    female: Female
+    first_name: First Name
+    first_name_PH: Enter first name
+    gender: Gender
+    heading: Contacts
+    invalid_mobile_number: Invalid mobile number
+    invalid_phone_number: Invalid number
+    last_name: Last Name
+    last_name_PH: Enter last name
+    male: Male
+    name_recording: Name Recording
+    new_customer: New Contact
+    new_record: New Contact
+    not_applicable: Not applicable
+    notes: Notes
+    notes_PH: Enter notes
+    phone: Phone
+    phone_country: Phone Country
+    phone_number: Phone Number
+    record_id: Record ID
+    search_contacts: Search Contacts
+    select_phones: Select Phone(s)
+    street: Street
+    street_PH: Enter street
+    valid_phone_number: "✓ Valid"
+    want_delete: Are you sure that you want to delete
+    want_delete_selected: Are you sure that you want to delete the selected contacts?
+    zipcode: Zipcode
+    zipcode_PH: Enter zipcode
+  dashboard:
+    all_records: All Records
+    amount: Percentage
+    appointments: Appointment status
+    bot_intro: I'm Laura, your virtual assistant. I'm here to help you set up your appointment scheduling system. You can start by selecting your online agenda.
+    calls: Calls
+    cancelled_appointment: Cancelled
+    contacts_by_types: Contacts by Types
+    custom_range: Custom Range
+    dashboard_title: Dashboard
+    follow_up_sms: Follow up SMS sent
+    greeting: Hi, %{name}!
+    last_30_days: Last 30 Days
+    last_7_days: Last 7 Days
+    last_month: Last Month
+    modified_appointment: Modified
+    month: Month
+    new_appointment: New
+    new_appointments: New Appointments
+    new_calls: New
+    new_contacts: New Contacts
+    new_vs_returning_customer: New vs Registered Contacts
+    no_record: No Record Found!
+    recent_calls: Recent Calls
+    returning_calls: Returning
+    this_month: This Month
+    today: Today
+    unknown_appointment: Unknown
+    view_all: View All
+    year: Year
+    yesterday: Yesterday
+  date:
+    formats:
+      weekday_and_num: "%A, %{day} of %B"
+    today: today
+    tomorrow: tomorrow
+  errors:
+    donot_agree: Please check this to continue
+    existed_identity: Existed Email or Phone number!
+    invalid_confirm_email: Confirm email is not matched
+    invalid_email: Invalid Email provided!
+    invalid_email_password: Invalid Email address or password!
+    invalid_password: Invalid Password provided!
+    invalid_phone: Invalid Phone Number provided!
+    something_wrong: Something wrong, please try again later...
+  extensions:
+    add_new_extension: Add New Extension
+    availabilities: Availabilities
+    configure_extension: Configure extensions
+    default: Default
+    delete_confirm: Are you sure you would like to delete this option?
+    edit_extension: Edit Extension
+    email: Email Address
+    enable_notifications: Enable Notifications
+    enter_email: Enter email
+    enter_name: Enter full name
+    name: Name
+    new_extension: New Extension
+    phone: Phone Number
+    required_name: Required extension name
+    set_default: Set as default
+    sip_account: SIP Account
+    title: Extensions
+  follow_up:
+    alert: I can automatically send a follow-up SMS to users who initiated a call but did not leave a message or book an appointment.
+    heading: Follow-Up
+    max_symbols: Max. symbols = 160
+    send_follow_up_sms: Send follow up SMS
+    sms_text: SMS Text
+    want_to_follow_up: Do you want to follow-up when no action was taken?
+  footer:
+    about: About
+    terms: T&C
+  greetings:
+    alert: The main greeting is the first thing your callers hear. This is where we welcome them. I can say different things during opening and closed hours.
+    closed_hours: Closed hours
+    during_closed_hours: 'Closed hours greeting:'
+    during_opening_hours: 'Opening hours greeting:'
+    heading: Greetings
+    help_text: How would you like me to greet your customers?
+    opening_hours: Opened hours
+    preview_label: Preview
+    say_label: Say
+  hello: Hello world
+  integrations:
+    api_webhooks: API & Webhooks
+    api_webhooks_help: Build custom integrations that use data from Voxiplan.
+    partner_agenda: Partner agendas
+    partner_agenda_help: Connect your calendar to Voxiplan and manage your calendar settings.
+    phone_booking: Phone Booking
+    phone_booking_help: Vestibulum eleifend a est quis mollis. Nullam tincidunt pulvinar efficitur.
+    phone_connection:
+      help: Nullam urna dui, lobortis sed urna in, interdum elementum turpis.
+      title: Phone Connections
+    phone_number:
+      actions: Actions
+      capabilities: Capabilities
+      disable_inbound_sms: Disable SMS
+      disabled_inbound_sms: Disabled inbound SMS successfully
+      edit_phone_number: Edit Phone Number
+      enable_inbound_sms: Inbound SMS
+      enabled_inbound_sms: Enabled inbound SMS successfully
+      friendly_name: Friendly Name
+      local: Local
+      mobile: Mobile
+      name: Name
+      number: Number
+      phone: Phone
+      search_phone_number: Search Phone Number
+      selected: Selected
+      selection_action: Selection Action
+      sms: SMS
+      title: Phone Numbers
+      type: Type
+      unknown: Unknown
+    sms_connection:
+      config_sms_channel: Configure your SMS channel
+      config_sms_channel_help: Change the default phone number to communicate with your contacts
+      config_sms_step1: Open the web browser on your Android phone and go to <a href="#">voxiplan.com/voxisms</a> to download the VoxiSMS app.
+      config_sms_step2: Enter your mobile number below to activate the app, then open VoxiSMS app.
+      config_sms_step3: Go to Settings in VoxiSMS and enter the Token below to complete the setup. Now your assistant can send & receive SMS from your Android phone.
+      confirm_phone: Click to confirm
+      confirm_phone_error_msg: You can't confirm the phone because it is invalid number.
+      connect_android_phone: Connect your Android phone
+      default: Default
+      download: Download
+      download_android_phone: Download VoxiSMS app on your Android phone.
+      edit_phone: Click to edit
+      enable_alpha_senderid: Enable Alphanumeric SenderID
+      enter_alpha_senderid: Enter Alphanumeric SenderID
+      enter_mobile_phone: Enter your phone number
+      enter_secret_key: Enter your token
+      help: Vivamus id ligula id est viverra maximus.
+      invalid_senderid: Invalid sender ID.
+      mobile_phone: Mobile Phone
+      need_confirm_phone: You need to confirm phone number by click <b>Click to confirm</b> button
+      secret_key: Secret Key
+      select_phone_number: Select your Phone number
+      select_route: Select Route
+      select_route_help: Select your SMS Channel
+      select_sms_channel: Select a SMS Channel
+      select_sms_channel_help: In order to communicate with contacts on mobile phones by SMS, your assistant needs to use a route. There are multiple options for setting up a route. The best option depends on your location, message volume and budget.
+      select_workspace: Select a workspace
+      senderid: Sender ID
+      senderid_condition:
+        letter: Sender IDs must contain at least one letter
+        lower_case: Lower-case letters a - z
+        number: Numbers 0 - 9
+        space: Spaces
+        special_char: Special characters and punctuation are not allowed
+        title: 'Alphanumeric Sender IDs can contain up to 11 characters from the following categories:'
+        upper_case: Upper-case letters A - Z
+      setup_route: Setup Route
+      setup_route_help: Configure your SMS Channel
+      sms: SMS
+      telco: Telco - virtual phone number
+      telco_help: A virtual number lets your assistant send and receive SMS messages without needing a physical phone. To use a virtual number with Voxi.ai, you just need to select this option and let the telecom operators take care of the rest for you.
+      title: SMS Connections
+      voxisms: VoxiSMS - Android phone app
+      voxisms_help: The VoxiSMS app allows your assistant to send and receive SMS directly from your Android phone. If you don't already have an Android phone, don't worry! Many users get a dedicated Android phone for Voxi.ai, instead of using their personal mobile phone.
+      workspaces: Workspaces
+  language:
+    alert: Select your assistant’s primary language and voice.
+    assistant_name: Assistant Name
+    assistant_name_help: Choose a name for your AI assistant.
+    heading: Language
+    language_and_voice: Language and Voice
+    phone_settings: Phone Settings
+  locales:
+    de: Deutsch
+    el: Ελληνικά
+    en: English
+    fr: Français
+    it: Italiano
+    language: English
+  mails:
+    cancel_link_text: Cancel
+    cancel_reschedule_text: Need to make changes to this event?
+    cancellation_email_host:
+      body: Your appointment for %{event_day} %{event_date} at %{event_time} has been cancelled.
+      greetings: Hi, %{full_name}
+      subject: Booking cancelled
+      title: Your booking is cancelled
+    cancellation_email_invitee:
+      body: Your appointment for %{event_day} %{event_date} at %{event_time} has been cancelled.
+      greetings: Hi, %{full_name}
+      subject: Booking cancelled
+      title: Your booking is cancelled
+    cancellation_sms_host:
+      body: Your appointment for %{event_day} %{event_date} at %{event_time} has been cancelled. We look forward to seeing you next time.
+    cancellation_sms_invitee:
+      body: Your appointment for %{event_day} %{event_date} at %{event_time} has been cancelled. We look forward to seeing you next time.
+    client_appointment_confirmed:
+      booking_details: Booking Details
+      caller: 'Caller: %{email_full_name} ''%{caller_id}'' (%{email_contact_type})'
+      conclusion: 'The appointment has been scheduled in your agenda. '
+      date: 'Date: %{choosen_slot_start}'
+      greetings: Good news, %{client_first_name}
+      new_caller: 'Contact: %{caller_id}'
+      new_summary: You have a new appointment
+      play_recording_btn_text: Click here to play
+      play_recording_btn_url: "%{appointment_success_record}"
+      summary: You have a new appointment with %{caller_id}.
+      title: New appointment confirmed
+    client_call_hangup:
+      greetings: Hello, %{client_first_name}
+      summary: 'The call was not completed by %{email_full_name} ''%{caller_id}'' (%{email_contact_type}). The caller hung up before taking any action: he did not speak to an agent, did not leave a message or book an appointment.'
+      title: New missed call
+    client_new_voicemail:
+      greetings: Hello, %{client_first_name}
+      play_recording_btn_text: Click here to play
+      play_recording_btn_url: "%{%{var}}"
+      summary: You have a new voice message from %{caller_id}.
+      title: New voice message recorded
+    confirmation:
+      body_line1: Hello
+      body_line2: You have a new confirmed booking.
+      body_line3: 'Details:'
+      body_line4: 'When:'
+      body_line5: 'Phone :'
+      body_line6: Please do not reply to this message, it was generated automatically. Your response to this e-mail will not be viewed!
+      body_line7: You have a rescheduled booking.
+      body_line8: Your booking is rescheduled
+      body_line9: Please do not reply to this message, it was generated automatically. Your response to this e-mail will not be viewed!
+      rescheduled_subject: Booking rescheduled
+      subject: New booking confirmed
+    confirmation_email_host:
+      body: 'Hello <br>Your booking is confirmed. <br><b>Details: </b> <br>When: %{event_day} %{event_date} at %{event_time} <br>Please do not reply to this message, it was generated automatically. Your response to this e-mail will not be viewed!'
+      body_line1: Hello
+      body_line2: Your booking is confirmed.
+      body_line3: 'Details:'
+      body_line4: 'When:'
+      body_line5: 'Phone :'
+      body_line6: Please do not reply to this message, it was generated automatically. Your response to this e-mail will not be viewed!
+      subject: New booking confirmed
+    confirmation_email_invitee:
+      body: 'Hello <br>Your booking is confirmed. <br><b>Details: </b> <br>When: %{event_day} %{event_date} at %{event_time} <br>Please do not reply to this message, it was generated automatically. Your response to this e-mail will not be viewed!'
+      body_line1: Hello
+      body_line2: Your booking is confirmed.
+      body_line3: 'Details:'
+      body_line4: 'When:'
+      body_line5: 'Phone :'
+      body_line6: Please do not reply to this message, it was generated automatically. Your response to this e-mail will not be viewed!
+      subject: New booking confirmed
+    confirmation_invitee:
+      body_line1: Hallo
+      body_line2: Uw reservering is bevestigd.
+      body_line3: 'Details:'
+      body_line4: 'Wanneer:'
+      body_line5: 'Telefoon :'
+      body_line6: Gelieve niet te antwoorden op dit bericht, het werd automatisch gegenereerd. Uw reactie op deze e-mail zal niet worden bekeken!
+      subject: Nieuwe reservering bevestigd
+    confirmation_sms_host:
+      body: An appointment for %{event_day} %{event_date} at %{event_time} has been confirmed.
+    confirmation_sms_invitee:
+      body: An appointment for %{event_day} %{event_date} at %{event_time} has been confirmed.
+    copyright: 2022 voxi.ai. All Rights Reserved.
+    default_reminder:
+      reminder_email_subject: 'Reminder: appointment on %{event_day} %{event_date} at %{event_time}'
+      reminder_email_subject_host: 'Reminder: appointment on %{event_day} %{event_date} at %{event_time}'
+      reminder_sms_text: 'Hi %{first_name}, Reminder: appointment tomorrow, %{event_day} %{event_date} at %{event_time}'
+      reminder_text: Hi %{full_name}, <br> This a reminder about your appointment tomorrow, %{event_day} %{event_date} at %{event_time}. <br> Regards,
+      reminder_text_host: Hi %{full_name}, <br> This a reminder about your appointment tomorrow, %{event_day} %{event_date} at %{event_time}. <br> Regards,
+    followup_email_host:
+      body: ''
+      subject: Thank you for your call!
+    followup_email_invitee:
+      body: ''
+      subject: Thank you for your call!
+    followup_sms_host:
+      body: ''
+    followup_sms_invitee:
+      body: Thank you for your call. We are currently in a meeting or unavailable. To book an appointment, visit us online www.voxiplan.com or call us at +3228084080.
+    generic_email:
+      title: Voxiplan Email
+    no_availability:
+      body: I could not find any free slots in your agenda. Please add availabilities in your agenda to avoid disruption.
+      standard_error: Client %{client_email_locale} has no availabilities!
+      subject: No availabilities in your agenda
+    organization_invitation:
+      body: I'd like to invite you to my organization
+      content: Please click the link to join to Voxiplan.
+      subject: Invitation to my organizations
+    pre_confirmation:
+      accept: Accept
+      body_line1: Hello
+      body_line2: You have a new pending booking.
+      body_line3: You can
+      body_line4: " or "
+      body_line5: Have a great day,
+      decline: Decline
+      subject: New pending booking
+    pre_confirmation_invitee:
+      body_line1: Hello
+      body_line2: You have scheduled an appointment for
+      body_line3: We will send you a confirmation mail as soon as this appointment gets approved.
+      body_line4: Have a great day,
+      body_line5: Please do not reply to this message, it was generated automatically. Your response to this e-mail will not be viewed!
+      subject: Appointment request confirmed
+    rejected_invitee:
+      body_line1: Hello
+      body_line2: Your appointment request was denied for
+      body_line3: Have a great day,
+      body_line4: Please do not reply to this message, it was generated automatically. Your response to this e-mail will not be viewed!
+      subject: Appointment request denied
+    reminder_email_host:
+      body: Hi %{full_name}, <br> This a reminder about your appointment tomorrow, %{event_day} %{event_date} at %{event_time}. <br> Regards,
+      subject: 'Reminder: appointment on %{event_day} %{event_date} at %{event_time}'
+    reminder_email_invitee:
+      body: Hi %{full_name}, <br> This a reminder about your appointment tomorrow, %{event_day} %{event_date} at %{event_time}. <br> Regards,
+      subject: 'Reminder: appointment on %{event_day} %{event_date} at %{event_time}'
+    reminder_sms_host:
+      body: ''
+    reminder_sms_invitee:
+      body: 'Hi %{first_name}, Reminder: appointment tomorrow, %{event_day} %{event_date} at %{event_time}'
+    reply_to_or_contact_us: Questions? Reply to this email or contact us at
+    reschedule_appointment:
+      conclusion: The appointment has been rescheduled in your agenda.
+      greetings: Hi, %{client_first_name}
+    reschedule_link_text: Reschedule
+    rescheduling_email_host:
+      body: 'Your appointment for %{event_day} %{event_date} at %{event_time} has been rescheduled. <br><b>Details: </b> <br>When: %{event_day} %{event_date} at %{event_time}'
+      subject: Booking rescheduled
+    rescheduling_email_invitee:
+      body: 'Your appointment for %{event_day} %{event_date} at %{event_time} has been rescheduled. <br><b>Details: </b> <br>When: %{event_day} %{event_date} at %{event_time}'
+      subject: Booking rescheduled
+    rescheduling_sms_host:
+      body: Your appointment for %{event_day} %{event_date} at %{event_time} has been rescheduled.
+    rescheduling_sms_invitee:
+      body: Your appointment for %{event_day} %{event_date} at %{event_time} has been rescheduled.
+    transcription_title: Transcription
+  manage_resource:
+    add_service_modal:
+      error: Agenda App not configured
+      heading1: 'Add new '
+      heading1a: Service
+      heading1b: Resource
+      heading2: " to phone menu"
+      tab_head1: Services
+      tab_head2: Resources
+    addition_questions_modal:
+      add_another: Nog een toevoegen
+      add_question: Vraag toevoegen
+      answer: Antwoorden
+      answer1: Antwoord
+      answer_type: Antwoord Type
+      enabled: Ingeschakeld
+      heading: Aanvullende vragen
+      questions: Vragen
+      required: Vereist
+      type1: Een lijn
+      type2: Meervoudige lijnen
+      type3: Radio Knoppen
+      type4: Keuzevakjes
+    default_avail_modal:
+      heading: Define Default Availabilities
+    default_availabilities: Set Default Availabilities
+    edit_modal:
+      heading: Edit
+      name: Name
+      price: Price
+    form_modal:
+      heading: 'Add New '
+    heading: Event Types
+    heading1: Manage Event Types & Resources
+    listing_modal:
+      additional_tooltip: Add Additional Question
+      heading: Event Type and Resource choices
+      tab1: S.No
+      tab2: Name
+      tab3a: Maped Resource
+      tab3b: Dependecies
+      tab3c: Maped Services
+      tab4: Duration
+      tab4a: Duration (Minutes)
+      tab5: Buffer
+      tab5a: Buffer (Minutes)
+      tab6: Action
+      tab7: Availabilities
+      tab8: Calendar
+      tab9: Map
+    tab1: Event Types
+    tab2: Resources
+    widget_heading: 'Share your Booking Widget:'
+  menu:
+    allow_bookings: Allow bookings only from existing clients
+    before_caller_enters: The announcement is played right after your main greeting, before callers hear your phone menu.
+    business_hours_title: Enter your opening hours
+    call_forwarding: Call forwarding
+    call_fwd_number: Call Forwarding Number
+    call_transfer_announcement_text: Please hold while I connect you to an agent
+    caller_announcement: Caller announcement
+    calls_are_only: Calls are only forwarded during active business hours.
+    close_time_greeting: Main greeting during closed hours
+    close_time_greeting_example: 'Example: Welcome to Company XYZ. You are calling outside our opening hours.'
+    confirm_appointment: Thank you. Your appointment for %{time1} has been confirmed.
+    copy_example_url: Add Example URL
+    departments: Departments
+    enable: Enable
+    enter_message: Enter the message that you want callers to hear and click “Save“.
+    enter_the_close_time_greeting: Enter the  main greeting callers will hear during closed hours.
+    enter_the_greeting: Enter the main greeting that you want your callers to hear and click “Save“.
+    example_booking: 'Example: Your booking at ABC Company on %{time} was confirmed. We look forward to seeing you there! PS: Don‘t forget to bring a smile.'
+    example_message: 'Example: Dear caller, our offices will be closed during the Christmas holidays from December 24 – 26th'
+    first_suggestion_text: Our next possible appointment is on %{time1}. Press 1 to confirm this appointment. Press 2 to hear other availabilities.
+    first_suggestion_text_error: I‘m sorry, this is not a correct option.
+    general: General
+    greeting_example: 'Example: Welcome to Company XYZ.'
+    i_am_laura_closed: Hello, I am Laura. Our agents are not available at the moment, so I am here to help you book an appointment.
+    i_am_laura_opened: I am Laura, your virtual assistant who will help you find an availability that suits you best.
+    introduction: Introduction
+    language_and_voice: Language and Voice
+    main_greeting: Main greeting
+    next_availabilities_text: Press 1 for %{time1}. Press 2 for %{time2}. Press 3 to hear other availabilities. Or press 9 to speak to an agent.
+    phone_menu: The phone menu tells your callers which keys to press for different departments. Enter the message that you want your callers to hear and click 'Save'.
+    phone_menu_example: Press 1 to book an appointment. Press 2 for sales. Press 3 for support.
+    phone_number_should: The phone number calls should be forwarded to if your customer wants to speak to you.
+    phone_receptionist: Phone receptionist
+    receiving_calls: Receiving calls
+    record_client_name: Record client name
+    record_name: Record name
+    record_name_text: To book an appointment, please record your name after the tone.
+    request_phone_number: To continue, please enter your phone number followed by the hash key.
+    select_assistant: Select your virtual assistant
+    send_sms_confirm: Send SMS booking confirmation
+    send_sms_confirmation: Send SMS confirmation
+    send_sms_confirmation_text: 'Example: Your booking at ABC Company on %{time} was confirmed. We look forward to seeing you there! PS: Don‘t forget to bring a smile.'
+    services: Services
+    smart_services: Smart services
+    sms_confirmation: SMS confirmation text
+    tracking_url_enter: Enter the URL and click “Save“. This URL will be triggered after call ends.
+    variables: 'Tracking Variables:'
+    virtual_assistant: Virtual assistant
+  menu_type:
+    no_cronofy_help_text: This service is not available with the agenda currently synchronized. Please contact <strong>support</strong> for more information.
+    online: Online
+    online_text: Booking Widget
+    phone: Phone
+    service_change_heading: Services
+    voice_assistant: Voice Assistant
+  nav_menu:
+    activity: Insights
+    announce: Announce
+    appointment_widget: Appointment Widget
+    automations: Automations
+    availability: Availability
+    billing: Billing
+    booking_widgets: Online Booking Widget
+    business_hours: Business hours
+    calls: Calls
+    chat: Chat
+    clicks: Clicks
+    communication_channels: Communication channels
+    configure: Settings
+    confirmation: Confirmation
+    contacts: Contacts
+    custom_texts: Custom Texts
+    dashboard: Dashboard
+    event_selection: Add Booking Options
+    event_types: Event Types
+    follow_up: Follow-up
+    forward: Forward
+    greetings: Welcome message
+    group: Bulk Messages
+    home: Home
+    integrations: Integrations
+    interact: Campaigns
+    language: Language
+    language_lv1: Language and Voice
+    language_lv2: Multilingual (coming soon)
+    menu: Telefoon Menu
+    my_account: My Account
+    my_team: My Team
+    notifications: Notifications
+    notify: Send SMS
+    online_agenda: Kalenderverbinding
+    phone_menu: Phone Menu
+    phone_numbers: Phone Numbers
+    preferences: Preferences
+    private: Quick Send
+    receptionist: Receptionist
+    reminders: Reminders
+    reports: Overview
+    say_opening_hours: Say opening hours
+    scheduled_events: Calendars
+    scheduling_rules: Appointment Scheduling
+    select_agenda: Select Agenda
+    services_resources: Add Events
+    sms: SMS
+    take_messages: Take messages (Voicemail to Email)
+    tracking_analytics: Analytics & Tracking
+    voice: Voice
+  notification:
+    alert: Send SMS notifications about appointment confirmations and changes  to your customers and yourself.
+    appointment_cofirmation_sms: Appointment Confirmation SMS
+    cancellation_sms: Cancellation SMS
+    check1: Send an SMS confirmation to YOU when appointment is confirmed
+    check2: Send an SMS confirmation to CUSTOMERS when appointment is confirmed
+    check3: Send an SMS notification to CUSTOMERS when appointment is canceled
+    heading: Notifications
+    sms_notifications: Send SMS notifications
+    sms_text: SMS Text
+  onboarding:
+    call_modal_text_1: Call
+    call_modal_text_2: to test your assistant
+    call_modal_text_3: 'Note: place the call from your phone number'
+    call_modal_upgrade_plan: Upgrade a Plan
+    connect_calendar:
+      apple_company: Apple
+      auth_failure_content: Could not authorize Agenda!
+      auth_failure_title: Authorize failure!
+      calendar_processed_in: Your calendar data is processed in
+      exchange: Exchange Calendar
+      exchange_detail: Exchange Server 2013, 2016, or 2019
+      google: Google Calendar
+      google_company: Google
+      google_detail: Gmail, G Suite
+      icloud: iCloud Calendar
+      icloud_detail: Default calendar for all Apple products
+      menu_description: Google, Microsoft, Apple
+      menu_name: Connect Calendar
+      microsoft_company: Microsoft
+      office_365: Office 365 Calendar
+      office_365_detail: Office 365, Outlook.com, live.com, or hotmail calendar
+      outlook: Outlook Plug-In
+      outlook_detail: Outlook 2007 and higher, with Windows 7 and higher
+      region: Region
+      server_region_tooltip: If you’re not sure which location to use, it is most likely to be the <img class='h-15px' src='/assets/flags/united-states.svg' alt='voxiplan' /> US location.
+      title: Connect your Calendar
+      title_description: Connect your calendar to auto-check for busy times and add new events as they are scheduled.
+      title_warning: If you want to continue without calendar provider selection, then just click the "Continue" button without a selection.
+      voxiplan: Voxiplan Calendar
+      voxiplan_detail: Voxiplan Calendar
+      voxiplan_title: Voxiplan
+    general_info:
+      create_url: Create you Voxiplan URL
+      create_url_description: Choose a URL that describes you or your business in a concise way. Make it short and easy to remember, so you can share links with ease.
+      menu_description: URL, Timezone
+      menu_name: General Info
+      organization_name: Organization Name
+      organization_name_description: Create your organization which you own.
+      timezone: Time Zone
+      title: Welcome to Voxiplan!
+      title_description: We take the work out of connecting with others, so you can accomplish more.
+    online_booking_appointment: Online Appointment Booking
+    order_your_number: Order your phone number
+    order_your_number_text: A Voxiplan agent will get in touch with you to process your order.
+    phone_appointment_booking: Phone Appointment Booking
+    set_availability:
+      available_days: Available Days
+      available_hours: Available Hours
+      fridays: Fridays
+      from: From
+      menu_description: Available hours, Available days
+      menu_name: Set Your Availability
+      mondays: Mondays
+      saturdays: Saturdays
+      sundays: Sundays
+      thursdays: Thursdays
+      title: Set Your Availability
+      title_description: Let Voxiplan know when you're typically available to accept meetings.
+      to: To
+      tuesdays: Tuesdays
+      wednesdays: Wednesdays
+    step1_button: Start Demo
+    step1_heading: Here is a quick demo
+    step1_help_text: It's the fastest way to get out to speed with your new tools.
+    step2_button: Check it out
+    step2_heading: Imagine someone wants to book an appointment with you
+    step2_help_text: Your new scheduling tools will help them find the best slot, whether it's online or over the phone.
+    step3_button: Continue
+    step3_heading: People can book appointments online or over the phone
+    step3_sub_heading: Click on each button to book an appointment
+    step4_button: Back
+    step4_heading: Now let's connect your calendar
+    step4_sub_heaidng: This will allow you to accept bookings
+    try_it_now: Try it now
+    welcome:
+      menu_description: Review and Submit
+      menu_name: Welcome
+      title: Release!
+      title_description: Submit your app to Voxiplan.
+  organization:
+    add_to_group: Add to Group
+    add_user: Add Member
+    apply_templates: Apply Templates
+    upgrade_modal:
+      content: To add new calendar, you can purchase an additional seat.
+    calendar:
+      add: Add
+      cancel: Cancel
+      disabled: Disabled
+      edit: Edit
+      edit_calendar: Edit Calendar
+      enabled: Enabled
+      go_back: Go Back
+      name: Name
+      new_calendar: New Calendar
+      remove: Remove
+      resource: Resource
+      select_user: Select a user
+      title: Voxiplan Calendar
+      user: User
+    change_role: Change Role
+    delete_customer_confirm: Are you sure you want to delete selected customers?
+    deleted_all: You have deleted all selected customers!
+    deleted_one: You have removed
+    disable_calendar: Disable Calendar
+    enable_calendar: Enable Calendar
+    export: Export
+    filter:
+      button:
+        apply: Apply
+        reset: Reset
+      label:
+        group: Group
+        role: Role
+      options: Filter Options
+      placeholder: Select option
+      title: Filter
+    message:
+      add_calendar_success: Added new application calendar successfully
+      already_accepted: The user with this email was accepted your invitation already.
+      already_pending: You already sent an invitation to this user and it is pending yet.
+      calendar_enable_changed: Changed enable calendar for the member successfully
+      edit_calendar_success: Updated application calendar successfully
+      failed_invitation_email: Failed to send invitation email
+      invalid_email: Invalid Email
+      non_existed_calendar: Not existed voxiplan calendar
+      non_id: Calendar ID not provided!
+      owner_calendar_enable_changed: Owner should have calendar
+      remove_calendar_success: Removed application calendar successfully
+      success_sent: You sent an invitation to %{email} successfully.
+    modal:
+      discard: Discard
+      enable_calendar: Enable Calendar
+      member: Member
+      please_wait: Please wait...
+      role: Role
+      select_role: Select a role
+      submit: Submit
+    owner_cannot_remove: Owner cannot be removed!
+    placeholder:
+      search: Search...
+    remove: Remove
+    remove_member: Remove Member
+    remove_user_confirm: Are you sure you want to remove
+    selected: Selected
+    thead:
+      calendar_enabled: Calendar Status
+      email: Email
+      group: Group
+      name: Name
+      role: Role
+      voxiplan_page: Voxiplan Page
+    title: Manage Organization Members
+  ory:
+    error:
+      button: Back
+      content: Please go back and try again later
+      title: An error occured
+    infor:
+      session_expired: Session expired, please login again!
+    recovery:
+      caption1: Enter your email to reset your password
+      caption2: Verify code
+      resend: Resend code
+      send: Send code
+      submit: Submit
+    verification:
+      button: Continue
+      content: Click the button below to continue to your account
+      title: Email verified successfully
+  phone_assistant_enabled: Phone Booking switch
+  phone_menu:
+    Offer_closed_hours: Offer menu options during closed hours
+    Offer_opening_hours: Offer menu options during opening hours
+    action: Action
+    alert: Use the phone menu to give callers different choices to pick from. There can be different menu options during opening and closed hours. Your callers will hear this after the main greeting.
+    alert1: Use the phone menu to give callers different choices to pick from. There can be different options during opening and closed hours.
+    alert2: Your callers will hear this after the main greeting.
+    call_rings_text: How long the call rings before going to voicemail.
+    call_transfer: Call transfer
+    closed_hours: Closed hours menu
+    configure_caller_menu: 'Configure your caller menu:'
+    configure_menu_options: Configure your menu options
+    edit_extension: Edit Extension
+    enable_phone_menu: Activate phone menu
+    extension: 'Extension #'
+    extension_enable_say: Inform customer before taking a message
+    extension_enable_say2: How should I inform the contact before taking a message
+    extension_number: Extension Number
+    heading: Menu
+    menu_options: Menu options
+    new_extension: New Extension
+    no_title: No title
+    no_user: No users
+    opening_hours: Opening hours menu
+    present_choices: 'Presenting your phone menu options:'
+    select_user: Please select Users
+    should_i: Should I
+    should_i_present: Should I offer
+    title: Title
+    transfer_extension_enable_say: Say something before transferring their call?
+    transfer_extension_say_custom_message: Type your message here
+    type: Type
+    users: Users
+    voicemail_extension_enable_say: Say something before taking a message?
+    wait_time: Wait time before I offer to take a message
+  pre_confirmation:
+    accepted: Appointment associated to this link is accepted successfully!
+    already_confirmed: Appointment associated to this link has already been confirmed!
+    already_rejected: Appointment associated to this link has already been rejected!
+    no_association: There is no appointment associated to this link!
+    non_pre_confirm_appointment: Appointment associated to this link is not enabled for PRE-CONFIRMATION!
+    rejected: Appointment associated to this link is cancelled successfully!
+  preference:
+    ai_bot_switch: Conversational AI
+    ai_bot_title: Assistant type
+    alert: Decide if customers have to register, how they are allowed to book appointments and what should happen when an appointment is confirmed
+    booking_limits: Booking Limits
+    check1: Ask anonymous customers for their phone number
+    check2: Ask new customers for their name
+    check3: Allow bookings from new customers
+    check4: Prevent appointment booking less than
+    check5: Allow customers to cancel or modify appointments on the phone up to
+    check6a: Allow customers to schedule up to
+    check6b: appointments at a time (leave blank for no limit).
+    check7: Ask customers to leave you a message
+    check8: Remind customers not to forget something
+    check9a: Ask customers to confirm the selected time slot.
+    check9b: Select a type of confirmation below.
+    confirmation: Confirmation
+    enable_ai_bot: Enable AI
+    heading: Preferences
+    post_confirmation: Post-Confirmation
+    radio1_head: Double confirmation
+    radio1_text1: Repeat the chosen time slot and ask for to confirm once more before the appointment is booked.
+    radio1_text2: "“You selected tomorrow at 10 AM. To confirm your choice, press 1.”"
+    radio2_head: Simple confirmation
+    radio2_text1: Book the selected time slot and give them the option to go back and change their selection.
+    radio2_text2: "“You selected tomorrow at 10 AM. To change this, press 0..”"
+    registration: Registration
+  pricing:
+    additional_fee: Extra vervoerderskosten per vervoerder
+    agenda_connection_pricing: Agenda Verbinding
+    appointment: appointment
+    appointment_Pricing_help_text: 'Om onze tarieven zo laag mogelijk te houden en u alleen te laten betalen wanneer uw assistent u iets oplevert. Bijvoorbeeld: afspraaktarief alleen wanneer een afspraak geboekt, geannuleerd of verplaatst wordt.'
+    appointment_pricing: Assistent honorarium
+    appointment_rate: Appointments rate
+    appointments: Appointments
+    assistant: Assistant
+    assistant_tooltip: Om het werk van je assistent alleen te betalen als hij een taak met succes heeft volbracht
+    assistant_type: Assistant Type
+    assistant_type_help: Work with a phone-based IVR assistant or a conversational AI assistant for phone and chat.
+    automation: AI Assistant
+    beta: BETA
+    check_rates: Check Rates
+    comming_soon: comming soon!
+    communication_channel: Communication Channels
+    communication_channel_help: Automatically receive bookings through multiple communication channels.
+    converstation_ai: Conversational AI
+    country_label: Choose Your Country
+    currency_label: Currency
+    estimated: Estimated
+    first_50_tasks: First 50 tasks FREE per month
+    first_x_agendas: Eerste X verbindingen
+    first_x_appointments: Tot 100 afspraken
+    language_label: Language
+    local: Local
+    mobile: Mobile
+    next_y_agendas: Volgende Y-verbindingen
+    next_y_appointments: Tot 250 afspraken
+    next_z_appointments: Tot 400 afspraken
+    online: Booking Widget
+    pay_per_use: Pay-per-use
+    pay_per_use_desc: '- Pay-per-use Telecom (<a class="text-decoration-underline text-info" href="#kt_modal_telecom_pricing#kt_tab_pane_telecom_fee_voice">Check Rates</a>)'
+    pay_per_use_formula: pay-per-use vergoeding = dienstvergoeding + assistentvergoeding + telecomvergoeding
+    pay_per_use_help_text: Onze telefoon & AI assistenten worden aangerekend op een pay-per-use basis. Niet van toepassing op de boeking Widget.
+    pay_per_use_pricing: Pay-per-Use Pricing
+    per_appointmnet: per afspraak
+    per_seat_month: Per Seat / Month
+    per_user_month: per gebruiker / maand
+    phone: Phone Assistant
+    phone_&_text: Telefoon en sms
+    phone_and_ai_pricing: Prijzen telefoon & AI-assistent
+    phone_number_pricing: Phone Numbers
+    plan_description: Al onze plannen bevatten een <strong>chat widget</strong> die u kunt toevoegen aan uw website
+    plan_name: Pricing
+    pricing: Appointment fee
+    session_desc: Sessies zijn alle berichten die worden verzonden en ontvangen als reactie op een door een gebruiker geïnitieerde communicatie met uw assistent. Een sessie begint wanneer een gebruiker communiceert met uw assistent, en duurt 24 uur vanaf de laatst ontvangen interactie.
+    session_line_1: 50 sessies inbegrepen
+    session_line_2: "/mo per 50 extra sessies"
+    session_tooltip: Om VoxiPlan forfaitair per sessie te betalen
+    sessions: Dienstvergoeding
+    sessions_help_text: Om de kosten van het Voxiplan platform te dekken (servers, e-mails, automatisering, chats, run/train/maintenance assistants) en uw assistent 24/7 beschikbaar te maken, rekent Voxiplan sessievergoedingen aan.
+    sip_pricing: SIP
+    sms_pricing: SMS
+    sms_pricing_modal: Voor meer informatie over de SMS prijzen, klik hier
+    task_rate: Tasks rate
+    tasks: Tasks
+    technology: Technology
+    technology_help: Let callers automatically book events through a phone menu or use long-form conversations with the AI assistant.
+    telecom_rates: Telecom Pricing. Pay-per-use.
+    telecom_rates_help_text: Your assistant works with multiple communication tools that charge different rates. Consult the rates below depending on the country and the communication channel.
+    telecom_tooltip: Om variabele telecomkosten te betalen
+    to_make_calls: Outgoing calls
+    to_receive_calls: Incoming calls
+    to_recieve: Inbound
+    to_recieve_calls: Inkomende gesprekken
+    to_send: Outbound
+    top_section:
+      annual: Annual Plans
+      heading: Transparent & Simple Pricing
+      help_text: Pricing is in EUR for Europe (incl. UK) and in USD for the rest of the world (VAT excluded).
+      monthly: Monthly Plans
+      plan_comparison: Plan Comparison
+      plan_comparison_description: Choose the features that makes the most sense for your business.
+      save_annual_plans: Save 20%
+      virtual:
+        answer_faq: FAQ beantwoorden (verschijnt binnenkort!)
+        answer_faq_tooltip: Beantwoorden van verzoeken om adres, openingsuren, prijzen, betalingswijzen, enz.
+        appoinments_scheduling_skills: Appointment scheduling
+        appoinments_scheduling_skills_help: Let invitees book, change and cancel bookings automatically by phone and chat.
+        channel_1: Stem
+        channel_2: Chat & SMS (verschijnt binnenkort!)
+        channel_3: Whatsapp
+        channel_4: Webhooks (verschijnt binnenkort!)
+        collect_feedback: Verzamel Feebacks & Reviews (verschijnt binnenkort!)
+        comm_channel: "(communicatiekanalen)"
+        detail_1: 51 languages
+        detail_10: Multichannel
+        detail_1_1: Multilingual
+        detail_1_1_help: Let invitees book appointments with you through the phone and chat in over 51 languages.
+        detail_2: Receptionist
+        detail_2_help: Your assistant greets callers with a welcome message, forwards calls to the right team, takes messages and makes announcements.
+        detail_3: Welcome guests, take messages, forward calls, make announcements
+        detail_4: Appointment scheduling
+        detail_4_1: boeken, annuleren & herplannen
+        detail_5: Call recovery / Follow-ups
+        detail_5_help: Send automatic follow-up SMS to callers when your team is unavailable or a booking was not completed.
+        detail_6: Send SMS Campaigns
+        detail_6_help: Broadcast SMS campaigns to your contact list
+        detail_7: Phone Menu (IVR)
+        detail_7_1: Single channel
+        detail_8: Kenmerken
+        detail_9: 3 languages
+        heading: Virtuele assistent
+        included: Inbegrepen in het Basic of Premium plan voor een beperkte tijd
+        no_show_recovery: No-shows Recovery
+        no_show_recovery_help: Prevent and reschedule no-shows with automated reminder and booking flows.
+        no_show_recovery_tooltip: herinneringen en follow-up berichten beantwoorden
+        pay_per: Betalen per gebruik
+        phone: Phone
+        plus: 'Alles in Premium, plus:'
+        plus_1: 'Alles in Pro, plus:'
+        rates_below: "(zie tarieven hieronder)"
+        skills: Vaardigheden
+        sms: SMS
+        tools: 'Gereedschap:'
+        type_1: Pro
+        type_2: AI
+        web_chat: Web Chat
+      widget:
+        active_event_type: Active Event Types
+        active_event_type_help: Set availability, duration, location, team members and more for each event type.
+        automated_notification: Automated event notifications
+        automated_notification_help: Your and your invitees receive emails about bookings, changes and cancellations.
+        custom_questions: Custom questions
+        custom_questions_help: Add question fields to events and customize them for different events.
+        detail_0: Calendar connections per seat
+        detail_1: Unlimited appointments
+        detail_1_help: Book an unlimited number of appointments with invitees
+        detail_2: Connect to Google calendar, Exchange, Outlook, Office 365, iCloud integration
+        detail_2_help: Sync all your calendars to Voxiplan.
+        detail_3: Email & SMS Reminders
+        detail_3_help: Customize and send reminders about your events to you and your invitees.
+        detail_4: Removable Voxiplan branding
+        detail_4_help: Remove the Voxiplan logo and branding from your booking widget and emails
+        detail_5: Redirect after booking
+        detail_5_help: Automatically redirect invitees to a custom URL after booking.
+        detail_6: Conferencing services integration
+        detail_6_help: Connec to Google Meet and Zoom web conferencing
+        detail_7: Collect payments via Stripe
+        detail_7_help: Connect your Stripe account to safely collect payments from invitees.
+        detail_8: Customize notifications
+        detail_8_help: Customize and send notifications to you, your team and invitees with the information they need for your event.
+        detail_9: Basis invoerformulier
+        heading: Widget voor online boeken
+        included: 'Wat is inbegrepen:'
+        plus: 'Alles in Basic, plus:'
+        sms_rates: SMS Rates
+        type_0: Always Free
+        type_1: Basic
+        type_2: Premium
+        voxisms_help: Send SMS using your own phone number and mobile plan using the VoxiSMS app.
+    type: Type
+    unlimited: Unlimited
+    voice_pricing: Voice
+    voice_pricing_modal: Voor meer informatie over de prijzen voor spraak, klik hier
+  profile:
+    close_account:
+      deactivated: Your account is deactivated
+      deactivated_help: This is your opportunity to get creative amazing opportunaties <br>that gives readers an idea
+      goto_voxiplan: Go to Voxiplan
+    faq: FAQ
+    my_profile: Mijn Profiel
+    overview:
+      allow_changes: Allow Changes
+      allow_marketing: Allow Marketing
+      communication: Communication
+      company: Company
+      country: Country
+      edit_profile: Edit Profile
+      full_name: Full Name
+      organization: Organisation
+      phone: Contact Phone
+      title: Profile Overview
+      verify_required: Please verify your account to update your profile.
+    overview_title: Overview
+    settings:
+      deactivate_account:
+        deactivate_confirmation: I confirm my account deactivation
+        learn_more: Learn more
+        need_confirmation: You need to check the checkbox to deactivation
+        notification_help: For extra security, this requires you to confirm your email or phone number when you reset yousignr password.
+        notification_title: You Are Deactivating Your Account
+        title: Deactivate Account
+      first_name: First Name
+      invalid_email_text: The value is not a valid email address
+      language: Language
+      language_tooltip: Please select a preferred language, including date, time, and number formatting.
+      last_name: Last Name
+      matchnot_confirm_password_text: The password and its confirm are not the same
+      password_invalid: The current password is invalid
+      require_confirm_password_text: Confirm Password is required
+      require_current_password_text: Current Password is required
+      require_email: Email is required
+      require_new_password_text: New Password is required
+      require_password_text: Password is required
+      signin-method:
+        change_email: Change Email
+        change_password: Change Password
+        confirm_new_password: Confirm New Password
+        confirm_password: Confirm Password
+        current_password: Current Password
+        email_address: Email Address
+        new_email_address: Enter New Email Address
+        new_password: New Password
+        password: Password
+        password_tooltip: Password must be at least 8 character and contain symbols
+        title: Sign-in Method
+        update_email: Update Email
+        update_password: Update Password
+      timezone: Time Zone
+      title: Profile Details
+    setting_title: Settings
+    support: Steun
+    title: Profile Settings
+
+  reminders:
+    before_appointment: before appointment
+    before_day_reminders: Reminders before the day of appointment
+    before_day_reminders_tooltip: Upon selecting this option; <b>Reminders</b> will be sent <u>before the day</u> on which <b>appointments</b> are occurring based on your <b>preferences</b>.
+    days: Days
+    email_subject: 'Reminder: appointment on %{event_date} at %{event_time}'
+    email_template: Hi %{full_name}, <br> This a reminder about your appointment tomorrow, %{event_day} %{event_date} at %{event_time}. <br> Regards,
+    for_email: Email body
+    for_sms: SMS content
+    for_subject: Email Subject
+    heading: Reminders
+    help_text: We'll send reminders to your clients based on your preferences.
+    hours: Hours
+    in_advance: in advance
+    in_advance_at: in advance at
+    minutes: Minutes
+    months: Months
+    notify_through_email: Email Notification
+    notify_through_sms: SMS Notification
+    overwite_deny_button: Cancel
+    overwite_ok_button: Overwrite
+    overwrite_error: Do you want to overwrite the existing text?
+    prefill_templates: Prefill with templates
+    reminder_channels: Reminder Types
+    reminder_text: Reminder Text
+    reminder_types: Reminder Types
+    same_day_reminders: Same Day Reminders
+    same_day_reminders_tooltip: Upon selecting this option; <b>Reminders</b> will be sent <u>same day</u> on which <b>appointments</b> are occurring based on your <b>preferences</b>.
+    save_changes: Save Changes
+    send_reminders: Send reminders
+    sms_template: 'Hi %{first_name}, Reminder: appointment tomorrow, %{event_day} %{event_date} at %{event_time}'
+    time_preferences: Time Preferences
+    weeks: Weeks
+  schedule_event:
+    add_event:
+      added_success: New event added to calendar!
+      all_day: All Day
+      contact: Contact
+      deleted_success: The event deleted successfully!
+      event_description: Description
+      event_end_date: End Date
+      event_end_time: End Time
+      event_notification: Event Notification
+      event_start_date: Start Date
+      event_start_time: Start Time
+      event_title: Title
+      pick_end_time: Pick a end time
+      pick_start_time: Pick a start time
+      resources: Resources
+      select_contact: Select a contact
+      select_resource: Select a resource
+      select_service: Select a service
+      services: Services
+      title: Add a New Event
+      updated_success: The event updated successfully!
+    add_event_button: Book
+    calendar: Calendar
+    delete_event_confirm: Are you sure you would like to delete this event?
+    edit_event: Edit an Event
+    event_end_date_required: End date is required
+    event_end_time_required: End time is required
+    event_name_required: Event name is required
+    event_reorder: Are you sure you would like to reorder this event?
+    event_start_date_required: Start date is required
+    event_start_time_required: Start time is required
+    setting:
+      hours: hours
+      max_time: Max Time
+      max_time_help: Determines the last time slot that will be displayed for each day.
+      min: min.
+      min_time: Min Time
+      min_time_help: Determines the first time slot that will be displayed for each day.
+      pick_time: Pick a time
+      select_day: Select a day
+      select_time_format: Select a time format
+      snap_duration: Snap Duration
+      snap_duration_help: The time interval at which a dragged event will snap to the time axis.
+      start_week: Start Week On
+      start_week_help: The day that each week begins.
+      time_format: Time Format
+      time_increments: Time Increments
+      time_increments_help: The frequency for displaying time slots.
+      title: Settings
+      weekends: Weekends
+      weekends_help: Whether to include Saturday/Sunday columns in any of the calendar views.
+    submit_failure: Sorry, looks like there are some errors detected, please try again.
+    view_event:
+      change_event_condition: This event was created outside of Voxiplan. To make changes to this event, use your online calendar.
+      contact: Event Contact
+      end: End
+      reschedule: Reschedule via widget
+      resource: Event Resource
+      service: Event Service
+      start: Start
+  select_agenda:
+    back_selection: Back to Selection
+    connect_failure: Connection failure!. Please check your information.
+    mobminder:
+      autrization_key: Authrization Key
+      caption: Mobminder
+      connect_success: Your Mobminder connected successfully.
+      description: Lorem Ipsum is simply dummy text of the printing and typesetting scrambled a type specimen book text of the dummy text of the printing printing and typesetting industry scrambled dummy text of the printing.
+      disconnect_success: Your Mobminder disconnected successfully.
+      login: Login
+      password: Password
+
+    notice_link: Learn more.
+    notice_message: Voxi.ai needs to connect to your calendar so that we can determine your availability and ensure that you are never double-booked.
+    notice_title: Why do I need to connect my calendar?
+    sign_up: Sign Up
+    timify:
+      caption: Timify
+      company_id: Company ID
+      connect_success: Your Timify connected successfully.
+      description: Lorem Ipsum is simply dummy text of the printing and typesetting scrambled a type specimen book text of the dummy text of the printing printing and typesetting industry scrambled dummy text of the printing.
+      disconnect_success: Your Timify disconnected successfully.
+    title: Let's connect your calendar. This will allow you to accept bookings.
+    title_description: Voxi.ai needs to connect to your calendar so that we can determine your availability and ensure that you are never double-booked.
+  services:
+    ai: AI
+    ai_assistant_setting: AI Assistant Settings
+    assistant_booking_setting: Assistant Booking Settings
+    automations:
+      automation: Automation
+      booking_widget: Booking widget
+      cancellation: Cancellation
+      cancellation_description: Send cancellation notifications
+      confirmation: Confirmation
+      confirmation_description: Send booking confirmations
+      custom: Custom
+      done: Done
+      edit: Edit
+      edit_action:
+        body: Body
+        choose_template: Choose a template
+        email_host_action: Edit "Send email to host" Action
+        email_invitee_action: Edit "Send email to invitee" Action
+        include_link: Include cancel and reschedule links
+        include_link_tooltip: Your invitee will see buttons letting them cancel or reschedule your event.
+        restore_default: Restore default
+        sms_host_action: Edit "Send SMS to host" Action
+        sms_invitee_action: Edit "Send SMS to invitee" Action
+        sms_text: SMS Text
+        subject: Subject
+      edit_automation:
+        action: Action(s)
+        add_new_action: Add New Action
+        all_resources: All resources
+        all_services: All services
+        booking_widget: Booking widget
+        channel: Channel
+        email_host: Send email to host
+        email_invitee: Send email to invitee
+        filter: Filter(s)
+        invitee: Invitee
+        is_include_agenda: Include external events
+        is_include_agenda_help: External events are events not booked through Voxiplan
+        name: Name
+        phone: Phone
+        resource: Resource(s)
+        service: Service(s)
+        sms_host: Send SMS to host
+        sms_invitee: Send SMS to invitee
+        trigger: Trigger
+      edit_trigger:
+        days: Days
+        group_event_options: Group event options
+        hours: Hours
+        in_advance_at: in advance at
+        minutes: Minutes
+        modal_title: Edit Trigger
+        months: Months
+        weeks: Weeks
+        when_each_invitee: When each invitee books (default)
+        when_first_invitee: When only the first invitee books
+        when_happen: When this happens
+        when_trigger_happen: For group events, when should this trigger happen?
+      email: Email
+      event_before_start_help: How long before event starts?
+      event_cancel_help: How long after event is canceled?
+      event_end_help: How long after event ends?
+      event_new_help: How long after new event is scheduled?
+      event_not_completed_help: How long after call status isn't completed?
+      event_reschedule_help: How long after event is rescheduled?
+      event_specific_time_help: Send reminders
+      event_start_help: How long after event starts?
+      follow_up: Follow-Up
+      follow_up_description: Send follow-up SMS for calls with no appointment actions
+      immediately_event_cancel: Immediately when event is canceled
+      immediately_event_end: Immediately when event ends
+      immediately_event_new: Immediately when new event is scheduled
+      immediately_event_not_completed: Immediately when call status isn't completed
+      immediately_event_reschedule: Immediately when event is rescheduled
+      immediately_event_start: Immediately when event starts
+      invitee: Invitee
+      new_automation: Add New Automation
+      notifications: Kennisgevingen
+      other: Andere
+      phone_assistant: Phone assistant
+      reminder_description: Send automated reminders
+      reminders: Reminders
+      rescheduling: Rescheduling
+      rescheduling_description: Send rescheduling notifications
+      sms: SMS
+      tinymce:
+        event_date: Event Date
+        event_day: Event Day
+        event_name: Event Name
+        event_time: Event Time
+        invitee_first_name: Invite First Name
+        invitee_full_name: Invitee Full Name
+        invitee_last_name: Invite Last Name
+        resource_name: Resource Name
+      trigger_event_before_start: Before event starts
+      trigger_event_cancel: Event is canceled
+      trigger_event_end: Event ends
+      trigger_event_new: New event is scheduled
+      trigger_event_not_completed: Call status is Not Completed
+      trigger_event_reschedule: Event is rescheduled
+      trigger_event_specific_time: Before event starts at a specific time
+      trigger_event_start: Event starts
+      widget: Reservering widget
+    available_for: Available for
+    booking_time:
+      availability_additional_rules:
+        response_type_overlapping: start time increments
+        response_type_slot: event's duration
+        start_time_helper: Set the frequency of available time slots for invitees.
+        start_time_increments: Start time increments
+        start_time_label: Show available start times in increments of...
+        time_slot_helper: Set the length of available time slots of invitees.
+        time_slot_label: Show available time slots with length equal to...
+        time_slot_length: Time slots length
+        title: Additional rules for your availability
+      availability_help: Select one of your schedules or define custom hours specific to this type of event.
+      buffer: Voeg een buffer toe voor/na de gebeurtenis
+      buffer_after: Add a buffer after the event
+      buffer_after_help: Allocate time after the event that you can use to prepare for or wrap up from the event.
+      buffer_after_placeholder: Time after your events
+      buffer_before: Add a buffer before the event
+      buffer_before_help: Allocate time before the event that you can use to prepare for or wrap up from the event.
+      buffer_before_placeholder: Time before your events
+      buffer_extra_time: Add a extra time
+      buffer_extra_time_help: Show service duration in the widget for invitees but extend the length of the time slots by adding extra time to the service duration
+      buffer_extra_time_placeholder: Extend service duration
+      buffer_help: Maak tijd vrij voor en na het evenement die u kunt gebruiken om u voor te bereiden of af te ronden.
+      choose_duration: Choose a duration
+      confirm_remove_slot: Are you sure you want to remove this element?
+      custom_hours_long: Define custom availability specific to the event type
+      custom_hours_short: Set custom hours
+      default_hours_long: Use default availability set on your profile for all events
+      default_hours_short: Use default hours
+      event_length: Define how long your event will be
+      set_custom_hours: Set custom hours
+      set_custom_hours_help: Define custom hours specific to the event type
+      use_default_hours: Use default hours
+      use_default_hours_help: Use default hours set on your profile for all events
+    booking_widget: Booking Widget
+    bought_number: You bought a phone number successfully.
+    button:
+      add_new_event: Add New Event
+      assistant_settings: Assistant Settings
+      bulk_actions: Bulk actions
+      copy_link: Copy Link
+      create: Create Service
+      edit: Edit
+      new_event_for_all: New Event For All
+      remove: Remove
+      turn_off: Turn Off
+      turn_on: Turn On
+      turn_on_off: Turn On/Off
+      update: Update Service
+      widget_settings: Widget Settings
+    buy_number: Buy number
+    buy_number_modal:
+      address_requirement: Address Requirement
+      advanced_search: Advanced Search
+      buy: Buy
+      capabilities: Capabilities
+      local: Local
+      mobile: Mobile
+      monthly_fee: Monthly Fee
+      number: Number
+      number_type: Number Type
+      reset: Reset
+      search: Search
+      select_country: Select a country
+      sms: SMS
+      title: Buy a number
+      toll_free: Toll-free
+      type: Type
+      voice: Voice
+    calendar_connection:
+      add_new_calendar_connection: Nieuwe kalenderverbinding toevoegen
+      add_to_calendar:
+        add_to: Toevoegen aan
+        caption: Toevoegen aan kalender
+        description: Stel de kalender in waaraan u nieuwe gebeurtenissen wilt toevoegen als ze gepland zijn.
+        dialog_title: Aan welke kalender moeten we nieuwe evenementen toevoegen?
+      button:
+        add_new: Nieuw toevoegen
+      calendar: Kalender
+      caption: Kalenderverbindingen
+      check_for_conflicts: Controleer op conflicten
+      check_for_conflicts_detail: Stel de kalender(s) in om te controleren op conflicten om dubbele boekingen te voorkomen.
+    chat_widget:
+      error_content: Sorry, You can't access this page. Please contact Voxiplan Support by chat or by email (support@voxiplan.com)
+      error_title: Something went wrong
+    common:
+      allow_image: 'Toegestane bestandstypen: png, jpg, jpeg.'
+      button:
+        add: Toevoegen
+        back: Terug
+        cancel: Annuleren
+        close: Sluiten
+        connect: Connect
+        contact_us: Contact Us
+        continue: Ga door
+        disconnect: Loskoppelen
+        submit: Indienen
+        update: Update
+      configuration: Configuratie
+      please_wait: Wacht alstublieft...
+      save_failure: Er is iets fout gegaan!!!
+      save_success: Uw wijzigingen zijn opgeslagen.
+    copy_phone: Copy phone
+    demo:
+      label1: 15 Minute Meeting
+      label2: 30 Minute Meeting
+      label3: 60 Minute Meeting
+    disable_service_paid_plan: You should be keep at least one enabled service with phone booking.
+    edit_url: Edit URL
+    event_delete_confirm: Are you sure you would like to delete this event?
+    'false': false
+    filter: Filter
+    general:
+      advanced_rules: Advance Rules
+      event_name_help: Enter a default name for your event. This name will be used by default for all your channels.
+      event_name_label: Event name
+      event_other_name: Use different event name for phone booking
+      event_other_name_help: Enter a default name for your event. This name will be used by default for all your channels.
+      select_resource_name: Select resource name
+      service_exist: The service is already existed.
+    general_setting:
+      shorten_urls:
+        title: Shorten URLs
+        url_shortener: URL Shortener
+        url_shortener_checkbox: Shorten URLs in SMS notifications
+      title: General Settings
+    keep_one_phone_service: Phone booking needs at least one service enabled.
+    keep_one_service: You should be keep at least one enabled service.
+    menu: Active and inactive services
+    messaging: Messaging
+    minutes: minutes
+    new_event_type: New event type
+    new_number_request_title: New number requested
+    new_number_requested: Your request was sent to Voxiplan team.
+    new_number_requested_title: You requested new number
+    no_calendars_modal:
+      button: OK
+      content: Owner should create and assign an application calendar for this member or this member should connect his external calendar.
+      title: Empty Calendar
+    order_phone_modal:
+      content: Your assistant is currently unreachable by phone. <br> To use this feature, you can order a dedicated phone number. <br><br>Or click on Preview to make a test call
+      order_button: Buy Number
+      title: Activate Phone Booking
+    phone_booking: Phone Booking
+    phone_call: min. - Phone Call
+    preview: Preview
+    resources:
+      add_resource: Add New Resource
+      advance_settings: Advanced Settings
+      app_calendar: Application Calendar
+      availability: Availability
+      calendar: Calendar
+      changed_enable: Successfully changed enabled resource
+      choose_calendar: Choose calendar
+      create_failed: Failed to create Resource
+      create_modal_title: New Resource
+      created_error: An error occurred while creating resource.
+      created_success: The resource created successfully.
+      custom_configuration: Set a custom configuration
+      different_resource_name: Use different resource name for phone booking
+      distribution_collective: Collective distribution
+      distribution_collective_help: Book when resources are all available at one time (many-to-one)
+      distribution_invitee: Invitee selection
+      distribution_invitee_help: Let invitees select a resource from a list (one-on-one)
+      distribution_one: One-on-one
+      distribution_one_help: Let invitees book a time with you (one-on-one)
+      distribution_random: Random distribution
+      distribution_random_help: Assign a resource randomly (one-on-one)
+      duration_help: This feature will allow to define a different duration for the provider.
+      duration_label: Choose a provider duration (coming soon!)
+      edit_modal_title: Edit Resource
+      existing_user_calendar: Existing user(s) with calendar
+      goto_availability: Go to Availability
+      individual_resource: Individual Resource
+      invite_user: Invite new user
+      keep_one_resource: You should be keep at least one enabled resource.
+      multi_resources: Multi-Resources
+      my_calendar: My Calendar
+      name_label: Resource name
+      override_help: To override your hours on specific dates, update your schedule under "Availability".
+      removed_success: The resource removed successfully.
+      required_name: Required resource name
+      resource_already_using: The resource is using by another resource. So can't remove the resource.
+      resource_delete_confirm: Are you sure you would like to delete this resource?
+      resource_distribution_strategy: Distribution Strategy
+      resource_distribution_strategy_tooltip: Determine how bookings for this event will be distributed among available resources.
+      resource_exist: The resource is already existed.
+      saveas_schedule: Save as new schedule
+      schedule: Schedule
+      select_users: Select user(s)
+      setting_help1: 'Note: For check this, you have to have multi resources and need to set <b>Services first</b> option on <i>Widget Setting</i> page'
+      setting_help2: 'Note: For check this, you have to have multi resources and need to set <b>Resource first</b> option on <i>Widget Setting</i> page'
+      synced_calendar: Synced calendar
+      team_calendar: Team Member's Calendar
+      update_failed: Failed to update Resource
+      updated_error: An error occurred while updating resource.
+      updated_success: The resource updated successfully.
+      use_default: Use default configuration (manage on the "calendar connections" page)
+      what_resource: What resource is this?
+      when_book_resource: When can people book this resource?
+      which_calendar: Which calendar should it use?
+      which_schedule: Which schedule do you want to use for this event type?
+    review_phone_number:
+      add_information: Select End-User and add information.
+      back: Back
+      business: Business
+      business_address: Business Address
+      business_description: A business will make or receive a call with this phone number.
+      business_first_name: First Name
+      business_last_name: Last Name
+      business_name: Business Name
+      business_number: Business Registration Number
+      business_represent: Name of Authorized Representative
+      cancel: Cancel
+      comply: Comply with Regulatory Requirements.
+      comply_content1: To comply with local regulations, we need to provide supporting documentation to carriers or local enforcement agencies. Supporting information are used to verify your identity information.
+      comply_content2: A Voxiplan agent will contact you shortly to create a regulatory bundle for you, so you can provision and use phone numbers legally.
+      individual: Individual
+      individual_description: An individual will make or receive a call with this phone number.
+      individual_first_name: First Name
+      individual_last_name: Last Name
+      infor: You’ll be charged $1.00 immediately. Afterwards, you’ll be charged $1.00/month in addition to the usage you incur on the phone number.
+      next: Next
+      please_wait: Please wait...
+      select_end_user: Select End-User and add information
+      sms_content: Send and receive text messages.
+      step_1: Step 1
+      step_2: Step 2
+      step_3: Step 3
+      title: Review Phone Number
+      voice_content: Receive incoming calls and make outgoing calls.
+      who_will_use: Who will use
+    share: Share
+    share_messaging:
+      button: Button
+      button_help: Add a button to your site that redirects to your chat widget.
+      chat_subtitle: Chat Widget
+      chat_title: Voxiplan
+      copy_link_help: Copy the link and add it to the button.
+      title: How do you want to add the chat widget to your website?
+      widget: Widget
+      widget_code_help: Add script to your website.
+      widget_help: Loads your chat widget directly in your website.
+    share_phone:
+      forward: Forward
+      forward_condition: Condition
+      forward_condition_1: Always forward (unconditional forward all incoming calls to your virtual assistant phone number)
+      forward_condition_2: Conditional forward (when busy, when unanswered, when unreachable)
+      forward_description: Divert incoming calls to your virtual assistant phone number (only you can see the number, invitees keep using your main phone number).
+      forward_help: Keep your existing phone number as primary phone number.
+      share: Share
+      share_description: Directly communicate your virtual assistant phone number to invitees (invitees can see the number).
+      share_help: Use Voxiplan phone number as primary phone number.
+      title: How do you want people to reach your assistant?
+    share_web_widget:
+      button: Button
+      button_help: Add a button to your site that redirects to your booking widget.
+      copy_link_help: Copy the link and add it to the button.
+      title: How do you want to add Voxiplan to your website?
+      voxiplan_widget: Voxiplan Widget
+      widget: Widget
+      widget_code_help: Add widget as an iframe to your website.
+      widget_help: Loads your booking widget directly in your website.
+    test_phone_modal:
+      content1: 'Call our test number <a class=''text-nowrap'' href=''tel:%{phone_number}''>%{phone_number}</a> to try phone booking with your assistant. <br> Note: place the call from your phone number %{client_number}. <br><br> To activate this feature, you need to order a dedicated phone number.'
+      content2: Call %{phone_number} to test phone booking with your assistant.
+      content3: 'Call our test number <a class=''text-nowrap'' href=''tel:%{phone_number}''>%{phone_number}</a> to try phone booking with your assistant. <br> Note: place the call from your phone number %{client_number}. <br><br> To activate this feature, you can upgrade your subscription and then order a dedicated phone number.'
+      order_button: Buy Number
+      title: Test Phone Booking
+      upgrade_button: Upgrade
+    title:
+      additional_options: Additional Options
+      automations: Automations
+      automations_tooltip: First, you need to select an event
+      booking_time: When can people book this event?
+      edit_service: Edit Event Type
+      general: What event is this?
+      invitee_questions:
+        add_new: Add New
+        add_new_question: Add New Question
+        allow_invitee: Allow invitees to add additional guests
+        answer: Answer
+        answer_type: Answer Type
+        answer_type_content: 'Invitee can select one or many of the following:'
+        autofill_invitee: Autofill Invitee Name, Email, and Text Reminder Phone Number (when applicable) from prior bookings
+        caption: Invitee Questions
+        checkbox: Checkboxes
+        edit_name_question: Edit Name Question
+        'false': false
+        multiline: Multiple Lines
+        name_input: Name Input
+        new_question_modal: New Question
+        oneline: One Line
+        question: Question
+        question_validation: At least 4 characters
+        radio_button: Radio Buttons
+        required: Required
+        'true': true
+      new_service: New Event Type
+      reosurces_tooltip: First, you need to select a resource name
+      resources: Team members, Resources?
+      services_tooltip: First, you need to create a service name
+    toggle:
+      ai_assistant: AI Assistant
+      all: All
+      assistant: Assistant
+      chat: Chat
+      phone: Phone
+      sms: SMS
+      web: Web
+      widget: Widget
+    'true': true
+    update_event_type: Update event type
+    upgrade_plan_modal:
+      cancel_button: Cancel
+      current_plan: You are currently on the <span class='fw-bolder'>%{plan}</span> subscription plan.
+      title: Upgrade your subscription
+      to_upgrade: To use this feature, you can upgrade your subscription.
+      to_upgrade_for_buy_number: To activate this feature, you can upgrade your subscription and then order a dedicated phone number.
+      to_upgrade_for_trial_plan: You can upgrade your subscription and then order a dedicated phone number to enable phone booking. <br><br>Or click on <b>Preview</b> to make a test call.
+      upgrade_button: Upgrade
+    upgrade_seats_modal:
+      cancel_button: Cancel
+      current_plan: You have currently 0 available seat in your organization.
+      title: Add a new seat
+      to_upgrade: To add a new resource, you can purchase an additional seat.
+      upgrade_button: Add seat
+      to_change: Or click on "Turn on" to change the active resource.
+    was_set_to: was set to
+    web_booking: Web Booking
+    web_booking_setting: Web Booking Settings
+    workspace_header:
+      tooltip:
+        copy: Copy
+        edit: Edit
+  services_resource:
+    Actions: Actions
+    add_new_to_phone_number: Add new %{service_or_resource} to phone menu
+    agenda_not_configured: Agenda App not configured
+    alert: Maak en bewerk de verschillende boekingsopties die uw klanten kunnen boeken. Resources zijn teamleden, personeel of kamers die kunnen worden toegewezen aan elke boekingsoptie.
+    heading: Booking options & Resources
+    manage_resource_&_services: Manage booking options & resources
+    options: Options
+    presenting_choices: Presenting choices
+    randomly_select_resources: Randomly select resources
+    randomly_select_resources_booking_widget: Randomly select resources in booking widget
+    resources_first: Resources first
+    service_&_resource_choices: Booking options and resource choices
+    services_first: Booking options first
+    sr_no: S.No
+    title: Title
+  settings:
+    phone_numbers:
+      sub_account_info: Need to add multiple organisations? Create sub-account for each organisation.
+  sidebar_menu:
+    accounts_numbers: Accounts / Numbers
+    agenda_settings: Agenda settings
+    analytics_tracking: Analytics / Tracking
+    announcements: Announcements
+    appointment_scheduling: Appointment scheduling
+    business_hours: Business hours
+    call_forwarding: Call Forwarding
+    call_recording: Call recording
+    call_settings: Call settings
+    calls_appointments: Calls & Appointments
+    clients: Clients
+    customers: Customers
+    dashboard: Dashboard
+    extras: Extras
+    general: General
+    language_menu: Language menu
+    my_agenda: My agenda
+    my_virtual_assistant: My virtual assistant
+    online_agenda: Online agenda
+    phone_menu: Phone menu
+    redirect_URL: Redirect URL
+    reports: Reports
+    resources: Resources
+    settings: Settings
+    users: Users
+    voicemail_to_email: Voicemail to Email
+    welcome_message: Main greeting
+  sms_enabled: SMS switch
+  sms_stats:
+    action: Actions
+    call: Call
+    date: Date
+    delivered: Delivered
+    delivery_failed: Delivery Failed
+    delivery_report: Delivery report
+    direction: Direction
+    from: From
+    heading: SMS Report
+    incoming: Incoming
+    incoming_sms: Incoming SMS
+    message: Message
+    outgoing: Outgoing
+    outgoing_sms: Outgoing SMS
+    search_date: Search Date
+    sending_failed: Sending Failed
+    sent: Sent
+    to: To
+    total_sms: Total SMS
+  static_ivr:
+    announcement_closed: Have you heard? You can now *use the SmartCard* to safely send all of your patient data in one click. A member of our team can give you more information.
+    announcement_closed_strip_ssmd: Have you heard? You can now use the SmartCard to safely send all of your patient data in one click. A member of our team can give you more information.
+    announcement_open: Have you heard? You can now *use the SmartCard* to safely send all of your patient data in one click. Ask a member of our team for more information.
+    announcement_open_strip_ssmd: Have you heard? You can now use the SmartCard to safely send all of your patient data in one click. Ask a member of our team for more information.
+    appointment_announcement_closed: Hello %{customer_first_name}! *Great* to have you *here!* Our team is currently unavailable, so *I* am going to *help you schedule* your next appointment.
+    appointment_announcement_closed_strip_ssmd: Hello %{customer_first_name}! Great to have you here! Our team is currently unavailable, so I am going to help you schedule your next appointment.
+    appointment_announcement_open: Hello %{customer_first_name}! *How* are you doing *today*? ...c Let's *see* when you can *come in* for your *next* appointment.
+    appointment_announcement_open_strip_ssmd: Hello %{customer_first_name}! How are you doing today? Let's see when you can come in for your next appointment.
+    appointment_cancel_caller_sms: Your appointment for %{%{var}} has been cancelled. We look forward to seeing you next time.
+    appointment_cancelled: Thank you %{customer_first_name}, Your appointment has been cancelled. If you have any questions, please call, or email us. We hope to see you again soon. Have a nice day.
+    appointment_cancelled_strip_ssmd: Thank you %{customer_first_name}, Your appointment has been cancelled. If you have any questions, please call, or email us. We hope to see you again soon. Have a nice day.
+    appointment_cofirmation: To confirm your choice, press 1. Or press 0 to return to the previous step.
+    appointment_cofirmation_implicit: You selected %{%{time}}. Press 0 to change your choice.
+    appointment_cofirmation_implicit_strip_ssmd: You selected %{%{time}}. Press 0 to change your choice.
+    appointment_cofirmation_strip_ssmd: To confirm your choice, press 1. Or press 0 to return to the previous step.
+    appointment_fail: Sorry, We could not create your appointment.
+    appointment_fail_strip_ssmd: Sorry, We could not create your appointment.
+    appointment_group_menu:
+      generic:
+        multiple: "<For %{day}, between %{start} and %{finish}, press %{num}.< ...c "
+        multiple_strip_ssmd: 'For %{day}, between %{start} and %{finish}, press %{num}. '
+        single: "<For %{day}, at %{time} press %{num}.< ...c "
+        single_strip_ssmd: 'For %{day}, at %{time} press %{num}. '
+      other: 'To repeat this option, press 9. Or *hold* to hear more availabilities. '
+      other_strip_ssmd: 'To repeat this option, press 9. Or hold to hear more availabilities. '
+    appointment_group_menu2_no_slot_found: We don’t have any more availabilities on this day. To repeat your options, press 1. Or press 2 to hear availabilities on the following days.
+    appointment_group_menu2_no_slot_found_strip_ssmd: We don’t have any more availabilities on this day. To repeat your options, press 1. Or press 2 to hear availabilities on the following days.
+    appointment_group_menu3:
+      manual_other: 'To hear other availabilities, press 4. Or press 0 to talk to an agent. '
+      manual_other_strip_ssmd: To hear other availabilities, press 4. Or press 0 to talk to an agent.
+      other: " Press 9 to repeat these availabilities. Or *Hold* the line for more options."
+      other_strip_ssmd: " Press 9 to repeat these availabilities. Or Hold the line for more options."
+      time1: " For %{%{time1}}, press 1. ...400ms "
+      time1_strip_ssmd: " For %{%{time1}}, press 1. "
+      time2: " For %{%{time2}}, press 2. ...400ms "
+      time2_strip_ssmd: " For %{%{time2}}, press 2. "
+      time3: " For %{%{time3}}, press 3. ...400ms "
+      time3_strip_ssmd: " For %{%{time3}}, press 3. "
+    appointment_group_menu4: 'To search by date, press 1. To search by weekday, press 2. To search by morning or afternoon, press 3. To search by time, press 4. '
+    appointment_group_menu4_no_slot_found: 'To repeat, press 1. To try again, press 2. To choose another preference, press 3. '
+    appointment_group_menu4_no_slot_found_strip_ssmd: 'To repeat, press 1. To try again, press 2. To choose another preference, press 3. '
+    appointment_group_menu4_strip_ssmd: 'To search by date, press 1. To search by weekday, press 2. To search by morning or afternoon, press 3. To search by time, press 4. '
+    appointment_max_limit_reached: You can not make a new appointment because you have reached the maximum number of allowed appointments. Please ask a member of our team to assist you.
+    appointment_max_limit_reached_strip_ssmd: You can not make a new appointment because you have reached the maximum number of allowed appointments. Please ask a member of our team to assist you.
+    appointment_menu1: For %{%{time1}}, Press 1.  Wait to hear next availabilities, or press 9 to repeat this option.
+    appointment_menu1_manual: The doctor told me to offer you the next possible appointment on %{%{time1}}. Press 1 to confirm this appointment. Press 2 to hear other availabilities
+    appointment_menu1_manual_strip_ssmd: The doctor told me to offer you the next possible appointment on %{%{time1}}. Press 1 to confirm this appointment. Press 2 to hear other availabilities
+    appointment_menu1_strip_ssmd: For %{%{time1}}, Press 1.  Wait to hear next availabilities, or press 9 to repeat this option.
+    appointment_menu2: For %{%{time1}}, press 1. For %{%{time2}}, press 2. Wait to hear next availabilities. Or press 9 to repeat
+    appointment_menu2_manual: You will now hear the next possible availabilities Press 1 for %{%{time1}}. Press 2 for %{%{time2}}. Press 3 to hear other availabilities. Or press 0 to talk to the client.
+    appointment_menu2_manual_strip_ssmd: You will now hear the next possible availabilities Press 1 for %{%{time1}}. Press 2 for %{%{time2}}. Press 3 to hear other availabilities. Or press 0 to talk to the client.
+    appointment_menu2_strip_ssmd: For %{%{time1}}, press 1. For %{%{time2}}, press 2. Wait to hear next availabilities. Or press 9 to repeat
+    appointment_modified: Thank you %{customer_first_name}, your appointment has been cancelled. Please choose one of the following options to book a new appointment.
+    appointment_modified_strip_ssmd: Thank you %{customer_first_name}, your appointment has been cancelled. Please choose one of the following options to book a new appointment.
+    appointment_success: Thank you %{%{name}}, your appointment for %{%{time}} is confirmed.
+    appointment_success_caller_sms: An appointment for %{%{time}} has been confirmed.
+    appointment_success_client_sms: An appointment for %{%{time}} has been confirmed by %{%{caller}}
+    appointment_success_mail_body: "An appointment for %{%{time}} has been confirmed. \n %{%{record}}"
+    appointment_success_mail_sub: New confirmed appointment
+    appointment_success_record: If you would you like me to pass on a message about your appointment, record it after the tone and press the hash key. Otherwise you can hang up.
+    appointment_success_record_strip_ssmd: If you would you like me to pass on a message about your appointment, record it after the tone and press the hash key. Otherwise you can hang up.
+    appointment_success_recorded: Thank you for your message, %{customer_first_name}. I will pass it on the team. We look forward to seeing you! Goodbye.
+    appointment_success_recorded_strip_ssmd: Thank you for your message, %{customer_first_name}. I will pass it on the team. We look forward to seeing you! Goodbye.
+    appointment_success_strip_ssmd: Thank you %{%{name}}, your appointment for %{%{time}} is confirmed.
+    call_hangup_mail_body: 'Call hanged up by: %{caller_id}'
+    call_hangup_mail_subject: Voxiplan call hangup
+    cancel_appointment:
+      generic: 'To cancel your appointment on %{%{var}}, press %{%{num}}. '
+      generic_strip_ssmd: 'To cancel your appointment on %{%{var}}, press %{%{num}}. '
+      other: " Or press 9 to repeat."
+      other_strip_ssmd: " Or press 9 to repeat."
+    cancel_time_limit_reached: You cannot make changes to your appointment at such short notice.
+    cancel_time_limit_reached_strip_ssmd: You cannot make changes to your appointment at such short notice.
+    cmd_menu:
+      create: " To book a new appointment, press 3. "
+      create_strip_ssmd: " To book a new appointment, press 3. "
+      delete: " To *cancel* an existing appointment, press 2. "
+      delete_strip_ssmd: " To cancel an existing appointment, press 2. "
+      modify: " To make changes to an existing appointment, press 1. "
+      modify_strip_ssmd: " To make changes to an existing appointment, press 1. "
+      more_then_one_appointments: " You already have %{%{count}} confirmed appointments. ...400ms "
+      more_then_one_appointments_strip_ssmd: " You already have %{%{count}} confirmed appointments. "
+      only_one_appointment: " You already have a confirmed appointment for %{%{time}}. ...400ms "
+      only_one_appointment_strip_ssmd: " You already have a confirmed appointment for %{%{time}}. "
+    ext_action_appointment_bot: Appointment Bot
+    ext_action_say_message: Say message
+    ext_action_send_to_voicemail: Send to Voicemail
+    ext_action_transfer_call: Transfer call
+    gather_number: Please enter your phone number followed by the hash key.
+    gather_number_strip_ssmd: Please enter your phone number followed by the hash key.
+    hangup_caller_sms: Thank you for your call. We are currently in a meeting or unavailable. To book an appointment, visit us online www.voxiplan.com or call us at +3228084080.
+    internal_error: Sorry, we could not process your request.
+    internal_error_strip_ssmd: Sorry, we could not process your request.
+    invalid: You did not select a valid option
+    invalid_strip_ssmd: You did not select a valid option
+    menu_closed: To book, change, or cancel an appointment, press 1. To leave a message, press 2
+    menu_closed_strip_ssmd: To book, change, or cancel an appointment, press 1. To leave a message, press 2
+    menu_open: 'To book, change, or cancel an appointment, press 1. To speak to sales, press 2. '
+    menu_open_strip_ssmd: 'To book, change, or cancel an appointment, press 1. To speak to sales, press 2. '
+    modify_appointment:
+      generic: 'To make changes to your appointment on %{%{var}}, press %{%{num}}. '
+      generic_strip_ssmd: 'To make changes to your appointment on %{%{var}}, press %{%{num}}. '
+      other: " Or press 9 to repeat."
+      other_strip_ssmd: " Or press 9 to repeat."
+    new_customer_enter_your_name: Please record your name after the tone, followed by the hash key.
+    new_customer_enter_your_name_strip_ssmd: Please record your name after the tone, followed by the hash key.
+    new_customer_not_allowed: Sorry, I am not authorized to schedule appointments for new customers.
+    new_customer_not_allowed_strip_ssmd: Sorry, I am not authorized to schedule appointments for new customers.
+    post_confirmation_reminder: Do not forgot to bring a smile
+    post_confirmation_reminder_strip_ssmd: Do not forgot to bring a smile
+    record_your_message: Please record your message after the tone, followed by the hash key.
+    record_your_message_strip_ssmd: Please record your message after the tone, followed by the hash key.
+    resources:
+      generic: 'For %{%{var}}, press %{%{num}}. ...400ms '
+      generic_strip_ssmd: 'For %{%{var}}, press %{%{num}}. '
+      other: " Or press 9 to repeat these options."
+      other_strip_ssmd: " Or press 9 to repeat these options."
+    say_invalid_number: You did not enter a valid number.
+    say_invalid_number_strip_ssmd: You did not enter a valid number.
+    search_by_ampm: For the morning, press 1. For the afternoon, press 2.
+    search_by_ampm_strip_ssmd: For the morning, press 1. For the afternoon, press 2.
+    search_by_date: 'Please enter a date, followed by the hash key. '
+    search_by_date_strip_ssmd: 'Please enter a date, followed by the hash key. '
+    search_by_time: Please enter a timeframe, followed by the hash key.
+    search_by_time_strip_ssmd: Please enter a timeframe, followed by the hash key.
+    search_by_weekday: For Monday, press 1. Tuesday, press 2. Wednesday, press 3. Thursday, press 4. Friday, press 5. Saturday, press 6. Sunday, press 7.
+    search_by_weekday_strip_ssmd: For Monday, press 1. Tuesday, press 2. Wednesday, press 3. Thursday, press 4. Friday, press 5. Saturday, press 6. Sunday, press 7.
+    services:
+      generic: 'For %{%{var}}, press %{%{num}}. ...400ms '
+      generic_strip_ssmd: 'For %{%{var}}, press %{%{num}}. '
+      other: " Or press 9 to repeat these options."
+      other_strip_ssmd: " Or press 9 to repeat these options."
+    timeout: You did not press any key
+    timeout_strip_ssmd: You did not press any key
+    to_repeat_and_other: " Or press 9 to repeat your options. "
+    to_repeat_and_other_strip_ssmd: " Or press 9 to repeat your options. "
+    transfer_menu_closed: You can’t find any availability? Press 0 to record your message or wait to hear more availabilities
+    transfer_menu_closed_strip_ssmd: You can’t find any availability? Press 0 to record your message or wait to hear more availabilities
+    transfer_menu_open: You can’t find any availability? Press 0 to speak to someone or wait to hear more availabilities
+    transfer_menu_open_strip_ssmd: You can’t find any availability? Press 0 to speak to someone or wait to hear more availabilities
+    voice_mail_subject: You got a voice email
+    welcome_closed: 'Hello!, and thank you for calling *Dr. John''s clinic*! You are calling outside our opening hours.  I am Laura, and *I* am here to *help you*. '
+    welcome_closed_strip_ssmd: 'Hello!, and thank you for calling Dr. John''s clinic! You are calling outside our opening hours.  I am Laura, and I am here to help you. '
+    welcome_open: Hello!, and thank you for calling *Dr. John's clinic*! I am Laura, and I am here to help direct your call.
+    welcome_open_strip_ssmd: Hello!, and thank you for calling Dr. John's clinic! I am Laura, and I am here to help direct your call.
+    your_call_being_transfer: Please hold. Your call is being transferred.
+    your_call_being_transfer_strip_ssmd: Please hold. Your call is being transferred.
+  stats:
+    appointment_status: Appointment status
+    call_for_appointment: Call for appointment
+    call_title: Call
+    contact_type: Contact type
+    date: Date
+    date_range: Date Range
+    direction: Direction
+    duration: Duration
+    duration_minutes: "#Minutes"
+    entered_number: Caller
+    from: From
+    heading: Call Report
+    incoming: Inkomend
+    incoming_calls: Incoming Calls
+    outgoing: Uitgaand
+    outgoing_calls: Outgoing Calls
+    parsed_from: Parsed From
+    record_id: Record ID
+    recordings: "#&nbsp;of Recordings"
+    reset: Reset
+    search: Search
+    search_date: Search Date
+    search_report: Search Report
+    sms: "#&nbsp;of&nbsp;SMS"
+    sms_title: SMS
+    status: Status
+    to: To
+    total: Total
+    total_calls: Total Calls
+  sweetalert:
+    cancel_button: Cancel
+    confirmation_text: You won't be able to revert this!
+    confirmation_title: Are you sure?
+    delete_confirm_button: Yes, delete it!
+    no_cancel: No, cancel
+    ok_got_it: Ok, got it!
+    yes_change: Yes, change it!
+    yes_delete: Yes, delete it!
+    yes_disconnect: Yes, disconnect!
+    yes_reorder: Yes, reorder it!
+  time:
+    formats:
+      custom: "%A, %{day} of %B at %I:%M %p"
+      date: "%{day} of %B"
+      day: "%A"
+      hour: "%I:%M %p"
+  url_stats:
+    breadcrumb_title: Click
+    clicks: Clicks
+    contact_name: Contact Name
+    contact_number: Contact Number
+    heading: Click Report
+    last_clicked_at: Last Clicked at
+    sent_on: Sent on
+    short_url: Short URL
+    target_url: Target URL
+  user_bar_new_ui:
+    billing: Billing
+    call: Call +%{number}
+    call_desc: to test your assistant
+    my_profile: My Profile
+    my_profile_desc: My Profile
+    my_team: My Team
+    my_team_desc: Users
+    plans_and_invoices: Plans and invoices
+    pricing: Pricing
+  user_menu:
+    billing: Billing
+    calendar_connection: Manage Calendars
+    language: Language
+    my_organization: My Organization
+    my_profile: My Profile
+    my_team: My Team
+    pricing: Pricing
+    sign_out: Sign Out
+    switch_organization: Switch Organization
+  validation:
+    available: Available
+    detected_key: Cannot use "space, &, /, ?"
+    not_empty: Can’t be empty
+    unavailable: Unavailable
+  verification:
+    button: Skip for now
+    first_content: We have sent you a verification link and code to confirm your email address. You can verify clicking the link or submitting the code.
+    second_content: Didn't receive the email at
+    title: Verify your email address
+    try_again: Resend
+  widget_preference:
+    24_hour: 24 Hour
+    allow_clients_to_schedule: Allow contacts to schedule up to
+    am_pm: AM/PM
+    company_title: Booking widget title
+    custom_text_enable_help: You can use this feature when "Enable AI Bot" of phone menu setting is turn off.
+    days_in_future: days in future
+    empty_select_error: Please Select an option
+    give_an_order: Define an Order
+    give_an_order_help_text: Show one type of dropdown first and then the other.
+    heading: Booking widget
+    hide_resources: Hide Resources
+    hide_resouse_help_text: Show only services dropdown and hide resources dropdown.
+    language: Language
+    language_help_text: Default Language to be used in the booking widget.
+    morning_afternoon: Morning / Afternoon
+    options_heading: Booking widget settings
+    preference_disable_tooltip: You can use this feature when Phone:ivr
+    preference_phone_ai_disable_tooltip: You can use this feature when Appointment Bot is existed
+    resource_first: Resource first
+    resource_first_help_text: Display the resources dropdown and the services dropdown at the same time.
+    resource_first_note_text: 'Note: For change it, you need to set resource distribution of all services to one-on-one or invitee selection'
+    resource_service_options_heading: Dropdown menu for booking options
+    scheduling_conditions: Scheduling conditions
+    select_order: Select first
+    service_first: Service first
+    service_first_help_text: Display the services dropdown and the resources dropdown at the same time.
+    service_resource_help_text: Geef de services dropdown en de resources dropdown tegelijkertijd weer.
+    time_format: Time Format
+    time_format_help_text: Default time format to be used in the booking widget.
+    timezone: Timezone
+    timezone_help_text: Default timezone to be used in the booking widget.
+    widget_branding:
+      description: Description
+      logo: Logo
+      menu: Widget Branding
+      no_logo: No Logo
+      remove_branding: Remove Voxiplan Branding
+      remove_branding_helper: This allows you to control how Voxiplan's branding is displayed on your scheduling page.
+      require_description: Description required.
+      use_branding: Use Custom Branding

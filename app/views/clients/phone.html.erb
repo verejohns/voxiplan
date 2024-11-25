@@ -1,0 +1,508 @@
+<%= stylesheet_link_tag    'datatables.bundle', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'datatables.bundle', 'data-turbolinks-track' => true %>
+<style>
+  select.server-http, select.fallback-http {
+      border-right: 0px;
+  }
+  input#server-url, input#fallback-url, input#status_callback_url {
+      border-left: 0px;
+      margin-left: -5px;
+  }
+  div#kt_main_table_filter label {
+      display: none;
+  }
+</style>
+<div class="toolbar" id="kt_toolbar">
+  <!--begin::Container-->
+  <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+    <!--begin::Page title-->
+    <div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
+         class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
+      <!--begin::Title-->
+      <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3">Clients</h1>
+      <!--end::Title-->
+    </div>
+    <!--end::Page title-->
+    <!--begin::Actions-->
+    <div class="d-flex align-items-center py-1"></div>
+    <!--end::Actions-->
+  </div>
+  <!--end::Container-->
+</div>
+
+<!--begin::Post-->
+<div class="post d-flex flex-column-fluid" id="kt_post">
+  <!--begin::Container-->
+  <div id="kt_content_container" class="container-fluid">
+    <div class="card mb-7">
+      <div class="card-body">
+        <!--begin::Wrapper-->
+        <div class="d-flex flex-stack mb-5">
+          <!--begin::Search-->
+          <div class="d-flex align-items-center position-relative my-1">
+            <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
+            <span class="svg-icon svg-icon-1 position-absolute ms-6">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+												<rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="black"></rect>
+												<path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
+                              fill="black"></path>
+											</svg>
+										</span>
+            <!--end::Svg Icon-->
+            <input type="text" aria-controls="kt_main_table" data-kt-main-table-filter="search" class="form-control form-control-solid w-250px ps-15" placeholder="Search" />
+          </div>
+          <!--end::Search-->
+        </div>
+        <!--end::Wrapper-->
+
+        <!--begin::Datatable-->
+        <table id="kt_main_table" class="table align-middle table-row-dashed fs-6 gy-5">
+          <thead>
+          <tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
+            <th>Number & Friendly Name</th>
+            <th>Phone Type</th>
+            <th>Phone Price</th>
+            <th>Voice Server</th>
+            <th>SMS Server</th>
+            <th>Assigned Client & IVR</th>
+            <th>Capabilities</th>
+            <th class="text-end min-w-100px"><%= t('customers.actions') %></th>
+          </tr>
+          </thead>
+          <tbody class="text-gray-600 fw-bold">
+            <% if @incoming_phone_numbers.class.to_s == "String" %>
+              <tr>
+                <td colspan="10" class="text-center text-danger"><%= @incoming_phone_numbers %></td>
+              </tr>
+            <% else %>
+              <% @incoming_phone_numbers.each do |phone| %>
+              <tr>
+                <td>
+                  <div class="d-flex flex-column">
+                    <span class="text-gray-800"><%= Phonelib.parse(phone.phone_number).international rescue phone.phone_number %></span>
+                    <span class="text-gray-400"><%= phone.friendly_name %></span>
+                  </div>
+                </td>
+
+                <td><%= Identifier.where(identifier: phone.phone_number.gsub('+','')).first.try(:phone_type) %></td>
+                <td><%= Identifier.where(identifier: phone.phone_number.gsub('+','')).first.try(:phone_price) %></td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <span class="text-gray-800"><%= phone.voice_url %></span>
+                    <% if phone.voice_fallback_url.present? %>
+                      <span class="text-gray-400">Fallback: <%= phone.voice_fallback_url %></span>
+                    <% end %>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <span class="text-gray-800"><%= phone.sms_url %></span>
+                    <% if phone.sms_fallback_url.present? %>
+                      <span class="text-gray-400">Fallback: <%= phone.sms_fallback_url %></span>
+                    <% end %>
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex flex-column">
+                    <span class="text-gray-800"><%= Identifier.where(identifier: phone.phone_number.gsub('+','')).first.try(:ivr).try(:client).try(:full_name)%></span>
+                    <span class="text-gray-400"><%= Identifier.where(identifier: phone.phone_number.gsub('+','')).first.try(:ivr).try(:name)%></span>
+                  </div>
+                </td>
+                <td>
+                  <ul class="nav nav-tabs nav-tabs-space-xl" style="border: none;margin: 0;">
+                    <li class="nav-item">
+                      <% if phone.capabilities['voice'] %>
+                        <a class="nav-link">
+                          <i class="fa fa-phone-square text-warning fs-2" aria-hidden="true"></i>
+                        </a>
+                      <% end %>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link">
+                        <% if phone.capabilities['sms'] %>
+                          <i class="fa fa-envelope text-primary fs-2" aria-hidden="true"></i>
+                        <% end %>
+                      </a>
+                    </li>
+                  </ul>
+                </td>
+                <td class="text-center">
+                  <a href="#" class="btn btn-icon btn-sm btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
+											<span class="svg-icon svg-icon-2x">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+													<rect x="10" y="10" width="4" height="4" rx="2" fill="black"/>
+													<rect x="17" y="10" width="4" height="4" rx="2" fill="black"/>
+													<rect x="3" y="10" width="4" height="4" rx="2" fill="black"/>
+												</svg>
+											</span>
+                  </a>
+                  <!--begin::Menu-->
+                  <div class="text-start menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-200px py-4" data-kt-menu="true">
+                    <% if phone.capabilities['voice'] %>
+                      <div class="menu-item px-3">
+                        <a href="#kt_modal_edit_server" class="menu-link px-3" data-bs-toggle="modal" onclick="editServer(event)"
+                           data-title="voice" data-sid=<%= phone.sid %> data-server= <%= phone.voice_url %> data-fallback=<%= phone.voice_fallback_url %> data-status_callback="<%= phone.status_callback %>">
+                          Edit Voice Server
+                        </a>
+                      </div>
+                    <% end %>
+
+                    <% if phone.capabilities['sms'] %>
+                      <div class="menu-item px-3">
+                        <a href="#kt_modal_edit_server" class="menu-link px-3" data-bs-toggle="modal" onclick="editServer(event)"
+                           data-title="sms" data-sid=<%= phone.sid %> data-server= <%= phone.sms_url %> data-fallback=<%= phone.sms_fallback_url %>>
+                          Edit SMS Server
+                        </a>
+                      </div>
+                    <% end %>
+
+                    <div class="menu-item px-3">
+                      <% if (Identifier.where(identifier: phone.phone_number.gsub('+','')).first.try(:ivr).try(:client).try(:full_name)) %>
+                        <a href="#" class="menu-link px-3" onclick="removeAssign(event)"
+                           data-ivrid=<%= Identifier.where(identifier: phone.phone_number.gsub('+','')).first.try(:id)%>>
+                          Remove Assigned Client
+                        </a>
+                      <% else %>
+                        <a href="#kt_modal_edit_assign" class="menu-link px-3" data-bs-toggle="modal" onclick="editAssign(event)"
+                           data-identifier=<%= phone.phone_number.gsub('+','') %>>
+                          Assign Client
+                        </a>
+                      <% end %>
+                    </div>
+
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+            <% end %>
+          </tbody>
+        </table>
+        <!--end::Datatable-->
+      </div>
+    </div>
+  </div>
+  <!--end::Container-->
+</div>
+<!--end::Post-->
+
+<div class="modal fade" id="kt_modal_edit_server" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exceptionModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!--begin::Modal title-->
+        <h4 class="fw-bolder modal-title">Edit Voice/SMS Server</h4>
+        <!--end::Modal title-->
+        <!--begin::Close-->
+        <div class="btn btn-icon btn-sm btn-active-icon-primary" data-kt-main-modal-action="close">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+                                                    <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
+                                                    <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)" x="0" y="7" width="16" height="2" rx="1" />
+                                                </g>
+                                            </svg>
+                                        </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+      <%= form_for(current_client, url: phone_clients_path, remote: true, method: "post", html: {id: 'client-server-form'}) do |f| %>
+      <div class="modal-body server-modal scroll-y mx-5 my-5">
+        <div class="form-group row mb-0">
+          <label for="example-text-input" class="col-3 col-form-label">Server URL</label>
+          <div class="col-9">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <select class="form-select server-http" name="server_http" aria-label="Select protocol">
+                  <option value="https://">https://</option>
+                  <option value="http://">http://</option>
+                </select>
+              </div>
+              <input class="form-control" type="text" value="" name="server_url" id="server-url">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row mb-0">
+          <label class="col-3 col-form-label">Fallback URL</label>
+          <div class="col-9">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <select class="form-select fallback-http" name="fallback_http" aria-label="Select protocol">
+                  <option value="https://">https://</option>
+                  <option value="http://">http://</option>
+                </select>
+              </div>
+              <input class="form-control" type="text" value="" name="fallback_url" id="fallback-url"/>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row mb-0" id="status_callback_wrap">
+          <label class="col-3 col-form-label">Status Callback URL</label>
+          <div class="col-9">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <select class="form-select fallback-http" name="status_callback_http" aria-label="Select protocol">
+                  <option value="https://">https://</option>
+                  <option value="http://">http://</option>
+                </select>
+              </div>
+              <input class="form-control" type="text" value="" name="status_callback_url" id="status_callback_url"/>
+            </div>
+          </div>
+        </div>
+        <input type="hidden" id="sid" name="sid"/>
+        <input type="hidden" id="server-type" name="server_type" />
+      </div>
+      <div class="modal-footer">
+        <button type="reset" class="btn btn-white me-3" data-kt-main-modal-action="cancel">Cancel</button>
+        <button type="submit" class="btn btn-primary update-server" data-kt-main-modal-action="submit">
+          <span class="indicator-label">Update</span>
+          <span class="indicator-progress"><%= t('common.please_wait') %>
+            <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+          </span>
+        </button>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="kt_modal_edit_assign" role="dialog" aria-labelledby="editAssignedLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="editAssignedLabel">Edit Assigned Client</h4>
+        <!--begin::Close-->
+        <div class="btn btn-icon btn-sm btn-active-icon-primary" data-kt-assign-modal-action="close">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+                                                    <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
+                                                    <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)" x="0" y="7" width="16" height="2" rx="1" />
+                                                </g>
+                                            </svg>
+                                        </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+      <%= form_for(current_client, url: phone_clients_path, remote: true, method: "post", html: {id: 'client-assign-form'}) do |f| %>
+      <div class="modal-body scroll-y mx-5 my-5">
+        <div class="form-group row mb-5">
+          <label for="client" class="col-sm-3 col-form-label">Client: </label>
+          <div class="col-sm-9">
+            <select class="form-select assigned_client" name="assigned_client" data-control="select2" data-placeholder="Select a client">
+              <option></option>
+              <% Client.pluck(:id, :first_name, :last_name).each do |client| %>
+                <option value=<%= client[0] %>><%= client[1] %> <%= client[2] %></option>
+              <% end %>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row mb-5 ivr_section">
+          <label for="client" class="col-sm-3 col-form-label">IVR: </label>
+          <div class="col-sm-9">
+            <select class="form-select assigned_ivr text-gray-600" name="assigned_ivr" aria-label="Select IVR">
+            </select>
+          </div>
+        </div>
+        <div class="form-group row mb-5">
+          <label for="client" class="col-sm-3 col-form-label">Phone Type: </label>
+          <div class="col-sm-9">
+            <select class="form-select phone_type text-gray-600" name="phone_type" aria-label="Select Phone Type">
+              <option value='landline'>Landline</option>
+              <option value='mobile'>Mobile</option>
+              <option value='national'>National</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row mb-5">
+          <label for="client" class="col-sm-3 col-form-label">Phone Price: </label>
+          <div class="col-sm-9">
+            <input type="number" class="form-control" name="phone_price" id="phone_price" />
+          </div>
+        </div>
+        <input type="hidden" id="twilio_identifier" name="twilio_identifier" />
+        <input type="hidden" id="save_assign" name="save_assign" value="" />
+      </div>
+      <div class="modal-footer">
+        <button type="reset" class="btn btn-white me-3" data-kt-assign-modal-action="cancel">Cancel</button>
+        <button type="submit" class="btn btn-primary update-assign" data-kt-assign-modal-action="submit">
+          <span class="indicator-label">Assign</span>
+          <span class="indicator-progress"><%= t('common.please_wait') %>
+            <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+          </span>
+        </button>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+    var KTDatatablesServerSide = function () {
+        return {
+            init: function() {
+                (main_table = $('table#kt_main_table').DataTable({
+                    info: true,
+                    order: [],
+                    pageLength: 10,
+                    lengthChange: false,
+                }), document.querySelector('[data-kt-main-table-filter="search"]').addEventListener('keyup', (function(e) {
+                    main_table.search(e.target.value).draw();
+                })));
+            }
+        }
+    }();
+
+    KTUtil.onDOMContentLoaded(function () {
+        KTDatatablesServerSide.init();
+    });
+
+
+    document.querySelector('div#kt_modal_edit_server [data-kt-main-modal-action="close"]').addEventListener('click', function(t) {
+        t.preventDefault();
+        $('div#kt_modal_edit_server').modal('hide');
+    });
+
+    document.querySelector('div#kt_modal_edit_server [data-kt-main-modal-action="cancel"]').addEventListener('click', function(t) {
+        t.preventDefault();
+        $('div#kt_modal_edit_server').modal('hide');
+    })
+
+    document.querySelector('div#kt_modal_edit_assign [data-kt-assign-modal-action="close"]').addEventListener('click', function(t) {
+        t.preventDefault();
+        $('div#kt_modal_edit_assign').modal('hide');
+    });
+
+    document.querySelector('div#kt_modal_edit_assign [data-kt-assign-modal-action="cancel"]').addEventListener('click', function(t) {
+        t.preventDefault();
+        $('div#kt_modal_edit_assign').modal('hide');
+    })
+
+    $('button.update-server').click(function(e) {
+        e.preventDefault();
+        if ($('input#server-url').val() == '') {
+            showMessage('error', "Please enter the server URL");
+        } else if ($('input#fallback-url').val() == '') {
+            showMessage('error', "Please enter the fallback URL");
+        } else {
+            const submit_button = $('button[data-kt-main-modal-action=submit]');
+            $(submit_button).attr('data-kt-indicator', 'on');
+            $(submit_button).attr('disabled', 'disabled');
+            $('#client-server-form').ajaxSubmit({
+                success: function(response) {
+                    $(submit_button).removeAttr('data-kt-indicator');
+                    $(submit_button).removeAttr('disabled');
+                    $('div#kt_modal_edit_server').modal('hide');
+                    showMessage(response.result, response.message);
+
+                    window.location.reload();
+                }
+            })
+        }
+
+    });
+
+    function editServer(e) {
+        if ($(e.target).data('title') == 'voice') $('h4.modal-title').html('Edit Voice Server');
+        if ($(e.target).data('title') == 'sms') $('h4.modal-title').html('Edit SMS Server');
+        $('input#server-url').val($(e.target).data('server').replace(/^https?:\/\//, ''));
+        $('input#fallback-url').val($(e.target).data('fallback').replace(/^https?:\/\//, ''));
+        $('input#server-type').val($(e.target).data('title'));
+        $('input#sid').val($(e.target).data('sid'));
+
+        if ($(e.target).data('title') == 'sms') $('#status_callback_wrap').addClass('d-none');
+        else {
+            $('#status_callback_wrap').removeClass('d-none');
+            $('input#status_callback_url').val($(e.target).data('status_callback').replace(/^https?:\/\//, ''));
+        }
+    }
+
+    $('button.update-assign').click(function(e) {
+        e.preventDefault();
+        if ($('select.assigned_client').val() == '') {
+            showMessage('error', "Please select at least a client");
+        }
+        else {
+            const submit_button = $('button[data-kt-assign-modal-action=submit]');
+            $(submit_button).attr('data-kt-indicator', 'on');
+            $(submit_button).attr('disabled', 'disabled');
+            $('input#save_assign').val('1');
+            $('#client-assign-form').ajaxSubmit({
+                success: function(response) {
+                    $(submit_button).removeAttr('data-kt-indicator');
+                    $(submit_button).removeAttr('disabled');
+                    $('div#kt_modal_edit_assign').modal('hide');
+                    showMessage(response.result, response.message);
+
+                    window.location.reload();
+                }
+            })
+        }
+
+    });
+
+    function editAssign(e) {
+        $('select.assigned_client').select2().val(null).trigger('change');
+        $('div.ivr_section').hide();
+        $('input#twilio_identifier').val($(e.target).data('identifier'));
+    }
+
+    function removeAssign(e) {
+        e.preventDefault();
+        Swal.fire({
+            text: "Are you sure you would like to delete this assign?",
+            icon: "warning",
+            showCancelButton: true,
+            buttonsStyling: false,
+            confirmButtonText: "<%= t('sweetalert.yes_delete') %>",
+            cancelButtonText: "<%= t('sweetalert.no_cancel') %>",
+            customClass: {
+                confirmButton: "btn btn-danger",
+                cancelButton: "btn btn-primary"
+            }
+        }).then((function(t) {
+            if (t.value == true) {
+                $.ajax({
+                    url: "/clients/phone",
+                    type: "POST",
+                    data: {"removed": true, "id": $(e.target).data('ivrid')},
+                    success: function(response){
+                        showMessage(response.result, response.message);
+                        window.location.reload();
+                    }
+                });
+            }
+        }));
+
+    }
+
+    $('div.ivr_section').hide();
+
+    $('select.assigned_client').on('change', function() {
+        $('div.ivr_section').hide();
+        $('select.assigned_ivr').html('');
+        const selectedClient = this.value;
+        if (selectedClient !== '') {
+            $.ajax({
+                url: "/clients/my_ivrs",
+                type: "GET",
+                data: {id: selectedClient},
+                success: function(response) {
+                    $('div.ivr_section').show('slow');
+                    $.each(response, function(){
+                        $('<option/>', {
+                            'value': this.id,
+                            'text': this.name
+                        }).appendTo('select.assigned_ivr');
+                    });
+                }
+            });
+        }
+    });
+
+
+</script>

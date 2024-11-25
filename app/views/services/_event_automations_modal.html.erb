@@ -1,0 +1,1308 @@
+<style>
+    .form-select.select2-selection--multiple {
+        min-height: 42.95px;
+    }
+
+    .select2-container--disabled .form-select {
+        background-color: #EFF2F5;
+    }
+
+    .z-index-10000 {
+        z-index: 10000;
+    }
+
+    .modal-open .select2-container--bootstrap5 .select2-dropdown,
+    .tooltip,
+    .tox-tinymce-aux {
+        z-index: 10002 !important;
+    }
+
+    #kt_modal_upgrade_plan_automations_modal {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+</style>
+
+<!--begin::Edit Automation-->
+<form class="d-flex flex-column h-100 p-9" id="edit_automation_form" action="<%= save_automation_services_path %>" accept-charset="UTF-8" method="post">
+<input type="hidden" name="current_service_id" value="<%= params[:id] %>" />
+<input type="hidden" name="automation_type" />
+<input type="hidden" name="email_invitee_subject" />
+<input type="hidden" name="email_invitee_body" />
+<input type="hidden" name="email_host_subject" />
+<input type="hidden" name="email_host_body" />
+<input type="hidden" name="sms_invitee_body" />
+<input type="hidden" name="sms_host_body" />
+<input type="hidden" name="sms_invitee_switch_value" />
+<input type="hidden" name="email_host_switch_value" />
+<input type="hidden" name="sms_host_switch_value" />
+<input type="hidden" name="selected_sms_type" />
+<input type="hidden" name="selected_email_type" />
+<input type="hidden" name="invitee_include_cancel_link_value" />
+<input type="hidden" name="host_include_cancel_link_value" />
+<input type="hidden" name="is_include_agenda_value" />
+<input type="hidden" name="trigger_type_value" />
+<input type="hidden" name="trigger_time_value" />
+<input type="hidden" name="trigger_duration_value" />
+<input type="hidden" name="trigger_specific_offset_value" />
+<input type="hidden" name="trigger_specific_duration_value" />
+<input type="hidden" name="trigger_specific_time_value" />
+
+<div class="modal fade" id="kt_modal_edit_automations" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"></h5>
+
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+		            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+		              <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+		                <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1"/>
+		                <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                        x="0" y="7" width="16" height="2" rx="1"/>
+		              </g>
+		            </svg>
+		          </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+
+      <div class="modal-body">
+        <div class="container mw-800px">
+          <div class="row">
+            <div class="col-md-12">
+              <!--begin::Field-->
+              <div class="mb-7">
+                <label class="form-label"><%= t('services.automations.edit_automation.name') %></label>
+                <input class="form-control" type="text" name="automation_name" value="" >
+              </div>
+              <!--end::Field-->
+            </div>
+            <div class="col-md-12">
+              <!--begin::Field-->
+              <div class="mb-7">
+                <label class="form-label"><%= t('services.automations.edit_automation.filter') %></label>
+                <select id="automation_filters" name="automation_filters" class="form-select" multiple data-placeholder="<%= t('common.select_placeholder') %>">
+                  <optgroup label="<%= t('services.automations.edit_automation.service') %>">
+                    <option value="services_0" data-select2-group="service"><%= t('services.automations.edit_automation.all_services') %></option>
+                    <% @all_services.each do |service| %>
+                      <option value="<%= service[:id] %>" data-select2-group="service" <%= service[:id].to_i == @service.id ? 'selected' : '' %>><%= service[:name] %></option>
+                    <% end %>
+                  </optgroup>
+                  <optgroup label="<%= t('services.automations.edit_automation.channel') %>">
+                    <option value="channel_booking_widget" data-select2-group="channel"><%= t('services.automations.edit_automation.booking_widget') %></option>
+                    <option value="channel_booking_phone" data-select2-group="channel"><%= t('services.automations.edit_automation.phone') %></option>
+                  </optgroup>
+                  <optgroup label="<%= t('services.automations.edit_automation.resource') %>">
+                    <option value="resources_0" data-select2-group="resource"><%= t('services.automations.edit_automation.all_resources') %></option>
+                    <option value="resources_1" data-select2-group="resource">Evangeline Cure</option>
+                    <option value="resources_2" data-select2-group="resource">Mike Myers</option>
+                  </optgroup>
+                  <optgroup label="<%= t('services.automations.edit_automation.invitee') %>">
+                    <option value="invitee_1" data-select2-group="invitee">New invitee</option>
+                    <option value="invitee_2" data-select2-group="invitee">Existing invitee</option>
+                  </optgroup>
+                </select>
+              </div>
+              <!--end::Field-->
+            </div>
+          </div>
+
+          <div class="card card-bordered">
+            <div class="card-header">
+              <h3 class="card-title"><%= t('services.automations.edit_automation.trigger') %></h3>
+            </div>
+            <div class="card-body">
+              <div class="card shadow-sm">
+                <div class="card-body">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <span class="fw-bold fs-5 trigger-event-value">New event is scheduled</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <a href="#kt_modal_edit_trigger" class="ms-2 trigger-edit-icon" data-bs-toggle="modal">
+                        <i class="bi bi-pencil-square text-muted fs-2"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center my-5">
+            <!--begin::Svg Icon | path: assets/media/icons/duotune/arrows/arr004.svg-->
+            <span class="svg-icon svg-icon-3x">
+									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+										<path d="M13 14.4V3C13 2.4 12.6 2 12 2C11.4 2 11 2.4 11 3V14.4H13Z" fill="currentColor"/>
+										<path opacity="0.3" d="M4 14.4H20L12.7 21.7C12.3 22.1 11.7 22.1 11.3 21.7L4 14.4Z" fill="currentColor"/>
+									</svg>
+								</span>
+            <!--end::Svg Icon-->
+          </div>
+
+          <div class="card card-bordered">
+            <div class="card-header">
+              <h3 class="card-title"><%= t('services.automations.edit_automation.action') %></h3>
+            </div>
+            <div class="card-body">
+              <div class="card shadow-sm mb-7 send_email_host">
+                <div class="card-body">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <!--begin::Svg Icon-->
+                      <span class="svg-icon svg-icon-3x svg-icon-primary me-3">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
+															<path opacity="0.3" d="M21 19H3C2.4 19 2 18.6 2 18V6C2 5.4 2.4 5 3 5H21C21.6 5 22 5.4 22 6V18C22 18.6 21.6 19 21 19Z" fill="currentColor"/>
+															<path d="M21 5H2.99999C2.69999 5 2.49999 5.10005 2.29999 5.30005L11.2 13.3C11.7 13.7 12.4 13.7 12.8 13.3L21.7 5.30005C21.5 5.10005 21.3 5 21 5Z"
+                                    fill="currentColor" />
+														</svg>
+													</span>
+                      <!--end::Svg Icon-->
+                      <span class="fw-bold fs-5"><%= t('services.automations.edit_automation.email_host') %></span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <div class="d-flex flex-wrap">
+                        <label class="position-relative z-index-1 form-check form-switch form-check-custom form-check-solid form-check-primary me-5">
+                          <input class="form-check-input h-20px w-30px" type="checkbox" id="email_host_switch" name="email_host_switch"/>
+                        </label>
+                      </div>
+                      <a href="#kt_modal_edit_action_email" class="ms-2 action_email_host" data-bs-toggle="modal">
+                        <i class="bi bi-pencil-square text-muted fs-2"></i>
+                      </a>
+                      <a href="javascript:void(0)" class="ms-2 remove-action-sms" >
+                        <!--begin::Svg Icon-->
+                        <span class="svg-icon svg-icon-2x svg-icon-danger">
+															<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24"version="1.1">
+																<path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="currentColor"/>
+																<path opacity="0.5" d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z" fill="currentColor"/>
+																<path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="currentColor"/>
+															</svg>
+														</span>
+                        <!--end::Svg Icon-->
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card shadow-sm mb-7 send_email_invitee">
+                <div class="card-body">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <!--begin::Svg Icon-->
+                      <span class="svg-icon svg-icon-3x svg-icon-primary me-3">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
+															<path opacity="0.3" d="M21 19H3C2.4 19 2 18.6 2 18V6C2 5.4 2.4 5 3 5H21C21.6 5 22 5.4 22 6V18C22 18.6 21.6 19 21 19Z" fill="currentColor"/>
+															<path d="M21 5H2.99999C2.69999 5 2.49999 5.10005 2.29999 5.30005L11.2 13.3C11.7 13.7 12.4 13.7 12.8 13.3L21.7 5.30005C21.5 5.10005 21.3 5 21 5Z"
+                                  fill="currentColor" />
+														</svg>
+													</span>
+                      <!--end::Svg Icon-->
+                      <span class="fw-bold fs-5"><%= t('services.automations.edit_automation.email_invitee') %></span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <a href="#kt_modal_edit_action_email" class="ms-2 action_email_invitee" data-bs-toggle="modal">
+                        <i class="bi bi-pencil-square text-muted fs-2"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card shadow-sm mb-7 send_sms_invitee">
+                <div class="card-body">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <!--begin::Svg Icon-->
+                      <span class="svg-icon svg-icon-3x svg-icon-primary me-3">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+															<path opacity="0.3" d="M2 4V16C2 16.6 2.4 17 3 17H13L16.6 20.6C17.1 21.1 18 20.8 18 20V17H21C21.6 17 22 16.6 22 16V4C22 3.4 21.6 3 21 3H3C2.4 3 2 3.4 2 4Z" fill="currentColor" />
+															<path d="M18 9H6C5.4 9 5 8.6 5 8C5 7.4 5.4 7 6 7H18C18.6 7 19 7.4 19 8C19 8.6 18.6 9 18 9ZM16 12C16 11.4 15.6 11 15 11H6C5.4 11 5 11.4 5 12C5 12.6 5.4 13 6 13H15C15.6 13 16 12.6 16 12Z" fill="currentColor"/>
+														</svg>
+													</span>
+                      <!--end::Svg Icon-->
+                      <span class="fw-bold fs-5"><%= t('services.automations.edit_automation.sms_invitee') %></span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <div class="d-flex flex-wrap">
+                        <label class="position-relative z-index-1 form-check form-switch form-check-custom form-check-solid form-check-primary me-5">
+                          <input class="form-check-input h-20px w-30px" type="checkbox" id="sms_invitee_switch" name="sms_invitee_switch"/>
+                        </label>
+                      </div>
+                      <a href="#kt_modal_edit_action_sms" class="ms-2 action_sms_invitee" data-bs-toggle="modal">
+                        <i class="bi bi-pencil-square text-muted fs-2"></i>
+                      </a>
+                      <a href="javascript:void(0)" class="ms-2 remove-action-sms" >
+                        <!--begin::Svg Icon-->
+                        <span class="svg-icon svg-icon-2x svg-icon-danger">
+															<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24"version="1.1">
+																<path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="currentColor"/>
+																<path opacity="0.5" d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z" fill="currentColor"/>
+																<path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="currentColor"/>
+															</svg>
+														</span>
+                        <!--end::Svg Icon-->
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card shadow-sm mb-7 send_sms_host">
+                <div class="card-body">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <!--begin::Svg Icon-->
+                      <span class="svg-icon svg-icon-3x svg-icon-primary me-3">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+															<path opacity="0.3" d="M2 4V16C2 16.6 2.4 17 3 17H13L16.6 20.6C17.1 21.1 18 20.8 18 20V17H21C21.6 17 22 16.6 22 16V4C22 3.4 21.6 3 21 3H3C2.4 3 2 3.4 2 4Z" fill="currentColor" />
+															<path d="M18 9H6C5.4 9 5 8.6 5 8C5 7.4 5.4 7 6 7H18C18.6 7 19 7.4 19 8C19 8.6 18.6 9 18 9ZM16 12C16 11.4 15.6 11 15 11H6C5.4 11 5 11.4 5 12C5 12.6 5.4 13 6 13H15C15.6 13 16 12.6 16 12Z" fill="currentColor"/>
+														</svg>
+													</span>
+                      <!--end::Svg Icon-->
+                      <span class="fw-bold fs-5"><%= t('services.automations.edit_automation.sms_host') %></span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <div class="d-flex flex-wrap">
+                        <label class="position-relative z-index-1 form-check form-switch form-check-custom form-check-solid form-check-primary me-5">
+                          <input class="form-check-input h-20px w-30px" type="checkbox" id="sms_host_switch" name="sms_host_switch"/>
+                        </label>
+                      </div>
+                      <a href="#kt_modal_edit_action_sms" class="ms-2 action_sms_host" data-bs-toggle="modal">
+                        <i class="bi bi-pencil-square text-muted fs-2"></i>
+                      </a>
+                      <a href="javascript:void(0)" class="ms-2 remove-action-sms" >
+                        <!--begin::Svg Icon-->
+                        <span class="svg-icon svg-icon-2x svg-icon-danger">
+															<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24"version="1.1">
+																<path d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z" fill="currentColor"/>
+																<path opacity="0.5" d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z" fill="currentColor"/>
+																<path opacity="0.5" d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z" fill="currentColor"/>
+															</svg>
+														</span>
+                        <!--end::Svg Icon-->
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center add_new_action_button">
+                <a href="#kt_modal_add_new_action" class="btn btn-primary" data-bs-toggle="modal">
+                  <i class="fas fa-plus"></i><%= t('services.automations.edit_automation.add_new_action') %>
+                </a>
+              </div>
+
+              <div>
+                <label class="include_agenda_section z-index-2 form-check form-switch form-check-custom form-check-solid form-check-info mb-1 me-6">
+                  <input id="kt_check_include_agenda" class="form-check-input h-25px w-40px opacity-100 me-2" type="checkbox">
+                  <%= t('services.automations.edit_automation.is_include_agenda') %>
+                </label>
+              </div>
+              <div class="text-muted"><%= t('services.automations.edit_automation.is_include_agenda_help') %></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal"><%= t('common.button.close') %></button>
+        <button type="button" class="btn btn-primary" onclick="saveAutomation(this)">
+          <span class="indicator-label"><%= t('button.save') %></span>
+          <span class="indicator-progress"><%= t('common.please_wait') %>
+            <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+        </button>
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+</form>
+<!--end::Edit Automation-->
+
+<!--begin::Edit Trigger-->
+<div class="modal fade z-index-10000 " id="kt_modal_edit_trigger" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('services.automations.edit_trigger.modal_title') %></h5>
+
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+		            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+		              <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+		                <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1"/>
+		                <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                      x="0" y="7" width="16" height="2" rx="1"/>
+		              </g>
+		            </svg>
+		          </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+
+      <div class="modal-body">
+        <!--begin::Field-->
+        <div class="mb-0">
+          <label class="form-label"><%= t('services.automations.edit_trigger.when_happen') %></label>
+          <select name="trigger_type" id="trigger_type" class="form-select" data-control="select2" data-placeholder="<%= t('common.select_placeholder') %>" data-minimum-results-for-search="Infinity">
+            <option></option>
+            <option value="trigger_event_new" selected><%= t('services.automations.trigger_event_new') %></option>
+            <option value="trigger_event_before_start"><%= t('services.automations.trigger_event_before_start') %></option>
+            <option value="trigger_event_specific_time"><%= t('services.automations.trigger_event_specific_time') %></option>
+            <option value="trigger_event_start"><%= t('services.automations.trigger_event_start') %></option>
+            <option value="trigger_event_end"><%= t('services.automations.trigger_event_end') %></option>
+            <option value="trigger_event_cancel"><%= t('services.automations.trigger_event_cancel') %></option>
+            <option value="trigger_event_reschedule"><%= t('services.automations.trigger_event_reschedule') %></option>
+            <option value="trigger_event_not_completed"><%= t('services.automations.trigger_event_not_completed') %></option>
+          </select>
+        </div>
+        <!--end::Field-->
+
+        <div>
+          <div>
+            <div class="pt-7">
+              <div class="form-label trigger-action-help">How long after new event is scheduled?</div>
+              <!--begin::Field-->
+              <label class="form-check form-check-custom form-check-solid mb-4 radio-now-section">
+                <input name="trigger_action" class="form-check-input" type="radio" value="now" checked/>
+                <span class="form-check-label trigger-immediately-help">Immediately when new event is scheduled</span>
+              </label>
+              <!--end::Field-->
+              <!--begin::Field-->
+              <div class="row align-items-center gx-2 mb-4 event-normal-section">
+                <div class="col-auto radio-after-section">
+                  <label class="form-check form-check-custom form-check-solid">
+                    <input name="trigger_action" class="form-check-input" type="radio" value="after"/>
+                    <span class="form-check-label ms-0"></span>
+                  </label>
+                </div>
+                <div class="col-auto">
+                  <input class="form-control w-100px" name="trigger_time" value="24" />
+                </div>
+                <div class="col">
+                  <select class="form-select" name="trigger_duration" data-control="select2" data-placeholder="<%= t('common.select_placeholder') %>" data-minimum-results-for-search="Infinity">
+                    <option></option>
+                    <option value="days"><%= t('services.automations.edit_trigger.days') %></option>
+                    <option value="hours" selected><%= t('services.automations.edit_trigger.hours') %></option>
+                    <option value="minutes"><%= t('services.automations.edit_trigger.minutes') %></option>
+                  </select>
+                </div>
+              </div>
+              <!--end::Field-->
+              <div class="row align-items-center gx-2 event-specific-time-section" style="display:none">
+                <div class="col-auto">
+                  <select class="form-select" name="trigger_specific_offset" data-control="select2" data-placeholder="<%= t('common.select_placeholder') %>" data-minimum-results-for-search="Infinity" data-width="80px">
+                    <option></option>
+                    <% for i in 1..90 do %>
+                      <option value="<%= i %>" <%= i == 1 ? 'selected' : '' %>><%= i %></option>
+                    <% end %>
+                  </select>
+                </div>
+                <div class="col">
+                  <select class="form-select" name="trigger_specific_duration" data-control="select2" data-placeholder="<%= t('common.select_placeholder') %>" data-minimum-results-for-search="Infinity" data-width="100%">
+                    <option></option>
+                    <option value="days" selected><%= t('services.automations.edit_trigger.days') %></option>
+                    <option value="weeks"><%= t('services.automations.edit_trigger.weeks') %></option>
+                    <option value="months"><%= t('services.automations.edit_trigger.months') %></option>
+                  </select>
+                </div>
+                <div class="col-auto"><%= t('services.automations.edit_trigger.in_advance_at') %></div>
+                <div class="col">
+                  <select class="form-select" name="trigger_specific_time" data-control="select2" data-placeholder="<%= t('common.select_placeholder') %>" data-minimum-results-for-search="Infinity" data-width="100%">
+                    <option></option>
+                    <% for i in 0..23 do %>
+                      <% for j in 0..1 do %>
+                        <% value = ("%02d" % i) + ':' + ("%02d" % (j * 30)) %>
+                        <option value="<%= value %>" <%= i.zero? && j.zero? ? 'selected' : '' %>><%= value %></option>
+                      <% end %>
+                    <% end %>
+                  </select>
+                </div>
+              </div>
+
+              <a class="btn btn-flex btn-color-primary fs-base p-0 rotate group_event_options" href="#kt_collapse_group_event_options" data-bs-toggle="collapse">
+                <%= t('services.automations.edit_trigger.group_event_options') %>
+                <span class="svg-icon svg-icon-3 rotate-180 ms-1">
+																			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																				<path opacity="0.5" d="M12.5657 9.63427L16.75 5.44995C17.1642 5.03574 17.8358 5.03574 18.25 5.44995C18.6642 5.86416 18.6642 6.53574 18.25 6.94995L12.7071 12.4928C12.3166 12.8834 11.6834 12.8834 11.2929 12.4928L5.75 6.94995C5.33579 6.53574 5.33579 5.86416 5.75 5.44995C6.16421 5.03574 6.83579 5.03574 7.25 5.44995L11.4343 9.63427C11.7467 9.94669 12.2533 9.94668 12.5657 9.63427Z" fill="currentColor"></path>
+																				<path d="M12.5657 15.6343L16.75 11.45C17.1642 11.0357 17.8358 11.0357 18.25 11.45C18.6642 11.8642 18.6642 12.5357 18.25 12.95L12.7071 18.4928C12.3166 18.8834 11.6834 18.8834 11.2929 18.4928L5.75 12.95C5.33579 12.5357 5.33579 11.8642 5.75 11.45C6.16421 11.0357 6.83579 11.0357 7.25 11.45L11.4343 15.6343C11.7467 15.9467 12.2533 15.9467 12.5657 15.6343Z" fill="currentColor"></path>
+																			</svg>
+																		</span>
+              </a>
+              <div id="kt_collapse_group_event_options" class="collapse">
+                <div class="pt-4">
+                  <div class="form-label"><%= t('services.automations.edit_trigger.when_trigger_happen') %></div>
+                  <!--begin::Field-->
+                  <label class="form-check form-check-custom form-check-solid mb-4">
+                    <input name="editTriggerWhenThisHappensGroupEventOptions" class="form-check-input" type="radio" value="1" checked/>
+                    <span class="form-check-label"><%= t('services.automations.edit_trigger.when_each_invitee') %></span>
+                  </label>
+                  <!--end::Field-->
+                  <!--begin::Field-->
+                  <label class="form-check form-check-custom form-check-solid mb-0">
+                    <input name="editTriggerWhenThisHappensGroupEventOptions" class="form-check-input" type="radio" value="2" />
+                    <span class="form-check-label"><%= t('services.automations.edit_trigger.when_first_invitee') %></span>
+                  </label>
+                  <!--end::Field-->
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal"><%= t('common.button.cancel') %></button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="set_reminder"><%= t('services.automations.done') %></button>
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+<!--end::Edit Trigger-->
+<!--begin::Edit Email Action-->
+<div class="modal fade" id="kt_modal_edit_action_email" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('services.automations.edit_action.email_invitee_action') %></h5>
+
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+		            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+		              <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+		                <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1"/>
+		                <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                      x="0" y="7" width="16" height="2" rx="1"/>
+		              </g>
+		            </svg>
+		          </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+
+      <div class="modal-body">
+        <!--begin::Field-->
+        <div class="mb-7">
+          <label class="form-label"><%= t('services.automations.edit_action.choose_template') %></label>
+          <select id="kt_select_edit_action_email_choose_a_template" class="form-select" data-control="select2" data-placeholder="<%= t('common.select_placeholder') %>" data-minimum-results-for-search="Infinity">
+            <option></option>
+            <option value="confirmation" selected><%= t('services.automations.confirmation') %></option>
+            <option value="reminder"><%= t('services.automations.reminders') %></option>
+            <option value="cancellation"><%= t('services.automations.cancellation') %></option>
+            <option value="rescheduling"><%= t('services.automations.rescheduling') %></option>
+            <option value="followup"><%= t('services.automations.follow_up') %></option>
+            <option value="custom"><%= t('services.automations.custom') %></option>
+          </select>
+        </div>
+        <!--end::Field-->
+        <!--begin::Field-->
+        <div class="mb-7">
+          <label class="form-label d-flex justify-content-between">
+            <%= t('services.automations.edit_action.subject') %>
+            <a id="kt_restore_default_edit_action_email_subject" class="text-decoration-underline" href="javascript:void(0)"><%= t('services.automations.edit_action.restore_default') %></a>
+          </label>
+          <input id="kt_field_edit_action_email_subject" class="form-control" type="text">
+        </div>
+        <!--end::Field-->
+        <!--begin::Field-->
+        <div class="mb-7">
+          <label class="form-label d-flex justify-content-between">
+            <%= t('services.automations.edit_action.body') %>
+            <a id="kt_restore_default_edit_action_email_body" class="text-decoration-underline" href="javascript:void(0)"><%= t('services.automations.edit_action.restore_default') %></a>
+          </label>
+          <textarea id="kt_field_edit_action_email_body" name="kt_field_edit_action_email_body" class="tox-target kt_field_email_body"></textarea>
+        </div>
+        <!--end::Field-->
+        <!--begin::Field-->
+        <div class="mb-0" id="include_cancel_reschedule_link_wrap">
+          <label class="form-check form-check-custom form-check-solid align-self-start include_cancel_reschedule_link">
+            <input class="form-check-input" name="include_cancel_reschedule_link" id="include_cancel_reschedule_link" type="checkbox" checked />
+            <span class="form-check-label"><%= t('services.automations.edit_action.include_link') %>
+									<i class="fas fa-info-circle text-primary ms-1" data-bs-toggle="tooltip" title="<%= t('services.automations.edit_action.include_link_tooltip') %>"></i>
+								</span>
+          </label>
+        </div>
+        <!--end::Field-->
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal"><%= t('common.button.cancel') %></button>
+        <button type="button" id="email_action_done" class="btn btn-primary" data-bs-dismiss="modal"><%= t('services.automations.done') %></button>
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+<!--end::Edit Email Action-->
+<!--begin::Edit SMS Action-->
+<div class="modal fade" id="kt_modal_edit_action_sms" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('services.automations.edit_action.sms_invitee_action') %></h5>
+
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+		            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+		              <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+		                <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1"/>
+		                <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)" x="0" y="7" width="16" height="2" rx="1"/>
+		              </g>
+		            </svg>
+		          </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+
+      <div class="modal-body">
+        <!--begin::Field-->
+        <div class="mb-7">
+          <label class="form-label"><%= t('services.automations.edit_action.choose_template') %></label>
+          <select id="kt_select_edit_action_sms_choose_a_template" class="form-select" data-control="select2" data-placeholder="<%= t('common.select_placeholder') %>" data-minimum-results-for-search="Infinity">
+            <option></option>
+            <option value="confirmation" selected><%= t('services.automations.confirmation') %></option>
+            <option value="reminder"><%= t('services.automations.reminders') %></option>
+            <option value="cancellation"><%= t('services.automations.cancellation') %></option>
+            <option value="rescheduling"><%= t('services.automations.rescheduling') %></option>
+            <option value="followup"><%= t('services.automations.follow_up') %></option>
+            <option value="custom"><%= t('services.automations.custom') %></option>
+          </select>
+        </div>
+        <!--end::Field-->
+        <!--begin::Field-->
+        <div class="mb-0">
+          <label class="form-label d-flex justify-content-between">
+            <%= t('services.automations.edit_action.sms_text') %>
+            <a id="kt_restore_default_edit_action_sms_body" class="text-decoration-underline" href="javascript:void(0)"><%= t('services.automations.edit_action.restore_default') %></a>
+          </label>
+          <textarea id="kt_field_edit_action_sms_body" name="kt_field_edit_action_sms_body" class="tox-target kt_field_sms_body"></textarea>
+          <div id="kt_sms_counter_edit_action_sms_body"></div>
+        </div>
+        <!--end::Field-->
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal"><%= t('common.button.cancel') %></button>
+        <button type="button" id="sms_action_done" class="btn btn-primary" data-bs-dismiss="modal"><%= t('services.automations.done') %></button>
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+<!--end::Edit SMS Action-->
+<!--begin::Add New Action-->
+<div class="modal fade" id="kt_modal_add_new_action" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add New Action</h5>
+
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+		            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+		              <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+		                <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1"/>
+		                <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                      x="0" y="7" width="16" height="2" rx="1"/>
+		              </g>
+		            </svg>
+		          </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+
+      <div class="modal-body">
+        <!--begin::Field-->
+        <div class="mb-0">
+          <label class="form-label">Do this</label>
+          <select id="kt_select_add_new_action_do_this" class="form-select" data-placeholder="<%= t('common.select_placeholder') %>" data-minimum-results-for-search="Infinity">
+            <option></option>
+            <option value="emailToInvitee" data-kt-select2-description="Send an email to all invitees and guests of the event">Send email to invitee</option>
+            <option value="emailToHost" data-kt-select2-description="Send an email to the person hosting the event">Send email to host</option>
+            <option value="smsToInvitee" data-kt-select2-description="Send a SMS to all invitees of the event">Send SMS to invitee</option>
+            <option value="smsToHost" data-kt-select2-description="Send a SMS to the person hosting the event">Send SMS to host</option>
+            <option value="ToHook" disabled data-kt-select2-description="Send a hook">Send Hook</option>
+          </select>
+        </div>
+        <!--end::Field-->
+
+        <div id="kt_hidden_section_add_new_action_choose_a_template_email" style="display: none;">
+          <div class="pt-7">
+            <!--begin::Field-->
+            <div class="mb-7">
+              <label class="form-label">Choose a template</label>
+              <select id="kt_select_add_new_action_email_choose_a_template" class="form-select" data-control="select2" data-placeholder="<%= t('common.select_placeholder') %>" data-minimum-results-for-search="Infinity">
+                <option></option>
+                <option value="confirmation" selected>Confirmation</option>
+                <option value="reminder">Reminder</option>
+                <option value="cancellation">Cancellation</option>
+                <option value="rescheduling">Rescheduling</option>
+                <option value="followup">Follow-Up</option>
+                <option value="custom">Custom</option>
+              </select>
+            </div>
+            <!--end::Field-->
+            <!--begin::Field-->
+            <div class="mb-7">
+              <label class="form-label d-flex justify-content-between">Subject
+                <a id="kt_restore_default_add_new_action_email_subject" class="text-decoration-underline" href="javascript:void(0)">Restore default</a>
+              </label>
+              <input id="kt_field_add_new_action_email_subject" class="form-control" type="text">
+            </div>
+            <!--end::Field-->
+            <!--begin::Field-->
+            <div class="mb-7">
+              <label class="form-label d-flex justify-content-between">
+                Body
+                <a id="kt_restore_default_add_new_action_email_body" class="text-decoration-underline" href="javascript:void(0)">Restore default</a>
+              </label>
+              <textarea id="kt_field_add_new_action_email_body" name="kt_field_add_new_action_email_body" class="tox-target kt_field_email_body"></textarea>
+            </div>
+            <!--end::Field-->
+            <!--begin::Field-->
+            <div class="mb-0">
+              <label class="form-check form-check-custom form-check-solid align-self-start">
+                <input class="form-check-input" type="checkbox" checked>
+                <span class="form-check-label">
+										Include cancel and reschedule links
+										<i class="fas fa-info-circle text-primary ms-1" data-bs-toggle="tooltip" title="Your invitee will see buttons letting them cancel or reschedule your event."></i>
+									</span>
+              </label>
+            </div>
+            <!--end::Field-->
+          </div>
+        </div>
+
+        <div id="kt_hidden_section_add_new_action_choose_a_template_sms" style="display: none;">
+          <div class="pt-7">
+            <!--begin::Field-->
+            <div class="mb-7">
+              <label class="form-label">Choose a template</label>
+              <select id="kt_select_add_new_action_sms_choose_a_template" class="form-select" data-control="select2" data-placeholder="<%= t('common.select_placeholder') %>" data-minimum-results-for-search="Infinity">
+                <option></option>
+                <option value="confirmation" selected>Confirmation</option>
+                <option value="reminder">Reminder</option>
+                <option value="cancellation">Cancellation</option>
+                <option value="rescheduling">Rescheduling</option>
+                <option value="followup">Follow-Up</option>
+                <option value="custom">Custom</option>
+              </select>
+            </div>
+            <!--end::Field-->
+            <!--begin::Field-->
+            <div class="mb-0">
+              <label class="form-label d-flex justify-content-between">
+                SMS Text
+                <a id="kt_restore_default_add_new_action_sms_body" class="text-decoration-underline" href="javascript:void(0)">Restore default</a>
+              </label>
+              <textarea id="kt_field_add_new_action_sms_body" name="kt_field_add_new_action_sms_body" class="tox-target kt_field_sms_body"></textarea>
+            </div>
+            <!--end::Field-->
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+<!--end::Add New Action-->
+
+<%= render '/modal/update_plan' %>
+
+<%= javascript_include_tag 'plugins/tinymce/tinymce.bundle', 'data-turbolinks-track' => true  %>
+<%= javascript_include_tag 'plugins/tinymce/langs/en', 'data-turbolinks-track' => true  %>
+<%= javascript_include_tag 'plugins/tinymce/langs/fr', 'data-turbolinks-track' => true  %>
+<%= javascript_include_tag 'plugins/tinymce/langs/de', 'data-turbolinks-track' => true  %>
+<%= javascript_include_tag 'plugins/tinymce/langs/el', 'data-turbolinks-track' => true  %>
+<%= javascript_include_tag 'plugins/tinymce/langs/it', 'data-turbolinks-track' => true  %>
+<%= javascript_include_tag 'plugins/sms-counter/sms-counter.bundle', 'data-turbolinks-track' => true  %>
+
+<script>
+    $('a.action_sms_invitee').hide();
+    $('a.action_sms_host').hide();
+    $('a.action_email_host').hide();
+
+    function createMessageCounter(params) {
+        const {encoding, length, messages, per_message, remaining} = params;
+
+        return `
+					<ul class="list-unstyled fw-bold small text-primary border border-primary rounded py-3 px-4 mt-5">
+						<li class="mb-1">Encoding: ${encoding}</li>
+						<li class="mb-1">Length: ${length}</li>
+						<li class="mb-1">Messages: ${messages}</li>
+						<li class="mb-1">Per Message: ${per_message}</li>
+						<li class="mb-0">Remaining: ${remaining}</li>
+					</ul>
+				`
+    }
+
+    function saveAutomation(button_obj) {
+        button_obj.disabled = true;
+        button_obj.setAttribute('data-kt-indicator', 'on');
+        $('input[name=email_host_switch_value]').val($('input#email_host_switch').prop('checked') ? true : false);
+        $('input[name=sms_invitee_switch_value]').val($('input#sms_invitee_switch').prop('checked') ? true : false);
+        $('input[name=sms_host_switch_value]').val($('input#sms_host_switch').prop('checked') ? true : false);
+        $('input[name=is_include_agenda_value]').val($('input#kt_check_include_agenda').prop('checked') ? true : false);
+
+        $('form#edit_automation_form').ajaxSubmit({
+            success: function(response) {
+                button_obj.disabled = false;
+                button_obj.removeAttribute('data-kt-indicator');
+                showMessage(response.result, response.message);
+                $('input#reminder_data').val(JSON.stringify(response.reminder));
+            }
+        });
+    }
+
+    (function () {
+        const template = function (item) {
+            if (!item.id) return item.text;
+            if (item.element.parentNode && item.element.parentNode.nodeName.toLowerCase() === 'optgroup' && item.element.parentNode.label) {
+                return `${item.element.parentNode.label}: ${item.text}`;
+            }
+        }
+
+        $('div#kt_modal_edit_automations select#automation_filters').select2({
+            templateSelection: template
+        });
+    })();
+
+    (function () {
+        const addNewActionDoThisOptionFormat = function (item) {
+            if (!item.id) return item.text;
+
+            const span = document.createElement('span');
+            if (item.disabled) {
+                span.classList.add('d-flex');
+                span.classList.add('justify-content-between');
+                span.innerHTML = item.disabled ? `
+                    <span>
+                      <span class="d-block">${item.text}</span>
+                      <span class="d-block small">${item.element.dataset.ktSelect2Description || ''}</span>
+                    </span>
+                    <span class="badge badge-info align-self-center">Coming Soon</span>` : item.text;
+            } else {
+                span.innerHTML = `
+                  <span class="d-block">${item.text}</span>
+                  <span class="d-block small">${item.element.dataset.ktSelect2Description || ''}</span>
+						`;
+            }
+
+            return $(span);
+        }
+
+        $('select#kt_select_add_new_action_do_this').select2({
+            templateResult: addNewActionDoThisOptionFormat
+        })
+
+        $('select#kt_select_add_new_action_do_this').on('change', function () {
+            const elVal = $(this).val();
+            const $hiddenEmailSection = $('div#kt_hidden_section_add_new_action_choose_a_template_email');
+            const $hiddenSmsSection = $('div#kt_hidden_section_add_new_action_choose_a_template_sms');
+
+            if (elVal === 'emailToInvitee' || elVal === 'emailToHost') {
+                $hiddenEmailSection.show();
+                $hiddenSmsSection.hide();
+            } else {
+                $hiddenSmsSection.show();
+                $hiddenEmailSection.hide();
+            }
+        });
+    })();
+
+    (function () {
+        $('button#email_action_done').on('click', function(e) {
+            if ($('input[name=selected_email_type]').val() == 'invitee') {
+                $('input[name=email_invitee_subject]').val($('input#kt_field_edit_action_email_subject').val());
+                $('input[name=email_invitee_body]').val(tinymce.get("kt_field_edit_action_email_body").getContent().replace("../../", "<%= ENV['DOMAIN'] %>/"));
+                $('input[name=invitee_include_cancel_link_value]').val($('input#include_cancel_reschedule_link').prop('checked') ? true : false);
+            }
+            if ($('input[name=selected_email_type]').val() == 'host') {
+                $('input[name=email_host_subject]').val($('input#kt_field_edit_action_email_subject').val());
+                console.log("cancel_back_url", tinymce.get("kt_field_edit_action_email_body").getContent().replace("../../", "<%= ENV['DOMAIN'] %>/"))
+                $('input[name=email_host_body]').val(tinymce.get("kt_field_edit_action_email_body").getContent().replace("../../", "<%= ENV['DOMAIN'] %>/"));
+            }
+        })
+
+        $('button#sms_action_done').on('click', function(e) {
+            if ($('input[name=selected_sms_type]').val() == 'invitee') $('input[name=sms_invitee_body]').val(tinymce.get("kt_field_edit_action_sms_body").getContent().replace("../../", "<%= ENV['DOMAIN'] %>/"));
+            if ($('input[name=selected_sms_type]').val() == 'host') $('input[name=sms_host_body]').val(tinymce.get("kt_field_edit_action_sms_body").getContent().replace("../../", "<%= ENV['DOMAIN'] %>/"));
+        })
+
+        $('input#sms_invitee_switch').on('click', function(e) {
+            if (<%= session[:current_organization].chargebee_subscription_plan == "free" %>) {
+                e.preventDefault();
+                $('#kt_modal_upgrade_plan_automations_modal').modal('show');
+                return;
+            }
+
+            if ($(this).prop('checked')) $('a.action_sms_invitee').show();
+            else $('a.action_sms_invitee').hide();
+        })
+
+        $('input#email_host_switch').on('click', function(e) {
+            if (<%= session[:current_organization].chargebee_subscription_plan == "free" %>) {
+                e.preventDefault();
+                $('#kt_modal_upgrade_plan_automations_modal').modal('show');
+                return;
+            }
+
+            if ($(this).prop('checked')) $('a.action_email_host').show();
+            else $('a.action_email_host').hide();
+        })
+
+        $('input#sms_host_switch').on('click', function(e) {
+            if (<%= session[:current_organization].chargebee_subscription_plan == "free" %>) {
+                e.preventDefault();
+                $('#kt_modal_upgrade_plan_automations_modal').modal('show');
+                return;
+            }
+
+            if ($(this).prop('checked')) $('a.action_sms_host').show();
+            else $('a.action_sms_host').hide();
+        })
+    })();
+
+
+    // begin trigger
+    (function () {
+
+        $('select#trigger_type').on('change', function () {
+            const value = $(this).val();
+
+            const event_new_help = "<%= t('services.automations.event_new_help') %>";
+            const event_before_start_help = "<%= t('services.automations.event_before_start_help') %>";
+            const event_specific_time_help = "<%= t('services.automations.event_specific_time_help') %>";
+            const event_start_help = "<%= t('services.automations.event_start_help') %>";
+            const event_end_help = "<%= t('services.automations.event_end_help') %>";
+            const event_cancel_help = "<%= t('services.automations.event_cancel_help') %>";
+            const event_reschedule_help = "<%= t('services.automations.event_reschedule_help') %>";
+            const event_not_completed_help = "<%= t('services.automations.event_not_completed_help') %>";
+            const immediately_event_new = "<%= t('services.automations.immediately_event_new') %>";
+            const immediately_event_start = "<%= t('services.automations.immediately_event_start') %>";
+            const immediately_event_end = "<%= t('services.automations.immediately_event_end') %>";
+            const immediately_event_cancel = "<%= t('services.automations.immediately_event_cancel') %>";
+            const immediately_event_reschedule = "<%= t('services.automations.immediately_event_reschedule') %>";
+            const immediately_event_not_completed = "<%= t('services.automations.immediately_event_not_completed') %>";
+
+            if (value == 'trigger_event_specific_time') {
+                $('div.form-label.trigger-action-help').html(event_specific_time_help);
+                $('label.radio-now-section').hide();
+                $('div.event-normal-section').hide();
+                $('a.group_event_options').hide();
+                $('div#kt_collapse_group_event_options').hide();
+                $('div.event-specific-time-section').show();
+            }
+            else {
+                if (value == 'trigger_event_new') {
+                    $('div.form-label.trigger-action-help').html(event_new_help);
+                    $('span.form-check-label.trigger-immediately-help').html(immediately_event_new);
+                    $('label.radio-now-section').show();
+                    $('div.radio-after-section').show();
+                    $('div.event-normal-section').show();
+                    $('a.group_event_options').show();
+                    $('div#kt_collapse_group_event_options').show();
+                    $('div.event-specific-time-section').hide();
+                }
+                if (value == 'trigger_event_before_start') {
+                    $('div.form-label.trigger-action-help').html(event_before_start_help);
+                    $('label.radio-now-section').hide();
+                    $('div.radio-after-section').hide();
+                    $('div.event-normal-section').show();
+                    $('a.group_event_options').hide();
+                    $('div#kt_collapse_group_event_options').hide();
+                    $('div.event-specific-time-section').hide();
+                }
+                if (value == 'trigger_event_start') {
+                    $('div.form-label.trigger-action-help').html(event_start_help);
+                    $('span.form-check-label.trigger-immediately-help').html(immediately_event_start);
+                    $('label.radio-now-section').show();
+                    $('div.radio-after-section').show();
+                    $('div.event-normal-section').show();
+                    $('a.group_event_options').hide();
+                    $('div#kt_collapse_group_event_options').hide();
+                    $('div.event-specific-time-section').hide();
+                }
+                if (value == 'trigger_event_end') {
+                    $('div.form-label.trigger-action-help').html(event_end_help);
+                    $('span.form-check-label.trigger-immediately-help').html(immediately_event_end);
+                    $('label.radio-now-section').show();
+                    $('div.radio-after-section').show();
+                    $('div.event-normal-section').show();
+                    $('a.group_event_options').hide();
+                    $('div#kt_collapse_group_event_options').hide();
+                    $('div.event-specific-time-section').hide();
+                }
+                if (value == 'trigger_event_cancel') {
+                    $('div.form-label.trigger-action-help').html(event_cancel_help);
+                    $('span.form-check-label.trigger-immediately-help').html(immediately_event_cancel);
+                    $('label.radio-now-section').show();
+                    $('div.radio-after-section').show();
+                    $('div.event-normal-section').show();
+                    $('a.group_event_options').hide();
+                    $('div#kt_collapse_group_event_options').hide();
+                    $('div.event-specific-time-section').hide();
+                }
+                if (value == 'trigger_event_reschedule') {
+                    $('div.form-label.trigger-action-help').html(event_reschedule_help);
+                    $('span.form-check-label.trigger-immediately-help').html(immediately_event_reschedule);
+                    $('label.radio-now-section').show();
+                    $('div.radio-after-section').show();
+                    $('div.event-normal-section').show();
+                    $('a.group_event_options').hide();
+                    $('div#kt_collapse_group_event_options').hide();
+                    $('div.event-specific-time-section').hide();
+                }
+                if (value == 'trigger_event_not_completed') {
+                    $('div.form-label.trigger-action-help').html(event_not_completed_help);
+                    $('span.form-check-label.trigger-immediately-help').html(immediately_event_not_completed);
+                    $('label.radio-now-section').show();
+                    $('div.radio-after-section').show();
+                    $('div.event-normal-section').show();
+                    $('a.group_event_options').hide();
+                    $('div#kt_collapse_group_event_options').hide();
+                    $('div.event-specific-time-section').hide();
+                }
+            }
+
+        });
+
+        $('button#set_reminder').on('click', function() {
+            $('input[name=trigger_type_value]').val($('select[name=trigger_type] option:selected').val());
+            $('input[name=trigger_time_value]').val($('input[name=trigger_time]').val());
+            $('input[name=trigger_duration_value]').val($('select[name=trigger_duration]').val());
+            $('input[name=trigger_specific_offset_value]').val($('select[name=trigger_specific_offset]').val());
+            $('input[name=trigger_specific_duration_value]').val($('select[name=trigger_specific_duration]').val());
+            $('input[name=trigger_specific_time_value]').val($('select[name=trigger_specific_time]').val());
+            $('span.trigger-event-value').html($('select[name=trigger_type] option:selected').text());
+            $('span.trigger-event-value').attr('data-trigger-type', $('select[name=trigger_type] option:selected').val());
+        });
+
+        $('a.trigger-edit-icon').on('click', function() {
+            $('select#trigger_type').select2().val($('span.trigger-event-value').attr('data-trigger-type')).trigger('change');
+        })
+    })();
+    // end trigger
+
+    // begin Edit Email Action
+    (function () {
+
+        const templatesMapping = {
+            confirmation: {
+                subject: "<%= t("mails.confirmation_email_invitee.subject") %>",
+                body: "<%= raw t("mails.confirmation_email_invitee.body") %>",
+            },
+            reminder: {
+                subject: "<%= t('mails.reminder_email_invitee.subject') %>",
+                body: "<%= raw t('mails.reminder_email_invitee.body') %>",
+            },
+            cancellation: {
+                subject: "<%= t('mails.cancellation_email_invitee.subject') %>",
+                body: "<%= raw t('mails.cancellation_email_invitee.body') %>",
+            },
+            rescheduling: {
+                subject: "<%= t('mails.rescheduling_email_invitee.subject') %>",
+                body: "<%= raw t('mails.rescheduling_email_invitee.body') %>",
+            },
+            followup: {
+                subject: "",
+                body: "",
+            },
+        };
+
+        let elVal = $('#kt_select_edit_action_email_choose_a_template').val();
+
+        tinymce.init({
+            selector: 'textarea.kt_field_email_body',
+            menubar: false,
+            plugins: 'lists link',
+            toolbar: 'undo redo bold italic underline bullist numlist link variables',
+            language: "<%= I18n.locale %>",
+            setup: function (editor) {
+                let toggleState = false;
+
+                editor.ui.registry.addMenuButton('variables', {
+                    text: 'Variables',
+                    fetch: function (callback) {
+                        var items = [
+                            {
+                                type: 'menuitem',
+                                text: "<%= t('services.automations.tinymce.invitee_full_name') %>",
+                                onAction: function () {
+                                    editor.insertContent('%{full_name}');
+                                }
+                            },
+                            {
+                                type: 'menuitem',
+                                text: "<%= t('services.automations.tinymce.invitee_first_name') %>",
+                                onAction: function () {
+                                    editor.insertContent('%{first_name}');
+                                }
+                            },
+                            {
+                                type: 'menuitem',
+                                text: "<%= t('services.automations.tinymce.invitee_last_name') %>",
+                                onAction: function () {
+                                    editor.insertContent('%{last_name}');
+                                }
+                            },
+                            {
+                                type: 'menuitem',
+                                text: "<%= t('services.automations.tinymce.resource_name') %>",
+                                onAction: function () {
+                                    editor.insertContent('%{resource_name}');
+                                }
+                            },
+                            {
+                                type: 'menuitem',
+                                text: "<%= t('services.automations.tinymce.event_name') %>",
+                                onAction: function () {
+                                    editor.insertContent('%{event_name}');
+                                }
+                            },
+                            {
+                                type: 'menuitem',
+                                text: "<%= t('services.automations.tinymce.event_date') %>",
+                                onAction: function () {
+                                    editor.insertContent('%{event_date}');
+                                }
+                            },
+                            {
+                                type: 'menuitem',
+                                text: "<%= t('services.automations.tinymce.event_time') %>",
+                                onAction: function () {
+                                    editor.insertContent('%{event_time}');
+                                }
+                            },
+                            {
+                                type: 'menuitem',
+                                text: "<%= t('services.automations.tinymce.event_day') %>",
+                                onAction: function () {
+                                    editor.insertContent('%{event_day}');
+                                }
+                            },
+                        ];
+
+                        callback(items);
+                    }
+                });
+            },
+        });
+
+        // Email Invitee action edit
+        $('a.action_email_invitee').on('click', function() {
+            $('input[name=selected_email_type]').val('invitee');
+            $('input#include_cancel_reschedule_link').prop('checked', $('input[name=invitee_include_cancel_link_value]').val() == 'true' ? true : false);
+            $('div#kt_modal_edit_action_email h5.modal-title').html('<%= t('services.automations.edit_action.email_invitee_action') %>');
+            $('input#kt_field_edit_action_email_subject').val($('input[name=email_invitee_subject]').val());
+            tinymce.get('kt_field_edit_action_email_body').setContent($('input[name=email_invitee_body]').val());
+            $('#include_cancel_reschedule_link_wrap').removeClass('d-none');
+        });
+
+        // Email Host action edit
+        $('a.action_email_host').on('click', function() {
+            $('input[name=selected_email_type]').val('host');
+            $('input#include_cancel_reschedule_link').prop('checked', $('input[name=host_include_cancel_link_value]').val() == 'true' ? true : false);
+            $('div#kt_modal_edit_action_email h5.modal-title').html('<%= t('services.automations.edit_action.email_host_action') %>');
+            $('input#kt_field_edit_action_email_subject').val($('input[name=email_host_subject]').val());
+            tinymce.get('kt_field_edit_action_email_body').setContent($('input[name=email_host_body]').val());
+            $('#include_cancel_reschedule_link_wrap').addClass('d-none');
+        });
+
+        // SMS Invitee action edit
+        $('a.action_sms_invitee').on('click', function() {
+            $('input[name=selected_sms_type]').val('invitee');
+            $('div#kt_modal_edit_action_sms h5.modal-title').html('<%= t('services.automations.edit_action.sms_invitee_action') %>');
+            tinymce.get('kt_field_edit_action_sms_body').setContent($('input[name=sms_invitee_body]').val());
+        });
+
+        // SMS Host action edit
+        $('a.action_sms_host').on('click', function() {
+            $('input[name=selected_sms_type]').val('host');
+            $('div#kt_modal_edit_action_sms h5.modal-title').html('<%= t('services.automations.edit_action.sms_host_action') %>');
+            tinymce.get('kt_field_edit_action_sms_body').setContent($('input[name=sms_host_body]').val());
+        });
+
+
+        $('#kt_select_edit_action_email_choose_a_template').on('change', function () {
+        });
+
+        $('#kt_restore_default_edit_action_email_subject').on('click', function () {
+            if (elVal === 'custom') return false;
+            $('input#kt_field_edit_action_email_subject').val(templatesMapping[$('input[name=automation_type]').val()].subject);
+        });
+
+        $('#kt_restore_default_edit_action_email_body').on('click', function () {
+            if (elVal === 'custom') return false;
+            tinymce.get('kt_field_edit_action_email_body').setContent(templatesMapping[$('input[name=automation_type]').val()].body);
+        });
+
+        $('#kt_restore_default_add_new_action_email_subject').on('click', function () {
+            const template = $('select#kt_select_add_new_action_email_choose_a_template').val();
+            if (template === 'custom') return false;
+            $('input#kt_field_add_new_action_email_subject').val(templatesMapping[template].subject);
+        });
+
+        $('#kt_restore_default_add_new_action_email_body').on('click', function () {
+            const template = $('select#kt_select_add_new_action_email_choose_a_template').val();
+            if (template === 'custom') return false;
+            tinymce.get('kt_field_add_new_action_email_body').setContent(templatesMapping[template].body);
+        });
+    })();
+    // end Edit Email Action
+
+    // begin Edit SMS Action
+    (function () {
+        const templatesMapping = {
+            confirmation: "<%= raw t('static_ivr.appointment_success_client_sms') %>",
+            reminder: "<%= raw t('mails.reminder_sms_invitee.body') %>",
+            cancellation: "",
+            rescheduling: "",
+            followup: "<%= raw t('mails.followup_sms_invitee.body') %>",
+        };
+        let elVal = $('#kt_select_edit_action_sms_choose_a_template').val();
+        const setSmsCounter = function (editor) {
+            const smsCounter = SmsCounter.count(editor.getContent({format: 'text'}));
+            $('#kt_sms_counter_edit_action_sms_body').html(createMessageCounter(smsCounter));
+        }
+
+
+        tinymce.init({
+            selector: 'textarea.kt_field_sms_body',
+            menubar: false,
+            toolbar: 'undo redo variables',
+            language: "<%= I18n.locale %>",
+            setup: function (editor) {
+                let toggleState = false;
+
+                editor.ui.registry.addMenuButton('variables', {
+                    text: 'Variables',
+                    fetch: function (callback) {
+                        var items = [
+                            {
+                                type: 'menuitem',
+                                text: "<%= t('services.automations.tinymce.invitee_full_name') %>",
+                                onAction: function () {
+                                    editor.insertContent('%{full_name}');
+                                }
+                            },
+                            {
+                                type: 'menuitem',
+                                text: "<%= t('services.automations.tinymce.invitee_first_name') %>",
+                                onAction: function () {
+                                    editor.insertContent('%{first_name}');
+                                }
+                            },
+                            {
+                                type: 'menuitem',
+                                text: "<%= t('services.automations.tinymce.invitee_last_name') %>",
+                                onAction: function () {
+                                    editor.insertContent('%{last_name}');
+                                }
+                            },
+                            {
+                                type: 'menuitem',
+                                text: "<%= t('services.automations.tinymce.resource_name') %>",
+                                onAction: function () {
+                                    editor.insertContent('%{resource_name}');
+                                }
+                            },
+                            {
+                                type: 'menuitem',
+                                text: "<%= t('services.automations.tinymce.event_name') %>",
+                                onAction: function () {
+                                    editor.insertContent('%{event_name}');
+                                }
+                            },
+                            {
+                                type: 'menuitem',
+                                text: "<%= t('services.automations.tinymce.event_date') %>",
+                                onAction: function () {
+                                    editor.insertContent('%{event_date}');
+                                }
+                            },
+                            {
+                                type: 'menuitem',
+                                text: "<%= t('services.automations.tinymce.event_time') %>",
+                                onAction: function () {
+                                    editor.insertContent('%{event_time}');
+                                }
+                            },
+                            {
+                                type: 'menuitem',
+                                text: "<%= t('services.automations.tinymce.event_day') %>",
+                                onAction: function () {
+                                    editor.insertContent('%{event_day}');
+                                }
+                            },
+                        ];
+
+                        callback(items);
+                    }
+                });
+            },
+            init_instance_callback: function (editor) {
+                setSmsCounter(editor);
+
+                editor.on('keyup', function () {
+                    setSmsCounter(editor);
+                });
+            }
+        });
+
+        $('#kt_select_edit_action_sms_choose_a_template').on('change', function () {
+
+        });
+
+        $('#kt_restore_default_edit_action_sms_body').on('click', function () {
+            if (elVal === 'custom') return false;
+            tinymce.get('kt_field_edit_action_sms_body').setContent(templatesMapping[$('input[name=automation_type]').val()]);
+            setSmsCounter(tinymce.get('kt_field_edit_action_sms_body'));
+        });
+
+        $('#kt_restore_default_add_new_action_sms_body').on('click', function () {
+            const template = $('select#kt_select_add_new_action_sms_choose_a_template').val();
+            if (template === 'custom') return false;
+            tinymce.get('kt_field_add_new_action_sms_body').setContent(templatesMapping[template]);
+            setSmsCounter(tinymce.get('kt_field_add_new_action_sms_body'));
+        });
+    })();
+    // end Edit SMS Action
+</script>

@@ -1,0 +1,89 @@
+---
+- - :permit
+  - MIT
+  - :who:
+    :why:
+    :versions: []
+    :when: 2022-10-24 12:16:05.665929000 Z
+- - :permit
+  - Apache 2.0
+  - :who:
+    :why:
+    :versions: []
+    :when: 2022-10-24 12:16:16.623374000 Z
+- - :permit
+  - MIT
+  - &1
+    :who:
+    :why:
+    :versions: []
+    :when: 2022-10-24 12:25:17.410674000 Z
+- - :permit
+  - BSD 3-Clause
+  - *1
+- - :permit
+  - New BSD
+  - *1
+- - :permit
+  - Simplified BSD
+  - *1
+- - :permit
+  - MIT, Apache License v2.0
+  - :who:
+    :why:
+    :versions: []
+    :when: 2022-10-24 12:41:13.406641000 Z
+- - :approve
+  - percentage
+  - :who: Axel
+    :why: LGPL-3.0
+    :versions: []
+    :when: 2022-10-24 12:48:00.757139000 Z
+- - :approve
+  - bootstrap-timepicker-rails
+  - :who: Axel
+    :why: 'MIT license: gemified version of https://github.com/jdewit/bootstrap-timepicker'
+    :versions: []
+    :when: 2022-10-24 12:50:15.008732000 Z
+- - :permit
+  - ISC
+  - :who:
+    :why:
+    :versions: []
+    :when: 2022-10-24 12:50:32.234320000 Z
+- - :permit
+  - ruby
+  - :who:
+    :why:
+    :versions: []
+    :when: 2022-10-24 12:59:26.058203000 Z
+- - :approve
+  - language_list
+  - :who: Axel
+    :why: MIT license except data/languages.yml
+    :versions: []
+    :when: 2022-10-24 13:02:21.093945000 Z
+- - :permit
+  - WTFPL
+  - :who:
+    :why:
+    :versions: []
+    :when: 2022-10-24 13:18:23.043381000 Z
+- - :approve
+  - unf
+  - :who: Axel
+    :why: https://github.com/knu/ruby-unf/blob/master/LICENSE
+    :versions: []
+    :when: 2022-10-24 13:42:13.100092000 Z
+- - :approve
+  - skylight
+  - :who: Axel
+    :why: Used internally (https://github.com/skylightio/skylight-ruby/blob/master/LICENSE.md)
+    :versions: []
+    :when: 2022-10-24 13:47:26.509152000 Z
+- - :approve
+  - money-uphold-bank
+  - :who: Axel
+    :why: 'No license: Contributor Covenant => CC BY 4.0'
+    :versions: []
+    :when: 2022-10-24 13:52:19.084219000 Z

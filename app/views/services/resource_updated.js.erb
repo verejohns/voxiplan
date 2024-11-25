@@ -1,0 +1,48 @@
+(function(){
+  // close the open modal
+  $(".modal[id*='resource']").modal("hide");
+  setTimeout(function(){
+    // update the ui with the modified resource card for this resource
+    var resourceId   = "<%= @resource.id %>";
+    var modalId      = `#edit-resource-${resourceId}-modal`;
+    var cardId       = `#resource-card-${resourceId}`;
+
+    $(cardId).empty().replaceWith(
+        <%= render('services/event_resource_card', resource: @resource, service: @service).to_json.html_safe %>
+    );
+    $(cardId).find('.edit-resource').click(function(evt) {
+      $(modalId).modal('toggle');
+    });
+    $(cardId).find('.close_button_1').click(function(evt) {
+      $(modalId).modal('toggle');
+    });
+    $(cardId).find('.close_button_2').click(function(evt) {
+      $(modalId).modal('toggle');
+    });
+    $(modalId).find('.resource-availability-container').availabilityEditor({
+      availabilityInputSelector: `${modalId} input[name="resource[availability]"]`,
+      useDefaultsInputSelector: `${modalId} input[name="resource[use_default_availability]"]`,
+      submitSelector: `${modalId} #save-resource`,
+      initialState: {
+        useDefaults: $(`${modalId} input[name="resource[use_default_availability]"]:checked`).val() == 'true',
+      },
+      messages: {
+        'business_hours.add':    "<%= t('business_hours.add') %>",
+        'business_hours.remove': "<%= t('business_hours.remove') %>",
+        'services.booking_time.confirm_remove_slot': "<%= t('services.booking_time.confirm_remove_slot') %>"
+      },
+      dayIds: ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'],
+      dayNames: {
+        mon: "<%= full_day_name(:mon) %>",
+        tue: "<%= full_day_name(:tue) %>",
+        wed: "<%= full_day_name(:wed) %>",
+        thu: "<%= full_day_name(:thu) %>",
+        fri: "<%= full_day_name(:fri) %>",
+        sat: "<%= full_day_name(:sat) %>",
+        sun: "<%= full_day_name(:sun) %>"
+      }
+    });
+
+    showMessage('success', "Resource updated!");
+  }, 200);
+})();

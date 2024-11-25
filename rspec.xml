@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="rspec" tests="0" skipped="0" failures="0" errors="1" time="0.000068" timestamp="2022-04-02T01:12:43+08:00" hostname="ubuntu">
+<properties>
+<property name="seed" value="42785"/>
+</properties>
+</testsuite>

@@ -1,0 +1,214 @@
+<% is_turnon = @selected_dependent&.include?(resource.id) ? true : false %>
+<div class="col-md-6 col-lg-3 mb-6">
+  <div class="position-relative h-md-100">
+    <!--begin::Mixed Widget-->
+    <div class="card resource-card h-md-100 <%= is_turnon ? 'bg-light-warning' : 'bg-light' %> rounded-bottom-0 border-bottom border-4 <%= is_turnon ? 'border-warning' : 'border-light-dark' %>" data-resource-id="<%= resource.id %>">
+      <div class="card-header min-h-50px border-0 pt-4 px-6">
+        <div class="card-title">
+          <div class="card-label <%= is_turnon ? '' : 'text-muted' %> "><%= resource.ename %></div>
+        </div>
+        <div class="card-toolbar">
+          <a href="javascript:;" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
+            <i class="card_edit_symbol bi bi-pencil-square <%= is_turnon ? 'text-warning' : 'text-dark' %>"></i>
+          </a>
+
+          <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-200px py-3 mt-4" data-kt-menu="true">
+            <div class="menu-item px-3">
+              <a href="#kt_modal_add_new_resource" class="edit-resource menu-link px-3" data-bs-toggle="modal" onclick="editResource(<%= resource.id %>)"><%= t('services.button.edit') %></a>
+            </div>
+            <div class="menu-item px-3">
+              <a href="#" class="menu-link px-3" data-resource-id="<%= resource.id %>" onclick="removeResource(this, <%= resource.id %>)"><%= t('services.button.remove') %></a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!--begin::Body-->
+      <div class="card-body pt-0 pb-4 px-6">
+        <% unless @first_agenda.is_online_agenda? %>
+            <span class="d-block text-muted fw-bold fs-6">
+              <%= resource.disable_schedule ? '' : t('services.resources.schedule') %>
+              <%= resource.calendar_id.nil? ? '' : t('services.resources.calendar') %>
+            </span>
+        <% end %>
+      </div>
+      <!--end::Body-->
+      <!--begin::Footer-->
+      <div class="card-footer d-flex border-0 py-4 px-6">
+        <button class="btn <%= is_turnon ? 'btn-warning' : 'btn-primary' %> btn-sm" type="button" data-turn-status="<%= is_turnon ? 'on' : 'off' %>" onclick="toggleResource(this, <%= resource.id %>)">
+          <i class="bi <%= is_turnon ? 'bi-toggle-off' : 'bi-toggle-on' %> "></i>
+          <span class="button-title"><%= is_turnon ? t('services.button.turn_off') : t('services.button.turn_on') %></span>
+        </button>
+      </div>
+      <!--end::Footer-->
+
+    </div>
+    <!--end::Mixed Widget-->
+  </div>
+</div>
+
+<script>
+    function newResource() {
+        $('input#selected_resource_id').val('');
+        $('form#resource_modal_form').attr('action', "<%= resources_path %>");
+        $('a.resource-availability-link').addClass('disabled');
+        $('a.resource-availability-link').prev().removeClass('d-none');
+        $('a.resource-calendar-link').addClass('disabled');
+        $('a.resource-calendar-link').prev().removeClass('d-none');
+
+        $('a.resource-pane').removeClass('active');
+        $('a.resource-name-link').addClass('active');
+        $('form#resource_modal_form div.tab-pane').removeClass('active');
+        $('form#resource_modal_form div.tab-pane').removeClass('show');
+        $('form#resource_modal_form div#kt_tab_pane_what_resource_is_this').addClass('active');
+        $('form#resource_modal_form div#kt_tab_pane_what_resource_is_this').addClass('show');
+    }
+
+    function editResource(resource_id) {
+        $('input#selected_resource_id').val(resource_id);
+        $('form#resource_modal_form').attr('action', '<%= update_resource_resources_path %>');
+        $('a.resource-availability-link').removeClass('disabled');
+        $('a.resource-availability-link').prev().addClass('d-none');
+        $('a.resource-calendar-link').removeClass('disabled');
+        $('a.resource-calendar-link').prev().addClass('d-none');
+
+        $('a.resource-pane').removeClass('active');
+        $('a.resource-name-link').addClass('active');
+        $('form#resource_modal_form div.tab-pane').removeClass('active');
+        $('form#resource_modal_form div.tab-pane').removeClass('show');
+        $('form#resource_modal_form div#kt_tab_pane_what_resource_is_this').addClass('active');
+        $('form#resource_modal_form div#kt_tab_pane_what_resource_is_this').addClass('show');
+
+        $.ajax({
+            method: "get",
+            url: "/resources/" + resource_id + "/edit",
+            success: function(response) {
+            }
+        })
+    }
+
+    function toggleResource(obj, resource_id) {
+        $.ajax({
+            url: '/resources/' + resource_id + '/toggle_enabled',
+            type: 'PUT',
+            data: {
+                service_id: $('input[name=current_service_id]').val()
+            },
+            success: function(response){
+                if (response.result == 'success') {
+                    const card = $(obj).parent().parent();
+                    const card_label = $(card).find('div.card-label');
+                    const svg_icon = $(card).find('i.card_edit_symbol');
+                    const button_fas = $(obj).find('i');
+                    const current_turn_status = ($(obj).attr('data-turn-status'));
+
+                    if (current_turn_status == 'off') {
+                        $(card).removeClass('bg-light');
+                        $(card).addClass('bg-light-warning');
+                        $(card).removeClass('border-light-dark');
+                        $(card).addClass('border-warning');
+                        $(card_label).removeClass('text-muted');
+                        $(svg_icon).removeClass('text-dark');
+                        $(svg_icon).addClass('text-warning');
+                        $(obj).removeClass('btn-primary');
+                        $(obj).addClass('btn-warning');
+                        $(obj).attr('data-turn-status', 'on');
+                        $(obj).find('span.button-title').html('<%= t('services.button.turn_off') %>');
+                        $(button_fas).removeClass('bi-toggle-on');
+                        $(button_fas).addClass('bi-toggle-off');
+                    }
+                    else {
+                        $(card).addClass('bg-light');
+                        $(card).removeClass('bg-light-warning');
+                        $(card).addClass('border-light-dark');
+                        $(card).removeClass('border-warning');
+                        $(card_label).addClass('text-muted');
+                        $(svg_icon).addClass('text-muted');
+                        $(svg_icon).removeClass('text-warning');
+                        $(obj).addClass('btn-primary');
+                        $(obj).removeClass('btn-warning');
+                        $(obj).attr('data-turn-status', 'off');
+                        $(obj).find('span.button-title').html('<%= t('services.button.turn_on') %>');
+                        $(button_fas).addClass('bi-toggle-on');
+                        $(button_fas).removeClass('bi-toggle-off');
+                    }
+
+                    // if enabled resource count is 1, resource distribution is 'one', else resource distribution is 'invitee' by default
+                    if ($('div#resource-list').find($('div.resource-card.bg-light-warning')).length == 1) {
+                        $('input.multi_resource').attr('disabled', 'disabled');
+                        $('span.multi_resource_label').addClass('text-muted');
+                        $('input.multi_resource').prop('checked', false);
+
+                        $('input.single_resource').prop('checked', true);
+                        $('input.single_resource').removeAttr('disabled');
+                        $('span.single_resource_label').removeClass('text-muted');
+                    }
+                    else {
+                        if ($('input.single_resource').prop('checked')) {
+                            $('input.single_resource').prop('checked', false);
+                            $('input.single_resource').attr('disabled', 'disabled');
+                            $('span.single_resource_label').addClass('text-muted');
+
+                            $('input.multi_resource').removeAttr('disabled');
+                            $('span.multi_resource_label').removeClass('text-muted');
+                            $('input.multi_resource[value=invitee]').prop('checked', true);
+                        }
+
+                    }
+
+                    const plan = "<%= session[:current_organization].chargebee_subscription_plan %>";
+                    if (plan == "free") {
+                        showMessage(response.result, response.message);
+                        window.location.href = '/services/edit_event/<%=params[:id] %>'
+                    }
+                }
+                else {
+                    if (response.message == "seats") {
+                        $('#kt_modal_upgrade_seats').modal('show');
+                        $('#change_resource_enable').attr("toggle_resource_id", resource_id);
+                    } else showMessage(response.result, response.message);
+                }
+            },
+            error: function(){
+                console.log('error')
+            }
+        });
+    }
+
+    function removeResource(obj, resource_id) {
+        Swal.fire({
+            text: "<%= t('services.resources.resource_delete_confirm') %>",
+            icon: "warning",
+            showCancelButton: true,
+            buttonsStyling: false,
+            confirmButtonText: "<%= t('sweetalert.yes_delete') %>",
+            cancelButtonText: "<%= t('sweetalert.no_cancel') %>",
+            customClass: {
+                confirmButton: "btn btn-primary",
+                cancelButton: "btn btn-active-light"
+            }
+        }).then((function (result) {
+            if (result.value) {
+                $.ajax({
+                    url: '/resources/' + resource_id,
+                    type: 'DELETE',
+                    dataType: 'JSON',
+                    data: {
+                        service_id: $('input[name=current_service_id]').val()
+                    },
+                    success: function(response){
+                        if (response.result == 'success') {
+                            $('div.card[data-resource-id=' + $(obj).data('resource-id') + ']').parent().parent().remove();
+                            $('.add_resource').attr('resources', parseInt($('.add_resource').attr('resources')) - 1);
+                        }
+                        else
+                            showMessage(response.result, response.message);
+                    },
+                    error: function(){
+                        console.log('error')
+                    }
+                });
+            }
+        }));
+    }
+</script>

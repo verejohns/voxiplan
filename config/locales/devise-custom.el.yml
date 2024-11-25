@@ -1,0 +1,39 @@
+---
+el:
+  devise:
+    registrations:
+      new:
+        agree_terms: Έχω διαβάσει και αποδέχομαι τους ιστότοπους
+        and: και
+        i_agree_the: Έχω διαβάσει και συμφωνώ με το
+        privacy_policy: Πολιτική απορρήτου
+        receive_email: Θα ήθελα να λαμβάνω μηνύματα ηλεκτρονικού ταχυδρομείου σχετικά με νέες λειτουργίες και νέα στο Voxiplan.
+        terms_and_conditions: Οροι και Προϋποθέσεις
+    sessions:
+      new:
+        forgot_your_password: Ξεχάσατε τον κωδικό?
+        remember_me: Θυμήσου με
+    shared:
+      links:
+        do_not_have_account: Δεν έχετε λογαριασμό;
+        new_here: ΝΕΟΣ εδω?
+  login:
+    message:
+      html: 'Εργαστείτε πιο αποτελεσματικά με τον βοηθό AI σας <br> να εστιάσετε σε αυτό που έχει μεγαλύτερη σημασία: τους πελάτες σας.'
+    welcome: Κάντε περισσότερα με τον βοηθό AI σας
+  placeholders:
+    code: Κώδικας
+    company: Εταιρία
+    confirm_email: Επιβεβαίωση διεύθυνσης ηλεκτρονικού ταχυδρομείου
+    confirm_password: Επιβεβαίωση Κωδικού
+    email: ΗΛΕΚΤΡΟΝΙΚΗ ΔΙΕΥΘΥΝΣΗ
+    first_name: Ονομα
+    fullname: Πλήρες όνομα
+    industry: Βιομηχανία
+    last_name: Επίθετο
+    passwd: Κωδικός πρόσβασης
+    passwd_help: Χρησιμοποιήστε 8 ή περισσότερους χαρακτήρες με συνδυασμό γραμμάτων, αριθμών και συμβόλων.
+    password: Κωδικός πρόσβασης
+    password_error: Επιβεβαίωση κωδικού πρόσβασης δεν είναι ο κωδικός πρόσβασης.
+    password_instructions: Τουλάχιστον 6 χαρακτήρες
+    phone: Τηλέφωνο

@@ -1,0 +1,913 @@
+<div class="toolbar" id="kt_toolbar">
+  <!--begin::Container-->
+  <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+    <!--begin::Page title-->
+    <div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
+         class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
+      <!--begin::Title-->
+      <div class="d-flex">
+        <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent">
+          <!--begin::Nav item-->
+          <li class="nav-item">
+            <a class="nav-link text-active-primary ms-0 me-5 py-4 px-sm-5" href="<%= services_path() %>"><%= t('nav_menu.event_types') %></a>
+          </li>
+          <!--end::Nav item-->
+          <!--begin::Nav item-->
+          <li class="nav-item">
+            <a class="nav-link text-active-primary ms-0 me-5 py-4 px-sm-5" href="<%= schedule_event_index_path() %>"><%= t('nav_menu.scheduled_events') %></a>
+          </li>
+          <!--end::Nav item-->
+          <!--begin::Nav item-->
+          <li class="nav-item">
+            <a class="nav-link text-active-primary ms-0 me-5 py-4 px-sm-5 active" href="<%= automations_path() %>"><%= t('nav_menu.automations') %> (<%= t('common.coming_soon') %>)</a>
+          </li>
+          <!--end::Nav item-->
+        </ul>
+      </div>
+      <!--end::Title-->
+    </div>
+    <!--end::Page title-->
+    <!--begin::Actions-->
+    <div class="d-flex align-items-center py-1">
+      <a class="btn btn-sm btn-primary" href="#kt_modal_add_custom_automation" data-bs-toggle="modal">
+        <i class="fas fa-plus"></i>
+        Add Custom Automation
+      </a>
+    </div>
+    <!--end::Actions-->
+  </div>
+  <!--end::Container-->
+</div>
+<!--end::Toolbar-->
+
+<!--begin::Post-->
+<div class="post d-flex flex-column-fluid" id="kt_post">
+  <!--begin::Container-->
+  <div id="kt_content_container" class="container">
+    <div class="card">
+      <div class="card-body">
+        <div class="row mb-n6">
+          <div class="col-md-6 col-lg-4 mb-6">
+            <div class="card h-md-100 bg-light-info rounded-bottom-0 border-bottom border-4 border-info">
+              <div class="card-header flex-nowrap min-h-50px border-0 pt-4 px-6">
+                <div class="card-title">
+                  <div class="card-label">Email reminder to host</div>
+                </div>
+                <!--begin::Complex Svg Icon-->
+                <div class="position-relative">
+															<span class="svg-icon svg-icon-info svg-icon-3hx">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																	<path d="M6 8.725C6 8.125 6.4 7.725 7 7.725H14L18 11.725V12.925L22 9.725L12.6 2.225C12.2 1.925 11.7 1.925 11.4 2.225L2 9.725L6 12.925V8.725Z" fill="currentColor"/>
+																	<path opacity="0.3" d="M22 9.72498V20.725C22 21.325 21.6 21.725 21 21.725H3C2.4 21.725 2 21.325 2 20.725V9.72498L11.4 17.225C11.8 17.525 12.3 17.525 12.6 17.225L22 9.72498ZM15 11.725H18L14 7.72498V10.725C14 11.325 14.4 11.725 15 11.725Z" fill="currentColor" />
+																</svg>
+															</span>
+                              <span class="position-absolute top-0 end-0 d-flex flex-center w-25px h-25px bg-success rounded-circle mt-n2 me-n2">
+																<i class="fs-5 text-white far fa-clock"></i>
+															</span>
+                </div>
+                <!--end::Complex Svg Icon-->
+              </div>
+              <!--begin::Body-->
+              <div class="card-body d-flex flex-column py-4 px-6">
+                <div class="d-block text-gray-600 fs-5 mb-5">Never miss an event — get automated email reminders</div>
+                <div class="mt-auto">
+                  <a class="btn btn-sm btn-outline btn-outline-info" href="automations/templates/email-reminder-to-host.html">Use template</a>
+                </div>
+              </div>
+              <!--end::Body-->
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-6">
+            <div class="card h-md-100 bg-light-info rounded-bottom-0 border-bottom border-4 border-info">
+              <div class="card-header flex-nowrap min-h-50px border-0 pt-4 px-6">
+                <div class="card-title">
+                  <div class="card-label">Email reminder to invitee</div>
+                </div>
+                <!--begin::Complex Svg Icon-->
+                <div class="position-relative">
+															<span class="svg-icon svg-icon-info svg-icon-3hx">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																	<path d="M6 8.725C6 8.125 6.4 7.725 7 7.725H14L18 11.725V12.925L22 9.725L12.6 2.225C12.2 1.925 11.7 1.925 11.4 2.225L2 9.725L6 12.925V8.725Z" fill="currentColor"/>
+																	<path opacity="0.3" d="M22 9.72498V20.725C22 21.325 21.6 21.725 21 21.725H3C2.4 21.725 2 21.325 2 20.725V9.72498L11.4 17.225C11.8 17.525 12.3 17.525 12.6 17.225L22 9.72498ZM15 11.725H18L14 7.72498V10.725C14 11.325 14.4 11.725 15 11.725Z" fill="currentColor" />
+																</svg>
+															</span>
+                              <span class="position-absolute top-0 end-0 d-flex flex-center w-25px h-25px bg-success rounded-circle mt-n2 me-n2">
+																<i class="fs-5 text-white far fa-clock"></i>
+															</span>
+                </div>
+                <!--end::Complex Svg Icon-->
+              </div>
+              <!--begin::Body-->
+              <div class="card-body d-flex flex-column py-4 px-6">
+                <div class="d-block text-gray-600 fs-5 mb-5">Reduce no-shows — send automated email reminders to invitees</div>
+                <div class="mt-auto">
+                  <a class="btn btn-sm btn-outline btn-outline-info" href="automations/templates/email-reminder-to-invitee.html">Use template</a>
+                </div>
+              </div>
+              <!--end::Body-->
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-6">
+            <div class="card h-md-100 bg-light-info rounded-bottom-0 border-bottom border-4 border-info">
+              <div class="card-header flex-nowrap min-h-50px border-0 pt-4 px-6">
+                <div class="card-title">
+                  <div class="card-label">Send thank you email</div>
+                </div>
+                <!--begin::Complex Svg Icon-->
+                <div class="position-relative">
+															<span class="svg-icon svg-icon-info svg-icon-3hx">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																	<path d="M6 8.725C6 8.125 6.4 7.725 7 7.725H14L18 11.725V12.925L22 9.725L12.6 2.225C12.2 1.925 11.7 1.925 11.4 2.225L2 9.725L6 12.925V8.725Z" fill="currentColor"/>
+																	<path opacity="0.3" d="M22 9.72498V20.725C22 21.325 21.6 21.725 21 21.725H3C2.4 21.725 2 21.325 2 20.725V9.72498L11.4 17.225C11.8 17.525 12.3 17.525 12.6 17.225L22 9.72498ZM15 11.725H18L14 7.72498V10.725C14 11.325 14.4 11.725 15 11.725Z" fill="currentColor" />
+																</svg>
+															</span>
+                              <span class="position-absolute top-0 end-0 d-flex flex-center w-25px h-25px bg-danger rounded-circle mt-n2 me-n2">
+																<i class="fs-7 text-white fas fa-heart"></i>
+															</span>
+                </div>
+                <!--end::Complex Svg Icon-->
+              </div>
+              <!--begin::Body-->
+              <div class="card-body d-flex flex-column py-4 px-6">
+                <div class="d-block text-gray-600 fs-5 mb-5">Build relationships with a quick thanks</div>
+                <div class="mt-auto">
+                  <a class="btn btn-sm btn-outline btn-outline-info" href="automations/templates/send-thank-you-email.html">Use template</a>
+                </div>
+              </div>
+              <!--end::Body-->
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-6">
+            <div class="card h-md-100 bg-light-info rounded-bottom-0 border-bottom border-4 border-info">
+              <div class="card-header flex-nowrap min-h-50px border-0 pt-4 px-6">
+                <div class="card-title">
+                  <div class="card-label">Email additional resources</div>
+                </div>
+                <!--begin::Complex Svg Icon-->
+                <div class="position-relative">
+															<span class="svg-icon svg-icon-info svg-icon-3hx">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																	<path d="M6 8.725C6 8.125 6.4 7.725 7 7.725H14L18 11.725V12.925L22 9.725L12.6 2.225C12.2 1.925 11.7 1.925 11.4 2.225L2 9.725L6 12.925V8.725Z" fill="currentColor"/>
+																	<path opacity="0.3" d="M22 9.72498V20.725C22 21.325 21.6 21.725 21 21.725H3C2.4 21.725 2 21.325 2 20.725V9.72498L11.4 17.225C11.8 17.525 12.3 17.525 12.6 17.225L22 9.72498ZM15 11.725H18L14 7.72498V10.725C14 11.325 14.4 11.725 15 11.725Z" fill="currentColor" />
+																</svg>
+															</span>
+                              <span class="position-absolute top-0 end-0 d-flex flex-center w-25px h-25px bg-primary rounded-circle mt-n2 me-n2">
+																<i class="fs-7 text-white fas fa-link"></i>
+															</span>
+                </div>
+                <!--end::Complex Svg Icon-->
+              </div>
+              <!--begin::Body-->
+              <div class="card-body d-flex flex-column py-4 px-6">
+                <div class="d-block text-gray-600 fs-5 mb-5">Send links for additional resources to your invitees</div>
+                <div class="mt-auto">
+                  <a class="btn btn-sm btn-outline btn-outline-info" href="automations/templates/email-additional-resources.html">Use template</a>
+                </div>
+              </div>
+              <!--end::Body-->
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-6">
+            <div class="card h-md-100 bg-light-info rounded-bottom-0 border-bottom border-4 border-info">
+              <div class="card-header flex-nowrap min-h-50px border-0 pt-4 px-6">
+                <div class="card-title">
+                  <div class="card-label">Request follow-up meeting</div>
+                </div>
+                <!--begin::Complex Svg Icon-->
+                <div class="position-relative">
+															<span class="svg-icon svg-icon-info svg-icon-3hx">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																	<path d="M6 8.725C6 8.125 6.4 7.725 7 7.725H14L18 11.725V12.925L22 9.725L12.6 2.225C12.2 1.925 11.7 1.925 11.4 2.225L2 9.725L6 12.925V8.725Z" fill="currentColor"/>
+																	<path opacity="0.3" d="M22 9.72498V20.725C22 21.325 21.6 21.725 21 21.725H3C2.4 21.725 2 21.325 2 20.725V9.72498L11.4 17.225C11.8 17.525 12.3 17.525 12.6 17.225L22 9.72498ZM15 11.725H18L14 7.72498V10.725C14 11.325 14.4 11.725 15 11.725Z" fill="currentColor" />
+																</svg>
+															</span>
+                              <span class="position-absolute top-0 end-0 d-flex flex-center w-25px h-25px bg-warning rounded-circle mt-n2 me-n2">
+																<i class="fs-7 text-white fas fa-undo"></i>
+															</span>
+                </div>
+                <!--end::Complex Svg Icon-->
+              </div>
+              <!--begin::Body-->
+              <div class="card-body d-flex flex-column py-4 px-6">
+                <div class="d-block text-gray-600 fs-5 mb-5">Don't wait to meet again</div>
+                <div class="mt-auto">
+                  <a class="btn btn-sm btn-outline btn-outline-info" href="automations/templates/request-follow-up-meeting.html">Use template</a>
+                </div>
+              </div>
+              <!--end::Body-->
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-6">
+            <div class="card h-md-100 bg-light-info rounded-bottom-0 border-bottom border-4 border-info">
+              <div class="card-header flex-nowrap min-h-50px border-0 pt-4 px-6">
+                <div class="card-title">
+                  <div class="card-label">Email your own feedback survey</div>
+                </div>
+                <!--begin::Complex Svg Icon-->
+                <div class="position-relative">
+															<span class="svg-icon svg-icon-info svg-icon-3hx">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																	<path d="M6 8.725C6 8.125 6.4 7.725 7 7.725H14L18 11.725V12.925L22 9.725L12.6 2.225C12.2 1.925 11.7 1.925 11.4 2.225L2 9.725L6 12.925V8.725Z" fill="currentColor"/>
+																	<path opacity="0.3" d="M22 9.72498V20.725C22 21.325 21.6 21.725 21 21.725H3C2.4 21.725 2 21.325 2 20.725V9.72498L11.4 17.225C11.8 17.525 12.3 17.525 12.6 17.225L22 9.72498ZM15 11.725H18L14 7.72498V10.725C14 11.325 14.4 11.725 15 11.725Z" fill="currentColor" />
+																</svg>
+															</span>
+                              <span class="position-absolute top-0 end-0 d-flex flex-center w-25px h-25px bg-danger rounded-circle mt-n2 me-n2">
+																<i class="fs-7 text-white fas fa-pen"></i>
+															</span>
+                </div>
+                <!--end::Complex Svg Icon-->
+              </div>
+              <!--begin::Body-->
+              <div class="card-body d-flex flex-column py-4 px-6">
+                <div class="d-block text-gray-600 fs-5 mb-5">Email a survey link from a third party like Typeform or Google Forms to get feedback from invitees after your event</div>
+                <div class="mt-auto">
+                  <a class="btn btn-sm btn-outline btn-outline-info" href="automations/templates/email-your-own-feedback-survey.html">Use template</a>
+                </div>
+              </div>
+              <!--end::Body-->
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-6">
+            <div class="card h-md-100 bg-light-info rounded-bottom-0 border-bottom border-4 border-info">
+              <div class="card-header flex-nowrap min-h-50px border-0 pt-4 px-6">
+                <div class="card-title">
+                  <div class="card-label">Text reminder to host</div>
+                </div>
+                <!--begin::Complex Svg Icon-->
+                <div class="position-relative">
+															<span class="svg-icon svg-icon-info svg-icon-3hx">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																	<path d="M5 20H19V21C19 21.6 18.6 22 18 22H6C5.4 22 5 21.6 5 21V20ZM19 3C19 2.4 18.6 2 18 2H6C5.4 2 5 2.4 5 3V4H19V3Z" fill="currentColor"/>
+																	<path opacity="0.3" d="M19 4H5V20H19V4Z" fill="currentColor"/>
+																</svg>
+															</span>
+                              <span class="position-absolute top-0 end-0 d-flex flex-center w-25px h-25px bg-success rounded-circle mt-n2 me-n2">
+																<i class="fs-5 text-white far fa-clock"></i>
+															</span>
+                </div>
+                <!--end::Complex Svg Icon-->
+              </div>
+              <!--begin::Body-->
+              <div class="card-body d-flex flex-column py-4 px-6">
+                <div class="d-block text-gray-600 fs-5 mb-5">Never miss an event — set automated text reminders</div>
+                <div class="mt-auto">
+                  <a class="btn btn-sm btn-outline btn-outline-info" href="automations/templates/text-reminder-to-host.html">Use template</a>
+                </div>
+              </div>
+              <!--end::Body-->
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-6">
+            <div class="card h-md-100 bg-light-info rounded-bottom-0 border-bottom border-4 border-info">
+              <div class="card-header flex-nowrap min-h-50px border-0 pt-4 px-6">
+                <div class="card-title">
+                  <div class="card-label">Text booking confirmation to host</div>
+                </div>
+                <!--begin::Complex Svg Icon-->
+                <div class="position-relative">
+															<span class="svg-icon svg-icon-info svg-icon-3hx">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                  <path d="M5 20H19V21C19 21.6 18.6 22 18 22H6C5.4 22 5 21.6 5 21V20ZM19 3C19 2.4 18.6 2 18 2H6C5.4 2 5 2.4 5 3V4H19V3Z" fill="currentColor"/>
+                                  <path opacity="0.3" d="M19 4H5V20H19V4Z" fill="currentColor" />
+                                </svg>
+															</span>
+                              <span class="position-absolute top-0 end-0 d-flex flex-center w-25px h-25px bg-primary rounded-circle mt-n2 me-n2">
+																<i class="fs-7 text-white fas fa-check"></i>
+															</span>
+                </div>
+                <!--end::Complex Svg Icon-->
+              </div>
+              <!--begin::Body-->
+              <div class="card-body d-flex flex-column py-4 px-6">
+                <div class="d-block text-gray-600 fs-5 mb-5">Keep hosts up-to-date with scheduled events</div>
+                <div class="mt-auto">
+                  <a class="btn btn-sm btn-outline btn-outline-info" href="automations/templates/text-booking-confirmation-to-host.html">Use template</a>
+                </div>
+              </div>
+              <!--end::Body-->
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-6">
+            <div class="card h-md-100 bg-light-info rounded-bottom-0 border-bottom border-4 border-info">
+              <div class="card-header flex-nowrap min-h-50px border-0 pt-4 px-6">
+                <div class="card-title">
+                  <div class="card-label">Text cancellation notification to host</div>
+                </div>
+                <!--begin::Complex Svg Icon-->
+                <div class="position-relative">
+															<span class="svg-icon svg-icon-info svg-icon-3hx">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                  <path d="M5 20H19V21C19 21.6 18.6 22 18 22H6C5.4 22 5 21.6 5 21V20ZM19 3C19 2.4 18.6 2 18 2H6C5.4 2 5 2.4 5 3V4H19V3Z" fill="currentColor"/>
+                                  <path opacity="0.3" d="M19 4H5V20H19V4Z" fill="currentColor" />
+                                </svg>
+															</span>
+                              <span class="position-absolute top-0 end-0 d-flex flex-center w-25px h-25px bg-danger rounded-circle mt-n2 me-n2">
+																<i class="fs-7 text-white fas fa-times"></i>
+															</span>
+                </div>
+                <!--end::Complex Svg Icon-->
+              </div>
+              <!--begin::Body-->
+              <div class="card-body d-flex flex-column py-4 px-6">
+                <div class="d-block text-gray-600 fs-5 mb-5">Keep hosts up-to-date with canceled events</div>
+                <div class="mt-auto">
+                  <a class="btn btn-sm btn-outline btn-outline-info" href="automations/templates/text-cancellation-notification-to-host.html">Use template</a>
+                </div>
+              </div>
+              <!--end::Body-->
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-6">
+            <div class="card h-md-100 bg-light-info rounded-bottom-0 border-bottom border-4 border-info">
+              <div class="card-header flex-nowrap min-h-50px border-0 pt-4 px-6">
+                <div class="card-title">
+                  <div class="card-label">Email invitees to reconfirm</div>
+                </div>
+                <!--begin::Complex Svg Icon-->
+                <div class="position-relative">
+															<span class="svg-icon svg-icon-info svg-icon-3hx">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																	<path d="M6 8.725C6 8.125 6.4 7.725 7 7.725H14L18 11.725V12.925L22 9.725L12.6 2.225C12.2 1.925 11.7 1.925 11.4 2.225L2 9.725L6 12.925V8.725Z" fill="currentColor"/>
+																	<path opacity="0.3" d="M22 9.72498V20.725C22 21.325 21.6 21.725 21 21.725H3C2.4 21.725 2 21.325 2 20.725V9.72498L11.4 17.225C11.8 17.525 12.3 17.525 12.6 17.225L22 9.72498ZM15 11.725H18L14 7.72498V10.725C14 11.325 14.4 11.725 15 11.725Z" fill="currentColor" />
+																</svg>
+															</span>
+                              <span class="position-absolute top-0 end-0 d-flex flex-center w-25px h-25px bg-warning rounded-circle mt-n2 me-n2">
+																<i class="fs-7 text-white fas fa-question"></i>
+															</span>
+                </div>
+                <!--end::Complex Svg Icon-->
+              </div>
+              <!--begin::Body-->
+              <div class="card-body d-flex flex-column py-4 px-6">
+                <div class="d-block text-gray-600 fs-5 mb-5">Reduce no-shows by asking your invitees to reconfirm they will attend your event</div>
+                <div class="mt-auto">
+                  <a class="btn btn-sm btn-outline btn-outline-info" href="automations/templates/email-invitees-to-reconfirm.html">Use template</a>
+                </div>
+              </div>
+              <!--end::Body-->
+            </div>
+          </div>
+          <!--Begin::Upgrade Plan-->
+          <div class="col-md-6 col-lg-4 mb-6">
+            <div class="card h-md-100 bg-light-info rounded-bottom-0 border-bottom border-4 border-info opacity-50">
+              <div class="card-header flex-nowrap min-h-50px border-0 pt-4 px-6">
+                <div class="card-title">
+                  <div class="card-label">Text reminder to invitee</div>
+                </div>
+                <!--begin::Complex Svg Icon-->
+                <div class="position-relative">
+															<span class="svg-icon svg-icon-info svg-icon-3hx">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																	<path d="M5 20H19V21C19 21.6 18.6 22 18 22H6C5.4 22 5 21.6 5 21V20ZM19 3C19 2.4 18.6 2 18 2H6C5.4 2 5 2.4 5 3V4H19V3Z" fill="currentColor"/>
+																	<path opacity="0.3" d="M19 4H5V20H19V4Z" fill="currentColor"/>
+																</svg>
+															</span>
+                              <span class="position-absolute top-0 end-0 d-flex flex-center w-25px h-25px bg-success rounded-circle mt-n2 me-n2">
+																<i class="fs-5 text-white far fa-clock"></i>
+															</span>
+                </div>
+                <!--end::Complex Svg Icon-->
+              </div>
+              <!--begin::Body-->
+              <div class="card-body d-flex flex-column py-4 px-6">
+                <div class="d-block text-gray-600 fs-5 mb-5">Reduce no-shows — send automated text reminders to invitees</div>
+                <div class="mt-auto">
+                  <a class="btn btn-sm btn-outline btn-outline-info" href="#kt_modal_upgrade_plan" data-bs-toggle="modal">Use template</a>
+                </div>
+              </div>
+              <!--end::Body-->
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-6">
+            <div class="card h-md-100 bg-light-info rounded-bottom-0 border-bottom border-4 border-info opacity-50">
+              <div class="card-header flex-nowrap min-h-50px border-0 pt-4 px-6">
+                <div class="card-title">
+                  <div class="card-label">Text booking confirmation to invitee</div>
+                </div>
+                <!--begin::Complex Svg Icon-->
+                <div class="position-relative">
+															<span class="svg-icon svg-icon-info svg-icon-3hx">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                  <path d="M5 20H19V21C19 21.6 18.6 22 18 22H6C5.4 22 5 21.6 5 21V20ZM19 3C19 2.4 18.6 2 18 2H6C5.4 2 5 2.4 5 3V4H19V3Z" fill="currentColor"/>
+                                  <path opacity="0.3" d="M19 4H5V20H19V4Z" fill="currentColor" />
+                                </svg>
+															</span>
+                              <span class="position-absolute top-0 end-0 d-flex flex-center w-25px h-25px bg-primary rounded-circle mt-n2 me-n2">
+																<i class="fs-7 text-white fas fa-check"></i>
+															</span>
+                </div>
+                <!--end::Complex Svg Icon-->
+              </div>
+              <!--begin::Body-->
+              <div class="card-body d-flex flex-column py-4 px-6">
+                <div class="d-block text-gray-600 fs-5 mb-5">Let invitees know their event is scheduled</div>
+                <div class="mt-auto">
+                  <a class="btn btn-sm btn-outline btn-outline-info" href="#kt_modal_upgrade_plan" data-bs-toggle="modal">Use template</a>
+                </div>
+              </div>
+              <!--end::Body-->
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-6">
+            <div class="card h-md-100 bg-light-info rounded-bottom-0 border-bottom border-4 border-info opacity-50">
+              <div class="card-header flex-nowrap min-h-50px border-0 pt-4 px-6">
+                <div class="card-title">
+                  <div class="card-label">Text cancellation notification to invitee</div>
+                </div>
+                <!--begin::Complex Svg Icon-->
+                <div class="position-relative">
+															<span class="svg-icon svg-icon-info svg-icon-3hx">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                  <path d="M5 20H19V21C19 21.6 18.6 22 18 22H6C5.4 22 5 21.6 5 21V20ZM19 3C19 2.4 18.6 2 18 2H6C5.4 2 5 2.4 5 3V4H19V3Z" fill="currentColor"/>
+                                  <path opacity="0.3" d="M19 4H5V20H19V4Z" fill="currentColor" />
+                                </svg>
+															</span>
+                              <span class="position-absolute top-0 end-0 d-flex flex-center w-25px h-25px bg-danger rounded-circle mt-n2 me-n2">
+																<i class="fs-7 text-white fas fa-times"></i>
+															</span>
+                </div>
+                <!--end::Complex Svg Icon-->
+              </div>
+              <!--begin::Body-->
+              <div class="card-body d-flex flex-column py-4 px-6">
+                <div class="d-block text-gray-600 fs-5 mb-5">Let invitees know as soon as an event is cancelled</div>
+                <div class="mt-auto">
+                  <a class="btn btn-sm btn-outline btn-outline-info" href="#kt_modal_upgrade_plan" data-bs-toggle="modal">Use template</a>
+                </div>
+              </div>
+              <!--end::Body-->
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-6">
+            <div class="card h-md-100 bg-light-info rounded-bottom-0 border-bottom border-4 border-info opacity-50">
+              <div class="card-header flex-nowrap min-h-50px border-0 pt-4 px-6">
+                <div class="card-title">
+                  <div class="card-label">Text follow-up to invitee</div>
+                </div>
+                <!--begin::Complex Svg Icon-->
+                <div class="position-relative">
+															<span class="svg-icon svg-icon-info svg-icon-3hx">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																	<path d="M5 20H19V21C19 21.6 18.6 22 18 22H6C5.4 22 5 21.6 5 21V20ZM19 3C19 2.4 18.6 2 18 2H6C5.4 2 5 2.4 5 3V4H19V3Z" fill="currentColor"/>
+																	<path opacity="0.3" d="M19 4H5V20H19V4Z" fill="currentColor"/>
+																</svg>
+															</span>
+                              <span class="position-absolute top-0 end-0 d-flex flex-center w-25px h-25px bg-warning rounded-circle mt-n2 me-n2">
+																<i class="fs-7 text-white fas fa-undo"></i>
+															</span>
+                </div>
+                <!--end::Complex Svg Icon-->
+              </div>
+              <!--begin::Body-->
+              <div class="card-body d-flex flex-column py-4 px-6">
+                <div class="d-block text-gray-600 fs-5 mb-5">Finish up by texting your invitees after an event</div>
+                <div class="mt-auto">
+                  <a class="btn btn-sm btn-outline btn-outline-info" href="#kt_modal_upgrade_plan" data-bs-toggle="modal">Use template</a>
+                </div>
+              </div>
+              <!--end::Body-->
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-6">
+            <div class="card h-md-100 bg-light-info rounded-bottom-0 border-bottom border-4 border-info opacity-50">
+              <div class="card-header flex-nowrap min-h-50px border-0 pt-4 px-6">
+                <div class="card-title">
+                  <div class="card-label">Text invitee to reconfirm</div>
+                </div>
+                <!--begin::Complex Svg Icon-->
+                <div class="position-relative">
+															<span class="svg-icon svg-icon-info svg-icon-3hx">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																	<path d="M5 20H19V21C19 21.6 18.6 22 18 22H6C5.4 22 5 21.6 5 21V20ZM19 3C19 2.4 18.6 2 18 2H6C5.4 2 5 2.4 5 3V4H19V3Z" fill="currentColor"/>
+																	<path opacity="0.3" d="M19 4H5V20H19V4Z" fill="currentColor"/>
+																</svg>
+															</span>
+                              <span class="position-absolute top-0 end-0 d-flex flex-center w-25px h-25px bg-warning rounded-circle mt-n2 me-n2">
+																<i class="fs-7 text-white fas fa-question"></i>
+															</span>
+                </div>
+                <!--end::Complex Svg Icon-->
+              </div>
+              <!--begin::Body-->
+              <div class="card-body d-flex flex-column py-4 px-6">
+                <div class="d-block text-gray-600 fs-5 mb-5">Reduce no-shows by asking your invitees to reconfirm they will attend your event</div>
+                <div class="mt-auto">
+                  <a class="btn btn-sm btn-outline btn-outline-info" href="#kt_modal_upgrade_plan" data-bs-toggle="modal">Use template</a>
+                </div>
+              </div>
+              <!--end::Body-->
+            </div>
+          </div>
+          <!--End::Upgrade Plan-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end::Container-->
+</div>
+<!--end::Post-->
+
+
+<!--begin::Modals-->
+<!--begin::Add Custom Automation-->
+<div class="modal fade z-index-10000 " id="kt_modal_add_custom_automation" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Create a Custom Automation</h5>
+
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+		            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+		              <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+		                <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1"/>
+		                <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                      x="0" y="7" width="16" height="2" rx="1"/>
+		              </g>
+		            </svg>
+		          </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+
+      <div class="modal-body">
+        <!--begin::Field-->
+        <div class="mb-7">
+          <label class="form-label">When this happens</label>
+          <select id="kt_select_edit_trigger_when_this_happens" class="form-select" data-control="select2" data-placeholder="<%= t('common.select_placeholder') %>" data-minimum-results-for-search="Infinity">
+            <option></option>
+            <option value="kt_hidden_section_edit_trigger_when_this_happens_new_event_is_scheduled">New event is scheduled</option>
+            <option value="kt_hidden_section_edit_trigger_when_this_happens_before_event_starts">Before event starts</option>
+            <option value="kt_hidden_section_edit_trigger_when_this_happens_before_event_starts_at_a_specific_time">Before event starts at a specific time</option>
+            <option value="kt_hidden_section_edit_trigger_when_this_happens_event_starts">Event starts</option>
+            <option value="kt_hidden_section_edit_trigger_when_this_happens_event_ends">Event ends</option>
+            <option value="kt_hidden_section_edit_trigger_when_this_happens_event_is_canceled">Event is canceled</option>
+            <option value="kt_hidden_section_edit_trigger_when_this_happens_event_is_rescheduled">Event is rescheduled</option>
+            <option value="kt_hidden_section_edit_trigger_when_this_happens_call_status_is_not_completed">Call status is Not Completed</option>
+            <option value="kt_hidden_section_edit_trigger_when_this_happens_call_status_is_not_completed">Call status is Not Completed</option>
+            <option value="0">Manually by user on the agenda</option>
+          </select>
+
+          <div id="kt_hidden_section_edit_trigger_when_this_happens">
+            <div id="kt_hidden_section_edit_trigger_when_this_happens_new_event_is_scheduled" style="display: none;">
+              <div class="pt-7">
+                <div class="form-label">How long after new event is scheduled?</div>
+                <!--begin::Field-->
+                <label class="form-check form-check-custom form-check-solid mb-4">
+                  <input name="editTriggerWhenThisHappensNewEventIsScheduled" class="form-check-input" type="radio" value="1" checked/>
+                  <span class="form-check-label">Immediately when new event is scheduled</span>
+                </label>
+                <!--end::Field-->
+                <!--begin::Field-->
+                <div class="row align-items-center gx-2 mb-4">
+                  <div class="col-auto">
+                    <label class="form-check form-check-custom form-check-solid">
+                      <input name="editTriggerWhenThisHappensNewEventIsScheduled" class="form-check-input" type="radio" value="2"/>
+                      <span class="form-check-label ms-0"></span>
+                    </label>
+                  </div>
+                  <div class="col-auto">
+                    <input class="form-control w-100px" value="24"/>
+                  </div>
+                  <div class="col">
+                    <select class="form-select" data-control="select2" data-placeholder="Select..." data-minimum-results-for-search="Infinity">
+                      <option></option>
+                      <option value="1">Days</option>
+                      <option value="2" selected>Hours</option>
+                      <option value="3">Minutes</option>
+                    </select>
+                  </div>
+                </div>
+                <!--end::Field-->
+                <a class="btn btn-flex btn-color-primary fs-base p-0 rotate" href="#kt_collapse_edit_trigger_when_this_happens_group_event_options" data-bs-toggle="collapse">
+                  Group event options
+                  <span class="svg-icon svg-icon-3 rotate-180 ms-1">
+																			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																				<path opacity="0.5" d="M12.5657 9.63427L16.75 5.44995C17.1642 5.03574 17.8358 5.03574 18.25 5.44995C18.6642 5.86416 18.6642 6.53574 18.25 6.94995L12.7071 12.4928C12.3166 12.8834 11.6834 12.8834 11.2929 12.4928L5.75 6.94995C5.33579 6.53574 5.33579 5.86416 5.75 5.44995C6.16421 5.03574 6.83579 5.03574 7.25 5.44995L11.4343 9.63427C11.7467 9.94669 12.2533 9.94668 12.5657 9.63427Z" fill="currentColor"></path>
+																				<path d="M12.5657 15.6343L16.75 11.45C17.1642 11.0357 17.8358 11.0357 18.25 11.45C18.6642 11.8642 18.6642 12.5357 18.25 12.95L12.7071 18.4928C12.3166 18.8834 11.6834 18.8834 11.2929 18.4928L5.75 12.95C5.33579 12.5357 5.33579 11.8642 5.75 11.45C6.16421 11.0357 6.83579 11.0357 7.25 11.45L11.4343 15.6343C11.7467 15.9467 12.2533 15.9467 12.5657 15.6343Z" fill="currentColor"></path>
+																			</svg>
+																		</span>
+                </a>
+                <div id="kt_collapse_edit_trigger_when_this_happens_group_event_options" class="collapse">
+                  <div class="pt-4">
+                    <div class="form-label">For group events, when should this trigger happen?</div>
+                    <!--begin::Field-->
+                    <label class="form-check form-check-custom form-check-solid mb-4">
+                      <input name="editTriggerWhenThisHappensGroupEventOptions" class="form-check-input" type="radio" value="1" checked/>
+                      <span class="form-check-label">When each invitee books (default)</span>
+                    </label>
+                    <!--end::Field-->
+                    <!--begin::Field-->
+                    <label class="form-check form-check-custom form-check-solid mb-0">
+                      <input name="editTriggerWhenThisHappensGroupEventOptions" class="form-check-input" type="radio" value="2"/>
+                      <span class="form-check-label">When only the first invitee books</span>
+                    </label>
+                    <!--end::Field-->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="kt_hidden_section_edit_trigger_when_this_happens_before_event_starts" style="display: none;">
+              <div class="pt-7">
+                <div class="form-label">How long before event starts?</div>
+                <!--begin::Field-->
+                <div class="row align-items-center gx-2">
+                  <div class="col-auto">
+                    <input class="form-control w-100px" value="24"/>
+                  </div>
+                  <div class="col">
+                    <select class="form-select" data-control="select2" data-placeholder="Select..." data-minimum-results-for-search="Infinity">
+                      <option></option>
+                      <option value="1">Days</option>
+                      <option value="2" selected>Hours</option>
+                      <option value="3">Minutes</option>
+                    </select>
+                  </div>
+                </div>
+                <!--end::Field-->
+              </div>
+            </div>
+            <div id="kt_hidden_section_edit_trigger_when_this_happens_before_event_starts_at_a_specific_time" style="display: none;">
+              <div class="pt-7">
+                <div class="form-label">Send reminders</div>
+                <div class="row align-items-center gx-2">
+                  <div class="col-auto">
+                    <select class="form-select" data-control="select2" data-placeholder="Select..." data-minimum-results-for-search="Infinity" data-width="80px">
+                      <option></option>
+                      <% for i in 1..90 do %>
+                        <option value="<%= i %>" <%= i == 1 ? 'selected' : '' %>><%= i %></option>
+                      <% end %>
+                    </select>
+                  </div>
+                  <div class="col">
+                    <select class="form-select" data-control="select2" data-placeholder="Select..." data-minimum-results-for-search="Infinity" data-width="100%">
+                      <option></option>
+                      <option value="minutes">Minutes</option>
+                      <option value="hours">Hours</option>
+                      <option value="days" selected>Days</option>
+                      <option value="weeks">Weeks</option>
+                      <option value="months">Months</option>
+                    </select>
+                  </div>
+                  <div class="col-auto">in advance at</div>
+                  <div class="col">
+                    <select class="form-select" data-control="select2" data-placeholder="Select..." data-minimum-results-for-search="Infinity" data-width="100%">
+                      <option></option>
+                      <% for i in 0..23 do %>
+                        <% for j in 0..5 do %>
+                          <% value = ("%02d" % i) + ':' + ("%02d" % (j * 10)) %>
+                          <option value="<%= value %>" <%= i.zero? && j.zero? ? 'selected' : '' %>><%= value %></option>
+                        <% end %>
+                      <% end %>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="kt_hidden_section_edit_trigger_when_this_happens_event_starts" style="display: none;">
+              <div class="pt-7">
+                <div class="form-label">How long after event starts?</div>
+                <!--begin::Field-->
+                <label class="form-check form-check-custom form-check-solid mb-4">
+                  <input name="editTriggerWhenThisHappensEventStarts" class="form-check-input" type="radio" value="1" checked/>
+                  <span class="form-check-label">Immediately when event starts</span>
+                </label>
+                <!--end::Field-->
+                <!--begin::Field-->
+                <div class="row align-items-center gx-2">
+                  <div class="col-auto">
+                    <label class="form-check form-check-custom form-check-solid">
+                      <input name="editTriggerWhenThisHappensEventStarts" class="form-check-input" type="radio" value="2"/>
+                      <span class="form-check-label ms-0"></span>
+                    </label>
+                  </div>
+                  <div class="col-auto">
+                    <input class="form-control w-100px" value="24"/>
+                  </div>
+                  <div class="col">
+                    <select class="form-select" data-control="select2" data-placeholder="Select..." data-minimum-results-for-search="Infinity">
+                      <option></option>
+                      <option value="1">Days</option>
+                      <option value="2" selected>Hours</option>
+                      <option value="3">Minutes</option>
+                    </select>
+                  </div>
+                </div>
+                <!--end::Field-->
+              </div>
+            </div>
+            <div id="kt_hidden_section_edit_trigger_when_this_happens_event_ends" style="display: none;">
+              <div class="pt-7">
+                <div class="form-label">How long after event ends?</div>
+                <!--begin::Field-->
+                <label class="form-check form-check-custom form-check-solid mb-4">
+                  <input name="editTriggerWhenThisHappensEventEnds" class="form-check-input" type="radio" value="1"/>
+                  <span class="form-check-label">Immediately when event ends</span>
+                </label>
+                <!--end::Field-->
+                <!--begin::Field-->
+                <div class="row align-items-center gx-2">
+                  <div class="col-auto">
+                    <label class="form-check form-check-custom form-check-solid">
+                      <input name="editTriggerWhenThisHappensEventEnds" class="form-check-input" type="radio" value="2" checked/>
+                      <span class="form-check-label ms-0"></span>
+                    </label>
+                  </div>
+                  <div class="col-auto">
+                    <input class="form-control w-100px" value="24"/>
+                  </div>
+                  <div class="col">
+                    <select class="form-select" data-control="select2" data-placeholder="Select..." data-minimum-results-for-search="Infinity">
+                      <option></option>
+                      <option value="1">Days</option>
+                      <option value="2" selected>Hours</option>
+                      <option value="3">Minutes</option>
+                    </select>
+                  </div>
+                </div>
+                <!--end::Field-->
+              </div>
+            </div>
+            <div id="kt_hidden_section_edit_trigger_when_this_happens_event_is_canceled" style="display: none;">
+              <div class="pt-7">
+                <div class="form-label">How long after event is canceled?</div>
+                <!--begin::Field-->
+                <label class="form-check form-check-custom form-check-solid mb-4">
+                  <input name="editTriggerWhenThisHappensEventIsCanceled" class="form-check-input" type="radio" value="1" checked/>
+                  <span class="form-check-label">Immediately when event is canceled</span>
+                </label>
+                <!--end::Field-->
+                <!--begin::Field-->
+                <div class="row align-items-center gx-2">
+                  <div class="col-auto">
+                    <label class="form-check form-check-custom form-check-solid">
+                      <input name="editTriggerWhenThisHappensEventIsCanceled" class="form-check-input" type="radio" value="2" />
+                      <span class="form-check-label ms-0"></span>
+                    </label>
+                  </div>
+                  <div class="col-auto">
+                    <input class="form-control w-100px" value="24"/>
+                  </div>
+                  <div class="col">
+                    <select class="form-select" data-control="select2" data-placeholder="Select..." data-minimum-results-for-search="Infinity">
+                      <option></option>
+                      <option value="1">Days</option>
+                      <option value="2" selected>Hours</option>
+                      <option value="3">Minutes</option>
+                    </select>
+                  </div>
+                </div>
+                <!--end::Field-->
+              </div>
+            </div>
+            <div id="kt_hidden_section_edit_trigger_when_this_happens_event_is_rescheduled" style="display: none;">
+              <div class="pt-7">
+                <div class="form-label">How long after event is rescheduled?</div>
+                <!--begin::Field-->
+                <label class="form-check form-check-custom form-check-solid mb-4">
+                  <input name="editTriggerWhenThisHappensEventIsRescheduled" class="form-check-input" type="radio" value="1" checked/>
+                  <span class="form-check-label">Immediately when event is rescheduled</span>
+                </label>
+                <!--end::Field-->
+                <!--begin::Field-->
+                <div class="row align-items-center gx-2">
+                  <div class="col-auto">
+                    <label class="form-check form-check-custom form-check-solid">
+                      <input name="editTriggerWhenThisHappensEventIsRescheduled" class="form-check-input" type="radio" value="2"/>
+                      <span class="form-check-label ms-0"></span>
+                    </label>
+                  </div>
+                  <div class="col-auto">
+                    <input class="form-control w-100px" value="24"/>
+                  </div>
+                  <div class="col">
+                    <select class="form-select" data-control="select2" data-placeholder="Select..." data-minimum-results-for-search="Infinity">
+                      <option></option>
+                      <option value="1">Days</option>
+                      <option value="2" selected>Hours</option>
+                      <option value="3">Minutes</option>
+                    </select>
+                  </div>
+                </div>
+                <!--end::Field-->
+              </div>
+            </div>
+            <div id="kt_hidden_section_edit_trigger_when_this_happens_call_status_is_not_completed" style="display: none;">
+              <div class="pt-7">
+                <div class="form-label">How long after call status isn't completed?</div>
+                <!--begin::Field-->
+                <label class="form-check form-check-custom form-check-solid mb-4">
+                  <input name="editTriggerWhenThisHappensEventCallStatusIsNotCompleted" class="form-check-input" type="radio" value="1" checked/>
+                  <span class="form-check-label">Immediately when call status isn't completed</span>
+                </label>
+                <!--end::Field-->
+                <!--begin::Field-->
+                <div class="row align-items-center gx-2">
+                  <div class="col-auto">
+                    <label class="form-check form-check-custom form-check-solid">
+                      <input name="editTriggerWhenThisHappensEventCallStatusIsNotCompleted" class="form-check-input" type="radio" value="2"/>
+                      <span class="form-check-label ms-0"></span>
+                    </label>
+                  </div>
+                  <div class="col-auto">
+                    <input class="form-control w-100px" value="24"/>
+                  </div>
+                  <div class="col">
+                    <select class="form-select" data-control="select2" data-placeholder="Select..." data-minimum-results-for-search="Infinity">
+                      <option></option>
+                      <option value="1">Days</option>
+                      <option value="2" selected>Hours</option>
+                      <option value="3">Minutes</option>
+                    </select>
+                  </div>
+                </div>
+                <!--end::Field-->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--end::Field-->
+        <!--begin::Field-->
+        <div class="mb-0">
+          <label class="form-label">Do this</label>
+          <select id="kt_select_add_new_action_do_this" class="form-select" data-placeholder="Select..." data-minimum-results-for-search="Infinity">
+            <option></option>
+            <option value="emailToInvitee" data-kt-select2-description="Send an email to all invitees and guests of the event">Send email to invitee</option>
+            <option value="emailToHost" data-kt-select2-description="Send an email to the person hosting the event">Send email to host</option>
+            <option value="smsToInvitee" data-kt-select2-description="Send a SMS to all invitees of the event">Send SMS to invitee</option>
+            <option value="smsToHost" data-kt-select2-description="Send a SMS to the person hosting the event">Send SMS to host</option>
+            <option value="5" disabled data-kt-select2-description="Send a hook">Send Hook</option>
+          </select>
+        </div>
+        <!--end::Field-->
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+        <a class="btn btn-primary" href="<%= new_automation_path %>">Next</a>
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+
+</div>
+<!--end::Add Customer Automations-->
+
+<%= render '/modal/update_plan' %>
+<!--end::Modal dialog-->
+
+<script>
+    (function () {
+        const addNewActionDoThisOptionFormat = function (item) {
+            if (!item.id) {
+                return item.text;
+            }
+
+            const span = document.createElement('span');
+            if (item.disabled) {
+                span.classList.add('d-flex');
+                span.classList.add('justify-content-between');
+                span.innerHTML = item.disabled ? `
+							<span>
+								<span class="d-block">${item.text}</span>
+								<span class="d-block small">${item.element.dataset.ktSelect2Description || ''}</span>
+							</span>
+							<span class="badge badge-info align-self-center">Coming Soon</span>
+						` : item.text;
+            } else {
+                span.innerHTML = `
+							<span class="d-block">${item.text}</span>
+							<span class="d-block small">${item.element.dataset.ktSelect2Description || ''}</span>
+						`;
+            }
+
+            return $(span);
+        }
+
+        $('#kt_select_add_new_action_do_this').select2({
+            templateResult: addNewActionDoThisOptionFormat
+        })
+    })();
+
+    // Edit Trigger
+    (function () {
+        $('#kt_select_edit_trigger_when_this_happens').on('change', function () {
+            const elVal = $(this).val();
+
+            $('#kt_hidden_section_edit_trigger_when_this_happens > div').hide();
+
+            if (elVal !== '0') {
+                $(`#kt_hidden_section_edit_trigger_when_this_happens #${elVal}`).show();
+            }
+        });
+    })();
+</script>

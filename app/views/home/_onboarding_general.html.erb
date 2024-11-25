@@ -1,0 +1,124 @@
+<!--begin::Wrapper-->
+<div class="w-100">
+  <!--begin::Heading-->
+  <div class="pb-10 pb-lg-15">
+    <!--begin::Title-->
+    <h2 class="fw-bolder d-flex align-items-center text-dark"><%= t('onboarding.general_info.title') %></h2>
+    <!--end::Title-->
+    <!--begin::Notice-->
+    <div class="text-muted fw-bold fs-6"><%= t('onboarding.general_info.title_description') %></div>
+    <!--end::Notice-->
+  </div>
+  <!--end::Heading-->
+  <!--begin::Input group-->
+  <div class="fv-row mb-10">
+    <!--begin::Label-->
+    <label class="form-label required"><%= t('onboarding.general_info.organization_name') %></label>
+    <!--end::Label-->
+    <!--begin::Input group-->
+    <div class="input-group input-group-solid input-group-lg">
+      <input name="organization_name" type="text" class="form-control" id="organization_name" />
+    </div>
+    <div class="fv-plugins-message-container invalid-feedback" id="name_not_empty_message"><%= t('validation.not_empty') %></div>
+    <!--end::Input group-->
+    <div class="form-text"><%= t('onboarding.general_info.organization_name_description') %></div>
+  </div>
+  <!--end::Input group-->
+  <!--begin::Input group-->
+  <div class="fv-row mb-10">
+    <!--begin::Label-->
+    <label class="form-label required"><%= t('onboarding.general_info.create_url') %></label>
+    <!--end::Label-->
+    <!--begin::Input group-->
+    <div class="input-group input-group-solid input-group-lg">
+      <span class="input-group-text" id="basic-addon1">voxiplan.com/s/</span>
+      <input name="voxiplan_url" type="text" class="form-control" id="voxiplan_url" ivr_id="<%= current_client.ivrs.first.id %>" style="text-transform: lowercase" />
+    </div>
+    <div class="fv-plugins-message-container w-100 text-success" style="font-size: 0.925rem;" id="available_message"><%= t('validation.available') %></div>
+    <div class="fv-plugins-message-container invalid-feedback" id="unavailable_message"><%= t('validation.unavailable') %></div>
+    <div class="fv-plugins-message-container invalid-feedback" id="url_not_empty_message"><%= t('validation.not_empty') %></div>
+    <div class="fv-plugins-message-container invalid-feedback pr-3 detected_key_message" id="detected_key_message" style="font-weight: 600; margin-top: 0.3rem;"><%= t('validation.detected_key') %></div>
+    <!--end::Input group-->
+    <div class="form-text"><%= t('onboarding.general_info.create_url_description') %></div>
+  </div>
+  <!--end::Input group-->
+  <!--begin::Input group-->
+  <div class="fv-row">
+    <!--begin::Label-->
+    <label class="form-label required"><%= t('onboarding.general_info.timezone') %></label>
+    <!--end::Label-->
+    <!--begin::Input-->
+    <%= select_tag "timezone", {}, class: "form-select form-select-solid form-select-lg", data: { control: 'select2', placeholder: 'Select a timezone' }, required: true %>
+  </div>
+  <!--end::Input group-->
+</div>
+<!--end::Wrapper-->
+
+<!--Change voxiplan url with organization name -->
+<script>
+    $('.fv-plugins-message-container').hide();
+
+    const default_timezone = "Europe/Paris";
+    let selected_timezone = default_timezone
+    let user_timezone = "<%= current_client.time_zone %>";
+    let timezone = moment.tz.names();
+
+    for (let i = 0; i < timezone.length; i++) {
+        $("select#timezone").append(
+            '<option value="' + timezone[i] + '">' + timezone[i] + "</option>"
+        );
+        if (user_timezone == timezone[i]) selected_timezone = user_timezone;
+    }
+    $("select#timezone").select2();
+    $("select#timezone").select2().val(selected_timezone).trigger('change');
+
+    function check_valid_voxiness_url(booking_url) {
+        if (booking_url) {
+            $.ajax({
+                type: "POST",
+                url: "/check_exist_ivr_url",
+                data: { voxiplan_url: booking_url.toLowerCase().replace(/ /g, '').replace(/\?/g, '').replace(/\//g, '').replace(/&/g, ''), ivr_id: <%= current_client.ivrs.first.id %> },
+                success: function (data) {
+                    if (data.existed) $('#unavailable_message').show();
+                    else {
+                        $('.invalid-feedback').hide();
+                        $('#available_message').show();
+                    }
+                },
+                error: function (error) {
+                    $.notify({ title: "<strong>Error!</strong>", message: "Something Went Wrong! Please Try again." },{ type: 'danger' });
+                },
+            });
+        }
+    };
+
+    $('#voxiplan_url').on('keypress', function(e) {
+        $('.fv-plugins-message-container').hide();
+
+        if (e.which == 32 || e.which == 38 || e.which == 47 || e.which == 63) {
+            e.preventDefault();
+            $(this).parent().parent().find('.detected_key_message').show();
+        }
+    });
+
+    $('#voxiplan_url').on('keyup', function(e) {
+        if (!$(this).val()) $('#url_not_empty_message').show();
+    });
+
+    $('#organization_name').on('keyup', function() {
+        $('#voxiplan_url').val($(this).val().replace(/ /g, '').replace(/&/g, '').replace(/\?/g, '').replace(/\//g, ''));
+        $('.fv-plugins-message-container').hide();
+        if (!$(this).val()) {
+            $('#name_not_empty_message').show();
+            $('#url_not_empty_message').show();
+        }
+    });
+
+    $('#organization_name').on('change', function() {
+        check_valid_voxiness_url($(this).val());
+    });
+
+    $('#voxiplan_url').on('change', function() {
+        check_valid_voxiness_url($(this).val());
+    });
+</script>

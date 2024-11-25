@@ -1,0 +1,131 @@
+{{define "en"}}
+Hi {{ title .Identity.traits.firstName }},
+<br />
+<br />
+Please verify your account by entering the following code:
+<br />
+{{ .VerificationCode }}
+<br />
+<br />
+Click below to verify your account:
+<br />
+<a href="{{ .VerificationURL }}">Verify email address</a>
+<br />
+<br />
+Or, use the following link:
+<br />
+{{ .VerificationURL }}
+<br />
+<br />
+Thanks,
+<br />
+Team Voxiplan
+{{end}}
+
+{{define "fr"}}
+Bonjour {{ title .Identity.traits.firstName }},
+<br />
+<br />
+Veuillez vérifier votre compte en saisissant le code suivant:
+<br />
+{{ .VerificationCode }}
+<br />
+<br />
+Cliquez ci-dessous pour vérifier votre compte :
+<br />
+<a href="{{ .VerificationURL }}">Vérifier l'adresse e-mail</a>
+<br />
+<br />
+Ou, utilisez le lien suivant :
+<br />
+{{ .VerificationURL }}
+<br />
+<br />
+Merci,
+<br />
+Team Voxiplan
+{{end}}
+
+{{define "it"}}
+Ciao {{ title .Identity.traits.firstName }},
+<br />
+<br />
+Verifica il tuo account inserendo il seguente codice:
+<br />
+{{ .VerificationCode }}
+<br />
+<br />
+Fare clic qui sotto per verificare il proprio account:
+<br />
+<a href="{{ .VerificationURL }}">Verifica indirizzo e-mail</a>
+<br />
+<br />
+Oppure, utilizzare il seguente link:
+<br />
+{{ .VerificationURL }}
+<br />
+<br />
+Grazie,
+<br />
+Team Voxiplan
+{{end}}
+
+{{define "nl"}}
+Hallo {{ title .Identity.traits.firstName }},
+<br />
+<br />
+Verifieer uw account door de volgende code in te voeren:
+<br />
+{{ .VerificationCode }}
+<br />
+<br />
+Klik hieronder om uw account te verifiëren:
+<br />
+<a href="{{ .VerificationURL }}">Bevestig e-mail adres</a>
+<br />
+<br />
+Of, gebruik de volgende link:
+<br />
+{{ .VerificationURL }}
+<br />
+<br />
+Bedankt,
+<br />
+Team Voxiplan
+{{end}}
+
+{{define "de"}}
+Hallo {{ title .Identity.traits.firstName }},
+<br />
+<br />
+Bitte verifizieren Sie Ihr Konto, indem Sie den folgenden Code eingeben:
+<br />
+{{ .VerificationCode }}
+<br />
+<br />
+Klicken Sie unten, um Ihr Konto zu bestätigen:
+<br />
+<a href="{{ .VerificationURL }}">Email Adresse bestätigen</a>
+<br />
+<br />
+Oder verwenden Sie den folgenden Link:
+<br />
+{{ .VerificationURL }}
+<br />
+<br />
+Danke,
+<br />
+Team Voxiplan
+{{end}}
+
+{{- if eq .Identity.traits.language "de" -}}
+{{ template "de" . }}
+{{- else if eq .Identity.traits.language "fr" -}}
+{{ template "fr" . }}
+{{- else if eq .Identity.traits.language "nl" -}}
+{{ template "nl" . }}
+{{- else if eq .Identity.traits.language "it" -}}
+{{ template "it" . }}
+{{- else -}}
+{{ template "en" . }}
+{{- end -}}

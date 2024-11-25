@@ -1,0 +1,143 @@
+<%= render 'reports/header' %>
+
+<div class="post d-flex flex-column-fluid" id="kt_post">
+  <!--begin::Container-->
+  <div id="kt_content_container" class="container-fluid">
+    
+    <div class="card mb-0">
+      <%= render 'reports/tabs', report_type: 'click_report' %>
+      <div class="card-body px-5 px-md-9 py-5">
+        <!--begin::Wrapper-->
+        <div class="d-sm-flex flex-stack mb-5">
+          <!--begin::Search-->
+          <div class="d-flex align-items-center position-relative my-1 mb-6 mb-sm-0">
+            <i class="bi bi-search position-absolute ms-6"></i>
+            <input type="text" data-kt-docs-table-filter="search" class="form-control form-control-solid w-250px ps-15" placeholder="<%= t('stats.search_report') %>"/>
+          </div>
+          <!--end::Search-->
+
+        </div>
+        <!--end::Wrapper-->
+
+        <!--begin::Datatable-->
+        <table id="kt_datatable_click_report" class="table table-row-dashed gy-5">
+          <thead>
+          <tr class="text-start text-uppercase gs-0">
+            <th class="align-top"><%= I18n.t('url_stats.short_url') %></th>
+            <th class="align-top"><%= I18n.t('url_stats.target_url') %></th>
+            <th class="align-top"><%= I18n.t('url_stats.sent_on') %></th>
+            <th class="align-top"><%= I18n.t('url_stats.clicks') %></th>
+            <th class="align-top"><%= I18n.t('url_stats.last_clicked_at') %></th>
+            <th class="align-top"><%= I18n.t('url_stats.contact_name') %></th>
+            <th class="align-top"><%= I18n.t('url_stats.contact_number') %></th>
+          </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <!--end::Datatable-->
+      </div>
+    </div>
+  </div>
+  <!--end::Container-->
+</div>
+
+<script>
+    (function () {
+        // Class definition
+        var KTDatatablesServerSide = function () {
+            // Mock
+            var dataSet = <%= raw @url_data.to_json %>;
+
+            // Shared variables
+            var table;
+            var dt;
+
+            // Private functions
+            var initDatatable = function () {
+                dt = $('#kt_datatable_click_report').DataTable({
+                    searchDelay: 500,
+                    order: [[0, 'asc']],
+                    select: {
+                        style: 'os',
+                        selector: 'td:first-child',
+                        className: 'row-selected'
+                    },
+                    data: dataSet,
+                    columns: [
+                        {data: 'ShortURL'},
+                        {data: 'TargetURL'},
+                        {data: 'SentOn'},
+                        {data: 'Clicks'},
+                        {data: 'LastClickedAt'},
+                        {data: 'ContactName'},
+                        {data: 'ContactNumber'},
+                    ],
+                    columnDefs: [
+                        {
+                            targets: [0, 1],
+                            render: function (data) {
+                                return `<a href="${data}">${data}</a>`;
+                            }
+                        },
+                        {
+                            targets: 3,
+                            render: function (data) {
+                                return `<strong>${data}</strong>`;
+                            }
+                        },
+
+                    ],
+                    initComplete: function () {
+                        KTMenu.createInstances();
+                    }
+                });
+
+                table = dt.$;
+
+                // Re-init functions on every table re-draw -- more info: https://datatables.net/reference/event/draw
+                dt.on('draw', function () {
+                    KTMenu.createInstances();
+                });
+            };
+
+            // Search Datatable --- official docs reference: https://datatables.net/reference/api/search()
+            var handleSearchDatatable = function () {
+                const filterSearch = document.querySelector('[data-kt-docs-table-filter="search"]');
+
+                filterSearch.addEventListener('keyup', function (e) {
+                    dt.search(e.target.value).draw();
+                });
+            };
+
+            // Public methods
+            return {
+                init: function () {
+                    initDatatable();
+                    handleSearchDatatable();
+
+                    $('.kt_new_added_tooltip').each(function (i, el) {
+                        const newTooltip = new bootstrap.Tooltip(el);
+                    });
+                }
+            };
+        }();
+
+        // On document ready
+        KTUtil.onDOMContentLoaded(function () {
+            KTDatatablesServerSide.init();
+        });
+    })();
+
+</script>
+<style>
+    #kt_datatable_click_report_wrapper {
+        margin-top: -10px;
+    }
+    #kt_datatable_click_report_filter {
+        margin-top: -48px;
+        display: none;
+    }
+    div#kt_datatable_click_report_length {
+        display: none;
+    }
+</style>

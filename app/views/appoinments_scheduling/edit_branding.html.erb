@@ -1,0 +1,64 @@
+<% content_for :content_head_toolbar do %>
+  <div></div>
+<% end %>
+<% content_for :content_head_title do %>
+  <%= t('widget_branding.heading') %>
+<% end %>
+
+<div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
+  <div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__body">
+      <div class="col-md-6 mx-auto">
+        <%= form_for(@ivr, url: update_branding_appoinments_scheduling_index_path) do |f| %>
+          <div class="row mb-6">
+            <div class="form-group">
+              <label for="ivr_description">Use branding</label>
+              <br>
+              <%= f.check_box :use_branding, class: '' %>
+            </div>
+          </div>
+
+          <div class="row mb-6">
+            <div class="form-group">
+              <label for="ivr_logo">Logo</label>
+              <br>
+              <div class="kt-avatar" id="logo">
+                <% if @ivr.logo.exists? %>
+                  <div class="kt-avatar__holder" style="background-image: url(<%= @ivr.logo.url %>)"></div>
+                <% else %>
+                  <div class="kt-avatar__holder bg-secondary" style=""></div>
+                <% end %>
+                <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="Change">
+                  <i class="fa fa-pen"></i>
+                  <%= f.file_field :logo, accept: '.png, .jpg, .jpeg' %>
+                </label>
+                <span class="kt-avatar__cancel" data-toggle="kt-tooltip" title="Cancel">
+                  <i class="fa fa-times"></i>
+                </span>
+              </div>
+              <div class="invalid-feedback <%= "d-block" if @ivr.errors.full_messages_for(:logo).present? %>">
+                <%= @ivr.errors.full_messages_for(:logo).join(', ') %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-6">
+            <div class="form-group">
+              <label for="ivr_description">Description</label>
+              <%= f.text_area :description, class: "form-control #{"is-invalid" if @ivr.errors.full_messages_for(:description).present?}" %>
+              <div class="invalid-feedback">
+                <%= @ivr.errors.full_messages_for(:description).join(', ') %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-6">
+            <div class="form-group">
+              <%= f.submit 'update', class: 'btn btn-primary text-uppercase' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

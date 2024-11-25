@@ -1,0 +1,28 @@
+<div class="scroll-table-thead syncscroll" data-name="plansTable">
+  <div class="scroll-table-row">
+    <div class="scroll-table-column align-items-center p-0">
+      <div>
+        <h2 class="mb-2"><%= t('pricing.top_section.plan_comparison') %></h2>
+        <p class="text-muted mb-0"><%= t('pricing.top_section.plan_comparison_description') %></p>
+      </div>
+    </div>
+    <div class="scroll-table-column p-0">
+      <div class="w-100 text-center p-5">
+        <h4 class="mb-4"><%= t('pricing.top_section.widget.type_0') %></h4>
+        <a href="<%= ENV['ORY_URL'] + '/self-service/registration/browser' %>" class="btn btn-outline btn-outline-primary btn-sm mx-auto"><%= t('billing.upgrade_plan.select') %></a>
+      </div>
+    </div>
+    <div class="scroll-table-column p-0">
+      <div class="w-100 text-center p-5">
+        <h4 class="mb-4"><%= t('pricing.top_section.widget.type_1') %></h4>
+        <a href="<%= ENV['ORY_URL'] + '/self-service/registration/browser' %>" class="btn btn-outline btn-primary btn-sm mx-auto" ><%= t('billing.upgrade_plan.select') %></a>
+      </div>
+    </div>
+    <div class="scroll-table-column p-0">
+      <div class="w-100 text-center p-5">
+        <h4 class="mb-4"><%= t('pricing.top_section.widget.type_2') %></h4>
+        <a href="<%= ENV['ORY_URL'] + '/self-service/registration/browser' %>" class="btn btn-outline btn-outline-primary btn-sm mx-auto"><%= t('billing.upgrade_plan.select') %></a>
+      </div>
+    </div>
+  </div>
+</div>

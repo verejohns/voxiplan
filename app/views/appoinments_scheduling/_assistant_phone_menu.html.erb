@@ -1,0 +1,320 @@
+<%= form_tag({controller: "appoinments_scheduling", action: "save_phone_menu"} , remote: true, method: "post", class: '', id: "appoinments_scheduling_phone_menu") do %>
+  <%= hidden_field_tag :ivr_id, params[:ivr_id] %>
+  <div class="d-flex flex-column h-100">
+    <!--begin::Wrapper-->
+    <div class="w-100">
+      <!--begin::Alert-->
+      <div class="alert alert-dismissible bg-light-warning border border-warning d-flex align-items-center flex-column flex-sm-row w-100 py-3 px-5 mb-10">
+        <!--begin::Icon-->
+        <!--begin::Svg Icon | path: icons/duotone/Code/Warning-2.svg-->
+        <span class="svg-icon svg-icon-2x svg-icon-warning me-3 mb-5 mb-sm-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                  <path d="M11.1669899,4.49941818 L2.82535718,19.5143571 C2.557144,19.9971408 2.7310878,20.6059441 3.21387153,20.8741573 C3.36242953,20.9566895 3.52957021,21 3.69951446,21 L21.2169432,21 C21.7692279,21 22.2169432,20.5522847 22.2169432,20 C22.2169432,19.8159952 22.1661743,19.6355579 22.070225,19.47855 L12.894429,4.4636111 C12.6064401,3.99235656 11.9909517,3.84379039 11.5196972,4.13177928 C11.3723594,4.22181902 11.2508468,4.34847583 11.1669899,4.49941818 Z"
+                                        fill="#000000" opacity="0.3" />
+                                  <rect fill="#000000" x="11" y="9" width="2" height="7" rx="1" />
+                                  <rect fill="#000000" x="11" y="17" width="2" height="2" rx="1" />
+                                </svg>
+                              </span>
+        <!--end::Svg Icon-->
+        <!--end::Icon-->
+        <!--begin::Content-->
+        <div class="d-flex flex-column pe-0 pe-sm-10">
+            <span class="fw-bold text-warning"><%= t('phone_menu.alert') %></span>
+        </div>
+        <!--end::Content-->
+        <!--begin::Close-->
+        <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon w-auto h-auto ms-sm-auto" data-bs-dismiss="alert">
+          <i class="bi bi-x fs-1 text-warning"></i>
+        </button>
+        <!--end::Close-->
+      </div>
+      <!--end::Alert-->
+
+      <!--begin::Group-->
+      <h2 class="fw-bolder text-dark mb-5"><%= t("phone_menu.menu_option") %></h2>
+      <!--begin::Field-->
+      <div class="mb-10">
+        <label class="form-label"><%= t('phone_menu.should_i') %></label>
+        <label class="form-check form-check-custom form-check-solid mb-4">
+          <%= check_box_tag("announcement[open][enabled]",(@menu_node.enabled ? true : false), (@menu_node.enabled ? true : false), class: "form-check-input") %>
+          <span class="form-check-label"><%= t('phone_menu.Offer_opening_hours') %></span>
+        </label>
+        <label class="form-check form-check-custom form-check-solid">
+          <%= check_box_tag("announcement[closed][enabled]",(@menu_closed_node.enabled ? true : false), (@menu_closed_node.enabled ? true : false), class: "form-check-input") %>
+          <span class="form-check-label"><%= t('phone_menu.Offer_closed_hours') %></span>
+        </label>
+      </div>
+      <!--end::Field-->
+      <!--end::Group-->
+
+      <!--begin::Group-->
+      <h2 class="fw-bolder text-dark mb-5"><%= t('phone_menu.present_choices') %></h2>
+      <ul class="nav nav-tabs nav-pills border-0 mb-4 fw-bold fs-6">
+        <li class="nav-item">
+          <a class="phone-menu-open-hours nav-link border border-primary active" href="#kt_tab_pane_02_01" data-bs-toggle="tab"><%= t('phone_menu.opening_hours') %></a>
+        </li>
+        <li class="nav-item">
+          <a class="phone-menu-close-hours nav-link border border-primary" href="#kt_tab_pane_02_02" data-bs-toggle="tab"><%= t('phone_menu.closed_hours') %></a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div id="kt_tab_pane_02_01" class="tab-pane fade show active" role="tabpanel">
+          <%= render 'assistant_phone_menu_tab', nodes: @nodes, menu_node: @menu_node, menu_type: 'open' %>
+        </div>
+        <div id="kt_tab_pane_02_02" class="tab-pane fade" role="tabpanel">
+          <%= render 'assistant_phone_menu_tab', nodes: @closed_nodes, menu_node: @menu_closed_node, menu_type: 'closed' %>
+        </div>
+      </div>
+      <!--end::Group-->
+    </div>
+    <!--end::Wrapper-->
+
+    <div class="separator mt-10 mb-10"></div>
+
+    <!--begin::Actions-->
+    <div class="d-flex justify-content-end flex-stack">
+      <button type="submit" class="btn btn-outline btn-outline-primary btn-color-primary btn-active-color-white ms-5">
+        <!--begin::Svg Icon | path: icons/duotone/Navigation/Double-check.svg-->
+        <span class="svg-icon svg-icon-2x me-1">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <polygon points="0 0 24 0 24 24 0 24" />
+                        <path d="M9.26193932,16.6476484 C8.90425297,17.0684559 8.27315905,17.1196257 7.85235158,16.7619393 C7.43154411,16.404253 7.38037434,15.773159 7.73806068,15.3523516 L16.2380607,5.35235158 C16.6013618,4.92493855 17.2451015,4.87991302 17.6643638,5.25259068 L22.1643638,9.25259068 C22.5771466,9.6195087 22.6143273,10.2515811 22.2474093,10.6643638 C21.8804913,11.0771466 21.2484189,11.1143273 20.8356362,10.7474093 L17.0997854,7.42665306 L9.26193932,16.6476484 Z"
+                              fill="#000000" fill-rule="nonzero" opacity="0.5" transform="translate(14.999995, 11.000002) rotate(-180.000000) translate(-14.999995, -11.000002) " />
+                        <path d="M4.26193932,17.6476484 C3.90425297,18.0684559 3.27315905,18.1196257 2.85235158,17.7619393 C2.43154411,17.404253 2.38037434,16.773159 2.73806068,16.3523516 L11.2380607,6.35235158 C11.6013618,5.92493855 12.2451015,5.87991302 12.6643638,6.25259068 L17.1643638,10.2525907 C17.5771466,10.6195087 17.6143273,11.2515811 17.2474093,11.6643638 C16.8804913,12.0771466 16.2484189,12.1143273 15.8356362,11.7474093 L12.0997854,8.42665306 L4.26193932,17.6476484 Z"
+                              fill="#000000" fill-rule="nonzero" transform="translate(9.999995, 12.000002) rotate(-180.000000) translate(-9.999995, -12.000002) " />
+                    </g>
+                </svg>
+              </span>
+        <!--end::Svg Icon-->
+        <%= t('button.save') %>
+      </button>
+    </div>
+    <!--end::Actions-->
+  </div>
+<% end %>
+
+<div class="modal fade" id="kt_modal_upgrade_plan" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered mw-500px">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('services.upgrade_plan_modal.title') %></h5>
+
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+                  <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
+                  <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                        x="0" y="7" width="16" height="2" rx="1"/>
+                </g>
+              </svg>
+            </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+
+      <div class="modal-body">
+        <%= raw t('services.upgrade_plan_modal.current_plan', plan: session[:current_organization].chargebee_subscription_plan) %>
+        <br />
+        <%= raw t('services.upgrade_plan_modal.to_upgrade_for_buy_number') %>
+      </div>
+
+      <div class="modal-footer justify-content-end">
+        <div>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal"><%= t('sweetalert.ok_got_it') %></button>
+        </div>
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+
+<script type="text/javascript">
+
+    $('a.kt_alert_delete_menu_option').on('click', function() {
+        const node_name = this.getAttribute('data-node');
+        const ext_type = this.getAttribute('data-nodeType');
+        const number = this.getAttribute('extension_number');
+
+        Swal.fire({
+            text: "<%= t('extensions.delete_confirm') %>",
+            icon: "warning",
+            showCancelButton: true,
+            buttonsStyling: false,
+            confirmButtonText: "<%= t('sweetalert.yes_delete') %>",
+            cancelButtonText: "<%= t('sweetalert.no_cancel') %>",
+            customClass: {
+                confirmButton: "btn btn-danger",
+                cancelButton: "btn btn-primary"
+            }
+        }).then((function(t) {
+            if (t.value == true) {
+                $.ajax({
+                    url: '<%= delete_phone_menu_extension_appoinments_scheduling_index_path %>',
+                    type: 'post',
+                    data: {
+                        ivr_id: $('input[name=ivr_id]').val(),
+                        node_name: node_name,
+                        ext_type: ext_type,
+                        number: number
+                    },
+                    success: function(data) {
+                        window.location.reload();
+                        //$('td[data-field="Extension number"]').find('span:contains('+data+')').parent().parent().remove()
+                    }
+                })
+            }
+        }));
+    })
+
+    $('a[data-action=new_phone_menu_extension]').on('click', function() {
+        $.get('<%= new_phone_menu_extention_appoinments_scheduling_index_path %>', {
+            ivr_id: $('input[name=ivr_id]').val(),
+            hours_type: $('a.phone-menu-close-hours').hasClass('active') ? 'close' : 'open'
+        }, function(resp) {
+            const data = resp.extension_data;
+
+            $('div#kt_modal_phone_menu_extension .modal-title').html(data.action_type);
+            $('select#select_action').html('');
+            let extension_action_data = [];
+            $.each(data.actions, function(index, value) {
+                let action_data = {};
+                action_data['id'] = value[1];
+                action_data['text'] = value[0];
+                extension_action_data.push(action_data);
+            })
+            $('select#select_action').select2({ data: extension_action_data});
+            $('select#select_action').select2().val(data.actions[0][1]).trigger('change').trigger('select2:select');
+
+            // extension number
+            $('select#extension_number_select').html('');
+            let extension_number_data = [];
+            data.available_ext.sort();
+            $.each(data.available_ext, function(index, value) {
+                let number_data = {};
+                number_data['id'] = value;
+                number_data['text'] = value;
+                extension_number_data.push(number_data);
+            })
+            $('select#extension_number_select').select2({ data: extension_number_data});
+            $('input#previous_ext').val('');
+
+
+            $('input#extension_title').val('');
+
+            // extension user
+            $('select#user_select').html('');
+            let extension_user_data = [];
+            $.each(data.available_users, function(index, value) {
+                let user_data = {};
+                user_data['id'] = value.id;
+                user_data['text'] = value.name;
+                user_data['email'] = value.email;
+                user_data['number'] = value.number;
+                user_data['sip'] = value.sip;
+                extension_user_data.push(user_data);
+            })
+            $('select#user_select').select2({ data: extension_user_data });
+
+            $('input#transfer_call_toggle_say_checkbox').prop('checked', false);
+            $('div#transfer_call_say_text').hide();
+
+            $('textarea#add_message').val("<%= I18n.t('static_ivr.your_call_being_transfer') %>");
+            $('select#time_out_select').select2().val(null).trigger('change');
+            $('textarea#extension_message_before_call2').val(data.message_before_call2);
+
+        })
+    });
+
+    $('a.kt_alert_edit_menu_option').on('click', function() {
+        $.get('<%= get_phone_menu_extention_appoinments_scheduling_index_path %>', {
+            ivr_id: $('input[name=ivr_id]').val(),
+            node_name: this.getAttribute('data-node'),
+            ext_type: this.getAttribute('data-nodeType')
+        }, function(resp){
+            const data = resp.extension_data;
+
+            $('div#kt_modal_phone_menu_extension .modal-title').html(data.action_type);
+            $('input#transfer_call_toggle_say_checkbox').prop('checked', data.message_before_call_enabled);
+            if (data.message_before_call_enabled)
+                $('div#transfer_call_say_text').show();
+            else
+                $('div#transfer_call_say_text').hide();
+
+            $('select#select_action').html('');
+            let extension_action_data = [];
+            $.each(data.actions, function(index, value) {
+                let action_data = {};
+                action_data['id'] = value[1];
+                action_data['text'] = value[0];
+                extension_action_data.push(action_data);
+            })
+            $('select#select_action').select2({ data: extension_action_data});
+            $('select#select_action').select2().val(data.action).trigger('change').trigger('select2:select');
+
+
+
+            // extension number
+            $('select#extension_number_select').html('');
+            let extension_number_data = [];
+            data.available_ext.sort();
+            $.each(data.available_ext, function(index, value) {
+                let number_data = {};
+                number_data['id'] = value;
+                number_data['text'] = value;
+                extension_number_data.push(number_data);
+            })
+            $('select#extension_number_select').select2({ data: extension_number_data});
+            $('select#extension_number_select').select2().val(data.number).trigger('change');
+            $('input#previous_ext').val(data.number);
+
+
+            $('input#extension_title').val(data.title);
+
+            // extension user
+            $('select#user_select').html('');
+            let extension_user_data = [];
+            $.each(data.available_users, function(index, value) {
+                let user_data = {};
+                user_data['id'] = value.id;
+                user_data['text'] = value.name;
+                user_data['email'] = value.email;
+                user_data['number'] = value.number;
+                user_data['sip'] = value.sip;
+                extension_user_data.push(user_data);
+            })
+            $('select#user_select').select2({ data: extension_user_data });
+            $('select#user_select').select2().val(data.users).trigger('change');
+
+            $('textarea#add_message').val(data.message_before_call);
+            $('select#time_out_select').select2().val(data.timeout + ' sec.').trigger('change');
+            $('textarea#extension_message_before_call2').val(data.message_before_call2);
+        })
+    })
+
+    $('input[name=enable_ai_bot]').on('change', function() {
+        if ($(this).prop('checked')) {
+            $('input[name=enable_ai_bot_value]').val(true);
+            $('a[href="#kt_tab_pane_custom_texts"]').prev().removeClass('d-none');
+            $('a[href="#kt_tab_pane_custom_texts"]').addClass('disabled');
+        }
+        else {
+            $('input[name=enable_ai_bot_value]').val(false);
+            $('a[href="#kt_tab_pane_custom_texts"]').prev().addClass('d-none');
+            $('a[href="#kt_tab_pane_custom_texts"]').removeClass('disabled');
+        }
+    })
+
+    $('label.enable_ai_bot_section').on('click', function() {
+        if ($('input[name=enable_ai_bot]').prop('disabled')) {
+            $('div#kt_modal_upgrade_plan').modal('show');
+        }
+    })
+</script>

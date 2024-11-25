@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <%= google_tag_manager_script_tag('voxiplan') %>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, , shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Voxiplan</title>
+    <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js" %>
+    <script>
+      WebFont.load({ google: {"families":["Poppins:300,400,500,600,700","Roboto:300,400,500,600,700"]}, active: function() {sessionStorage.fonts = true;}});
+    </script>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'voxiplan_favicon.png' %>
+  </head>
+  <body>
+  <%= google_tag_manager_noscript_tag('voxiplan') %>
+    <div class="container">
+      <div class="row justify-content-center" style="margin-top: 10% !important;">
+        <div class="col-md-6 card">
+          <% if current_client.present?%>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6 text-center">
+                  <p style="margin:0;"><b>Timify account</b></p>
+                  <p style="margin-top:0;"><%= @timify_webhook_record.email %></p>
+                </div>
+                <div class="col-md-6 text-center">
+                  <p style="margin:0;"><b>Voxiplan account</b></p>
+                  <p style="margin-top:0;"><%= current_client.email %></p>
+                </div>
+              </div>
+              <div class="card card-body">
+                <div class="row">
+                  <div class="col-md-4 text-center"><%= image_tag("timify_logo.png", :alt => "Timify icon", width: '50%', style: 'text-align: center;') %></div>
+                  <div class="col-md-4 text-center"><%= image_tag("exchange_arrow2.png", :alt => "Timify icon", width: '50%', align: 'center') %></div>
+                  <div class="col-md-4 text-center align-self-center"><%= image_tag("voxiai-logo.png", :alt => "Voxiplan icon", width: '100%', style: "line-height: 45px;") %></div>
+                </div>
+              </div>
+
+              <p class="card-text text-center"><b> Connect your Timify account with Voxiplan? </b></p>
+              <div class="row justify-content-center">
+                <%= link_to "Connect", same_client_timify_credential_index_path, :class => "btn btn-success card-link" %>
+                <%= link_to "Not Me", different_client_timify_credential_index_path, :class => "btn btn-info card-link" %>
+                <%= link_to "Cancel", cancel_process_timify_credential_index_path, :class => "btn btn-danger card-link" %>
+              </div>
+            </div>
+          <% else%>
+            <% ENV['ORY_URL'] + '/self-service/login/browser' %>
+          <% end -%>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

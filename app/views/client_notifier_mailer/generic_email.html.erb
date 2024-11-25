@@ -1,0 +1,5 @@
+<% if @invalid_email_content.blank? %>
+  <%= @email_body.html_safe %>
+<% else %>
+  <%= @invalid_email_content %>
+<% end %>

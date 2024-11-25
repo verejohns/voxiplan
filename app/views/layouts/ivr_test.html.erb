@@ -1,0 +1,35 @@
+<html>
+<head>
+  <%= javascript_include_tag 'application.js', 'data-turbolinks-track' => true %>
+</head>
+<body>
+<% if res['Gather'] %>
+  Ask: <%= ask_say %>
+  <br><input type="text" , id="test_input">
+<% elsif res['Record'] %>
+  Say: <%= say %>
+  <br><input type="text" , id="test_input">
+<% else %>
+  Say: <%= say %>
+<% end %>
+
+<br>
+<a class="" id="next_url_link" href="<%= next_url %>">NEXT</a>
+<h1>XML</h1>
+<code>
+  <%= @resp %>
+</code>
+
+<script>
+    $("body").on("keyup", "#test_input", function () {
+        console.log(this.value);
+        var url = $('#next_url_link')
+        var urlParams = new URLSearchParams(url.attr('href').split('?')[1]);
+        urlParams.set('test_input', this.value);
+        urlParams.set('web', 1);
+        url.attr('href', url.attr('href').split('?')[0] + '?' + urlParams.toString())
+    });
+
+</script>
+</body>
+</html>

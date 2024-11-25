@@ -1,0 +1,3335 @@
+voices:
+  - :voice: af-ZA-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: af-ZA
+    :language: Afrikaans
+    :language_en: Afrikaans, South Africa
+    :tts: google
+  - :voice: Polly.Zeina
+    :title: Zeina, Female (Premium)
+    :gender: FEMALE
+    :locale: arb
+    :language: العربية (al arabiya)
+    :language_en: Arabic
+    :tts: twilio
+  - :voice: ar-XA-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: ar-XA
+    :language: العربية (al arabiya)
+    :language_en: Arabic
+    :tts: google
+  - :voice: ar-XA-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: ar-XA
+    :language: العربية (al arabiya)
+    :language_en: Arabic
+    :tts: google
+  - :voice: ar-XA-Standard-C
+    :title: Vox-C, Male (Premium)
+    :gender: MALE
+    :locale: ar-XA
+    :language: العربية (al arabiya)
+    :language_en: Arabic
+    :tts: google
+  - :voice: ar-XA-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: ar-XA
+    :language: العربية (al arabiya)
+    :language_en: Arabic
+    :tts: google
+  - :voice: ar-XA-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: ar-XA
+    :language: العربية (al arabiya)
+    :language_en: Arabic
+    :tts: google
+  - :voice: ar-XA-Wavenet-C
+    :title: Vox-C, Male (Premium-Neural)
+    :gender: MALE
+    :locale: ar-XA
+    :language: العربية (al arabiya)
+    :language_en: Arabic
+    :tts: google
+  - :voice: ar-XA-Wavenet-D
+    :title: Vox-D, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: ar-XA
+    :language: العربية (al arabiya)
+    :language_en: Arabic
+    :tts: google
+  - :voice: ar-XA-Standard-D
+    :title: Vox-D, Female (Premium)
+    :gender: FEMALE
+    :locale: ar-XA
+    :language: العربية (al arabiya)
+    :language_en: Arabic
+    :tts: google
+  - :voice: bn-IN-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: bn-IN
+    :language: বাংলা (baɛṅlā)
+    :language_en: Bengali, India
+    :tts: google
+  - :voice: bn-IN-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: bn-IN
+    :language: বাংলা (baɛṅlā)
+    :language_en: Bengali, India
+    :tts: google
+  - :voice: bn-IN-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: bn-IN
+    :language: বাংলা (baɛṅlā)
+    :language_en: Bengali, India
+    :tts: google
+  - :voice: bn-IN-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: bn-IN
+    :language: বাংলা (baɛṅlā)
+    :language_en: Bengali, India
+    :tts: google
+  - :voice: bg-BG-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: bg-BG
+    :language: български (bãlgarski)
+    :language_en: Bulgarian, Bulgaria
+    :tts: google
+  - :voice: alice
+    :title: Laura, Female
+    :gender: Female
+    :locale: ca-ES
+    :language: Català
+    :language_en: Catalan, Spain
+    :tts: twilio
+  - :voice: Polly.Arlet-Neural
+    :title: Arlet, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: ca-ES
+    :language: Català
+    :language_en: Catalan, Spain
+    :tts: twilio
+  - :voice: ca-ES-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: ca-ES
+    :language: Català
+    :language_en: Catalan, Spain
+    :tts: google
+  - :voice: alice
+    :title: Laura, Female
+    :gender: Female
+    :locale: zh-HK
+    :language: 粤语中文 (yuèyǔ zhōngwén)
+    :language_en: Chinese, Cantonese
+    :tts: twilio
+  - :voice: Polly.Hiujin-Neural
+    :title: Hiujin, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: yue-CN
+    :language: 粤语中文 (yuèyǔ zhōngwén)
+    :language_en: Chinese, Cantonese
+    :tts: twilio
+  - :voice: yue-HK-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: yue-HK
+    :language: 香港廣東話 (香港話)
+    :language_en: Chinese, Hong Kong
+    :tts: google
+  - :voice: yue-HK-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: yue-HK
+    :language: 香港廣東話 (香港話)
+    :language_en: Chinese, Hong Kong
+    :tts: google
+  - :voice: yue-HK-Standard-C
+    :title: Vox-C, Female (Premium)
+    :gender: FEMALE
+    :locale: yue-HK
+    :language: 香港廣東話 (香港話)
+    :language_en: Chinese, Hong Kong
+    :tts: google
+  - :voice: yue-HK-Standard-D
+    :title: Vox-D, Male (Premium)
+    :gender: MALE
+    :locale: yue-HK
+    :language: 香港廣東話 (香港話)
+    :language_en: Chinese, Hong Kong
+    :tts: google
+  - :voice: alice
+    :title: Laura, Female
+    :gender: Female
+    :locale: zh-CN
+    :language: 普通话中文 (pǔtōnghuà zhōngwén)
+    :language_en: Chinese, Mandarin
+    :tts: twilio
+  - :voice: Polly.Zhiyu
+    :title: Zhiyu, Female (Premium)
+    :gender: Female
+    :locale: cmn-CN
+    :language: 简体中文 (jiǎntǐ zhōngwén)
+    :language_en: Chinese, Mandarin (Simplified)
+    :tts: twilio
+  - :voice: cmn-CN-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: cmn-CN
+    :language: 简体中文 (jiǎntǐ zhōngwén)
+    :language_en: Chinese, Mandarin (Simplified)
+    :tts: google
+  - :voice: cmn-CN-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: cmn-CN
+    :language: 简体中文 (jiǎntǐ zhōngwén)
+    :language_en: Chinese, Mandarin (Simplified)
+    :tts: google
+  - :voice: cmn-CN-Standard-C
+    :title: Vox-C, Male (Premium)
+    :gender: MALE
+    :locale: cmn-CN
+    :language: 简体中文 (jiǎntǐ zhōngwén)
+    :language_en: Chinese, Mandarin (Simplified)
+    :tts: google
+  - :voice: cmn-CN-Standard-D
+    :title: Vox-D, Female (Premium)
+    :gender: FEMALE
+    :locale: cmn-CN
+    :language: 简体中文 (jiǎntǐ zhōngwén)
+    :language_en: Chinese, Mandarin (Simplified)
+    :tts: google
+  - :voice: cmn-CN-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: cmn-CN
+    :language: 简体中文 (jiǎntǐ zhōngwén)
+    :language_en: Chinese, Mandarin (Simplified)
+    :tts: google
+  - :voice: cmn-CN-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: cmn-CN
+    :language: 简体中文 (jiǎntǐ zhōngwén)
+    :language_en: Chinese, Mandarin (Simplified)
+    :tts: google
+  - :voice: cmn-CN-Wavenet-C
+    :title: Vox-C, Male (Premium-Neural)
+    :gender: MALE
+    :locale: cmn-CN
+    :language: 简体中文 (jiǎntǐ zhōngwén)
+    :language_en: Chinese, Mandarin (Simplified)
+    :tts: google
+  - :voice: cmn-CN-Wavenet-D
+    :title: Vox-D, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: cmn-CN
+    :language: 简体中文 (jiǎntǐ zhōngwén)
+    :language_en: Chinese, Mandarin (Simplified)
+    :tts: google
+  - :voice: cmn-TW-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: cmn-TW
+    :language: 简体中文 (fántǐ zhōngwén)
+    :language_en: Chinese, Mandarin (Traditional)
+    :tts: google
+  - :voice: cmn-TW-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: cmn-TW
+    :language: 简体中文 (fántǐ zhōngwén)
+    :language_en: Chinese, Mandarin (Traditional)
+    :tts: google
+  - :voice: cmn-TW-Standard-C
+    :title: Vox-C, Male (Premium)
+    :gender: MALE
+    :locale: cmn-TW
+    :language: 简体中文 (fántǐ zhōngwén)
+    :language_en: Chinese, Mandarin (Traditional)
+    :tts: google
+  - :voice: cmn-TW-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: cmn-TW
+    :language: 简体中文 (fántǐ zhōngwén)
+    :language_en: Chinese, Mandarin (Traditional)
+    :tts: google
+  - :voice: cmn-TW-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: cmn-TW
+    :language: 简体中文 (fántǐ zhōngwén)
+    :language_en: Chinese, Mandarin (Traditional)
+    :tts: google
+  - :voice: cmn-TW-Wavenet-C
+    :title: Vox-C, Male (Premium-Neural)
+    :gender: MALE
+    :locale: cmn-TW
+    :language: 简体中文 (fántǐ zhōngwén)
+    :language_en: Chinese, Mandarin (Traditional)
+    :tts: google
+  - :voice: alice
+    :title: Laura, Female
+    :gender: Female
+    :locale: zh-TW
+    :language: 台湾中文 (táiwān zhōngwén)
+    :language_en: Chinese, Taiwanese Mandarin
+    :tts: twilio
+  - :voice: cs-CZ-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: cs-CZ
+    :language: Čeština, Česká republika
+    :language_en: Czech, Czech Republic
+    :tts: google
+  - :voice: cs-CZ-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: cs-CZ
+    :language: Čeština, Česká republika
+    :language_en: Czech, Czech Republic
+    :tts: google
+  - :voice: alice
+    :title: Laura, Female
+    :gender: Female
+    :locale: da-DK
+    :language: Dansk, Danmark
+    :language_en: Danish, Denmark
+    :tts: twilio
+  - :voice: Polly.Mads
+    :title: Mads, Male (Premium)
+    :gender: Male
+    :locale: da-DK
+    :language: Dansk, Danmark
+    :language_en: Danish, Denmark
+    :tts: twilio
+  - :voice: Polly.Naja
+    :title: Naja, Female (Premium)
+    :gender: Female
+    :locale: da-DK
+    :language: Dansk, Danmark
+    :language_en: Danish, Denmark
+    :tts: twilio
+  - :voice: da-DK-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: da-DK
+    :language: Dansk, Danmark
+    :language_en: Danish, Denmark
+    :tts: google
+  - :voice: da-DK-Standard-C
+    :title: Vox-C, Male (Premium)
+    :gender: MALE
+    :locale: da-DK
+    :language: Dansk, Danmark
+    :language_en: Danish, Denmark
+    :tts: google
+  - :voice: da-DK-Standard-D
+    :title: Vox-D, Female (Premium)
+    :gender: FEMALE
+    :locale: da-DK
+    :language: Dansk, Danmark
+    :language_en: Danish, Denmark
+    :tts: google
+  - :voice: da-DK-Standard-E
+    :title: Vox-E, Female (Premium)
+    :gender: FEMALE
+    :locale: da-DK
+    :language: Dansk, Danmark
+    :language_en: Danish, Denmark
+    :tts: google
+  - :voice: da-DK-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: da-DK
+    :language: Dansk, Danmark
+    :language_en: Danish, Denmark
+    :tts: google
+  - :voice: da-DK-Wavenet-C
+    :title: Vox-C, Male (Premium-Neural)
+    :gender: MALE
+    :locale: da-DK
+    :language: Dansk, Danmark
+    :language_en: Danish, Denmark
+    :tts: google
+  - :voice: da-DK-Wavenet-D
+    :title: Vox-D, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: da-DK
+    :language: Dansk, Danmark
+    :language_en: Danish, Denmark
+    :tts: google
+  - :voice: da-DK-Wavenet-E
+    :title: Vox-E, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: da-DK
+    :language: Dansk, Danmark
+    :language_en: Danish, Denmark
+    :tts: google
+  - :voice: nl-BE-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: nl-BE
+    :language: Nederlands, België
+    :language_en: Dutch, Belgium
+    :tts: google
+  - :voice: nl-BE-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: nl-BE
+    :language: Nederlands, België
+    :language_en: Dutch, Belgium
+    :tts: google
+  - :voice: nl-BE-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: nl-BE
+    :language: Nederlands, België
+    :language_en: Dutch, Belgium
+    :tts: google
+  - :voice: nl-BE-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: nl-BE
+    :language: Nederlands, België
+    :language_en: Dutch, Belgium
+    :tts: google
+  - :voice: alice
+    :title: Laura, Female
+    :gender: Female
+    :locale: nl-NL
+    :language: Nederlands, Nederland
+    :language_en: Dutch, Netherlands
+    :tts: twilio
+  - :voice: Polly.Ruben
+    :title: Ruben, Male (Premium)
+    :gender: Male
+    :locale: nl-NL
+    :language: Nederlands, Nederland
+    :language_en: Dutch, Netherlands
+    :tts: twilio
+  - :voice: Polly.Lotte
+    :title: Lotte, Female (Premium)
+    :gender: Female
+    :locale: nl-NL
+    :language: Nederlands, Nederland
+    :language_en: Dutch, Netherlands
+    :tts: twilio
+  - :voice: Polly.Laura-Neural
+    :title: Laura, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: nl-NL
+    :language: Nederlands, Nederland
+    :language_en: Dutch, Netherlands
+    :tts: twilio
+  - :voice: nl-NL-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: nl-NL
+    :language: Nederlands, Nederland
+    :language_en: Dutch, Netherlands
+    :tts: google
+  - :voice: nl-NL-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: nl-NL
+    :language: Nederlands, Nederland
+    :language_en: Dutch, Netherlands
+    :tts: google
+  - :voice: nl-NL-Standard-C
+    :title: Vox-C, Male (Premium)
+    :gender: MALE
+    :locale: nl-NL
+    :language: Nederlands, Nederland
+    :language_en: Dutch, Netherlands
+    :tts: google
+  - :voice: nl-NL-Standard-D
+    :title: Vox-D, Female (Premium)
+    :gender: FEMALE
+    :locale: nl-NL
+    :language: Nederlands, Nederland
+    :language_en: Dutch, Netherlands
+    :tts: google
+  - :voice: nl-NL-Standard-E
+    :title: Vox-E, Female (Premium)
+    :gender: FEMALE
+    :locale: nl-NL
+    :language: Nederlands, Nederland
+    :language_en: Dutch, Netherlands
+    :tts: google
+  - :voice: nl-NL-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: nl-NL
+    :language: Nederlands, Nederland
+    :language_en: Dutch, Netherlands
+    :tts: google
+  - :voice: nl-NL-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: nl-NL
+    :language: Nederlands, Nederland
+    :language_en: Dutch, Netherlands
+    :tts: google
+  - :voice: nl-NL-Wavenet-C
+    :title: Vox-C, Male (Premium-Neural)
+    :gender: MALE
+    :locale: nl-NL
+    :language: Nederlands, Nederland
+    :language_en: Dutch, Netherlands
+    :tts: google
+  - :voice: nl-NL-Wavenet-D
+    :title: Vox-D, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: nl-NL
+    :language: Nederlands, Nederland
+    :language_en: Dutch, Netherlands
+    :tts: google
+  - :voice: nl-NL-Wavenet-E
+    :title: Vox-E, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: nl-NL
+    :language: Nederlands, Nederland
+    :language_en: Dutch, Netherlands
+    :tts: google
+  - :voice: alice
+    :title: Laura, Female
+    :gender: Female
+    :locale: en-AU
+    :language: English, Australia
+    :tts: twilio
+  - :voice: Polly.Nicole
+    :title: Nicole, Female (Premium)
+    :gender: Female
+    :locale: en-AU
+    :language: English, Australia
+    :tts: twilio
+  - :voice: Polly.Russell
+    :title: Russell, Male (Premium)
+    :gender: Male
+    :locale: en-AU
+    :language: English, Australia
+    :tts: twilio
+  - :voice: Polly.Olivia-Neural
+    :title: Olivia, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: en-AU
+    :language: English, Australia
+    :tts: twilio
+  - :voice: en-AU-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: en-AU
+    :language: English, Australia
+    :tts: google
+  - :voice: en-AU-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: en-AU
+    :language: English, Australia
+    :tts: google
+  - :voice: en-AU-Standard-C
+    :title: Vox-C, Female (Premium)
+    :gender: FEMALE
+    :locale: en-AU
+    :language: English, Australia
+    :tts: google
+  - :voice: en-AU-Standard-D
+    :title: Vox-D, Male (Premium)
+    :gender: MALE
+    :locale: en-AU
+    :language: English, Australia
+    :tts: google
+  - :voice: en-AU-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: en-AU
+    :language: English, Australia
+    :tts: google
+  - :voice: en-AU-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: en-AU
+    :language: English, Australia
+    :tts: google
+  - :voice: en-AU-Wavenet-C
+    :title: Vox-C, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: en-AU
+    :language: English, Australia
+    :tts: google
+  - :voice: en-AU-Wavenet-D
+    :title: Vox-D, Male (Premium-Neural)
+    :gender: MALE
+    :locale: en-AU
+    :language: English, Australia
+    :tts: google
+  - :voice: en-AU-Neural2-A
+    :title: Vox-A, Female (Premium-Neural2)
+    :gender: FEMALE
+    :locale: en-AU
+    :language: English, Australia
+    :tts: google
+  - :voice: en-AU-Neural2-B
+    :title: Vox-B, Male (Premium-Neural2)
+    :gender: MALE
+    :locale: en-AU
+    :language: English, Australia
+    :tts: google
+  - :voice: en-AU-Neural2-C
+    :title: Vox-C, Female (Premium-Neural2)
+    :gender: FEMALE
+    :locale: en-AU
+    :language: English, Australia
+    :tts: google
+  - :voice: en-AU-Neural2-D
+    :title: Vox-D, Male (Premium-Neural2)
+    :gender: MALE
+    :locale: en-AU
+    :language: English, Australia
+    :tts: google
+  - :voice: alice
+    :title: Laura, Female
+    :gender: Female
+    :locale: en-GB
+    :language: English, British
+    :tts: twilio
+  - :voice: woman
+    :title: Basic, Female
+    :gender: Female
+    :locale: en-GB
+    :language: English, British
+    :tts: twilio
+  - :voice: man
+    :title: Basic, Male
+    :gender: Male
+    :locale: en-GB
+    :language: English, British
+    :tts: twilio
+  - :voice: Polly.Amy
+    :title: Amy, Female (Premium)
+    :gender: Female
+    :locale: en-GB
+    :language: English, British
+    :tts: twilio
+  - :voice: Polly.Brian
+    :title: Brian, Male (Premium)
+    :gender: Male
+    :locale: en-GB
+    :language: English, British
+    :tts: twilio
+  - :voice: Polly.Emma
+    :title: Emma, Female (Premium)
+    :gender: Female
+    :locale: en-GB
+    :language: English, British
+    :tts: twilio
+  - :voice: Polly.Amy-Neural
+    :title: Amy, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: en-GB
+    :language: English, British
+    :tts: twilio
+  - :voice: Polly.Brian-Neural
+    :title: Brian, Male (Premium-Neural)
+    :gender: MALE
+    :locale: en-GB
+    :language: English, British
+    :tts: twilio
+  - :voice: Polly.Emma-Neural
+    :title: Emma, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: en-GB
+    :language: English, British
+    :tts: twilio
+  - :voice: Polly.Arthur-Neural
+    :title: Arthur, Male (Premium-Neural)
+    :gender: MALE
+    :locale: en-GB
+    :language: English, British
+    :tts: twilio
+  - :voice: en-GB-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: en-GB
+    :language: English, British
+    :tts: google
+  - :voice: en-GB-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: en-GB
+    :language: English, British
+    :tts: google
+  - :voice: en-GB-Standard-C
+    :title: Vox-C, Female (Premium)
+    :gender: FEMALE
+    :locale: en-GB
+    :language: English, British
+    :tts: google
+  - :voice: en-GB-Standard-D
+    :title: Vox-D, Male (Premium)
+    :gender: MALE
+    :locale: en-GB
+    :language: English, British
+    :tts: google
+  - :voice: en-GB-Standard-F
+    :title: Vox-F, Female (Premium)
+    :gender: FEMALE
+    :locale: en-GB
+    :language: English, British
+    :tts: google
+  - :voice: Polly.Amy-Neural
+    :title: Amy, Female (Premium-Neural)
+    :gender: Female
+    :locale: en-GB
+    :language: English, British
+    :tts: twilio
+  - :voice: Polly.Brian-Neural
+    :title: Brian, Male (Premium-Neural)
+    :gender: Male
+    :locale: en-GB
+    :language: English, British
+    :tts: twilio
+  - :voice: Polly.Emma-Neural
+    :title: Emma, Female (Premium-Neural)
+    :gender: Female
+    :locale: en-GB
+    :language: English, British
+    :tts: twilio
+  - :voice: en-GB-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: en-GB
+    :language: English, British
+    :tts: google
+  - :voice: en-GB-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: en-GB
+    :language: English, British
+    :tts: google
+  - :voice: en-GB-Wavenet-C
+    :title: Vox-C, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: en-GB
+    :language: English, British
+    :tts: google
+  - :voice: en-GB-Wavenet-D
+    :title: Vox-D, Male (Premium-Neural)
+    :gender: MALE
+    :locale: en-GB
+    :language: English, British
+    :tts: google
+  - :voice: en-GB-Neural2-A
+    :title: Vox-A, Female (Premium-Neural2)
+    :gender: FEMALE
+    :locale: en-GB
+    :language: English, British
+    :tts: google
+  - :voice: en-GB-Neural2-B
+    :title: Vox-B, Male (Premium-Neural2)
+    :gender: MALE
+    :locale: en-GB
+    :language: English, British
+    :tts: google
+  - :voice: en-GB-Neural2-C
+    :title: Vox-C, Female (Premium-Neural2)
+    :gender: FEMALE
+    :locale: en-GB
+    :language: English, British
+    :tts: google
+  - :voice: en-GB-Neural2-D
+    :title: Vox-D, Male (Premium-Neural2)
+    :gender: MALE
+    :locale: en-GB
+    :language: English, British
+    :tts: google
+  - :voice: en-GB-Neural2-F
+    :title: Vox-F, Female (Premium-Neural2)
+    :gender: FEMALE
+    :locale: en-GB
+    :language: English, British
+    :tts: google
+  - :voice: alice
+    :title: Laura, Female
+    :gender: Female
+    :locale: en-CA
+    :language: English, Canada
+    :tts: twilio
+  - :voice: alice
+    :title: Laura, Female
+    :gender: Female
+    :locale: en-IN
+    :language: English, India
+    :tts: twilio
+  - :voice: Polly.Raveena
+    :title: Raveena, Female (Premium)
+    :gender: Female
+    :locale: en-IN
+    :language: English, India
+    :tts: twilio
+  - :voice: Polly.Aditi
+    :title: Aditi, Female (Premium)
+    :gender: Female
+    :locale: en-IN
+    :language: English, India
+    :tts: twilio
+  - :voice: Polly.Kajal-Neural
+    :title: Kajal, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: en-IN
+    :language: English, India
+    :tts: twilio
+  - :voice: en-IN-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: en-IN
+    :language: English, India
+    :tts: google
+  - :voice: en-IN-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: en-IN
+    :language: English, India
+    :tts: google
+  - :voice: en-IN-Standard-C
+    :title: Vox-C, Male (Premium)
+    :gender: MALE
+    :locale: en-IN
+    :language: English, India
+    :tts: google
+  - :voice: en-IN-Standard-D
+    :title: Vox-D, Female (Premium)
+    :gender: FEMALE
+    :locale: en-IN
+    :language: English, India
+    :tts: google
+  - :voice: en-IN-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: en-IN
+    :language: English, India
+    :tts: google
+  - :voice: en-IN-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: en-IN
+    :language: English, India
+    :tts: google
+  - :voice: en-IN-Wavenet-C
+    :title: Vox-C, Male (Premium-Neural)
+    :gender: MALE
+    :locale: en-IN
+    :language: English, India
+    :tts: google
+  - :voice: en-IN-Wavenet-D
+    :title: Vox-D, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: en-IN
+    :language: English, India
+    :tts: google
+  - :voice: Polly.Aria-Neural
+    :title: Aria, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: en-NZ
+    :language: English, New Zealand
+    :tts: twilio
+  - :voice: Polly.Ayanda-Neural
+    :title: Ayanda, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: en-ZA
+    :language: English, South African
+    :tts: twilio
+  - :voice: alice
+    :title: Laura, Female
+    :gender: Female
+    :locale: en-US
+    :language: English, US
+    :tts: twilio
+  - :voice: woman
+    :title: Basic, Female
+    :gender: Female
+    :locale: en
+    :language: English, US
+    :tts: twilio
+  - :voice: man
+    :title: Basic, Male
+    :gender: Male
+    :locale: en
+    :language: English, US
+    :tts: twilio
+  - :voice: Polly.Ivy
+    :title: Ivy, Female (Premium)
+    :gender: Female
+    :locale: en-US
+    :language: English, US
+    :tts: twilio
+  - :voice: Polly.Joanna
+    :title: Joanna, Female (Premium)
+    :gender: Female
+    :locale: en-US
+    :language: English, US
+    :tts: twilio
+  - :voice: Polly.Joey
+    :title: Joey, Male (Premium)
+    :gender: Male
+    :locale: en-US
+    :language: English, US
+    :tts: twilio
+  - :voice: Polly.Justin
+    :title: Justin, Male (Premium)
+    :gender: Male
+    :locale: en-US
+    :language: English, US
+    :tts: twilio
+  - :voice: Polly.Kendra
+    :title: Kendra, Female (Premium)
+    :gender: Female
+    :locale: en-US
+    :language: English, US
+    :tts: twilio
+  - :voice: Polly.Kimberly
+    :title: Kimberly, Female (Premium)
+    :gender: Female
+    :locale: en-US
+    :language: English, US
+    :tts: twilio
+  - :voice: Polly.Matthew
+    :title: Matthew, Male (Premium)
+    :gender: Male
+    :locale: en-US
+    :language: English, US
+    :tts: twilio
+  - :voice: Polly.Salli
+    :title: Salli, Female (Premium)
+    :gender: Female
+    :locale: en-US
+    :language: English, US
+    :tts: twilio
+  - :voice: Polly.Ivy-Neural
+    :title: Ivy, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: en-US
+    :language: English, US
+    :tts: twilio
+  - :voice: Polly.Joanna-Neural
+    :title: Joanna, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: en-US
+    :language: English, US
+    :tts: twilio
+  - :voice: Polly.Joey-Neural
+    :title: Joey, Male (Premium-Neural)
+    :gender: MALE
+    :locale: en-US
+    :language: English, US
+    :tts: twilio
+  - :voice: Polly.Justin-Neural
+    :title: Justin, Male (Premium-Neural)
+    :gender: MALE
+    :locale: en-US
+    :language: English, US
+    :tts: twilio
+  - :voice: Polly.Kendra-Neural
+    :title: Kendra, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: en-US
+    :language: English, US
+    :tts: twilio
+  - :voice: Polly.Kimberly-Neural
+    :title: Kimberly, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: en-US
+    :language: English, US
+    :tts: twilio
+  - :voice: Polly.Matthew-Neural
+    :title: Matthew, Male (Premium-Neural)
+    :gender: MALE
+    :locale: en-US
+    :language: English, US
+    :tts: twilio
+  - :voice: Polly.Salli-Neural
+    :title: Salli, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: en-US
+    :language: English, US
+    :tts: twilio
+  - :voice: Polly.Kevin-Neural
+    :title: Kevin, Male (Premium-Neural)
+    :gender: MALE
+    :locale: en-US
+    :language: English, US
+    :tts: twilio
+  - :voice: en-US-Standard-A
+    :title: Vox-A, Male (Premium)
+    :gender: MALE
+    :locale: en-US
+    :language: English, US
+    :tts: google
+  - :voice: en-US-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: en-US
+    :language: English, US
+    :tts: google
+  - :voice: en-US-Standard-C
+    :title: Vox-C, Female (Premium)
+    :gender: FEMALE
+    :locale: en-US
+    :language: English, US
+    :tts: google
+  - :voice: en-US-Standard-D
+    :title: Vox-D, Male (Premium)
+    :gender: MALE
+    :locale: en-US
+    :language: English, US
+    :tts: google
+  - :voice: en-US-Standard-E
+    :title: Vox-E, Female (Premium)
+    :gender: FEMALE
+    :locale: en-US
+    :language: English, US
+    :tts: google
+  - :voice: en-US-Standard-F
+    :title: Vox-F, Female (Premium)
+    :gender: FEMALE
+    :locale: en-US
+    :language: English, US
+    :tts: google
+  - :voice: en-US-Standard-G
+    :title: Vox-G, Female (Premium)
+    :gender: FEMALE
+    :locale: en-US
+    :language: English, US
+    :tts: google
+  - :voice: en-US-Standard-H
+    :title: Vox-H, Female (Premium)
+    :gender: FEMALE
+    :locale: en-US
+    :language: English, US
+    :tts: google
+  - :voice: en-US-Standard-I
+    :title: Vox-I, Male (Premium)
+    :gender: MALE
+    :locale: en-US
+    :language: English, US
+    :tts: google
+  - :voice: en-US-Standard-J
+    :title: Vox-J, Male (Premium)
+    :gender: MALE
+    :locale: en-US
+    :language: English, US
+    :tts: google
+  - :voice: Polly.Ivy-Neural
+    :title: Ivy, Female (Premium-Neural)
+    :gender: Female
+    :locale: en-US
+    :language: English, US
+    :tts: twilio
+  - :voice: Polly.Joanna-Neural
+    :title: Joanna, Female (Premium-Neural)
+    :gender: Female
+    :locale: en-US
+    :language: English, US
+    :tts: twilio
+  - :voice: Polly.Joey-Neural
+    :title: Joey, Male (Premium-Neural)
+    :gender: Male
+    :locale: en-US
+    :language: English, US
+    :tts: twilio
+  - :voice: Polly.Justin-Neural
+    :title: Justin, Male (Premium-Neural)
+    :gender: Male
+    :locale: en-US
+    :language: English, US
+    :tts: twilio
+  - :voice: Polly.Kendra-Neural
+    :title: Kendra, Female (Premium-Neural)
+    :gender: Female
+    :locale: en-US
+    :language: English, US
+    :tts: twilio
+  - :voice: Polly.Kimberly-Neural
+    :title: Kimberly, Female (Premium-Neural)
+    :gender: Female
+    :locale: en-US
+    :language: English, US
+    :tts: twilio
+  - :voice: Polly.Matthew-Neural
+    :title: Matthew, Male (Premium-Neural)
+    :gender: Male
+    :locale: en-US
+    :language: English, US
+    :tts: twilio
+  - :voice: Polly.Salli-Neural
+    :title: Salli, Female (Premium-Neural)
+    :gender: Female
+    :locale: en-US
+    :language: English, US
+    :tts: twilio
+  - :voice: en-US-Wavenet-A
+    :title: Vox-A, Male (Premium-Neural)
+    :gender: MALE
+    :locale: en-US
+    :language: English, US
+    :tts: google
+  - :voice: en-US-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: en-US
+    :language: English, US
+    :tts: google
+  - :voice: en-US-Wavenet-C
+    :title: Vox-C, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: en-US
+    :language: English, US
+    :tts: google
+  - :voice: en-US-Wavenet-D
+    :title: Vox-D, Male (Premium-Neural)
+    :gender: MALE
+    :locale: en-US
+    :language: English, US
+    :tts: google
+  - :voice: en-US-Wavenet-E
+    :title: Vox-E, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: en-US
+    :language: English, US
+    :tts: google
+  - :voice: en-US-Wavenet-F
+    :title: Vox-F, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: en-US
+    :language: English, US
+    :tts: google
+  - :voice: en-US-Wavenet-G
+    :title: Vox-G, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: en-US
+    :language: English, US
+    :tts: google
+  - :voice: en-US-Wavenet-H
+    :title: Vox-H, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: en-US
+    :language: English, US
+    :tts: google
+  - :voice: en-US-Wavenet-I
+    :title: Vox-I, Male (Premium-Neural)
+    :gender: MALE
+    :locale: en-US
+    :language: English, US
+    :tts: google
+  - :voice: en-US-Wavenet-J
+    :title: Vox-J, Male (Premium-Neural)
+    :gender: MALE
+    :locale: en-US
+    :language: English, US
+    :tts: google
+  - :voice: en-US-Neural2-A
+    :title: Vox-A, Male (Premium-Neural2)
+    :gender: MALE
+    :locale: en-US
+    :language: English, US
+    :tts: google
+  - :voice: en-US-Neural2-C
+    :title: Vox-C, Female (Premium-Neural2)
+    :gender: FEMALE
+    :locale: en-US
+    :language: English, US
+    :tts: google
+  - :voice: en-US-Neural2-D
+    :title: Vox-D, Male (Premium-Neural2)
+    :gender: MALE
+    :locale: en-US
+    :language: English, US
+    :tts: google
+  - :voice: en-US-Neural2-E
+    :title: Vox-E, Female (Premium-Neural2)
+    :gender: FEMALE
+    :locale: en-US
+    :language: English, US
+    :tts: google
+  - :voice: en-US-Neural2-F
+    :title: Vox-F, Female (Premium-Neural2)
+    :gender: FEMALE
+    :locale: en-US
+    :language: English, US
+    :tts: google
+#  - :voice: en-US-Neural2-G
+#    :title: Vox-G, Female (Premium-Neural2)
+#    :gender: FEMALE
+#    :locale: en-US
+#    :language: English, US
+#    :tts: google
+#  - :voice: en-US-Neural2-H
+#    :title: Vox-H, Female (Premium-Neural2)
+#    :gender: FEMALE
+#    :locale: en-US
+#    :language: English, US
+#    :tts: google
+#  - :voice: en-US-Neural2-I
+#    :title: Vox-I, Male (Premium-Neural2)
+#    :gender: MALE
+#    :locale: en-US
+#    :language: English, US
+#    :tts: google
+#  - :voice: en-US-Neural2-J
+#    :title: Vox-J, Male (Premium-Neural2)
+#    :gender: MALE
+#    :locale: en-US
+#    :language: English, US
+#    :tts: google
+  - :voice: Polly.Geraint
+    :title: Geraint, Male (Premium)
+    :gender: Male
+    :locale: en-GB-WLS
+    :language: English, Welsh
+    :tts: twilio
+  - :voice: fil-PH-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: fil-PH
+    :language: Filipino, Philippines
+    :tts: google
+  - :voice: fil-PH-Standard-B
+    :title: Vox-B, Female (Premium)
+    :gender: FEMALE
+    :locale: fil-PH
+    :language: Filipino, Philippines
+    :tts: google
+  - :voice: fil-PH-Standard-C
+    :title: Vox-C, Male (Premium)
+    :gender: MALE
+    :locale: fil-PH
+    :language: Filipino, Philippines
+    :tts: google
+  - :voice: fil-PH-Standard-D
+    :title: Vox-D, Male (Premium)
+    :gender: MALE
+    :locale: fil-PH
+    :language: Filipino, Philippines
+    :tts: google
+  - :voice: fil-PH-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: fil-PH
+    :language: Filipino, Philippines
+    :tts: google
+  - :voice: fil-PH-Wavenet-B
+    :title: Vox-B, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: fil-PH
+    :language: Filipino, Philippines
+    :tts: google
+  - :voice: fil-PH-Wavenet-C
+    :title: Vox-C, Male (Premium-Neural)
+    :gender: MALE
+    :locale: fil-PH
+    :language: Filipino, Philippines
+    :tts: google
+  - :voice: fil-PH-Wavenet-D
+    :title: Vox-D, Male (Premium-Neural)
+    :gender: MALE
+    :locale: fil-PH
+    :language: Filipino, Philippines
+    :tts: google
+  - :voice: alice
+    :title: Laura, Female
+    :gender: Female
+    :locale: fi-FI
+    :language: Suomi
+    :language_en: Finnish, Finland
+    :tts: twilio
+  - :voice: fi-FI-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: fi-FI
+    :language: Suomi
+    :language_en: Finnish, Finland
+    :tts: google
+  - :voice: fi-FI-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: fi-FI
+    :language: Suomi
+    :language_en: Finnish, Finland
+    :tts: google
+  - :voice: alice
+    :title: Laura, Female
+    :gender: Female
+    :locale: fr-FR
+    :language: Français
+    :language_en: French
+    :tts: twilio
+  - :voice: woman
+    :title: Basic, Female
+    :gender: Female
+    :locale: fr
+    :language: Français
+    :language_en: French
+    :tts: twilio
+  - :voice: man
+    :title: Basic, Male
+    :gender: Male
+    :locale: fr
+    :language: Français
+    :language_en: French
+    :tts: twilio
+  - :voice: Polly.Lea
+    :title: Lea, Female (Premium)
+    :gender: Female
+    :locale: fr-FR
+    :language: Français
+    :language_en: French
+    :tts: twilio
+  - :voice: Polly.Celine
+    :title: Céline, Female (Premium)
+    :gender: Female
+    :locale: fr-FR
+    :language: Français
+    :language_en: French
+    :tts: twilio
+  - :voice: Polly.Mathieu
+    :title: Mathieu, Male (Premium)
+    :gender: Male
+    :locale: fr-FR
+    :language: Français
+    :language_en: French
+    :tts: twilio
+  - :voice: fr-FR-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: fr-FR
+    :language: Français
+    :language_en: French
+    :tts: google
+  - :voice: fr-FR-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: fr-FR
+    :language: Français
+    :language_en: French
+    :tts: google
+  - :voice: fr-FR-Standard-C
+    :title: Vox-C, Female (Premium)
+    :gender: FEMALE
+    :locale: fr-FR
+    :language: Français
+    :language_en: French
+    :tts: google
+  - :voice: fr-FR-Standard-D
+    :title: Vox-D, Male (Premium)
+    :gender: MALE
+    :locale: fr-FR
+    :language: Français
+    :language_en: French
+    :tts: google
+  - :voice: fr-FR-Standard-E
+    :title: Vox-E, Female (Premium)
+    :gender: FEMALE
+    :locale: fr-FR
+    :language: Français
+    :language_en: French
+    :tts: google
+  - :voice: fr-FR-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: fr-FR
+    :language: Français
+    :language_en: French
+    :tts: google
+  - :voice: fr-FR-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: fr-FR
+    :language: Français
+    :language_en: French
+    :tts: google
+  - :voice: fr-FR-Wavenet-C
+    :title: Vox-C, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: fr-FR
+    :language: Français
+    :language_en: French
+    :tts: google
+  - :voice: fr-FR-Wavenet-D
+    :title: Vox-D, Male (Premium-Neural)
+    :gender: MALE
+    :locale: fr-FR
+    :language: Français
+    :language_en: French
+    :tts: google
+  - :voice: fr-FR-Wavenet-E
+    :title: Vox-E, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: fr-FR
+    :language: Français
+    :language_en: French
+    :tts: google
+  - :voice: fr-FR-Neural2-A
+    :title: Vox-A, Female (Premium-Neural2)
+    :gender: FEMALE
+    :locale: fr-FR
+    :language: Français
+    :language_en: French
+    :tts: google
+  - :voice: fr-FR-Neural2-B
+    :title: Vox-B, Male (Premium-Neural2)
+    :gender: MALE
+    :locale: fr-FR
+    :language: Français
+    :language_en: French
+    :tts: google
+  - :voice: fr-FR-Neural2-C
+    :title: Vox-C, Female (Premium-Neural2)
+    :gender: FEMALE
+    :locale: fr-FR
+    :language: Français
+    :language_en: French
+    :tts: google
+  - :voice: fr-FR-Neural2-D
+    :title: Vox-D, Male (Premium-Neural2)
+    :gender: MALE
+    :locale: fr-FR
+    :language: Français
+    :language_en: French
+    :tts: google
+  - :voice: fr-FR-Neural2-E
+    :title: Vox-E, Female (Premium-Neural2)
+    :gender: FEMALE
+    :locale: fr-FR
+    :language: Français
+    :language_en: French
+    :tts: google
+  - :voice: alice
+    :title: Laura, Female
+    :gender: Female
+    :locale: fr-CA
+    :language: Français, Canada
+    :language_en: French, Canada
+    :tts: twilio
+  - :voice: Polly.Chantal
+    :title: Chantal, Female (Premium)
+    :gender: Female
+    :locale: fr-CA
+    :language: Français, Canada
+    :language_en: French, Canada
+    :tts: twilio
+  - :voice: Polly.Gabrielle-Neural
+    :title: Gabrielle, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: fr-CA
+    :language: Français, Canada
+    :language_en: French, Canada
+    :tts: twilio
+  - :voice: Polly.Liam-Neural
+    :title: Liam, Male (Premium-Neural)
+    :gender: MALE
+    :locale: fr-CA
+    :language: Français, Canada
+    :language_en: French, Canada
+    :tts: twilio
+  - :voice: fr-CA-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: fr-CA
+    :language: Français, Canada
+    :language_en: French, Canada
+    :tts: google
+  - :voice: fr-CA-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: fr-CA
+    :language: Français, Canada
+    :language_en: French, Canada
+    :tts: google
+  - :voice: fr-CA-Standard-C
+    :title: Vox-C, Female (Premium)
+    :gender: FEMALE
+    :locale: fr-CA
+    :language: Français, Canada
+    :language_en: French, Canada
+    :tts: google
+  - :voice: fr-CA-Standard-D
+    :title: Vox-D, Male (Premium)
+    :gender: MALE
+    :locale: fr-CA
+    :language: Français, Canada
+    :language_en: French, Canada
+    :tts: google
+  - :voice: fr-CA-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: fr-CA
+    :language: Français, Canada
+    :language_en: French, Canada
+    :tts: google
+  - :voice: fr-CA-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: fr-CA
+    :language: Français, Canada
+    :language_en: French, Canada
+    :tts: google
+  - :voice: fr-CA-Wavenet-C
+    :title: Vox-C, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: fr-CA
+    :language: Français, Canada
+    :language_en: French, Canada
+    :tts: google
+  - :voice: fr-CA-Wavenet-D
+    :title: Vox-D, Male (Premium-Neural)
+    :gender: MALE
+    :locale: fr-CA
+    :language: Français, Canada
+    :language_en: French, Canada
+    :tts: google
+  - :voice: fr-CA-Neural2-A
+    :title: Vox-A, Female (Premium-Neural2)
+    :gender: FEMALE
+    :locale: fr-CA
+    :language: Français, Canada
+    :language_en: French, Canada
+    :tts: google
+  - :voice: fr-CA-Neural2-B
+    :title: Vox-B, Male (Premium-Neural2)
+    :gender: MALE
+    :locale: fr-CA
+    :language: Français, Canada
+    :language_en: French, Canada
+    :tts: google
+  - :voice: woman
+    :title: Basic, Female
+    :gender: Female
+    :locale: de
+    :language: Deutsch, Deutschland
+    :language_en: German, Germany
+    :tts: twilio
+  - :voice: man
+    :title: Basic, Male
+    :gender: Male
+    :locale: de
+    :language: Deutsch, Deutschland
+    :language_en: German, Germany
+    :tts: twilio
+  - :voice: alice
+    :title: Laura, Female
+    :gender: Female
+    :locale: de-DE
+    :language: Deutsch, Deutschland
+    :language_en: German, Germany
+    :tts: twilio
+  - :voice: Polly.Hans
+    :title: Hans, Male (Premium)
+    :gender: Male
+    :locale: de-DE
+    :language: Deutsch, Deutschland
+    :language_en: German, Germany
+    :tts: twilio
+  - :voice: Polly.Marlene
+    :title: Marlene, Female (Premium)
+    :gender: Female
+    :locale: de-DE
+    :language: Deutsch, Deutschland
+    :language_en: German, Germany
+    :tts: twilio
+  - :voice: Polly.Vicki
+    :title: Vicki, Female (Premium)
+    :gender: Female
+    :locale: de-DE
+    :language: Deutsch, Deutschland
+    :language_en: German, Germany
+    :tts: twilio
+  - :voice: Polly.Vicki-Neural
+    :title: Vicki, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: de-DE
+    :language: Deutsch, Deutschland
+    :language_en: German, Germany
+    :tts: twilio
+  - :voice: Polly.Daniel-Neural
+    :title: Daniel, Male (Premium-Neural)
+    :gender: MALE
+    :locale: de-DE
+    :language: Deutsch, Deutschland
+    :language_en: German, Germany
+    :tts: twilio
+  - :voice: de-DE-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: de-DE
+    :language: Deutsch, Deutschland
+    :language_en: German, Germany
+    :tts: google
+  - :voice: de-DE-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: de-DE
+    :language: Deutsch, Deutschland
+    :language_en: German, Germany
+    :tts: google
+  - :voice: de-DE-Standard-C
+    :title: Vox-C, Female (Premium)
+    :gender: FEMALE
+    :locale: de-DE
+    :language: Deutsch, Deutschland
+    :language_en: German, Germany
+    :tts: google
+  - :voice: de-DE-Standard-D
+    :title: Vox-D, Male (Premium)
+    :gender: MALE
+    :locale: de-DE
+    :language: Deutsch, Deutschland
+    :language_en: German, Germany
+    :tts: google
+  - :voice: de-DE-Standard-E
+    :title: Vox-E, Male (Premium)
+    :gender: MALE
+    :locale: de-DE
+    :language: Deutsch, Deutschland
+    :language_en: German, Germany
+    :tts: google
+  - :voice: de-DE-Standard-F
+    :title: Vox-F, Female (Premium)
+    :gender: FEMALE
+    :locale: de-DE
+    :language: Deutsch, Deutschland
+    :language_en: German, Germany
+    :tts: google
+  - :voice: de-DE-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: de-DE
+    :language: Deutsch, Deutschland
+    :language_en: German, Germany
+    :tts: google
+  - :voice: de-DE-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: de-DE
+    :language: Deutsch, Deutschland
+    :language_en: German, Germany
+    :tts: google
+  - :voice: de-DE-Wavenet-C
+    :title: Vox-C, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: de-DE
+    :language: Deutsch, Deutschland
+    :language_en: German, Germany
+    :tts: google
+  - :voice: de-DE-Wavenet-D
+    :title: Vox-D, Male (Premium-Neural)
+    :gender: MALE
+    :locale: de-DE
+    :language: Deutsch, Deutschland
+    :language_en: German, Germany
+    :tts: google
+  - :voice: de-DE-Wavenet-E
+    :title: Vox-E, Male (Premium-Neural)
+    :gender: MALE
+    :locale: de-DE
+    :language: Deutsch, Deutschland
+    :language_en: German, Germany
+    :tts: google
+  - :voice: de-DE-Wavenet-F
+    :title: Vox-F, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: de-DE
+    :language: Deutsch, Deutschland
+    :language_en: German, Germany
+    :tts: google
+  - :voice: de-DE-Neural2-D
+    :title: Vox-D, Male (Premium-Neural2)
+    :gender: MALE
+    :locale: de-DE
+    :language: Deutsch, Deutschland
+    :language_en: German, Germany
+    :tts: google
+  - :voice: de-DE-Neural2-F
+    :title: Vox-F, Female (Premium-Neural2)
+    :gender: FEMALE
+    :locale: de-DE
+    :language: Deutsch, Deutschland
+    :language_en: German, Germany
+    :tts: google
+  - :voice: Polly.Hannah-Neural
+    :title: Hannah, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: de-AT
+    :language: Deutsch, Österreich
+    :language_en: German, Austrian
+    :tts: twilio
+  - :voice: el-GR-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: el-GR
+    :language: ελληνικά (ellēniká)
+    :language_en: Greek, Greece
+    :tts: google
+  - :voice: el-GR-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: el-GR
+    :language: ελληνικά (ellēniká)
+    :language_en: Greek, Greece
+    :tts: google
+  - :voice: gu-IN-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: gu-IN
+    :language: ગુજરાતી (gujarātī)
+    :language_en: Gujarati, India
+    :tts: google
+  - :voice: gu-IN-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: gu-IN
+    :language: ગુજરાતી (gujarātī)
+    :language_en: Gujarati, India
+    :tts: google
+  - :voice: gu-IN-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: gu-IN
+    :language: ગુજરાતી (gujarātī)
+    :language_en: Gujarati, India
+    :tts: google
+  - :voice: gu-IN-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: gu-IN
+    :language: ગુજરાતી (gujarātī)
+    :language_en: Gujarati, India
+    :tts: google
+  - :voice: Polly.Aditi
+    :title: Aditi, Female (Premium)
+    :gender: Female
+    :locale: hi-IN
+    :language: हिन्दी (hindī)
+    :language_en: Hindi, India
+    :tts: twilio
+  - :voice: Polly.Kajal-Neural
+    :title: Kajal, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: hi-IN
+    :language: हिन्दी (hindī)
+    :language_en: Hindi, India
+    :tts: twilio
+  - :voice: hi-IN-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: hi-IN
+    :language: हिन्दी (hindī)
+    :language_en: Hindi, India
+    :tts: google
+  - :voice: hi-IN-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: hi-IN
+    :language: हिन्दी (hindī)
+    :language_en: Hindi, India
+    :tts: google
+  - :voice: hi-IN-Standard-C
+    :title: Vox-C, Male (Premium)
+    :gender: MALE
+    :locale: hi-IN
+    :language: हिन्दी (hindī)
+    :language_en: Hindi, India
+    :tts: google
+  - :voice: hi-IN-Standard-D
+    :title: Vox-D, Female (Premium)
+    :gender: FEMALE
+    :locale: hi-IN
+    :language: हिन्दी (hindī)
+    :language_en: Hindi, India
+    :tts: google
+  - :voice: hi-IN-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: hi-IN
+    :language: हिन्दी (hindī)
+    :language_en: Hindi, India
+    :tts: google
+  - :voice: hi-IN-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: hi-IN
+    :language: हिन्दी (hindī)
+    :language_en: Hindi, India
+    :tts: google
+  - :voice: hi-IN-Wavenet-C
+    :title: Vox-C, Male (Premium-Neural)
+    :gender: MALE
+    :locale: hi-IN
+    :language: हिन्दी (hindī)
+    :language_en: Hindi, India
+    :tts: google
+  - :voice: hi-IN-Wavenet-D
+    :title: Vox-D, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: hi-IN
+    :language: हिन्दी (hindī)
+    :language_en: Hindi, India
+    :tts: google
+  - :voice: hu-HU-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: hu-HU
+    :language: Magyar
+    :language_en: Hungarian, Hungary
+    :tts: google
+  - :voice: hu-HU-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: hu-HU
+    :language: Magyar
+    :language_en: Hungarian, Hungary
+    :tts: google
+  - :voice: Polly.Dora
+    :title: Dóra, Female (Premium)
+    :gender: Female
+    :locale: is-IS
+    :language: Íslenska
+    :language_en: Icelandic
+    :tts: twilio
+  - :voice: Polly.Karl
+    :title: Karl, Male (Premium)
+    :gender: Male
+    :locale: is-IS
+    :language: Íslenska
+    :language_en: Icelandic
+    :tts: twilio
+  - :voice: id-ID-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: id-ID
+    :language: Bahasa Indonesia
+    :language_en: Indonesian, Indonesia
+    :tts: google
+  - :voice: id-ID-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: id-ID
+    :language: Bahasa Indonesia
+    :language_en: Indonesian, Indonesia
+    :tts: google
+  - :voice: id-ID-Standard-C
+    :title: Vox-C, Male (Premium)
+    :gender: MALE
+    :locale: id-ID
+    :language: Bahasa Indonesia
+    :language_en: Indonesian, Indonesia
+    :tts: google
+  - :voice: id-ID-Standard-D
+    :title: Vox-D, Female (Premium)
+    :gender: FEMALE
+    :locale: id-ID
+    :language: Bahasa Indonesia
+    :language_en: Indonesian, Indonesia
+    :tts: google
+  - :voice: id-ID-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: id-ID
+    :language: Bahasa Indonesia
+    :language_en: Indonesian, Indonesia
+    :tts: google
+  - :voice: id-ID-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: id-ID
+    :language: Bahasa Indonesia
+    :language_en: Indonesian, Indonesia
+    :tts: google
+  - :voice: id-ID-Wavenet-C
+    :title: Vox-C, Male (Premium-Neural)
+    :gender: MALE
+    :locale: id-ID
+    :language: Bahasa Indonesia
+    :language_en: Indonesian, Indonesia
+    :tts: google
+  - :voice: id-ID-Wavenet-D
+    :title: Vox-D, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: id-ID
+    :language: Bahasa Indonesia
+    :language_en: Indonesian, Indonesia
+    :tts: google
+  - :voice: alice
+    :title: Laura, Female
+    :gender: Female
+    :locale: it-IT
+    :language: Italiano
+    :language_en: Italian
+    :tts: twilio
+  - :voice: woman
+    :title: Basic, Female
+    :gender: Female
+    :locale: it
+    :language: Italiano
+    :language_en: Italian
+    :tts: twilio
+  - :voice: man
+    :title: Basic, Male
+    :gender: Male
+    :locale: it
+    :language: Italiano
+    :language_en: Italian
+    :tts: twilio
+  - :voice: Polly.Carla
+    :title: Carla, Female (Premium)
+    :gender: Female
+    :locale: it-IT
+    :language: Italiano
+    :language_en: Italian
+    :tts: twilio
+  - :voice: Polly.Bianca
+    :title: Bianca, Female (Premium)
+    :gender: Female
+    :locale: it-IT
+    :language: Italiano
+    :language_en: Italian
+    :tts: twilio
+  - :voice: Polly.Giorgio
+    :title: Giorgio, Male (Premium)
+    :gender: Male
+    :locale: it-IT
+    :language: Italiano
+    :language_en: Italian
+    :tts: twilio
+  - :voice: Polly.Bianca-Neural
+    :title: Bianca, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: it-IT
+    :language: Italiano
+    :language_en: Italian
+    :tts: twilio
+  - :voice: it-IT-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: it-IT
+    :language: Italiano
+    :language_en: Italian
+    :tts: google
+  - :voice: it-IT-Standard-B
+    :title: Vox-B, Female (Premium)
+    :gender: FEMALE
+    :locale: it-IT
+    :language: Italiano
+    :language_en: Italian
+    :tts: google
+  - :voice: it-IT-Standard-C
+    :title: Vox-C, Male (Premium)
+    :gender: MALE
+    :locale: it-IT
+    :language: Italiano
+    :language_en: Italian
+    :tts: google
+  - :voice: it-IT-Standard-D
+    :title: Vox-D, Male (Premium)
+    :gender: MALE
+    :locale: it-IT
+    :language: Italiano
+    :language_en: Italian
+    :tts: google
+  - :voice: it-IT-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: it-IT
+    :language: Italiano
+    :language_en: Italian
+    :tts: google
+  - :voice: it-IT-Wavenet-B
+    :title: Vox-B, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: it-IT
+    :language: Italiano
+    :language_en: Italian
+    :tts: google
+  - :voice: it-IT-Wavenet-C
+    :title: Vox-C, Male (Premium-Neural)
+    :gender: MALE
+    :locale: it-IT
+    :language: Italiano
+    :language_en: Italian
+    :tts: google
+  - :voice: it-IT-Wavenet-D
+    :title: Vox-D, Male (Premium-Neural)
+    :gender: MALE
+    :locale: it-IT
+    :language: Italiano
+    :language_en: Italian
+    :tts: google
+  - :voice: alice
+    :title: Laura, Female
+    :gender: Female
+    :locale: ja-JP
+    :language: 日本語 (nihongo)
+    :language_en: Japanese
+    :tts: twilio
+  - :voice: Polly.Mizuki
+    :title: Mizuki, Female (Premium)
+    :gender: Female
+    :locale: ja-JP
+    :language: 日本語 (nihongo)
+    :language_en: Japanese
+    :tts: twilio
+  - :voice: Polly.Takumi
+    :title: Takumi, Male (Premium)
+    :gender: Male
+    :locale: ja-JP
+    :language: 日本語 (nihongo)
+    :language_en: Japanese
+    :tts: twilio
+  - :voice: Polly.Takumi-Neural
+    :title: Takumi, Male (Premium-Neural)
+    :gender: MALE
+    :locale: ja-JP
+    :language: 日本語 (nihongo)
+    :language_en: Japanese
+    :tts: twilio
+  - :voice: ja-JP-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: ja-JP
+    :language: 日本語 (nihongo)
+    :language_en: Japanese
+    :tts: google
+  - :voice: ja-JP-Standard-B
+    :title: Vox-B, Female (Premium)
+    :gender: FEMALE
+    :locale: ja-JP
+    :language: 日本語 (nihongo)
+    :language_en: Japanese
+    :tts: google
+  - :voice: ja-JP-Standard-C
+    :title: Vox-C, Male (Premium)
+    :gender: MALE
+    :locale: ja-JP
+    :language: 日本語 (nihongo)
+    :language_en: Japanese
+    :tts: google
+  - :voice: ja-JP-Standard-D
+    :title: Vox-D, Male (Premium)
+    :gender: MALE
+    :locale: ja-JP
+    :language: 日本語 (nihongo)
+    :language_en: Japanese
+    :tts: google
+  - :voice: ja-JP-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: ja-JP
+    :language: 日本語 (nihongo)
+    :language_en: Japanese
+    :tts: google
+  - :voice: ja-JP-Wavenet-B
+    :title: Vox-B, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: ja-JP
+    :language: 日本語 (nihongo)
+    :language_en: Japanese
+    :tts: google
+  - :voice: ja-JP-Wavenet-C
+    :title: Vox-C, Male (Premium-Neural)
+    :gender: MALE
+    :locale: ja-JP
+    :language: 日本語 (nihongo)
+    :language_en: Japanese
+    :tts: google
+  - :voice: ja-JP-Wavenet-D
+    :title: Vox-D, Male (Premium-Neural)
+    :gender: MALE
+    :locale: ja-JP
+    :language: 日本語 (nihongo)
+    :language_en: Japanese
+    :tts: google
+  - :voice: kn-IN-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: kn-IN
+    :language: ಕನ್ನಡ (kannaḍa)
+    :language_en: Kannada, India
+    :tts: google
+  - :voice: kn-IN-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: kn-IN
+    :language: ಕನ್ನಡ (kannaḍa)
+    :language_en: Kannada, India
+    :tts: google
+  - :voice: kn-IN-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: kn-IN
+    :language: ಕನ್ನಡ (kannaḍa)
+    :language_en: Kannada, India
+    :tts: google
+  - :voice: kn-IN-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: kn-IN
+    :language: ಕನ್ನಡ (kannaḍa)
+    :language_en: Kannada, India
+    :tts: google
+  - :voice: alice
+    :title: Laura, Female
+    :gender: Female
+    :locale: ko-KR
+    :language: 한국어 [韓國語] (han-guk-eo)
+    :language_en: Korean, Korea
+    :tts: twilio
+  - :voice: Polly.Seoyeon
+    :title: Seoyeon, Female (Premium)
+    :gender: Female
+    :locale: ko-KR
+    :language: 한국어 [韓國語] (han-guk-eo)
+    :language_en: Korean, Korea
+    :tts: twilio
+  - :voice: Polly.Seoyeon-Neural
+    :title: Seoyeon, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: ko-KR
+    :language: 한국어 [韓國語] (han-guk-eo)
+    :language_en: Korean, Korea
+    :tts: twilio
+  - :voice: ko-KR-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: ko-KR
+    :language: 한국어 [韓國語] (han-guk-eo)
+    :language_en: Korean, Korea
+    :tts: google
+  - :voice: ko-KR-Standard-B
+    :title: Vox-B, Female (Premium)
+    :gender: FEMALE
+    :locale: ko-KR
+    :language: 한국어 [韓國語] (han-guk-eo)
+    :language_en: Korean, Korea
+    :tts: google
+  - :voice: ko-KR-Standard-C
+    :title: Vox-C, Male (Premium)
+    :gender: MALE
+    :locale: ko-KR
+    :language: 한국어 [韓國語] (han-guk-eo)
+    :language_en: Korean, Korea
+    :tts: google
+  - :voice: ko-KR-Standard-D
+    :title: Vox-D, Male (Premium)
+    :gender: MALE
+    :locale: ko-KR
+    :language: 한국어 [韓國語] (han-guk-eo)
+    :language_en: Korean, Korea
+    :tts: google
+  - :voice: ko-KR-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: ko-KR
+    :language: 한국어 [韓國語] (han-guk-eo)
+    :language_en: Korean, Korea
+    :tts: google
+  - :voice: ko-KR-Wavenet-B
+    :title: Vox-B, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: ko-KR
+    :language: 한국어 [韓國語] (han-guk-eo)
+    :language_en: Korean, Korea
+    :tts: google
+  - :voice: ko-KR-Wavenet-C
+    :title: Vox-C, Male (Premium-Neural)
+    :gender: MALE
+    :locale: ko-KR
+    :language: 한국어 [韓國語] (han-guk-eo)
+    :language_en: Korean, Korea
+    :tts: google
+  - :voice: ko-KR-Wavenet-D
+    :title: Vox-D, Male (Premium-Neural)
+    :gender: MALE
+    :locale: ko-KR
+    :language: 한국어 [韓國語] (han-guk-eo)
+    :language_en: Korean, Korea
+    :tts: google
+  - :voice: lv-LV-Standard-A
+    :title: Vox-A, Male (Premium)
+    :gender: MALE
+    :locale: lv-LV
+    :language: latviešu valoda
+    :language_en: Latvian, Latvia
+    :tts: google
+  - :voice: ms-MY-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: ms-MY
+    :language: Bahasa melayu
+    :language_en: Malay, mAlaysia
+    :tts: google
+  - :voice: ms-MY-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: ms-MY
+    :language: Bahasa melayu
+    :language_en: Malay, mAlaysia
+    :tts: google
+  - :voice: ms-MY-Standard-C
+    :title: Vox-C, Female (Premium)
+    :gender: FEMALE
+    :locale: ms-MY
+    :language: Bahasa melayu
+    :language_en: Malay, mAlaysia
+    :tts: google
+  - :voice: ms-MY-Standard-D
+    :title: Vox-D, Male (Premium)
+    :gender: MALE
+    :locale: ms-MY
+    :language: Bahasa melayu
+    :language_en: Malay, mAlaysia
+    :tts: google
+  - :voice: ms-MY-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: ms-MY
+    :language: Bahasa melayu
+    :language_en: Malay, mAlaysia
+    :tts: google
+  - :voice: ms-MY-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: ms-MY
+    :language: Bahasa melayu
+    :language_en: Malay, mAlaysia
+    :tts: google
+  - :voice: ms-MY-Wavenet-C
+    :title: Vox-C, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: ms-MY
+    :language: Bahasa melayu
+    :language_en: Malay, mAlaysia
+    :tts: google
+  - :voice: ms-MY-Wavenet-D
+    :title: Vox-D, Male (Premium-Neural)
+    :gender: MALE
+    :locale: ms-MY
+    :language: Bahasa melayu
+    :language_en: Malay, mAlaysia
+    :tts: google
+  - :voice: ml-IN-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: ml-IN
+    :language: മലയാളം (malayāḷam)
+    :language_en: Malayalam, India
+    :tts: google
+  - :voice: ml-IN-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: ml-IN
+    :language: മലയാളം (malayāḷam)
+    :language_en: Malayalam, India
+    :tts: google
+  - :voice: ml-IN-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: ml-IN
+    :language: മലയാളം (malayāḷam)
+    :language_en: Malayalam, India
+    :tts: google
+  - :voice: ml-IN-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: ml-IN
+    :language: മലയാളം (malayāḷam)
+    :language_en: Malayalam, India
+    :tts: google
+  - :voice: alice
+    :title: Laura, Female
+    :gender: Female
+    :locale: nb-NO
+    :language: Norsk
+    :language_en: Norwegian
+    :tts: twilio
+  - :voice: Polly.Liv
+    :title: Liv, Female (Premium)
+    :gender: Female
+    :locale: nb-NO
+    :language: Norsk
+    :language_en: Norwegian
+    :tts: twilio
+  - :voice: nb-NO-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: nb-NO
+    :language: Norsk
+    :language_en: Norwegian
+    :tts: google
+  - :voice: nb-NO-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: nb-NO
+    :language: Norsk
+    :language_en: Norwegian
+    :tts: google
+  - :voice: nb-NO-Standard-C
+    :title: Vox-C, Female (Premium)
+    :gender: FEMALE
+    :locale: nb-NO
+    :language: Norsk
+    :language_en: Norwegian
+    :tts: google
+  - :voice: nb-NO-Standard-D
+    :title: Vox-D, Male (Premium)
+    :gender: MALE
+    :locale: nb-NO
+    :language: Norsk
+    :language_en: Norwegian
+    :tts: google
+  - :voice: nb-NO-Standard-E
+    :title: Vox-E, Female (Premium)
+    :gender: FEMALE
+    :locale: nb-NO
+    :language: Norsk
+    :language_en: Norwegian
+    :tts: google
+  - :voice: nb-NO-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: nb-NO
+    :language: Norsk
+    :language_en: Norwegian
+    :tts: google
+  - :voice: nb-NO-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: nb-NO
+    :language: Norsk
+    :language_en: Norwegian
+    :tts: google
+  - :voice: nb-NO-Wavenet-C
+    :title: Vox-C, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: nb-NO
+    :language: Norsk
+    :language_en: Norwegian
+    :tts: google
+  - :voice: nb-NO-Wavenet-D
+    :title: Vox-D, Male (Premium-Neural)
+    :gender: MALE
+    :locale: nb-NO
+    :language: Norsk
+    :language_en: Norwegian
+    :tts: google
+  - :voice: nb-NO-Wavenet-E
+    :title: Vox-E, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: nb-NO
+    :language: Norsk
+    :language_en: Norwegian
+    :tts: google
+  - :voice: alice
+    :title: Laura, Female
+    :gender: Female
+    :locale: pl-PL
+    :language: Polski
+    :language_en: Polish
+    :tts: twilio
+  - :voice: Polly.Jacek
+    :title: Jacek, Male (Premium)
+    :gender: Male
+    :locale: pl-PL
+    :language: Polski
+    :language_en: Polish
+    :tts: twilio
+  - :voice: Polly.Jan
+    :title: Jan, Male (Premium)
+    :gender: Male
+    :locale: pl-PL
+    :language: Polski
+    :language_en: Polish
+    :tts: twilio
+  - :voice: Polly.Ewa
+    :title: Ewa, Female (Premium)
+    :gender: Female
+    :locale: pl-PL
+    :language: Polski
+    :language_en: Polish
+    :tts: twilio
+  - :voice: Polly.Maja
+    :title: Maja, Female (Premium)
+    :gender: Female
+    :locale: pl-PL
+    :language: Polski
+    :language_en: Polish
+    :tts: twilio
+  - :voice: pl-PL-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: pl-PL
+    :language: Polski
+    :language_en: Polish
+    :tts: google
+  - :voice: pl-PL-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: pl-PL
+    :language: Polski
+    :language_en: Polish
+    :tts: google
+  - :voice: pl-PL-Standard-C
+    :title: Vox-C, Male (Premium)
+    :gender: MALE
+    :locale: pl-PL
+    :language: Polski
+    :language_en: Polish
+    :tts: google
+  - :voice: pl-PL-Standard-D
+    :title: Vox-D, Female (Premium)
+    :gender: FEMALE
+    :locale: pl-PL
+    :language: Polski
+    :language_en: Polish
+    :tts: google
+  - :voice: pl-PL-Standard-E
+    :title: Vox-E, Female (Premium)
+    :gender: FEMALE
+    :locale: pl-PL
+    :language: Polski
+    :language_en: Polish
+    :tts: google
+  - :voice: pl-PL-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: pl-PL
+    :language: Polski
+    :language_en: Polish
+    :tts: google
+  - :voice: pl-PL-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: pl-PL
+    :language: Polski
+    :language_en: Polish
+    :tts: google
+  - :voice: pl-PL-Wavenet-C
+    :title: Vox-C, Male (Premium-Neural)
+    :gender: MALE
+    :locale: pl-PL
+    :language: Polski
+    :language_en: Polish
+    :tts: google
+  - :voice: pl-PL-Wavenet-D
+    :title: Vox-D, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: pl-PL
+    :language: Polski
+    :language_en: Polish
+    :tts: google
+  - :voice: pl-PL-Wavenet-E
+    :title: Vox-E, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: pl-PL
+    :language: Polski
+    :language_en: Polish
+    :tts: google
+  - :voice: alice
+    :title: Laura, Female
+    :gender: Female
+    :locale: pt-BR
+    :language: Português, Brasil
+    :language_en: Portuguese, Brazil
+    :tts: twilio
+  - :voice: Polly.Ricardo
+    :title: Ricardo, Male (Premium)
+    :gender: Male
+    :locale: pt-BR
+    :language: Português, Brasil
+    :language_en: Portuguese, Brazil
+    :tts: twilio
+  - :voice: Polly.Camila
+    :title: Camila, Female (Premium)
+    :gender: Female
+    :locale: pt-BR
+    :language: Português, Brasil
+    :language_en: Portuguese, Brazil
+    :tts: twilio
+  - :voice: Polly.Vitoria
+    :title: Vitória, Female (Premium)
+    :gender: Female
+    :locale: pt-BR
+    :language: Português, Brasil
+    :language_en: Portuguese, Brazil
+    :tts: twilio
+  - :voice: Polly.Camila-Neural
+    :title: Camila, Female (Premium-Neural)
+    :gender: Female
+    :locale: pt-BR
+    :language: Português, Brasil
+    :language_en: Portuguese, Brazil
+    :tts: twilio
+  - :voice: Polly.Vitoria-Neural
+    :title: Vitoria, Female (Premium-Neural)
+    :gender: Female
+    :locale: pt-BR
+    :language: Português, Brasil
+    :language_en: Portuguese, Brazil
+    :tts: twilio
+  - :voice: pt-BR-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: pt-BR
+    :language: Português, Brasil
+    :language_en: Portuguese, Brazil
+    :tts: google
+  - :voice: pt-BR-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: pt-BR
+    :language: Português, Brasil
+    :language_en: Portuguese, Brazil
+    :tts: google
+  - :voice: pt-BR-Standard-C
+    :title: Vox-C, Female (Premium)
+    :gender: FEMALE
+    :locale: pt-BR
+    :language: Português, Brasil
+    :language_en: Portuguese, Brazil
+    :tts: google
+  - :voice: pt-BR-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: pt-BR
+    :language: Português, Brasil
+    :language_en: Portuguese, Brazil
+    :tts: google
+  - :voice: pt-BR-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: pt-BR
+    :language: Português, Brasil
+    :language_en: Portuguese, Brazil
+    :tts: google
+  - :voice: pt-BR-Wavenet-C
+    :title: Vox-C, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: pt-BR
+    :language: Português, Brasil
+    :language_en: Portuguese, Brazil
+    :tts: google
+  - :voice: alice
+    :title: Laura, Female
+    :gender: Female
+    :locale: pt-PT
+    :language: Português
+    :language_en: Portuguese
+    :tts: twilio
+  - :voice: Polly.Cristiano
+    :title: Cristiano, Male (Premium)
+    :gender: Male
+    :locale: pt-PT
+    :language: Português
+    :language_en: Portuguese
+    :tts: twilio
+  - :voice: Polly.Ines
+    :title: Inês, Female (Premium)
+    :gender: Female
+    :locale: pt-PT
+    :language: Português
+    :language_en: Portuguese
+    :tts: twilio
+  - :voice: Polly.Ines-Neural
+    :title: Inês, Female (Premium-Neural)
+    :gender: Female
+    :locale: pt-PT
+    :language: Português
+    :language_en: Portuguese
+    :tts: twilio
+  - :voice: pt-PT-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: pt-PT
+    :language: Português
+    :language_en: Portuguese
+    :tts: google
+  - :voice: pt-PT-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: pt-PT
+    :language: Português
+    :language_en: Portuguese
+    :tts: google
+  - :voice: pt-PT-Standard-C
+    :title: Vox-C, Male (Premium)
+    :gender: MALE
+    :locale: pt-PT
+    :language: Português
+    :language_en: Portuguese
+    :tts: google
+  - :voice: pt-PT-Standard-D
+    :title: Vox-D, Female (Premium)
+    :gender: FEMALE
+    :locale: pt-PT
+    :language: Português
+    :language_en: Portuguese
+    :tts: google
+  - :voice: pt-PT-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: pt-PT
+    :language: Português
+    :language_en: Portuguese
+    :tts: google
+  - :voice: pt-PT-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: pt-PT
+    :language: Português
+    :language_en: Portuguese
+    :tts: google
+  - :voice: pt-PT-Wavenet-C
+    :title: Vox-C, Male (Premium-Neural)
+    :gender: MALE
+    :locale: pt-PT
+    :language: Português
+    :language_en: Portuguese
+    :tts: google
+  - :voice: pt-PT-Wavenet-D
+    :title: Vox-D, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: pt-PT
+    :language: Português
+    :language_en: Portuguese
+    :tts: google
+  - :voice: pa-IN-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: pa-IN
+    :language: ਪੰਜਾਬੀ / ﺏﺎﺠﻨﭘ (panjābi)
+    :language_en: Punjabi, India
+    :tts: google
+  - :voice: pa-IN-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: pa-IN
+    :language: ਪੰਜਾਬੀ / ﺏﺎﺠﻨﭘ (panjābi)
+    :language_en: Punjabi, India
+    :tts: google
+  - :voice: pa-IN-Standard-C
+    :title: Vox-C, Female (Premium)
+    :gender: FEMALE
+    :locale: pa-IN
+    :language: ਪੰਜਾਬੀ / ﺏﺎﺠﻨﭘ (panjābi)
+    :language_en: Punjabi, India
+    :tts: google
+  - :voice: pa-IN-Standard-D
+    :title: Vox-D, Male (Premium)
+    :gender: MALE
+    :locale: pa-IN
+    :language: ਪੰਜਾਬੀ / ﺏﺎﺠﻨﭘ (panjābi)
+    :language_en: Punjabi, India
+    :tts: google
+  - :voice: pa-IN-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: pa-IN
+    :language: ਪੰਜਾਬੀ / ﺏﺎﺠﻨﭘ (panjābi)
+    :language_en: Punjabi, India
+    :tts: google
+  - :voice: pa-IN-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: pa-IN
+    :language: ਪੰਜਾਬੀ / ﺏﺎﺠﻨﭘ (panjābi)
+    :language_en: Punjabi, India
+    :tts: google
+  - :voice: pa-IN-Wavenet-C
+    :title: Vox-C, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: pa-IN
+    :language: ਪੰਜਾਬੀ / ﺏﺎﺠﻨﭘ (panjābi)
+    :language_en: Punjabi, India
+    :tts: google
+  - :voice: pa-IN-Wavenet-D
+    :title: Vox-D, Male (Premium-Neural)
+    :gender: MALE
+    :locale: pa-IN
+    :language: ਪੰਜਾਬੀ / ﺏﺎﺠﻨﭘ (panjābi)
+    :language_en: Punjabi, India
+    :tts: google
+  - :voice: Polly.Carmen
+    :title: Carmen, Female (Premium)
+    :gender: Female
+    :locale: ro-RO
+    :language: Română
+    :language_en: Romanian
+    :tts: twilio
+  - :voice: ro-RO-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: ro-RO
+    :language: Română
+    :language_en: Romanian
+    :tts: google
+  - :voice: ro-RO-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: ro-RO
+    :language: Română
+    :language_en: Romanian
+    :tts: google
+  - :voice: alice
+    :title: Laura, Female
+    :gender: Female
+    :locale: ru-RU
+    :language: русский
+    :language_en: Russian
+    :tts: twilio
+  - :voice: Polly.Maxim
+    :title: Maxim, Male (Premium)
+    :gender: Male
+    :locale: ru-RU
+    :language: русский
+    :language_en: Russian
+    :tts: twilio
+  - :voice: Polly.Tatyana
+    :title: Tatyana, Female (Premium)
+    :gender: Female
+    :locale: ru-RU
+    :language: русский
+    :language_en: Russian
+    :tts: twilio
+  - :voice: ru-RU-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: ru-RU
+    :language: русский
+    :language_en: Russian
+    :tts: google
+  - :voice: ru-RU-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: ru-RU
+    :language: русский
+    :language_en: Russian
+    :tts: google
+  - :voice: ru-RU-Standard-C
+    :title: Vox-C, Female (Premium)
+    :gender: FEMALE
+    :locale: ru-RU
+    :language: русский
+    :language_en: Russian
+    :tts: google
+  - :voice: ru-RU-Standard-D
+    :title: Vox-D, Male (Premium)
+    :gender: MALE
+    :locale: ru-RU
+    :language: русский
+    :language_en: Russian
+    :tts: google
+  - :voice: ru-RU-Standard-E
+    :title: Vox-E, Female (Premium)
+    :gender: FEMALE
+    :locale: ru-RU
+    :language: русский
+    :language_en: Russian
+    :tts: google
+  - :voice: ru-RU-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: ru-RU
+    :language: русский
+    :language_en: Russian
+    :tts: google
+  - :voice: ru-RU-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: ru-RU
+    :language: русский
+    :language_en: Russian
+    :tts: google
+  - :voice: ru-RU-Wavenet-C
+    :title: Vox-C, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: ru-RU
+    :language: русский
+    :language_en: Russian
+    :tts: google
+  - :voice: ru-RU-Wavenet-D
+    :title: Vox-D, Male (Premium-Neural)
+    :gender: MALE
+    :locale: ru-RU
+    :language: русский
+    :language_en: Russian
+    :tts: google
+  - :voice: ru-RU-Wavenet-E
+    :title: Vox-E, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: ru-RU
+    :language: русский
+    :language_en: Russian
+    :tts: google
+  - :voice: sr-rs-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: sr-RS
+    :language: српски (srpski)
+    :language_en: Serbian (Cyrillic)
+    :tts: google
+  - :voice: sk-SK-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: sk-SK
+    :language: Slovenský
+    :language_en: Slovak, Slovakia
+    :tts: google
+  - :voice: sk-SK-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: sk-SK
+    :language: Slovenský
+    :language_en: Slovak, Slovakia
+    :tts: google
+  - :voice: alice
+    :title: Laura, Female
+    :gender: Female
+    :locale: es-MX
+    :language: Español, Mexico
+    :language_en: Spanish, Mexico
+    :tts: twilio
+  - :voice: Polly.Mia
+    :title: Mia, Female (Premium)
+    :gender: Female
+    :locale: es-MX
+    :language: Español, Mexico
+    :language_en: Spanish, Mexico
+    :tts: twilio
+  - :voice: Polly.Mia-Neural
+    :title: Mia, Female (Premium-Neural)
+    :gender: Female
+    :locale: es-MX
+    :language: Español, Mexico
+    :language_en: Spanish, Mexico
+    :tts: twilio
+  - :voice: woman
+    :title: Basic, Female
+    :gender: Female
+    :locale: es
+    :language: Español
+    :language_en: Spanish, Spain
+    :tts: twilio
+  - :voice: man
+    :title: Basic, Male
+    :gender: Male
+    :locale: es
+    :language: Español
+    :language_en: Spanish, Spain
+    :tts: twilio
+  - :voice: alice
+    :title: Laura, Female
+    :gender: Female
+    :locale: es-ES
+    :language: Español
+    :language_en: Spanish, Spain
+    :tts: twilio
+  - :voice: Polly.Conchita
+    :title: Conchita, Female (Premium)
+    :gender: Female
+    :locale: es-ES
+    :language: Español
+    :language_en: Spanish, Spain
+    :tts: twilio
+  - :voice: Polly.Lucia
+    :title: Lucia, Female (Premium)
+    :gender: Female
+    :locale: es-ES
+    :language: Español
+    :language_en: Spanish, Spain
+    :tts: twilio
+  - :voice: Polly.Enrique
+    :title: Enrique, Male (Premium)
+    :gender: Male
+    :locale: es-ES
+    :language: Español
+    :language_en: Spanish, Spain
+    :tts: twilio
+  - :voice: Polly.Lucia-Neural
+    :title: Lucia, Female (Premium-Neural)
+    :gender: Female
+    :locale: es-ES
+    :language: Español
+    :language_en: Spanish, Spain
+    :tts: twilio
+  - :voice: es-ES-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: es-ES
+    :language: Español
+    :language_en: Spanish, Spain
+    :tts: google
+  - :voice: es-ES-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: es-ES
+    :language: Español
+    :language_en: Spanish, Spain
+    :tts: google
+  - :voice: es-ES-Standard-C
+    :title: Vox-C, Female (Premium)
+    :gender: FEMALE
+    :locale: es-ES
+    :language: Español
+    :language_en: Spanish, Spain
+    :tts: google
+  - :voice: es-ES-Standard-D
+    :title: Vox-D, Female (Premium)
+    :gender: FEMALE
+    :locale: es-ES
+    :language: Español
+    :language_en: Spanish, Spain
+    :tts: google
+  - :voice: es-ES-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: es-ES
+    :language: Español
+    :language_en: Spanish, Spain
+    :tts: google
+  - :voice: es-ES-Wavenet-C
+    :title: Vox-C, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: es-ES
+    :language: Español
+    :language_en: Spanish, Spain
+    :tts: google
+  - :voice: es-ES-Wavenet-D
+    :title: Vox-D, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: es-ES
+    :language: Español
+    :language_en: Spanish, Spain
+    :tts: google
+  - :voice: Polly.Miguel
+    :title: Miguel, Male (Premium)
+    :gender: Male
+    :locale: es-US
+    :language: Español, US
+    :language_en: Spanish, US
+    :tts: twilio
+  - :voice: Polly.Penelope
+    :title: Penélope, Female (Premium)
+    :gender: Female
+    :locale: es-US
+    :language: Español, US
+    :language_en: Spanish, US
+    :tts: twilio
+  - :voice: Polly.Lupe
+    :title: Lupe, Female (Premium)
+    :gender: Female
+    :locale: es-US
+    :language: Español, US
+    :language_en: Spanish, US
+    :tts: twilio
+  - :voice: Polly.Lupe-Neural
+    :title: Lupe, Female (Premium-Neural)
+    :gender: Female
+    :locale: es-US
+    :language: Español, US
+    :language_en: Spanish, US
+    :tts: twilio
+  - :voice: Polly.Pedro-Neural
+    :title: Pedro, Male (Premium-Neural)
+    :gender: Male
+    :locale: es-US
+    :language: Español, US
+    :language_en: Spanish, US
+    :tts: twilio
+  - :voice: es-US-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: es-US
+    :language: Español, US
+    :language_en: Spanish, US
+    :tts: google
+  - :voice: es-US-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: es-US
+    :language: Español, US
+    :language_en: Spanish, US
+    :tts: google
+  - :voice: es-US-Standard-C
+    :title: Vox-C, Male (Premium)
+    :gender: MALE
+    :locale: es-US
+    :language: Español, US
+    :language_en: Spanish, US
+    :tts: google
+  - :voice: es-US-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: es-US
+    :language: Español, US
+    :language_en: Spanish, US
+    :tts: google
+  - :voice: es-US-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: es-US
+    :language: Español, US
+    :language_en: Spanish, US
+    :tts: google
+  - :voice: es-US-Wavenet-C
+    :title: Vox-C, Male (Premium-Neural)
+    :gender: MALE
+    :locale: es-US
+    :language: Español, US
+    :language_en: Spanish, US
+    :tts: google
+  - :voice: es-US-Neural2-A
+    :title: Vox-A, Female (Premium-Neural2)
+    :gender: FEMALE
+    :locale: es-US
+    :language: Español, US
+    :language_en: Spanish, US
+    :tts: google
+  - :voice: es-US-Neural2-B
+    :title: Vox-B, Male (Premium-Neural2)
+    :gender: MALE
+    :locale: es-US
+    :language: Español, US
+    :language_en: Spanish, US
+    :tts: google
+  - :voice: es-US-Neural2-C
+    :title: Vox-C, Male (Premium-Neural2)
+    :gender: MALE
+    :locale: es-US
+    :language: Español, US
+    :language_en: Spanish, US
+    :tts: google
+  - :voice: alice
+    :title: Laura, Female
+    :gender: Female
+    :locale: sv-SE
+    :language: Svenska
+    :language_en: Swedish, Sweden
+    :tts: twilio
+  - :voice: Polly.Astrid
+    :title: Astrid, Female (Premium)
+    :gender: Female
+    :locale: sv-SE
+    :language: Svenska
+    :language_en: Swedish, Sweden
+    :tts: twilio
+  - :voice: sv-SE-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: sv-SE
+    :language: Svenska
+    :language_en: Swedish, Sweden
+    :tts: google
+  - :voice: sv-SE-Standard-B
+    :title: Vox-B, Female (Premium)
+    :gender: FEMALE
+    :locale: sv-SE
+    :language: Svenska
+    :language_en: Swedish, Sweden
+    :tts: google
+  - :voice: sv-SE-Standard-C
+    :title: Vox-C, Female (Premium)
+    :gender: FEMALE
+    :locale: sv-SE
+    :language: Svenska
+    :language_en: Swedish, Sweden
+    :tts: google
+  - :voice: sv-SE-Standard-D
+    :title: Vox-D, Male (Premium)
+    :gender: MALE
+    :locale: sv-SE
+    :language: svenska
+    :language_en: Swedish, Sweden
+    :tts: google
+  - :voice: sv-SE-Standard-E
+    :title: Vox-E, Male (Premium)
+    :gender: MALE
+    :locale: sv-SE
+    :language: Svenska
+    :language_en: Swedish, Sweden
+    :tts: google
+  - :voice: sv-SE-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: sv-SE
+    :language: Svenska
+    :language_en: Swedish, Sweden
+    :tts: google
+  - :voice: sv-SE-Wavenet-B
+    :title: Vox-B, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: sv-SE
+    :language: Svenska
+    :language_en: Swedish, Sweden
+    :tts: google
+  - :voice: sv-SE-Wavenet-C
+    :title: Vox-C, Male (Premium-Neural)
+    :gender: MALE
+    :locale: sv-SE
+    :language: Svenska
+    :language_en: Swedish, Sweden
+    :tts: google
+  - :voice: sv-SE-Wavenet-D
+    :title: Vox-D, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: sv-SE
+    :language: Svenska
+    :language_en: Swedish, Sweden
+    :tts: google
+  - :voice: sv-SE-Wavenet-E
+    :title: Vox-E, Male (Premium-Neural)
+    :gender: MALE
+    :locale: sv-SE
+    :language: Svenska
+    :language_en: Swedish, Sweden
+    :tts: google
+  - :voice: ta-IN-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: ta-IN
+    :language: தமிழ் (tamiḻ)
+    :language_en: Tamil, India
+    :tts: google
+  - :voice: ta-IN-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: ta-IN
+    :language: தமிழ் (tamiḻ)
+    :language_en: Tamil, India
+    :tts: google
+  - :voice: ta-IN-Standard-C
+    :title: Vox-C, Female (Premium)
+    :gender: FEMALE
+    :locale: ta-IN
+    :language: தமிழ் (tamiḻ)
+    :languaGe_en: Tamil, India
+    :tts: google
+  - :voice: ta-IN-Standard-D
+    :title: Vox-D, Male (Premium)
+    :gender: MALE
+    :locale: ta-IN
+    :language: தமிழ் (tamiḻ)
+    :languaGe_en: Tamil, India
+    :tts: google
+  - :voice: ta-IN-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: ta-IN
+    :language: தமிழ் (tamiḻ)
+    :languaGe_en: Tamil, India
+    :tts: google
+  - :voice: ta-IN-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: ta-IN
+    :language: தமிழ் (tamiḻ)
+    :languaGe_en: Tamil, India
+    :tts: google
+  - :voice: ta-IN-Wavenet-C
+    :title: Vox-C, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: ta-IN
+    :language: தமிழ் (tamiḻ)
+    :languaGe_en: Tamil, India
+    :tts: google
+  - :voice: ta-IN-Wavenet-D
+    :title: Vox-D, Male (Premium-Neural)
+    :gender: MALE
+    :locale: ta-IN
+    :language: தமிழ் (tamiḻ)
+    :languaGe_en: Tamil, India
+    :tts: google
+  - :voice: te-IN-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: te-IN
+    :language: తెలుగు (telugu)
+    :language_en: Telugu, India
+    :tts: google
+  - :voice: te-IN-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: te-IN
+    :language: తెలుగు (telugu)
+    :language_en: Telugu, India
+    :tts: google
+  - :voice: th-TH-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: th-TH
+    :language: ภาษาไทย (paasaa-tai)
+    :language_en: Thai, Thailand
+    :tts: google
+  - :voice: Polly.Filiz
+    :title: Filiz, Female (Premium)
+    :gender: Female
+    :locale: tr-TR
+    :language: Türkçe
+    :language_en: Turkish
+    :tts: twilio
+  - :voice: tr-TR-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: tr-TR
+    :language: Türkçe
+    :language_en: Turkish
+    :tts: google
+  - :voice: tr-TR-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: tr-TR
+    :language: Türkçe
+    :language_en: Turkish
+    :tts: google
+  - :voice: tr-TR-Standard-C
+    :title: Vox-C, Female (Premium)
+    :gender: FEMALE
+    :locale: tr-TR
+    :language: Türkçe
+    :language_en: Turkish
+    :tts: google
+  - :voice: tr-TR-Standard-D
+    :title: Vox-D, Female (Premium)
+    :gender: FEMALE
+    :locale: tr-TR
+    :language: Türkçe
+    :language_en: Turkish
+    :tts: google
+  - :voice: tr-TR-Standard-E
+    :title: Vox-E, Male (Premium)
+    :gender: MALE
+    :locale: tr-TR
+    :language: Türkçe
+    :language_en: Turkish
+    :tts: google
+  - :voice: tr-TR-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: tr-TR
+    :language: Türkçe
+    :language_en: Turkish
+    :tts: google
+  - :voice: tr-TR-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: tr-TR
+    :language: Türkçe
+    :language_en: Turkish
+    :tts: google
+  - :voice: tr-TR-Wavenet-C
+    :title: Vox-C, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: tr-TR
+    :language: Türkçe
+    :language_en: Turkish
+    :tts: google
+  - :voice: tr-TR-Wavenet-D
+    :title: Vox-D, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: tr-TR
+    :language: Türkçe
+    :language_en: Turkish
+    :tts: google
+  - :voice: tr-TR-Wavenet-E
+    :title: Vox-E, Male (Premium-Neural)
+    :gender: MALE
+    :locale: tr-TR
+    :language: Türkçe
+    :language_en: Turkish
+    :tts: google
+  - :voice: uk-UA-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: uk-UA
+    :language: Українська (Ukrajins’ka)
+    :language_en: Ukrainian, Ukraine
+    :tts: google
+  - :voice: uk-UA-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: uk-UA
+    :language: Українська (Ukrajins’ka)
+    :language_en: Ukrainian, Ukraine
+    :tts: google
+  - :voice: vi-VN-Standard-A
+    :title: Vox-A, Female (Premium)
+    :gender: FEMALE
+    :locale: vi-VN
+    :language: Tiếng việt (㗂越)
+    :language_en: Vietnamese, Vietnam
+    :tts: google
+  - :voice: vi-VN-Standard-B
+    :title: Vox-B, Male (Premium)
+    :gender: MALE
+    :locale: vi-VN
+    :language: Tiếng việt (㗂越)
+    :language_en: Vietnamese, Vietnam
+    :tts: google
+  - :voice: vi-VN-Standard-C
+    :title: Vox-C, Female (Premium)
+    :gender: FEMALE
+    :locale: vi-VN
+    :language: Tiếng việt (㗂越)
+    :language_en: Vietnamese, Vietnam
+    :tts: google
+  - :voice: vi-VN-Standard-D
+    :title: Vox-D, Male (Premium)
+    :gender: MALE
+    :locale: vi-VN
+    :language: Tiếng việt (㗂越)
+    :language_en: Vietnamese, Vietnam
+    :tts: google
+  - :voice: vi-VN-Wavenet-A
+    :title: Vox-A, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: vi-VN
+    :language: Tiếng việt (㗂越)
+    :language_en: Vietnamese, Vietnam
+    :tts: google
+  - :voice: vi-VN-Wavenet-B
+    :title: Vox-B, Male (Premium-Neural)
+    :gender: MALE
+    :locale: vi-VN
+    :language: Tiếng việt (㗂越)
+    :language_en: Vietnamese, Vietnam
+    :tts: google
+  - :voice: vi-VN-Wavenet-C
+    :title: Vox-C, Female (Premium-Neural)
+    :gender: FEMALE
+    :locale: vi-VN
+    :language: Tiếng việt (㗂越)
+    :language_en: Vietnamese, Vietnam
+    :tts: google
+  - :voice: vi-VN-Wavenet-D
+    :title: Vox-D, Male (Premium-Neural)
+    :gender: MALE
+    :locale: vi-VN
+    :language: Tiếng việt (㗂越)
+    :language_en: Vietnamese, Vietnam
+    :tts: google
+  - :voice: Polly.Gwyneth
+    :title: Gwyneth, Female (Premium)
+    :gender: Female
+    :locale: cy-GB
+    :language: Cymraeg
+    :language_en: Welsh
+    :tts: twilio

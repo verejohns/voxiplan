@@ -1,0 +1,9 @@
+<div class="menu-sub menu-sub-dropdown p-3 w-150px">
+  <% available_locales.each do |locale| %>
+    <div class="menu-item menu-link py-0">
+      <%= form_tag(update_locale_profiles_path(locale: locale), class: 'text-start') do |f| %>
+        <%= submit_tag t("locales.#{locale}"), class: 'btn btn-link' %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

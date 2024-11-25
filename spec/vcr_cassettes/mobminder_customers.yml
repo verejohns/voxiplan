@@ -1,0 +1,475 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.mobminder.com/query/visitors.php?kid=MM_KEY&lgn=MM_LOGIN&mobile=21231231&pwd=MM_PASSWORD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 27 Aug 2018 06:56:22 GMT
+      Server:
+      - Apache
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '212'
+      Content-Type:
+      - text/html
+    body:
+      encoding: ASCII-8BIT
+      string: "<data>#C_dS_visitor\r</data>\r\rPerf Report:\r     1535352982.2307
+        sec (+0 ms) <-> init\r     1535352982.2361 sec (+5 ms) <-> ::time needed to
+        retrieve context and posted parameters\r     1535352982.2367 sec (+0 ms) <->
+        ::visitors have been found\r     1535352982.2367 sec (+0 ms) <-> ::visitors
+        have been magnified\r     1535352982.2367 sec (+0 ms) <-> ::protocol streamed\r\r
+        \    Total delta:  (+6 ms)"
+    http_version: 
+  recorded_at: Mon, 27 Aug 2018 06:56:22 GMT
+- request:
+    method: get
+    uri: https://api.mobminder.com/query/visitors.php?kid=MM_KEY&lgn=MM_LOGIN&mobile=3249365553343&pwd=MM_PASSWORD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 27 Aug 2018 06:57:21 GMT
+      Server:
+      - Apache
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '208'
+      Content-Type:
+      - text/html
+    body:
+      encoding: ASCII-8BIT
+      string: "<data>#C_dS_visitor\r</data>\r\rPerf Report:\r     1535353041.7326
+        sec (+0 ms) <-> init\r     1535353041.736 sec (+3 ms) <-> ::time needed to
+        retrieve context and posted parameters\r     1535353041.7363 sec (+0 ms) <->
+        ::visitors have been found\r     1535353041.7363 sec (+0 ms) <-> ::visitors
+        have been magnified\r     1535353041.7363 sec (+0 ms) <-> ::protocol streamed\r\r
+        \    Total delta:  (+3 ms)"
+    http_version: 
+  recorded_at: Mon, 27 Aug 2018 06:57:21 GMT
+- request:
+    method: get
+    uri: https://api.mobminder.com/query/visitors.php?kid=MM_KEY&lgn=MM_LOGIN&mobile=32493655599&pwd=MM_PASSWORD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 27 Aug 2018 06:57:33 GMT
+      Server:
+      - Apache
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '303'
+      Content-Type:
+      - text/html
+    body:
+      encoding: ASCII-8BIT
+      string: "<data>#C_dS_visitor\r412556|1|Moureuille|Jean Christophe|19980827|32493655599|0625916920|160
+        rue saint martin|75003|Paris|suiteboy@hotmail.com\r</data>\r\rPerf Report:\r
+        \    1535353053.8577 sec (+0 ms) <-> init\r     1535353053.8614 sec (+3 ms)
+        <-> ::time needed to retrieve context and posted parameters\r     1535353053.8618
+        sec (+0 ms) <-> ::visitors have been found\r     1535353053.8618 sec (+0 ms)
+        <-> ::visitors have been magnified\r     1535353053.8619 sec (+0 ms) <-> ::protocol
+        streamed\r\r     Total delta:  (+4 ms)"
+    http_version: 
+  recorded_at: Mon, 27 Aug 2018 06:57:34 GMT
+- request:
+    method: get
+    uri: https://api.mobminder.com/query/visitors.php?kid=MM_KEY&lgn=MM_LOGIN&mobile=5599&pwd=MM_PASSWORD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 27 Aug 2018 07:56:15 GMT
+      Server:
+      - Apache
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '331'
+      Content-Type:
+      - text/html
+    body:
+      encoding: ASCII-8BIT
+      string: "<data>#C_dS_visitor\r412556|1|Moureuille|Jean Christophe|19980827|32493655599|0625916920|160
+        rue saint martin|75003|Paris|suiteboy@hotmail.com\r3790419|1|Vanhove|Pascal|19701230|33493655599|||||\r</data>\r\rPerf
+        Report:\r     1535356575.1385 sec (+0 ms) <-> init\r     1535356575.1446 sec
+        (+6 ms) <-> ::time needed to retrieve context and posted parameters\r     1535356575.145
+        sec (+0 ms) <-> ::visitors have been found\r     1535356575.145 sec (+0 ms)
+        <-> ::visitors have been magnified\r     1535356575.1451 sec (+0 ms) <-> ::protocol
+        streamed\r\r     Total delta:  (+6 ms)"
+    http_version: 
+  recorded_at: Mon, 27 Aug 2018 07:56:15 GMT
+- request:
+    method: get
+    uri: https://api.mobminder.com/post/visitor.php?birthday=19901231&email=shan.ror@gmail.com&id=0&kid=MM_KEY&lastname=ROR&lgn=MM_LOGIN&mobile=919770555563&pwd=MM_PASSWORD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 27 Aug 2018 08:00:29 GMT
+      Server:
+      - Apache
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '89'
+      Content-Type:
+      - text/html
+    body:
+      encoding: ASCII-8BIT
+      string: "<error>#1000 in /post/visitor.php::post/visitors::You must specify
+        a visitor id</error>\r"
+    http_version: 
+  recorded_at: Mon, 27 Aug 2018 08:00:29 GMT
+- request:
+    method: get
+    uri: https://api.mobminder.com/post/visitor.php?birthday=19901231&email=shan.ror@gmail.com&id=-1&kid=MM_KEY&lastname=ROR&lgn=MM_LOGIN&mobile=919770555563&pwd=MM_PASSWORD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 27 Aug 2018 08:02:35 GMT
+      Server:
+      - Apache
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '96'
+      Content-Type:
+      - text/html
+    body:
+      encoding: ASCII-8BIT
+      string: "<error>#1011 in /post/visitor.php::gate::missing mandatory field:firstname</error>\r"
+    http_version: 
+  recorded_at: Mon, 27 Aug 2018 08:02:35 GMT
+- request:
+    method: get
+    uri: https://api.mobminder.com/post/visitor.php?birthday=19901231&email=shan.ror@gmail.com&firstname=Shan&id=0&kid=MM_KEY&lastname=ROR&lgn=MM_LOGIN&mobile=919770555563&pwd=MM_PASSWORD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 27 Aug 2018 08:04:38 GMT
+      Server:
+      - Apache
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '89'
+      Content-Type:
+      - text/html
+    body:
+      encoding: ASCII-8BIT
+      string: "<error>#1000 in /post/visitor.php::post/visitors::You must specify
+        a visitor id</error>\r"
+    http_version: 
+  recorded_at: Mon, 27 Aug 2018 08:04:38 GMT
+- request:
+    method: get
+    uri: https://api.mobminder.com/post/visitor.php?birthday=19901231&email=shan.ror@gmail.com&firstname=Shan&id=-1&kid=MM_KEY&lastname=ROR&lgn=MM_LOGIN&mobile=919770555563&pwd=MM_PASSWORD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 27 Aug 2018 08:04:57 GMT
+      Server:
+      - Apache
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '258'
+      Content-Type:
+      - text/html
+    body:
+      encoding: ASCII-8BIT
+      string: "<data>#C_dS_visitor\r4388510|2018-08-27 10:04:57|Laura Axel Boven|12567|0||0|0|0|1|Shan|ROR|||||||shan.ror@gmail.com|||1|19901231||0|0||\r</data>\r\rPerf
+        Report:\r     1535357097.3422 sec (+0 ms) <-> init\r     1535357097.3458 sec
+        (+3 ms) <-> ::posted parameters retrieved and parsed\r     1535357097.3474
+        sec (+1 ms) <-> ::posted\r     1535357097.3474 sec (+0 ms) <-> ::streamed\r\r
+        \    Total delta:  (+5 ms)"
+    http_version: 
+  recorded_at: Mon, 27 Aug 2018 08:04:57 GMT
+- request:
+    method: get
+    uri: https://api.mobminder.com/post/visitor.php?birthday=19901231&email=shan.ror@gmail.com&firstname=Shan&id=4388510&kid=MM_KEY&lastname=ROR&lgn=MM_LOGIN&mobile=%2B919770555563&pwd=MM_PASSWORD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 27 Aug 2018 08:11:47 GMT
+      Server:
+      - Apache
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '270'
+      Content-Type:
+      - text/html
+    body:
+      encoding: ASCII-8BIT
+      string: "<data>#C_dS_visitor\r4388510|2018-08-27 10:04:57|Laura Axel Boven|12567|2018-08-27
+        10:11:47|Laura Axel Boven|12567|0000-00-00 00:00:00|0|1|Shan|ROR|||||||shan.ror@gmail.com|||1|19901231||0|0||\r</data>\r\rPerf
+        Report:\r     1535357507.216 sec (+0 ms) <-> init\r     1535357507.2223 sec
+        (+6 ms) <-> ::posted parameters retrieved and parsed\r     1535357507.223
+        sec (+0 ms) <-> ::posted\r     1535357507.2231 sec (+0 ms) <-> ::streamed\r\r
+        \    Total delta:  (+7 ms)"
+    http_version: 
+  recorded_at: Mon, 27 Aug 2018 08:11:47 GMT
+- request:
+    method: get
+    uri: https://api.mobminder.com/post/visitor.php?birthday=19901231&email=shan.ror@gmail.com&firstname=Shan2&id=4388510&kid=MM_KEY&lgn=MM_LOGIN&mobile=%2B919770555563&pwd=MM_PASSWORD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 27 Aug 2018 09:08:49 GMT
+      Server:
+      - Apache
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '295'
+      Content-Type:
+      - text/html
+    body:
+      encoding: ASCII-8BIT
+      string: "<data>#C_dS_visitor\r4388510|2018-08-27 10:04:57|Laura Axel Boven|12567|2018-08-27
+        11:08:49|Laura Axel Boven|12567|0000-00-00 00:00:00|0|1|Shan|ROR||||||India|shan.ror@gmail.com|||1|19901231||0|0||He
+        was born on a thursday\r</data>\r\rPerf Report:\r     1535360929.9087 sec
+        (+0 ms) <-> init\r     1535360929.9148 sec (+6 ms) <-> ::posted parameters
+        retrieved and parsed\r     1535360929.9158 sec (+0 ms) <-> ::posted\r     1535360929.9158
+        sec (+0 ms) <-> ::streamed\r\r     Total delta:  (+7 ms)"
+    http_version: 
+  recorded_at: Mon, 27 Aug 2018 09:08:49 GMT
+- request:
+    method: get
+    uri: https://api.mobminder.com/post/visitor.php?birthday=19901231&email=shan.ror@gmail.com&firstname=Shan2&id=-1&kid=MM_KEY&lgn=MM_LOGIN&mobile=%2B919770555563&pwd=MM_PASSWORD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 27 Aug 2018 09:10:14 GMT
+      Server:
+      - Apache
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '95'
+      Content-Type:
+      - text/html
+    body:
+      encoding: ASCII-8BIT
+      string: "<error>#1010 in /post/visitor.php::gate::missing mandatory field:lastname</error>\r"
+    http_version: 
+  recorded_at: Mon, 27 Aug 2018 09:10:14 GMT
+- request:
+    method: get
+    uri: https://api.mobminder.com/query/config.php?kid=MM_KEY&lgn=MM_LOGIN&pwd=MM_PASSWORD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 27 Aug 2018 09:14:43 GMT
+      Server:
+      - Apache
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '607'
+      Content-Type:
+      - text/html
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        PGRhdGE+I0NfZFNfYWNjb3VudA0yODYwfE9saXZpZXIgR2F5IEV5ZURlc2lnbmVyfDM2MDB8MXwxMDB8NHwzM3wzfDB8NDB8NDB8ODB8cmllQHJpZW4uYmUNI0NfZFNfcmVzb3VyY2UNNjk3OHwyfE9saXZpZXJ8fEplIHN1aXMgbGEgc2V1bGUgcmVzb3VyY2UgZGFucyBjZXQgYWdlbmRhIDopDTEzMTM3fDF8VXNtYW58fA0xMzEzOHwxfFNoYWFufHwNMTMxMzl8NHxHcmVnfHwNI0NfZFNfY3VzdG9tQ3NzDTE0MjJ8MTF8ODB8ZXh0ZW5zaW9uIGRlIGNpbHMgZ2xhbW91cnwxMDZ8MmgNMTQyM3wzfDgwfHphcHBlIHR0IGxlIHRlbXBzfDE4M3xwYXMgZmlhYmxlDTE0MjR8MTF8ODF8aG9ubm9yw6l8ODAyfA0xNDI1fDExfDgxfG5vbiBob25vcsOpfDkwM3wNMjE1NzR8MTF8ODB8UGVybWFuZW50fDE3M3wNI0NfZFNfdGltZWJveGluZw0jQ19kU193b3JrZXhwZXJ0DTE1NjUwfDEzMTM5DTE1NjUwfDEzMTM3DTE1NjUwfDEzMTM4DTE1NjUwfDY5NzgNMTU2NDl8MTMxMzcNMTU2NDl8MTMxMzgNMTU2NDl8Njk3OA0xNTY0OHwxMzEzNw0xNTY0OHwxMzEzOA0xNTY0OHw2OTc4DTEzODA1fDY5NzgNMTM4MDd8Njk3OA0xMzgwOHw2OTc4DTE1NDE0fDY5NzgNI0NfZFNfd29ya3Rib3hpbmcNI0NfZFNfd29ya2NvZGUNMTM4MDV8TWFxdWlsbGFnZSBwZXJtYW5lbnR8fDR8MXwyMTU3NHwwfDENMTM4MDd8UmV0b3VjaGUgbWFxdWlsbGFnZXx8MnwxfDIxNTc0fDB8MQ0xMzgwOHxFeHRlbnNpb24gZGUgY2lscyBnbGFtb3VyfG9oIG1vbiBkaWV1eCBjb21tZSB0dSB2YXMgw6p0cmUgYmVsbGUhfDN8MXwxNDIyfDB8MQ0xNTQxNHxUZXN0IHNlcnZpY2V8fDJ8MXwwfDB8MA0xNTY0OHxUZXN0IHNlcnZpY2UgMnx8MnwxfDB8MHwwDTE1NjQ5fFRlc3Qgc2VydmljZSAzfHwyfDF8MHwwfDENMTU2NTB8VGVzdCBzZXJ2aWNlIDR8fDJ8MnwwfDB8MQ08L2RhdGE+DQ1QZXJmIFJlcG9ydDoNICAgICAxNTM1MzYxMjgzLjg5NjIgc2VjICgrMCBtcykgPC0+IGluaXQNICAgICAxNTM1MzYxMjgzLjkwMjQgc2VjICgrNiBtcykgPC0+IDo6dGltZSBuZWVkZWQgdG8gcmV0cmlldmUgY29udGV4dCBhbmQgcG9zdGVkIHBhcmFtZXRlcnMNICAgICAxNTM1MzYxMjgzLjkwMjYgc2VjICgrMCBtcykgPC0+IDo6cHJvdG9jb2wgc3RyZWFtZWQNDSAgICAgVG90YWwgZGVsdGE6ICAoKzYgbXMp
+    http_version: 
+  recorded_at: Mon, 27 Aug 2018 09:14:43 GMT
+- request:
+    method: get
+    uri: https://api.mobminder.com/post/visitor.php?birthday=19901231&email=shan.ror@gmail.com&firstname=Shan&id=-1&kid=MM_KEY&lastname=ROR&lgn=MM_LOGIN&mobile=%2B919770555563&pwd=MM_PASSWORD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 27 Aug 2018 09:15:06 GMT
+      Server:
+      - Apache
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '257'
+      Content-Type:
+      - text/html
+    body:
+      encoding: ASCII-8BIT
+      string: "<data>#C_dS_visitor\r4388733|2018-08-27 11:15:06|Laura Axel Boven|12567|0||0|0|0|1|Shan|ROR|||||||shan.ror@gmail.com|||1|19901231||0|0||\r</data>\r\rPerf
+        Report:\r     1535361306.7703 sec (+0 ms) <-> init\r     1535361306.7738 sec
+        (+3 ms) <-> ::posted parameters retrieved and parsed\r     1535361306.7747
+        sec (+0 ms) <-> ::posted\r     1535361306.7748 sec (+0 ms) <-> ::streamed\r\r
+        \    Total delta:  (+4 ms)"
+    http_version: 
+  recorded_at: Mon, 27 Aug 2018 09:15:06 GMT
+recorded_with: VCR 4.0.0

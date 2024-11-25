@@ -1,0 +1,31 @@
+{{define "en"}}
+Please verify your email address
+{{end}}
+
+{{define "fr"}}
+Veuillez vérifier votre adresse email
+{{end}}
+
+{{define "it"}}
+Verificare l'indirizzo e-mail
+{{end}}
+
+{{define "nl"}}
+Controleer uw email adres
+{{end}}
+
+{{define "de"}}
+Bitte verifizieren Sie Ihre E-Mail Adresse
+{{end}}
+
+{{- if eq .Identity.traits.language "de" -}}
+{{ template "de" . }}
+{{- else if eq .Identity.traits.language "fr" -}}
+{{ template "fr" . }}
+{{- else if eq .Identity.traits.language "nl" -}}
+{{ template "nl" . }}
+{{- else if eq .Identity.traits.language "it" -}}
+{{ template "it" . }}
+{{- else -}}
+{{ template "en" . }}
+{{- end -}}

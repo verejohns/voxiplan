@@ -1,0 +1,133 @@
+<%
+  day_hours = [{'from' => '09:30', 'to' => '17:00', 'enabled' => false}] if day_hours[0].length == 0
+%>
+<div class="row" style="min-height:50px">
+  <div class="col-md-3 col-xs-12">
+    <div class="form-check form-check-custom form-check-solid mt-1">
+      <%= check_box_tag("service_hours[#{day}][on]", "true", (day_hours[0].key?('enabled') ? false : true), {class: "service-hours-check-week form-check-input w-20px h-20px", 'data-day': day}) %>
+      <label class="form-check-label" for="service_hours_<%= day %>_on">
+        <%= full_day_name(day) %>
+      </label>
+    </div>
+  </div>
+  <div class="repeater_default col-md-9 col-xs-12">
+    <div data-repeater-list="service_hours[<%= day %>][hours]" id="service_hours_default_<%= day %>_on_time" style="display: <%= (day_hours[0].blank? ? "none" : "") rescue "none" %>" >
+      <% day_hours.each_with_index do |day_hour, index| %>
+        <% if index.zero? %>
+          <div data-repeater-item class="row mb-3 time_slot" id="service_hours_time_slot_<%= day %>">
+            <div class="col-8 col-md-8 align-self-center">
+              <div class="input-group input-group-sm flex-nowrap rounded bg-light-primary mw-300px mb-0 service-hours-time-section <%= day_hours[0].key?('enabled') ? 'd-none' : '' %>">
+                <span class="input-group-text bg-primary text-white border-0"><%= t('availabilities.from') %></span>
+                <input type="text" name="service_hours[<%= day %>][from][]" id="<%= day %>" value="<%= day_hour[:from] || day_hour['from'] || '09:30' %>"
+                       class="mask-to form-control form-control-solid w-80px service_hours_from_time_default service-hours-timepicker-default <%= day_hour.key?('enabled') ? "form-control-solid" : "" %>"  />
+                <span class="input-group-text bg-primary text-white border-0"><%= t('availabilities.to') %></span>
+                <input type="text" name="service_hours[<%= day %>][to][]" id="<%= day %>" value="<%= (day_hour[:to] == '24:00' || day_hour['to'] == '24:00') ? '23:55' : (day_hour[:to] || day_hour['to'] || '17:00') %>"
+                       class="mask-to form-control form-control-solid w-80px service_hours_to_time_default service-hours-timepicker-default <%= day_hour.key?('enabled') ? "form-control-solid" : "" %>"  />
+              </div>
+              <div class="service-hours-unavailable-section text-muted <%= day_hours[0].key?('enabled') ? '' : 'd-none' %>"><%= t('availabilities.unavailable') %></div>
+            </div>
+            <div class="col-4 col-md-4 align-self-center control-section">
+              <div class="btn-group">
+                <button class="btn btn-sm btn-icon btn-light service-hours-add-availability" data-day="<%= day %>"
+                        data-repeater-item-id="time_slot_<%= day %>" type="button">
+                  <i class="bi bi-plus fs-3"></i>
+                </button>
+                <button class="btn btn-sm btn-icon btn-light-danger service-hours-remove-availability" data-day="<%= day %>" type="button" style="display: none">
+                  <i class="fas fa-trash"></i>
+                </button>
+
+                <div class="dropdown service-hours-copy-dropdown">
+                  <button class="btn btn-sm btn-icon btn-light rounded-start-0 service-hours-copy-dropdonw-button" data-day="<%= day %>" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                    <i class="bi bi-files"></i>
+                  </button>
+                  <div class="dropdown-menu min-w-150px p-0">
+                    <div class="p-4">
+                      <div class="fs-6 fw-bold text-primary mb-3"><%= t('availabilities.copy_times') %></div>
+
+                      <div class="mb-5">
+                        <div class="mb-3">
+                          <label class="form-check form-check-custom form-check-solid form-check-sm">
+                            <input class="form-check-input service_hours_copy_day copy_mon" type="checkbox" data-day="mon" /><span class="form-check-label"><%= t('common.day.monday') %></span>
+                          </label>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-check form-check-custom form-check-solid form-check-sm">
+                            <input class="form-check-input service_hours_copy_day copy_tue" type="checkbox" data-day="tue" /><span class="form-check-label"><%= t('common.day.tuesday') %></span>
+                          </label>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-check form-check-custom form-check-solid form-check-sm">
+                            <input class="form-check-input service_hours_copy_day copy_wed" type="checkbox" data-day="wed" /><span class="form-check-label"><%= t('common.day.wednesday') %></span>
+                          </label>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-check form-check-custom form-check-solid form-check-sm">
+                            <input class="form-check-input service_hours_copy_day copy_thu" type="checkbox" data-day="thu" /><span class="form-check-label"><%= t('common.day.thursday') %></span>
+                          </label>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-check form-check-custom form-check-solid form-check-sm">
+                            <input class="form-check-input service_hours_copy_day copy_fri" type="checkbox" data-day="fri" /><span class="form-check-label"><%= t('common.day.friday') %></span>
+                          </label>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-check form-check-custom form-check-solid form-check-sm">
+                            <input class="form-check-input service_hours_copy_day copy_sat" type="checkbox" data-day="sat" /><span class="form-check-label"><%= t('common.day.saturday') %></span>
+                          </label>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-check form-check-custom form-check-solid form-check-sm">
+                            <input class="form-check-input service_hours_copy_day copy_sun" type="checkbox" data-day="sun" /><span class="form-check-label"><%= t('common.day.sunday') %></span>
+                          </label>
+                        </div>
+                      </div>
+
+                      <button class="btn btn-sm btn-light-primary d-block w-100 service-hours-apply-copy" type="button" data-day="<%= day %>" ><%= t('button.apply') %></button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <div class="clone_box" id="service_hours_clone_box_time_slot_<%= day %>">
+        <% else %>
+          <div data-repeater-item class="row mb-3 time_slot" id="service_hours_time_slot_<%= day %>">
+            <div class="col-8 col-md-8 align-self-center">
+              <div class="input-group input-group-sm flex-nowrap rounded bg-light-primary mw-300px mb-0 service-hours-time-section <%= day_hours[0].key?('enabled') ? 'd-none' : '' %>">
+                <span class="input-group-text bg-primary text-white border-0"><%= t('availabilities.from') %></span>
+                <input type="text" name="service_hours[<%= day %>][from][]" id="<%= day %>" value="<%= day_hour[:from] || day_hour['from'] || '09:30' %>"
+                       class="mask-to form-control form-control-solid w-80px service_hours_from_time_default service-hours-timepicker-default <%= day_hour.key?('enabled') ? "form-control-solid" : "" %>"  />
+                <span class="input-group-text bg-primary text-white border-0"><%= t('availabilities.to') %></span>
+                <input type="text" name="service_hours[<%= day %>][to][]" id="<%= day %>" value="<%= (day_hour[:to] == '24:00' || day_hour['to'] == '24:00') ? '23:55' : (day_hour[:to] || day_hour['to'] || '17:00') %>"
+                       class="mask-to form-control form-control-solid w-80px service_hours_to_time_default service-hours-timepicker-default <%= day_hour.key?('enabled') ? "form-control-solid" : "" %>"  />
+              </div>
+              <div class="service-hours-unavailable-section text-muted <%= day_hours[0].key?('enabled') ? '' : 'd-none' %>"><%= t('availabilities.unavailable') %></div>
+            </div>
+            <div class="col-4 col-md-4 align-self-center control-section">
+              <div class="btn-group">
+                <button class="btn btn-sm btn-icon btn-light service-hours-add-availability" data-day="<%= day %>"
+                        data-repeater-item-id="service_hours_time_slot_<%= day %>" type="button" style="display: none" %>">
+                  <i class="bi bi-plus fs-3"></i>
+                </button>
+                <button class="btn btn-sm btn-icon btn-light-danger service-hours-remove-availability" data-day="<%= day %>" type="button" >
+                  <i class="fas fa-trash"></i>
+                </button>
+
+              </div>
+            </div>
+
+          </div>
+        <% end %>
+
+        <% if index == day_hours.count - 1 %>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+

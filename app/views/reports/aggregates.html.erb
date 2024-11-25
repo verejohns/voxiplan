@@ -1,0 +1,448 @@
+<%= stylesheet_link_tag    'datatables.bundle', media: 'all', 'data-turbolinks-track' => true %>
+<%= stylesheet_link_tag    'air-datepicker', media: 'all', 'data-turbolinks-track' => true %>
+<style>
+    .table-row-has-child td:first-child::before,
+    .table-row-has-child th:first-child::before {
+        content: "\f105";
+        position: relative;
+        top: -1px;
+        display: inline-block;
+        line-height: 1;
+        font-weight: 900;
+        font-size: 1.25rem;
+        font-family: "Font Awesome 5 Free";
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        color: #009EF7;
+        vertical-align: middle;
+        margin-right: 0.5rem;
+        transition: transform 0.2s ease;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .table-row-has-child td,
+    .table-row-has-child th {
+        white-space: nowrap;
+    }
+
+    .table-row-has-child.active td:first-child::before,
+    .table-row-has-child.active th:first-child::before {
+        transform: rotate(90deg);
+    }
+
+    .table-row-nesting-1 td:first-child,
+    .table-row-nesting-1 th:first-child {
+        padding-left: 1.325rem;
+    }
+
+    .table-row-nesting-2 td:first-child,
+    .table-row-nesting-2 th:first-child {
+        padding-left: 2.325rem;
+    }
+
+    .table-row-nesting-3 td:first-child,
+    .table-row-nesting-3 th:first-child {
+        padding-left: 3.325rem;
+    }
+
+    .table-row-nesting-4 td:first-child,
+    .table-row-nesting-4 th:first-child {
+        padding-left: 4.325rem;
+    }
+
+    .table-row-has-child {
+        cursor: pointer;
+    }
+
+    [class*="table-row-nesting"]:not(.opened) {
+        display: none;
+    }
+</style>
+
+<div class="toolbar" id="kt_toolbar">
+  <!--begin::Container-->
+  <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+    <div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
+      class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
+      <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3"><%= t('billing.title') %></h1>
+    </div>
+    <div class="d-flex align-items-center py-1"></div>
+  </div>
+</div>
+
+<div class="post d-flex flex-column-fluid" id="kt_post">
+  <!--begin::Container-->
+  <div id="kt_content_container" class="container">
+    <div class="card mb-7">
+      <div class="card-body d-flex justify-content-between">
+        <div>
+          <div class="fw-bolder fs-3 mb-3"><%= t('billing.aggregate.' + @subscription_plan) %> <%= t('billing.aggregate.' + @subscription_period) %>
+            <% if @subscription_status == "cancelled" %>
+              <span class="alert alert-danger px-2 py-1 fs-8 fw-normal"><%= @subscription_status %></span>
+            <% end %>
+          </div>
+          <div class="fw-bold fs-7 opacity-50 d-none">Last updated Jan 25, 2022</div>
+        </div>
+        <div class="text-end">
+          <div class="fw-bolder fs-3 mb-3"><%= @subscription_seats %> <%= t('billing.aggregate.seat') %></div>
+          <div class="fw-bold fs-7 opacity-50 d-none">Last updated Jan 25, 2022</div>
+          <div class="d-flex justify-content-end mt-3">
+            <a class="btn btn-sm btn-outline btn-outline-primary text-hover-white me-2 manage-subscription">
+              <%= t('billing.aggregate.manage_subscription') %>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer py-5"><%= t('billing.aggregate.looking_event') %> <a href="<%= pricing_index_path %>"><%= t('billing.aggregate.view_all_plans') %></a></div>
+    </div>
+
+    <div class="card mb-0">
+      <div class="card-header">
+        <div class="card-toolbar">
+          <input class="kt_date_picker form-control w-175px" placeholder="<%= t('billing.aggregate.pick_month') %>" value="<%= @month + ' ' + @year.to_s %>"/>
+        </div>
+        <div class="card-title">
+          <div class="card-label me-0"><%= t('billing.aggregate.as_of_utc') %> <%= @month + ' 01, ' + @year.to_s %></div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-row-bordered table-row-gray-300 align-middle gy-4 mb-0">
+            <thead>
+            <tr class="fw-bolder fs-6 text-gray-800">
+              <th><%= t('billing.aggregate.product') %></th>
+              <th class="text-end" style="width: 305px;"><%= t('billing.aggregate.unit') %></th>
+              <th class="text-end" style="width: 235px;"><%= t('billing.aggregate.unit') %></th>
+              <th class="text-end" style="width: 195px;"><%= t('billing.aggregate.cost') %></th>
+            </tr>
+            </thead>
+            <tbody>
+            <% if @billing_data.nil? || @billing_data.count.zero? %>
+              <tr>
+                <td class="text-center text-muted" colspan="4"><%= t('billing.aggregate.no_any_data') %></td>
+              </tr>
+            <% else %>
+              <tr>
+                <th class="fw-bold fs-4" colspan="2"><%= t('billing.aggregate.all_account_total') %></th>
+                <td class="text-end fw-bolder fs-2"></td>
+                <td class="text-end fw-bolder fs-2"><%= @currency_code %><%= @all_account_cost %></td>
+              </tr>
+              <% @billing_data.each do |billing_data| %>
+                <tr class="table-row-nesting-0 table-row-has-child opened active" data-kt-target-content="kt_rows_nested_1" data-kt-close-target="kt_rows_nested_1_1, kt_rows_nested_1_2_1, kt_rows_nested_1_2_2, kt_rows_nested_1_2_3, kt_rows_nested_1_3_1, kt_rows_nested_1_3_2, kt_rows_nested_1_3_3, kt_rows_nested_1_4_1, kt_rows_nested_1_4_2, kt_rows_nested_1_4_3" data-kt-close-inclusions="kt_rows_nested_2" data-kt-open-target="kt_rows_nested_1_1">
+                  <th class="fw-bold fs-4"><%= billing_data[:ivr_name] %></th>
+                  <td class="text-end"></td>
+                  <td class="text-end"></td>
+                  <td class="fw-bolder fs-2 text-end"><%= @currency_code %><%= billing_data[:account_cost] %></td>
+                </tr>
+
+                <tr class="table-row-nesting-1 table-row-has-child opened" data-kt-target-content="kt_rows_nested_1_1" data-kt-close-target="kt_rows_nested_1_2_1" data-kt-open-target="kt_rows_nested_1_2_1">
+                  <th class="fw-bold fs-5"><%= t('billing.aggregate.subscription') %></th>
+                  <td class="text-end"></td>
+                  <td class="text-end"></td>
+                  <td class="fs-4 text-end"><%= @currency_code %><%= billing_data[:seats_cost] %></td>
+                </tr>
+                <tr class="table-row-nesting-2" data-kt-target-content="kt_rows_nested_1_2_1">
+                  <th class="fw-bold fs-5"><%= t('billing.aggregate.seats') %></th>
+                  <td class="text-end"><%= t('billing.aggregate.seat') %></td>
+                  <td class="text-end"><%= billing_data[:seats] %></td>
+                  <td class="fs-4 text-end"><%= @currency_code %><%= billing_data[:seats_cost] %></td>
+                </tr>
+
+                <tr class="table-row-nesting-1 table-row-has-child opened" data-kt-target-content="kt_rows_nested_1_1" data-kt-close-target="kt_rows_nested_1_2_2" data-kt-open-target="kt_rows_nested_1_2_2">
+                  <th class="fw-bold fs-5"><%= t('billing.aggregate.assistant') %></th>
+                  <td class="text-end"></td>
+                  <td class="text-end"></td>
+                  <td class="fs-4 text-end"><%= @currency_code %><%= billing_data[:task_cost] + billing_data[:appointments_cost] %></td>
+                </tr>
+                <tr class="table-row-nesting-2" data-kt-target-content="kt_rows_nested_1_2_2">
+                  <th class="fw-bold fs-5"><%= t('billing.aggregate.tasks') %></th>
+                  <td class="text-end"><%= t('billing.aggregate.task') %></td>
+                  <td class="text-end"><%= billing_data[:task_count] %></td>
+                  <td class="fs-4 text-end"><%= @currency_code %><%= billing_data[:task_cost] %></td>
+                </tr>
+                <tr class="table-row-nesting-2" data-kt-target-content="kt_rows_nested_1_2_2">
+                  <th class="fw-bold fs-5"><%= t('billing.aggregate.appointments') %></th>
+                  <td class="text-end"><%= t('billing.aggregate.appointment') %></td>
+                  <td class="text-end"><%= billing_data[:appointments] %></td>
+                  <td class="fs-4 text-end"><%= @currency_code %><%= billing_data[:appointments_cost] %></td>
+                </tr>
+
+                <tr class="table-row-nesting-1 table-row-has-child opened" data-kt-target-content="kt_rows_nested_1_1" data-kt-close-target="kt_rows_nested_1_2_3, kt_rows_nested_1_3_1, kt_rows_nested_1_3_2, kt_rows_nested_1_3_3, kt_rows_nested_1_4_1, kt_rows_nested_1_4_2, kt_rows_nested_1_4_3" data-kt-open-target="kt_rows_nested_1_2_3">
+                  <th class="fw-bold fs-5"><%= t('billing.aggregate.telecom') %></th>
+                  <td class="text-end"></td>
+                  <td class="text-end"></td>
+                  <td class="fs-4 text-end"><%= @currency_code %><%= billing_data[:telecom_cost] %></td>
+                </tr>
+                <tr class="table-row-nesting-2 table-row-has-child" data-kt-target-content="kt_rows_nested_1_2_3" data-kt-close-target="kt_rows_nested_1_3_1, kt_rows_nested_1_4_1" data-kt-open-target="kt_rows_nested_1_3_1">
+                  <th class="fw-bold fs-5"><%= t('billing.aggregate.voice') %></th>
+                  <td class="text-end"></td>
+                  <td class="text-end"></td>
+                  <td class="fs-4 text-end"><%= @currency_code %><%= billing_data[:voice_cost] %></td>
+                </tr>
+                <tr class="table-row-nesting-3 table-row-has-child" data-kt-target-content="kt_rows_nested_1_3_1" data-kt-close-target="kt_rows_nested_1_4_1" data-kt-open-target="kt_rows_nested_1_4_1">
+                  <th class="fw-bold fs-6"><%= t('billing.aggregate.inbound') %></th>
+                  <td class="text-end"></td>
+                  <td class="text-end"></td>
+                  <td class="fs-4 text-end"><%= @currency_code %><%= billing_data[:voice_incoming_cost] %></td>
+                </tr>
+                <tr class="table-row-nesting-4" data-kt-target-content="kt_rows_nested_1_4_1">
+                  <th class="fw-bold fs-7"><%= t('billing.aggregate.local') %></th>
+                  <td class="text-end"><%= t('billing.aggregate.minutes') %></td>
+                  <td class="text-end"><%= billing_data[:incoming_local_duration] %></td>
+                  <td class="fs-4 text-end"><%= @currency_code %><%= billing_data[:incoming_local_cost] %></td>
+                </tr>
+                <tr class="table-row-nesting-4" data-kt-target-content="kt_rows_nested_1_4_1">
+                  <th class="fw-bold fs-7"><%= t('billing.aggregate.mobile') %></th>
+                  <td class="text-end"><%= t('billing.aggregate.minutes') %></td>
+                  <td class="text-end"><%= billing_data[:incoming_mobile_duration] %></td>
+                  <td class="fs-4 text-end"><%= @currency_code %><%= billing_data[:incoming_mobile_cost] %></td>
+                </tr>
+                <tr class="table-row-nesting-3" data-kt-target-content="kt_rows_nested_1_3_1">
+                  <th class="fw-bold fs-6"><%= t('billing.aggregate.outbound') %></th>
+                  <td class="text-end"><%= t('billing.aggregate.minutes') %></td>
+                  <td class="text-end"><%= billing_data[:outgoing_duration] %></td>
+                  <td class="fs-4 text-end"><%= @currency_code %><%= billing_data[:outgoing_cost] %></td>
+                </tr>
+                <tr class="table-row-nesting-2 table-row-has-child" data-kt-target-content="kt_rows_nested_1_2_3" data-kt-close-target="kt_rows_nested_1_3_2, kt_rows_nested_1_4_2, kt_rows_nested_1_4_3" data-kt-open-target="kt_rows_nested_1_3_2">
+                  <th class="fw-bold fs-5"><%= t('billing.aggregate.message') %></th>
+                  <td class="text-end"></td>
+                  <td class="text-end"></td>
+                  <td class="fs-4 text-end"><%= @currency_code %><%=billing_data[:message_cost] %></td>
+                </tr>
+                <tr class="table-row-nesting-3 table-row-has-child" data-kt-target-content="kt_rows_nested_1_3_2" data-kt-close-target="kt_rows_nested_1_4_2" data-kt-open-target="kt_rows_nested_1_4_2">
+                  <th class="fw-bold fs-6"><%= t('billing.aggregate.sms') %></th>
+                  <td class="text-end"></td>
+                  <td class="text-end"></td>
+                  <td class="fs-4 text-end"><%= @currency_code %><%= billing_data[:sms_cost] %></td>
+                </tr>
+                <tr class="table-row-nesting-4" data-kt-target-content="kt_rows_nested_1_4_2">
+                  <th class="fw-bold fs-7"><%= t('billing.aggregate.inbound') %></th>
+                  <td class="text-end"><%= t('billing.aggregate.segments') %>
+                    <i class="fas fa-info-circle" title="Some Cool Tooltip!" data-bs-toggle="tooltip"></i>
+                  </td>
+                  <td class="text-end"><%= billing_data[:sms_inbound_segments] %></td>
+                  <td class="fs-4 text-end"><%= @currency_code %><%= billing_data[:sms_inbound_cost] %></td>
+                </tr>
+                <tr class="table-row-nesting-4" data-kt-target-content="kt_rows_nested_1_4_2">
+                  <th class="fw-bold fs-7"><%= t('billing.aggregate.outbound') %></th>
+                  <td class="text-end"><%= t('billing.aggregate.segments') %>
+                    <i class="fas fa-info-circle" title="Some Cool Tooltip!" data-bs-toggle="tooltip"></i>
+                  </td>
+                  <td class="text-end"><%= billing_data[:sms_outbound_segments] %></td>
+                  <td class="fs-4 text-end"><%= @currency_code %><%= billing_data[:sms_outbound_cost] %></td>
+                </tr>
+                <tr class="table-row-nesting-2 table-row-has-child" data-kt-target-content="kt_rows_nested_1_2_3" data-kt-close-target="kt_rows_nested_1_3_3" data-kt-open-target="kt_rows_nested_1_3_3">
+                  <th class="fw-bold fs-5"><%= t('billing.aggregate.phone_number') %></th>
+                  <td class="text-end"></td>
+                  <td class="text-end"></td>
+                  <td class="fs-4 text-end"><%= @currency_code %><%= billing_data[:phone_cost] %></td>
+                </tr>
+                <tr class="table-row-nesting-3" data-kt-target-content="kt_rows_nested_1_3_3">
+                  <th class="fw-bold fs-6"><%= t('billing.aggregate.national') %></th>
+                  <td class="text-end"><%= t('billing.aggregate.numbers') %></td>
+                  <td class="text-end"><%= billing_data[:phone_national_nums] %></td>
+                  <td class="fs-4 text-end"><%= @currency_code %><%= billing_data[:phone_national_cost] %></td>
+                </tr>
+                <tr class="table-row-nesting-3" data-kt-target-content="kt_rows_nested_1_3_3">
+                  <th class="fw-bold fs-6"><%= t('billing.aggregate.local') %></th>
+                  <td class="text-end"><%= t('billing.aggregate.numbers') %></td>
+                  <td class="text-end"><%= billing_data[:phone_local_nums] %></td>
+                  <td class="fs-4 text-end"><%= @currency_code %><%= billing_data[:phone_local_cost] %></td>
+                </tr>
+                <tr class="table-row-nesting-3" data-kt-target-content="kt_rows_nested_1_3_3">
+                  <th class="fw-bold fs-6"><%= t('billing.aggregate.mobile') %></th>
+                  <td class="text-end"><%= t('billing.aggregate.numbers') %></td>
+                  <td class="text-end"><%= billing_data[:phone_mobile_nums] %></td>
+                  <td class="fs-4 text-end"><%= @currency_code %><%= billing_data[:phone_mobile_cost] %></td>
+                </tr>
+                <tr class="table-row-nesting-2" data-kt-target-content="kt_rows_nested_1_2_3">
+                  <th class="fw-bold fs-5"><%= t('billing.aggregate.sip') %></th>
+                  <td class="text-end"></td>
+                  <td class="text-end"></td>
+                  <td class="fs-4 text-end"><%= @currency_code %><%= billing_data[:sip_cost] %></td>
+                </tr>
+              <% end %>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end::Container-->
+</div>
+<!--end::Post-->
+
+<%= javascript_include_tag 'datatables.bundle', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'air-datepicker-3.0.1', 'data-turbolinks-track' => true %>
+<script src="https://js.chargebee.com/v2/chargebee.js"></script>
+
+<script>
+    let portal_session_id = '';
+    $( document ).ready(function() {
+        var cbInstance = window.Chargebee.init({site: "<%= ENV['CHARGEBEE_SITE'] %>"});
+
+        cbInstance.setPortalSession(() => {
+            // we have used axios for performing http requests
+            // Hit your end point that returns portal session object as response
+            // This sample end point will call the below api
+            // https://apidocs.chargebee.com/docs/api/portal_sessions#create_a_portal_session
+            return $.ajax({
+                method: "post",
+                url: "<%= create_portal_session_reports_path %>",
+                success: function(response) {
+                    console.log('success');
+                    console.log(response);
+                    portal_session_id = response.id
+                },
+                error: function(response) {
+                    console.log(response);
+                }
+            });
+        });
+
+        cbInstance.setPortalCallbacks({
+            close: function() {
+                console.log('closed');
+                console.log(portal_session_id);
+                if (portal_session_id != '') {
+                    $.ajax({
+                        method: "post",
+                        url: "<%= logout_portal_session_reports_path %>",
+                        data: { portal_session_id: portal_session_id },
+                        success: function(response) {
+                            console.log('portal logout');
+
+                        }
+                    });
+                    portal_session_id = '';
+                    window.location.reload();
+                    cbInstance.logout();
+                }
+
+
+            },
+            visit: function(value) {
+                // value -> which page in checkout/portal
+                console.log('visit - ' + value);
+            },
+            subscriptionChanged: function(data) {
+                console.log('subscrtion-changed')
+                console.log(data);
+            },
+            subscriptionCustomFieldsChanged: function(data) {
+                console.log('subscriptionCustomFieldsChanged')
+                console.log(data);
+            },
+            subscriptionCancelled: function(data) {
+                console.log('subscriptionCancelled')
+                console.log(data);
+            },
+            subscriptionResumed: function(data) {
+                console.log('subscriptionResumed')
+                console.log(data);
+            },
+            subscriptionPaused: function(data) {
+                console.log('subscriptionPaused')
+                console.log(data);
+            },
+            subscriptionReactivated: function(data) {
+                console.log('subscriptionReactivated')
+                console.log(data);
+            },
+
+        });
+
+        $('a.manage-subscription').click(function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            cbInstance.createChargebeePortal().open({
+                loaded: function() {
+                    console.log('loaded');
+                },
+                close: function() {
+                    console.log('closed333');
+                },
+                paymentSourceAdd: function(status) {
+                    console.log("payment source add" + status);
+                },
+                paymentSourceUpdate: function(status) {
+                    console.log("payment source update" + status);
+                },
+                paymentSourceRemove: function(status) {
+                    console.log("payment source removed");
+                }
+            })
+        });
+
+
+    });
+
+    (function () {
+        new AirDatepicker('.kt_date_picker', {
+            view: 'months',
+            minView: 'months',
+            dateFormat: 'MMMM yyyy',
+            showEvent: 'focus',
+            locale: {
+                days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+                daysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                daysMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                today: 'Today',
+                clear: 'Clear',
+                dateFormat: 'MM/dd/yyyy',
+                timeFormat: 'hh:mm aa',
+                firstDay: 0,
+            },
+            onSelect( {date, formattedDate, datepicker} ) {
+                // const year = date.getFullYear();
+                // const month = date.getMonth() + 1;
+                const url = new URL(window.location.href);
+                url.searchParams.set("year", date.getFullYear());
+                url.searchParams.set("month", date.getMonth() + 1);
+                window.location.href = url;
+            }
+
+        });
+    })();
+
+    (function () {
+        $('.table-row-has-child').on('click', function () {
+            const contentForClose = $(this).data('kt-close-target');
+            const contentForCloseToArray = contentForClose.replaceAll(/ /g, '').split(',');
+            const $contentForClose = $(selectorFromArray(contentForCloseToArray));
+
+            const contentForOpen = $(this).data('kt-open-target');
+            const contentForOpenToArray = contentForOpen.replaceAll(/ /g, '').split(',');
+            const $contentForOpen = $(selectorFromArray(contentForOpenToArray));
+
+            const contentInclusions = $(this).data('kt-close-inclusions');
+            const contentInclusionsForClose = $(`[data-kt-target-content='${contentInclusions}']`).data('kt-close-target') || null;
+            const contentInclusionsForCloseToArray = contentInclusionsForClose ? contentInclusionsForClose.replaceAll(/ /g, '').split(',') : [];
+            const $contentInclusionsForClose = $(selectorFromArray(contentInclusionsForCloseToArray));
+
+            if (!$(this).hasClass('active')) {
+                $(this).addClass('active');
+                $contentForOpen.addClass('opened');
+                $(`[data-kt-target-content='${contentInclusions}']`).removeClass('active');
+                $contentInclusionsForClose.removeClass('opened').removeClass('active');
+            } else {
+                $(this).removeClass('active');
+                $contentForClose.removeClass('opened').removeClass('active');
+            }
+
+            function selectorFromArray (arr) {
+                let result = '';
+
+                for (let i = 0; i < arr.length; i++) {
+                    result += `${i !== 0 ? ', ' : ''}[data-kt-target-content="${arr[i]}"]`;
+                }
+
+                return result;
+            }
+        })
+    })();
+</script>

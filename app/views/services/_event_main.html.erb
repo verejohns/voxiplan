@@ -1,0 +1,664 @@
+<!--begin::Post-->
+<div class="post d-flex flex-column-fluid" id="kt_post">
+  <!--begin::Container-->
+  <div id="kt_content_container" class="container-fluid">
+    <!--begin::Stepper-->
+    <div class="stepper stepper-pills stepper-column d-flex flex-column flex-md-row">
+      <!--begin::Aside-->
+      <div class="d-flex justify-content-center bg-body rounded justify-content-xl-start flex-row-auto w-100 w-md-300px me-9">
+        <!--begin::Wrapper-->
+        <div class="w-100 p-9">
+          <a class="btn btn-sm btn-outline btn-outline-primary btn-color-primary btn-active-color-white"
+             href="<%= services_services_path() %>">
+            <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+            <span class="svg-icon svg-icon-2">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+														<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+															<polygon points="0 0 24 0 24 24 0 24" />
+															<rect fill="#000000" opacity="0.3"
+                                    transform="translate(15.000000, 12.000000) scale(-1, 1) rotate(-90.000000) translate(-15.000000, -12.000000) "
+                                    x="14" y="7" width="2" height="10" rx="1" />
+															<path d="M3.7071045,15.7071045 C3.3165802,16.0976288 2.68341522,16.0976288 2.29289093,15.7071045 C1.90236664,15.3165802 1.90236664,14.6834152 2.29289093,14.2928909 L8.29289093,8.29289093 C8.67146987,7.914312 9.28105631,7.90106637 9.67572234,8.26284357 L15.6757223,13.7628436 C16.0828413,14.136036 16.1103443,14.7686034 15.7371519,15.1757223 C15.3639594,15.5828413 14.7313921,15.6103443 14.3242731,15.2371519 L9.03007346,10.3841355 L3.7071045,15.7071045 Z"
+                                    fill="#000000"
+                                    fill-rule="nonzero"
+                                    transform="translate(9.000001, 11.999997) scale(-1, -1) rotate(90.000000) translate(-9.000001, -11.999997) " />
+														</g>
+													</svg>
+												</span>
+            <!--end::Svg Icon-->
+            <%= t('common.button.back') %>
+          </a>
+
+          <div class="separator my-8"></div>
+
+          <!--begin::Nav-->
+          <ul class="position-sticky stepper-nav nav nav-tabs border-0" style="top: 150px;">
+            <!--begin::Step 1-->
+            <li class="nav-item">
+              <a href="#kt_tab_pane_01" class="stepper-item nav-link border-0 active" data-bs-toggle="tab">
+                <!--begin::Label-->
+                <div class="stepper-label">
+                  <h3 class="stepper-title"><%= t('services.title.general') %></h3>
+                  <!--															<div class="stepper-desc fw-bold"></div>-->
+                </div>
+                <!--end::Label-->
+              </a>
+            </li>
+            <!--end::Step 1-->
+            <!--begin::Step 2-->
+            <li class="nav-item">
+              <i class="las la-info-circle position-absolute end-100 align-self-start fs-2 text-dark me-1 <%= @service.name.blank? ? '' : 'd-none' %>" title="<%= t('services.title.services_tooltip') %>" data-bs-toggle="tooltip"></i>
+              <a href="#kt_tab_pane_02" class="stepper-item nav-link border-0 <%= @service.name.blank? ? 'disabled' : '' %>" data-bs-toggle="tab">
+                <!--begin::Label-->
+                <div class="stepper-label">
+                  <h3 class="stepper-title"><%= t('services.title.booking_time') %></h3>
+                  <!--															<div class="stepper-desc fw-bold"></div>-->
+                </div>
+                <!--end::Label-->
+              </a>
+            </li>
+            <!--end::Step 2-->
+            <!--begin::Step 3-->
+            <li class="nav-item">
+              <i class="las la-info-circle position-absolute end-100 align-self-start fs-2 text-dark me-1 <%= @service.name.blank? ? '' : 'd-none' %>" title="<%= t('services.title.services_tooltip') %>" data-bs-toggle="tooltip"></i>
+              <a href="#kt_tab_pane_03" class="stepper-item nav-link border-0 pb-0 <%= @service.name.blank? ? 'disabled' : '' %>" data-bs-toggle="tab">
+                <!--begin::Label-->
+                <div class="stepper-label">
+                  <h3 class="stepper-title"><%= t('services.title.resources') %></h3>
+                  <!--															<div class="stepper-desc fw-bold"></div>-->
+                </div>
+                <!--end::Label-->
+              </a>
+            </li>
+            <!--end::Step 3-->
+            <!--begin::Separator-->
+            <li class="nav-item separator my-8"></li>
+            <!--end::Separator-->
+            <!--begin::Step 4-->
+            <li class="nav-item">
+              <i class="las la-info-circle position-absolute end-100 align-self-start fs-2 text-dark me-1 <%= @service.name.blank? ? '' : 'd-none' %>" title="<%= t('services.title.services_tooltip') %>" data-bs-toggle="tooltip"></i>
+              <a href="#kt_tab_pane_04" class="stepper-item nav-link border-0 <%= @service.name.blank? ? 'disabled' : '' %>" data-bs-toggle="tab">
+                <!--begin::Label-->
+                <div class="stepper-label">
+                  <h3 class="stepper-title"><%= t('services.title.invitee_questions.caption') %></h3>
+                  <!--															<div class="stepper-desc fw-bold"></div>-->
+                </div>
+                <!--end::Label-->
+              </a>
+            </li>
+            <!--end::Step 4-->
+            <!--begin::Step 5-->
+            <li class="nav-item">
+              <i class="las la-info-circle position-absolute end-100 align-self-start fs-2 text-dark me-1 <%= @service.name.blank? ? '' : 'd-none' %>" title="<%= t('services.title.services_tooltip') %>" data-bs-toggle="tooltip"></i>
+              <a href="#kt_tab_pane_05" class="stepper-item nav-link border-0 pb-0 <%= @service.name.blank? ? 'disabled' : '' %>" data-bs-toggle="tab">
+                <!--begin::Label-->
+                <div class="stepper-label">
+                  <h3 class="stepper-title"><%= t('services.title.automations') %></h3>
+                  <!--															<div class="stepper-desc fw-bold"></div>-->
+                </div>
+                <!--end::Label-->
+              </a>
+            </li>
+            <!--end::Step 5-->
+          </ul>
+          <!--end::Nav-->
+        </div>
+        <!--end::Wrapper-->
+      </div>
+      <!--begin::Aside-->
+      <!--begin::Content-->
+
+      <div class="bg-body w-100 rounded">
+        <!--begin::Form-->
+        <%= form_for(@service, html: {class: "d-flex flex-column h-100 p-9"}) do |f| %>
+          <!--begin::Tab content-->
+          <div class="tab-content pb-10">
+            <!--begin::Step 1-->
+            <div class="tab-pane fade show active" id="kt_tab_pane_01" role="tabpanel">
+              <!--begin::Wrapper-->
+              <%= flash_messages if flash[:error] %>
+              <%= hidden_field_tag "cur_ivr", params[:ivr_id] %>
+              <div class="w-100">
+                <!--begin::Field-->
+                <div class="mb-10">
+                  <label class="form-label"><%= t('services.general.event_name_label') %></label>
+                  <%= f.text_field :ename, class: "form-control form-control-solid", placeholder: "Event name", minlength: 1, required: true %>
+                  <span class="form-text"><%= t('services.general.event_name_help') %></span>
+                </div>
+                <!--end::Field-->
+
+                <div id="kt_accordion_01">
+                  <a href="javascript:;" class="fw-bold text-decoration-underline" data-bs-toggle="collapse" data-bs-target="#kt_accordion_01_item_01">
+                    <%= t('services.general.advanced_rules') %>
+                    <i class="fas fa-angle-right text-primary mt-1 ps-1"></i>
+                  </a>
+                  <div id="kt_accordion_01_item_01" class="collapse pt-4" data-bs-parent="#kt_accordion_01">
+                    <!--begin::Field-->
+                    <div>
+                      <label class="form-label"><%= t('services.general.event_other_name') %></label>
+                      <%= f.text_field :name, class: "form-control form-control-solid" %>
+                      <span class="form-text"><%= t('services.general.event_other_name_help') %></span>
+                    </div>
+                    <!--end::Field-->
+                  </div>
+                </div>
+              </div>
+
+              <div class="separator mt-10 mb-10"></div>
+
+              <div class="d-flex justify-content-end flex-stack">
+                <button type="submit" class="btn btn-outline btn-outline-primary btn-color-primary btn-active-color-white ms-5 ">
+                  <!--begin::Svg Icon | path: icons/duotone/Navigation/Double-check.svg-->
+                  <span class="svg-icon svg-icon-2x me-1">
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                  <polygon points="0 0 24 0 24 24 0 24" />
+                                  <path d="M9.26193932,16.6476484 C8.90425297,17.0684559 8.27315905,17.1196257 7.85235158,16.7619393 C7.43154411,16.404253 7.38037434,15.773159 7.73806068,15.3523516 L16.2380607,5.35235158 C16.6013618,4.92493855 17.2451015,4.87991302 17.6643638,5.25259068 L22.1643638,9.25259068 C22.5771466,9.6195087 22.6143273,10.2515811 22.2474093,10.6643638 C21.8804913,11.0771466 21.2484189,11.1143273 20.8356362,10.7474093 L17.0997854,7.42665306 L9.26193932,16.6476484 Z"
+                                        fill="#000000" fill-rule="nonzero" opacity="0.5" transform="translate(14.999995, 11.000002) rotate(-180.000000) translate(-14.999995, -11.000002) " />
+                                  <path d="M4.26193932,17.6476484 C3.90425297,18.0684559 3.27315905,18.1196257 2.85235158,17.7619393 C2.43154411,17.404253 2.38037434,16.773159 2.73806068,16.3523516 L11.2380607,6.35235158 C11.6013618,5.92493855 12.2451015,5.87991302 12.6643638,6.25259068 L17.1643638,10.2525907 C17.5771466,10.6195087 17.6143273,11.2515811 17.2474093,11.6643638 C16.8804913,12.0771466 16.2484189,12.1143273 15.8356362,11.7474093 L12.0997854,8.42665306 L4.26193932,17.6476484 Z"
+                                        fill="#000000" fill-rule="nonzero" transform="translate(9.999995, 12.000002) rotate(-180.000000) translate(-9.999995, -12.000002) " />
+                                </g>
+                              </svg>
+                            </span>
+                  <!--end::Svg Icon-->
+                  <%= t('button.save') %>
+                </button>
+              </div>
+
+              <!--end::Wrapper-->
+            </div>
+            <!--end::Step 1-->
+            <!--begin::Step 2-->
+            <div class="tab-pane fade" id="kt_tab_pane_02" role="tabpanel">
+              <!--begin::Wrapper-->
+              <%= hidden_field_tag "response_format_type", @response_format %>
+              <div class="w-100">
+                <!--begin::Field-->
+                <div class="row mb-10">
+                  <div class="col-12 col-lg-6">
+                    <label class="form-label"><%= t('services.booking_time.choose_duration') %></label>
+                    <div class="input-group mb-3">
+                      <%= f.text_field :duration, type: "number", class: "form-control form-control-solid", placeholder: "Duration" %>
+                      <span class="input-group-text"><%= t('services.minutes') %></span>
+                    </div>
+                    <span class="form-text"><%= t('services.booking_time.event_length') %></span>
+                  </div>
+
+                  <div class="col-12 col-lg-6">
+                    <label class="form-label"><%= t('services.booking_time.buffer_extra_time') %></label>
+                    <div class="input-group mb-3">
+                      <%= f.text_field :buffer, type: "number", class: "form-control form-control-solid", placeholder: t('services.booking_time.buffer_extra_time_placeholder') %>
+                      <span class="input-group-text"><%= t('services.minutes') %></span>
+                    </div>
+                    <span class="form-text"><%= t('services.booking_time.buffer_extra_time_help') %></span>
+                  </div>
+                </div>
+
+                <div class="row mb-10">
+                  <div class="col-12 col-lg-6">
+                    <label class="form-label"><%= t('services.booking_time.buffer_before') %></label>
+                    <div class="input-group mb-3">
+                      <%= f.text_field :buffer_before, type: "number", class: "form-control form-control-solid", placeholder: t('services.booking_time.buffer_before_placeholder') %>
+                      <span class="input-group-text"><%= t('services.minutes') %></span>
+                    </div>
+                    <span class="form-text"><%= t('services.booking_time.buffer_before_help') %></span>
+                  </div>
+
+                  <div class="col-12 col-lg-6">
+                    <label class="form-label"><%= t('services.booking_time.buffer_after') %></label>
+                    <div class="input-group mb-3">
+                      <%= f.text_field :buffer_after, type: "number", class: "form-control form-control-solid", placeholder: t('services.booking_time.buffer_after_placeholder') %>
+                      <span class="input-group-text"><%= t('services.minutes') %></span>
+                    </div>
+                    <span class="form-text"><%= t('services.booking_time.buffer_after_help') %></span>
+                  </div>
+                </div>
+
+                <!--end::Field-->
+                <div id="kt_accordion_02">
+                  <a href="javascript:;" class="fw-bold text-decoration-underline" data-bs-toggle="collapse" data-bs-target="#kt_accordion_02_item_01">
+                    <%= t('services.booking_time.availability_additional_rules.title') %>
+                    <i class="fas fa-angle-right text-primary mt-1 ps-1"></i>
+                  </a>
+                  <div id="kt_accordion_02_item_01" class="collapse pt-4" data-bs-parent="#kt_accordion_02">
+                    <div><label class="form-label fw-bolder fs-4 text-dark"><%= t('services.booking_time.availability_additional_rules.start_time_increments') %></label></div>
+                    <div><label class="form-label"><%= t('services.booking_time.availability_additional_rules.start_time_label') %></label></div>
+                    <div class="input-group mb-3">
+                      <%= select_tag :start_interval, options_for_select(@start_interval_array.map {|s| [s.to_s + ' min', s]}, @start_interval), class: "form-select form-select-solid",
+                                     data: { control: 'select2', placeholder: "Select an option", 'minimum-results-for-search': 'Infinity' }, id: "start_interval" %>
+                    </div>
+                    <span class="form-text"><%= t('services.booking_time.availability_additional_rules.start_time_helper') %></span>
+
+                    <div><label class="form-label fw-bolder fs-4 text-dark pt-5"><%= t('services.booking_time.availability_additional_rules.time_slot_length') %></label></div>
+                    <div><label class="form-label"><%= t('services.booking_time.availability_additional_rules.time_slot_label') %></label></div>
+                    <div class="form-check form-check-custom form-check-solid form-check-md pt-1">
+                      <input class="form-check-input" type="radio" name="response_format" value="slots" id="response_format_sltos" <%= 'checked' if @response_format == 'slots' %> />
+                      <label class="form-check-label" for="response_format_sltos"><%= t('services.booking_time.availability_additional_rules.response_type_slot') %> (<span id='slot_example'><%= @response_format_slot_example %></span> ...)</label>
+                    </div>
+                    <div class="form-check form-check-custom form-check-solid form-check-md py-3">
+                      <input class="form-check-input" type="radio" name="response_format" value="overlapping_slots" id="response_overlapping" <%= 'checked' if @response_format == 'overlapping_slots' %> />
+                      <label class="form-check-label" for="response_overlapping"><%= t('services.booking_time.availability_additional_rules.response_type_overlapping') %> (<span id='overlapping_example'><%= @response_format_overlapping_example %> </span> ...)</label>
+                    </div>
+                    <span class="form-text"><%= t('services.booking_time.availability_additional_rules.time_slot_helper') %></span>
+                  </div>
+                </div>
+
+                <!--begin::Row-->
+                <label class="form-label pt-10"><%= t('nav_menu.availability') %></label>
+                <div class="fs-sm text-muted mb-4"><%= t('services.booking_time.availability_help') %></div>
+                <div class="row">
+                  <!--begin::Col-->
+                  <div class="col-md-6">
+                    <!--begin::Option-->
+                    <input type="hidden" name="service_availability_category" id="service_availability_category" value="<%= @selected_availability_type %>">
+                    <input type="radio" class="btn-check" name="service_availability_type" id="service_availability_default" <%= @selected_availability_type == 'default' ? 'checked' : '' %>>
+                    <label class="btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center h-md-100 mb-10 mb-md-0" for="service_availability_default">
+                      <!--begin::Svg Icon | path: icons/duotone/Code/Time-schedule.svg-->
+                      <span class="svg-icon svg-icon-3x me-5">
+																		<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+																				<path d="M10.9630156,7.5 L11.0475062,7.5 C11.3043819,7.5 11.5194647,7.69464724 11.5450248,7.95024814 L12,12.5 L15.2480695,14.3560397 C15.403857,14.4450611 15.5,14.6107328 15.5,14.7901613 L15.5,15 C15.5,15.2109164 15.3290185,15.3818979 15.1181021,15.3818979 C15.0841582,15.3818979 15.0503659,15.3773725 15.0176181,15.3684413 L10.3986612,14.1087258 C10.1672824,14.0456225 10.0132986,13.8271186 10.0316926,13.5879956 L10.4644883,7.96165175 C10.4845267,7.70115317 10.7017474,7.5 10.9630156,7.5 Z"
+                                              fill="#000000" />
+																				<path d="M7.38979581,2.8349582 C8.65216735,2.29743306 10.0413491,2 11.5,2 C17.2989899,2 22,6.70101013 22,12.5 C22,18.2989899 17.2989899,23 11.5,23 C5.70101013,23 1,18.2989899 1,12.5 C1,11.5151324 1.13559454,10.5619345 1.38913364,9.65805651 L3.31481075,10.1982117 C3.10672013,10.940064 3,11.7119264 3,12.5 C3,17.1944204 6.80557963,21 11.5,21 C16.1944204,21 20,17.1944204 20,12.5 C20,7.80557963 16.1944204,4 11.5,4 C10.54876,4 9.62236069,4.15592757 8.74872191,4.45446326 L9.93948308,5.87355717 C10.0088058,5.95617272 10.0495583,6.05898805 10.05566,6.16666224 C10.0712834,6.4423623 9.86044965,6.67852665 9.5847496,6.69415008 L4.71777931,6.96995273 C4.66931162,6.97269931 4.62070229,6.96837279 4.57348157,6.95710938 C4.30487471,6.89303938 4.13906482,6.62335149 4.20313482,6.35474463 L5.33163823,1.62361064 C5.35654118,1.51920756 5.41437908,1.4255891 5.49660017,1.35659741 C5.7081375,1.17909652 6.0235153,1.2066885 6.2010162,1.41822583 L7.38979581,2.8349582 Z"
+                                              fill="#000000" opacity="0.3" />
+																		</svg>
+																	</span>
+                      <!--end::Svg Icon-->
+                      <!--begin::Info-->
+                      <span class="d-block text-start">
+																		<h6><%= t('services.booking_time.use_default_hours') %></h6>
+																		<span class="d-block text-muted"><%= t('services.booking_time.use_default_hours_help') %></span>
+																	</span>
+                      <!--end::Info-->
+                    </label>
+                    <!--end::Option-->
+                  </div>
+                  <!--end::Col-->
+                  <!--begin::Col-->
+                  <div class="col-md-6">
+                    <!--begin::Option-->
+                    <input type="radio" class="btn-check" name="service_availability_type" id="service_availability_customize" <%= @selected_availability_type == 'customize' ? 'checked' : '' %>>
+                    <label class="btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center h-md-100" for="service_availability_customize">
+                      <!--begin::Svg Icon | path: icons/duotone/Code/Time-schedule.svg-->
+                      <span class="svg-icon svg-icon-3x me-5">
+																		<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+																				<path d="M10.9630156,7.5 L11.0475062,7.5 C11.3043819,7.5 11.5194647,7.69464724 11.5450248,7.95024814 L12,12.5 L15.2480695,14.3560397 C15.403857,14.4450611 15.5,14.6107328 15.5,14.7901613 L15.5,15 C15.5,15.2109164 15.3290185,15.3818979 15.1181021,15.3818979 C15.0841582,15.3818979 15.0503659,15.3773725 15.0176181,15.3684413 L10.3986612,14.1087258 C10.1672824,14.0456225 10.0132986,13.8271186 10.0316926,13.5879956 L10.4644883,7.96165175 C10.4845267,7.70115317 10.7017474,7.5 10.9630156,7.5 Z"
+                                              fill="#000000" />
+																				<path d="M7.38979581,2.8349582 C8.65216735,2.29743306 10.0413491,2 11.5,2 C17.2989899,2 22,6.70101013 22,12.5 C22,18.2989899 17.2989899,23 11.5,23 C5.70101013,23 1,18.2989899 1,12.5 C1,11.5151324 1.13559454,10.5619345 1.38913364,9.65805651 L3.31481075,10.1982117 C3.10672013,10.940064 3,11.7119264 3,12.5 C3,17.1944204 6.80557963,21 11.5,21 C16.1944204,21 20,17.1944204 20,12.5 C20,7.80557963 16.1944204,4 11.5,4 C10.54876,4 9.62236069,4.15592757 8.74872191,4.45446326 L9.93948308,5.87355717 C10.0088058,5.95617272 10.0495583,6.05898805 10.05566,6.16666224 C10.0712834,6.4423623 9.86044965,6.67852665 9.5847496,6.69415008 L4.71777931,6.96995273 C4.66931162,6.97269931 4.62070229,6.96837279 4.57348157,6.95710938 C4.30487471,6.89303938 4.13906482,6.62335149 4.20313482,6.35474463 L5.33163823,1.62361064 C5.35654118,1.51920756 5.41437908,1.4255891 5.49660017,1.35659741 C5.7081375,1.17909652 6.0235153,1.2066885 6.2010162,1.41822583 L7.38979581,2.8349582 Z"
+                                              fill="#000000" opacity="0.3" />
+																		</svg>
+																	</span>
+                      <!--end::Svg Icon-->
+                      <!--begin::Info-->
+                      <span class="d-block text-start">
+																		<h6><%= t('services.booking_time.set_custom_hours') %></h6>
+																		<span class="text-muted d-block"><%= t('services.booking_time.set_custom_hours_help') %></span>
+																	</span>
+                      <!--end::Info-->
+                    </label>
+                    <!--end::Option-->
+                  </div>
+                  <!--end::Col-->
+                </div>
+                <!--end::Row-->
+
+
+                <div id="service_availability_default_content" class="collapse show">
+                  <div class="pt-10">
+                    <!--begin::Field-->
+                    <div class="mb-10">
+                      <label class="form-label"><%= t('services.resources.which_schedule') %></label>
+                      <%= select_tag :service_schedule_templates, options_for_select(@schedule_templates.map {|s| [s.is_default ? '* ' + s.template_name : s.template_name, s.id] }, @selected_service_schedule.id),
+                                     class: "form-select form-select-solid", data: { control: 'select2', placeholder: "Select an option", 'minimum-results-for-search': 'Infinity' } %>
+                    </div>
+                    <!--end::Field-->
+
+                    <div class="card card-bordered">
+                      <div class="card-body p-0">
+                        <div class="row gx-0">
+                          <div class="col-md">
+                            <div class="py-8 px-9 service_hours_default_availability_section">
+
+                            </div>
+                          </div>
+                          <div class="col-md-auto w-md-300px border-start">
+                            <div class="py-8 px-9">
+                              <div class="fw-bold fs-4 mb-4"><%= t('availabilities.override.header') %></div>
+                              <div class="small text-muted mb-4"><%= t('services.resources.override_help') %></div>
+                              <a class="btn btn-sm btn-light-primary" href="<%= availablities_path %>"><%= t('services.resources.goto_availability') %></a>
+
+                              <div class="separator my-7"></div>
+                              <div class="service_hours_default_overrides_section">
+
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div id="service_availability_customize_content" class="collapse">
+                  <div class="pt-10">
+                    <div class="card card-bordered">
+                      <div class="card-header">
+                        <div class="card-toolbar"></div>
+                        <div class="card-toolbar">
+                          <a class="btn btn-sm btn-light-primary" href="#kt_modal_service_save_as_new_schedule" data-bs-toggle="modal">
+                            <%= t('services.resources.saveas_schedule') %>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="card-body p-0">
+                        <div class="row gx-0">
+                          <div class="col-md">
+                            <%= render 'services/availability_week', availability: @service_customize_availability unless @service.name.blank?%>
+                          </div>
+                          <div class="col-md-auto w-md-300px border-start 123">
+                            <%= render 'services/availability_date_override', overrides: @service_customize_overrides unless @service.name.blank? %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--end::Wrapper-->
+              <div class="separator mt-15 mb-10"></div>
+
+              <div class="d-flex justify-content-end flex-stack">
+                <button type="submit" class="btn btn-outline btn-outline-primary btn-color-primary btn-active-color-white ms-5 submit-button" id="service_hours_save_availability_hours">
+                  <!--begin::Svg Icon | path: icons/duotone/Navigation/Double-check.svg-->
+                  <span class="svg-icon svg-icon-2x me-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <polygon points="0 0 24 0 24 24 0 24" />
+                                <path d="M9.26193932,16.6476484 C8.90425297,17.0684559 8.27315905,17.1196257 7.85235158,16.7619393 C7.43154411,16.404253 7.38037434,15.773159 7.73806068,15.3523516 L16.2380607,5.35235158 C16.6013618,4.92493855 17.2451015,4.87991302 17.6643638,5.25259068 L22.1643638,9.25259068 C22.5771466,9.6195087 22.6143273,10.2515811 22.2474093,10.6643638 C21.8804913,11.0771466 21.2484189,11.1143273 20.8356362,10.7474093 L17.0997854,7.42665306 L9.26193932,16.6476484 Z"
+                                      fill="#000000" fill-rule="nonzero" opacity="0.5" transform="translate(14.999995, 11.000002) rotate(-180.000000) translate(-14.999995, -11.000002) " />
+                                <path d="M4.26193932,17.6476484 C3.90425297,18.0684559 3.27315905,18.1196257 2.85235158,17.7619393 C2.43154411,17.404253 2.38037434,16.773159 2.73806068,16.3523516 L11.2380607,6.35235158 C11.6013618,5.92493855 12.2451015,5.87991302 12.6643638,6.25259068 L17.1643638,10.2525907 C17.5771466,10.6195087 17.6143273,11.2515811 17.2474093,11.6643638 C16.8804913,12.0771466 16.2484189,12.1143273 15.8356362,11.7474093 L12.0997854,8.42665306 L4.26193932,17.6476484 Z"
+                                      fill="#000000" fill-rule="nonzero" transform="translate(9.999995, 12.000002) rotate(-180.000000) translate(-9.999995, -12.000002) " />
+                              </g>
+                            </svg>
+                          </span>
+                  <!--end::Svg Icon-->
+                  <%= t('button.save') %>
+                </button>
+              </div>
+            </div>
+            <!--end::Step 2-->
+            <!--begin::Step 3-->
+            <div class="tab-pane fade" id="kt_tab_pane_03" role="tabpanel">
+              <%= render 'services/event_resource', resources: @resources, service: @service unless @service.name.blank?%>
+              <div class="separator mt-15 mb-10"></div>
+
+              <div class="d-flex justify-content-end flex-stack">
+                <button type="submit" class="btn btn-outline btn-outline-primary btn-color-primary btn-active-color-white ms-5 submit-button" id="service_hours_save_availability_hours">
+                  <!--begin::Svg Icon | path: icons/duotone/Navigation/Double-check.svg-->
+                  <span class="svg-icon svg-icon-2x me-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <polygon points="0 0 24 0 24 24 0 24" />
+                                <path d="M9.26193932,16.6476484 C8.90425297,17.0684559 8.27315905,17.1196257 7.85235158,16.7619393 C7.43154411,16.404253 7.38037434,15.773159 7.73806068,15.3523516 L16.2380607,5.35235158 C16.6013618,4.92493855 17.2451015,4.87991302 17.6643638,5.25259068 L22.1643638,9.25259068 C22.5771466,9.6195087 22.6143273,10.2515811 22.2474093,10.6643638 C21.8804913,11.0771466 21.2484189,11.1143273 20.8356362,10.7474093 L17.0997854,7.42665306 L9.26193932,16.6476484 Z"
+                                      fill="#000000" fill-rule="nonzero" opacity="0.5" transform="translate(14.999995, 11.000002) rotate(-180.000000) translate(-14.999995, -11.000002) " />
+                                <path d="M4.26193932,17.6476484 C3.90425297,18.0684559 3.27315905,18.1196257 2.85235158,17.7619393 C2.43154411,17.404253 2.38037434,16.773159 2.73806068,16.3523516 L11.2380607,6.35235158 C11.6013618,5.92493855 12.2451015,5.87991302 12.6643638,6.25259068 L17.1643638,10.2525907 C17.5771466,10.6195087 17.6143273,11.2515811 17.2474093,11.6643638 C16.8804913,12.0771466 16.2484189,12.1143273 15.8356362,11.7474093 L12.0997854,8.42665306 L4.26193932,17.6476484 Z"
+                                      fill="#000000" fill-rule="nonzero" transform="translate(9.999995, 12.000002) rotate(-180.000000) translate(-9.999995, -12.000002) " />
+                              </g>
+                            </svg>
+                          </span>
+                  <!--end::Svg Icon-->
+                  <%= t('button.save') %>
+                </button>
+              </div>
+            </div>
+            <!--end::Step 3-->
+            <!--begin::Step 4-->
+            <div class="tab-pane fade" id="kt_tab_pane_04" role="tabpanel">
+              <%= render 'event_questions', service: @service %>
+
+              <div class="separator mt-15 mb-10"></div>
+
+              <div class="d-flex justify-content-end flex-stack">
+                <button id="save_question" type="button" class="btn btn-outline btn-outline-primary btn-color-primary btn-active-color-white ms-5" onclick="saveQuestion(this)">
+                  <!--begin::Svg Icon | path: icons/duotone/Navigation/Double-check.svg-->
+                  <span class="svg-icon svg-icon-2x me-1">
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                  <polygon points="0 0 24 0 24 24 0 24" />
+                                  <path d="M9.26193932,16.6476484 C8.90425297,17.0684559 8.27315905,17.1196257 7.85235158,16.7619393 C7.43154411,16.404253 7.38037434,15.773159 7.73806068,15.3523516 L16.2380607,5.35235158 C16.6013618,4.92493855 17.2451015,4.87991302 17.6643638,5.25259068 L22.1643638,9.25259068 C22.5771466,9.6195087 22.6143273,10.2515811 22.2474093,10.6643638 C21.8804913,11.0771466 21.2484189,11.1143273 20.8356362,10.7474093 L17.0997854,7.42665306 L9.26193932,16.6476484 Z"
+                                        fill="#000000" fill-rule="nonzero" opacity="0.5" transform="translate(14.999995, 11.000002) rotate(-180.000000) translate(-14.999995, -11.000002) " />
+                                  <path d="M4.26193932,17.6476484 C3.90425297,18.0684559 3.27315905,18.1196257 2.85235158,17.7619393 C2.43154411,17.404253 2.38037434,16.773159 2.73806068,16.3523516 L11.2380607,6.35235158 C11.6013618,5.92493855 12.2451015,5.87991302 12.6643638,6.25259068 L17.1643638,10.2525907 C17.5771466,10.6195087 17.6143273,11.2515811 17.2474093,11.6643638 C16.8804913,12.0771466 16.2484189,12.1143273 15.8356362,11.7474093 L12.0997854,8.42665306 L4.26193932,17.6476484 Z"
+                                        fill="#000000" fill-rule="nonzero" transform="translate(9.999995, 12.000002) rotate(-180.000000) translate(-9.999995, -12.000002) " />
+                                </g>
+                              </svg>
+                            </span>
+                  <!--end::Svg Icon-->
+                  <span class="indicator-label"><%= t('button.save') %></span>
+                  <span class="indicator-progress"><%= t('common.please_wait') %>
+                    <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <!--end::Step 4-->
+            <!--begin::Step 5-->
+            <div class="tab-pane fade" id="kt_tab_pane_05" role="tabpanel">
+              <!--begin::Wrapper-->
+              <%= render 'event_automations', service: @service %>
+
+              <div class="separator mt-15 mb-10"></div>
+
+              <div class="d-flex justify-content-end flex-stack">
+                <button type="submit" class="btn btn-outline btn-outline-primary btn-color-primary btn-active-color-white ms-5 send-json-to-backend123">
+                  <!--begin::Svg Icon | path: icons/duotone/Navigation/Double-check.svg-->
+                  <span class="svg-icon svg-icon-2x me-1">
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                  <polygon points="0 0 24 0 24 24 0 24" />
+                                  <path d="M9.26193932,16.6476484 C8.90425297,17.0684559 8.27315905,17.1196257 7.85235158,16.7619393 C7.43154411,16.404253 7.38037434,15.773159 7.73806068,15.3523516 L16.2380607,5.35235158 C16.6013618,4.92493855 17.2451015,4.87991302 17.6643638,5.25259068 L22.1643638,9.25259068 C22.5771466,9.6195087 22.6143273,10.2515811 22.2474093,10.6643638 C21.8804913,11.0771466 21.2484189,11.1143273 20.8356362,10.7474093 L17.0997854,7.42665306 L9.26193932,16.6476484 Z"
+                                        fill="#000000" fill-rule="nonzero" opacity="0.5" transform="translate(14.999995, 11.000002) rotate(-180.000000) translate(-14.999995, -11.000002) " />
+                                  <path d="M4.26193932,17.6476484 C3.90425297,18.0684559 3.27315905,18.1196257 2.85235158,17.7619393 C2.43154411,17.404253 2.38037434,16.773159 2.73806068,16.3523516 L11.2380607,6.35235158 C11.6013618,5.92493855 12.2451015,5.87991302 12.6643638,6.25259068 L17.1643638,10.2525907 C17.5771466,10.6195087 17.6143273,11.2515811 17.2474093,11.6643638 C16.8804913,12.0771466 16.2484189,12.1143273 15.8356362,11.7474093 L12.0997854,8.42665306 L4.26193932,17.6476484 Z"
+                                        fill="#000000" fill-rule="nonzero" transform="translate(9.999995, 12.000002) rotate(-180.000000) translate(-9.999995, -12.000002) " />
+                                </g>
+                              </svg>
+                            </span>
+                  <!--end::Svg Icon-->
+                  <%= t('button.save') %>
+                </button>
+              </div>
+              <!--end::Wrapper-->
+            </div>
+            <!--end::Step 5-->
+          </div>
+          <!--end::Tab content-->
+        <% end %>
+        <!--end::Form-->
+      </div>
+      <!--end::Content-->
+    </div>
+    <!--end::Stepper-->
+  </div>
+  <!--end::Container-->
+</div>+
+<!--end::Post-->
+
+<%= render 'services/event_resource_modal' unless @service.name.blank? %>
+<%= render 'services/saveas_schedule_modal', target: 'service' %>
+<%= render 'services/saveas_schedule_modal', target: 'resource' %>
+<%= render 'event_automations_modal' %>
+
+<script>
+    (function() {
+        $('input[name=response_format]').on('change', function() {
+            $('input[name=response_format_type]').val($(this).val());
+        })
+
+        $('select#start_interval').on('change', function() {
+            const start_interval = $(this).val();
+            get_response_format_example($('input#service_duration').val(), start_interval, $('input#service_buffer').val());
+        })
+
+        $('input#service_duration').on('change', function() {
+            const duration = $(this).val();
+            get_response_format_example(duration, $('select#start_interval').val(), $('input#service_buffer').val());
+        })
+
+        $('input#service_duration').on('keyup', function() {
+            const duration = $(this).val();
+            get_response_format_example(duration, $('select#start_interval').val(), $('input#service_buffer').val());
+        })
+
+        $('input#service_buffer').on('change', function() {
+            const extra_time = $(this).val();
+            get_response_format_example($('input#service_duration').val(), $('select#start_interval').val(), extra_time);
+        })
+
+        $('input#service_buffer').on('keyup', function() {
+            const extra_time = $(this).val();
+            get_response_format_example($('input#service_duration').val(), $('select#start_interval').val(), extra_time);
+        })
+
+        function get_response_format_example(duration, start_interval, extra_time) {
+            $.ajax({
+                method: "POST",
+                url: "<%= get_slot_example_services_path %>",
+                data: {
+                    duration: duration,
+                    start_interval: start_interval,
+                    extra_time: extra_time
+                },
+                success: function(response) {
+                    $('span#slot_example').html(response.slot_example);
+                    $('span#overlapping_example').html(response.overlapping_example);
+                }
+            });
+        }
+    })();
+
+    (function() {
+        const $from = document.querySelectorAll(".mask-from");
+        const $to = document.querySelectorAll(".mask-to");
+
+        Inputmask({
+            alias: 'datetime',
+            inputFormat: 'H2:MM',
+            placeholder: '00:00',
+            min: '00:00',
+            max: '23:59'
+        }).mask($from);
+
+        Inputmask({
+            alias: 'datetime',
+            inputFormat: 'H2:MM',
+            placeholder: '00:00',
+            min: '00:00',
+            max: '23:59',
+        }).mask($to);
+    })();
+
+    (function () {
+        const $whenCanPeopleBookThisEventControls = document.querySelectorAll('[name="service_availability_type"]');
+        const $whenCanPeopleBookThisEvent01Control = document.querySelector('#service_availability_default');
+        const $whenCanPeopleBookThisEvent01Content = document.querySelector('#service_availability_default_content');
+        const whenCanPeopleBookThisEvent01Content = new bootstrap.Collapse($whenCanPeopleBookThisEvent01Content, {
+            toggle: false
+        });
+        const $whenCanPeopleBookThisEvent02Control = document.querySelector('#service_availability_customize');
+        const $whenCanPeopleBookThisEvent02Content = document.querySelector('#service_availability_customize_content');
+        const whenCanPeopleBookThisEvent02Content = new bootstrap.Collapse($whenCanPeopleBookThisEvent02Content, {
+            toggle: false
+        });
+
+        $whenCanPeopleBookThisEventControls.forEach(el => {
+            el.addEventListener('change', function () {
+                showHours();
+            });
+        });
+
+        function showHours() {
+            if ($whenCanPeopleBookThisEvent01Control.checked) {
+                whenCanPeopleBookThisEvent01Content.show();
+                whenCanPeopleBookThisEvent02Content.hide();
+                $('input#service_availability_category').val('default');
+            } else if ($whenCanPeopleBookThisEvent02Control.checked) {
+                whenCanPeopleBookThisEvent02Content.show();
+                whenCanPeopleBookThisEvent01Content.hide();
+                $('input#service_availability_category').val('customize');
+            } else {
+                whenCanPeopleBookThisEvent01Content.hide();
+                whenCanPeopleBookThisEvent02Content.hide();
+                $('input#service_availability_category').val('');
+            }
+        }
+        showHours();
+    })();
+
+    (function() {
+        getServiceSchduleAvailabilites("<%= @selected_service_schedule_id %>");
+
+        // event for change schedule template
+        $('select#service_schedule_templates').on('change', function() {
+            getServiceSchduleAvailabilites($(this).val())
+        })
+
+        function getServiceSchduleAvailabilites(schedule_id) {
+            $.ajax({
+                method: "POST",
+                url: "<%= get_availablities_services_path %>",
+                data: {
+                    schedule_id: schedule_id
+                },
+                success: function(response) {
+                    const availabilities = response['availabilities'];
+                    const overrides = response['overrides'];
+
+                    let availabilities_content = '';
+                    availabilities_content += getAvailabilitesOfDay(availabilities, 'mon', "<%= full_day_name('mon') %>");
+                    availabilities_content += getAvailabilitesOfDay(availabilities, 'tue', "<%= full_day_name('tue') %>");
+                    availabilities_content += getAvailabilitesOfDay(availabilities, 'wed', "<%= full_day_name('wed') %>");
+                    availabilities_content += getAvailabilitesOfDay(availabilities, 'thu', "<%= full_day_name('thu') %>");
+                    availabilities_content += getAvailabilitesOfDay(availabilities, 'fri', "<%= full_day_name('fri') %>");
+                    availabilities_content += getAvailabilitesOfDay(availabilities, 'sat', "<%= full_day_name('sat') %>");
+                    availabilities_content += getAvailabilitesOfDay(availabilities, 'sun', "<%= full_day_name('sun') %>");
+                    $('div.service_hours_default_availability_section').html(availabilities_content);
+
+                    let overrides_content = '';
+                    $.each(overrides, function(date, override) {
+                        let time_slot_content = '';
+                        $.each(override, function(index, time_slot) {
+                            time_slot_content += `<span class="d-block" >` + time_slot['from'] + ` - ` + time_slot['to'] + `</span>`
+                        })
+                        overrides_content += `
+                        <div class="row mb-2">
+                          <div class="col-6 pt-2">` + date + `</div>
+                          <div class="col-6 pt-2">` + time_slot_content + `</div>
+                        </div>`
+                    })
+
+                    $('div.service_hours_default_overrides_section').html(overrides_content);
+                }
+            });
+        }
+
+        function getAvailabilitesOfDay(availabilities, short_day, full_day) {
+            let content = '';
+            const availability = availabilities[short_day];
+            if (availability) {
+                $.each(availability, function(index, time_slot) {
+                    content += `
+                    <div class="row gx-4 ` + (index == availability.length - 1 ? 'mb-6' : 'mb-2')+ `">
+                      <div class="col-md-auto text-muted fs-8 ls-1 text-uppercase w-md-150px">`+ (index == 0 ? full_day : '') + `</div>
+                      <div class="col-md text-dark">` + time_slot['from'] + ` - ` + time_slot['to'] + `</div>
+                    </div>`
+                })
+            }
+            else {
+                content = `<div class="row gx-4 mb-6">
+                        <div class="col-md-auto text-muted fs-8 ls-1 text-uppercase w-md-150px">`+ full_day + `</div>
+                        <div class="col-md text-muted fs-8 text-uppercase"> <%= t('availabilities.unavailable') %> </div>
+                      </div>`;
+            }
+            return content;
+        }
+    })();
+</script>

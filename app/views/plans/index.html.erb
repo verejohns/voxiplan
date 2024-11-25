@@ -1,0 +1,41 @@
+<div class="kt-container  kt-grid__item kt-grid__item--fluid">
+  <!--begin::Portlet-->
+  <div class="kt-portlet">
+    <div class="kt-portlet__head">
+      <div class="kt-portlet__head-label">
+			<span class="kt-portlet__head-icon">
+			<i class="la la-puzzle-piece"></i>
+			</span>
+        <h3 class="kt-portlet__head-title">
+          Basic Pricing Table
+        </h3>
+      </div>
+    </div>
+    <div class="kt-portlet__body">
+      <div class="kt-pricing-1 kt-pricing-1--fixed">
+        <div class="kt-pricing-1__items row">
+          <% @plans.each do |plan| %>
+            <div class="kt-pricing-1__item col-lg-4">
+              <div class="kt-pricing-1__visual">
+                <div class="kt-pricing-1__hexagon1"></div>
+                <div class="kt-pricing-1__hexagon2"></div>
+                <span class="kt-pricing-1__icon kt-font-brand"><i class="fa flaticon-rocket"></i></span>
+              </div>
+              <span class="kt-pricing-1__price"><%= plan.amount %><span class="kt-pricing-1__label">$</span></span>
+              <h2 class="kt-pricing-1__subtitle"><%= plan.num_of_active_users %> Active Users</h2>
+              <span class="kt-pricing-1__description">
+						<span>Lorem ipsum dolor sit amet edipiscing elit</span>
+						<span>sed do eiusmod elpors labore et dolore</span>
+						<span>magna siad enim aliqua</span>
+					</span>
+              <div class="kt-pricing-1__btn">
+                <button type="button" class="btn btn-brand btn-wide btn-bold btn-upper">Select</button>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end::Portlet-->
+</div>

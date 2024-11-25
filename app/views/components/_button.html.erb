@@ -1,0 +1,19 @@
+<%# variables %>
+<% type = local_assigns.fetch(:type, :primary) %>
+<% classes = local_assigns.fetch(:classes, '') %>
+<% text = local_assigns.fetch(:text, '') %>
+<% inline = local_assigns.fetch(:inline, false) %>
+<% wrapper_style = inline ? 'display: inline': '' %>
+<% submit = local_assigns.fetch(:submit, false) %>
+<% button_type = submit == true ? "submit" : "button" %>
+<%# end variables %>
+
+
+
+<%# components %>
+<%= content_tag :div, class: 'vp-component', style: wrapper_style do %>
+  <button type="<%= button_type %>" class="btn btn-<%= type %> <%= classes %>">
+    <%= text %>
+  </button>
+<% end %>
+<%# end components %>

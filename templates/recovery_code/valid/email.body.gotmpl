@@ -1,0 +1,81 @@
+{{define "en"}}
+Hi {{ title .Identity.traits.firstName }},
+<br />
+<br />
+Please recover access to your account by entering the following code:
+<br />
+{{ .RecoveryCode }}
+<br />
+<br />
+Thanks,
+<br />
+Team Voxiplan
+{{end}}
+
+{{define "fr"}}
+Bonjour {{ title .Identity.traits.firstName }},
+<br />
+<br />
+Veuillez récupérer l'accès à votre compte en saisissant le code suivant:
+<br />
+{{ .RecoveryCode }}
+<br />
+<br />
+Merci,
+<br />
+Team Voxiplan
+{{end}}
+
+{{define "it"}}
+Ciao {{ title .Identity.traits.firstName }},
+<br />
+<br />
+Recupera l'accesso al tuo account inserendo il seguente codice:
+<br />
+{{ .RecoveryCode }}
+<br />
+<br />
+Grazie,
+<br />
+Team Voxiplan
+{{end}}
+
+{{define "nl"}}
+Hallo {{ title .Identity.traits.firstName }},
+<br />
+<br />
+Herstel de toegang tot uw account door de volgende code in te voeren:
+<br />
+{{ .RecoveryCode }}
+<br />
+<br />
+Bedankt,
+<br />
+Team Voxiplan
+{{end}}
+
+{{define "de"}}
+Hallo {{ title .Identity.traits.firstName }},
+<br />
+<br />
+Bitte stellen Sie den Zugriff auf Ihr Konto wieder her, indem Sie den folgenden Code eingeben:
+<br />
+{{ .RecoveryCode }}
+<br />
+<br />
+Danke,
+<br />
+Team Voxiplan
+{{end}}
+
+{{- if eq .Identity.traits.language "de" -}}
+{{ template "de" . }}
+{{- else if eq .Identity.traits.language "fr" -}}
+{{ template "fr" . }}
+{{- else if eq .Identity.traits.language "nl" -}}
+{{ template "nl" . }}
+{{- else if eq .Identity.traits.language "it" -}}
+{{ template "it" . }}
+{{- else -}}
+{{ template "en" . }}
+{{- end -}}

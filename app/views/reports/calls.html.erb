@@ -1,0 +1,301 @@
+<%= render 'reports/header' %>
+
+<div class="post d-flex flex-column-fluid" id="kt_post">
+  <!--begin::Container-->
+  <div id="kt_content_container" class="container-fluid">
+    <div class="row g-5 g-md-8">
+      <div class="col-md-4">
+        <!--begin::Statistics Widget 5-->
+        <div class="card card-md-stretch mb-5 mb-md-8">
+          <!--begin::Body-->
+          <div class="card-body px-5 px-md-9 py-5">
+            <div class="ms-n1 mb-4">
+													<span class="svg-icon svg-icon-primary svg-icon-3x">
+														<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<path opacity="0.3" d="M14.1395 6.01162C14.0593 5.93134 13.954 5.88077 13.8412 5.86823C13.5668 5.83774 13.3195 6.03551 13.2891 6.30996L12.7658 11.0188C12.7618 11.0555 12.7618 11.0925 12.7658 11.1292C12.7963 11.4037 13.0436 11.6014 13.318 11.571L18.0268 11.0477C18.1397 11.0352 18.2449 10.9846 18.3252 10.9044C18.5204 10.7091 18.5204 10.3925 18.3252 10.1973L16.9395 8.81154L18.4409 7.31008C18.6362 7.11482 18.6362 6.79824 18.4409 6.60297L17.7338 5.89587C17.5386 5.70061 17.222 5.70061 17.0267 5.89587L15.5253 7.39733L14.1395 6.01162Z" fill="black"/>
+															<path fill-rule="evenodd" clip-rule="evenodd" d="M11.92 14.784L9.71601 12.58C9.10729 11.9712 8.95638 11.0413 9.34137 10.2713L9.46625 10.0216C9.85123 9.25159 9.70033 8.32165 9.09161 7.71293L6.3588 4.98012C6.16354 4.78486 5.84696 4.78486 5.6517 4.98012C5.61369 5.01812 5.58207 5.062 5.55803 5.11007L4.45406 7.31802C3.6095 9.00713 3.94056 11.0472 5.27591 12.3825L11.2747 18.3813C12.7283 19.8349 14.8783 20.3424 16.8284 19.6924L19.2429 18.8876C19.5049 18.8002 19.6465 18.5171 19.5591 18.2551C19.5346 18.1815 19.4932 18.1146 19.4383 18.0597L16.7871 15.4084C16.1784 14.7997 15.2484 14.6488 14.4784 15.0338L14.2287 15.1586C13.4587 15.5436 12.5288 15.3927 11.92 14.784Z" fill="black"/>
+															</svg>
+
+													</span>
+            </div>
+            <h3 class="fs-3x mb-1"><%= @incoming_nums %></h3>
+            <div class="fs-7 text-uppercase fw-normal ls-1 text-muted"><%= t('stats.incoming_calls') %></div>
+          </div>
+          <!--end::Body-->
+        </div>
+        <!--end::Statistics Widget 5-->
+      </div>
+
+      <div class="col-md-4">
+        <!--begin::Statistics Widget 5-->
+        <div class="card  card-md-stretch mb-5 mb-md-8">
+          <!--begin::Body-->
+          <div class="card-body px-5 px-md-9 py-5">
+            <div class="ms-n1 mb-4">
+													<span class="svg-icon svg-icon-primary svg-icon-3x">
+														<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<path opacity="0.3" d="M16.857 11.6654C16.9373 11.7456 17.0425 11.7962 17.1554 11.8088C17.4298 11.8392 17.677 11.6415 17.7075 11.367L18.2307 6.65819C18.2348 6.62149 18.2348 6.58446 18.2307 6.54776C18.2002 6.27331 17.953 6.07554 17.6786 6.10603L12.9697 6.62924C12.8569 6.64177 12.7517 6.69234 12.6714 6.77262C12.4761 6.96789 12.4761 7.28447 12.6714 7.47973L14.0571 8.86544L12.5557 10.3669C12.3604 10.5622 12.3604 10.8787 12.5557 11.074L13.2628 11.7811C13.458 11.9764 13.7746 11.9764 13.9699 11.7811L15.4713 10.2797L16.857 11.6654Z" fill="black"/>
+															<path fill-rule="evenodd" clip-rule="evenodd" d="M11.92 14.784L9.71601 12.58C9.10729 11.9712 8.95638 11.0413 9.34137 10.2713L9.46625 10.0216C9.85123 9.25159 9.70033 8.32165 9.09161 7.71293L6.3588 4.98012C6.16354 4.78486 5.84696 4.78486 5.6517 4.98012C5.61369 5.01812 5.58207 5.062 5.55803 5.11007L4.45406 7.31802C3.6095 9.00713 3.94056 11.0472 5.27591 12.3825L11.2747 18.3813C12.7283 19.8349 14.8783 20.3424 16.8284 19.6924L19.2429 18.8876C19.5049 18.8002 19.6465 18.5171 19.5591 18.2551C19.5346 18.1815 19.4932 18.1146 19.4383 18.0597L16.7871 15.4084C16.1784 14.7997 15.2484 14.6488 14.4784 15.0338L14.2287 15.1586C13.4587 15.5436 12.5288 15.3927 11.92 14.784Z" fill="black"/>
+															</svg>
+
+													</span>
+            </div>
+            <h3 class="fs-3x mb-1"><%= @outgoing_nums %></h3>
+            <div class="fs-7 text-uppercase fw-normal ls-1 text-muted"><%= t('stats.outgoing_calls') %></div>
+          </div>
+          <!--end::Body-->
+        </div>
+        <!--end::Statistics Widget 5-->
+      </div>
+      <div class="col-md-4">
+        <!--begin::Statistics Widget 5-->
+        <div class="card card-md-stretch mb-5 mb-md-8">
+          <!--begin::Body-->
+          <div class="card-body px-5 px-md-9 py-5">
+            <div class="ms-n1 mb-4">
+													<span class="svg-icon svg-icon-primary svg-icon-3x">
+														<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+															<path fill-rule="evenodd" clip-rule="evenodd" d="M12.0851 14.1427L9.88112 11.9387C9.2724 11.33 9.12149 10.4001 9.50648 9.63007L9.63136 9.38031C10.0163 8.61034 9.86544 7.68039 9.25672 7.07167L6.52391 4.33887C6.32865 4.14361 6.01207 4.14361 5.8168 4.33887C5.7788 4.37687 5.74718 4.42075 5.72314 4.46881L4.61917 6.67677C3.77461 8.36588 4.10566 10.4059 5.44102 11.7413L11.4398 17.7401C12.8934 19.1936 15.0434 19.7012 16.9935 19.0511L19.408 18.2463C19.67 18.159 19.8116 17.8758 19.7242 17.6139C19.6997 17.5402 19.6583 17.4733 19.6035 17.4184L16.9522 14.7671C16.3435 14.1584 15.4135 14.0075 14.6435 14.3925L14.3938 14.5174C13.6238 14.9024 12.6939 14.7515 12.0851 14.1427Z" fill="black"/>
+															</svg>
+
+													</span>
+            </div>
+            <h3 class="fs-3x mb-1"><%= @incoming_nums + @outgoing_nums %></h3>
+            <div class="fs-7 text-uppercase fw-normal ls-1 text-muted"><%= t('stats.total_calls') %></div>
+          </div>
+          <!--end::Body-->
+        </div>
+        <!--end::Statistics Widget 5-->
+      </div>
+    </div>
+
+    <div class="card mb-0">
+      <%= render 'reports/tabs', report_type: 'call_report' %>
+      <div class="card-body px-5 px-md-9 py-5">
+        <!--begin::Wrapper-->
+        <div class="d-sm-flex flex-stack mb-5">
+          <!--begin::Search-->
+          <div class="d-flex align-items-center position-relative my-1 mb-6 mb-sm-0">
+            <i class="bi bi-search position-absolute ms-6"></i>
+            <input type="text" data-kt-docs-table-filter="search" class="form-control form-control-solid w-250px ps-15" placeholder="<%= t('stats.search_report') %>"/>
+          </div>
+          <!--end::Search-->
+
+          <!--begin::Toolbar-->
+          <div class="d-sm-flex justify-content-end" data-kt-docs-table-toolbar="base">
+            <!--begin::Date Range Picker-->
+            <div>
+              <input type="text" name="birthday" class="kt_datepicker form-control form-control-solid w-225px" placeholder="<%= t('stats.date_range') %>" data-mode="range"/>
+            </div>
+            <!--end::Date Range Picker-->
+          </div>
+          <!--end::Toolbar-->
+        </div>
+        <!--end::Wrapper-->
+
+        <!--begin::Datatable-->
+        <table id="kt_datatable_call_report" class="table table-row-dashed gy-5">
+          <thead>
+          <tr class="text-start text-uppercase gs-0">
+            <th class="align-top"><%= t('stats.date') %></th>
+            <th class="align-top"><%= t('stats.duration') %></th>
+            <th class="align-top"><%= t('stats.from') %></th>
+            <th class="align-top"><%= t('stats.entered_number') %></th>
+            <th class="align-top"><%= t('stats.contact_type') %></th>
+            <th class="align-top"><%= t('stats.direction') %></th>
+            <th class="align-top"><%= t('stats.status') %></th>
+            <th class="align-top"><%= t('stats.call_for_appointment') %></th>
+            <th class="align-top"><%= raw t('stats.recordings') %></th>
+            <th class="align-top"><%= t('stats.appointment_status') %></th>
+            <th class="align-top"><%= raw t('stats.sms') %></th>
+            <th class="align-top"><%= t('stats.to') %></th>
+          </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <!--end::Datatable-->
+      </div>
+    </div>
+  </div>
+  <!--end::Container-->
+</div>
+
+<script>
+    (function () {
+        // Class definition
+        var KTDatatablesServerSide = function () {
+            // Mock
+            var dataSet = <%= raw @calls_data.to_json %>;
+
+            // Shared variables
+            var table;
+            var dt;
+
+            // Private functions
+            var initDatatable = function () {
+                dt = $('#kt_datatable_call_report').DataTable({
+                    searchDelay: 500,
+                    order: [[0, 'asc']],
+                    select: {
+                        style: 'os',
+                        selector: 'td:first-child',
+                        className: 'row-selected'
+                    },
+                    data: dataSet,
+                    columns: [
+                        {data: 'Date'},
+                        {data: 'Duration'},
+                        {data: 'From'},
+                        {data: 'Caller'},
+                        {data: 'ContactType'},
+                        {data: 'Direction'},
+                        {data: 'Status'},
+                        {data: 'CallForAppointment'},
+                        {data: 'NumberOfRecordings'},
+                        {data: 'AppointmentStatus'},
+                        {data: 'NumberOfSMS'},
+                        {data: 'To'},
+                    ],
+                    columnDefs: [
+                        {
+                            // Date
+                            targets: 0,
+                            render: function (data) {
+                                moment.locale(data[1]);
+                                return moment(data[0]).format("LLLL");
+                            }
+                        },
+                        {
+                            // from
+                            targets: 2,
+                            render: function (data) {
+                                const from_info = data.split('@');
+                                if (from_info.length > 1) return `<span title="${from_info[1]}">${from_info[0]}</span>`
+                                else return data
+
+                            }
+                        },
+                        {
+                            // direction
+                            targets: 5,
+                            render: function (data) {
+                                if (data == 'incoming') return `<i class="bi bi-telephone-inbound text-body"></i>`
+                                else if (data == 'outgoing') return `<i class="bi bi-telephone-outbound text-body"></i>`
+                                else return '-'
+                            }
+                        },
+                        {
+                            // status
+                            targets: 6,
+                            render: function (data) {
+                                if (data == 'processed') return `<span class="badge badge-success"><%= t('call_stats.processed') %></span>`
+                                else if (data == 'not_completed') return `<span class="badge badge-danger"><%= t('call_stats.not_completed') %></span>`
+                                else if (data == 'forwarded') return `<span class="badge badge-light"><%= t('call_stats.forwarded') %></span>`
+                                else return '-'
+                            }
+                        },
+                        {
+                            // call of appointment
+                            targets: 7,
+                            render: function (data) {
+                                if (data == 'yes') return `<i class="bi bi-check-circle text-success"></i>`
+                                else if (data == 'no') return `<i class="bi bi-x-circle text-danger"></i>`
+                                else return '-'
+                            }
+                        },
+                        {
+                            // appointment status
+                            targets: -3,
+                            render: function (data) {
+                                const colorFromStatus = function (status) {
+                                    switch (status) {
+                                        case 'New':
+                                            return 'success';
+                                        case 'Unknown':
+                                            return 'warning';
+                                        case 'Cancelled':
+                                            return 'danger';
+                                        default:
+                                            return '';
+                                    }
+                                };
+
+                                return `<span class="badge badge-light-${colorFromStatus(data)}">${data}</span>`;
+                            }
+                        },
+                        {
+                            // to
+                            targets: -1,
+                            className: 'text-nowrap',
+                        },
+                    ],
+                    initComplete: function () {
+                        KTMenu.createInstances();
+                    }
+                });
+
+                table = dt.$;
+
+                // Re-init functions on every table re-draw -- more info: https://datatables.net/reference/event/draw
+                dt.on('draw', function () {
+                    KTMenu.createInstances();
+                });
+            };
+
+            // Search Datatable --- official docs reference: https://datatables.net/reference/api/search()
+            var handleSearchDatatable = function () {
+                const filterSearch = document.querySelector('[data-kt-docs-table-filter="search"]');
+
+                filterSearch.addEventListener('keyup', function (e) {
+                    dt.search(e.target.value).draw();
+                });
+            };
+
+            // Public methods
+            return {
+                init: function () {
+                    initDatatable();
+                    handleSearchDatatable();
+
+                    $('.kt_new_added_tooltip').each(function (i, el) {
+                        const newTooltip = new bootstrap.Tooltip(el);
+                    });
+                }
+            };
+        }();
+
+        // On document ready
+        KTUtil.onDOMContentLoaded(function () {
+            KTDatatablesServerSide.init();
+        });
+    })();
+
+    (function () {
+        $('input.kt_datepicker').flatpickr({
+            defaultDate: ["<%= params[:from_date] || '' %>", "<%= params[:to_date] || ''  %>"],
+            onClose: function(selectedDates, dateStr, instance) {
+                if (selectedDates.length == 1)
+                    window.location.href = "<%= calls_reports_path %>";
+                else {
+                    let d = selectedDates[0];
+                    let from_date = d.getFullYear() + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
+                    d = selectedDates[1]
+                    let to_date = d.getFullYear() + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
+                    window.location.href = "/activity/reports/calls?from_date=" + from_date + "&to_date=" + to_date + "&locale=" + "<%= params[:locale] %>";
+                }
+            }
+        });
+    })();
+</script>
+<style>
+    #kt_datatable_call_report_wrapper {
+        margin-top: -10px;
+    }
+    #kt_datatable_call_report_filter {
+        margin-top: -48px;
+        display: none;
+    }
+    div#kt_datatable_call_report_length {
+        display: none;
+    }
+</style>

@@ -1,0 +1,213 @@
+<div class="post d-flex flex-column-fluid" id="kt_post">
+  <!--begin::Container-->
+
+  <div id="kt_content_container" class="container-fluid">
+    <!--begin::Stepper-->
+    <div class="stepper stepper-pills stepper-column d-flex flex-column flex-md-row">
+      <!--begin::Aside-->
+      <div
+        class="d-flex justify-content-center bg-body rounded justify-content-xl-start flex-row-auto w-100 w-md-300px me-9">
+        <!--begin::Wrapper-->
+        <div class="w-100 p-9">
+          <a class="btn btn-sm btn-outline btn-outline-primary btn-color-primary btn-active-color-white" href="<%= services_services_path() %>">
+            <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+            <span class="svg-icon svg-icon-2">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <polygon points="0 0 24 0 24 24 0 24" />
+                        <rect fill="#000000" opacity="0.3" transform="translate(15.000000, 12.000000) scale(-1, 1) rotate(-90.000000) translate(-15.000000, -12.000000) "
+                              x="14" y="7" width="2" height="10" rx="1" />
+                        <path d="M3.7071045,15.7071045 C3.3165802,16.0976288 2.68341522,16.0976288 2.29289093,15.7071045 C1.90236664,15.3165802 1.90236664,14.6834152 2.29289093,14.2928909 L8.29289093,8.29289093 C8.67146987,7.914312 9.28105631,7.90106637 9.67572234,8.26284357 L15.6757223,13.7628436 C16.0828413,14.136036 16.1103443,14.7686034 15.7371519,15.1757223 C15.3639594,15.5828413 14.7313921,15.6103443 14.3242731,15.2371519 L9.03007346,10.3841355 L3.7071045,15.7071045 Z"
+                          fill="#000000" fill-rule="nonzero" transform="translate(9.000001, 11.999997) scale(-1, -1) rotate(90.000000) translate(-9.000001, -11.999997) " />
+                    </g>
+                </svg>
+            </span>
+            <!--end::Svg Icon-->
+            Back
+          </a>
+
+          <div class="separator my-8"></div>
+
+          <!--begin::Nav-->
+          <ul class="position-sticky stepper-nav nav nav-tabs border-0" style="top: 150px;">
+            <!--begin::Step Language-->
+            <li class="nav-item">
+              <a href="#kt_tab_pane_language" class="stepper-item nav-link border-0 active" data-bs-toggle="tab">
+                <!--begin::Label-->
+                <div class="stepper-label">
+                  <h3 class="stepper-title"><%= t('nav_menu.language') %></h3>
+                </div>
+                <!--end::Label-->
+              </a>
+            </li>
+            <!--end::Step Language-->
+            <!--begin::Step Business Hours-->
+            <li class="nav-item">
+              <i class="las la-info-circle position-absolute end-100 align-self-start fs-2 text-dark me-1 <%= 'd-none' unless @ivr.preference['only_ai'] %>" title="<%= t('widget_preference.preference_disable_tooltip') %>" data-bs-toggle="tooltip"></i>
+              <a href="#kt_tab_pane_business_hours" class="stepper-item nav-link border-0 <%= 'disabled' if @ivr.preference['only_ai'] %>" data-bs-toggle="tab" >
+                <!--begin::Label-->
+                <div class="stepper-label">
+                  <h3 class="stepper-title"><%= t('nav_menu.business_hours') %></h3>
+                </div>
+                <!--end::Label-->
+              </a>
+            </li>
+            <!--end::Step Business Hours-->
+            <!--begin::Step Welcome Message-->
+            <li class="nav-item">
+              <i class="las la-info-circle position-absolute end-100 align-self-start fs-2 text-dark me-1 <%= 'd-none' unless @ivr.preference['only_ai'] %>" title="<%= t('widget_preference.preference_disable_tooltip') %>" data-bs-toggle="tooltip"></i>
+              <a href="#kt_tab_pane_welcome_message" class="stepper-item nav-link border-0 <%= 'disabled' if @ivr.preference['only_ai'] %>" data-bs-toggle="tab">
+                <!--begin::Label-->
+                <div class="stepper-label">
+                  <h3 class="stepper-title"><%= t('nav_menu.greetings') %></h3>
+                </div>
+                <!--end::Label-->
+              </a>
+            </li>
+            <!--end::Step Welcome Message-->
+            <!--begin::Step Extensions-->
+            <li class="nav-item">
+              <i class="las la-info-circle position-absolute end-100 align-self-start fs-2 text-dark me-1 <%= 'd-none' unless @ivr.preference['only_ai'] %>" title="<%= t('widget_preference.preference_disable_tooltip') %>" data-bs-toggle="tooltip"></i>
+              <a href="#kt_tab_pane_extensions" class="stepper-item nav-link border-0 <%= 'disabled' if @ivr.preference['only_ai'] %>" data-bs-toggle="tab">
+                <!--begin::Label-->
+                <div class="stepper-label">
+                  <h3 class="stepper-title"><%= t('extensions.title') %></h3>
+                </div>
+                <!--end::Label-->
+              </a>
+            </li>
+            <!--end::Step Extensions-->
+            <!--begin::Step Phone Menu-->
+            <li class="nav-item">
+              <i class="las la-info-circle position-absolute end-100 align-self-start fs-2 text-dark me-1 <%= 'd-none' unless @ivr.preference['only_ai'] %>" title="<%= t('widget_preference.preference_disable_tooltip') %>" data-bs-toggle="tooltip"></i>
+              <a href="#kt_tab_pane_phone_menu" class="stepper-item nav-link border-0 <%= 'disabled' if @ivr.preference['only_ai'] %>" data-bs-toggle="tab">
+                <!--begin::Label-->
+                <div class="stepper-label">
+                  <h3 class="stepper-title"><%= t('nav_menu.phone_menu') %></h3>
+                </div>
+                <!--end::Label-->
+              </a>
+            </li>
+            <!--end::Step Phone Menu-->
+            <!--begin::Step Announce-->
+            <li class="nav-item">
+              <i class="las la-info-circle position-absolute end-100 align-self-start fs-2 text-dark me-1 <%= 'd-none' unless @ivr.preference['only_ai'] %>" title="<%= t('widget_preference.preference_disable_tooltip') %>" data-bs-toggle="tooltip"></i>
+              <a href="#kt_tab_pane_announce" class="stepper-item nav-link border-0 <%= 'disabled' if @ivr.preference['only_ai'] %>" data-bs-toggle="tab">
+                <!--begin::Label-->
+                <div class="stepper-label">
+                  <h3 class="stepper-title"><%= t('nav_menu.announce') %></h3>
+                </div>
+                <!--end::Label-->
+              </a>
+            </li>
+            <!--end::Step Announce-->
+            <!--begin::Step Follow Up-->
+            <li class="nav-item">
+              <i class="las la-info-circle position-absolute end-100 align-self-start fs-2 text-dark me-1 <%= 'd-none' unless @ivr.preference['only_ai'] %>" title="<%= t('widget_preference.preference_disable_tooltip') %>" data-bs-toggle="tooltip"></i>
+              <a href="#kt_tab_pane_follow_up" class="stepper-item nav-link border-0 <%= 'disabled' if @ivr.preference['only_ai'] %>" data-bs-toggle="tab">
+                <!--begin::Label-->
+                <div class="stepper-label">
+                  <h3 class="stepper-title"><%= t('nav_menu.follow_up') %></h3>
+                </div>
+                <!--end::Label-->
+              </a>
+            </li>
+            <!--end::Step Follow Up-->
+            <!--begin::Step Preferences-->
+            <li class="nav-item">
+              <i class="las la-info-circle position-absolute end-100 align-self-start fs-2 text-dark me-1 <%= 'd-none' if @appointment_bot_exist %>" title="<%= t('widget_preference.preference_phone_ai_disable_tooltip') %>" data-bs-toggle="tooltip"></i>
+              <a href="#kt_tab_pane_preferences" class="stepper-item nav-link border-0 <%= 'disabled' unless @appointment_bot_exist %>" data-bs-toggle="tab">
+                <!--begin::Label-->
+                <div class="stepper-label">
+                  <h3 class="stepper-title"><%= t('nav_menu.preferences') %></h3>
+                </div>
+                <!--end::Label-->
+              </a>
+            </li>
+            <!--end::Step Preferences-->
+            <!--begin::Custom Texts-->
+            <li class="nav-item">
+              <i class="las la-info-circle position-absolute end-100 align-self-start fs-2 text-dark me-1 <%= 'd-none' if @ivr.preference['only_ai'] != true && @ivr.preference['ai_bot_enabled'] == false && @appointment_bot_exist == true %>"
+                 title="<%= @ivr.preference['only_ai'] ? t('widget_preference.preference_disable_tooltip') : t('widget_preference.custom_text_enable_help') %>" data-bs-toggle="tooltip"></i>
+              <a href="#kt_tab_pane_custom_texts" class="stepper-item nav-link border-0 <%= 'disabled' if @ivr.preference['only_ai'] == true || @ivr.preference['ai_bot_enabled'] == true || @appointment_bot_exist == false %>" data-bs-toggle="tab">
+                <!--begin::Label-->
+                <div class="stepper-label">
+                  <h3 class="stepper-title"><%= t('nav_menu.custom_texts') %></h3>
+                </div>
+                <!--end::Label-->
+              </a>
+            </li>
+            <!--end::Custom Texts-->
+          </ul>
+          <!--end::Nav-->
+        </div>
+        <!--end::Wrapper-->
+      </div>
+      <!--begin::Aside-->
+      <!--begin::Content-->
+      <div class="bg-body w-100 rounded">
+        <!--begin::Form-->
+        <div class="d-flex flex-column h-100 p-9">
+          <!--begin::Tab content-->
+          <div class="tab-content pb-10 h-100">
+            <!--begin::Step Language-->
+            <div class="tab-pane fade show active h-100" id="kt_tab_pane_language" role="tabpanel">
+              <%= render 'assistant_language' %>
+            </div>
+            <!--end::Step Language-->
+            <!--begin::Step Business Hours-->
+            <div class="tab-pane fade h-100" id="kt_tab_pane_business_hours" role="tabpanel">
+              <%= render 'assistant_business_hours' %>
+            </div>
+            <!--end::Step Business Hours-->
+            <!--begin::Step Welcome Message-->
+            <div class="tab-pane fade h-100" id="kt_tab_pane_welcome_message" role="tabpanel">
+              <%= render 'assistant_welcome_message' %>
+            </div>
+            <!--end::Step Welcome Message-->
+            <!--begin::Step Extensions-->
+            <div class="tab-pane fade h-100" id="kt_tab_pane_extensions" role="tabpanel">
+              <%= render 'assistant_extensions' %>
+            </div>
+            <!--end::Step Extensions-->
+            <!--begin::Step Phone Menu-->
+            <div class="tab-pane fade h-100" id="kt_tab_pane_phone_menu" role="tabpanel">
+              <%= render 'assistant_phone_menu' %>
+            </div>
+            <!--end::Step Phone Menu-->
+            <!--begin::Step Announce-->
+            <div class="tab-pane fade h-100" id="kt_tab_pane_announce" role="tabpanel">
+              <%= render 'assistant_announce' %>
+            </div>
+            <!--end::Step Announce-->
+            <!--begin::Step Follow Up-->
+            <div class="tab-pane fade h-100" id="kt_tab_pane_follow_up" role="tabpanel">
+              <%= render 'assistant_followup' %>
+            </div>
+            <!--end::Step Follow Up-->
+            <!--begin::Step Preferences-->
+            <div class="tab-pane fade h-100" id="kt_tab_pane_preferences" role="tabpanel">
+              <%= render 'assistant_preferences' %>
+            </div>
+            <!--end::Step Preferences-->
+            <!--begin::Custom Texts-->
+            <div class="tab-pane fade" id="kt_tab_pane_custom_texts" role="tabpanel">
+              <%= render 'assistant_custom_text' %>
+            </div>
+            <!--end::Custom Texts-->
+          </div>
+          <!--end::Tab content-->
+
+
+        </div>
+        <!--end::Form-->
+      </div>
+      <!--end::Content-->
+    </div>
+    <!--end::Stepper-->
+  </div>
+  <!--end::Container-->
+</div>
+
+
+

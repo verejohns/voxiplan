@@ -1,0 +1,6 @@
+(function(){
+    // close the open modal
+    $(".modal[id*='resource']").modal("hide");
+
+    showMessage('error', '<%= (@resource.new_record? ? t('services.resources.create_failed') : t('services.resources.update_failed')).to_json.html_safe %>');
+})();

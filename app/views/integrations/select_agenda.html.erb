@@ -1,0 +1,111 @@
+<!--begin::Toolbar-->
+<div class="toolbar" id="kt_toolbar">
+  <!--begin::Container-->
+  <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+    <!--begin::Page title-->
+    <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
+         data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
+         class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
+      <!--begin::Title-->
+      <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3"><%= t('nav_menu.select_agenda') %></h1>
+      <!--end::Title-->
+    </div>
+    <!--end::Page title-->
+    <!--begin::Actions-->
+    <div class="d-flex align-items-center py-1"></div>
+    <!--end::Actions-->
+  </div>
+  <!--end::Container-->
+</div>
+<!--end::Toolbar-->
+<!--begin::Post-->
+<div class="post d-flex flex-column-fluid" id="kt_post">
+  <!--begin::Container-->
+  <div id="kt_content_container" class="container-fluid">
+    <div class="alert bg-light-info border border-info d-flex flex-column flex-sm-row w-100 p-5">
+      <!--begin::Icon-->
+      <!--begin::Svg Icon | path: icons/duotone/Code/Warning-2.svg-->
+      <span class="svg-icon svg-icon-2hx svg-icon-info me-4 mb-5 mb-sm-0">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+									<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black" />
+									<rect x="11" y="14" width="7" height="2" rx="1" transform="rotate(-90 11 14)" fill="black" />
+									<rect x="11" y="17" width="2" height="2" rx="1" transform="rotate(-90 11 17)" fill="black" />
+								</svg>
+							</span>
+      <!--end::Svg Icon-->
+      <!--end::Icon-->
+      <!--begin::Content-->
+      <div class="d-flex flex-column pe-0 pe-sm-10">
+        <h5 class="text-info mb-2"><%= t('select_agenda.notice_title') %></h5>
+        <p class="text-info mb-0"><%= t('select_agenda.notice_message') %>
+          <a href="/"><%= t('select_agenda.notice_link') %></a>.
+        </p>
+      </div>
+      <!--end::Content-->
+    </div>
+
+    <div class="card mb-7">
+      <div class="card-body">
+        <h5><%= t('select_agenda.title') %></h5>
+        <p class="mb-0"><%= t('select_agenda.title_description') %></p>
+      </div>
+    </div>
+
+    <!--begin::Row-->
+    <div class="row">
+      <!--begin::Col-->
+      <div class="col-md-4 mb-7 mb-md-0">
+        <!--begin::Card-->
+        <div class="card position-relative min-h-md-100 border border-active-success">
+          <!--begin::Card body-->
+          <a class="card-body d-flex flex-center flex-column pt-12 p-9" href="<%= (@subscription_plan == 'trial' || @subscription_plan == 'free') ? '#kt_modal_upgrade_plan' : select_timify_integrations_path %>" <%= "data-bs-toggle=modal" if @subscription_plan == 'free' || @subscription_plan == 'trial'%> >
+            <!--begin::Avatar-->
+            <div class="symbol symbol-100px mb-7">
+              <img class="rounded-0 w-auto" src="/assets/integration/timify.png" alt="<%= t('select_agenda.timify.caption') %>">
+            </div>
+            <!--end::Avatar-->
+            <!--begin::Name-->
+            <span class="fs-4 text-gray-800 fw-bolder"><%= t('select_agenda.timify.caption') %></span>
+            <!--end::Name-->
+            <% if @first_agenda.type == 'Timify' %>
+              <span class="position-absolute top-0 start-0 badge badge-light-primary mt-3 ms-3"><%= t('common.badge.connected') %></span>
+            <% end %>
+          </a>
+          <!--end::Card body-->
+        </div>
+        <!--end::Card-->
+      </div>
+      <!--end::Col-->
+      <!--begin::Col-->
+      <div class="col-md-4">
+        <!--begin::Card-->
+        <div class="card position-relative min-h-md-100 border border-active-success">
+          <!--begin::Card body-->
+          <a class="card-body d-flex flex-center flex-column pt-12 p-9" href="<%= (@subscription_plan == 'trial' || @subscription_plan == 'free') ? '#kt_modal_upgrade_plan' : select_mobminder_integrations_path %>" <%= "data-bs-toggle=modal" if @subscription_plan == 'free' || @subscription_plan == 'trial'%> >
+            <!--begin::Avatar-->
+            <div class="symbol symbol-100px mb-7">
+              <img class="rounded-0 w-auto" src="/assets/integration/mobminder.png" alt="<%= t('select_agenda.mobminder.caption') %>">
+            </div>
+            <!--end::Avatar-->
+            <!--begin::Name-->
+            <span class="fs-4 text-gray-800 fw-bolder"><%= t('select_agenda.mobminder.caption') %></span>
+            <!--end::Name-->
+            <% if @first_agenda.type == 'Mobminder' %>
+              <span class="position-absolute top-0 start-0 badge badge-light-primary mt-3 ms-3"><%= t('common.badge.connected') %></span>
+            <% end %>
+          </a>
+          <!--end::Card body-->
+        </div>
+        <!--end::Card-->
+      </div>
+      <!--end::Col-->
+    </div>
+    <!--end::Row-->
+
+  </div>
+  <!--end::Container-->
+</div>
+<!--end::Post-->
+
+<%= render '/modal/update_plan' %>
+

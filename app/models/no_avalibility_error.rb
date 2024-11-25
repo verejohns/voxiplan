@@ -1,0 +1,1 @@
+class NoAvalibilityError < StandardError; end

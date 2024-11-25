@@ -1,0 +1,991 @@
+<% if @mobminder_agenda %>
+  <%= render 'mobminder', {mobminder_agenda: @mobminder_agenda} %>
+<% else %>
+  <div class="toolbar" id="kt_toolbar">
+    <!--begin::Container-->
+    <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+      <div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
+           class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
+        <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3"><%= t('calendar_connection.caption') %></h1>
+      </div>
+      <div class="d-flex align-items-center py-1"></div>
+    </div>
+    <!--end::Container-->
+  </div>
+
+  <div class="post d-flex flex-column-fluid" id="kt_post">
+    <!--begin::Container-->
+    <div id="kt_content_container" class="container-fluid">
+      <% if checkRelationTuple("/organization-" + session[:current_organization].id.to_s, "manage", "client-" + current_client.id.to_s) %>
+        <div class="card mb-5">
+          <div class="card-body d-flex justify-content-between pt-1 pb-0">
+            <div class="d-flex overflow-auto h-55px">
+              <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder flex-nowrap">
+                <!--begin::Nav item-->
+                <li class="nav-item">
+                  <a
+                    class="nav-link text-active-primary me-6 active"
+                    href="javascript:;"
+                  ><%= t('calendar_connection.my_calendar') %></a>
+                </li>
+                <!--end::Nav item-->
+                <!--begin::Nav item-->
+                <li class="nav-item">
+                  <a
+                    class="nav-link text-active-primary me-6"
+                    href="<%= calendar_organization_path %>"
+                  ><%= t('calendar_connection.voxiplan_calendar') %></a>
+                </li>
+                <!--end::Nav item-->
+              </ul>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="card">
+        <!--begin::Header-->
+        <div class="card-header">
+          <div class="card-toolbar">
+            <h2 class="fw-bold mb-0"><%= t('calendar_connection.calendar') %></h2>
+          </div>
+
+          <div class="d-flex align-items-center justify-content-center text-center p-2 d-none">
+            <span class="fw-bold"><%= t('onboarding.connect_calendar.calendar_processed_in') %> </span>
+            <span>
+              <select name="server_region" id="server_region" class="form-select form-select-sm form-select-transparent w-md-150px">
+                <% @server_regions.each do |key, value| %>
+                  <option value="<%= key %>" <%= key.to_s == @selected_server_region ? 'selected' : '' %>><%= value %> <%= t('onboarding.connect_calendar.region') %></option>
+                <% end %>
+              </select>
+            </span>
+            <span><i class="las la-question-circle fs-2 text-dark pt-1 ms-1" title="<%= raw t('onboarding.connect_calendar.server_region_tooltip') %>" data-bs-html="true" data-bs-toggle="tooltip"></i></span>
+            <span class="ms-5">
+              <button type="button" class="btn btn-sm btn-light btn-active-light-primary btn_update_server_region">
+                <span class="indicator-label"><%= t('button.save') %></span>
+                <span class="indicator-progress"><%= t('common.please_wait') %>
+                  <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                </span>
+              </button>
+            </span>
+          </div>
+
+          <% if @is_support_cronofy || @application_calendars.count %>
+            <div class="card-toolbar">
+              <a href="javascript:;" class="add_new_calendar btn btn-primary ms-4" data-bs-toggle="modal"><%= t('calendar_connection.button.add_new') %></a>
+            </div>
+            <input type="hidden" name="alert_message" value="We need to disconnect all agenda first for change region. Are you want to continue?" />
+          <% else %>
+            <input type="hidden" name="alert_message" value="You will be lost the appointment data if change region. Are you want to continue?" />
+          <% end %>
+        </div>
+        <!--end::Header-->
+      </div>
+
+      <% @application_calendars.each do |application_calendar| %>
+        <div id="kt_accordion_01" class="card">
+          <!--begin::Body-->
+          <div class="card-body p-0">
+            <!--begin::Card-->
+            <div class="card card-dashed flex-row flex-stack flex-wrap p-6">
+              <!--begin::Info-->
+              <div class="d-flex flex-column py-2">
+                <!--begin::Wrapper-->
+                <div class="d-flex align-items-center">
+                  <!--begin::Icon-->
+                  <i class="bi bi-calendar text-primary me-5 ms-2" style="font-size: 35px"></i>
+                  <!--end::Icon-->
+                  <!--begin::Details-->
+                  <div>
+                    <div class="fs-4 fw-bolder"><%= application_calendar[:name] %></div>
+                    <div class="fs-6 fw-bold text-gray-400"><%= t('calendar_connection.voxiplan_calendar') %></div>
+                  </div>
+                  <!--end::Details-->
+                </div>
+                <!--end::Wrapper-->
+              </div>
+              <!--end::Info-->
+            </div>
+            <!--end::Card-->
+          </div>
+          <!--end::Body-->
+        </div>
+      <% end %>
+
+      <% if @is_support_cronofy || @application_calendars.count %>
+        <% @agenda_apps.each do |agenda| %>
+          <% unless agenda.cronofy_provider_name.nil? || agenda.cronofy_provider_name.blank? %>
+            <%= render 'calendar_connection', {agenda: agenda, icons: @agenda_icon} %>
+          <% end %>
+        <% end %>
+
+        <div id="calendar_configuration" class="card mb-7">
+          <!--begin::Body-->
+          <div class="card-body collapse show border-top" id="kt_accordion_01_item_01" data-bs-parent="#kt_accordion_01">
+
+            <div class="row">
+              <div class="col-md-6 mb-7 mb-md-0">
+                <!--begin::Card-->
+                <div class="card card-dashed p-6">
+                  <div class="d-flex align-items-center">
+
+                    <!--begin::Wrapper-->
+                    <div class="d-flex flex-stack flex-grow-1 flex-wrap flex-md-nowrap">
+                      <!--begin::Content-->
+                      <div class="mb-3 mb-md-0 fw-bold">
+                        <h4 class="text-gray-900 fw-bolder"><%= t('calendar_connection.check_for_conflicts') %></h4>
+                        <div class="fs-6 text-muted pe-7"><%= t('calendar_connection.check_for_conflicts_detail') %></div>
+                      </div>
+                      <!--end::Content-->
+                    </div>
+                    <!--end::Wrapper-->
+                  </div>
+                  <!--begin::Items-->
+                  <div class="row">
+                    <% @application_calendars.each do |agenda| %>
+                      <%= render 'application_calendar_configuration', {agenda: agenda} %>
+                    <% end %>
+                    <% @agenda_apps.each do |agenda| %>
+                      <% unless agenda.cronofy_provider_name.nil? || agenda.cronofy_provider_name.blank? %>
+                        <%= render 'calendar_configuration', {agenda: agenda} %>
+                      <% end %>
+                    <% end %>
+                  </div>
+                  <!--end::Items-->
+                </div>
+                <!--end::Card-->
+              </div>
+              <div class="col-md-6">
+                <!--begin::Card-->
+                <div class="card card-dashed p-6">
+                  <div class="d-flex align-items-center">
+
+                    <!--begin::Wrapper-->
+                    <div class="d-flex flex-stack flex-grow-1 flex-wrap flex-md-nowrap">
+                      <!--begin::Content-->
+                      <div class="mb-3 mb-md-0 fw-bold">
+                        <h4 class="text-gray-900 fw-bolder"><%= t('calendar_connection.add_to_calendar.caption') %></h4>
+                        <div class="fs-6 text-muted pe-7"><%= t('calendar_connection.add_to_calendar.description') %></div>
+                      </div>
+                      <!--end::Content-->
+                    </div>
+                    <!--end::Wrapper-->
+                  </div>
+                  <!--begin::Items-->
+                  <% if (@added_agenda.nil? || @added_agenda.calendar_id.nil?) && (@added_application_calendar.nil? || @added_application_calendar[:calendar_id].nil?) %>
+                    <div class="alert bg-transparent border border-warning d-flex align-items-center flex-column flex-sm-row w-100 py-3 px-5 mt-4 mb-0">
+                      <!--begin::Content-->
+                      <div class="d-flex flex-column">
+                          <span class="fw-bold text-warning"><%= raw t('calendar_connection.add_to_calendar.there_is_no_calendar') %></span>
+                      </div>
+                      <!--end::Content-->
+                    </div>
+                    <!--end::Alert-->
+                    <!--begin::Items-->
+                    <div class="row">
+                      <div class="col-md-6 mt-4">
+                        <div class="bg-light-warning h-md-100 rounded-2 pt-4 pb-3 px-4">
+                          <div class="d-flex mb-2">
+
+                            <span class="text-warning fw-bold fs-6 mt-1 me-2">
+                                      <span class="text-uppercase"><%= t('calendar_connection.add_to_calendar.calendar_not_selected') %></span>
+                                      <br /><%= t('calendar_connection.add_to_calendar.donot_add_any_event') %>
+                                    </span>
+                            <a class="d-inline-block text-warning ms-auto" href="#kt_modal_add_to_calendar" data-bs-toggle="modal">
+                              <i class="fas fa-edit text-inherit"></i>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <% else %>
+                    <div class="row">
+                      <div class="col-md-6 mt-4">
+                        <div class="bg-light h-md-100 rounded-2 pt-4 pb-3 px-4">
+                          <div class="d-flex align-items-center mb-2">
+                            <span class="text-dark fs-6 text-nowrap me-1"><%= t('calendar_connection.add_to_calendar.add_to') %></span>
+                            <span class="text-dark fw-bold fs-6 text-truncate" data-bs-toggle="tooltip">
+                                    <%= @added_agenda.nil? || @added_agenda.calendar_id.nil? ? @added_application_calendar[:cronofy_profile_name] : @added_agenda.cronofy_profile_name %>
+                            </span>
+                            <a class="d-inline-block text-muted ms-2" href="#kt_modal_add_to_calendar" data-bs-toggle="modal">
+                              <i class="bi bi-pencil-square"></i>
+                            </a>
+
+                          </div>
+
+                          <div class="d-flex flex-wrap">
+                            <% calendar_name = "-" %>
+                            <% if @added_agenda.nil? || @added_agenda.calendar_id.nil? %>
+                              <% calendar_name = 'voxiplan_calendar_' + @added_application_calendar[:calendar_name][-12..-1] %>
+                            <% else %>
+                              <% if @added_agenda.type == 'ClassicAgenda' %>
+                                <% @added_agenda.all_calendars.each do |calendar| %>
+                                  <% calendar_name = calendar[0] if calendar[1] == @added_agenda.calendar_id %>
+                                <% end %>
+                              <% end %>
+                            <% end %>
+                            <span class="badge badge-light-primary my-1 me-2"><%= calendar_name %></span>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+                  <!--end::Items-->
+                </div>
+                <!--end::Card-->
+              </div>
+            </div>
+          </div>
+          <!--end::Body-->
+        </div>
+
+      <% else %>
+        <%= render 'new_calendar_connection', {agenda: @agenda_app, icons: @agenda_icon} %>
+      <% end %>
+
+    </div>
+    <!--end::Container-->
+  </div>
+
+  <%= form_for(@agenda_apps.count.zero? ? current_client.agenda_apps.order(:id) : @agenda_apps, as: :agenda_app, :url => update_calendar_integrations_path, method: :post, html: {class: "form"}) do |f| %>
+  <!--  <input type="hidden" name="agenda_id" value="<%#= agenda.id %>" />-->
+    <!--begin::Add to calendar -->
+    <div class="modal fade" id="kt_modal_add_to_calendar" tabindex="-1" aria-hidden="true">
+      <!--begin::Modal dialog-->
+      <div class="modal-dialog modal-dialog-centered mw-500px">
+        <!--begin::Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title"><%= t('calendar_connection.add_to_calendar.dialog_title') %></h5>
+
+            <!--begin::Close-->
+            <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+              <span class="svg-icon svg-icon-2x"></span>
+            </div>
+            <!--end::Close-->
+          </div>
+
+          <div class="modal-body">
+            <% @application_calendars.each_with_index do |application_calendar, index| %>
+              <div class="d-flex fv-row mb-4">
+                <div class="form-check form-check-custom form-check-solid">
+                  <input class="form-check-input me-3" name="calendar_account" type="radio" value="<%= application_calendar[:calendar_name] %>" id="account_application-<%= index+1 %>"
+                         <%= (@added_agenda.nil? || @added_agenda.calendar_id.nil?) && @added_application_calendar && application_calendar[:cronofy_profile_name] == @added_application_calendar[:cronofy_profile_name] && @added_application_calendar[:calendar_id].present? ? "checked" : "" %> />
+                  <span class="symbol symbol-40px me-1">
+                        <!--begin::Icon-->
+                        <i class="bi bi-calendar text-primary me-2 ms-1" style="font-size: 30px; line-height: 1.5;"></i>
+                    <!--end::Icon-->
+                      </span>
+                  <label class="form-check-label" for="account_application-<%= index+1 %>">
+                    <div class="text-gray-800 fs-5"><%= application_calendar[:cronofy_profile_name] %></div>
+                  </label>
+                </div>
+              </div>
+            <% end %>
+
+            <% @agenda_apps.where("type=?", "ClassicAgenda").each_with_index do |calendar_account, index| %>
+              <div class="d-flex fv-row mb-4">
+                <div class="form-check form-check-custom form-check-solid">
+                  <input class="form-check-input me-3" name="calendar_account" type="radio" value="<%= calendar_account.cronofy_profile_name %>" id="account-<%= index+1 %>"
+                    <%= @added_agenda.present? && calendar_account.cronofy_profile_name == @added_agenda.cronofy_profile_name && @added_agenda.calendar_id.present? ? "checked" : "" %> />
+                    <span class="symbol symbol-40px me-1">
+                      <!--begin::Icon-->
+                      <% if calendar_account.cronofy_provider_name == 'apple' %>
+                        <img src="/assets/onboarding/icloud-calendar.svg" alt="Google Calendar">
+                      <% end %>
+                      <% if calendar_account.cronofy_provider_name == 'exchange' %>
+                        <img src="/assets/onboarding/exchange-calendar.svg" alt="Google Calendar">
+                      <% end %>
+                      <% if calendar_account.cronofy_provider_name == 'office365' %>
+                        <img src="/assets/onboarding/office-365-calendar.svg" alt="Google Calendar">
+                      <% end %>
+                      <% if calendar_account.cronofy_provider_name == 'live_connect' %>
+                        <img src="/assets/onboarding/outlook-plug-in.svg" alt="Google Calendar">
+                      <% end %>
+                      <% if calendar_account.cronofy_provider_name == 'google' %>
+                        <img src="/assets/onboarding/google-calendar.svg" alt="Google Calendar">
+                      <% end %>
+                      <!--end::Icon-->
+                    </span>
+                  <label class="form-check-label" for="account-<%= index+1 %>">
+                    <div class="text-gray-800 fs-5"><%= calendar_account.cronofy_profile_name %></div>
+                  </label>
+                </div>
+            </div>
+            <% end %>
+
+            <div class="d-flex fv-row">
+              <div class="form-check form-check-custom form-check-solid">
+                <input class="form-check-input me-3" name="calendar_account" type="radio" value="none" id="account-0" <%= (@added_agenda.nil? || @added_agenda.calendar_id.nil?) && (@added_application_calendar.nil? || @added_application_calendar[:calendar_id].nil?) ? "checked" : "" %> />
+                <label class="form-check-label" for="account-0">
+                  <div class="text-gray-800 fs-5"><%= t('calendar_connection.add_to_calendar.donot_add_an_event') %></div>
+                </label>
+              </div>
+            </div>
+
+            <div id="calendar_section">
+              <div class="separator separator-dashed my-5"></div>
+              <div id="add_calendar_section">
+                <label class="form-check-label fs-4 fw-bolder my-3"><%= t('calendar_connection.add_to_calendar.caption') %></label>
+                <select class="form-select add-to-calendar" name="calendar_id" data-control="select2" data-placeholder="<%= t('calendar_connection.add_to_calendar.select_calendar') %>">
+                  <% unless @added_agenda.nil? || @added_agenda.type != 'ClassicAgenda'%>
+                    <% @added_agenda.all_calendars.each do |calendar| %>
+                      <option value="<%= calendar[1] %>" <%= @added_agenda.calendar_id == calendar[1] ? "selected" : "" %>><%= calendar[0] %></option>
+                    <% end %>
+                  <% end %>
+                </select>
+              </div>
+
+              <label class="form-check-label fs-4 fw-bolder mt-8 mb-5"><%= t('calendar_connection.add_to_calendar.sync_cancellations') %></label>
+              <div class="form-check form-check-custom form-check-solid">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked/>
+                <label class="form-check-label fs-5" for="flexCheckDefault">
+                  <%= t('calendar_connection.add_to_calendar.cancel_event') %>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-light" data-bs-dismiss="modal"><%= t('common.button.close') %></button>
+            <button type="submit" class="btn btn-primary calendar-update" ><%= t('common.button.update') %></button>
+          </div>
+        </div>
+        <!--end::Modal content-->
+      </div>
+      <!--end::Modal dialog-->
+    </div>
+    <!--end::Add to calendar-->
+  <% end %>
+
+  <!--begin::Conflict calendar -->
+  <%= form_for(@agenda_apps.count.zero? ? current_client.agenda_apps.order(:id) : @agenda_apps, as: :agenda_app, :url => update_conflict_integrations_path, method: :post, html: {class: "form"}) do |f| %>
+  <div class="modal fade" id="kt_modal_check_for_conflicts" tabindex="-1" aria-hidden="true">
+    <input type="hidden" name="selected_calendar_account" />
+    <input type="hidden" name="calendar_type" />
+    <!--begin::Modal dialog-->
+    <div class="modal-dialog modal-dialog-centered mw-500px">
+      <!--begin::Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title d-flex">
+            <span class="symbol symbol-40px me-2">
+              <!--begin::Icon-->
+              <img class="provider-icon" alt="Google Calendar">
+              <!--end::Icon-->
+            </span>
+            <span><%= t('calendar_connection.check_conflicts.description') %><br />
+              <span class="fw-normal small text-muted profile-name"></span>
+            </span>
+          </h5>
+
+          <!--begin::Close-->
+          <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+            <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+            <span class="svg-icon svg-icon-1">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+                  <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
+                  <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                        x="0" y="7" width="16" height="2" rx="1" />
+                </g>
+              </svg>
+            </span>
+            <!--end::Svg Icon-->
+          </div>
+          <!--end::Close-->
+        </div>
+
+        <div class="modal-body">
+          <!--begin::Field-->
+          <div class="fv-row">
+            <label class="form-label"><%= t('calendar_connection.check_conflicts.check_places') %></label>
+            <div class="conflict-calendars"></div>
+          </div>
+          <!--end::Field-->
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal"><%= t('button.cancel') %></button>
+          <button type="submit" class="btn btn-primary"><%= t('common.button.update') %></button>
+        </div>
+      </div>
+      <!--end::Modal content-->
+    </div>
+    <!--end::Modal dialog-->
+  </div>
+  <% end %>
+  <!--end::Conflict calendar -->
+
+  <!--begin::New calendar connection-->
+  <div class="modal fade" id="kt_modal_add_new_calendar_connection" tabindex="-1" aria-hidden="true">
+    <!--begin::Modal dialog-->
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <!--begin::Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><%= t('calendar_connection.add_new_calendar_connection') %></h5>
+
+          <!--begin::Close-->
+          <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+            <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+            <span class="svg-icon svg-icon-1">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+                  <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
+                  <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                        x="0" y="7" width="16" height="2" rx="1" />
+                </g>
+              </svg>
+            </span>
+            <!--end::Svg Icon-->
+          </div>
+          <!--end::Close-->
+        </div>
+
+        <div class="modal-body">
+          <!--begin::Provider Company-->
+          <div class="card card-bordered mb-7">
+            <!--begin::Header-->
+            <div class="card-header">
+              <div class="card-title">
+                <div class="me-3">
+                  <img src="/assets/onboarding/google-icon.svg" alt="Google" class="w-30px">
+                </div>
+                <%= t('onboarding.connect_calendar.google_company') %>
+              </div>
+            </div>
+            <!--end::Header-->
+            <!--begin::Body-->
+            <div class="card-body">
+              <!--begin::Card-->
+              <div class="card card-dashed flex-row flex-stack flex-wrap p-6">
+                <!--begin::Info-->
+                <div class="d-flex flex-column py-2">
+                  <!--begin::Wrapper-->
+                  <div class="d-flex align-items-center">
+                    <!--begin::Icon-->
+                    <img src="/assets/onboarding/google-calendar.svg" alt="Google Calendar" class="w-50px me-4">
+                    <!--end::Icon-->
+                    <!--begin::Details-->
+                    <div>
+                      <div class="fs-4 fw-bolder"><%= t('onboarding.connect_calendar.google') %></div>
+                      <div class="fs-6 fw-bold text-gray-400"><%= t('onboarding.connect_calendar.google_detail') %></div>
+                    </div>
+                    <!--end::Details-->
+                  </div>
+                  <!--end::Wrapper-->
+                </div>
+                <!--end::Info-->
+                <!--begin::Actions-->
+                <div class="d-flex align-items-center py-2">
+                  <button type="button" data-provider-name="google" class="btn btn-sm btn-light btn-active-light-primary btn-another-connect"><%= t('common.button.connect') %></button>
+                </div>
+                <!--end::Actions-->
+              </div>
+              <!--end::Card-->
+            </div>
+            <!--end::Body-->
+          </div>
+          <!--end::Provider Company-->
+          <!--begin::Provider Company-->
+          <div class="card card-bordered mb-7">
+            <!--begin::Header-->
+            <div class="card-header">
+              <div class="card-title">
+                <div class="me-3">
+                  <img src="/assets/onboarding/microsoft-5.svg" alt="Microsoft" class="w-30px">
+                </div>
+                <%= t('onboarding.connect_calendar.microsoft_company') %>
+              </div>
+            </div>
+            <!--end::Header-->
+            <!--begin::Body-->
+            <div class="card-body">
+              <!--begin::Card-->
+              <div class="card card-dashed flex-row flex-stack flex-wrap p-6 mb-4">
+                <!--begin::Info-->
+                <div class="d-flex flex-column py-2">
+                  <!--begin::Wrapper-->
+                  <div class="d-flex align-items-center">
+                    <!--begin::Icon-->
+                    <img src="/assets/onboarding/office-365-calendar.svg" alt="Office 365 Calendar" class="w-50px me-4">
+                    <!--end::Icon-->
+                    <!--begin::Details-->
+                    <div>
+                      <div class="fs-4 fw-bolder"><%= t('onboarding.connect_calendar.office_365') %></div>
+                      <div class="fs-6 fw-bold text-gray-400"><%= t('onboarding.connect_calendar.office_365_detail') %></div>
+                    </div>
+                    <!--end::Details-->
+                  </div>
+                  <!--end::Wrapper-->
+                </div>
+                <!--end::Info-->
+                <!--begin::Actions-->
+                <div class="d-flex align-items-center py-2">
+                  <button type="button" data-provider-name="office365" class="btn btn-sm btn-light btn-active-light-primary btn-another-connect"><%= t('common.button.connect') %></button>
+                </div>
+                <!--end::Actions-->
+              </div>
+              <!--end::Card-->
+              <!--begin::Card-->
+              <div class="card card-dashed flex-row flex-stack flex-wrap p-6 mb-4">
+                <!--begin::Info-->
+                <div class="d-flex flex-column py-2">
+                  <!--begin::Wrapper-->
+                  <div class="d-flex align-items-center">
+                    <!--begin::Icon-->
+                    <img src="/assets/onboarding/exchange-calendar.svg" alt="Exchange Calendar" class="w-50px me-4">
+                    <!--end::Icon-->
+                    <!--begin::Details-->
+                    <div>
+                      <div class="fs-4 fw-bolder"><%= t('onboarding.connect_calendar.exchange') %></div>
+                      <div class="fs-6 fw-bold text-gray-400"><%= t('onboarding.connect_calendar.exchange_detail') %></div>
+                    </div>
+                    <!--end::Details-->
+                  </div>
+                  <!--end::Wrapper-->
+                </div>
+                <!--end::Info-->
+                <!--begin::Actions-->
+                <div class="d-flex align-items-center py-2">
+                  <button type="button" data-provider-name="exchange" class="btn btn-sm btn-light btn-active-light-primary btn-another-connect"><%= t('common.button.connect') %></button>
+                </div>
+                <!--end::Actions-->
+              </div>
+              <!--end::Card-->
+              <!--begin::Card-->
+              <div class="card card-dashed flex-row flex-stack flex-wrap p-6">
+                <!--begin::Info-->
+                <div class="d-flex flex-column py-2">
+                  <!--begin::Wrapper-->
+                  <div class="d-flex align-items-center">
+                    <!--begin::Icon-->
+                    <img src="/assets/onboarding/outlook-plug-in.svg" alt="Outlook Plug-In" class="w-50px me-4">
+                    <!--end::Icon-->
+                    <!--begin::Details-->
+                    <div>
+                      <div class="fs-4 fw-bolder"><%= t('onboarding.connect_calendar.outlook') %></div>
+                      <div class="fs-6 fw-bold text-gray-400"><%= t('onboarding.connect_calendar.outlook_detail') %></div>
+                    </div>
+                    <!--end::Details-->
+                  </div>
+                  <!--end::Wrapper-->
+                </div>
+                <!--end::Info-->
+                <!--begin::Actions-->
+                <div class="d-flex align-items-center py-2">
+                  <button type="button" data-provider-name="live_connect" class="btn btn-sm btn-light btn-active-light-primary btn-another-connect"><%= t('common.button.connect') %></button>
+                </div>
+                <!--end::Actions-->
+              </div>
+              <!--end::Card-->
+            </div>
+            <!--end::Body-->
+          </div>
+          <!--end::Provider Company-->
+          <!--begin::Provider Company-->
+          <div class="card card-bordered mb-7">
+            <!--begin::Header-->
+            <div class="card-header">
+              <div class="card-title">
+                <div class="me-3">
+                  <img src="/assets/onboarding/apple-black.svg" alt="Apple" class="w-30px">
+                </div>
+                <%= t('onboarding.connect_calendar.apple_company') %>
+              </div>
+            </div>
+            <!--end::Header-->
+            <!--begin::Body-->
+            <div class="card-body">
+              <!--begin::Card-->
+              <div class="card card-dashed flex-row flex-stack flex-wrap p-6">
+                <!--begin::Info-->
+                <div class="d-flex flex-column py-2">
+                  <!--begin::Wrapper-->
+                  <div class="d-flex align-items-center">
+                    <!--begin::Icon-->
+                    <img src="/assets/onboarding/icloud-calendar.svg" alt="iCloud Calendar" class="w-50px me-4">
+                    <!--end::Icon-->
+                    <!--begin::Details-->
+                    <div>
+                      <div class="fs-4 fw-bolder"><%= t('onboarding.connect_calendar.icloud') %></div>
+                      <div class="fs-6 fw-bold text-gray-400"><%= t('onboarding.connect_calendar.icloud_detail') %></div>
+                    </div>
+                    <!--end::Details-->
+                  </div>
+                  <!--end::Wrapper-->
+                </div>
+                <!--end::Info-->
+                <!--begin::Actions-->
+                <div class="d-flex align-items-center py-2">
+                  <button type="button" data-provider-name="apple" class="btn btn-sm btn-light btn-active-light-primary btn-another-connect"><%= t('common.button.connect') %></button>
+                </div>
+                <!--end::Actions-->
+              </div>
+              <!--end::Card-->
+            </div>
+          </div>
+
+          <% if checkRelationTuple("/organization-" + session[:current_organization].id.to_s, "manage", "client-" + current_client.id.to_s) %>
+            <div class="card card-bordered mb-0">
+              <!--begin::Header-->
+              <div class="card-header">
+                <div class="card-title">
+                  <div class="me-3">
+                    <img src="/assets/voxi_logo.png" alt="Apple" class="w-30px">
+                  </div>
+                  <%= t('onboarding.connect_calendar.voxiplan_title') %>
+                </div>
+              </div>
+              <!--end::Header-->
+              <!--begin::Body-->
+              <div class="card-body">
+                <!--begin::Card-->
+                <div class="card card-dashed flex-row flex-stack flex-wrap p-6">
+                  <!--begin::Info-->
+                  <div class="d-flex flex-column py-2">
+                    <!--begin::Wrapper-->
+                    <div class="d-flex align-items-center">
+                      <!--begin::Icon-->
+                      <i class="bi bi-calendar text-primary me-5" style="font-size: 35px; line-height: 1.5;"></i>
+                      <!--end::Icon-->
+                      <!--begin::Details-->
+                      <div>
+                        <div class="fs-4 fw-bolder"><%= t('onboarding.connect_calendar.voxiplan') %></div>
+                        <div class="fs-6 fw-bold text-gray-400"><%= t('onboarding.connect_calendar.voxiplan_detail') %></div>
+                      </div>
+                      <!--end::Details-->
+                    </div>
+                    <!--end::Wrapper-->
+                  </div>
+                  <!--end::Info-->
+                  <!--begin::Actions-->
+                  <div class="d-flex align-items-center py-2">
+                    <button type="button" data-provider-name="apple" class="btn btn-sm btn-light btn-active-light-primary" id="btn-voxiplan-connect"><%= t('common.button.connect') %></button>
+                  </div>
+                  <!--end::Actions-->
+                </div>
+                <!--end::Card-->
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal"><%= t('common.button.cancel') %></button>
+          <button type="button" class="btn btn-primary"><%= t('common.button.add') %></button>
+        </div>
+      </div>
+      <!--end::Modal content-->
+    </div>
+    <!--end::Modal dialog-->
+  </div>
+  <!--end::New calendar connection-->
+
+  <div class="modal fade" id="kt_modal_not_enabled_calendar" tabindex="-1" aria-hidden="true">
+    <!--begin::Modal dialog-->
+    <div class="modal-dialog modal-dialog-centered mw-500px">
+      <!--begin::Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><%= t('calendar_connection.calendar_enable.title') %></h5>
+
+          <!--begin::Close-->
+          <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+            <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+            <span class="svg-icon svg-icon-1">
+		            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+		              <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+		                <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1"/>
+		                <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                          x="0" y="7" width="16" height="2" rx="1"/>
+		              </g>
+		            </svg>
+		          </span>
+            <!--end::Svg Icon-->
+          </div>
+          <!--end::Close-->
+        </div>
+
+        <div class="modal-body">
+          <%= raw t('calendar_connection.calendar_enable.content') %>
+        </div>
+
+        <div class="modal-footer">
+          <a class="btn btn-primary" href="javascript:;" id="not_enabled_calendar_confirm"><%= raw t('services.no_calendars_modal.button') %></a>
+        </div>
+      </div>
+      <!--end::Modal content-->
+    </div>
+    <!--end::Modal dialog-->
+  </div>
+
+  <div class="modal fade" id="kt_modal_upgrade_seats" tabindex="-1" aria-hidden="true">
+    <!--begin::Modal dialog-->
+    <div class="modal-dialog modal-dialog-centered mw-500px">
+      <!--begin::Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><%= t('services.upgrade_seats_modal.title') %></h5>
+
+          <!--begin::Close-->
+          <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+            <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+            <span class="svg-icon svg-icon-1">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+                  <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
+                  <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                        x="0" y="7" width="16" height="2" rx="1"/>
+                </g>
+              </svg>
+            </span>
+            <!--end::Svg Icon-->
+          </div>
+          <!--end::Close-->
+        </div>
+
+        <div class="modal-body">
+          <%= t('services.upgrade_seats_modal.current_plan') %>
+          <br />
+          <%= t('organization.upgrade_modal.content') %>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal"><%= raw t('services.upgrade_seats_modal.cancel_button') %></button>
+          <a class="btn btn-primary" href="<%= billing_client_path(current_client.id) %>"><%= raw t('services.upgrade_seats_modal.upgrade_button') %></a>
+        </div>
+      </div>
+      <!--end::Modal content-->
+    </div>
+    <!--end::Modal dialog-->
+  </div>
+
+  <%= render '/modal/update_plan' %>
+<% end %>
+<script>
+    function formatState (state) {
+        if (!state.id) {
+            return state.text;
+        }
+
+        const baseUrl = "/assets/flags/";
+        let $state = $(
+            '<span><img class="h-15px me-2" /> <span></span></span>'
+        );
+
+        // Use .text() instead of HTML string concatenation to avoid script injection issues
+        $state.find("span").text(state.text);
+        $state.find("img").attr("src", baseUrl + "/" + state.element.value.toLowerCase() + ".svg");
+
+        return $state;
+    }
+
+    $('#btn-voxiplan-connect').click(function(e) {
+        e.preventDefault();
+        window.location.href = "<%= calendar_organization_path %>";
+    });
+
+    $("select#server_region").select2({
+        templateResult: formatState,
+        templateSelection: formatState,
+        minimumResultsForSearch: Infinity
+    });
+
+    if ($("input[name=calendar_account]:checked").val() == "none") {
+        $("div#calendar_section").hide();
+    }
+
+    if ($("input[name=calendar_account]:checked").val() && $("input[name=calendar_account]:checked").val().includes('cronofy_calendar_')) {
+        $("div#add_calendar_section").hide();
+    }
+
+    $('.add_new_calendar').on('click', function() {
+        const calendar_num = <%= @external_calendars.count + @application_calendars_all.count %>;
+
+        if (<%= session[:current_organization].chargebee_subscription_plan == "free" %>) $('#kt_modal_upgrade_plan').modal('show');
+        else if (<%= !@calendar_enabled %>) $('#kt_modal_not_enabled_calendar').modal('show');
+        else if (calendar_num >= <%= session[:current_organization].chargebee_seats %>) {
+            if (<%= session[:current_organization].chargebee_subscription_plan != "trial" %>) $('#kt_modal_upgrade_seats').modal('show');
+            else $('#kt_modal_add_new_calendar_connection').modal('show');
+        }
+        else $('#kt_modal_add_new_calendar_connection').modal('show');
+    });
+
+    $('#not_enabled_calendar_confirm').click(function() {
+        $('#kt_modal_not_enabled_calendar').modal('hide');
+    });
+
+    $('button.btn-connect').on('click', function() {
+        if (<%= session[:current_organization].chargebee_subscription_plan == "free" %>) {
+            $('#kt_modal_upgrade_plan').modal('show');
+            return;
+        }
+
+        const provider_name = $(this).data('provider-name');
+        const auth = $('[name="csrf-token"]')[0].content;
+        $.ajax({
+            url: "/agenda_app/create_new_agenda",
+            type: "POST",
+            data: {
+                authenticity_token: auth,
+                browser_locale: "<%= @browser_locale %>"
+            },
+            success: function(response) {
+                window.location.href = response.cronofy_auth_url + "&provider_name=" + provider_name + "&state=<%= SecureRandom.hex(24) %>" + "&locale=" + response.user_locale;
+            }
+        });
+    })
+
+
+    $('button.btn-another-connect').on('click', function() {
+        const provider_name = $(this).data('provider-name');
+        const auth = $('[name="csrf-token"]')[0].content;
+        $.ajax({
+            url: "/agenda_app/create_new_agenda",
+            type: "POST",
+            data: {
+                authenticity_token: auth,
+                browser_locale: "<%= @browser_locale %>"
+            },
+            success: function(response) {
+                window.location.href = response.cronofy_auth_url + "&provider_name=" + provider_name + "&state=<%= SecureRandom.hex(24) %>" + "&locale=" + response.user_locale;
+            }
+        });
+    })
+
+    $('input[name=calendar_account]').on('change', function() {
+        if ($(this).val() == 'none')
+            $("div#calendar_section").hide();
+        else {
+            $("div#calendar_section").show();
+
+            if ($(this).val().includes('cronofy_calendar_')) $("div#add_calendar_section").hide();
+            else {
+                $("div#add_calendar_section").show();
+                const auth = $('[name="csrf-token"]')[0].content;
+                const calendar_account = $(this).val();
+                $('select.add-to-calendar').html('');
+                $.ajax({
+                    url: "/agenda_app/get_calendars_of_agenda",
+                    type: "POST",
+                    data: {
+                        authenticity_token: auth,
+                        calendar_account: calendar_account
+                    },
+                    success: function(response) {
+                        let calendars = [];
+                        response.calendars.forEach((calendar) => {
+                            let element = [];
+                            element['id'] = calendar[1];
+                            element['text'] = calendar[0];
+                            calendars.push(element);
+                        })
+                        $('select.add-to-calendar').select2({ data: calendars});
+                    }
+                });
+            }
+        }
+    })
+
+    $('button.btn_update_server_region').on('click', function() {
+        const save_button = $(this);
+        Swal.fire({
+            text: $('input[name=alert_message]').val(),
+            icon: "warning",
+            showCancelButton: true,
+            buttonsStyling: false,
+            confirmButtonText: "<%= t('sweetalert.yes_change') %>",
+            cancelButtonText: "<%= t('sweetalert.no_cancel') %>",
+            customClass: {
+                confirmButton: "btn btn-danger",
+                cancelButton: "btn btn-primary"
+            }
+        }).then((function(t) {
+            if (t.value == true) {
+                const auth = $('[name="csrf-token"]')[0].content;
+                const server_region = $('select#server_region').val();
+                $(save_button).attr('data-kt-indicator', 'on');
+                $(save_button).attr('disabled', 'disabled');
+                $.ajax({
+                    url: "<%= change_dataserver_integrations_path %>",
+                    type: "POST",
+                    data: {
+                        authenticity_token: auth,
+                        server_region: server_region
+                    },
+                    success: function(response) {
+                        $(save_button).removeAttr('data-kt-indicator');
+                        $(save_button).removeAttr('disabled');
+                        showMessage(response.result, response.message);
+                        window.location.reload();
+                    }
+                });
+            }
+        }));
+
+    })
+
+    function showConflictDialog(calendar_account, provider_name, conflict_calendars_ids, calendar_id, calendar_name) {
+        const auth = $('[name="csrf-token"]')[0].content;
+        $('div.conflict-calendars').html('');
+        $('div#kt_modal_check_for_conflicts span.profile-name').html(calendar_account);
+
+        if (provider_name == 'application') $('div#kt_modal_check_for_conflicts span.symbol').html('<i class="bi bi-calendar text-primary me-2" style="font-size: 35px; line-height: 1.5;"></i>');
+        else {
+            $('div#kt_modal_check_for_conflicts span.symbol').html('<img class="provider-icon" alt="Google Calendar">');
+            const icon_obj = $('div#kt_modal_check_for_conflicts img.provider-icon');
+
+            if (provider_name == 'apple') $(icon_obj).attr('src', '/assets/onboarding/icloud-calendar.svg');
+            if (provider_name == 'exchange') $(icon_obj).attr('src', '/assets/onboarding/exchange-calendar.svg');
+            if (provider_name == 'office365') $(icon_obj).attr('src', '/assets/onboarding/office-365-calendar.svg');
+            if (provider_name == 'live_connect') $(icon_obj).attr('src', '/assets/onboarding/outlook-plug-in.svg');
+            if (provider_name == 'google') $(icon_obj).attr('src', '/assets/onboarding/google-calendar.svg');
+        }
+
+        if (provider_name == 'application') {
+            const checked = conflict_calendars_ids ? 'checked' : '';
+            const conflicts_calendars = '<label class="form-check form-check-custom form-check-solid my-3">' +
+                '<input class="form-check-input" type="checkbox" name="conflict_calendar[]" value="' + calendar_id + '"' + checked + ' />' +
+                '<span class="form-check-label">' + (calendar_name.substring(0, 8) == 'cronofy_' ? ('voxiplan_calendar_' + calendar_name.slice(-12)) : calendar_name) + '</span>' +
+                '</label>';
+            $('div.conflict-calendars').html(conflicts_calendars);
+            $('input[name=selected_calendar_account]').val(calendar_id);
+            $('input[name=calendar_type]').val('application');
+            $('div#kt_modal_check_for_conflicts').modal('show');
+        } else {
+            $.ajax({
+                url: "/agenda_app/get_calendars_of_agenda",
+                type: "POST",
+                data: {
+                    authenticity_token: auth,
+                    calendar_account: calendar_account
+                },
+                success: function(response) {
+                    let conflicts_calendars = "";
+                    const conflict_calendars_list = conflict_calendars_ids.split(',');
+                    response.calendars.forEach((calendar) => {
+                        let existed_conflict = false;
+                        for (let i = 0; i < conflict_calendars_list.length; i++) {
+                            if (conflict_calendars_list[i] == calendar[1]) {
+                                existed_conflict = true;
+                                break;
+                            }
+                        }
+                        const checked = existed_conflict ? 'checked' : '';
+                        conflicts_calendars += '<label class="form-check form-check-custom form-check-solid my-3">' +
+                            '<input class="form-check-input" type="checkbox" name="conflict_calendar[]" value="' + calendar[1] + '" ' + checked + ' />' +
+                            '<span class="form-check-label">' + calendar[0] + '</span>' +
+                            '</label>'
+                    })
+                    $('div.conflict-calendars').html(conflicts_calendars);
+                    $('input[name=selected_calendar_account]').val(calendar_account);
+                    $('input[name=calendar_type]').val('external');
+                    $('div#kt_modal_check_for_conflicts').modal('show');
+                }
+            });
+        }
+    }
+</script>

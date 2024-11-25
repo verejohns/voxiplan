@@ -1,0 +1,418 @@
+<link rel="stylesheet" href="/assets/intlTelInput.min.css">
+<style>
+    .iti {
+        width: 100%;
+    }
+    .iti__flag {background-image: url("/assets/flags.png");}
+
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .iti__flag {background-image: url("/assets/flags@2x.png");}
+    }
+</style>
+<h2 class="fw-bolder text-dark mb-5"><%= t('extensions.configure_extension') %>:</h2>
+<div class="row">
+  <% @extensions.each do |extension| %>
+    <div class="col-md-6 col-lg-4 col-xl-3 mb-6 extension_cards extension_<%= extension.id %> <%= 'default_extension' if extension.is_default %>" data-extension-id="<%= extension.id %>">
+      <div class="position-relative h-md-100">
+        <div class="card extension_card h-md-100 bg-light rounded-bottom-0 border-bottom border-4 border-primary">
+          <div class="card-header min-h-50px border-0 pt-4 px-6">
+            <div class="card-title">
+              <div class="card-label"><%= extension.name %></div>
+            </div>
+            <div class="card-toolbar">
+              <div class="position-relative z-index-2">
+                <a href="javascript:;" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
+                  <span class="svg-icon svg-icon-2x svg-icon-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" >
+                      <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                          <rect x="0" y="0" width="24" height="24"/>
+                          <circle fill="#000000" cx="5" cy="12" r="2" />
+                          <circle fill="#000000" cx="12" cy="12" r="2" />
+                          <circle fill="#000000" cx="19" cy="12" r="2"/>
+                      </g>
+                    </svg>
+                  </span>
+
+                </a>
+                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold w-200px py-2 mt-4" data-kt-menu="true">
+                  <div class="menu-item px-3">
+                    <a href="#kt_modal_extension" class="menu-link px-3" data-bs-toggle="modal" onclick="editExtension('<%= extension.id %>')"><%= t('button.edit') %></a>
+                  </div>
+                  <% unless extension.is_default %>
+                    <div class="menu-item px-3 delete_menu">
+                      <a href="javascript:;" class="menu-link px-3" onclick="removeExtension('<%= extension.id %>')"><%= t('button.delete') %></a>
+                    </div>
+                    <div class="menu-item px-3 set_default_menu">
+                      <a href="javascript:;" class="menu-link px-3" onclick="setDefaultExtension('<%= extension.id %>')"><%= t('extensions.set_default') %></a>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body pt-4 pb-2 px-6">
+            <div class="text-muted fw-bolder fs-4 card_content"><%= extension.email %></div>
+            <% if extension.is_default %>
+                <div class="d-flex flex-wrap default_extension_badge">
+                  <span class="badge badge-primary my-2 me-2"><%= t('extensions.default') %></span>
+                </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="col-md-6 col-lg-3 mb-6 new_extension_card">
+    <a href="#kt_modal_extension" data-bs-toggle="modal" class="add_resource d-flex flex-center h-md-100 text-primary text-hover-white bg-light bg-hover-primary rounded" onclick="newExtension()">
+      <div class="text-center">
+        <i class="bi bi-plus-lg text-inherit fs-1"></i>
+        <div class="fw-bold fs-6 text-inherit mt-2"><%= t('extensions.add_new_extension') %></div>
+      </div>
+    </a>
+  </div>
+
+</div>
+
+
+<div class="modal fade" id="kt_modal_extension" tabindex="-1" aria-hidden="true">
+  <%= form_tag({controller: "appoinments_scheduling", action: "save_extension"} , remote: true, method: "post", class: 'form', id: 'extension_modal_form') do %>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <input type="hidden" name="selected_extension_id" value = ""/>
+    <input type="hidden" name="ivr_id" value = "<%= params[:ivr_id] %>"/>
+    <input type="hidden" name="extension_notification_value" value = ""/>
+    <!--begin::Modal dialog-->
+    <div class="modal-dialog modal-dialog-centered mw-800px">
+      <!--begin::Modal content-->
+      <div class="modal-content">
+        <!--begin::Modal header-->
+        <div class="modal-header justify-content-between">
+          <h2 class="modal-title m-0"><%= t('extensions.new_extension') %></h2>
+          <!--begin::Close-->
+          <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+            <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+            <span class="svg-icon svg-icon-1">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+                  <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1"/>
+                  <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                    x="0" y="7" width="16" height="2" rx="1"/>
+                </g>
+              </svg>
+            </span>
+            <!--end::Svg Icon-->
+          </div>
+          <!--end::Close-->
+        </div>
+        <!--begin::Modal header-->
+        <!--begin::Modal body-->
+        <div class="modal-body scroll-y">
+
+          <div class="row mb-7">
+            <div class="col-12 col-lg-6">
+              <label class="form-label required"><%= t('extensions.name') %></label>
+              <input type="text" class="form-control" placeholder="<%= t('extensions.enter_name') %>" name="extension_name" />
+            </div>
+            <div class="col-12 col-lg-6">
+              <label class="form-label"><%= t('extensions.email') %></label>
+              <input type="email" class="form-control" placeholder="<%= t('extensions.enter_email') %>" name="extension_email" />
+            </div>
+          </div>
+
+          <div class="row mb-7">
+            <div class="col-12">
+              <label class="form-label"><%= t('extensions.phone') %></label>
+              <input type="hidden" name="phone_country" />
+              <input type="hidden" name="phone_number" />
+              <input type="text" class="form-control form-control-lg tel" name="extension_phone" id="phone" onchange="changePhoneNumber(this)" />
+              <span class="phone-valid-msg" style="display:none;color: #00C900"><%= t('customers.valid_phone_number') %></span>
+              <span class="phone-error-msg" style="display:none;color: #f4516c"><%= t('customers.invalid_phone_number') %></span>
+            </div>
+          </div>
+
+          <% if current_client.is_admin? %>
+          <div class="row mb-7">
+            <div class="col-12">
+              <label class="form-label"><%= t('extensions.sip_account') %></label>
+              <input type="text" class="form-control form-control-lg" name="extension_sip"  />
+            </div>
+          </div>
+          <% end %>
+
+          <div class="row mb-7">
+            <div class="col-12">
+              <label class="form-check form-check-custom form-check-solid">
+                <input class="form-check-input" type="checkbox" name="extension_notification">
+                <span class="form-check-label"><%= t('extensions.enable_notifications') %></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="row mb-7">
+            <div id="kt_accordion_01">
+              <a href="javascript:;" class="fw-bold text-decoration-underline" data-bs-toggle="collapse" data-bs-target="#kt_accordion_01_item_01">
+                <%= t('extensions.availabilities') %>
+                <i class="fas fa-angle-right text-primary mt-1 ps-1"></i>
+              </a>
+              <div id="kt_accordion_01_item_01" class="collapse pt-4" data-bs-parent="#kt_accordion_01">
+                <div class="row">
+                  <div class="col-md extension_availabilities">
+                    <%= render 'services/availability_week', availability: BusinessHours::DEFAULT_AVAILABILITY %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--end::Modal body-->
+        <!--begin::Modal footer-->
+        <div class="modal-footer justify-content-end">
+          <button type="reset" class="btn btn-light btn-active-light-primary me-2" data-bs-dismiss="modal"><%= t('common.button.cancel') %></button>
+          <button type="button" id="kt_extensions_submit" class="btn btn-primary submit-button" onclick="saveExtension(this)">
+            <span class="indicator-label"><%= t('common.button.submit') %></span>
+            <span class="indicator-progress"><%= t('common.please_wait') %>
+              <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+          </button>
+        </div>
+        <!--end::Modal footer-->
+      </div>
+      <!--end::Modal content-->
+    </div>
+    <!--end::Modal dialog-->
+  <% end %>
+<!--  </form>-->
+</div>
+
+<script src="/assets/intlTelInput.min.js"></script>
+<script>
+    const default_availability_content = "<%=j render 'services/availability_week', availability: BusinessHours::DEFAULT_AVAILABILITY %>";
+
+    let IPdata_key = "<%= ENV['IPdata_key'] %>";
+    let input = document.querySelector("#phone");
+    let iti = window.intlTelInput(input, {
+        initialCountry: "<%= current_client.phone_country %>",
+        utilsScript: "/assets/utils.js",
+        preferredCountries: ["fr", "be", "de", "gb", "us", "ca"],
+        geoIpLookup: function (callback) {
+            $.get("https://api.ipdata.co?api-key=" + IPdata_key, function () {
+            }, "jsonp").always(function (resp) {
+                var countryCode = (resp && resp.country_code) ? resp.country_code : "fr";
+                callback(countryCode);
+            });
+        }
+    });
+
+    function changePhoneNumber(obj) {
+        $(obj).css("border-color", "");
+        const phone_country = $(obj).parent().parent().parent().find('input[name=phone_country]');
+        const valid_msg = $(obj).parent().parent().parent().find('span.phone-valid-msg');
+        const error_msg = $(obj).parent().parent().parent().find('span.phone-error-msg');
+        $(valid_msg).hide();
+        $(error_msg).hide();
+
+        if (iti.isValidNumber()) {
+            let client_country = iti.getSelectedCountryData();
+            $(obj).val(iti.getNumber());
+            $(phone_country).val(client_country.iso2.toUpperCase());
+            $(valid_msg).show();
+            $(valid_msg).css('display', 'block');
+        } else {
+            $(obj).css("border-color", "#f4516c");
+            $(phone_country).val('');
+            $(error_msg).show();
+        }
+    }
+
+    function newExtension() {
+        $('input[name=selected_extension_id]').val('');
+        $('form#extension_modal_form h2.modal-title').html("<%= t('extensions.new_extension') %>");
+        $('form#extension_modal_form')[0].reset();
+        $('div#kt_accordion_01_item_01').removeClass('show');
+        $('input[name=selected_extension_id]').val('');
+
+        $('div.extension_availabilities').html(default_availability_content);
+    }
+
+    function editExtension(extension_id) {
+        $('input[name=selected_extension_id]').val(extension_id);
+        $.ajax({
+            url: "<%= get_extension_appoinments_scheduling_index_path %>",
+            method: 'get',
+            data: {
+                ivr_id: $('input[name=ivr_id]').val(),
+                extension_id: extension_id
+            },
+            success: function(response) {
+                $('input[name=extension_name]').val(response.name);
+                $('input[name=extension_email]').val(response.email);
+                $('input[name=phone_country]').val(response.country);
+                $('input[name=phone_number]').val(response.phone);
+                $('input[name=extension_notification]').prop('checked', response.enable_notification == true ? true : false);
+                $('div.extension_availabilities').html(response.availability);
+                $('form#extension_modal_form h2.modal-title').html("<%= t('extensions.edit_extension') %>");
+                $('div#kt_accordion_01_item_01').removeClass('show');
+
+                iti.setNumber('+' + response.phone);
+            }
+        })
+    }
+
+    function removeExtension(extension_id) {
+        Swal.fire({
+            text: "<%= t('extensions.delete_confirm') %>",
+            icon: "warning",
+            showCancelButton: true,
+            buttonsStyling: false,
+            confirmButtonText: "<%= t('sweetalert.yes_delete') %>",
+            cancelButtonText: "<%= t('sweetalert.no_cancel') %>",
+            customClass: {
+                confirmButton: "btn fw-bold btn-danger",
+                cancelButton: "btn fw-bold btn-active-light-primary"
+            }
+        }).then(function (result) {
+            if (result.value) {
+
+                $.ajax({
+                    url: '<%= remove_extension_appoinments_scheduling_index_path %>',
+                    type: "post",
+                    data: {
+                        ivr_id: $('input[name=ivr_id]').val(),
+                        extension_id: extension_id
+                    },
+                    success: function (response) {
+                        $('input[name=selected_extension_id]').val('');
+                        $('div.extension_' + extension_id).remove();
+
+                        showMessage(response.result, response.message);
+                    }
+                });
+
+            }
+        });
+    }
+
+    function setDefaultExtension(extension_id) {
+        $('div.loader-body').show();
+        $.ajax({
+            url: '<%= set_default_extension_appoinments_scheduling_index_path %>',
+            type: "post",
+            data: {
+                extension_id: extension_id
+            },
+            success: function (response) {
+                $('div.loader-body').hide();
+                if (response.result == 'error')
+                    showMessage(response.result, response.message);
+                else {
+                    const prev_default_extension = $('div.extension_cards.default_extension');
+                    const prev_default_extension_id = $(prev_default_extension).data('extension-id');
+                    $(prev_default_extension).find('div.default_extension_badge').remove();
+                    $(prev_default_extension).removeClass('default_extension');
+                    $(prev_default_extension).find('div.menu.menu-sub > div.menu-item').after(`
+                    <div class="menu-item px-3 delete_menu">
+                      <a href="javascript:;" class="menu-link px-3" onclick="removeExtension('` + prev_default_extension_id + `')"><%= t('button.delete') %></a>
+                    </div>
+                    <div class="menu-item px-3 set_default_menu">
+                      <a href="javascript:;" class="menu-link px-3" onclick="setDefaultExtension('` + prev_default_extension_id + `')"><%= t('extensions.set_default') %></a>
+                    </div>`);
+
+                    const new_default_extension = $('div.extension_' + extension_id);
+                    $(new_default_extension).addClass('default_extension');
+                    $(new_default_extension).find('div.delete_menu').remove();
+                    $(new_default_extension).find('div.set_default_menu').remove();
+                    $(new_default_extension).find('div.card_content').after(`<div class="d-flex flex-wrap default_extension_badge">
+                      <span class="badge badge-primary my-2 me-2"><%= t('extensions.default') %></span>
+                    </div>`);
+                }
+            }
+        });
+    }
+
+    function saveExtension(button_obj) {
+        if ($('input[name=extension_name]').val() == '') {
+            showMessage('error', "<%= t('extensions.required_name') %>");
+            return;
+        }
+
+        $('input[name=extension_notification_value]').val($('input[name=extension_notification]').prop('checked') ? 'yes' : '');
+        const extension_id = $('input[name=selected_extension_id]').val();
+        const user_action = extension_id == '' ? 'create' : 'update';
+
+        button_obj.disabled = true;
+        button_obj.setAttribute('data-kt-indicator', 'on');
+
+        $('input[name=phone_number]').val(iti.getNumber());
+        $('form#extension_modal_form').ajaxSubmit({
+            success: function (response) {
+                button_obj.disabled = false;
+                button_obj.removeAttribute('data-kt-indicator');
+
+                $('div#kt_modal_extension').modal('hide');
+                showMessage(response.result, response.message);
+                if (response.result == 'success') {
+                    if (user_action == 'create') {
+                        let new_card = `
+                                <div class="col-md-6 col-lg-4 col-xl-3 mb-6 extension_cards extension_` + response.extension_id + `" data-extension-id="` + response.extension_id + `">
+                                  <div class="position-relative h-md-100">
+                                    <div class="card extension_card h-md-100 bg-light rounded-bottom-0 border-bottom border-4 border-primary">
+                                      <div class="card-header min-h-50px border-0 pt-4 px-6">
+                                        <div class="card-title">
+                                          <div class="card-label">` + $('input[name=extension_name]').val() + `</div>
+                                        </div>
+                                        <div class="card-toolbar">
+                                          <div class="position-relative z-index-2">
+                                            <a href="javascript:;" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
+                                              <!--begin::Svg Icon | path: icons/duotone/General/Other2.svg-->
+                                              <span class="svg-icon svg-icon-2x svg-icon-primary">
+                                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" >
+                                                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                      <rect x="0" y="0" width="24" height="24"/>
+                                                      <circle fill="#000000" cx="5" cy="12" r="2" />
+                                                      <circle fill="#000000" cx="12" cy="12" r="2" />
+                                                      <circle fill="#000000" cx="19" cy="12" r="2"/>
+                                                  </g>
+                                                </svg>
+                                              </span>
+                                            </a>
+
+                                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold w-200px py-2 mt-4" data-kt-menu="true">
+                                              <div class="menu-item px-3">
+                                                <a href="#kt_modal_extension" class="menu-link px-3" data-bs-toggle="modal" onclick="editExtension(` + response.extension_id + `)">` + "<%= t('services.button.edit') %>" + `</a>
+                                              </div>
+                                              <div class="menu-item px-3 delete_menu">
+                                                <a href="javascript:;" class="menu-link px-3" onclick="removeExtension(` + response.extension_id + `)">` + "<%= t('services.button.remove') %>" + `</a>
+                                              </div>
+                                              <div class="menu-item px-3 set_default_menu">
+                                                <a href="javascript:;" class="menu-link px-3" onclick="setDefaultExtension(` + response.extension_id + `)"><%= t('extensions.set_default') %></a>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+
+                                      <div class="card-body pt-4 pb-2 px-6">
+                                        <div class="text-muted fw-bolder fs-4 card_content">` + $('input[name=extension_email]').val() + `</div>
+                                      </div>
+                                    </div>
+
+                                  </div>
+                                </div>
+                            `;
+
+                        $('div.extension_cards:last').after(new_card);
+                        KTMenu.createInstances();
+
+                    }
+                    if (user_action == 'update') {
+                        $('div.extension_' + extension_id + ' div.card-label').html($('input[name=extension_name]').val());
+                        $('div.extension_' + extension_id + ' div.card_content').html($('input[name=extension_email]').val());
+                    }
+                }
+            },
+            error: function(data) {
+                console.log(data);
+            }
+        });
+    }
+</script>

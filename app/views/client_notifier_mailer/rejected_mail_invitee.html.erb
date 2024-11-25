@@ -1,0 +1,13 @@
+<% if @invalid_email_content.blank? %>
+  <%= t('mails.rejected_invitee.body_line1') %>,
+  <br />
+  <br />
+  <%= t('mails.rejected_invitee.body_line2') %>
+  <%= @start_formatted %>
+  <br />
+  <br />
+  <%= t('mails.rejected_invitee.body_line3') %>
+  <br />
+<% else %>
+  <%= @invalid_email_content %>
+<% end %>

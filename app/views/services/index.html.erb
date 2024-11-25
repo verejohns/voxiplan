@@ -1,0 +1,3490 @@
+<%= stylesheet_link_tag    'datatables.bundle', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'datatables.bundle', 'data-turbolinks-track' => true %>
+<%= stylesheet_link_tag    'plugins/three-states-switch-jtoggler/jtoggler.styles.css', media: 'all', 'data-turbolinks-track' => true %>
+<link rel="stylesheet" href="https://unpkg.com/driver.js/dist/driver.min.css"/>
+
+<style>
+    .uncollapse-icon {
+        display: none;
+    }
+
+    .collapse-icon {
+        display: inline;
+    }
+
+    .collapsed > .uncollapse-icon {
+        display: inline;
+    }
+
+    .collapsed > .collapse-icon {
+        display: none;
+    }
+
+    .text-inherit {
+        color: inherit !important;
+    }
+
+    :hover > .text-hover-inherit {
+        color: inherit !important;
+    }
+
+    .text-truncate-2l {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        white-space: normal;
+    }
+
+    .watermark:not(.watermark-alt) {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        font-size: 12.5rem;
+        line-height: 1;
+        opacity: 0.25;
+    }
+
+    .watermark-pos-alt {
+        font-size: 10rem;
+    }
+
+    .popover-custom {
+        display: none;
+        max-width: none;
+    }
+
+    .popover-custom.bs-popover-top {
+        top: auto;
+        bottom: 100%;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+    }
+
+    .popover-custom.bs-popover-top::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: block;
+        height: 10px;
+    }
+
+    .popover-custom.bs-popover-top .popover-arrow {
+        left: 50%;
+        transform: translateX(-50%)
+    }
+
+    .popover-custom-toggle:hover .popover-custom {
+        display: block;
+    }
+
+    .w-320px {
+        width: 340px;
+    }
+
+    .jtoggler-wrapper-multistate .jtoggler-control {
+        width: 48px;
+        height: 20px;
+        background-color: #E4E6EF !important;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    .jtoggler-btn-wrapper {
+        position: relative;
+        width: 20px;
+    }
+
+    .jtoggler-btn-wrapper::after {
+        content: "";
+        width: 2px;
+        height: 2px;
+        border-radius: 50%;
+        background-color: #B5B5C3;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .jtoggler-wrapper-multistate .jtoggler-control.is-fully-active {
+        background-color: #1B72E8 !important;
+    }
+
+    .jtoggler-wrapper-multistate .jtoggler-control {
+        width: 48px;
+        height: 20px;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    .jtoggler-btn-wrapper:nth-child(1).is-active ~ .jtoggler-handle {
+        top: 2px;
+        left: 2px;
+    }
+
+    .jtoggler-btn-wrapper:nth-child(2).is-active ~ .jtoggler-handle {
+        top: 2px;
+        left: 16px;
+        background: #1B72E8;
+    }
+
+    .jtoggler-btn-wrapper:nth-child(3).is-active ~ .jtoggler-handle {
+        top: 2px;
+        left: auto;
+        right: 2px;
+    }
+
+    .jtoggler-control .jtoggler-handle {
+        width: 16px;
+        height: 16px;
+    }
+
+    .no-assistant {
+        color: #A1A5B7;
+    }
+    .is-assistant {
+        color: #5E6278;
+    }
+    .is-assistant-ai {
+        color: #5E6278;
+    }
+    .no-assistant .text-ai {
+        color: #A1A5B7;
+    }
+    .is-assistant .text-ai {
+        color: #A1A5B7;
+    }
+    .is-assistant-ai .text-ai {
+        color: #FFC700;
+    }
+
+    .driver-next-btn {
+        margin-left: 5px !important;
+    }
+    .driver-prev-btn, .driver-next-btn {
+        color: #FFFFFF !important;
+        border-color: #1B72E8 !important;
+        background-color: #1B72E8 !important;
+        text-shadow: none !important;
+        font-size: 12px !important;
+        border-radius: 3px !important;
+        padding: 5px 10px !important;
+    }
+
+    .fv-plugins-message-container, .voxiplan_url_edit_panel {
+        display: none;
+    }
+
+    .fv-plugins-message-container {
+        font-size: 0.75rem;
+        font-weight: 400;
+    }
+
+    .fv-plugins-message-container.invalid-feedback {
+        display: none;
+        font-weight: 600;
+        margin-top: 0.3rem;
+    }
+
+    .voxiplan_url_edit_panel input:focus-visible {
+        outline: none;
+        border: 1px solid !important;
+        padding-left: 3px !important;
+    }
+    @media (min-width: 992px) {
+        .modal-xl-half {
+            max-width: 1000px !important;
+        }
+    }
+    .card-header {
+        min-height: 36px !important;
+    }
+    .numbers_length {
+        height: 15px;
+        margin-right: 16px;
+        width: 80px;
+        margin-top: 3px;
+    }
+
+    tooltipped:hover:before, .tooltipped:hover:after, .tooltipped:active:before, .tooltipped:active:after, .tooltipped:focus:before, .tooltipped:focus:after {
+        display: inline-block;
+        text-decoration: none;
+    }
+    .tooltipped-s:after, .tooltipped-n:after {
+        transform: translateX(50%);
+    }
+    .tooltipped-s:after, .tooltipped-se:after, .tooltipped-sw:after {
+        top: 100%;
+        right: 50%;
+        margin-top: 5px;
+    }
+    .tooltipped:after {
+        position: absolute;
+        z-index: 1000000;
+        padding: 5px 8px;
+        font: normal normal 11px/1.5 Helvetica,arial,nimbussansl,liberationsans,freesans,clean,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";
+        color: #fff;
+        text-align: center;
+        text-shadow: none;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: break-word;
+        white-space: pre;
+        pointer-events: none;
+        content: attr(aria-label);
+        background: rgba(0,0,0,.8);
+        border-radius: 3px;
+        -webkit-font-smoothing: subpixel-antialiased;
+    }
+
+    .tooltipped-s:before, .tooltipped-se:before, .tooltipped-sw:before {
+        top: auto;
+        right: 50%;
+        bottom: -5px;
+        margin-right: -5px;
+        border-bottom-color: rgba(0,0,0,.8);
+    }
+
+    .tooltipped:before {
+        position: absolute;
+        z-index: 1000001;
+        display: none;
+        width: 0;
+        height: 0;
+        color: rgba(0,0,0,.8);
+        pointer-events: none;
+        content: "";
+        border: 5px solid transparent;
+    }
+
+    span .tooltipped-s:after, span .tooltipped-se:after, span .tooltipped-sw:after {
+        top: 0px;
+        right: 15%;
+        margin-top: 5px;
+    }
+</style>
+<!--begin::Content-->
+<div class="content d-flex flex-column flex-column-fluid pt-0" id="kt_content">
+  <!--begin::Toolbar-->
+  <div class="toolbar d-flex flex-stack flex-wrap bg-white mb-6 pb-0">
+    <!--begin::Container-->
+    <div class="container-fluid d-flex flex-stack">
+      <!--begin::Secondary Menu-->
+      <div class="d-flex">
+        <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent">
+          <!--begin::Nav item-->
+          <li class="nav-item">
+            <a class="nav-link text-active-primary ms-0 me-5 py-4 px-sm-5 active" href="<%= services_path() %>"><%= t('nav_menu.event_types') %></a>
+          </li>
+          <!--end::Nav item-->
+          <!--begin::Nav item-->
+          <li class="nav-item">
+            <a class="nav-link text-active-primary ms-0 me-5 py-4 px-sm-5" href="<%= schedule_event_index_path() %>"><%= t('nav_menu.scheduled_events') %></a>
+          </li>
+          <!--end::Nav item-->
+          <!--begin::Nav item-->
+          <li class="nav-item">
+            <a class="nav-link text-active-primary ms-0 me-5 py-4 px-sm-5" data-bs-toggle="modal" href="#kt_modal_coming_soon"><%= t('nav_menu.automations') %></a>
+          </li>
+          <!--end::Nav item-->
+        </ul>
+      </div>
+      <!--end::Secondary Menu-->
+      <!--begin::Actions-->
+      <div class="d-flex align-items-center py-1"></div>
+      <!--end::Actions-->
+    </div>
+    <!--end::Container-->
+  </div>
+  <!--end::Toolbar-->
+
+  <!--begin::Post-->
+  <div class="post d-flex flex-column-fluid" id="kt_post">
+    <!--begin::Container-->
+    <div id="kt_content_container" class="container-fluid">
+      <!--begin::Page title-->
+      <div class="d-flex flex-stack mb-7">
+        <!--begin::Search-->
+        <div class="d-flex align-items-center position-relative">
+          <i class="bi bi-search position-absolute text-dark ms-4"></i>
+          <input type="text" class="form-control form-control-bordered-bottom w-250px ps-13 service_filter" placeholder="<%= t('services.filter') %>">
+        </div>
+        <!--end::Search-->
+
+        <!--begin::Actions-->
+        <div class="d-flex align-items-center gap-2 gap-lg-3">
+          <!--begin::Menu-->
+          <a href="javascript:;" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end" class="">
+            <i class="bi bi-three-dots-vertical fs-3 text-muted"></i>
+          </a>
+          <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-state-bg-light-primary w-200px py-3 mt-4 text-body" data-kt-menu="true">
+            <div class="menu-item px-3">
+              <a href="<%= @subscription_plan == "free" ? '#kt_modal_upgrade_plan' : '#kt_modal_workspace' %>" data-bs-toggle="modal" class="menu-link text-inherit px-3" id="show_create_workspace_modal">
+                <i class="bi bi-plus-lg me-2"></i> <%= t('add_workspace.new_workspace') %>
+              </a>
+            </div>
+          </div>
+          <!--end::Menu-->
+        </div>
+        <!--end::Actions-->
+      </div>
+      <!--end::Page title-->
+
+      <!--begin::Accordion-->
+      <input type="hidden" name="user_membership" id="user_membership" value="<%= @subscription_plan %>" />
+      <% client_phone = Phonelib.parse(current_client.phone).national %>
+
+      <% session[:current_organization].ivrs.order(id: :asc).each_with_index do |ivr, index| %>
+        <% dedicated_phone_numbers = Identifier.where("ivr_id = ? AND identifier NOT LIKE ?", ivr.id, '%voxi.ai') %>
+        <% if dedicated_phone_numbers.count.zero?
+             test_num = Phonelib.parse(test_identifiers_for_client(current_client)).international
+           else
+             test_num = Phonelib.parse(dedicated_phone_numbers.first()[:identifier]).international
+           end %>
+        <div id="kt_accordion_<%= index %>" class="card mb-5 ivrs" data-ivr-id="<%=ivr.id %>" data-has-dedicated-phone="<%= dedicated_phone_numbers.count.zero? ? 'no' : 'yes' %>" data-ai-phone-type="<%= ivr.preference['only_ai'] %>">
+          <!--begin::Header-->
+          <div class="card-header align-items-start px-5 px-md-9 py-5">
+            <div class="d-md-flex align-items-center">
+              <!--begin::Avatar-->
+              <span class="symbol symbol-50px symbol-md-75px symbol-circle me-5">
+                <span class="symbol-label bg-light text-muted fs-1 fw-bolder"><%= ivr.name == "Default" ? current_client.try(:short_name) : ivr.name.split(" ").map{|c| c.capitalize[0] }.join() rescue "UN" %></span>
+              </span>
+              <!--end::Avatar-->
+              <div>
+                <h2 class="mb-3">
+                  <% ivr_name = ivr.name == "Default" ? ivr.client.full_name : ivr.name %>
+                  <div class="ivr_name_panel">
+                    <span class="ivr_name_label"><%= ivr_name %></span>
+                    <input name="ivr_name" value="<%= ivr_name %>" ivr_id="<%=ivr.id %>" class="px-2 text-primary border-primary rounded-1" style="display: none; margin-top: -3px; font-weight: 400; margin-left: -2px;" />
+                    <a class="ms-auto edit_ivr_name" title="Edit" style="cursor:pointer;">
+                      <i class="bi bi-pencil-square text-muted text-hover-primary px-2"></i>
+                    </a>
+                    <a class="ms-auto save_ivr_name d-none" title="Save" style="cursor:pointer;">
+                      <i class="bi bi-check-square text-muted text-hover-primary px-2"></i>
+                    </a>
+                  </div>
+                </h2>
+                <div class="d-xl-flex align-items-stretch" id="demo-web-assistant">
+                  <div class="me-xl-12 mb-4 mb-xl-0 <%= 'd-none' if @first_agenda.is_online_agenda? %>" >
+                    <h6 class="fs-8 text-uppercase fw-normal ls-1 text-muted mb-4"><%= t('services.booking_widget') %></h6>
+
+                    <div class="d-flex align-items-center">
+                      <span class="d-flex align-items-center bg-light rounded-1">
+                        <% widget_booking_url = request.base_url+appointment_widget_path(ivr.booking_url, locale: nil) %>
+                        <span class="voxiplan_url_panel text-dark py-2 px-4 text-truncate w-200px d-flex position-relative" title="<%= widget_booking_url %>" id="voxiplan_url_panel<%=ivr.id %>">
+                          <%= widget_booking_url %>
+                        </span>
+                        <div class="voxiplan_url_edit_panel py-2 px-4">
+                          <span><%= request.base_url + "/s/" %></span>
+                          <input name="voxiplan_url" value="<%= ivr.booking_url %>" ivr_id="<%=ivr.id %>" class="p-0 text-primary border-0 border-primary rounded-1" style="margin-top: -3px; width: 86px; font-weight: 400; margin-left: -2px;" />
+                          <span class="position-absolute fv-plugins-message-container text-success available_message"><%= t('validation.available') %></span>
+                          <span class="position-absolute fv-plugins-message-container invalid-feedback unavailable_message"><%= t('validation.unavailable') %></span>
+                          <span class="position-absolute fv-plugins-message-container invalid-feedback url_not_empty_message"><%= t('validation.not_empty') %></span>
+                          <span class="position-absolute fv-plugins-message-container invalid-feedback detected_key_message"><%= t('validation.detected_key') %></span>
+                        </div>
+                      </span>
+
+                      <div class="ms-4">
+                        <a href="#kt_modal_share_web_widget" data-bs-toggle="modal"><i class="bi bi-share text-muted text-hover-primary small" data-bs-toggle="tooltip" title="<%= t('services.share') %>"></i></a>
+
+                        <!--begin::Menu-->
+                        <a href="javascript:;" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end" class="btn btn-icon btn-xs btn-light-primary rounded-circle ms-4">
+                          <i class="bi bi-three-dots"></i>
+                        </a>
+                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-state-bg-light-primary w-150px py-3 mt-4 text-body" data-kt-menu="true">
+                          <div class="menu-item px-3">
+                            <a class="menu-link text-inherit px-3 preview_web_url" href="javascript:;"><i class="bi bi-eye me-3"></i> <%= t('services.preview') %></a>
+                          </div>
+                          <div class="menu-item px-3">
+                            <a class="menu-link text-inherit px-3 edit_web_url" href="javascript:;"><i class="bi bi-pencil-square me-3"></i> <%= t('services.edit_url') %></a>
+                          </div>
+                          <div class="menu-item px-3">
+                            <a class="menu-link text-inherit px-3 copy_web_url" href="javascript:;" ivr_id="<%=ivr.id %>" ><i class="bi bi-files me-3"></i> <%= t('services.button.copy_link') %></a>
+                          </div>
+                        </div>
+                        <!--end::Menu-->
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="js-assistant">
+                    <label class="assistant_check_section position-relative z-index-1 form-check form-switch form-check-custom form-check-solid form-check-primary mb-2">
+                      <span class="form-check-label fs-8 text-uppercase fw-normal ls-1 ms-0 me-3">
+                        <%= t('services.toggle.assistant') %>
+                      </span>
+
+                      <input class="form-check-input h-20px w-30px js-assistant-toggle" type="checkbox" disabled <%= 'checked' unless @subscription_plan == "free" %>>
+                    </label>
+
+                    <div class="js-assistant-options" style="display: <%= @subscription_plan == 'free' ? 'none' : 'block' %>;">
+                      <div class="d-xxl-flex">
+                        <div class="d-flex align-items-center me-xxl-10 mb-6 mb-xxl-0">
+                          <label class="form-check form-check-custom form-check-sm me-4 jtoggler_phone_type" data-ivr-id="<%= ivr.id %>"
+                                 data-current-state="<%= dedicated_phone_numbers.count.zero? ? 'off' : 'ivr' %>" data-phone-number="<%= test_num %>"
+                                 data-has-dedicated-number="<%= dedicated_phone_numbers.count.zero? ? 'no' : 'yes' %>" data-client-phone="<%= client_phone %>" >
+                            <input type="checkbox" class="jtoggler" data-jtmulti-state <%= 'disabled' if dedicated_phone_numbers.count.zero? || @subscription_plan == "trial"  %> />
+                            <span class="cursor-pointer ms-3 text-nowrap no-assistant js-assistant-label">
+                                        <%= t('services.toggle.phone') %> <sup class="text-ai"><%= t('services.ai') %></sup>
+                                      </span>
+                          </label>
+                          <span class="position-relative d-flex align-items-center bg-light rounded-1">
+                            <span class="test_phone_number d-flex position-relative text-dark py-2 px-4 text-truncate w-150px" data-ivr-id="<%= ivr.id %>" data-phone-number="<%= test_num %>" id="voxiplan_phone_number<%=ivr.id %>">
+                              <%= test_num %>
+                            </span>
+                          </span>
+
+                          <div class="d-flex align-items-center ms-4">
+                            <a href="#kt_modal_share_phone" data-bs-toggle="modal"><i class="bi bi-share text-muted text-hover-primary small" data-bs-toggle="tooltip" title="<%= t('services.share') %>"></i></a>
+
+                            <!--begin::Menu-->
+                            <a href="javascript:;" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end" class="btn btn-icon btn-xs btn-light-primary rounded-circle ms-4">
+                              <i class="bi bi-three-dots"></i>
+                            </a>
+                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-state-bg-light-primary w-175px py-3 mt-4 text-body" data-kt-menu="true">
+                              <div class="menu-item px-3">
+                                <a class="menu-link text-inherit px-3" href="<%= @subscription_plan == 'trial' ? '#kt_modal_upgrade_preview' : '#kt_modal_test_phone' %>"
+                                   data-bs-toggle="modal" data-bs-dismiss="modal" data-ivr-id="<%= ivr.id %>" data-phone="<%= test_num %>" data-client-phone="<%= client_phone %>"
+                                   data-has-dedicated-phone="<%= dedicated_phone_numbers.count.zero? ? 'no' : 'yes' %>"><i class="bi bi-eye me-3"></i> <%= t('services.preview') %></a>
+                              </div>
+                              <div class="menu-item px-3">
+                                <% if @subscription_plan == 'trial' %>
+                                  <a class="menu-link text-inherit px-3" href="#kt_modal_upgrade_plan" data-bs-toggle="modal" data-bs-dismiss="modal" ><i class="bi bi-telephone-plus me-3"></i> <%= t('services.buy_number') %></a>
+                                <% else %>
+                                  <a class="menu-link text-inherit px-3 order_phone_number" href="#" data-ivr-id="<%= ivr.id %>" ><i class="bi bi-telephone-plus me-3"></i> <%= t('services.buy_number') %></a>
+                                <% end %>
+
+                              </div>
+                              <div class="menu-item px-3">
+                                <a class="menu-link text-inherit px-3 copy_phone_number" href="javascript:;" ivr_id="<%= ivr.id %>"><i class="bi bi-files me-3"></i> <%= t('services.copy_phone') %></a>
+                              </div>
+                            </div>
+                            <!--end::Menu-->
+                          </div>
+                        </div>
+
+                        <div class="d-flex align-items-center">
+                          <label class="js-assistant-switcher position-relative z-index-1 form-check form-switch form-check-custom form-check-solid form-check-primary me-3">
+                            <input class="messaging_checkbox form-check-input h-20px w-30px" type="checkbox" disabled <%= 'checked' if @subscription_plan == 'trial' || @subscription_plan == 'premium' || @subscription_plan == 'custom' %>>
+
+                            <span class="form-check-label ms-3 no-assistant js-assistant-label opacity-100">
+                              <%= t('services.messaging') %> <sup class="text-ai"><%= t('services.ai') %></sup>
+                            </span>
+                          </label>
+                          <span class="d-flex align-items-center bg-light rounded-1">
+                            <% chat_url = request.base_url+chat_index_path(ivr.booking_url, locale: nil)  %>
+                            <span class="d-flex position-relative text-dark py-2 px-4 text-truncate w-200px voxiplan_chat_panel" title="<%= chat_url %>" id="voxiplan_chat_panel<%=ivr.id %>">
+                              <%= chat_url %>
+                            </span>
+                          </span>
+                          <div class="d-flex align-items-center ms-4">
+                            <a href="#kt_modal_share_messaging" data-bs-toggle="modal" data-ivr-uid="<%= ivr.uid %>" data-ivr-lang="<%= ivr.message_locale[0..1] %>"
+                               data-ivr-assistant-name="<%= ivr.assistant_name %>" data-ivr-timezone="<%= ivr.preference['widget_tz'] %>" data-ivr-locale="<%= ivr.message_locale %>-<%= ivr.client.country_code %>">
+                              <i class="bi bi-share text-muted text-hover-primary small" data-bs-toggle="tooltip" title="<%= t('services.share') %>"></i></a>
+
+                            <!--begin::Menu-->
+                            <a href="javascript:;" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end" class="btn btn-icon btn-xs btn-light-primary rounded-circle ms-4">
+                              <i class="bi bi-three-dots"></i>
+                            </a>
+                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-state-bg-light-primary w-175px py-3 mt-4 text-body" data-kt-menu="true">
+                              <div class="menu-item px-3">
+                                <a class="menu-link text-inherit px-3 preview_chat_url" href="javascript:;"><i class="bi bi-eye me-3"></i> <%= t('services.preview') %></a>
+                              </div>
+                              <div class="menu-item px-3">
+                                <a class="menu-link text-inherit px-3 copy_chat_url" href="javascript:;" ivr_id="<%=ivr.id %>"><i class="bi bi-files me-3"></i> <%= t('services.button.copy_link') %></a>
+                              </div>
+                            </div>
+                            <!--end::Menu-->
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="position-absolute top-0 end-0 mt-5 me-2 me-md-4 d-flex align-items-center">
+              <a href="javascript:;" class="ms-5" data-bs-toggle="collapse" data-bs-target="<%= "#kt_accordion_#{index}_item_01" %>" aria-expanded="true">
+                <i class="uncollapse-icon bi bi-chevron-down text-muted fs-1"></i>
+                <i class="collapse-icon bi bi-chevron-up text-muted fs-1"></i>
+              </a>
+
+              <div class="ms-2">
+                <!--begin::Menu-->
+                <button type="button" class="btn btn-icon btn-clean" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
+                  <i class="bi bi-three-dots-vertical text-muted fs-5"></i>
+                </button>
+                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded text-body menu-state-bg-light-primary w-250px py-3 mt-4" data-kt-menu="true">
+                  <!--begin::Menu item-->
+                  <% unless @first_agenda.is_online_agenda? %>
+                  <div class="menu-item px-3">
+                    <a href="<%= widget_preference_appoinments_scheduling_index_path(ivr.id) %>" class="menu-link text-inherit px-3"><%= t('services.button.widget_settings') %></a>
+                  </div>
+                  <% end %>
+                  <!--end::Menu item-->
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <% if @subscription_plan == 'free' %>
+                      <a href="#kt_modal_upgrade_plan" data-bs-toggle="modal" class="menu-link text-inherit px-3"><%= t('services.button.assistant_settings') %></a>
+                    <% else %>
+                      <a href="<%= assistant_preference_appoinments_scheduling_index_path(ivr.id) %>" class="menu-link text-inherit px-3"><%= t('services.button.assistant_settings') %></a>
+                    <% end %>
+                  </div>
+
+                  <div class="menu-item px-3">
+                    <% if @subscription_plan == 'free' %>
+                      <a href="#kt_modal_upgrade_plan" data-bs-toggle="modal" class="menu-link text-inherit px-3"><%= t('services.general_setting.title') %></a>
+                    <% else %>
+                      <a href="<%= general_preference_appoinments_scheduling_index_path(ivr.id) %>" class="menu-link text-inherit px-3"><%= t('services.general_setting.title') %></a>
+                    <% end %>
+                  </div>
+                  <!--end::Menu item-->
+                </div>
+                <!--end::Menu-->
+              </div>
+            </div>
+          </div>
+          <!--end::Header-->
+          <!--begin::Body-->
+          <div class="card-body collapse show px-5 px-md-9 py-5 pt-8 pb-3" id="<%= "kt_accordion_#{index}_item_01" %>" data-bs-parent="#kt_accordion_01">
+            <div class="row mb-6">
+              <div class="col-md mb-4 mb-md-0">
+                <div class="btn-group btn-group--filter">
+                  <a href="javascript:;" class="active" data-view-type="column">
+                    <i class="bi bi-grid-fill text-inherit"></i>
+                  </a>
+                  <a href="javascript:;" data-view-type="row">
+                    <i class="bi bi-list text-inherit"></i>
+                  </a>
+                </div>
+              </div>
+
+              <div class="col-auto phone_filter d-none">
+                <div class="btn-group btn-group--filter">
+                  <a href="javascript:;" class="active" data-filter="all"><%= t('services.toggle.all') %></a>
+                  <a href="javascript:;" data-filter="phone"><%= t('services.toggle.phone') %></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="row draggable-zone">
+              <% if @first_agenda.is_online_agenda?
+                   active_services = ivr.client.services.active.where(ivr_id: ivr.id, agenda_type: @first_agenda.type)
+                 else
+                   active_services = ivr.client.services.active.where(ivr_id: ivr.id, agenda_type: nil)
+                 end
+
+                 phone_booking_enabled_services = active_services.where("preference->>'phone_assistant_enabled' = ?", "true")
+              %>
+              <% services = @first_agenda.is_online_agenda? ? ivr.client.services.where(ivr_id: ivr.id, agenda_type: @first_agenda.type) : ivr.client.services.where(ivr_id: ivr.id).ordered %>
+              <% services.each do |service| %>
+              <% data_category = [] %>
+              <% data_category << "phone" if service.preference["phone_assistant_enabled"] && service.enabled? %>
+                <div class="col-md-6 col-lg-3 mb-6 draggable" data-view-item data-view-column-classes="col-md-6 col-lg-3"
+                     data-service-id="<%= service.id %>" data-phone-service-id="<%= service.phone_service&.id || 0 %>"
+                     data-service-order-id="<%= service.order_id %>" data-phone-service-order-id="<%= service.phone_service&.order_id || 0 %>"
+                     data-view-row-classes="col-12" data-category="<%= data_category.join(",") %>">
+                  <div class="position-relative h-md-100" data-view-item data-view-column-classes="h-md-100">
+                    <!--begin::Mixed Widget-->
+                    <div class="card h-md-100 bg-light border-bottom border-5 <%= service.enabled ? 'border-primary' : 'border-muted' %>" data-view-item data-view-column-classes="h-md-100 min-h-150px">
+                      <div class="card-header min-h-50px border-0 pt-6 px-6 justify-content-start">
+                        <div class="w-90">
+                          <h3 class="d-flex mb-0">
+                            <a href="<%= edit_event_services_path(service.id) %>" class="service_name_label position-relative z-index-1 d-block text-dark <%= service.enabled ? '' : 'opacity-25' %> text-hover-primary text-truncate-2l" data-view-item
+                              data-view-column-classes="text-truncate-2l" data-view-row-classes="text-truncate">
+                              <%= service.ename %>
+                            </a>
+                          </h3>
+                          <div class="text-muted mb-5"><%= service.duration %> <%= t('services.phone_call') %></div>
+                        </div>
+
+                        <div class="ms-auto">
+                          <!--begin::Menu-->
+                          <a href="javascript:;" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end" class="position-relative z-index-1 card_popup_menu">
+                            <i class="bi bi-three-dots-vertical fs-6 text-muted mt-1"></i>
+                          </a>
+                          <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-state-bg-light-primary w-200px py-3 mt-4 text-body" data-kt-menu="true">
+                            <div class="menu-item px-3">
+                              <%= link_to t('button.edit'), edit_event_services_path(service.id), class: 'menu-link text-inherit px-3' %>
+                            </div>
+                            <div class="menu-item px-3">
+                              <%= link_to t('services.button.remove'), @subscription_plan == "free" ? billing_client_path(current_client.id) : '#', class: 'service-remove menu-link text-inherit px-3', data: { service_id: "#{service.id}", ivr_id: "#{service.ivr_id}" } %>
+                            </div>
+
+                            <div class="menu-item px-3">
+                              <% turn_onoff_checked = service.enabled ? 'checked' : '' %>
+
+                              <label class="form-check form-switch form-check-custom form-check-solid form-check-primary px-3 mt-1">
+                                <input class="form-check-input h-20px w-30px service-onoff" type="checkbox" data-service-id="<%= service.id %>" data-ivr-id="<%= service.ivr_id %>" <%= turn_onoff_checked %> >
+                                <span class=" ms-3"><%= t('services.button.turn_on_off') %></span>
+                              </label>
+                            </div>
+                          </div>
+                          <!--end::Menu-->
+                        </div>
+                      </div>
+
+                      <!--begin::Body-->
+                      <div class="card-body position-relative pt-0 pb-6 px-6" id="toggle-web-assistant">
+                        <% unless @subscription_plan == 'free' || dedicated_phone_numbers.count.zero? %>
+                          <% if service.enabled? %>
+                            <div class="toggle-web-assistant-section <%= 'd-none' if ivr.preference['only_ai'] %>">
+                              <h6 class="fs-8 text-uppercase fw-normal ls-1 text-muted mb-2"><%= t('services.toggle.assistant') %></h6>
+                              <div class="d-flex flex-wrap">
+                                <label class="position-relative z-index-1 form-check form-switch form-check-custom form-check-solid form-check-primary me-5 mb-3">
+                                  <span class="form-check-label ms-0 me-3"><%= t('services.toggle.phone') %></span>
+                                  <input class="toggle-service-switch form-check-input h-20px w-30px" type="checkbox" data-service-type="phone_assistant_enabled" data-service-id="<%= service.id %>"
+                                         <%= service.preference["phone_assistant_enabled"] && service.preference["phone_assistant_enabled"] != "false" ? "checked" : "" %> />
+                                </label>
+                              </div>
+                            </div>
+                          <% end %>
+                        <% end %>
+                      </div>
+                      <!--end::Body-->
+
+                      <div class="card-footer px-6 border-0 pt-0 pb-6 d-flex justify-content-between align-items-center small d-none">
+                        <%= link_to t('services.button.turn_on'), '#', class: 'service-onoff position-relative z-index-1 btn btn-sm btn-light border border-1 border-dark', data: { service_id: "#{service.id}", ivr_id: "#{service.ivr_id}" } unless service.enabled %>
+                        <%= link_to t('services.button.turn_off'), @subscription_plan == "free" ? 'javascript:;' : '#', class: 'service-onoff position-relative z-index-1 btn btn-sm btn-light-primary', data: { service_id: "#{service.id}", ivr_id: "#{service.ivr_id}" } if service.enabled %>
+                      </div>
+
+                    </div>
+                    <!--end::Mixed Widget-->
+
+                    <div class="draggable-handle" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0;"></div>
+                  </div>
+                </div>
+              <% end %>
+
+              <div class="col-md-6 col-lg-3 mb-6 new_event" data-view-item data-view-column-classes="col-md-6 col-lg-3" data-view-row-classes="col-md-auto mb-6 mb-lg-0">
+                <a href="<%= new_event_services_path(ivr_id: ivr.id) %>" class="d-flex flex-center h-md-100 text-primary text-hover-white bg-light-primary bg-hover-primary rounded"
+                   data-view-item data-view-column-classes="h-md-100" data-view-row-classes="py-10 px-15">
+                  <div class="text-center">
+                    <!-- <i class="fas fa-plus text-inherit fs-3hx"></i> -->
+                    <i class="bi bi-plus-lg text-inherit fs-1"></i>
+                    <div class="fs-4 text-inherit mt-6"><%= t('services.button.add_new_event') %></div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+
+          </div>
+          <!--end::Body-->
+        </div>
+      <% end %>
+      <!--end::Accordion-->
+
+    </div>
+    <!--end::Container-->
+  </div>
+  <!--end::Post-->
+</div>
+<!--end::Content-->
+
+<%= render '/modal/update_plan' %>
+<%= render '/modal/coming_soon' %>
+
+<div class="modal fade" id="kt_modal_order_phone" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered mw-500px">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= raw t('services.order_phone_modal.title') %></h5>
+
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+                  <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
+                  <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                        x="0" y="7" width="16" height="2" rx="1"/>
+                </g>
+              </svg>
+            </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+
+      <div class="modal-body">
+        <%= raw t('services.order_phone_modal.content') %>
+      </div>
+
+      <div class="modal-footer justify-content-between">
+        <div><a class="btn btn-primary" href="#kt_modal_upgrade_preview" data-bs-toggle="modal" data-bs-dismiss="modal"><%= raw t('services.preview') %></a></div>
+        <div class="d-flex justify-content-start">
+          <button type="button" class="btn btn-light me-1" data-bs-dismiss="modal"><%= raw t('services.upgrade_plan_modal.cancel_button') %></button>
+          <a href="javascript:;" class="btn btn-primary order_phone_number"><%= t('services.order_phone_modal.order_button') %></a>
+
+        </div>
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+
+<div class="modal fade" id="kt_modal_free_plan_upgrade_modal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered mw-500px">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('services.upgrade_plan_modal.title') %></h5>
+
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+                  <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
+                  <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                        x="0" y="7" width="16" height="2" rx="1"/>
+                </g>
+              </svg>
+            </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+
+      <div class="modal-body">
+        <%= raw t('services.upgrade_plan_modal.current_plan', plan: session[:current_organization].chargebee_subscription_plan) %>
+        <br />
+        <%= t('services.upgrade_plan_modal.to_upgrade') %>
+        <br />
+      </div>
+
+      <div class="modal-footer justify-content-between">
+        <div>
+          <button type="button" class="btn btn-sm btn-primary turn_on_service" >
+            <span class="indicator-label"><%= t('services.button.turn_on') %></span>
+            <span class="indicator-progress"><%= t('common.please_wait') %>
+              <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+              </span>
+          </button>
+        </div>
+        <div class="d-flex justify-content-start">
+          <button type="button" class="btn btn-light cancel_turn_on_service" data-bs-dismiss="modal"><%= t('services.upgrade_plan_modal.cancel_button') %></button>
+          <a href="<%= billing_client_path(current_client.id) %>" class="btn btn-primary"><%= t('common.button.upgrade') %></a>
+        </div>
+
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+
+<div class="modal fade" id="kt_modal_upgrade_trial_plan" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered mw-500px">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('services.upgrade_plan_modal.title') %></h5>
+
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+                  <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
+                  <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                        x="0" y="7" width="16" height="2" rx="1"/>
+                </g>
+              </svg>
+            </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+
+      <div class="modal-body">
+        <%= raw t('services.upgrade_plan_modal.current_plan', plan: session[:current_organization].chargebee_subscription_plan) %>
+        <br />
+        <%= raw t('services.upgrade_plan_modal.to_upgrade_for_trial_plan') %>
+      </div>
+
+      <div class="modal-footer justify-content-between">
+        <div><a class="btn btn-primary" href="#kt_modal_upgrade_preview" data-bs-toggle="modal" data-bs-dismiss="modal"><%= raw t('services.preview') %></a></div>
+        <div>
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal"><%= raw t('services.upgrade_plan_modal.cancel_button') %></button>
+          <a class="btn btn-primary" href="<%= billing_client_path(current_client.id) %>"><%= raw t('services.upgrade_plan_modal.upgrade_button') %></a>
+        </div>
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+
+
+<div class="modal fade" id="kt_modal_test_phone" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered mw-500px">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <!--begin::Modal header-->
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('services.test_phone_modal.title') %></h5>
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+									<g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+										<rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
+										<rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                          x="0" y="7" width="16" height="2" rx="1" />
+									</g>
+								</svg>
+							</span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+      <!--begin::Modal header-->
+      <!--begin::Modal body-->
+      <div class="modal-body">
+
+      </div>
+      <!--end::Modal body-->
+      <!--begin::Modal footer-->
+      <div class="modal-footer justify-content-between">
+        <a class="btn btn-light close_button" href="javascript:;" data-bs-dismiss="modal"><%= t('button.close') %></a>
+        <a class="btn btn-light cancel_button" href="javascript:;" data-bs-dismiss="modal"><%= t('button.cancel') %></a>
+        <a class="btn btn-primary order_phone_number" href="javascript:;"><%= t('services.order_phone_modal.order_button') %></a>
+      </div>
+      <!--end::Modal footer-->
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+
+<div class="modal fade" id="kt_modal_upgrade_preview" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered mw-500px">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <!--begin::Modal header-->
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('services.test_phone_modal.title') %></h5>
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+									<g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+										<rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
+										<rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                          x="0" y="7" width="16" height="2" rx="1" />
+									</g>
+								</svg>
+							</span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+      <!--begin::Modal header-->
+      <!--begin::Modal body-->
+      <div class="modal-body">
+
+      </div>
+      <!--end::Modal body-->
+      <!--begin::Modal footer-->
+      <div class="modal-footer justify-content-between">
+        <a class="btn btn-light close_button" href="javascript:;" data-bs-dismiss="modal"><%= t('button.close') %></a>
+        <a class="btn btn-primary" href="<%= billing_client_path(current_client.id) %>" ><%= t('services.test_phone_modal.upgrade_button') %></a>
+      </div>
+      <!--end::Modal footer-->
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+
+<!--begin::Buy Number-->
+<div class="modal fade" id="kt_modal_buy_number" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered modal-xl-half">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h3 class="modal-title mb-0"><%= t('services.buy_number_modal.title') %></h3>
+        <!--begin::Close-->
+        <i class="bi bi-x fs-1 text-muted text-hover-primary cursor-pointer" data-bs-dismiss="modal"></i>
+        <!--end::Close-->
+      </div>
+      <div class="modal-body pt-0">
+        <form class="d-lg-flex mb-5">
+          <div class="position-relative w-md-400px mb-4 mb-lg-0 me-lg-12">
+            <label class="d-block form-label"><%= t('services.buy_number_modal.select_country') %></label>
+
+            <%= select_tag "kt_docs_select2_country", options_for_select([]), :include_blank=> true, id: "kt_docs_select2_country", class: "form-select form-select-solid", data: { control: 'select2', placeholder: t('services.buy_number_modal.select_country'), 'hide-search': true} %>
+          </div>
+          <div class="position-relative mb-4 mb-lg-0 me-lg-12">
+            <label class="d-block form-label mb-6"><%= t('services.buy_number_modal.capabilities') %></label>
+            <div class="d-flex align-items-center">
+              <!--begin::Option-->
+              <label class="form-check form-check-sm form-check-custom form-check-solid me-8">
+                <input class="form-check-input" name="capabilities" id="capabilities_voice" type="checkbox" checked>
+                <span class="ms-2"><%= t('services.buy_number_modal.voice') %></span>
+              </label>
+              <!--end::Option-->
+              <!--begin::Option-->
+              <label class="form-check form-check-sm form-check-custom form-check-solid">
+                <input class="form-check-input" name="capabilities" id="capabilities_sms" type="checkbox" checked>
+                <span class="ms-2"><%= t('services.buy_number_modal.sms') %></span>
+              </label>
+              <!--end::Option-->
+            </div>
+          </div>
+          <div class="d-flex align-items-center pt-lg-8">
+            <button type="button" id="get_numbers" class="btn btn-primary me-8"><%= t('services.buy_number_modal.search') %></button>
+            <button type="button" id="reset_filter" class="btn btn-link text-muted text-hover-primamry"><%= t('services.buy_number_modal.reset') %></button>
+          </div>
+        </form>
+        <div
+          id="kt_accordion_01"
+          class="card mb-5"
+        >
+          <div class="card-header p-0">
+            <div class="form-label"><%= t('services.buy_number_modal.advanced_search') %></div>
+            <div class="position-absolute top-0 end-0 mt-0">
+              <a
+                href="javascript:;"
+                class="ms-5 collapsed"
+                data-bs-toggle="collapse"
+                data-bs-target="#kt_accordion_01_item_01"
+                aria-expanded="true"
+              >
+                <i class="uncollapse-icon bi bi-chevron-down text-muted fs-1"></i>
+                <i class="collapse-icon bi bi-chevron-up text-muted fs-1"></i>
+              </a>
+            </div>
+          </div>
+          <div
+            class="card-body collapse pt-4 px-2 pb-0"
+            id="kt_accordion_01_item_01"
+            data-bs-parent="#kt_accordion_01"
+          >
+            <label class="d-block form-label mb-6"><%= t('services.buy_number_modal.number_type') %></label>
+            <div class="d-flex align-items-center">
+              <!--begin::Option-->
+              <label class="form-check form-check-sm form-check-custom form-check-solid me-8">
+                <input class="form-check-input" name="type" id="type_local" type="checkbox" checked>
+                <span class="ms-2"><%= t('services.buy_number_modal.local') %></span>
+              </label>
+              <!--end::Option-->
+              <!--begin::Option-->
+              <label class="form-check form-check-sm form-check-custom form-check-solid me-8">
+                <input class="form-check-input" name="type" id="type_mobile" type="checkbox">
+                <span class="ms-2"><%= t('services.buy_number_modal.mobile') %></span>
+              </label>
+              <!--end::Option-->
+              <!--begin::Option-->
+              <label class="form-check form-check-sm form-check-custom form-check-solid">
+                <input class="form-check-input" name="type" id="type_toll_free" type="checkbox">
+                <span class="ms-2"><%= t('services.buy_number_modal.toll_free') %></span>
+              </label>
+              <!--end::Option-->
+            </div>
+          </div>
+        </div>
+        <!--begin::Datatable-->
+        <table id="kt_datatable_numbers" class="table table-row-dashed gy-5">
+
+        </table>
+        <!--end::Datatable-->
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+<!--end::Buy Number-->
+
+<!--begin::Buy Number-->
+<div
+  class="modal fade"
+  id="review_phone_number_no_address"
+  tabindex="-1"
+  aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h3 class="modal-title mb-0"><%= t('services.review_phone_number.title') %></h3>
+
+        <!--begin::Close-->
+        <i class="bi bi-x fs-1 text-muted text-hover-primary cursor-pointer" data-bs-target="#kt_modal_buy_number" data-bs-toggle="modal" data-bs-dismiss="modal"></i>
+        <!--end::Close-->
+      </div>
+
+      <div class="modal-body py-0">
+        <div class="d-flex justify-content-between align-items-center mb-8">
+          <h2 class="display-6 font-weight-bold mb-0 phone_number" id="phone_number_value"></h2>
+          <div class="text-end lh-1">
+            <strong class="d-block text-dark fs-4 ms-4 phone_price">$1.00</strong>
+            <small class="text-muted text-lowercase"><%= t('services.buy_number_modal.monthly_fee') %></small>
+          </div>
+        </div>
+
+        <h6 class="fs-8 text-uppercase fw-normal ls-1 text-muted mb-4 text-uppercase"><%= t('services.buy_number_modal.capabilities') %></h6>
+        <div class="d-lg-flex align-items-center mb-10">
+          <div class="d-flex align-items-center me-lg-12 mb-6 mb-lg-0 phone_capabilities phone_capabilities_voice" id="phone_capabilities_voice">
+            <i class="bi bi-telephone text-primary fs-1 me-4" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Voice" aria-label="Voice"></i>
+            <div>
+              <h6 class="mb-0"><%= t('services.buy_number_modal.voice') %></h6>
+              <span class="text-muted"><%= t('services.review_phone_number.voice_content') %></span>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center phone_capabilities phone_capabilities_sms" id="phone_capabilities_sms">
+            <i class="bi bi-chat-left text-primary fs-1 me-4" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="SMS" aria-label="SMS"></i>
+            <div>
+              <h6 class="mb-0"><%= t('services.buy_number_modal.sms') %></h6>
+              <span class="text-muted"><%= t('services.review_phone_number.sms_content') %></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="small text-muted bg-light rounded p-4">
+          <i class="bi bi-info-circle-fill me-2"></i>
+          <%= t('services.review_phone_number.infor') %>
+        </div>
+      </div>
+
+      <div class="modal-footer justify-content-end border-0">
+        <input type="hidden" id="phone_type" />
+        <input type="hidden" name="phone_price" />
+        <button class="btn btn-light" id="phone_no_address_cancel"><%= t('services.review_phone_number.cancel') %></button>
+        <button class="btn btn-primary ms-2" id="phone_no_address_buy"><%= t('services.buy_number_modal.buy') %> <strong class="phone_number"></strong></button>
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+<!--end::Buy Number-->
+
+<!--begin::Buy Number-->
+<div class="modal fade" id="review_phone_number_address" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="stepper stepper-pills stepper-column row g-0" id="phone_stepper_vertical">
+        <div class="col-lg-4 col-xl-4 mb-6 mb-lg-0 bg-light rounded p-7">
+          <!--begin::Nav-->
+          <div class="stepper-nav pt-2">
+            <!--begin::Step 1-->
+            <div class="stepper-item current" data-kt-stepper-element="nav">
+              <!--begin::Wrapper-->
+              <div class="stepper-wrapper row align-items-center g-0">
+                <!--begin::Icon-->
+                <div class="col-auto stepper-icon">
+                  <i class="stepper-check bi bi-check-lg"></i>
+                  <span class="stepper-number">1</span>
+                </div>
+                <!--end::Icon-->
+
+                <!--begin::Label-->
+                <div class="col stepper-label">
+                  <h3 class="stepper-title"><%= t('services.review_phone_number.step_1') %></h3>
+                  <div class="stepper-desc"><%= t('services.review_phone_number.title') %>.</div>
+                </div>
+                <!--end::Label-->
+              </div>
+              <!--end::Wrapper-->
+
+              <!--begin::Line-->
+              <div class="stepper-line"></div>
+              <!--end::Line-->
+            </div>
+            <!--end::Step 1-->
+
+            <!--begin::Step 2-->
+            <div class="stepper-item" data-kt-stepper-element="nav">
+              <!--begin::Wrapper-->
+              <div class="stepper-wrapper row align-items-center g-0">
+                <!--begin::Icon-->
+                <div class="col-auto stepper-icon">
+                  <i class="stepper-check bi bi-check-lg"></i>
+                  <span class="stepper-number">2</span>
+                </div>
+                <!--begin::Icon-->
+
+                <!--begin::Label-->
+                <div class="col stepper-label">
+                  <h3 class="stepper-title"><%= t('services.review_phone_number.step_2') %></h3>
+                  <div class="stepper-desc"><%= t('services.review_phone_number.add_information') %></div>
+                </div>
+                <!--end::Label-->
+              </div>
+              <!--end::Wrapper-->
+
+              <!--begin::Line-->
+              <div class="stepper-line"></div>
+              <!--end::Line-->
+            </div>
+            <!--end::Step 2-->
+
+            <!--begin::Step 3-->
+            <div class="stepper-item" data-kt-stepper-element="nav">
+              <!--begin::Wrapper-->
+              <div class="stepper-wrapper row align-items-center g-0">
+                <!--begin::Icon-->
+                <div class="col-auto stepper-icon">
+                  <i class="stepper-check bi bi-check-lg"></i>
+                  <span class="stepper-number">3</span>
+                </div>
+                <!--begin::Icon-->
+
+                <!--begin::Label-->
+                <div class="col stepper-label">
+                  <h3 class="stepper-title"><%= t('services.review_phone_number.step_3') %></h3>
+                  <div class="stepper-desc"><%= t('services.review_phone_number.comply') %></div>
+                </div>
+                <!--end::Label-->
+              </div>
+              <!--end::Wrapper-->
+
+              <!--begin::Line-->
+              <div class="stepper-line"></div>
+              <!--end::Line-->
+            </div>
+            <!--end::Step 3-->
+          </div>
+          <!--end::Nav-->
+        </div>
+
+        <div class="col-lg-8 col-xl-8">
+          <!--begin::Step 1-->
+          <div class="flex-column current" data-kt-stepper-element="content">
+            <div class="modal-header border-0">
+              <h3 class="modal-title mb-0"><%= t('services.review_phone_number.title') %></h3>
+
+              <!--begin::Close-->
+              <i class="bi bi-x fs-1 text-muted text-hover-primary cursor-pointer" data-bs-target="#kt_modal_buy_number" data-bs-toggle="modal" data-bs-dismiss="modal"></i>
+              <!--end::Close-->
+            </div>
+
+            <div class="modal-body py-0">
+              <div class="d-flex justify-content-between align-items-center mb-8">
+                <h2 class="display-6 font-weight-bold mb-0 phone_number" id="phone_number_value"></h2>
+                <div class="text-end lh-1">
+                  <strong class="d-block text-dark fs-4 ms-4 phone_price">$1.00</strong>
+                  <small class="text-muted text-lowercase"><%= t('services.buy_number_modal.monthly_fee') %></small>
+                </div>
+              </div>
+
+              <h6 class="fs-8 text-uppercase fw-normal ls-1 text-muted mb-4 text-uppercase"><%= t('services.buy_number_modal.capabilities') %></h6>
+              <div class="d-lg-flex align-items-center mb-10">
+                <div class="d-flex align-items-center me-lg-12 mb-6 mb-lg-0 phone_capabilities phone_capabilities_voice">
+                  <i class="bi bi-telephone text-primary fs-1 me-4" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Voice" aria-label="Voice"></i>
+                  <div>
+                    <h6 class="mb-0"><%= t('services.buy_number_modal.voice') %></h6>
+                    <span class="text-muted"><%= t('services.review_phone_number.voice_content') %></span>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-center phone_capabilities phone_capabilities_sms">
+                  <i class="bi bi-chat-left text-primary fs-1 me-4" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="SMS" aria-label="SMS"></i>
+                  <div>
+                    <h6 class="mb-0"><%= t('services.buy_number_modal.sms') %></h6>
+                    <span class="text-muted"><%= t('services.review_phone_number.sms_content') %></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="small text-muted bg-light rounded p-4">
+                <i class="bi bi-info-circle-fill me-2"></i>
+                <%= t('services.review_phone_number.infor') %>
+              </div>
+            </div>
+          </div>
+          <!--end::Step 1-->
+
+          <!--begin::Step 2-->
+          <div class="flex-column" data-kt-stepper-element="content">
+            <div class="modal-header border-0">
+              <h3 class="modal-title mb-0"><%= t('services.review_phone_number.select_end_user') %></h3>
+
+              <!--begin::Close-->
+              <i class="bi bi-x fs-1 text-muted text-hover-primary cursor-pointer" data-bs-target="#kt_modal_buy_number" data-bs-toggle="modal" data-bs-dismiss="modal"></i>
+              <!--end::Close-->
+            </div>
+
+            <div class="modal-body py-0">
+              <h5 class="fw-medium mb-4"><%= t('services.review_phone_number.who_will_use') %> <span class="phone_number"></span>?</h5>
+
+              <div class="form-check form-check-sm form-check-custom form-check-solid align-items-start mb-4">
+                <input class="js-who-will-use form-check-input" type="radio" id="phone4busin" name="phone_using" value="phone4busin_info" />
+                <label class="form-check-label align-items-start ms-3 fw-normal" for="phone4busin">
+                  <h6 class="fw-medium mb-0"><%= t('services.review_phone_number.business') %></h6>
+                  <span class="text-muted"><%= t('services.review_phone_number.business_description') %></span>
+                </label>
+              </div>
+
+              <div class="form-check form-check-sm form-check-custom form-check-solid align-items-start mb-4">
+                <input class="js-who-will-use form-check-input" type="radio" id="phone4indi" name="phone_using" value="phone4indi_info"/>
+                <label class="form-check-label align-items-start ms-3 fw-normal" for="phone4indi">
+                  <h6 class="fw-medium mb-0"><%= t('services.review_phone_number.individual') %></h6>
+                  <span class="text-muted"><%= t('services.review_phone_number.individual_description') %></span>
+                </label>
+              </div>
+
+              <div id="phone4busin_info" class="mb-10" style="display: none;">
+                <div class="mb-6">
+                  <label class="d-block form-label"><%= t('services.review_phone_number.business_name') %></label>
+                  <input type="text" class="form-control form-control-solid" id="business_name">
+                </div>
+                <div class="mb-6">
+                  <label class="d-block form-label"><%= t('services.review_phone_number.business_number') %></label>
+                  <input type="number" class="form-control form-control-solid" id="business_number">
+                </div>
+
+                <h6 class="fs-8 text-uppercase fw-normal ls-1 text-muted mt-10 mb-4"><%= t('services.review_phone_number.business_represent') %></h6>
+                <div class="row">
+                  <div class="col-lg-6 mb-6">
+                    <label class="d-block form-label"><%= t('services.review_phone_number.business_first_name') %></label>
+                    <input type="text" class="form-control form-control-solid" id="business_first_name">
+                  </div>
+                  <div class="col-lg-6 mb-6">
+                    <label class="d-block form-label"><%= t('services.review_phone_number.business_last_name') %></label>
+                    <input type="text" class="form-control form-control-solid" id="business_last_name">
+                  </div>
+                </div>
+
+                <div class="mb-6">
+                  <label class="d-block form-label"><%= t('services.review_phone_number.business_address') %></label>
+                  <textarea class="form-control form-control-solid" row="4" id="business_address"></textarea>
+                </div>
+              </div>
+
+              <div id="phone4indi_info" style="display: none;">
+                <div class="row">
+                  <div class="col-lg-6 mb-6">
+                    <label class="d-block form-label"><%= t('services.review_phone_number.individual_first_name') %></label>
+                    <input type="text" class="form-control form-control-solid" id="individual_first_name">
+                  </div>
+                  <div class="col-lg-6 mb-6">
+                    <label class="d-block form-label"><%= t('services.review_phone_number.individual_last_name') %></label>
+                    <input type="text" class="form-control form-control-solid" id="individual_last_name">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--end::Step 2-->
+
+          <!--begin::Step 3-->
+          <div class="flex-column" data-kt-stepper-element="content">
+            <div class="modal-header border-0">
+              <h3 class="modal-title mb-0"><%= t('services.review_phone_number.comply') %></h3>
+
+              <!--begin::Close-->
+              <i class="bi bi-x fs-1 text-muted text-hover-primary cursor-pointer" data-bs-target="#kt_modal_buy_number" data-bs-toggle="modal" data-bs-dismiss="modal"></i>
+              <!--end::Close-->
+            </div>
+
+            <div class="modal-body py-0">
+              <p><%= t('services.review_phone_number.comply_content1') %></p>
+              <p><%= t('services.review_phone_number.comply_content2') %></p>
+            </div>
+          </div>
+          <!--end::Step 3-->
+
+          <div class="modal-footer justify-content-between border-0">
+            <!--begin::Wrapper-->
+            <div class="me-2">
+              <button type="button" class="btn btn-light-primary btn-active-primary" data-kt-stepper-action="previous" id="back">
+                <%= t('services.review_phone_number.back') %>
+              </button>
+            </div>
+            <!--end::Wrapper-->
+
+            <!--begin::Wrapper-->
+            <div class="d-flex">
+              <button class="btn btn-light" data-bs-target="#kt_modal_buy_number" data-bs-toggle="modal" data-bs-dismiss="modal" id="phone_address_cancel">Cancel</button>
+
+              <div class="ms-2">
+                <input type="hidden" id="phone_number_ivr_id" />
+                <button type="button" class="btn btn-primary" data-kt-stepper-action="submit" id="phone_address_buy">
+											<span class="indicator-label">
+												<%= t('services.buy_number_modal.buy') %> <strong class="phone_number"></strong>
+											</span>
+                  <span class="indicator-progress">
+												<%= t('services.review_phone_number.please_wait') %> <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+											</span>
+                </button>
+
+                <button type="button" class="btn btn-primary" data-kt-stepper-action="next">
+                  <%= t('services.review_phone_number.next') %>
+                </button>
+              </div>
+            </div>
+            <!--end::Wrapper-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+<!--end::Buy Number-->
+
+<div class="modal fade" id="kt_modal_share_web_widget" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered mw-650px">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <!--begin::Modal body-->
+      <div class="modal-body">
+        <!--begin::Close-->
+        <i class="bi bi-x fs-1 text-muted text-hover-primary cursor-pointer position-absolute top-0 end-0 mt-4 me-4" data-bs-dismiss="modal"></i>
+        <!--end::Close-->
+
+        <!--begin::Stepper-->
+        <div class="js-stepper stepper stepper-pills" id="kt_stepper_share_widget">
+          <!--begin::Nav-->
+          <div class="stepper-nav flex-center flex-wrap d-none">
+            <!--begin::Step 1-->
+            <div class="stepper-item mx-8 my-4 current" data-kt-stepper-element="nav">1</div>
+            <!--end::Step 1-->
+
+            <!--begin::Step 2-->
+            <div class="stepper-item mx-8 my-4" data-kt-stepper-element="nav">2</div>
+            <!--end::Step 2-->
+          </div>
+          <!--end::Nav-->
+
+          <!--begin::Form-->
+          <div novalidate="novalidate" id="kt_stepper_share_widget_form">
+            <!--begin::Group-->
+            <div class="mb-5">
+              <!--begin::Step 1-->
+              <div class="flex-column current" data-kt-stepper-element="content">
+                <h3 class="modal-title mb-6 me-4"><%= t('services.share_web_widget.title') %></h3>
+
+                <!--begin::Nav-->
+                <ul class="nav nav-pills nav-pills-custom row">
+                  <!--begin::Item-->
+                  <li class="col-6 mb-3">
+                    <!--begin::Link-->
+                    <a class="w-100 nav-link position-relative btn btn-outline btn-flex btn-color-muted btn-active-color-primary flex-column overflow-hidden p-4 active" id="kt_modal_share_web_widget_tab_link_1" data-bs-toggle="pill" href="#kt_modal_share_web_widget_tab_1">
+                      <!--begin::Icon-->
+                      <div class="nav-icon mb-4">
+                        <svg width="200" height="144" viewBox="0 0 200 144" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <g clip-path="url(#clip0_25_35)">
+                            <path d="M196 0H4C1.79086 0 0 1.79086 0 4V140C0 142.209 1.79086 144 4 144H196C198.209 144 200 142.209 200 140V4C200 1.79086 198.209 0 196 0Z" fill="#F8FAFD"/>
+                            <path d="M178.256 11H21.7436C18.5715 11 16 13.4997 16 16.5833V72.4167C16 75.5003 18.5715 78 21.7436 78H178.256C181.429 78 184 75.5003 184 72.4167V16.5833C184 13.4997 181.429 11 178.256 11Z" fill="#D9DDEA"/>
+                            <path d="M129.902 86H96.0976C93.8345 86 92 87.7909 92 90V124C92 126.209 93.8345 128 96.0976 128H129.902C132.165 128 134 126.209 134 124V90C134 87.7909 132.165 86 129.902 86Z" fill="#D9DDEA"/>
+                            <path d="M179.902 86H146.098C143.835 86 142 87.7909 142 90V124C142 126.209 143.835 128 146.098 128H179.902C182.165 128 184 126.209 184 124V90C184 87.7909 182.165 86 179.902 86Z" fill="#D9DDEA"/>
+                            <path d="M80 86H20C17.7909 86 16 87.7909 16 90V124C16 126.209 17.7909 128 20 128H80C82.2091 128 84 126.209 84 124V90C84 87.7909 82.2091 86 80 86Z" fill="#D9DDEA"/>
+                            <path d="M174 63H148C146.895 63 146 63.8954 146 65V70C146 71.1046 146.895 72 148 72H174C175.105 72 176 71.1046 176 70V65C176 63.8954 175.105 63 174 63Z" fill="#71869D"/>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_25_35">
+                              <rect width="200" height="144" fill="white"/>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </div>
+                      <!--end::Icon-->
+                      <!--begin::Title-->
+                      <strong class="d-block fs-5 nav-text text-dark mb-1"><%= t('services.share_web_widget.button') %></strong>
+                      <!--end::Title-->
+                      <small class="text-muted"><%= t('services.share_web_widget.button_help') %></small>
+                      <!--begin::Bullet-->
+                      <span class="bullet-custom position-absolute bottom-0 w-100 h-4px bg-primary"></span>
+                      <!--end::Bullet-->
+                    </a>
+                    <!--end::Link-->
+                  </li>
+                  <!--end::Item-->
+                  <!--begin::Item-->
+                  <li class="col-6 mb-3">
+                    <!--begin::Link-->
+                    <a class="w-100 nav-link position-relative btn btn-outline btn-flex btn-color-muted btn-active-color-primary flex-column overflow-hidden p-4" id="kt_modal_share_web_widget_tab_link_2" data-bs-toggle="pill" href="#kt_modal_share_web_widget_tab_2">
+                      <!--begin::Icon-->
+                      <div class="nav-icon mb-4">
+                        <svg width="200" height="144" viewBox="0 0 200 144" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <g clip-path="url(#clip0_25_35)">
+                            <path d="M196 0H4C1.79086 0 0 1.79086 0 4V140C0 142.209 1.79086 144 4 144H196C198.209 144 200 142.209 200 140V4C200 1.79086 198.209 0 196 0Z" fill="#F8FAFD"/>
+                            <path d="M178.256 11H21.7436C18.5715 11 16 13.4997 16 16.5833V72.4167C16 75.5003 18.5715 78 21.7436 78H178.256C181.429 78 184 75.5003 184 72.4167V16.5833C184 13.4997 181.429 11 178.256 11Z" fill="#D9DDEA"/>
+                            <path d="M129.902 86H96.0976C93.8345 86 92 87.7909 92 90V124C92 126.209 93.8345 128 96.0976 128H129.902C132.165 128 134 126.209 134 124V90C134 87.7909 132.165 86 129.902 86Z" fill="#D9DDEA"/>
+                            <path d="M179.902 86H146.098C143.835 86 142 87.7909 142 90V124C142 126.209 143.835 128 146.098 128H179.902C182.165 128 184 126.209 184 124V90C184 87.7909 182.165 86 179.902 86Z" fill="#D9DDEA"/>
+                            <path d="M80 86H20C17.7909 86 16 87.7909 16 90V124C16 126.209 17.7909 128 20 128H80C82.2091 128 84 126.209 84 124V90C84 87.7909 82.2091 86 80 86Z" fill="#71869D"/>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_25_35">
+                              <rect width="200" height="144" fill="white"/>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </div>
+                      <!--end::Icon-->
+                      <!--begin::Title-->
+                      <strong class="d-block fs-5 nav-text text-dark mb-1"><%= t('services.share_web_widget.widget') %></strong>
+                      <!--end::Title-->
+                      <small class="text-muted"><%= t('services.share_web_widget.widget_help') %></small>
+                      <!--begin::Bullet-->
+                      <span class="bullet-custom position-absolute bottom-0 w-100 h-4px bg-primary"></span>
+                      <!--end::Bullet-->
+                    </a>
+                    <!--end::Link-->
+                  </li>
+                  <!--end::Item-->
+                </ul>
+                <!--end::Nav-->
+              </div>
+              <!--begin::Step 1-->
+
+              <!--begin::Step 1-->
+              <div class="flex-column" data-kt-stepper-element="content">
+                <!--begin::Tab Content-->
+                <div class="tab-content">
+                  <!--begin::Tap pane-->
+                  <div class="tab-pane fade show active" id="kt_modal_share_web_widget_tab_1">
+                    <h3 class="modal-title mb-6 me-4"><%= t('services.share_web_widget.button') %></h3>
+                    <div class="mb-2">
+                      <div class="position-relative">
+                        <input id="kt_modal_share_web_widget_accordion_link_input" type="text" class="form-control form-control-solid me-3 flex-grow-1" name="search" value="https://voxiplan/event-address" readonly />
+                        <button id="kt_modal_share_web_widget_accordion_link_input_copy_btn" class="btn btn-icon btn-active-color-primary position-absolute top-0 end-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy Link">
+                          <i class="bi bi-files text-primary text-hover-primary px-2"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <p class="small text-muted mb-0"><%= t('services.share_web_widget.copy_link_help') %></p>
+                  </div>
+                  <!--end::Tap pane-->
+                  <!--begin::Tap pane-->
+                  <div class="tab-pane fade" id="kt_modal_share_web_widget_tab_2">
+                    <h3 class="modal-title mb-6 me-4"><%= t('services.share_web_widget.widget') %></h3>
+                    <div class="mb-2">
+                      <div class="position-relative">
+                        <textarea id="kt_modal_share_web_widget_accordion_embed_input" class="form-control form-control-solid me-3 flex-grow-1" rows="6" readonly onfocus="this.select();" onmouseup="return false;"></textarea>
+                        <button id="kt_modal_share_web_widget_accordion_embed_input_copy_btn" class="btn btn-icon btn-active-color-primary position-absolute top-0 end-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy Widget">
+                          <i class="bi bi-files text-primary text-hover-primary px-2"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <p class="small text-muted mb-0"><%= t('services.share_web_widget.widget_code_help') %></p>
+                  </div>
+                  <!--end::Tap pane-->
+                  <!--end::Table container-->
+                </div>
+                <!--end::Tab Content-->
+              </div>
+              <!--begin::Step 1-->
+            </div>
+            <!--end::Group-->
+
+            <!--begin::Actions-->
+            <div class="d-flex flex-stack">
+              <!--begin::Wrapper-->
+              <div class="me-2">
+                <button type="button" class="btn btn-light btn-active-light-primary" data-kt-stepper-action="previous"><%= t('common.button.back') %></button>
+              </div>
+              <div>
+                <button type="button" class="btn btn-primary" data-kt-stepper-action="submit" data-bs-dismiss="modal"><%= t('common.button.close') %></button>
+                <button type="button" class="btn btn-primary" data-kt-stepper-action="next"><%= t('common.button.continue') %></button>
+              </div>
+              <!--end::Wrapper-->
+            </div>
+            <!--end::Actions-->
+          </div>
+          <!--end::Form-->
+        </div>
+        <!--end::Stepper-->
+      </div>
+      <!--end::Modal body-->
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+
+<div class="modal fade" id="kt_modal_share_phone" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered mw-650px">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <!--begin::Modal body-->
+      <div class="modal-body">
+        <i class="bi bi-x fs-1 text-muted text-hover-primary cursor-pointer position-absolute top-0 end-0 mt-4 me-4" data-bs-dismiss="modal"></i>
+        <!--end::Close-->
+
+        <!--begin::Stepper-->
+        <div class="js-stepper stepper stepper-pills" id="kt_stepper_share_phone">
+          <!--begin::Nav-->
+          <div class="stepper-nav flex-center flex-wrap d-none">
+            <!--begin::Step 1-->
+            <div class="stepper-item mx-8 my-4 current" data-kt-stepper-element="nav">1</div>
+            <!--end::Step 1-->
+
+            <!--begin::Step 2-->
+            <div class="stepper-item mx-8 my-4" data-kt-stepper-element="nav">2</div>
+            <!--end::Step 2-->
+          </div>
+          <!--end::Nav-->
+
+          <!--begin::Form-->
+          <div novalidate="novalidate" id="kt_stepper_share_phone_form">
+            <!--begin::Group-->
+            <div class="mb-5">
+              <!--begin::Step 1-->
+              <div class="flex-column current" data-kt-stepper-element="content">
+                <h3 class="modal-title mb-6 me-4"><%= t('services.share_phone.title') %></h3>
+
+                <!--begin::Nav-->
+                <ul class="nav nav-pills nav-pills-custom row">
+                  <!--begin::Item-->
+                  <li class="col-6 mb-3">
+                    <!--begin::Link-->
+                    <a class="w-100 nav-link position-relative btn btn-outline btn-flex btn-color-muted btn-active-color-primary flex-column overflow-hidden p-4 active" id="kt_modal_share_phone_tab_link_1" data-bs-toggle="pill" href="#kt_modal_share_phone_tab_1">
+                      <!--begin::Icon-->
+                      <div class="nav-icon mb-4">
+                        <svg width="200" height="144" viewBox="0 0 200 144" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <g clip-path="url(#clip0_25_35)">
+                            <path d="M196 0H4C1.79086 0 0 1.79086 0 4V140C0 142.209 1.79086 144 4 144H196C198.209 144 200 142.209 200 140V4C200 1.79086 198.209 0 196 0Z" fill="#F8FAFD"/>
+                            <g clip-path="url(#clip1_25_35)">
+                              <path d="M86.4189 51.1501C86.2344 50.9128 86.0015 50.7175 85.7358 50.5771C85.47 50.4367 85.1774 50.3544 84.8774 50.3358C84.5774 50.3172 84.2768 50.3626 83.9957 50.4691C83.7146 50.5755 83.4594 50.7406 83.247 50.9533L80.0158 54.1876C78.5064 55.7001 77.9501 57.8408 78.6095 59.7189C81.3462 67.4926 85.7979 74.5504 91.6345 80.3689C97.453 86.2054 104.511 90.6571 112.284 93.3939C114.163 94.0532 116.303 93.497 117.816 91.9876L121.047 88.7564C121.26 88.544 121.425 88.2887 121.531 88.0076C121.638 87.7265 121.683 87.426 121.664 87.126C121.646 86.826 121.564 86.5334 121.423 86.2676C121.283 86.0018 121.087 85.769 120.85 85.5845L113.641 79.9783C113.387 79.7816 113.092 79.6451 112.778 79.5791C112.464 79.513 112.14 79.5192 111.828 79.597L104.985 81.3064C104.071 81.5347 103.114 81.5226 102.207 81.2712C101.299 81.0198 100.472 80.5378 99.8064 79.872L92.1314 72.1939C91.465 71.5284 90.9824 70.7016 90.7305 69.7942C90.4786 68.8867 90.466 67.9295 90.6939 67.0158L92.4064 60.172C92.4842 59.8607 92.4903 59.5359 92.4243 59.2219C92.3583 58.9079 92.2218 58.613 92.0251 58.3595L86.4189 51.1501ZM80.8876 48.597C81.4345 48.05 82.0915 47.6255 82.8149 47.3519C83.5384 47.0782 84.3118 46.9616 85.0838 47.0098C85.8558 47.058 86.6087 47.2698 87.2926 47.6313C87.9764 47.9928 88.5755 48.4956 89.0501 49.1064L94.6564 56.3126C95.6845 57.6345 96.047 59.3564 95.6408 60.9814L93.9314 67.8251C93.843 68.1796 93.8478 68.5509 93.9452 68.903C94.0427 69.255 94.2295 69.5759 94.4876 69.8345L102.166 77.5126C102.425 77.7712 102.746 77.9584 103.099 78.0559C103.451 78.1533 103.823 78.1578 104.178 78.0689L111.019 76.3595C111.821 76.159 112.658 76.1434 113.467 76.314C114.275 76.4845 115.035 76.8367 115.688 77.3439L122.894 82.9501C125.484 84.9657 125.722 88.7939 123.403 91.1095L120.172 94.3407C117.859 96.6532 114.403 97.6689 111.181 96.5345C102.935 93.633 95.4479 88.9121 89.2751 82.722C83.0854 76.5502 78.3645 69.0641 75.4626 60.8189C74.3314 57.6001 75.347 54.1408 77.6595 51.8283L80.8908 48.597H80.8876Z" fill="#D9DDEA"/>
+                              <path d="M121.032 49.1879C120.559 49.1879 120.106 49.3755 119.772 49.7096C119.438 50.0436 119.25 50.4967 119.25 50.9691C119.25 51.4415 119.438 51.8946 119.772 52.2287C120.106 52.5627 120.559 52.7504 121.032 52.7504C121.504 52.7504 121.957 52.5627 122.291 52.2287C122.625 51.8946 122.813 51.4415 122.813 50.9691C122.813 50.4967 122.625 50.0436 122.291 49.7096C121.957 49.3755 121.504 49.1879 121.032 49.1879ZM118.063 50.9691C118.063 50.2726 118.308 49.5982 118.754 49.0639C119.201 48.5296 119.822 48.1695 120.508 48.0466C121.193 47.9237 121.9 48.0457 122.505 48.3914C123.11 48.7371 123.574 49.2844 123.815 49.9376C124.057 50.5908 124.062 51.3082 123.828 51.9645C123.595 52.6207 123.138 53.1738 122.538 53.5272C121.937 53.8805 121.232 54.0115 120.545 53.8973C119.858 53.7831 119.233 53.4309 118.779 52.9024L110.801 56.6074C110.985 57.1886 110.985 57.8122 110.801 58.3934L118.779 62.0984C119.258 61.5406 119.928 61.1808 120.658 61.0886C121.387 60.9964 122.125 61.1784 122.729 61.5993C123.332 62.0202 123.757 62.65 123.923 63.3668C124.088 64.0835 123.981 64.8361 123.623 65.4787C123.265 66.1213 122.682 66.6081 121.985 66.8448C121.289 67.0815 120.529 67.0512 119.854 66.7598C119.179 66.4684 118.635 65.9367 118.33 65.2677C118.024 64.5986 117.978 63.8399 118.199 63.1386L110.222 59.4336C109.827 59.8939 109.3 60.2221 108.713 60.3742C108.126 60.5263 107.507 60.495 106.938 60.2844C106.369 60.0739 105.879 59.6942 105.532 59.1965C105.186 58.6987 105 58.1068 105 57.5004C105 56.8939 105.186 56.302 105.532 55.8043C105.879 55.3065 106.369 54.9269 106.938 54.7163C107.507 54.5057 108.126 54.4744 108.713 54.6265C109.3 54.7786 109.827 55.1069 110.222 55.5671L118.199 51.8621C118.109 51.5732 118.063 51.272 118.063 50.9691V50.9691ZM107.969 55.7191C107.497 55.7191 107.044 55.9068 106.71 56.2408C106.375 56.5749 106.188 57.028 106.188 57.5004C106.188 57.9728 106.375 58.4259 106.71 58.7599C107.044 59.094 107.497 59.2816 107.969 59.2816C108.441 59.2816 108.895 59.094 109.229 58.7599C109.563 58.4259 109.75 57.9728 109.75 57.5004C109.75 57.028 109.563 56.5749 109.229 56.2408C108.895 55.9068 108.441 55.7191 107.969 55.7191ZM121.032 62.2504C120.559 62.2504 120.106 62.438 119.772 62.7721C119.438 63.1061 119.25 63.5592 119.25 64.0316C119.25 64.504 119.438 64.9571 119.772 65.2912C120.106 65.6252 120.559 65.8129 121.032 65.8129C121.504 65.8129 121.957 65.6252 122.291 65.2912C122.625 64.9571 122.813 64.504 122.813 64.0316C122.813 63.5592 122.625 63.1061 122.291 62.7721C121.957 62.438 121.504 62.2504 121.032 62.2504Z" fill="#71869D" stroke="#71869D" stroke-width="1.5"/>
+                            </g>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_25_35">
+                              <rect width="200" height="144" fill="white"/>
+                            </clipPath>
+                            <clipPath id="clip1_25_35">
+                              <rect width="50" height="50" fill="white" transform="translate(75 47)"/>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </div>
+                      <!--end::Icon-->
+                      <!--begin::Title-->
+                      <strong class="d-block fs-5 nav-text text-dark mb-1"><%= t('services.share_phone.share') %></strong>
+                      <!--end::Title-->
+                      <small class="text-muted"><%= t('services.share_phone.share_help') %></small>
+                      <!--begin::Bullet-->
+                      <span class="bullet-custom position-absolute bottom-0 w-100 h-4px bg-primary"></span>
+                      <!--end::Bullet-->
+                    </a>
+                    <!--end::Link-->
+                  </li>
+                  <!--end::Item-->
+                  <!--begin::Item-->
+                  <li class="col-6 mb-3">
+                    <!--begin::Link-->
+                    <a class="w-100 nav-link position-relative btn btn-outline btn-flex btn-color-muted btn-active-color-primary flex-column overflow-hidden p-4" id="kt_modal_share_phone_tab_link_2" data-bs-toggle="pill" href="#kt_modal_share_phone_tab_2">
+                      <!--begin::Icon-->
+                      <div class="nav-icon mb-4">
+                        <svg width="200" height="144" viewBox="0 0 200 144" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <g clip-path="url(#clip0_25_35)">
+                            <path d="M196 0H4C1.79086 0 0 1.79086 0 4V140C0 142.209 1.79086 144 4 144H196C198.209 144 200 142.209 200 140V4C200 1.79086 198.209 0 196 0Z" fill="#F8FAFD"/>
+                            <g clip-path="url(#clip1_25_35)">
+                              <path d="M86.4189 51.1501C86.2344 50.9128 86.0015 50.7174 85.7358 50.577C85.47 50.4366 85.1774 50.3544 84.8774 50.3358C84.5774 50.3171 84.2768 50.3626 83.9957 50.469C83.7146 50.5755 83.4594 50.7405 83.247 50.9532L80.0158 54.1876C78.5064 55.7001 77.9501 57.8407 78.6095 59.7188C81.3462 67.4925 85.7979 74.5504 91.6345 80.3688C97.453 86.2053 104.511 90.657 112.285 93.3938C114.163 94.0532 116.303 93.4969 117.816 91.9876L121.047 88.7563C121.26 88.5439 121.425 88.2887 121.531 88.0076C121.638 87.7265 121.683 87.426 121.664 87.1259C121.646 86.8259 121.564 86.5333 121.423 86.2676C121.283 86.0018 121.087 85.7689 120.85 85.5844L113.641 79.9782C113.387 79.7816 113.092 79.6451 112.778 79.579C112.464 79.513 112.14 79.5191 111.828 79.5969L104.985 81.3063C104.071 81.5346 103.114 81.5225 102.207 81.2712C101.299 81.0198 100.472 80.5377 99.8064 79.8719L92.1314 72.1938C91.465 71.5283 90.9824 70.7016 90.7305 69.7941C90.4786 68.8867 90.466 67.9295 90.6939 67.0157L92.4064 60.1719C92.4842 59.8607 92.4903 59.5358 92.4243 59.2218C92.3583 58.9078 92.2218 58.613 92.0251 58.3594L86.4189 51.1501ZM80.8876 48.5969C81.4345 48.0499 82.0915 47.6255 82.8149 47.3518C83.5384 47.0782 84.3118 46.9616 85.0838 47.0097C85.8558 47.0579 86.6087 47.2698 87.2926 47.6312C87.9764 47.9927 88.5755 48.4955 89.0501 49.1063L94.6564 56.3126C95.6845 57.6344 96.047 59.3563 95.6408 60.9813L93.9314 67.8251C93.843 68.1795 93.8478 68.5508 93.9452 68.9029C94.0427 69.255 94.2295 69.5759 94.4876 69.8344L102.166 77.5126C102.425 77.7712 102.746 77.9583 103.099 78.0558C103.451 78.1533 103.823 78.1578 104.178 78.0688L111.019 76.3594C111.821 76.1589 112.658 76.1434 113.467 76.3139C114.275 76.4844 115.035 76.8366 115.688 77.3438L122.894 82.9501C125.485 84.9657 125.722 88.7938 123.403 91.1094L120.172 94.3407C117.86 96.6532 114.403 97.6688 111.181 96.5344C102.935 93.633 95.4479 88.9121 89.2751 82.7219C83.0854 76.5501 78.3645 69.064 75.4626 60.8188C74.3314 57.6001 75.347 54.1407 77.6595 51.8282L80.8908 48.5969H80.8876Z" fill="#D9DDEA"/>
+                              <path d="M115.026 48.6791C114.836 48.7578 114.664 48.8733 114.519 49.0188C114.373 49.1639 114.258 49.3364 114.179 49.5262C114.1 49.716 114.06 49.9195 114.06 50.125C114.06 50.3306 114.1 50.5341 114.179 50.7239C114.258 50.9137 114.373 51.0862 114.519 51.2313L119.666 56.375H104.688C104.273 56.375 103.876 56.5397 103.583 56.8327C103.29 57.1257 103.125 57.5231 103.125 57.9375C103.125 58.3519 103.29 58.7494 103.583 59.0424C103.876 59.3354 104.273 59.5 104.688 59.5H119.666L114.519 64.6438C114.225 64.9372 114.061 65.3351 114.061 65.75C114.061 66.165 114.225 66.5629 114.519 66.8563C114.812 67.1497 115.21 67.3145 115.625 67.3145C116.04 67.3145 116.438 67.1497 116.731 66.8563L124.544 59.0438C124.689 58.8987 124.805 58.7262 124.884 58.5364C124.962 58.3466 125.003 58.1431 125.003 57.9375C125.003 57.732 124.962 57.5285 124.884 57.3387C124.805 57.1489 124.689 56.9764 124.544 56.8313L116.731 49.0188C116.586 48.8733 116.414 48.7578 116.224 48.6791C116.034 48.6003 115.831 48.5598 115.625 48.5598C115.42 48.5598 115.216 48.6003 115.026 48.6791Z" fill="#71869D"/>
+                            </g>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_25_35">
+                              <rect width="200" height="144" fill="white"/>
+                            </clipPath>
+                            <clipPath id="clip1_25_35">
+                              <rect width="50" height="50" fill="white" transform="translate(75 47)"/>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </div>
+                      <!--end::Icon-->
+                      <!--begin::Title-->
+                      <strong class="d-block fs-5 nav-text text-dark mb-1"><%= t('services.share_phone.forward') %></strong>
+                      <!--end::Title-->
+                      <small class="text-muted"><%= t('services.share_phone.forward_help') %></small>
+                      <!--begin::Bullet-->
+                      <span class="bullet-custom position-absolute bottom-0 w-100 h-4px bg-primary"></span>
+                      <!--end::Bullet-->
+                    </a>
+                    <!--end::Link-->
+                  </li>
+                  <!--end::Item-->
+                </ul>
+                <!--end::Nav-->
+              </div>
+              <!--begin::Step 1-->
+
+              <!--begin::Step 1-->
+              <div class="flex-column" data-kt-stepper-element="content">
+                <!--begin::Tab Content-->
+                <div class="tab-content">
+                  <!--begin::Tap pane-->
+                  <div class="tab-pane fade show active" id="kt_modal_share_phone_tab_1">
+                    <h3 class="modal-title mb-6 me-4"><%= t('services.share_phone.share') %></h3>
+                    <p><%= t('services.share_phone.share_description') %></p>
+                  </div>
+                  <!--end::Tap pane-->
+                  <!--begin::Tap pane-->
+                  <div class="tab-pane fade" id="kt_modal_share_phone_tab_2">
+                    <h3 class="modal-title mb-6 me-4"><%= t('services.share_phone.forward') %></h3>
+                    <p><%= t('services.share_phone.forward_description') %></p>
+                    <p class="small text-muted mb-1"><%= t('services.share_phone.forward_condition') %>:</p>
+                    <ul class="small text-muted ps-3">
+                      <li><%= t('services.share_phone.forward_condition_1') %></li>
+                      <li><%= t('services.share_phone.forward_condition_2') %></li>
+                    </ul>
+                  </div>
+                  <!--end::Tap pane-->
+                  <!--end::Table container-->
+                </div>
+                <!--end::Tab Content-->
+              </div>
+              <!--begin::Step 1-->
+            </div>
+            <!--end::Group-->
+
+            <!--begin::Actions-->
+            <div class="d-flex flex-stack">
+              <!--begin::Wrapper-->
+              <div class="me-2">
+                <button type="button" class="btn btn-light btn-active-light-primary" data-kt-stepper-action="previous"><%= t('common.button.back') %></button>
+              </div>
+              <div>
+                <button type="button" class="btn btn-primary" data-kt-stepper-action="submit" data-bs-dismiss="modal"><%= t('common.button.close') %></button>
+                <button type="button" class="btn btn-primary" data-kt-stepper-action="next"><%= t('common.button.continue') %></button>
+              </div>
+              <!--end::Wrapper-->
+            </div>
+            <!--end::Actions-->
+          </div>
+          <!--end::Form-->
+        </div>
+        <!--end::Stepper-->
+      </div>
+      <!--end::Modal body-->
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+
+<div class="modal fade" id="kt_modal_share_messaging" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered mw-650px">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <!--begin::Modal body-->
+      <div class="modal-body">
+        <i class="bi bi-x fs-1 text-muted text-hover-primary cursor-pointer position-absolute top-0 end-0 mt-4 me-4" data-bs-dismiss="modal"></i>
+        <!--end::Close-->
+
+        <!--begin::Stepper-->
+        <div class="js-stepper stepper stepper-pills" id="kt_stepper_share_messaging">
+          <!--begin::Nav-->
+          <div class="stepper-nav flex-center flex-wrap d-none">
+            <!--begin::Step 1-->
+            <div class="stepper-item mx-8 my-4 current" data-kt-stepper-element="nav">1</div>
+            <!--end::Step 1-->
+
+            <!--begin::Step 2-->
+            <div class="stepper-item mx-8 my-4" data-kt-stepper-element="nav">2</div>
+            <!--end::Step 2-->
+          </div>
+          <!--end::Nav-->
+
+          <!--begin::Form-->
+          <div novalidate="novalidate" id="kt_stepper_share_messaging_form">
+            <!--begin::Group-->
+            <div class="mb-5">
+              <!--begin::Step 1-->
+              <div class="flex-column current" data-kt-stepper-element="content">
+                <h3 class="modal-title mb-6 me-4"><%= t('services.share_messaging.title') %></h3>
+
+                <!--begin::Nav-->
+                <ul class="nav nav-pills nav-pills-custom row">
+                  <!--begin::Item-->
+                  <li class="col-6 mb-3">
+                    <!--begin::Link-->
+                    <a class="w-100 nav-link position-relative btn btn-outline btn-flex btn-color-muted btn-active-color-primary flex-column overflow-hidden p-4 active" id="kt_modal_share_messaging_tab_link_1" data-bs-toggle="pill" href="#kt_modal_share_messaging_tab_1">
+                      <!--begin::Icon-->
+                      <div class="nav-icon mb-4">
+                        <svg width="200" height="144" viewBox="0 0 200 144" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <g clip-path="url(#clip0_25_35)">
+                            <path d="M196 0H4C1.79086 0 0 1.79086 0 4V140C0 142.209 1.79086 144 4 144H196C198.209 144 200 142.209 200 140V4C200 1.79086 198.209 0 196 0Z" fill="#F8FAFD"/>
+                            <path d="M178.256 11H21.7436C18.5715 11 16 13.4997 16 16.5833V72.4167C16 75.5003 18.5715 78 21.7436 78H178.256C181.429 78 184 75.5003 184 72.4167V16.5833C184 13.4997 181.429 11 178.256 11Z" fill="#D9DDEA"/>
+                            <path d="M129.902 86H96.0976C93.8345 86 92 87.7909 92 90V124C92 126.209 93.8345 128 96.0976 128H129.902C132.165 128 134 126.209 134 124V90C134 87.7909 132.165 86 129.902 86Z" fill="#D9DDEA"/>
+                            <path d="M179.902 86H146.098C143.835 86 142 87.7909 142 90V124C142 126.209 143.835 128 146.098 128H179.902C182.165 128 184 126.209 184 124V90C184 87.7909 182.165 86 179.902 86Z" fill="#D9DDEA"/>
+                            <path d="M80 86H20C17.7909 86 16 87.7909 16 90V124C16 126.209 17.7909 128 20 128H80C82.2091 128 84 126.209 84 124V90C84 87.7909 82.2091 86 80 86Z" fill="#D9DDEA"/>
+                            <path d="M174 63H148C146.895 63 146 63.8954 146 65V70C146 71.1046 146.895 72 148 72H174C175.105 72 176 71.1046 176 70V65C176 63.8954 175.105 63 174 63Z" fill="#71869D"/>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_25_35">
+                              <rect width="200" height="144" fill="white"/>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </div>
+                      <!--end::Icon-->
+                      <!--begin::Title-->
+                      <strong class="d-block fs-5 nav-text text-dark mb-1"><%= t('services.share_messaging.button') %></strong>
+                      <!--end::Title-->
+                      <small class="text-muted"><%= t('services.share_messaging.button_help') %></small>
+                      <!--begin::Bullet-->
+                      <span class="bullet-custom position-absolute bottom-0 w-100 h-4px bg-primary"></span>
+                      <!--end::Bullet-->
+                    </a>
+                    <!--end::Link-->
+                  </li>
+                  <!--end::Item-->
+                  <!--begin::Item-->
+                  <li class="col-6 mb-3">
+                    <!--begin::Link-->
+                    <a class="w-100 nav-link position-relative btn btn-outline btn-flex btn-color-muted btn-active-color-primary flex-column overflow-hidden p-4" id="kt_modal_share_messaging_tab_link_2" data-bs-toggle="pill" href="#kt_modal_share_messaging_tab_2">
+                      <!--begin::Icon-->
+                      <div class="nav-icon mb-4">
+                        <svg width="200" height="144" viewBox="0 0 200 144" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <g clip-path="url(#clip0_25_35)">
+                            <path d="M196 0H4C1.79086 0 0 1.79086 0 4V140C0 142.209 1.79086 144 4 144H196C198.209 144 200 142.209 200 140V4C200 1.79086 198.209 0 196 0Z" fill="#F8FAFD"/>
+                            <path d="M178.256 11H21.7436C18.5715 11 16 13.4997 16 16.5833V72.4167C16 75.5003 18.5715 78 21.7436 78H178.256C181.429 78 184 75.5003 184 72.4167V16.5833C184 13.4997 181.429 11 178.256 11Z" fill="#D9DDEA"/>
+                            <path d="M129.902 86H96.0976C93.8345 86 92 87.7909 92 90V124C92 126.209 93.8345 128 96.0976 128H129.902C132.165 128 134 126.209 134 124V90C134 87.7909 132.165 86 129.902 86Z" fill="#D9DDEA"/>
+                            <path d="M179.902 86H146.098C143.835 86 142 87.7909 142 90V124C142 126.209 143.835 128 146.098 128H179.902C182.165 128 184 126.209 184 124V90C184 87.7909 182.165 86 179.902 86Z" fill="#D9DDEA"/>
+                            <path d="M80 86H20C17.7909 86 16 87.7909 16 90V124C16 126.209 17.7909 128 20 128H80C82.2091 128 84 126.209 84 124V90C84 87.7909 82.2091 86 80 86Z" fill="#71869D"/>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_25_35">
+                              <rect width="200" height="144" fill="white"/>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </div>
+                      <!--end::Icon-->
+                      <!--begin::Title-->
+                      <strong class="d-block fs-5 nav-text text-dark mb-1"><%= t('services.share_messaging.widget') %></strong>
+                      <!--end::Title-->
+                      <small class="text-muted"><%= t('services.share_messaging.widget_help') %></small>
+                      <!--begin::Bullet-->
+                      <span class="bullet-custom position-absolute bottom-0 w-100 h-4px bg-primary"></span>
+                      <!--end::Bullet-->
+                    </a>
+                    <!--end::Link-->
+                  </li>
+                  <!--end::Item-->
+                </ul>
+                <!--end::Nav-->
+              </div>
+              <!--begin::Step 1-->
+
+              <!--begin::Step 1-->
+              <div class="flex-column" data-kt-stepper-element="content">
+                <!--begin::Tab Content-->
+                <div class="tab-content">
+                  <!--begin::Tap pane-->
+                  <div class="tab-pane fade show active" id="kt_modal_share_messaging_tab_1">
+                    <h3 class="modal-title mb-6 me-4"><%= t('services.share_messaging.button') %></h3>
+
+                    <div class="mb-2">
+                      <div class="position-relative">
+                        <input id="kt_modal_share_messaging_accordion_link_input" type="text" class="form-control form-control-solid me-3 flex-grow-1" name="search" value="https://voxiplan/event-address" readonly />
+
+                        <button id="kt_modal_share_messaging_accordion_link_input_copy_btn" class="btn btn-icon btn-active-color-primary position-absolute top-0 end-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy Link">
+                          <i class="bi bi-files text-primary text-hover-primary px-2"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <p class="small text-muted mb-0"><%= t('services.share_messaging.copy_link_help') %></p>
+                  </div>
+                  <!--end::Tap pane-->
+                  <!--begin::Tap pane-->
+                  <div class="tab-pane fade" id="kt_modal_share_messaging_tab_2">
+                    <h3 class="modal-title mb-6 me-4"><%= t('services.share_messaging.widget') %></h3>
+
+                    <div class="mb-2">
+                      <div class="position-relative">
+                        <textarea id="kt_modal_share_web_widget_accordion_embed_input" class="form-control form-control-solid me-3 flex-grow-1" rows="6" readonly onfocus="this.select();" onmouseup="return false;"></textarea>
+                        <button id="kt_modal_share_messaging_accordion_embed_input_copy_btn" class="btn btn-icon btn-active-color-primary position-absolute top-0 end-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy Widget">
+                          <i class="bi bi-files text-primary text-hover-primary px-2"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <p class="small text-muted mb-0"><%= t('services.share_messaging.widget_code_help') %></p>
+                  </div>
+                  <!--end::Tap pane-->
+                  <!--end::Table container-->
+                </div>
+                <!--end::Tab Content-->
+              </div>
+              <!--begin::Step 1-->
+            </div>
+            <!--end::Group-->
+
+            <!--begin::Actions-->
+            <div class="d-flex flex-stack">
+              <!--begin::Wrapper-->
+              <div class="me-2">
+                <button type="button" class="btn btn-light btn-active-light-primary" data-kt-stepper-action="previous"><%= t('common.button.back') %></button>
+              </div>
+              <div>
+                <button type="button" class="btn btn-primary" data-kt-stepper-action="submit" data-bs-dismiss="modal"><%= t('common.button.close') %></button>
+                <button type="button" class="btn btn-primary" data-kt-stepper-action="next"><%= t('common.button.continue') %></button>
+              </div>
+              <!--end::Wrapper-->
+            </div>
+            <!--end::Actions-->
+          </div>
+          <!--end::Form-->
+        </div>
+        <!--end::Stepper-->
+      </div>
+      <!--end::Modal body-->
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+
+<%= form_for([current_client, Ivr.new], html: {class: 'm-form'}) do |f| %>
+  <div class="modal fade" id="kt_modal_workspace" tabindex="-1" aria-hidden="true">
+    <!--begin::Modal dialog-->
+    <div class="modal-dialog modal-dialog-centered mw-500px">
+      <!--begin::Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title d-flex">
+            <span><%= t('add_workspace.button.add_new_workspace') %></span>
+          </h5>
+
+          <!--begin::Close-->
+          <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+            <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+            <span class="svg-icon svg-icon-1">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+              <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+                <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
+                <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                      x="0" y="7" width="16" height="2" rx="1" />
+              </g>
+            </svg>
+          </span>
+            <!--end::Svg Icon-->
+          </div>
+          <!--end::Close-->
+        </div>
+
+        <div class="modal-body">
+          <!--begin::Field-->
+          <div class="fv-row">
+            <%= f.label :add_workspace, t('add_workspace.workspace_name'), :class => "form-check-label my-3" %>
+            <%= f.text_field :name, class: 'form-control', :required=> true %>
+          </div>
+          <!--end::Field-->
+          <!--begin::Field-->
+          <div class="fv-row mt-4">
+            <%= f.label :add_workspace, t('add_workspace.voxiplan_url'), :class => "form-check-label my-3" %>
+            <div class="input-group input-group-lg">
+              <span class="input-group-text" id="basic-addon1">voxiplan.com/s/</span>
+              <%= f.text_field :booking_url, class: 'form-control', :required=> true %>
+            </div>
+            <div class="validation-section h-30px">
+              <div class="fv-plugins-message-container text-end invalid-feedback pr-3 d-block"></div>
+            </div>
+          </div>
+          <!--end::Field-->
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal"><%= t('button.cancel') %></button>
+          <button type="submit" class="btn btn-primary create-workspace" id="create-workspace">
+            <span class="indicator-label"><%= t('button.add') %></span>
+            <span class="indicator-progress"><%= t('common.please_wait') %>
+              <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+          </span>
+
+          </button>
+        </div>
+      </div>
+      <!--end::Modal content-->
+    </div>
+    <!--end::Modal dialog-->
+  </div>
+<% end %>
+
+<input type="hidden" name="read_tutorial" value="<%= current_client.read_tutorial %>" />
+
+<!--begin::Javascript-->
+<%= javascript_include_tag 'plugins/draggable/draggable.bundle', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'plugins/three-states-switch-jtoggler/jtoggler', 'data-turbolinks-track' => true %>
+<script src="https://unpkg.com/driver.js/dist/driver.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
+
+<script>
+    let selected_service_id = 0;
+    let selected_ivr_id = 0;
+    let selected_turn_onoff_object = null;
+    let available_url = false;
+
+    $(document).ready(function() {
+        $('input.service_filter').on('keyup', function() {
+            const filter_text = $(this).val();
+            $.each($('div.ivrs'), function(index, ivr_obj) {
+                let card_visible = false;
+                $.each($(ivr_obj).find('a.service_name_label'), function(index, service_obj) {
+                    const parent = $(service_obj).parents()[5];
+                    if ($(service_obj).html().includes(filter_text)) {
+                        $(parent).show();
+                        card_visible = true;
+                    }
+                    else
+                        $(parent).hide();
+                })
+
+                if ($(ivr_obj).find('span.ivr_name_label').html().includes(filter_text))
+                    $(ivr_obj).show();
+                else
+                    if (! card_visible) $(ivr_obj).hide();
+
+            })
+        })
+        $('a.edit_web_url').on('click', function() {
+            const parent = $(this).parent().parent().parent().parent();
+            parent.find('div.voxiplan_url_edit_panel').show();
+            parent.find('span.voxiplan_url_panel').removeClass('d-flex');
+            parent.find('span.voxiplan_url_panel').addClass('d-none');
+            parent.find('div.voxiplan_url_edit_panel').find('input').focus();
+            parent.parent().find('.fv-plugins-message-container').hide();
+        });
+
+        $('a.edit_ivr_name').on('click', function() {
+            const parent = $(this).parent();
+            const text_width = parent.find('span.ivr_name_label').width();
+            parent.find('a.save_ivr_name').removeClass('d-none');
+            parent.find('span.ivr_name_label').hide();
+            parent.find('input[name=ivr_name]').show();
+            parent.find('input[name=ivr_name]').select();
+            parent.find('input[name=ivr_name]').width(text_width);
+            $(this).hide();
+        });
+
+        $('div.voxiplan_url_edit_panel input').on('blur', function() {
+            $('div.voxiplan_url_edit_panel').hide();
+            $('span.voxiplan_url_panel').addClass('d-flex');
+            $('span.voxiplan_url_panel').removeClass('d-none');
+        });
+
+        $('.voxiplan_url_edit_panel input').on('keyup', function(e) {
+            const parent = $(this).parent();
+            // Backspace is pressed, need to hide spell issue (cannot check on keypress)
+            if (e.which === 8) $('.fv-plugins-message-container').hide();
+
+            if (!$(this).val()) {
+                parent.find('.unavailable_message').hide();
+                parent.find('.available_message').hide();
+                parent.find('.url_not_empty_message').show();
+            }
+            else if (!parent.find('.detected_key_message').is(":visible")) {
+                $.ajax({
+                    type: "POST",
+                    url: "/check_exist_ivr_url",
+                    data: { voxiplan_url: $(this).val().toLowerCase(), ivr_id: $(this).attr("ivr_id") },
+                    success: function (data) {
+                        if (data.existed) parent.find('.unavailable_message').show();
+                        else {
+                            if (!parent.find('.url_not_empty_message').is(":visible")) parent.parent().parent().find('.available_message').show();
+                        }
+                    },
+                    error: function (error) {
+                        $.notify({ title: "<strong>Error!</strong>", message: "Something Went Wrong! Please Try again." },{ type: 'danger' });
+                    },
+                });
+            }
+        });
+
+        $('div.voxiplan_url_edit_panel input').on('keypress', function(e) {
+            $('.fv-plugins-message-container').hide();
+
+            if (e.which == 32 || e.which == 38 || e.which == 47 || e.which == 63) {
+                e.preventDefault();
+                $(this).parent().find('.detected_key_message').show();
+            }
+        });
+
+        $('div.voxiplan_url_edit_panel input').on('change', function() {
+            let parent = $(this).parent();
+            if ($(this).val()) {
+                $.ajax({
+                    type: "POST",
+                    url: "/update_ivr_url",
+                    data: { voxiplan_url: $(this).val().toLowerCase(), ivr_id: $(this).attr("ivr_id") },
+                    success: function (data) {
+                        if (data.result === "existed") {
+                            parent.find('.unavailable_message').show();
+                        } else {
+                            parent.find('.available_message').show();
+                            parent.find('input').blur();
+
+                            parent.find('.voxiplan_url_edit_panel').hide();
+                            parent.find('span.voxiplan_url_panel').addClass('d-flex');
+                            parent.find('span.voxiplan_url_panel').removeClass('d-none');
+
+                            parent = parent.parent()
+                            let url = parent.parent().find('span.voxiplan_url_panel').attr('title').split('/');
+                            url[url.length - 1] = data.voxiplan_url;
+                            parent.find('span.voxiplan_url_panel').text(url.join('/'));
+                            parent.find('span.voxiplan_url_panel').attr("title", url.join('/'));
+
+                            parent = parent.parent().parent().parent();
+                            let chat = parent.find('span.voxiplan_chat_panel').attr('title').split('/');
+                            chat[chat.length - 1] = data.voxiplan_url;
+                            parent.find('span.voxiplan_chat_panel').text(chat.join('/'));
+                            parent.find('span.voxiplan_chat_panel').attr("title", chat.join('/'));
+                        }
+                    },
+                    error: function (error) {
+                        Swal.fire({
+                            text: "<%= t('common.normal_error_text') %>",
+                            icon: "error",
+                            buttonsStyling: false,
+                            confirmButtonText: "<%= t('sweetalert.ok_got_it') %>",
+                            customClass: {
+                                confirmButton: "btn btn-light"
+                            }
+                        }).then(function () {
+                            KTUtil.scrollTop();
+                        });
+                    },
+                });
+            }
+        });
+
+        $('div.ivr_name_panel input').on('blur', function() {
+            const parent = $(this).parent();
+            parent.find('a.save_ivr_name').addClass('d-none');
+            parent.find('a.edit_ivr_name').show();
+            parent.find('span.ivr_name_label').show();
+            parent.find('input[name=ivr_name]').hide();
+        })
+
+        $('div.ivr_name_panel input').on('change', function() {
+            const parent = $(this).parent();
+            parent.find('a.save_ivr_name').click();
+        })
+
+        $('a.save_ivr_name').on('click', function() {
+            const parent = $(this).parent();
+            const ivr_id = parent.find('input[name=ivr_name]').attr('ivr_id');
+            const ivr_name = parent.find('input[name=ivr_name]').val();
+
+            $.ajax({
+                type: "POST",
+                url: "/update_ivr_name",
+                data: {
+                    ivr_id: ivr_id,
+                    ivr_name: ivr_name
+                },
+                success: function (response) {
+                    parent.find('a.save_ivr_name').addClass('d-none');
+                    parent.find('a.edit_ivr_name').show();
+                    parent.find('span.ivr_name_label').html(ivr_name);
+                    parent.find('span.ivr_name_label').show();
+                    parent.find('input[name=ivr_name]').hide();
+                    showMessage(response.result, response.message);
+                }
+            })
+        })
+
+        $('.handle-plan').on('click', function() {
+            if (<%= @subscription_plan == "free" %>) $('#kt_modal_upgrade_plan').modal('show');
+        });
+
+        // turn on/off service's checkboxes
+        $('body').on('click', 'input.toggle-service-switch', function() {
+            const toggle_obj = $(this);
+            const checked_value = $(toggle_obj).prop('checked');
+
+            if ($('input#user_membership').val() == 'free' && $(this).attr('data-service-type') !== 'widget_enabled' || $('input#user_membership').val() == 'basic' && $(this).attr('data-service-type') !== 'phone_assistant_enabled' && $(this).attr('data-service-type') !== 'widget_enabled' || $('input#user_membership').val() == 'trial' && $(this).attr('data-service-type') === 'sms_enabled') {
+                e.preventDefault();
+                $('#kt_modal_upgrade_plan').modal('show');
+                return;
+            }
+            $('div.loader-body').show();
+            const service_id = $(this).data('service-id');
+            const service_type = $(this).data('service-type');
+            $.ajax({
+                url: '/services/' + service_id + '/toggle_service_options_enabled',
+                type: 'PUT',
+                dataType: 'JSON',
+                async: false,
+                data: {
+                    option: service_type,
+                    value: ''
+                },
+                success: function(response) {
+                    $('div.loader-body').hide();
+                    if (response.result == 'success') {
+                        showMessage('success', response.message);
+
+                        if (service_type == 'phone_assistant_enabled') {
+                            // if phone:ivr is active and at least one service has Phone toggle disabled in card, show filter (All/Phone)
+                            const parent = $(toggle_obj).parents()[6];
+                            if (checked_value == true) {
+                                $(parent).attr('data-category', 'phone');
+                                $(toggle_obj).attr('checked', 'checked');
+                            }
+                            else {
+                                $(toggle_obj).removeAttr('checked');
+                                $(parent).attr('data-category', '');
+                                const parent_ivr = $(toggle_obj).parents()[8];
+                                const filter_type = ($(parent_ivr).find('div.phone_filter').hasClass('d-none') || $(parent_ivr).find('div.phone_filter').find('a:first').hasClass('active')) ? 'all' : 'phone';
+                                if (filter_type == 'phone') $(parent).hide();
+                            }
+
+
+                            setVisiblePhoneFilter();
+                        }
+                    }
+                    else {
+                        Swal.fire({
+                            html: response.message,
+                            icon: response.result,
+                            buttonsStyling: false,
+                            confirmButtonText: "<%= t('button.close') %>",
+                            customClass: {
+                                confirmButton: "btn btn-primary"
+                            }
+                        });
+                        $(toggle_obj).prop('checked', !checked_value);
+                    }
+                }
+            });
+
+            if (service_type == 'phone_assistant_enabled' && $(this).prop('checked') == true) {
+                $('input.toggle-service-switch[data-service-type=ai_phone_assistant_enabled][data-service-id='+ service_id +']').prop('checked', false);
+                $.ajax({
+                    url: '/services/' + service_id + '/toggle_service_options_enabled',
+                    type: 'PUT',
+                    dataType: 'JSON',
+                    async: false,
+                    data: {
+                        option: 'ai_phone_assistant_enabled',
+                        value: false
+                    }
+                });
+            }
+
+            if (service_type == 'ai_phone_assistant_enabled' && $(this).prop('checked') == true) {
+                $('input.toggle-service-switch[data-service-type=phone_assistant_enabled][data-service-id='+ service_id +']').prop('checked', false);
+                $.ajax({
+                    url: '/services/' + service_id + '/toggle_service_options_enabled',
+                    type: 'PUT',
+                    dataType: 'JSON',
+                    async: false,
+                    data: {
+                        option: 'phone_assistant_enabled',
+                        value: false
+                    }
+                });
+            }
+        });
+
+        $('body').on('click', 'button.turn_on_service', function() {
+            turn_onoff_service(selected_service_id, selected_ivr_id, selected_turn_onoff_object);
+        })
+
+        $('body').on('click', 'button.cancel_turn_on_service', function() {
+            $(selected_turn_onoff_object).prop('checked', false);
+        })
+        // turn on/off service
+        $('body').on('click', 'input.service-onoff', function() {
+            const service_id = $(this).data('service-id');
+            const ivr_id = $(this).data('ivr-id');
+            const input_obj = $(this);
+            const parent = $(this).parents()[8];
+
+            if ($(input_obj).prop('checked') == false && $(parent).find('input.service-onoff:checked').length == 0) {
+                // there is only one enabled service and clicked 'turn off'
+                Swal.fire({
+                    html: "<%= t('services.keep_one_service') %>",
+                    icon: "warning",
+                    buttonsStyling: false,
+                    confirmButtonText: "<%= t('button.close') %>",
+                    customClass: {
+                        confirmButton: "btn btn-primary"
+                    }
+                });
+                $(input_obj).prop('checked', true);
+                return;
+            }
+            if ($('input#user_membership').val() == 'free' && $(input_obj).prop('checked') == true) {
+                // user is on free plan and clicked 'turn on'
+                selected_service_id = service_id;
+                selected_ivr_id = ivr_id;
+                selected_turn_onoff_object = input_obj;
+                $('div#kt_modal_free_plan_upgrade_modal').modal('show');
+            }
+            else if ($('input#user_membership').val() != 'free' && $(input_obj).prop('checked') == false) {
+                // user is on a paid plan and clicked 'turn off'
+                const parent = $(this).parents()[8];
+                const checked_phone_booking_obj = $(parent).find('input.service-onoff:checked');
+                if (checked_phone_booking_obj.length == 0) {
+                    Swal.fire({
+                        html: "<%= t('services.disable_service_paid_plan') %>",
+                        icon: "warning",
+                        buttonsStyling: false,
+                        confirmButtonText: "<%= t('button.close') %>",
+                        customClass: {
+                            confirmButton: "btn btn-primary"
+                        }
+                    });
+                    $(input_obj).prop('checked', true);
+                }
+                else turn_onoff_service(service_id, ivr_id, input_obj, true);
+            }
+            else {
+                turn_onoff_service(service_id, ivr_id, input_obj, $(input_obj).prop('checked') ? false : true);
+            }
+
+        });
+
+        $('body').on('click', 'a.service-remove', function() {
+            const service_id = $(this).data('service-id');
+            const ivr_id = $(this).data('ivr-id');
+            Swal.fire({
+                text: "<%= t('services.event_delete_confirm') %>",
+                icon: "warning",
+                showCancelButton: true,
+                buttonsStyling: false,
+                confirmButtonText: "<%= t('sweetalert.yes_delete') %>",
+                cancelButtonText: "<%= t('sweetalert.no_cancel') %>",
+                customClass: {
+                    confirmButton: "btn btn-primary",
+                    cancelButton: "btn btn-active-light"
+                }
+            }).then((function (result) {
+                if (result.value) {
+                    $.ajax({
+                        url: '/services/' + service_id,
+                        type: 'DELETE',
+                        dataType: 'JSON',
+                        data: {
+                            ivr_id: ivr_id
+                        },
+                        success: function(response){
+                            if (response.result == 'success')
+                                window.location.reload();
+                            else
+                                showMessage(response.result, response.message);
+                        },
+                        error: function(){
+                            console.log('error')
+                        }
+                    });
+                }
+            }));
+
+        });
+
+        $('#ivr_booking_url').on('keypress', function(e) {
+            $('.fv-plugins-message-container').hide();
+
+            if (e.which == 32 || e.which == 38 || e.which == 47 || e.which == 63) {
+                e.preventDefault();
+                $(this).parent().parent().find('.detected_key_message').show();
+            }
+        });
+
+        $('#ivr_booking_url').on('keyup', function(e) {
+            const parent = $(this).parent().parent();
+
+            if (e.which == 32 || e.which == 38 || e.which == 47 || e.which == 63) {
+                e.preventDefault();
+                parent.find('.fv-plugins-message-container').removeClass('text-success');
+                parent.find('.fv-plugins-message-container').html("<%= t('validation.detected_key') %>");
+                document.getElementById('create-workspace').disabled = true;
+                available_url = false;
+                return false;
+            }
+
+            if (!$(this).val()) {
+                parent.find('.fv-plugins-message-container').removeClass('text-success');
+                parent.find('.fv-plugins-message-container').html("<%= t('validation.not_empty') %>");
+                document.getElementById('create-workspace').disabled = true;
+                available_url = false;
+            }
+            else {
+                $.ajax({
+                    type: "POST",
+                    url: "/check_exist_ivr_url",
+                    data: { voxiplan_url: $(this).val().toLowerCase(), ivr_id: 0 },
+                    success: function (data) {
+                        if (data.existed) {
+                            parent.find('.fv-plugins-message-container').removeClass('text-success');
+                            parent.find('.fv-plugins-message-container').html("<%= t('validation.unavailable') %>");
+                            document.getElementById('create-workspace').disabled = true;
+                            available_url = false;
+                        }
+                        else {
+                            parent.find('.fv-plugins-message-container').html("<%= t('validation.available') %>");
+                            parent.find('.fv-plugins-message-container').addClass('text-success');
+                            document.getElementById('create-workspace').disabled = false;
+                            available_url = true;
+                        }
+                    }
+                });
+            }
+        });
+
+        $('#show_create_workspace_modal').click(function() {
+            $('#ivr_name').val('');
+            $('#ivr_booking_url').val('');
+        });
+
+        $('body').on('click', 'button.create-workspace', function(e) {
+            e.preventDefault();
+
+            if (!$('#ivr_name').val()) {
+                showMessage('error', "<%= t('add_workspace.required_name') %>");
+                return;
+            }
+
+            if (!$('#ivr_booking_url').val()) {
+                showMessage('error', "<%= t('add_workspace.required_url') %>");
+                return;
+            }
+
+            if (available_url){
+                const create_button = document.getElementById('create-workspace');
+                create_button.disabled = true;
+                create_button.setAttribute('data-kt-indicator', 'on');
+                $('form#new_ivr').ajaxSubmit({
+                    success: function(response) {
+                        create_button.removeAttribute('data-kt-indicator'); // Hide loading indication
+                        create_button.disabled = false; // Enable button
+                        $('div#kt_modal_workspace').modal('hide');
+
+                        Swal.fire({
+                            text: response.message,
+                            icon: response.success ? "success" : "error",
+                            buttonsStyling: false,
+                            allowOutsideClick: false,
+                            confirmButtonText: "<%= t('sweetalert.ok_got_it') %>",
+                            customClass: {
+                                confirmButton: "btn btn-primary"
+                            }
+                        }).then(function (result) {
+                            if (result.isConfirmed) {
+                                window.location.href = '/';
+                            }
+                        });
+                    }
+                })
+            }
+        });
+
+        $('label.assistant_check_section').on('click', function() {
+            if ($('input.js-assistant-toggle').prop('checked') == false) {
+                $('#kt_modal_upgrade_plan').modal('show');
+                return;
+            }
+        })
+
+        $('label.jtoggler_phone_type').on('click', function() {
+            if ($(this).data('has-dedicated-number') == 'no') {
+                if ($('input#user_membership').val() == 'trial') {
+                    $('#kt_modal_upgrade_trial_plan a[href="#kt_modal_upgrade_preview"]').attr('data-phone', $(this).data('phone-number'));
+                    $('#kt_modal_upgrade_trial_plan a[href="#kt_modal_upgrade_preview"]').attr('data-client-phone', $(this).data('client-phone'));
+                    $('#kt_modal_upgrade_trial_plan').modal('show');
+                }
+                else {
+                    $('#kt_modal_order_phone a[href="#kt_modal_upgrade_preview"]').attr('data-phone', $(this).data('phone-number'));
+                    $('#kt_modal_order_phone a[href="#kt_modal_upgrade_preview"]').attr('data-client-phone', $(this).data('client-phone'));
+                    $('#kt_modal_order_phone').modal('show');
+                }
+            }
+        });
+
+        $('input.js-assistant-toggle').on('click', function() {
+            $(this).parents('.js-assistant').children('.js-assistant-options').toggle();
+        });
+
+        $('label.js-assistant-switcher').on('click', function() {
+            if ($('input.messaging_checkbox').prop('checked') == false) {
+                $('#kt_modal_upgrade_plan').modal('show');
+                return;
+            }
+        })
+
+        $('a[href="#kt_modal_share_web_widget"]').on('click', function() {
+            const parent = $(this).parent().parent();
+            const booking_url = $(parent).find('span.voxiplan_url_panel').attr('title');
+            $('div#kt_modal_share_web_widget input#kt_modal_share_web_widget_accordion_link_input').val(booking_url);
+            $('div#kt_modal_share_web_widget textarea#kt_modal_share_web_widget_accordion_embed_input').val(
+                `<iframe width="100%" height="100%" src="${booking_url}" title="` + "<%= t('services.share_web_widget.voxiplan_widget') %>" + `" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+            );
+        })
+
+        $('a[href="#kt_modal_share_messaging"]').on('click', function() {
+            const parent = $(this).parent().parent();
+            const chat_url = $(parent).find('span.voxiplan_chat_panel').attr('title');
+            const ivr_uid = $(this).data('ivr-uid');
+            const chat_title = "<%= t('services.share_messaging.chat_title') %>";
+            const chat_subtitle = "<%= t('services.share_messaging.chat_subtitle') %>";
+            const language = "<%= I18n.locale %>";
+            const ivr_lang = $(this).data('ivr-lang');
+            const ivr_assistant_name = $(this).data('ivr-assistant-name');
+            const ivr_locale = $(this).data('ivr-locale');
+            const ivr_timezone = $(this).data('ivr-timezone');
+
+            $('div#kt_modal_share_messaging input#kt_modal_share_messaging_accordion_link_input').val(chat_url);
+            $('div#kt_modal_share_messaging textarea#kt_modal_share_web_widget_accordion_embed_input').val(
+                `<script>!(function () {
+                    let e = document.createElement("script"),
+                      t = document.head || document.getElementsByTagName("head")[0];
+                    (e.src =
+                      "https://cdn.jsdelivr.net/npm/rasa-webchat@1.0.1/lib/index.js"),
+                      (e.async = !0),
+                      (e.onload = () => {
+                        window.WebChat.default(
+                          {
+                            initPayload: '/chat_widget_register{"client_identifier": "${ivr_uid}", "language": "${ivr_lang}", "assistant_name": "${ivr_assistant_name}", "locale": "${ivr_locale}", "timezone": "${ivr_timezone}"}',
+                            customData: {"language": "${ivr_lang}", "client_identifier": "${ivr_uid}", "locale": "${ivr_locale}", "timezone": "${ivr_timezone}"},
+                            socketUrl: "` + "<%= ENV['RASA_URL'] %>" + `",
+                            socketPath: "/socket.io/",
+                            title: "${chat_title}",
+                            subtitle: "${chat_subtitle}",
+                            hideWhenNotConnected: true,
+                            showCloseButton: true,
+                            showFullScreenButton: true,
+                            storage: "session"
+                            },
+                            null
+                        );
+                      }),
+                      t.insertBefore(e, t.firstChild);
+                    })();
+                <\/script>`
+            );
+        })
+    });
+
+    (function () {
+        const $upgradeModal = document.querySelector('#kt_modal_upgrade_plan');
+        const upgradeModal = bootstrap.Modal.getOrCreateInstance($upgradeModal);
+        const $disabledOption = document.querySelectorAll('.disabled-option');
+
+        $disabledOption.forEach(el => {
+            el.addEventListener('click', function () {
+                upgradeModal.show();
+            })
+        });
+    })();
+
+    (function () {
+        var containers = document.querySelectorAll('.draggable-zone');
+
+        if (containers.length === 0) {
+            return false;
+        }
+
+        var swappable = new Sortable.default(containers, {
+            draggable: '.draggable',
+            handle: '.draggable .draggable-handle',
+            mirror: {
+                appendTo: 'body',
+                constrainDimensions: true
+            },
+        });
+
+        swappable.on('sortable:stop', (evt) => {
+            setTimeout(function () {
+                const draggables = evt.data.newContainer.querySelectorAll('.draggable');
+                const phone_filter = evt.data.newContainer.parentNode.parentNode.querySelectorAll('div.phone_filter');
+                const filter_type = ($(phone_filter).hasClass('d-none') || $(phone_filter).find('a:first').hasClass('active')) ? 'all' : 'phone';
+
+                let service_ids = [];
+                for (let i = 0; i < draggables.length; i++) {
+                    if ($(draggables[i]).css('display') != 'none') {
+                        service_ids.push( filter_type == 'all' ? $(draggables[i]).data('service-id') : $(draggables[i]).data('phone-service-id'));
+                        if (filter_type == 'all')
+                            $(draggables[i]).attr('data-service-order-id', i + 1)
+                        else
+                            $(draggables[i]).attr('data-phone-service-order-id', i + 1)
+                    }
+                }
+
+                $.ajax({
+                    method: 'post',
+                    url: "<%= update_ordering_services_path %>",
+                    data: { service_ids: service_ids, filter_type: filter_type },
+                    success: function(response) {
+                        if (response.result == 'error') showMessage(response.result, response.message);
+                    }
+                })
+
+            });
+        });
+    })();
+
+    (function () {
+        // Stepper widget
+        const elementWidget = document.querySelector("#kt_stepper_share_widget");
+        const stepperWidget = new KTStepper(elementWidget);
+
+        stepperWidget.on("kt.stepper.next", function (stepperWidget) {
+            stepperWidget.goNext(); // go next step
+        });
+
+        stepperWidget.on("kt.stepper.previous", function (stepperWidget) {
+            stepperWidget.goPrevious(); // go previous step
+        });
+
+        // Stepper phone
+        const elementPhone = document.querySelector("#kt_stepper_share_phone");
+        const stepperPhone = new KTStepper(elementPhone);
+
+        stepperPhone.on("kt.stepper.next", function (stepperPhone) {
+            stepperPhone.goNext(); // go next step
+        });
+
+        stepperPhone.on("kt.stepper.previous", function (stepperPhone) {
+            stepperPhone.goPrevious(); // go previous step
+        });
+
+        // Stepper message
+        const elementMessaging = document.querySelector("#kt_stepper_share_messaging");
+        const stepperMessaging = new KTStepper(elementMessaging);
+
+        stepperMessaging.on("kt.stepper.next", function (stepperMessaging) {
+            stepperMessaging.goNext(); // go next step
+        });
+
+        stepperMessaging.on("kt.stepper.previous", function (stepperMessaging) {
+            stepperMessaging.goPrevious(); // go previous step
+        });
+    })();
+
+    (function () {
+        function viewChange(parent) {
+            const $changers = document.querySelectorAll(`${parent} [data-view-type]`);
+            const $items = document.querySelectorAll(`${parent} [data-view-item]`);
+
+            $changers.forEach(el => {
+                el.addEventListener('click', function () {
+                    const type = el.dataset.viewType;
+
+                    $changers.forEach(elI => {
+                        elI.classList.remove('active');
+                    });
+
+                    el.classList.add('active');
+
+                    $items.forEach(el => {
+                        const columnClasses = el.dataset.viewColumnClasses
+                            ? el.dataset.viewColumnClasses.split(' ')
+                            : '';
+                        const rowClasses = el.dataset.viewRowClasses
+                            ? el.dataset.viewRowClasses.split(' ')
+                            : '';
+
+                        if (type === 'column') {
+                            if (rowClasses) {
+                                rowClasses.forEach(className => {
+                                    el.classList.remove(className);
+                                })
+                            }
+
+                            if (columnClasses) {
+                                columnClasses.forEach(className => {
+                                    el.classList.add(className);
+                                })
+                            }
+                        } else {
+                            if (columnClasses) {
+                                columnClasses.forEach(className => {
+                                    el.classList.remove(className);
+                                })
+                            }
+
+                            if (rowClasses) {
+                                rowClasses.forEach(className => {
+                                    el.classList.add(className);
+                                })
+                            }
+                        }
+                    });
+                });
+            });
+        }
+
+        $.each($('div.ivrs'), function (index, ivr_obj) {
+            viewChange('#kt_accordion_' + index + '_item_01');
+        });
+
+
+    })();
+</script>
+
+<script>
+    const driver = new Driver({
+        allowClose: false,
+        doneBtnText: "<%= t('services.automations.done') %>",
+        closeBtnText: "<%= t('common.button.close') %>",
+        nextBtnText: "<%= t('services.review_phone_number.next') %>",
+        prevBtnText: "<%= t('services.review_phone_number.back') %>",
+        onReset: (Element) => {
+            $.ajax({
+                url: "<%= set_read_tutorial_services_path %>",
+                type: "POST",
+                data: { },
+                success: function(response) {
+                    if (response.result == 'error') showMessage(response.result, response.message)
+                }
+            });
+        },
+        onNext: (Element) => { },
+        onPrevious: (Element) => { }
+    });
+
+    // Define the steps for introduction
+    driver.defineSteps([
+        {
+            element: '#demo-web-assistant',
+            popover: {
+                title: 'Some Title',
+                description: 'Some description. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur.',
+                position: 'bottom'
+            }
+        },
+        {
+            element: '#toggle-web-assistant',
+            popover: {
+                title: 'Some Title #2',
+                description: 'Some description #2. Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+                position: 'top'
+            }
+        },
+    ]);
+
+    // Start the introduction
+    // if ($('input[name=read_tutorial]').val() == "false") driver.start();
+</script>
+
+<script>
+    let phone_number_table;
+    const element = document.querySelector("#phone_stepper_vertical");
+    const stepper = new KTStepper(element);
+
+    $('.js-assistant-toggle').on('click', function() {
+        $(this).parents('.js-assistant').children('.js-assistant-options').toggle();
+    });
+
+    $('.jtoggler').jtoggler();
+
+    setVisiblePhoneFilter();
+
+    // set default value of 3 states of toggle
+    $.each($('div.ivrs'), function (index, ivr_obj) {
+        filterCategory('#kt_accordion_' + index + '_item_01', '#kt_accordion_' + index + '_item_01 [data-filter]', '#kt_accordion_' + index + '_item_01 [data-category]');
+
+        $($(ivr_obj).find('div.jtoggler-control label.jtoggler-btn-wrapper')[0]).removeClass('is-active');
+        $($(ivr_obj).find('div.jtoggler-control label.jtoggler-btn-wrapper')[1]).removeClass('is-active');
+        $($(ivr_obj).find('div.jtoggler-control label.jtoggler-btn-wrapper')[2]).removeClass('is-active');
+
+        if ($(ivr_obj).data('has-dedicated-phone') == 'no' || $('input#user_memebership').val() == 'trial') {
+            $($(ivr_obj).find('div.jtoggler-control label.jtoggler-btn-wrapper')[0]).addClass('is-active');
+            $(ivr_obj).find('.jtoggler-btn-wrapper.is-active').parent().parent().siblings('.js-assistant-label').addClass('no-assistant');
+            $(ivr_obj).find('.jtoggler-btn-wrapper.is-active').parent().parent().siblings('.js-assistant-label').removeClass('is-assistant');
+            $(ivr_obj).find('.jtoggler-btn-wrapper.is-active').parent().parent().siblings('.js-assistant-label').removeClass('is-assistant-ai');
+        }
+
+        if ($(ivr_obj).data('has-dedicated-phone') == 'yes') {
+            if ($(ivr_obj).data('ai-phone-type') == true && $('input#user_membership').val() != 'basic') {
+                $($(ivr_obj).find('div.jtoggler-control label.jtoggler-btn-wrapper')[2]).addClass('is-active');
+                $($(ivr_obj).find('div.jtoggler-control')).addClass('is-fully-active');
+                $(ivr_obj).find('.jtoggler-btn-wrapper.is-active').parent().parent().siblings('.js-assistant-label').addClass('is-assistant-ai');
+                $(ivr_obj).find('.jtoggler-btn-wrapper.is-active').parent().parent().siblings('.js-assistant-label').removeClass('no-assistant');
+                $(ivr_obj).find('.jtoggler-btn-wrapper.is-active').parent().parent().siblings('.js-assistant-label').removeClass('is-assistant');
+            }
+            else {
+                $($(ivr_obj).find('div.jtoggler-control label.jtoggler-btn-wrapper')[1]).addClass('is-active');
+                $(ivr_obj).find('.jtoggler-btn-wrapper.is-active').parent().parent().siblings('.js-assistant-label').addClass('is-assistant');
+                $(ivr_obj).find('.jtoggler-btn-wrapper.is-active').parent().parent().siblings('.js-assistant-label').removeClass('no-assistant');
+                $(ivr_obj).find('.jtoggler-btn-wrapper.is-active').parent().parent().siblings('.js-assistant-label').removeClass('is-assistant-ai');
+            }
+
+        }
+    })
+
+    $(document).on('jt:toggled:multi', function (event, target) {
+        const ivr_id = $($(target).parent().parent().parent().parent()).data('ivr-id');
+        const ivr_obj = $('div.card.ivrs[data-ivr-id=' + ivr_id + ']');
+
+        // phone:off
+        if ($(target).parent().index() == 0) {
+            $($(target).parent().parent().find('label.jtoggler-btn-wrapper')[0]).removeClass('is-active');
+            $($(target).parent().parent().find('label.jtoggler-btn-wrapper')[1]).removeClass('is-active');
+            $($(target).parent().parent().find('label.jtoggler-btn-wrapper')[2]).removeClass('is-active');
+            const current_state = $($(target).parent().parent().parent().parent()).attr('data-current-state');
+
+            if (current_state == 'ivr') {
+                // if user is on paid plan, can't switch to phone:off
+                $($(target).parent().parent().find('label.jtoggler-btn-wrapper')[1]).addClass('is-active');
+            }
+            if (current_state == 'ai') {
+                // if user is on paid plan, can't switch to phone:off
+                $($(target).parent().parent().find('label.jtoggler-btn-wrapper')[2]).addClass('is-active');
+                $($(target).parent().parent()).addClass('is-fully-active');
+            }
+        }
+
+        // phone:ivr
+        if ($(target).parent().index() == 1) {
+            $(ivr_obj).data('ai-phone-type', false);
+            $('.jtoggler-btn-wrapper.is-active').parent().parent().siblings('.js-assistant-label').addClass('is-assistant');
+            $('.jtoggler-btn-wrapper.is-active').parent().parent().siblings('.js-assistant-label').removeClass('no-assistant');
+            $('.jtoggler-btn-wrapper.is-active').parent().parent().siblings('.js-assistant-label').removeClass('is-assistant-ai');
+            $($(target).parent().parent().parent().parent()).attr('data-current-state', 'ivr');
+            setPhoneTypeOfIvr(ivr_id, 'ivr');
+            setVisiblePhoneFilter();
+        }
+
+        // phone:ai
+        if ($(target).parent().index() == 2) {
+            $(ivr_obj).data('ai-phone-type', true);
+            $($(ivr_obj).find('div.phone_filter').find('a:first')).addClass('active');    // active "All" filter
+            $($(ivr_obj).find('div.phone_filter').find('a:last')).removeClass('active');  // deactive "Phone" filter
+
+            // sort card by service order
+            let swap = '';
+            let cards = $(ivr_obj).find('div.row.draggable-zone').find('div.draggable');
+            let new_event_card = $(ivr_obj).find('div.row.draggable-zone').find('div.new_event');
+            for (let i = 0; i < cards.length - 1; i ++) {
+                for (let k = i + 1; k < cards.length; k ++) {
+                    const service_order_id1 = $(cards[i]).attr('data-service-order-id');
+                    const service_order_id2 = $(cards[k]).attr('data-service-order-id');
+                    if ( service_order_id1 > service_order_id2) {
+                        swap = cards[i];
+                        cards[i] = cards[k];
+                        cards[k] = swap;
+                    }
+                }
+            }
+
+            let content = '';
+            $.each(cards, function(index, card) {
+                content += card.outerHTML;
+            })
+            $(ivr_obj).find('div.row.draggable-zone').html(content + new_event_card.prop('outerHTML'));
+
+            // show every card
+            $.each($(ivr_obj).find('div.row.draggable-zone').find('div.draggable'), function(index, card_obj) {
+                $(card_obj).show();
+            });
+
+            setVisiblePhoneFilter();
+            if ($('input#user_membership').val() == 'basic') {
+                // if user is on basic plan, can't switch to phone:ai. At that time, is showed upgrade plan dialog
+                $($(target).parent().parent().find('label.jtoggler-btn-wrapper')[2]).removeClass('is-active');
+                $($(target).parent().parent().find('label.jtoggler-btn-wrapper')[1]).addClass('is-active');
+                $($(target).parent().parent()).removeClass('is-fully-active');
+                $('#kt_modal_upgrade_plan').modal('show');
+            }
+            else {
+                $('.jtoggler-btn-wrapper.is-active').parent().parent().siblings('.js-assistant-label').addClass('is-assistant-ai');
+                $('.jtoggler-btn-wrapper.is-active').parent().parent().siblings('.js-assistant-label').removeClass('no-assistant');
+                $('.jtoggler-btn-wrapper.is-active').parent().parent().siblings('.js-assistant-label').removeClass('is-assistant');
+                $($(target).parent().parent().parent().parent()).attr('data-current-state', 'ai');
+                setPhoneTypeOfIvr(ivr_id, 'ai');
+            }
+            KTMenu.createInstances();
+        }
+
+    });
+
+    $('.js-assistant-switcher').each(function() {
+        const assistantValue = $(this).find('input');
+        const assistantLabel = $(this).find('.js-assistant-label');
+
+        if ($(assistantValue).prop('checked')) {
+            assistantLabel.addClass('is-assistant-ai');
+            assistantLabel.removeClass('no-assistant');
+        }
+        else {
+            assistantLabel.addClass('no-assistant');
+            assistantLabel.removeClass('is-assistant-ai');
+        }
+
+        assistantValue.on('change', function(){
+            if (assistantValue.is(':checked')) {
+                assistantLabel.addClass('is-assistant-ai');
+                assistantLabel.removeClass('no-assistant');
+            } else {
+                assistantLabel.addClass('no-assistant');
+                assistantLabel.removeClass('is-assistant-ai');
+            }
+        });
+    });
+
+    $('.js-turning').each(function() {
+        var switcherLabel = $(this).find('.js-turning-label')
+        switcherCheck = $(this).find('input');
+
+        switcherCheck.on('change', function() {
+            if(switcherCheck.is(':checked')) {
+                switcherLabel.text('Turn On');
+            } else {
+                switcherLabel.text('Turn Off');
+            }
+        });
+    });
+
+    $('a.preview_web_url').click(function() {
+        const web_url = $(this).parent().parent().parent().parent().find('span.voxiplan_url_panel').attr('title');
+        window.open(web_url, '_blank');
+    });
+
+    $('a.preview_chat_url').click(function() {
+        const url = $(this).parent().parent().parent().parent().find('span.voxiplan_chat_panel').attr('title');
+        window.open(url, '_blank');
+    });
+
+    $('a.copy_phone_number').click(function(e) {
+        const phone_number = $(this).parent().parent().parent().parent().find('span.test_phone_number').data('phone-number');
+        navigator.clipboard.writeText(phone_number);
+
+        setTooltip($('span#voxiplan_phone_number' + $(this).attr('ivr_id')), "<%= t('common.copied') %>");
+        hideTooltip($('span#voxiplan_phone_number' + $(this).attr('ivr_id')));
+    });
+
+    // copy web url when clicked web url input box
+    $('span.voxiplan_url_panel').click(function() {
+        const web_url = $(this).attr('title');
+        navigator.clipboard.writeText(web_url);
+
+        setTooltip($(this), "<%= t('common.copied') %>");
+        hideTooltip($(this));
+    });
+
+    // copy phone number when clicked phone number input box
+    $('span.test_phone_number').click(function() {
+        const phone_number = $(this).data('phone-number');
+        navigator.clipboard.writeText(phone_number);
+
+        setTooltip($(this), "<%= t('common.copied') %>");
+        hideTooltip($(this));
+    });
+
+    // copy chat url when clicked chat url input box
+    $('span.voxiplan_chat_panel').click(function() {
+        const chat_url = $(this).attr('title');
+        navigator.clipboard.writeText(chat_url);
+
+        setTooltip($(this), "<%= t('common.copied') %>");
+        hideTooltip($(this));
+    });
+
+    $('a.copy_web_url').click(function(e) {
+        const web_url = $(this).parent().parent().parent().parent().find('span.voxiplan_url_panel').attr('title');
+        navigator.clipboard.writeText(web_url);
+
+        setTooltip($('span#voxiplan_url_panel' + $(this).attr('ivr_id')), "<%= t('common.copied') %>");
+        hideTooltip($('span#voxiplan_url_panel' + $(this).attr('ivr_id')));
+    });
+
+    $('a.copy_chat_url').click(function(e) {
+        const chat_url = $(this).parent().parent().parent().parent().find('span.voxiplan_chat_panel').attr('title');
+        navigator.clipboard.writeText(chat_url);
+
+        setTooltip($('span#voxiplan_chat_panel' + $(this).attr('ivr_id')), "<%= t('common.copied') %>");
+        hideTooltip($('span#voxiplan_chat_panel' + $(this).attr('ivr_id')));
+    });
+
+    // copy of button url on share widget modal
+    $('button#kt_modal_share_web_widget_accordion_link_input_copy_btn').click(function() {
+        const booking_url = $('div#kt_modal_share_web_widget input#kt_modal_share_web_widget_accordion_link_input').val();
+        navigator.clipboard.writeText(booking_url);
+
+        setTooltip($(this), "<%= t('common.copied') %>");
+        hideTooltip($(this));
+    });
+
+    // copy of widget url on share widget modal
+    $('button#kt_modal_share_web_widget_accordion_embed_input_copy_btn').click(function() {
+        const widget_content = $('div#kt_modal_share_web_widget textarea#kt_modal_share_web_widget_accordion_embed_input').val();
+        navigator.clipboard.writeText(widget_content);
+
+        setTooltip($(this), "<%= t('common.copied') %>");
+        hideTooltip($(this));
+    });
+
+    // copy of button url on share message modal
+    $('button#kt_modal_share_messaging_accordion_link_input_copy_btn').click(function() {
+        const chat_url = $('div#kt_modal_share_messaging input#kt_modal_share_messaging_accordion_link_input').val();
+        navigator.clipboard.writeText(chat_url);
+
+        setTooltip($(this), "<%= t('common.copied') %>");
+        hideTooltip($(this));
+    });
+
+    // copy of widget url on share message modal
+    $('button#kt_modal_share_messaging_accordion_embed_input_copy_btn').click(function() {
+        const widget_content = $('div#kt_modal_share_messaging textarea#kt_modal_share_web_widget_accordion_embed_input').val();
+        navigator.clipboard.writeText(widget_content);
+
+        setTooltip($(this), "<%= t('common.copied') %>");
+        hideTooltip($(this));
+    });
+
+    $('a[href="#kt_modal_test_phone"]').click(function(e) {
+        const phone_number = $(this).data('phone');
+        const client_phone = $(this).data('client-phone');
+
+        if ($(this).data('has-dedicated-phone') == 'yes') {
+            const content = "<%= raw t('services.test_phone_modal.content2', phone_number: 'XYZ') %>";
+            $('div#kt_modal_test_phone div.modal-footer a.cancel_button').hide();
+            $('div#kt_modal_test_phone div.modal-footer a.close_button').show();
+            $('div#kt_modal_test_phone div.modal-footer div').removeClass('d-flex');
+            $('div#kt_modal_test_phone div.modal-footer div').hide();
+            $('div#kt_modal_test_phone div.modal-body').html(content.split('XYZ').join(phone_number));
+        }
+        else {
+            let content = "<%= raw t('services.test_phone_modal.content1', phone_number: 'XYZ', client_number: 'ZYX') %>";
+            $('div#kt_modal_test_phone div.modal-footer a.cancel_button').show();
+            $('div#kt_modal_test_phone div.modal-footer a.close_button').hide();
+            $('div#kt_modal_test_phone div.modal-footer div').addClass('d-flex');
+            content = content.split('XYZ').join(phone_number);
+            content = content.split('ZYX').join(client_phone);
+            $('div#kt_modal_test_phone div.modal-body').html(content);
+        }
+
+    })
+
+    $('a[href="#kt_modal_upgrade_preview"]').click(function(e) {
+        const phone_number = $(this).data('phone');
+        const client_phone = $(this).data('client-phone');
+        let content = "<%= raw t('services.test_phone_modal.content3', phone_number: 'XYZ', client_number: 'ZYX') %>";
+        content = content.split('XYZ').join(phone_number);
+        content = content.split('ZYX').join(client_phone);
+        $('div#kt_modal_upgrade_preview div.modal-body').html(content);
+    })
+
+    $('#phone_no_address_cancel').click(function() {
+        $('#kt_modal_buy_number').modal('show');
+        $('#review_phone_number_no_address').modal('hide');
+    });
+
+    $('#phone_address_cancel').click(function() {
+        $('#kt_modal_buy_number').modal('show');
+        $('#review_phone_number_address').modal('hide');
+    });
+
+    $('#phone_no_address_buy').click(function() {
+        $('div.loader-body').show();
+        $.ajax({
+            url: "<%= buy_no_address_number_services_path %>",
+            type: "POST",
+            data: {
+                ivr_id: $('input#phone_number_ivr_id').val(),
+                phone_number: $('#phone_number_value').text(),
+                phone_price: $('input[name=phone_price]').val(),
+                voice: !$('#phone_capabilities_voice').hasClass('d-none'),
+                sms: !$('#phone_capabilities_sms').hasClass('d-none'),
+                phone_type: $('#phone_type').val()
+            },
+            success: function(response) {
+                $('div.loader-body').hide();
+                showMessage(response.result, response.message);
+                if (response.result == 'success') {
+                    $('#review_phone_number_no_address').modal('hide');
+                    window.location.reload();
+                }
+            },
+            error: function(error) {
+                $('div.loader-body').hide();
+                showMessage('error', error.responseJSON.message);
+            }
+        });
+    });
+
+    $('#phone_address_buy').click(function() {
+        $('div.loader-body').show();
+        $.ajax({
+            method: 'post',
+            url: "<%= order_number_services_path %>",
+            data: {
+                ivr_id: $('#ivr_id').val(),
+                phone_business: $('#phone4busin').is(':checked'),
+                phone_individual: $('#phone4indi').is(':checked'),
+                business_name: $('#business_name').val(),
+                business_number: $('#business_number').val(),
+                business_first_name: $('#business_first_name').val(),
+                business_last_name: $('#business_last_name').val(),
+                business_address: $('#business_address').val(),
+                individual_first_name: $('#individual_first_name').val(),
+                individual_last_name: $('#individual_last_name').val(),
+                number: $('.phone_number').eq(0).text()
+            },
+            success: function(response) {
+                $('div.loader-body').hide();
+                $('#review_phone_number_address').modal('hide');
+                showMessage(response.result, response.message);
+            }
+        })
+    });
+
+    $('#get_numbers').click(function() {
+        get_members();
+    });
+
+    $('#reset_filter').click(function() {
+        $('#kt_docs_select2_country').val('US');
+        $("#capabilities_voice").prop('checked', true);
+        $("#capabilities_sms").prop('checked', true);
+        $("#type_local").prop('checked', true);
+        $("#type_mobile").prop('checked', false);
+        $("#type_toll_free").prop('checked', false);
+        get_members();
+    });
+
+    $('a.order_phone_number').click(function() {
+        $('div.loader-body').show();
+        $('input#phone_number_ivr_id').val($(this).attr('data-ivr-id'));
+        $.ajax({
+            url: "<%= get_phone_countries_services_path %>",
+            type: "POST",
+            data: { },
+            success: function(response) {
+                $('div.loader-body').hide();
+                if (response.result == 'success') {
+                    $('select#kt_docs_select2_country').select2({
+                        data: response.countries,
+                        sorter: data => data.sort((a,b) => a.text.toLowerCase() > b.text.toLowerCase() ? 0 : -1)
+                    });
+
+                    get_members();
+                }
+                else showMessage(response.result, response.message)
+
+            }
+        })
+
+    });
+
+    $('select#kt_docs_select2_country').on('select2:open', function() {
+        setZIndex();
+    })
+
+    function setZIndex() {
+        const z_index = parseInt($('div#kt_modal_buy_number').css('z-index'));
+        $('span.select2-container span.select2-dropdown.select2-dropdown--above').css('z-index', z_index + 1);
+        $('span.select2-container span.select2-dropdown.select2-dropdown--below').css('z-index', z_index + 1);
+    }
+
+    function get_members() {
+        $('div.loader-body').show();
+        $.ajax({
+            url: "<%= number_list_services_path %>",
+            type: "POST",
+            data: {
+                country_code: $('#kt_docs_select2_country').val(),
+                country_label: document.getElementById('kt_docs_select2_country').options[document.getElementById('kt_docs_select2_country').selectedIndex].innerHTML,
+                voice: $('#capabilities_voice').is(':checked'),
+                sms: $('#capabilities_sms').is(':checked'),
+                local: $('#type_local').is(':checked'),
+                mobile: $('#type_mobile').is(':checked'),
+                toll_free: $('#type_toll_free').is(':checked')
+            },
+            success: function(response){
+                $('div.loader-body').hide();
+                if ( $.fn.dataTable.isDataTable( '#kt_datatable_numbers' ) ) {
+                    phone_number_table.destroy();
+                }
+                $('#kt_datatable_numbers').html(`
+                      <thead>
+                        <tr class="text-start text-uppercase gs-0">
+                          <th class="align-top"><%= t('services.buy_number_modal.number') %></th>
+                          <th class="align-top"><%= t('services.buy_number_modal.type') %></th>
+                          <th class="align-top"><%= t('services.buy_number_modal.capabilities') %></th>
+                          <th class="align-top"><%= t('services.buy_number_modal.address_requirement') %></th>
+                          <th class="align-top"><%= t('services.buy_number_modal.monthly_fee') %></th>
+                          <th class="align-top text-end disable-searching"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+
+                      </tbody>
+                    `);
+
+                $('#kt_datatable_numbers thead tr')
+                    .clone(true)
+                    .addClass('filters')
+                    .appendTo('#kt_datatable_numbers thead');
+                $('.disable-searching').eq(1).addClass('d-none');
+
+                if (response.success) {
+                    let content = '';
+
+                    for (let i = 0; i < response.numbers.length; i++) {
+                        const voice = response.numbers[i].capabilities.voice ? `<i class="bi bi-telephone text-inherit me-4 me-lg-8" data-bs-toggle="tooltip" data-bs-placement="top" title="Voice"></i>` : ``;
+                        const sms = response.numbers[i].capabilities.SMS ? `<i class="bi bi-chat-left text-inherit me-4 me-lg-8" data-bs-toggle="tooltip" data-bs-placement="top" title="SMS"></i>` : ``;
+
+                        content += `
+                          <tr>
+                            <td>
+                              <span class="text-dark">` + response.numbers[i].phone_number + `</span>
+                              <div class="small text-muted">` + response.numbers[i].country_label + `</div>
+                            </td>
+                            <td><span class="badge badge-light text-capitalize">` + response.numbers[i].type + `</span></td>
+                            <td>` + voice + sms +
+                            `</td>
+                            <td class="text-capitalize">` + response.numbers[i].address_requirements + `</td>
+                            <td><span class="text-dark">$` + response.numbers[i].phone_price + `</span></td>
+                            <td><a class="btn btn-sm btn-light-primary show_buy_modal" href="javascript:;"` +
+                              ` phone-number=` + response.numbers[i].phone_number.replace(' ', '_') +
+                              ` phone-price=` + response.numbers[i].phone_price +
+                              ` phone-address-requirements=` + response.numbers[i].address_requirements +
+                              ` phone-capabilities-voice=` + response.numbers[i].capabilities.voice +
+                              ` phone-capabilities-sms=` + response.numbers[i].capabilities.SMS +
+                              ` phone-type=` + response.numbers[i].type + `><%= t('services.buy_number_modal.buy') %></a></td>
+                          </tr>
+                        `;
+                    }
+                    $('#kt_datatable_numbers tbody').html(content);
+
+                    $('.show_buy_modal').click(function() {
+                        const phone_number = $(this).attr('phone-number');
+                        const phone_price = $(this).attr('phone-price');
+                        const phone_type = $(this).attr('phone-type');
+                        const phone_address_requirements = $(this).attr('phone-address-requirements');
+                        const phone_capabilities_voice = $(this).attr('phone-capabilities-voice');
+                        const phone_capabilities_sms = $(this).attr('phone-capabilities-sms');
+
+                        $('.phone_number').text(phone_number.replace('_', ' '));
+                        $('.phone_price').text('$' + phone_price);
+                        $('input[name=phone_price]').val(phone_price);
+                        $('.phone_capabilities').removeClass('d-none');
+                        if (phone_capabilities_voice !== 'true') $('.phone_capabilities_voice').addClass('d-none');
+                        if (phone_capabilities_sms !== 'true') $('.phone_capabilities_sms').addClass('d-none');
+
+                        if (phone_address_requirements == 'none') {
+                            $('#phone_type').val(phone_type);
+                            $('#review_phone_number_no_address').modal('show');
+                        } else {
+                            $('#review_phone_number_address').modal('show');
+
+                            stepper.goFirst();
+
+                            stepper.on("kt.stepper.next", function (stepper) {
+                                const phone4busin = $('#phone4busin').is(':checked');
+                                const phone4indi = $('#phone4indi').is(':checked');
+                                const business_name = $('#business_name').val();
+                                const business_number = $('#business_number').val();
+                                const business_first_name = $('#business_first_name').val();
+                                const business_last_name = $('#business_last_name').val();
+                                const business_address = $('#business_address').val();
+                                const individual_first_name = $('#individual_first_name').val();
+                                const individual_last_name = $('#individual_last_name').val();
+                                const possibleNext = phone4busin && business_name !== '' && business_number !== '' && business_first_name !== '' && business_last_name !== '' && business_address !== '' || phone4indi && individual_first_name !== '' && individual_last_name !== '';
+
+                                if (stepper.passedStepIndex !== 1 || stepper.passedStepIndex == 1 && possibleNext) {
+                                    stepper.goNext();
+                                }
+                            });
+
+                            stepper.on("kt.stepper.previous", function (stepper) {
+                                stepper.goPrevious();
+                            });
+
+                            $('.js-who-will-use').each(function() {
+                                $(this).on('change', function() {
+                                    if ($(this).is(':checked')) {
+                                        if ($(this).attr('value') == 'phone4busin_info') {
+                                            $('#phone4busin_info').slideDown();
+                                            $('#phone4indi_info').slideUp();
+                                        }
+                                        if ($(this).attr('value') == 'phone4indi_info') {
+                                            $('#phone4busin_info').slideUp();
+                                            $('#phone4indi_info').slideDown();
+                                        }
+                                    }
+                                });
+                            });
+                        }
+
+                        $('#kt_modal_buy_number').modal('hide');
+                    });
+
+                    $('#kt_modal_buy_number').modal('show');
+
+                    phone_number_table = $('#kt_datatable_numbers').DataTable({
+                        orderCellsTop: true,
+                        fixedHeader: true,
+                        pageLength: 5,
+                        lengthChange: true,
+                        "columnDefs": [{
+                            "targets": 2,
+                            "orderable": false
+                        },
+                        {
+                            "targets": 5,
+                            "orderable": false
+                        }],
+                        initComplete: function () {
+                            var api = this.api();
+
+                            // For each column
+                            api
+                                .columns()
+                                .eq(0)
+                                .each(function (colIdx) {
+                                    // Set the header cell to contain the input element
+                                    var cell = $('.filters th').eq(
+                                        $(api.column(colIdx).header()).index()
+                                    );
+                                    var title = $(cell).text();
+                                    $(cell).html('<input type="text" class="form-control form-control-solid form-control-sm" placeholder="' + title + '" />');
+
+                                    // On every keypress in this input
+                                    $(
+                                        'input',
+                                        $('.filters th').eq($(api.column(colIdx).header()).index())
+                                    )
+                                        .off('keyup change')
+                                        .on('change', function (e) {
+                                            // Get the search value
+                                            $(this).attr('title', $(this).val());
+                                            var regexr = '({search})'; //$(this).parents('th').find('select').val();
+
+                                            var cursorPosition = this.selectionStart;
+                                            // Search the column for that value
+                                            api
+                                                .column(colIdx)
+                                                .search(
+                                                    this.value != ''
+                                                        ? regexr.replace('{search}', '(((' + this.value + ')))')
+                                                        : '',
+                                                    this.value != '',
+                                                    this.value == ''
+                                                )
+                                                .draw();
+                                        })
+                                        .on('keyup', function (e) {
+                                            e.stopPropagation();
+
+                                            $(this).trigger('change');
+                                            $(this)
+                                                .focus()[0]
+                                                .setSelectionRange(cursorPosition, cursorPosition);
+                                        });
+                                });
+                        },
+                    });
+
+                    let datatable_numbers_length_obj = $("select[name*='kt_datatable_numbers_length']");
+                    let datatable_numbers_info_obj = $('#kt_datatable_numbers_info');
+                    datatable_numbers_length_obj.addClass('numbers_length');
+                    datatable_numbers_info_obj.before(datatable_numbers_length_obj);
+                    $('#kt_datatable_numbers_wrapper .row').eq(0).addClass('d-none');
+                    $('#kt_datatable_numbers_wrapper .row').eq(2).find('.col-sm-12').eq(0).addClass('d-flex pt-2');
+                } else {
+                    showMessage('error', response.message);
+                }
+            },
+            error: function(error) {
+                $('div.loader-body').hide();
+                console.log(error);
+            }
+        });
+    }
+
+    function turn_onoff_service(service_id, ivr_id, obj, checked) {
+        $('div.loader-body').show();
+        $.ajax({
+            url: '/services/' + service_id + '/toggle_enabled',
+            type: 'PUT',
+            dataType: 'JSON',
+            data: { ivr_id: ivr_id },
+            success: function(response){
+                if (response.result == 'success') window.location.reload();
+                else {
+                    Swal.fire({
+                        html: response.message,
+                        icon: response.result,
+                        showCancelButton: true,
+                        buttonsStyling: false,
+                        confirmButtonText: "<%= t('button.close') %>",
+                        customClass: {
+                            confirmButton: "btn btn-primary"
+                        }
+                    });
+                    // showMessage(response.result, response.message);
+                    $(obj).prop('checked', checked);
+                    $('div.loader-body').hide();
+                }
+            },
+            error: function() {
+                console.log('error');
+                $('div.loader-body').hide();
+                $(obj).prop('checked', checked);
+            }
+        });
+    }
+
+    function setTooltip(btn, message) {
+        if (!btn.hasClass('tooltipped')) btn.addClass('tooltipped');
+        if (!btn.hasClass('tooltipped-s')) btn.addClass('tooltipped-s');
+        btn.attr('aria-label', message)
+    }
+
+    function hideTooltip(btn) {
+        setTimeout(function () {
+            if (btn.hasClass('tooltipped')) btn.removeClass('tooltipped');
+            if (btn.hasClass('tooltipped-s')) btn.removeClass('tooltipped-s');
+        }, 1000);
+    }
+
+    function setPhoneTypeOfIvr(ivr_id, type) {
+        $.ajax({
+            method: 'post',
+            url: "<%= set_phone_type_of_ivr_services_path %>",
+            data: {
+                ivr_id: ivr_id,
+                phone_type: type
+            },
+            success: function(response) {
+                if (type == 'ivr') {
+                    // show phone toggle of each card
+                    $('div.ivrs[data-ivr-id=' + ivr_id + ']').find('div.toggle-web-assistant-section').removeClass('d-none');
+                }
+
+                if (type == 'ai') {
+                    // hidden phone toggle of each card
+                    $('div.ivrs[data-ivr-id=' + ivr_id + ']').find('div.toggle-web-assistant-section').addClass('d-none');
+                }
+                if (response.result == 'error') showMessage(response.result, response.message);
+            }
+        })
+    }
+
+    // if phone:ivr is active and at least one service has Phone toggle disabled in card, show filter (All/Phone)
+    function setVisiblePhoneFilter() {
+        $.each($('div.ivrs'), function (index, ivr_obj) {
+            if ($('input#user_membership').val() != 'free' && $(ivr_obj).data('has-dedicated-phone') == 'yes' && $(ivr_obj).data('ai-phone-type') == false) {
+                const card_count = $(ivr_obj).find('div.row.draggable-zone').find('div.draggable').length;
+                const phone_card_count = $(ivr_obj).find('div.row.draggable-zone').find('div.draggable[data-category=phone]').length;
+
+                if (phone_card_count > 0 && phone_card_count < card_count) {
+                    $($(ivr_obj).find('div.col-auto.phone_filter')[0]).removeClass('d-none');
+                }
+                else {
+                    $($(ivr_obj).find('div.col-auto.phone_filter')[0]).addClass('d-none');
+                }
+            }
+            else $($(ivr_obj).find('div.col-auto.phone_filter')[0]).addClass('d-none');
+        });
+    }
+
+    function filterCategory(parentEl, filterEl, categoryEl) {
+        const $filters = document.querySelectorAll(filterEl);
+
+        $filters.forEach(el => {
+            el.addEventListener('click', function () {
+                const category = el.dataset.filter;
+                const $items = document.querySelectorAll(categoryEl);
+                let $itemsHide;
+                let $itemsShow;
+
+                $filters.forEach(elI => {
+                    elI.classList.remove('active');
+                });
+
+                el.classList.add('active');
+
+                // Hide/Show Items
+                let cards = [];
+                if (category === 'all') {
+                    $items.forEach(elI => {
+                        elI.style.display = 'block';
+                        cards.push(elI);
+                    });
+
+                    let swap = '';
+                    for (let i = 0; i < cards.length - 1; i ++) {
+                        for (let k = i + 1; k < cards.length; k ++) {
+                            const service_order_id1 = $(cards[i]).attr('data-service-order-id');
+                            const service_order_id2 = $(cards[k]).attr('data-service-order-id');
+                            if ( service_order_id1 > service_order_id2) {
+                                swap = cards[i];
+                                cards[i] = cards[k];
+                                cards[k] = swap;
+                            }
+                        }
+                    }
+
+                    let content = '';
+                    cards.forEach(card => {
+                        content += card.outerHTML;
+                    })
+                    content += $(parentEl).find('div.row.draggable-zone').find('div.new_event')[0].outerHTML;
+                    $(parentEl).find('div.row.draggable-zone').html(content);
+
+                    KTMenu.createInstances();
+                    return false;
+                }
+
+                $itemsHide = [...$items].filter(elI => !elI.dataset.category.includes(category));
+                $itemsShow = [...$items].filter(elI => elI.dataset.category.includes(category));
+
+                $itemsShow.forEach(elI => {
+                    elI.style.display = 'block';
+                    cards.push(elI);
+                });
+
+                let swap = '';
+                for (let i = 0; i < cards.length - 1; i ++) {
+                    for (let k = i + 1; k < cards.length; k ++) {
+                        const phone_service_order_id1 = $(cards[i]).attr('data-phone-service-order-id');
+                        const phone_service_order_id2 = $(cards[k]).attr('data-phone-service-order-id');
+                        if ( phone_service_order_id1 > phone_service_order_id2) {
+                            swap = cards[i];
+                            cards[i] = cards[k];
+                            cards[k] = swap;
+                        }
+                    }
+                }
+                $itemsHide.forEach(elI => {
+                    elI.style.display = 'none';
+                    cards.push(elI);
+                });
+
+                let content = '';
+                cards.forEach(card => {
+                    content += card.outerHTML;
+                })
+                content += $(parentEl).find('div.row.draggable-zone').find('div.new_event')[0].outerHTML;
+                $(parentEl).find('div.row.draggable-zone').html(content);
+                KTMenu.createInstances();
+            });
+        });
+    }
+</script>
+<!--end::Page Custom Javascript-->
+

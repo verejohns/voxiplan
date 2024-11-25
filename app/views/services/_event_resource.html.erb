@@ -1,0 +1,270 @@
+<!--begin::Wrapper-->
+<div class="w-100">
+  <div class="row resource-list" id="resource-list">
+    <% resources.each do |resource| %>
+      <%= render 'services/event_resource_card', resource: resource, service: service %>
+    <% end %>
+
+    <div class="col-md-6 col-lg-3 mb-6 new_resource_card">
+      <a href="javascript:;" id="add_resource" class="add_resource d-flex flex-center h-md-100 text-primary text-hover-white bg-light bg-hover-primary rounded"
+          data-bs-toggle="modal" onclick="newResource()" resources="<%= resources.length() %>">
+        <div class="text-center">
+          <i class="bi bi-plus-lg text-inherit fs-1"></i>
+          <div class="fw-bold fs-6 text-inherit mt-2"><%= t('services.resources.add_resource') %></div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div id="kt_accordion_03">
+      <a href="javascript:;" class="fw-bold text-decoration-underline" data-bs-toggle="collapse" data-bs-target="#kt_accordion_03_item_01">
+        <%= t('services.resources.advance_settings') %>
+        <i class="fas fa-angle-right text-primary mt-1 ps-1"></i>
+      </a>
+      <div id="kt_accordion_03_item_01" class="collapse pt-4" data-bs-parent="#kt_accordion_03">
+        <div class="fv-row">
+          <div class="mb-2">
+            <label class="form-label fs-6 text-dark">
+              <%= t('services.resources.resource_distribution_strategy') %>
+              <span><i class="las la-question-circle text-dark fs-3 pt-1 ms-1" title="<%= t('services.resources.resource_distribution_strategy_tooltip') %>" data-bs-html="true" data-bs-toggle="tooltip"></i></span>
+            </label>
+          </div>
+
+          <div><label class="form-label fs-7"><%= t('services.resources.individual_resource') %></label></div>
+          <label class="d-flex flex-stack mb-5 cursor-pointer">
+            <span class="d-flex align-items-center me-2">
+                <span class="form-check form-check-custom form-check-solid me-5">
+                  <input class="form-check-input single_resource" type="radio" name="resource_distribution" value="one"
+                         <%= 'disabled' if @selected_dependent.size > 1 %> <%= 'checked' if @selected_dependent.size == 1 %> />
+                </span>
+
+                <span class="d-flex flex-column">
+                    <span class="fs-6 single_resource_label <%= 'text-muted' if @selected_dependent.size > 1 %>"><%= t('services.resources.distribution_one') %></span>
+                    <span class="fs-7 text-muted"><%= t('services.resources.distribution_one_help') %></span>
+                </span>
+						</span>
+          </label>
+
+          <div><label class="form-label fs-7"><%= t('services.resources.multi_resources') %></label></div>
+          <label class="d-flex flex-stack mb-5 cursor-pointer">
+            <span class="d-flex align-items-center me-2">
+                <span class="form-check form-check-custom form-check-solid me-5">
+                  <input class="form-check-input multi_resource" type="radio" name="resource_distribution" value="invitee"
+                     <%= 'disabled' if @selected_dependent.size == 1 || @present_order != 'serviceFirst' %> <%= 'checked' if @service.resource_distribution == 'invitee' %> />
+                </span>
+
+                <span class="d-flex flex-column">
+                    <span class="fs-6 multi_resource_label <%= 'text-muted' if @selected_dependent.size == 1 || @present_order != 'serviceFirst' %>"><%= t('services.resources.distribution_invitee') %></span>
+                    <span class="fs-7 text-muted"><%= t('services.resources.distribution_invitee_help') %></span>
+                    <span class="fs-7 text-muted fst-italic fw-normal text-danger"><%= raw t('services.resources.setting_help1') %></span>
+                </span>
+						</span>
+          </label>
+
+          <label class="d-flex flex-stack mb-5 cursor-pointer">
+            <span class="d-flex align-items-center me-2">
+                <span class="form-check form-check-custom form-check-solid me-5">
+                  <input class="form-check-input multi_resource" type="radio" name="resource_distribution" value="random"
+                         <%= 'disabled' if @selected_dependent.size == 1 || @present_order == 'resourceFirst' %> <%= 'checked' if @service.resource_distribution == 'random' %> />
+                </span>
+
+                <span class="d-flex flex-column">
+                    <span class="fs-6 multi_resource_label <%= 'text-muted' if @selected_dependent.size == 1 || @present_order == 'resourceFirst' %>"><%= t('services.resources.distribution_random') %></span>
+                    <span class="fs-7 text-muted"><%= t('services.resources.distribution_random_help') %></span>
+                    <span class="fs-7 text-muted fst-italic fw-normal"><%= raw t('services.resources.setting_help2') %></span>
+                </span>
+						</span>
+          </label>
+
+          <label class="d-flex flex-stack mb-5 cursor-pointer">
+            <span class="d-flex align-items-center me-2">
+                <span class="form-check form-check-custom form-check-solid me-5">
+                  <input class="form-check-input multi_resource" type="radio" name="resource_distribution" value="collective"
+                         <%= 'disabled' if @selected_dependent.size == 1 || @present_order == 'resourceFirst' %> <%= 'checked' if @service.resource_distribution == 'collective' %> />
+                </span>
+
+                <span class="d-flex flex-column">
+                    <span class="fs-6 multi_resource_label <%= 'text-muted' if @selected_dependent.size == 1 || @present_order == 'resourceFirst' %>"><%= t('services.resources.distribution_collective') %></span>
+                    <span class="fs-7 text-muted"><%= t('services.resources.distribution_collective_help') %></span>
+                    <span class="fs-7 text-muted fst-italic fw-normal"><%= raw t('services.resources.setting_help2') %></span>
+                </span>
+						</span>
+          </label>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end::Wrapper-->
+
+<div class="modal fade" id="kt_modal_upgrade_seats" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered mw-500px">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('services.upgrade_seats_modal.title') %></h5>
+
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+                  <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
+                  <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                        x="0" y="7" width="16" height="2" rx="1"/>
+                </g>
+              </svg>
+            </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+
+      <div class="modal-body">
+        <%= t('services.upgrade_seats_modal.current_plan') %>
+        <br />
+        <%= t('services.upgrade_seats_modal.to_upgrade') %>
+        <br />
+        <br />
+        <%= t('services.upgrade_seats_modal.to_change') %>
+      </div>
+
+      <div class="modal-footer justify-content-between">
+        <div>
+          <button type="button" class="btn btn-primary turn_on_service" toggle_resource_id="" id="change_resource_enable">
+            <span class="indicator-label"><%= t('services.upgrade_seats_modal.change_button') %></span>
+            <span class="indicator-progress"><%=t('common.please_wait') %>
+              <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+              </span>
+          </button>
+        </div>
+        <div>
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal"><%= raw t('services.upgrade_seats_modal.cancel_button') %></button>
+          <a class="btn btn-primary" href="<%= billing_client_path(current_client.id) %>"><%= raw t('services.upgrade_seats_modal.upgrade_button') %></a>
+        </div>
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+<!--end::Upgrade Plan-->
+
+<%= render '/modal/update_plan' %>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.add_resource').on('click', function() {
+            $('#kt_modal_add_new_resource').modal('show');
+        });
+
+        $('#change_resource_enable').click(function() {
+            $.ajax({
+                url: '/resources/' + $(this).attr("toggle_resource_id") + '/change_enabled',
+                type: 'POST',
+                data: {
+                    service_id: $('input[name=current_service_id]').val()
+                },
+                success: function(response){
+                    showMessage(response.result, response.message);
+                    window.location.href = '/services/edit_event/<%=params[:id] %>'
+                },
+                error: function(){
+                    console.log('error')
+                }
+            });
+        });
+
+        (function () {
+            const $whenCanPeopleBookThisEventControls = document.querySelectorAll('[name="resource_availability_type"]');
+            const $whenCanPeopleBookThisEvent0201Control = document.querySelector('#resource_availability_default');
+            const $whenCanPeopleBookThisEvent0201Content = document.querySelector('#resource_availability_default_content');
+            const whenCanPeopleBookThisEvent0201Content = new bootstrap.Collapse($whenCanPeopleBookThisEvent0201Content, {
+                toggle: false
+            });
+            const $whenCanPeopleBookThisEvent0202Control = document.querySelector('#resource_availability_customize');
+            const $whenCanPeopleBookThisEvent0202Content = document.querySelector('#resource_availability_customize_content');
+            const whenCanPeopleBookThisEvent0202Content = new bootstrap.Collapse($whenCanPeopleBookThisEvent0202Content, {
+                toggle: false
+            });
+
+            $whenCanPeopleBookThisEventControls.forEach(el => {
+                el.addEventListener('change', function () {
+                    showReosourceHours();
+                });
+            });
+
+            function showReosourceHours() {
+                if ($whenCanPeopleBookThisEvent0201Control.checked) {
+                    whenCanPeopleBookThisEvent0201Content.show();
+                    whenCanPeopleBookThisEvent0202Content.hide();
+                    $('input#resource_availability_category').val('default');
+                } else if ($whenCanPeopleBookThisEvent0202Control.checked) {
+                    whenCanPeopleBookThisEvent0202Content.show();
+                    whenCanPeopleBookThisEvent0201Content.hide();
+                    $('input#resource_availability_category').val('customize');
+                } else {
+                    whenCanPeopleBookThisEvent0201Content.hide();
+                    whenCanPeopleBookThisEvent0202Content.hide();
+                    $('input#resource_availability_category').val('');
+                }
+            }
+            showReosourceHours();
+        })();
+
+        (function () {
+            const $syncedCalendarControl = document.querySelector('#kt_option_my_calendar');
+
+            const $syncedCalendarContent = document.querySelector('#kt_option_content_my_calendar');
+            const syncedCalendarContent = new bootstrap.Collapse($syncedCalendarContent, {
+                toggle: false
+            });
+
+            const $teamMembersCalendarContent = document.querySelector('#kt_option_content_team_members_calendar');
+            const teamMembersCalendarContent = new bootstrap.Collapse($teamMembersCalendarContent, {
+                toggle: false
+            });
+
+            $($syncedCalendarControl).on('change', function () {
+                const elVal = $(this).val();
+
+                if (elVal === 'my_calendar') {
+                    teamMembersCalendarContent.hide();
+                    syncedCalendarContent.show();
+                } else if (elVal === 'team_calendar') {
+                    syncedCalendarContent.hide();
+                    teamMembersCalendarContent.show();
+                } else {
+                    syncedCalendarContent.hide();
+                    teamMembersCalendarContent.hide();
+                }
+            });
+        })();
+
+        (function () {
+            const $setACustomConfigurationControls = $('[name="resource_calendar_type"]');
+            const $setACustomConfigurationControl = document.querySelector('#kt_checkbox_set_a_custom_configuration');
+            const $setACustomConfigurationContent = document.querySelector('#kt_checkbox_content_set_a_custom_configuration');
+            const setACustomConfigurationContent = new bootstrap.Collapse($setACustomConfigurationContent, {
+                toggle: false
+            });
+
+            $setACustomConfigurationControls.on('change', function () {
+                if ($setACustomConfigurationControl.checked) {
+                    setACustomConfigurationContent.show();
+                    $('input#my_calendar_type').val('customize');
+                } else {
+                    setACustomConfigurationContent.hide();
+                    $('input#my_calendar_type').val('default');
+                }
+            });
+        })();
+
+    });
+
+
+</script>

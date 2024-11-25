@@ -1,0 +1,301 @@
+<div class="toolbar" id="kt_toolbar">
+  <!--begin::Container-->
+  <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+    <div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
+         class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
+      <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3"><%= t('nav_menu.availability') %></h1>
+    </div>
+    <div class="d-flex align-items-center py-1"></div>
+  </div>
+</div>
+<div class="post d-flex flex-column-fluid" id="kt_post">
+  <!--begin::Container-->
+  <div id="kt_content_container" class="container-fluid">
+
+    <form class="form" action="<%= save_availability_availablities_path %>" method="post" id="kt_availability_form">
+    <input type="hidden" name="schedule_id" id="schedule_id" value="<%= params[:id] %>"/>
+    <div class="card mb-0">
+      <div class="card-header">
+        <div class="card-toolbar">
+          <%= select_tag :schedule_templates, options_for_select(@schedule_templates.map {|s| [s.is_default ? '* ' + s.template_name : s.template_name, s.id] }, @selected_schedule.id), class: "form-select form-select-sm w-md-200px", data: { control: 'select2', placeholder: "Select an option", 'minimum-results-for-search': 'Infinity' } %>
+        </div>
+        <div class="card-toolbar">
+          <a class="btn btn-sm btn-light-primary" id="new_schedule" href="#kt_modal_new_schedule" data-bs-toggle="modal"><%= t('availabilities.add_new_schedule') %></a>
+          <div class="ms-3">
+            <!--begin::Menu-->
+            <button type="button" class="btn btn-icon btn-sm btn-outline btn-outline-primary btn-color-primary btn-active-color-white"
+                    data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
+              <i class="fas fa-cog fs-4"></i>
+            </button>
+            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-250px py-3 mt-4" data-kt-menu="true">
+              <div class="menu-item px-3"><a id="edit_schedule" href="#kt_modal_new_schedule" data-bs-toggle="modal" class="menu-link px-3">
+                <i class="menu-icon text-hover-inherit fs-4 bi bi-pencil-square"></i><%= t('availabilities.edit_name') %></a>
+              </div>
+              <div class="menu-item px-3"><a id="clone_schedule" href="#" class="menu-link px-3">
+                  <i class="menu-icon text-hover-inherit fs-4 bi bi-files"></i><%= t('availabilities.clone') %></a>
+              </div>
+              <% if @schedule_templates.count > 1 %>
+                  <div class="menu-item px-3"><a id="set_default_schedule" href="#" class="menu-link px-3">
+                      <i class="menu-icon text-hover-inherit fs-4 bi bi-star"></i><%= t('availabilities.set_as_default') %></a>
+                  </div>
+                  <div class="menu-item px-3"><a id="delete_schedule" href="#" class="menu-link px-3">
+                      <i class="menu-icon text-hover-inherit fs-4 bi bi-trash"></i><%= t('button.delete') %></a>
+                  </div>
+              <% end %>
+            </div>
+            <!--end::Menu-->
+          </div>
+        </div>
+      </div>
+      <div class="card-body p-0">
+        <div class="row gx-0">
+          <div class="col-md">
+            <%= render 'shared/availability_week', availability: @availability %>
+          </div>
+          <div class="col-md-auto w-md-350px border-start">
+            <%= render 'shared/availability_date_override', overrides: @overrides %>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer p-5">
+        <div class="d-flex justify-content-end flex-stack">
+          <button type="submit" class="btn btn-outline btn-outline-primary btn-color-primary btn-active-color-white ms-5 " id="save_default_hours">
+            <!--begin::Svg Icon | path: icons/duotone/Navigation/Double-check.svg-->
+            <span class="indicator-label">
+                <span class="svg-icon svg-icon-2x me-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <polygon points="0 0 24 0 24 24 0 24" />
+                                    <path d="M9.26193932,16.6476484 C8.90425297,17.0684559 8.27315905,17.1196257 7.85235158,16.7619393 C7.43154411,16.404253 7.38037434,15.773159 7.73806068,15.3523516 L16.2380607,5.35235158 C16.6013618,4.92493855 17.2451015,4.87991302 17.6643638,5.25259068 L22.1643638,9.25259068 C22.5771466,9.6195087 22.6143273,10.2515811 22.2474093,10.6643638 C21.8804913,11.0771466 21.2484189,11.1143273 20.8356362,10.7474093 L17.0997854,7.42665306 L9.26193932,16.6476484 Z"
+                                          fill="#000000" fill-rule="nonzero" opacity="0.5" transform="translate(14.999995, 11.000002) rotate(-180.000000) translate(-14.999995, -11.000002) " />
+                                    <path d="M4.26193932,17.6476484 C3.90425297,18.0684559 3.27315905,18.1196257 2.85235158,17.7619393 C2.43154411,17.404253 2.38037434,16.773159 2.73806068,16.3523516 L11.2380607,6.35235158 C11.6013618,5.92493855 12.2451015,5.87991302 12.6643638,6.25259068 L17.1643638,10.2525907 C17.5771466,10.6195087 17.6143273,11.2515811 17.2474093,11.6643638 C16.8804913,12.0771466 16.2484189,12.1143273 15.8356362,11.7474093 L12.0997854,8.42665306 L4.26193932,17.6476484 Z"
+                                          fill="#000000" fill-rule="nonzero" transform="translate(9.999995, 12.000002) rotate(-180.000000) translate(-9.999995, -12.000002) " />
+                                  </g>
+                                </svg>
+                              </span>
+                <!--end::Svg Icon-->
+                Save
+            </span>
+            <span class="indicator-progress"><%= t('common.please_wait') %>
+														<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    </form>
+  </div>
+  <!--end::Container-->
+</div>
+
+<div class="modal fade" id="kt_modal_new_schedule" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <form class="form" action="<%= save_schedule_availablities_path %>" method="post" id="kt_modal_new_schedule_form">
+        <input type="hidden" name="schedule_id" id="schedule_id" value="<%= params[:id] %>"/>
+        <input type="hidden" name="user_action" id="user_action"/>
+        <div class="modal-header">
+          <h5 class="modal-title"><%= t('availabilities.new_schedule') %></h5>
+
+          <!--begin::Close-->
+          <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+            <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+            <span class="svg-icon svg-icon-1">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+                  <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
+                  <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                        x="0" y="7" width="16" height="2" rx="1" />
+                </g>
+              </svg>
+            </span>
+            <!--end::Svg Icon-->
+          </div>
+          <!--end::Close-->
+        </div>
+
+        <div class="modal-body">
+          <!--begin::Field-->
+          <div class="fv-row mb-5">
+            <label class="form-label"><%= t('availabilities.schedule_name') %></label>
+            <input type="text" class="form-control" name="template_name" placeholder="<%= t('availabilities.schedule_name_placeholder') %>">
+          </div>
+          <!--end::Field-->
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal"><%= t('button.cancel') %></button>
+          <button type="submit" id="kt_modal_add_template_submit" class="btn btn-primary">
+            <span class="indicator-label"><%= t('button.save') %></span>
+            <span class="indicator-progress"><%= t('common.please_wait') %>
+														<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+          </button>
+        </div>
+      </form>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+
+<%= javascript_include_tag 'availablities', 'data-turbolinks-track' => true %>
+
+<script>
+    $('a#new_schedule').on('click', function() {
+        $('input#user_action').val('new');
+        $('input[name=template_name]').val('');
+        $('div#kt_modal_new_schedule h5.modal-title').html("<%= t('availabilities.new_schedule') %>");
+    })
+
+    $('a#edit_schedule').on('click', function() {
+        $('input#user_action').val('update');
+        $('input[name=template_name]').val($('select#schedule_templates option:selected').text());
+        $('div#kt_modal_new_schedule h5.modal-title').html("<%= t('availabilities.edit_schedule') %>");
+    })
+
+    $('a#clone_schedule').on('click', function() {
+        $.ajax ({
+            url: '<%= clone_schedule_availablities_path() %>',
+            type: 'POST',
+            data: {
+                'schedule_id' : $('input#schedule_id').val()
+            },
+            success: function (response) {
+                showMessage('success', '<%= t('availabilities.cloned_ok') %>');
+                window.location.href = response.redirect_url;
+            }
+        });
+    })
+
+    $('a#set_default_schedule').on('click', function() {
+        $.ajax ({
+            url: '<%= set_as_default_availablities_path() %>',
+            type: 'POST',
+            data: {
+                'schedule_id' : $('input#schedule_id').val()
+            },
+            success: function (response) {
+                showMessage('success', '<%= t('availabilities.default_ok') %>');
+                window.location.reload();
+            }
+        });
+    })
+
+    $('a#delete_schedule').on('click', function() {
+        Swal.fire({
+            text: "<%= t('availabilities.delete_schedule_confirm') %>",
+            icon: "warning",
+            showCancelButton: true,
+            buttonsStyling: false,
+            confirmButtonText: "<%= t('sweetalert.yes_delete') %>",
+            cancelButtonText: "<%= t('sweetalert.no_cancel') %>",
+            customClass: {
+                confirmButton: "btn btn-danger",
+                cancelButton: "btn btn-primary"
+            }
+        }).then((function(t) {
+            if (t.value == true) {
+                $.ajax ({
+                    url: '<%= delete_schedule_availablities_path() %>',
+                    type: 'POST',
+                    data: {
+                        'schedule_id' : $('input#schedule_id').val()
+                    },
+                    success: function (response) {
+                        showMessage('success', '<%= t('availabilities.delete_ok') %>');
+                        window.location.href = response.redirect_url;
+                    }
+                });
+            }
+        }));
+
+    })
+
+    $('select#schedule_templates').on('select2:select', function() {
+        window.location.href = "/availablities/" + $(this).val() + window.location.search;
+    })
+
+    $('button#save_default_hours').on('click', function(e) {
+        e.preventDefault();
+        const submit_button = $(this);
+        submit_button.attr('data-kt-indicator', 'on');
+        submit_button.attr('disabled', 'disabled');
+
+        $('form#kt_availability_form').ajaxSubmit({
+            success: function(response) {
+                submit_button.removeAttr('data-kt-indicator');
+                submit_button.removeAttr('disabled');
+                showMessage('success', '<%= t('common.save_success') %>');
+            }
+        })
+    })
+
+    var KTScheduleDialog = function () {
+        const schedule_modal = document.getElementById('kt_modal_new_schedule');
+        const schedule_modal_form = schedule_modal.querySelector('#kt_modal_new_schedule_form');
+        const modal = new bootstrap.Modal(schedule_modal);
+
+        var initApp = function() {
+            var validator = FormValidation.formValidation(schedule_modal_form, {
+                fields: {
+                    template_name: { validators: { notEmpty: { message: "<%= t('availabilities.required_schedule_name') %>" } }},
+                },
+
+                plugins: {
+                    trigger: new FormValidation.plugins.Trigger,
+                    bootstrap: new FormValidation.plugins.Bootstrap5({
+                        rowSelector: '.fv-row',
+                        eleInvalidClass: '',
+                        eleValidClass: ''
+                    })
+                }
+            });
+
+            const submit_button = schedule_modal.querySelector('[id=kt_modal_add_template_submit]');
+            submit_button.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (validator) {
+                    validator.validate().then(function(status) {
+                        if (status == 'Valid') {
+                            submit_button.setAttribute('data-kt-indicator', 'on');
+                            submit_button.disabled = true;
+                            $('form#kt_modal_new_schedule_form').ajaxSubmit({
+                                success: function(response) {
+                                    if (response.redirect_url == '') {
+                                        modal.hide();
+                                        submit_button.setAttribute('data-kt-indicator', 'off');
+                                        submit_button.disabled = false;
+                                        $('select#schedule_templates option:selected').text($('input[name=template_name]').val());
+                                        $('select#schedule_templates').select2().trigger("change");
+                                    }
+                                    else
+                                        window.location.href = response.redirect_url;
+                                }
+                            })
+                        }
+                        else {
+                            Swal.fire({
+                                text: "<%= t('common.normal_error_text') %>",
+                                icon: "error",
+                                buttonsStyling: false,
+                                confirmButtonText: "<%= t('sweetalert.ok_got_it') %>",
+                                customClass: { confirmButton: "btn btn-primary" }
+                            });
+                        }
+                    })
+                }
+            })
+        }
+        return {
+            init: function () {
+                initApp();
+            }
+        };
+    }();
+
+    KTUtil.onDOMContentLoaded(function () {
+        KTScheduleDialog.init();
+    });
+
+</script>

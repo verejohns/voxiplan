@@ -1,0 +1,122 @@
+[
+  {
+    "id": 136,
+    "email": "contact+devde@voxiplan.com",
+    "phone": "491622684873",
+    "encrypted_password": "$2a$11$Ao2MMbRjQERihC/PSGCZ8.eH27WI2u9GNBGilgs6mJACluCsh.8sK",
+    "first_name": "Fielmann",
+    "last_name": "Kiel",
+    "company": null,
+    "preferred_locale": "en"
+  },
+  {
+    "id": 128,
+    "email": "contact+devfr@voxiplan.com",
+    "phone": "32484605314",
+    "encrypted_password": "$2a$11$0nIODKV6NaFJRO2t3fLJaOO75MVMrXQtLiXTVq97r6VWJUNiFBw8y",
+    "first_name": "Axel",
+    "last_name": "FR",
+    "company": "",
+    "preferred_locale": "en"
+  },
+  {
+    "id": 117,
+    "email": "usamanawazfrt@gmail.com",
+    "phone": "32484605311",
+    "encrypted_password": "$2a$11$4GvUDpYE4eFS9fYEfPExXu1utsMQl9ib90LwIzm7hY5bQ7FMFGSu2",
+    "first_name": "Voxiplan",
+    "last_name": "SPRL",
+    "company": "Voxiplan SPRL",
+    "preferred_locale": "en"
+  },
+  {
+    "id": 182,
+    "email": "johann@johannburkard.de",
+    "phone": "491622675863",
+    "encrypted_password": "$2a$11$.MllVYQOnXV6ucmfdPQNU.pos/aKep5H.v/pSouVWh1nZqddYbtkG",
+    "first_name": "Johann",
+    "last_name": "Burkard",
+    "company": null,
+    "preferred_locale": "de"
+  },
+  {
+    "id": 185,
+    "email": "mister.uz@gmail.com",
+    "phone": "447765626195",
+    "encrypted_password": "$2a$11$8L5JjigKaq5oyGlDde2ZCeIllpu.TcCpwKeZdu4RnnVIo1GNmYwKe",
+    "first_name": "Timur",
+    "last_name": "Ganiyev",
+    "company": null,
+    "preferred_locale": "en"
+  },
+  {
+    "id": 134,
+    "email": "contact+marinameyer@voxiplan.com",
+    "phone": "32492405286",
+    "encrypted_password": "$2a$11$KYID0DZOzOKC6G4eW7gbfOET3V.EeiNYc2LrLJpDccYo2yaj.fQCu",
+    "first_name": "Marina",
+    "last_name": "Meyer",
+    "company": "",
+    "preferred_locale": "en"
+  },
+  {
+    "id": 124,
+    "email": "contact+dev@voxiplan.com",
+    "phone": "32484605312",
+    "encrypted_password": "$2a$11$NqRiGmVcCnjvfEKpfLra2O.kT0sbZfK9eUp6P8IwekCLXdK8KzQX6",
+    "first_name": "Axel",
+    "last_name": "EN",
+    "company": "Voxiplan",
+    "preferred_locale": "en"
+  },
+  {
+    "id": 2,
+    "email": "admin@voxiplan.com",
+    "phone": "3228084080",
+    "encrypted_password": "$2a$11$h8ZinV.ml66jtvb2CGm0seM8YLXCRNofsWKmrvvyIkquKT8jA7QDy",
+    "first_name": "Admin",
+    "last_name": "Voxiplan",
+    "company": "Voxiplan",
+    "preferred_locale": "en"
+  },
+  {
+    "id": 218,
+    "email": "nikolamrzljak@yahoo.com",
+    "phone": "0989369817",
+    "encrypted_password": "$2a$11$5YrRF0Gy9gzzbB05B3oETusp2/pfeBxwWy9awjB9fnWyd1uzgcl.u",
+    "first_name": "Nikola",
+    "last_name": "Mrzljak",
+    "company": "",
+    "preferred_locale": "en"
+  },
+  {
+    "id": 219,
+    "email": "axel+test@voxiplan.com",
+    "phone": "32484605313",
+    "encrypted_password": "$2a$11$u51yHzMZhyYvEzhUrr6Osu26bKz.U5b4TiAe0/JisIIaDjmvWLRvC",
+    "first_name": "Axel",
+    "last_name": "Boven",
+    "company": "",
+    "preferred_locale": "fr"
+  },
+  {
+    "id": 260,
+    "email": "deepshikha@chargebee.com",
+    "phone": "919888627747",
+    "encrypted_password": "$2a$11$Z2S8kza3qyyk0DnSlmKP9uQkZGOron0GFUGO1c22naFIwqr6Muk/e",
+    "first_name": "D",
+    "last_name": "Rai",
+    "company": "",
+    "preferred_locale": "en"
+  },
+  {
+    "id": 269,
+    "email": "rubaaramouny@gmail.com",
+    "phone": "491622684873",
+    "encrypted_password": "",
+    "first_name": "Ruba",
+    "last_name": "Demo",
+    "company": "",
+    "preferred_locale": "en"
+  }
+]

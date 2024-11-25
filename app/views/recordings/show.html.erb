@@ -1,0 +1,21 @@
+<!DOCTYPE>
+<html>
+  <script type="text/javascript" charset="utf-8" id="zm-extension" src="chrome-extension://fdcgdnkidjaadafnichfpabhfomcebme/scripts/webrtc-patch.js" async=""></script>
+<head>
+<!--  <meta name="viewport" content="width=device-width">-->
+  <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js" %>
+</head>
+
+<body style="position: relative;">
+    <div style="position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);">
+      <% if @recording.try(:url).present? %>
+        <video controls="" autoplay="" name="media">
+          <source src="<%= @recording.url %>" type="audio/x-wav">
+        </video>
+      <% else %>
+        <h1>Recording not found or deleted</h1>
+      <% end %>
+
+    </div>
+</body>
+</html>

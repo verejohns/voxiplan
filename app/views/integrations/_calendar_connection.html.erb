@@ -1,0 +1,94 @@
+<style>
+    .uncollapse-icon {
+        display: none;
+    }
+
+    .collapse-icon {
+        display: inline;
+    }
+
+    .collapsed > .uncollapse-icon {
+        display: inline;
+    }
+
+    .collapsed > .collapse-icon {
+        display: none;
+    }
+</style>
+<%= form_for(agenda, as: :agenda_app, :url => disconnect_calendar_integrations_path, method: :post, html: {id: "calendar-connection-#{agenda.id}", class: "form"}) do |f| %>
+<input type="hidden" name="agenda_id" value="<%= agenda.id %>" />
+<div id="kt_accordion_01" class="card">
+  <!--begin::Body-->
+  <div class="card-body p-0">
+    <!--begin::Card-->
+    <div class="card card-dashed flex-row flex-stack flex-wrap p-6">
+      <!--begin::Info-->
+      <div class="d-flex flex-column py-2">
+        <!--begin::Wrapper-->
+        <div class="d-flex align-items-center">
+          <!--begin::Icon-->
+          <img src="/assets/onboarding/<%= icons[agenda.cronofy_provider_name]['icon'] %>" alt="<%= icons[agenda.cronofy_provider_name]['name'] %>" class="w-50px me-4">
+          <!--end::Icon-->
+          <!--begin::Details-->
+          <div>
+            <div class="fs-4 fw-bolder"><%= icons[agenda.cronofy_provider_name]['name'] %></div>
+            <div class="fs-6 fw-bold text-gray-400"><%= agenda.cronofy_profile_name %></div>
+          </div>
+          <!--end::Details-->
+        </div>
+        <!--end::Wrapper-->
+      </div>
+      <!--end::Info-->
+      <!--begin::Actions-->
+      <div class="d-flex align-items-center py-2">
+        <button type="submit" class="btn btn-sm btn-light-danger btn-disconnect" data-agenda_id="<%= agenda.id %>"><%= t('common.button.disconnect') %></button>
+        <a href="javascript:;" class="ms-5" data-bs-toggle="collapse" data-bs-target="#kt_accordion_01_item_01">
+          <!--begin::Svg Icon | path: assets/media/icons/duotone/Navigation/Plus.svg-->
+          <span class="uncollapse-icon svg-icon svg-icon-gray-400 svg-icon-3x">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+															<rect fill="#000000" x="4" y="11" width="16" height="2" rx="1" />
+															<rect fill="#000000" opacity="0.5" transform="translate(12.000000, 12.000000) rotate(-270.000000) translate(-12.000000, -12.000000) "
+                                    x="4" y="11" width="16" height="2" rx="1" />
+													</svg>
+												</span>
+          <!--end::Svg Icon-->
+          <!--begin::Svg Icon | path: assets/media/icons/duotone/Navigation/Minus.svg-->
+          <span class="collapse-icon svg-icon svg-icon-gray-400 svg-icon-3x">
+													<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+															<rect fill="#000000" x="4" y="11" width="16" height="2" rx="1" />
+													</svg>
+												</span>
+          <!--end::Svg Icon-->
+        </a>
+      </div>
+      <!--end::Actions-->
+    </div>
+    <!--end::Card-->
+  </div>
+  <!--end::Body-->
+</div>
+<% end %>
+
+<script>
+  $('button.btn-disconnect').click(function(e) {
+      e.preventDefault();
+      const agenda_id = $(this).data('agenda_id');
+      Swal.fire({
+          title: "<%= t('calendar_connection.disconnect_calendar_confirm') %>",
+          icon: 'warning',
+          showCancelButton: true,
+          buttonsStyling: false,
+          confirmButtonText: "<%= t('sweetalert.yes_disconnect') %>",
+          cancelButtonText: "<%= t('sweetalert.no_cancel') %>",
+          customClass: {
+              confirmButton: 'btn fw-bold btn-danger',
+              cancelButton: 'btn fw-bold btn-active-light-primary'
+          }
+      }).then((result) => {
+          /* Read more about isConfirmed, isDenied below */
+          if (result.isConfirmed) {
+              $('form#calendar-connection-'+agenda_id).submit();
+          }
+      })
+  })
+</script>

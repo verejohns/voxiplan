@@ -1,0 +1,26 @@
+<div class="col-md-6 mt-4">
+  <div class="bg-light h-md-100 rounded-2 pt-4 pb-3 px-4">
+    <div class="d-flex align-items-center mb-2">
+      <span class="text-dark fs-6 me-1"><%= t('calendar_connection.check_conflicts.check') %></span>
+      <span class="text-dark fw-bold fs-6 text-truncate" data-bs-toggle="tooltip"><%= agenda.cronofy_profile_name %></span>
+      <a class="d-inline-block text-muted ms-2" href="javascript:showConflictDialog('<%= agenda.cronofy_profile_name %>', '<%= agenda.cronofy_provider_name %>', '<%= agenda.conflict_calendars %>')">
+        <i class="bi bi-pencil-square"></i>
+      </a>
+    </div>
+    <div class="d-flex flex-wrap">
+      <% if agenda.conflict_calendars.nil? || agenda.conflict_calendars.blank? %>
+        <div class="bg-light-warning h-md-100 rounded-2 pt-4 pb-3 px-4">
+          <span class="text-warning fw-bold fs-6 mt-1 me-2"><%= t('calendar_connection.check_conflicts.donot_check_conflict') %></span>
+        </div>
+      <% else %>
+        <% if agenda.type == 'ClassicAgenda' %>
+          <% agenda.all_calendars.each do |calendar| %>
+            <% if agenda.conflict_calendars.split(',').include? calendar[1] %>
+              <span class="badge badge-light-primary my-1 me-2"><%= calendar[0] %></span>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,772 @@
+<style>
+    .kt_block_actions {
+        display: none;
+    }
+
+    .kt_block_as_btn_edit:hover .kt_block_actions {
+        display: block;
+    }
+
+    .kt_block_as_btn_edit:hover .kt_block_as_btn_edit_content {
+        background: #F5F8FA;
+    }
+
+    #kt_tab_pane_04 .form-control:disabled,
+    #kt_tab_pane_04 .form-control[readonly] {
+        cursor: pointer;
+    }
+
+    #kt_tab_pane_04 .form-check-input[disabled] ~ .form-check-label,
+    #kt_tab_pane_04 .form-check-input:disabled ~ .form-check-label,
+    #kt_tab_pane_04 .form-check-input:disabled {
+        cursor: pointer;
+        opacity: 1;
+    }
+</style>
+<div class="w-100">
+  <div class="mb-10">
+    <div id="kt_block_as_btn_invoke_invitee_questions_edit_modal" class="kt_block_as_btn_edit card card-bordered" role="button">
+      <input type="hidden" name="mandatory_question" value="<%= @mandatory_question %>" />
+      <div class="card-body position-relative">
+        <div class="kt_block_actions position-absolute top-0 end-0 mt-5 me-8">
+          <div class="d-flex align-items-center">
+            <i class="bi bi-pencil-square"></i>
+          </div>
+        </div>
+
+        <div class="mb-n5">
+          <div class="row">
+            <div class="col-md mb-5">
+              <label class="form-label required"><%= t('customers.email') %></label>
+              <input type="email" class="form-control form-control-solid" disabled>
+            </div>
+            <div class="col-md mb-5">
+              <label class="form-label required"><%= t('customers.phone') %></label>
+              <input type="phone" class="form-control form-control-solid" disabled>
+            </div>
+
+          </div>
+          <div class="row">
+            <div id="kt_hidden_invitee_questions_name_field" class="col-md mb-5" style="<%= 'display:none' unless @mandatory_question == 'fullname' %>">
+              <label class="form-label required"><%= t('clients.name') %></label>
+              <input type="text" class="form-control form-control-solid" disabled>
+            </div>
+          </div>
+          <div id="kt_hidden_invitee_questions_first_last_name_field" style="<%= 'display:none' unless @mandatory_question == 'first_lastname' %>">
+            <div class="row">
+              <div class="col-md-6 mb-5">
+                <label class="form-label required"><%= t('customers.first_name') %></label>
+                <input type="text" class="form-control form-control-solid" disabled>
+              </div>
+              <div class="col-md-6 mb-5">
+                <label class="form-label required"><%= t('customers.last_name') %></label>
+                <input type="text" class="form-control form-control-solid" disabled>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="separator separator-dashed my-10"></div>
+
+  <div class="mb-0">
+    <div id="kt_draggable_area_invitee_questions">
+      <% @questions.each_with_index do |question, index| %>
+        <div class="draggable" data-question-id="<%= question.id %>" data-view-item>
+          <div class="kt_block_as_btn_edit position-relative">
+            <div class="kt_block_actions position-absolute top-0 end-0 mt-5">
+              <div class="d-flex align-items-center">
+                <i class="fas fa-edit"></i>
+                <i class="kt_icon_as_btn_delete text-danger fas fa-trash ms-3" role="button" style="<%= @questions != 1 ? '' : 'display:none' %>"></i>
+              </div>
+            </div>
+
+            <div class="kt_block_as_btn_edit_content rounded p-6 mx-n6" role="button" data-answer-type="<%= question.answer_type %>">
+              <div class="row">
+                <div class="col-auto">
+                  <div class="draggable-handle d-flex align-items-center">
+                    <span class="index_number fw-bold text-primary fs-2 me-2"><%= index + 1 %></span>
+                    <i class="fs-2 fas fa-arrows-alt-v"></i>
+                  </div>
+                </div>
+                <div class="col">
+                  <label class="form-label question_label ${isRequired ? 'required' : ''}">
+                    <span class="badge badge-light <%= question.enabled ? 'd-none' : '' %>">OFF</span>
+                    <span class="question_string"><%= question.text %></span>
+                  </label>
+                  <% if question.answer_type == 'oneline' %>
+                    <input class="form-control" type="text" disabled />
+                  <% end %>
+                  <% if question.answer_type == 'multilines' %>
+                    <textarea class="form-control" rows="4" disabled></textarea>
+                  <% end %>
+                  <% if question.answer_type == 'radiobuttons' || question.answer_type == 'checkboxes' %>
+                    <% question.question_options.order(orderno: :asc).each do |option| %>
+                      <div class="d-flex mb-3">
+                        <label class="form-check form-check-custom form-check-solid">
+                          <input class="form-check-input h-30px w-30px" type="radio" disabled/>
+                          <span class="form-check-label ms-3"><%= option.text %></span>
+                        </label>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <a href="javascript:;" class="btn btn-primary mt-6 add_new_question" data-bs-toggle="modal">
+      <i class="fas fa-plus"></i><%= t('services.title.invitee_questions.add_new_question') %>
+    </a>
+  </div>
+</div>
+
+<!--begin::Add New Invitee Question-->
+<div class="modal fade" id="kt_modal_invitee_question" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('services.title.invitee_questions.new_question_modal') %></h5>
+
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+		            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" >
+		              <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+		                <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1"/>
+		                <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                          x="0" y="7" width="16" height="2" rx="1"/>
+		              </g>
+		            </svg>
+		          </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+
+      <div class="modal-body">
+        <div class="mb-7">
+          <label class="form-label required"><%= t('services.title.invitee_questions.question') %></label>
+          <textarea id="kt_select_invitee_question_label" class="form-control form-control-solid" rows="4"></textarea>
+          <span class="form-text"><%= t('services.title.invitee_questions.question_validation') %></span>
+        </div>
+        <div class="row justify-content-between mb-7">
+          <div class="col-auto">
+            <label class="form-check form-switch form-check-custom form-check-solid form-check-primary">
+              <input id="kt_select_invitee_question_is_enabled" class="form-check-input h-20px w-30px" type="checkbox" checked/>
+              <span class="form-check-label"><%= t('services.title.invitee_questions.on') %></span>
+            </label>
+          </div>
+          <div class="col-auto">
+            <label class="form-check form-check-sm form-check-custom form-check-solid align-self-start">
+              <input id="kt_select_invitee_question_is_required" class="form-check-input" type="checkbox">
+              <span class="form-check-label"><%= t('services.title.invitee_questions.required') %></span>
+            </label>
+          </div>
+        </div>
+        <div class="mb-0">
+          <label class="form-label required"><%= t('services.title.invitee_questions.answer_type') %></label>
+          <select id="kt_select_invitee_question_answer_type" class="form-select form-select-solid" data-control="select2" data-placeholder="<%= t('common.select_placeholder') %>" data-minimum-results-for-search="Infinity">
+            <option></option>
+            <option value="oneline"><%= t('services.title.invitee_questions.oneline') %></option>
+            <option value="multilines"><%= t('services.title.invitee_questions.multiline') %></option>
+            <option value="radiobuttons"><%= t('services.title.invitee_questions.radio_button') %></option>
+            <option value="checkboxes"><%= t('services.title.invitee_questions.checkbox') %></option>
+          </select>
+        </div>
+        <div id="kt_repeater_invitee_question_controls" class="mt-7" style="display: none;">
+          <label class="form-label"><%= t('services.title.invitee_questions.answer_type_content') %></label>
+          <div id="kt_draggable_invitee_question_controls" data-repeater-list="kt_repeater_invitee_question_controls">
+            <div class="draggable mb-6" data-view-item data-repeater-item>
+              <div class="row align-items-center gx-3">
+                <div class="col-auto">
+                  <div class="draggable-handle d-flex align-items-center">
+                    <i class="bi bi-grip-vertical"></i>
+                    <span class="index_number fw-bold text-primary fs-4 me-2">1</span>
+                  </div>
+                </div>
+                <div class="col">
+                  <input class="form-control form-control-sm" type="text" placeholder="<%= t('services.title.invitee_questions.answer') %>"/>
+                </div>
+                <div class="col-auto">
+                  <button class="btn btn-link btn-color-danger py-0" type="button" data-repeater-delete>
+                    <i class="fas fa-trash pe-0"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="draggable mb-6" data-view-item data-repeater-item>
+              <div class="row align-items-center gx-3">
+                <div class="col-auto">
+                  <div class="draggable-handle d-flex align-items-center">
+                    <i class="bi bi-grip-vertical"></i>
+                    <span class="index_number fw-bold text-primary fs-4 me-2">2</span>
+                  </div>
+                </div>
+                <div class="col">
+                  <input class="form-control form-control-sm" type="text" placeholder="<%= t('services.title.invitee_questions.answer') %>"/>
+                </div>
+                <div class="col-auto">
+                  <button class="btn btn-link btn-color-danger py-0" type="button" data-repeater-delete>
+                    <i class="fas fa-trash pe-0"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="draggable mb-6" data-view-item data-repeater-item>
+              <div class="row align-items-center gx-3">
+                <div class="col-auto">
+                  <div class="draggable-handle d-flex align-items-center">
+                    <i class="bi bi-grip-vertical"></i>
+                    <span class="index_number fw-bold text-primary fs-4 me-2">3</span>
+                  </div>
+                </div>
+                <div class="col">
+                  <input class="form-control form-control-sm" type="text" placeholder="<%= t('services.title.invitee_questions.answer') %>"/>
+                </div>
+                <div class="col-auto">
+                  <button class="btn btn-link btn-color-danger py-0" type="button" data-repeater-delete>
+                    <i class="fas fa-trash pe-0"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a id="add_answer" class="btn btn-sm btn-primary" href="javascript:void(0)" data-repeater-create>
+            <i class="fas fa-plus"></i><%= t('services.title.invitee_questions.add_new') %>
+          </a>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal"><%= t('common.button.cancel') %></button>
+        <button id="kt_btn_apply_invitee_question" type="button" class="btn btn-primary" disabled data-bs-dismiss="modal"><%= t('button.apply') %></button>
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+<!--end::Add New Invitee Question-->
+
+<!--begin::Edit Invitee Edit Name Field-->
+<div class="modal fade" id="kt_modal_invitee_questions_edit_name_field" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('services.title.invitee_questions.edit_name_question') %></h5>
+
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+		            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+		              <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+		                <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1"/>
+		                <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                          x="0" y="7" width="16" height="2" rx="1"/>
+		              </g>
+		            </svg>
+		          </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+
+      <div class="modal-body">
+        <div class="mb-7">
+          <label class="form-label"><%= t('services.title.invitee_questions.name_input') %></label>
+          <select id="kt_select_invitee_questions_edit_name_field" class="form-select" data-control="select2" data-placeholder="<%= t('common.select_placeholder') %>" data-minimum-results-for-search="Infinity">
+            <option></option>
+            <option value="first_lastname" <%= 'selected' if @mandatory_question == 'first_lastname' %>><%= t('customers.first_name') %>, <%= t('customers.last_name') %></option>
+            <option value="fullname" <%= 'selected' if @mandatory_question == 'fullname' %>><%= t('clients.name') %></option>
+          </select>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal"><%= t('common.button.cancel') %></button>
+        <button id="kt_btn_edit_invitee_questions" type="button" class="btn btn-primary" data-bs-dismiss="modal"><%= t('button.apply') %></button>
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+<!--end::Edit Invitee Edit Name Field-->
+
+<%= render '/modal/update_plan' %>
+
+<%= javascript_include_tag 'plugins/draggable/draggable.bundle', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'plugins/formrepeater/formrepeater.bundle', 'data-turbolinks-track' => true %>
+<script>
+    // Invitee Questions
+    let repeaterAddInviteeQuestionControlsItemsQty = 3;
+    let selectedQuestions = null;
+    let questionsList = [];
+    let deleteQuestionIds = [];
+
+    (function () {
+        const $inviteeQuestionsEditNameField = document.getElementById('kt_modal_invitee_questions_edit_name_field');
+        const inviteeQuestionsEditNameField = new bootstrap.Modal($inviteeQuestionsEditNameField);
+
+        $('#kt_block_as_btn_invoke_invitee_questions_edit_modal').on('click', function (evt) {
+            if (evt.target && evt.target.id !== 'kt_btn_remove_invitee_questions_custom_field') {
+                inviteeQuestionsEditNameField.show();
+            }
+        });
+
+        $('#kt_btn_edit_invitee_questions').on('click', function () {
+            const elVal = $('#kt_select_invitee_questions_edit_name_field').val();
+
+            if (elVal === 'fullname') {
+                $('#kt_hidden_invitee_questions_first_last_name_field').hide();
+                $('#kt_hidden_invitee_questions_name_field').show();
+                $('input[name=mandatory_question]').val('fullname');
+            }
+
+            if (elVal === 'first_lastname') {
+                $('#kt_hidden_invitee_questions_name_field').hide();
+                $('#kt_hidden_invitee_questions_first_last_name_field').show();
+                $('input[name=mandatory_question]').val('first_lastname');
+            }
+        });
+    })();
+
+    function checkIfNotEmpty(items) {
+        const isNotEmpty = [];
+
+        if ($('#kt_repeater_invitee_question_controls').is(':hidden')) return true;
+        items.each(function () {
+            isNotEmpty.push(!!$(this).val());
+        });
+
+        return !isNotEmpty.includes(false);
+    }
+
+    function reorderItems(items) {
+        for (let i = 0; i < items.length; i++) {
+            const $indexNumber = items[i].querySelector('.index_number');
+            $indexNumber.innerText = i + 1;
+        }
+    }
+
+    // question section drag and drop
+    (function () {
+        const draggableArea = document.querySelector('#kt_draggable_area_invitee_questions');
+        const swappable = new Sortable.default(draggableArea, {
+            draggable: '.draggable',
+            handle: '.draggable .draggable-handle',
+            mirror: {
+                appendTo: 'body',
+                constrainDimensions: true
+            },
+        });
+
+        swappable.on('sortable:stop', (evt) => {
+            setTimeout(function () {
+                const $draggables = evt.data.newContainer.querySelectorAll('.draggable');
+
+                for (let i = 0; i < $draggables.length; i++) {
+                    const $indexNumber = $draggables[i].querySelector('.index_number');
+
+                    $indexNumber.innerText = i + 1;
+                }
+            });
+        });
+    })();
+
+    // answer section drag and drop on new dialog
+    (function () {
+        const draggableArea = document.querySelector('#kt_draggable_invitee_question_controls');
+        const swappable = new Sortable.default(draggableArea, {
+            draggable: '.draggable',
+            handle: '.draggable .draggable-handle',
+            mirror: {
+                appendTo: 'body',
+                constrainDimensions: true
+            },
+        });
+
+        $('#kt_repeater_invitee_question_controls').repeater({
+            initEmpty: false,
+            show: function () {
+                repeaterAddInviteeQuestionControlsItemsQty += 1;
+
+                $(this).find('.index_number').text(repeaterAddInviteeQuestionControlsItemsQty);
+                $(this).show();
+                $('#kt_btn_apply_invitee_question').prop('disabled', true);
+
+                setTimeout(function () {
+                    $('#kt_repeater_invitee_question_controls .draggable [data-repeater-delete]').show();
+                });
+            },
+            hide: function (deleteElement) {
+                repeaterAddInviteeQuestionControlsItemsQty -= 1;
+
+                $(deleteElement).remove();
+                setTimeout(function () {
+                    reorderItems($('#kt_repeater_invitee_question_controls')[0].querySelectorAll('.draggable'));
+
+                    if (checkIfNotEmpty($('#kt_draggable_invitee_question_controls input'))) {
+                        $('#kt_btn_apply_invitee_question').prop('disabled', false);
+                    }
+
+                    if ($('#kt_repeater_invitee_question_controls .draggable').length < 2) {
+                        $('#kt_repeater_invitee_question_controls .draggable [data-repeater-delete]').hide();
+                    }
+                });
+            }
+        });
+
+        swappable.on('sortable:stop', (evt) => {
+            setTimeout(function () {
+                const $draggables = evt.data.newContainer.querySelectorAll('.draggable');
+                reorderItems($draggables);
+            });
+        });
+    })();
+
+    // remove event, apply event, apply button disable
+    (function () {
+        const removeAndClearAnswers = function () {
+            let template = '';
+
+            for (let i = 0; i < 3; i++) {
+                template += `
+                    <div class="draggable mb-6" data-view-item data-repeater-item>
+                        <div class="row align-items-center gx-3">
+                            <div class="col-auto">
+                                <div class="draggable-handle d-flex align-items-center">
+                                  <i class="bi bi-grip-vertical"></i>
+                                  <span class="index_number fw-bold text-primary fs-4 me-2">${i + 1}</span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <input class="form-control form-control-sm" type="text" placeholder="">
+                            </div>
+                            <div class="col-auto">
+                                <button class="btn btn-link btn-color-danger py-0" type="button" data-repeater-delete>
+                                  <i class="fas fa-trash pe-0"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    `;
+            }
+
+            $('#kt_repeater_invitee_question_controls .draggable').remove();
+            $('#kt_draggable_invitee_question_controls').append(template);
+            repeaterAddInviteeQuestionControlsItemsQty = 3;
+        };
+        const templatesByValue = {
+            oneline: {
+                control: '<input class="form-control" type="text" disabled />',
+            },
+            multilines: {
+                control: '<textarea class="form-control" rows="4" disabled></textarea>',
+            },
+            radiobuttons: {
+                control: function (items) {
+                    let template = '';
+
+                    for (let i = 0; i < items.length; i++) {
+                        template += `
+                            <div class="d-flex mb-3">
+                                <label class="form-check form-check-custom form-check-solid">
+                                    <input class="form-check-input h-30px w-30px" type="radio" disabled/>
+                                    <span class="form-check-label ms-3">${items[i]}</span>
+                                </label>
+                            </div>
+                        `;
+                    }
+
+                    return `<div class="mb-n3">${template}</div>`;
+                },
+            },
+            checkboxes: {
+                control: function (items) {
+                    let template = '';
+
+                    for (let i = 0; i < items.length; i++) {
+                        template += `
+                            <div class="d-flex mb-3">
+                                <label class="form-check form-check-custom form-check-solid">
+                                    <input class="form-check-input h-30px w-30px" type="checkbox" disabled/>
+                                    <span class="form-check-label ms-3">${items[i]}</span>
+                                </label>
+                            </div>
+                          `;
+                    }
+
+                    return `<div class="mb-n3">${template}</div>`;
+                },
+            },
+        };
+        let question_text = null;
+        let isRequired = null;
+        let isSwitchedOn = null;
+        let currentQty = <%= @questions.size %>;
+        let fieldsQty = 1;
+
+        // Enable/disable button if fields are filed.
+        $('#kt_select_invitee_question_answer_type').on('change', function () {
+            if ($(this).val() === 'radiobuttons' || $(this).val() === 'checkboxes') {
+                $('#kt_repeater_invitee_question_controls').show();
+            } else {
+                $('#kt_repeater_invitee_question_controls').hide();
+            }
+        });
+
+        $('body').on('change input', '#kt_select_invitee_question_label, #kt_select_invitee_question_answer_type, #kt_draggable_invitee_question_controls input', function () {
+            const labelVal = $('#kt_select_invitee_question_label').val();
+            const typeVal = $('#kt_select_invitee_question_answer_type').val();
+
+            if ((labelVal.length > 3) && typeVal && checkIfNotEmpty($('#kt_draggable_invitee_question_controls input'))) {
+                $('#kt_btn_apply_invitee_question').prop('disabled', false);
+            } else {
+                $('#kt_btn_apply_invitee_question').prop('disabled', true);
+            }
+        });
+
+        // Adding new item to the invitee questions list and reset form after added.
+        $('#kt_btn_apply_invitee_question').on('click', function () {
+            const templateByValue = function (currentQty, isRequired, isSwitchedOn, question_text, answer_type, qty = 1) {
+                const repeatTemplate = function (content) {
+                    let resultTemplate = '';
+                    for (let i = 0; i < qty; i++) {
+                        resultTemplate += content;
+                    }
+                    return resultTemplate;
+                };
+                const mainContainer = function (content, answer_type) {
+                    return `
+                        <div class="kt_block_as_btn_edit position-relative">
+                            <div class="kt_block_actions position-absolute top-0 end-0 mt-5">
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-edit"></i>
+                                    <i class="kt_icon_as_btn_delete text-danger fas fa-trash ms-3" role="button" style="display: none;"></i>
+                                </div>
+                            </div>
+
+                            <div class="kt_block_as_btn_edit_content rounded p-6 mx-n6" role="button" data-answer-type="${answer_type}">
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <div class="draggable-handle d-flex align-items-center">
+                                            <span class="index_number fw-bold text-primary fs-2 me-2">${currentQty}</span>
+                                            <i class="fs-2 fas fa-arrows-alt-v"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label class="form-label question_label ${isRequired ? 'required' : ''}">
+                                            <span class="badge badge-light ${isSwitchedOn ? 'd-none' : ''}">OFF</span>
+                                            <span class="question_string">${question_text}</span>
+                                        </label>
+                                        ${repeatTemplate(content)}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      `;
+                };
+                let resultTemplate = '';
+
+                if (answer_type === 'radiobuttons') {
+                    const values = [];
+                    $('#kt_repeater_invitee_question_controls input').each(function () {
+                        values.push($(this).val());
+                    });
+                    resultTemplate += mainContainer(templatesByValue['radiobuttons'].control(values), answer_type);
+                } else if (answer_type === 'checkboxes') {
+                    const values = [];
+                    $('#kt_repeater_invitee_question_controls input').each(function () {
+                        values.push($(this).val());
+                    });
+                    resultTemplate += mainContainer(templatesByValue['checkboxes'].control(values), answer_type);
+                } else {
+                    resultTemplate += mainContainer(templatesByValue[answer_type].control, answer_type);
+                }
+
+                return resultTemplate;
+            }
+
+            const answer_type = $('#kt_select_invitee_question_answer_type').val();
+            currentQty += 1;
+            question_text = $('#kt_select_invitee_question_label').val();
+            isRequired = $('#kt_select_invitee_question_is_required').is(':checked');
+            isSwitchedOn = $('#kt_select_invitee_question_is_enabled').is(':checked');
+            fieldsQty = $('#kt_select_add_new_invitee_question_fields_qty').val();
+
+            // Adding new item
+            const question_content = templateByValue(currentQty, isRequired, isSwitchedOn, question_text, answer_type, fieldsQty);
+            if (selectedQuestions == null)
+                $('#kt_draggable_area_invitee_questions').append('<div class="draggable" data-question-id="0" data-view-item>' + question_content + '</div>');
+            else {
+                $(selectedQuestions).html(question_content);
+                reorderItems($('#kt_draggable_area_invitee_questions')[0].querySelectorAll('.draggable'));
+                currentQty -= 1;
+            }
+
+
+            if ($('#kt_draggable_area_invitee_questions .draggable').length < 2) {
+                $('#kt_draggable_area_invitee_questions .draggable .kt_icon_as_btn_delete').hide();
+            } else {
+                $('#kt_draggable_area_invitee_questions .draggable .kt_icon_as_btn_delete').show();
+            }
+
+            // Reset form
+            question_text = null;
+            fieldsQty = 1;
+            $('#kt_select_invitee_question_label').val('');
+            $('#kt_select_invitee_question_answer_type').val('').trigger('change');
+            $('#kt_select_invitee_question_is_required').prop('checked', false);
+            $('#kt_select_invitee_question_is_enabled').prop('checked', true);
+            $('#kt_select_add_new_invitee_question_fields_qty').val('1');
+            $('#kt_btn_apply_invitee_question').prop('disabled', true);
+            removeAndClearAnswers();
+        });
+
+        // Removing specific item from the invitee questions list
+        $('body').on('click', '#kt_draggable_area_invitee_questions .kt_icon_as_btn_delete', function () {
+            currentQty -= 1;
+            deleteQuestionIds.push($(this).closest('.draggable').attr('data-question-id'));
+            $(this).closest('.draggable').remove();
+
+            reorderItems($('#kt_draggable_area_invitee_questions')[0].querySelectorAll('.draggable'));
+
+            if ($('#kt_draggable_area_invitee_questions .draggable').length < 2) {
+                $('#kt_draggable_area_invitee_questions .draggable .kt_icon_as_btn_delete').hide();
+            } else {
+                $('#kt_draggable_area_invitee_questions .draggable .kt_icon_as_btn_delete').show();
+            }
+        });
+    })();
+
+    // add new question event, show edit dialog
+    (function() {
+        $('a.add_new_question').on('click', function(e) {
+            if (<%= session[:current_organization].chargebee_subscription_plan == "free" %>) {
+                e.preventDefault();
+                $('#kt_modal_upgrade_plan_question').modal('show');
+                return;
+            } else $('#kt_modal_invitee_question').modal('show');
+
+            selectedQuestions = null;
+            $('textarea#kt_select_invitee_question_label').val('');
+            $('input#kt_select_invitee_question_is_enabled').prop('checked', true);
+            $('input#kt_select_invitee_question_is_required').prop('checked', false);
+            $('select#kt_select_invitee_question_answer_type').select2().val('').trigger('change');
+
+            $.each($('div#kt_draggable_invitee_question_controls div.draggable'), function(index, answer_obj) {
+                $(answer_obj).find('input').val('');
+            })
+        })
+
+        $('body').on('click', 'div.kt_block_as_btn_edit_content', function () {
+            selectedQuestions = $(this).parent().parent();
+            const question_string = $(this).find('span.question_string').html();
+            const question_enabled = $(this).find('label.question_label').find('span.badge').hasClass('d-none') ? true : false;
+            const question_required = $(this).find('label.question_label').hasClass('required') ? true : false;
+            const answer_type = $(this).data('answer-type');
+
+            $('textarea#kt_select_invitee_question_label').val(question_string);
+            $('input#kt_select_invitee_question_is_enabled').prop('checked', question_enabled);
+            $('input#kt_select_invitee_question_is_required').prop('checked', question_required);
+            $('select#kt_select_invitee_question_answer_type').select2().val(answer_type).trigger('change');
+
+            if (answer_type == 'radiobuttons' || answer_type == 'checkboxes') {
+                $.each($('div#kt_draggable_invitee_question_controls div.draggable'), function(index, answer_obj) {
+                    if (index != 0) {
+                        $(answer_obj).remove();
+                        repeaterAddInviteeQuestionControlsItemsQty -= 1;
+                    }
+                })
+
+                $.each($(this).find('span.form-check-label'), function(index, radio_obj) {
+                    if (index > 0) $('a#add_answer').trigger('click');
+                    const radio_caption = $(radio_obj).html();
+                    const answer_section = $('div#kt_draggable_invitee_question_controls div.draggable')[index];
+                    const answer_input_obj = $(answer_section).find('input');
+                    $(answer_input_obj).val(radio_caption);
+                })
+            }
+
+            $('#kt_btn_apply_invitee_question').prop('disabled', false);
+            $('div#kt_modal_invitee_question').modal('show');
+        });
+
+    })();
+
+    // save question event
+    function saveQuestion(button_obj) {
+        button_obj.disabled = true;
+        button_obj.setAttribute('data-kt-indicator', 'on');
+
+        let question_list = [];
+        $.each($('div#kt_draggable_area_invitee_questions div.draggable'), function (index, question_section) {
+            const question_content = $(question_section).find('div.kt_block_as_btn_edit_content');
+            const question_string = $(question_content).find('span.question_string').html();
+            const question_enabled = $(question_content).find('label.question_label').find('span.badge').hasClass('d-none') ? true : false;
+            const question_required = $(question_content).find('label.question_label').hasClass('required') ? true : false;
+            const answer_type = $(question_content).data('answer-type');
+            const question_id = $(question_section).attr('data-question-id');
+
+            let question = {
+                id: question_id,
+                text: question_string,
+                options: [],
+                answer_type: answer_type,
+                enabled: question_enabled,
+                required: question_required,
+                orderno: (index + 1),
+            };
+
+            if (answer_type == 'radiobuttons' || answer_type == 'checkboxes') {
+                $.each($(question_content).find('span.form-check-label'), function(index, radio_obj) {
+                    question['options'].push({text: $(radio_obj).html(), orderno: index + 1});
+                })
+            }
+            question_list.push(question);
+        })
+
+        $.ajax({
+            type: "POST",
+            url: "<%= save_question_services_path %>",
+            data: {
+                mandatory_question: $('input[name=mandatory_question]').val(),
+                question_data: JSON.stringify(question_list),
+                service_id: $('input[name=current_service_id]').val(),
+                delete_question_ids: deleteQuestionIds
+            },
+            success: function (response) {
+                button_obj.disabled = false;
+                button_obj.removeAttribute('data-kt-indicator');
+
+                const new_question_ids = response.question_ids;
+                $.each($('div#kt_draggable_area_invitee_questions div.draggable'), function (index, question_section) {
+                    $(this).attr('data-question-id', new_question_ids[index]);
+                })
+
+                deleteQuestionIds = [];
+                showMessage(response.result, response.message);
+
+            },
+            error: function (error) {
+                button_obj.disabled = false;
+                button_obj.removeAttribute('data-kt-indicator');
+                showMessage('error', 'Save Question - Ajax communication error');
+                console.log(error);
+            },
+        });
+    }
+
+</script>

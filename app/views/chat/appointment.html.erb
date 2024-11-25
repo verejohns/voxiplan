@@ -1,0 +1,192 @@
+<style>
+  a.powerby_link {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      z-index: 1;
+      width: 105px;
+      height: 105px;
+      overflow: hidden;
+      text-decoration: none;
+      transition: all .1s ease-in;
+      pointer-events: none;
+      will-change: transform;
+  }
+  div.powerby_ribbon {
+      position: relative;
+      top: 21px;
+      left: -11px;
+      z-index: 1;
+      display: block;
+      width: 160px;
+      padding: 9px 0 6px;
+      color: #fff;
+      font-weight: 700;
+      line-height: 1.2;
+      text-align: center;
+      text-decoration: none;
+      background-color: #505960;
+      box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%);
+      transform: rotate(45deg);
+      transition: all .1s ease-in;
+      pointer-events: auto;
+  }
+
+  div.powerby_top_text {
+      margin-left: -7px;
+      color: #f2f2f2;
+      font-size: 8px;
+      text-transform: uppercase;
+  }
+
+  div.powerby_bottom_text {
+      margin-left: -7px;
+      color: #fff;
+      font-size: 14px;
+  }
+
+  a.powerby_link::before {
+      top: 0;
+      left: 0;
+  }
+  a.powerby_link::after {
+      right: 0;
+      bottom: 0;
+  }
+
+  a.powerby_link::before, a.powerby_link::after {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background-color: #505960;
+      transition: all .1s ease-in;
+      content: '';
+  }
+</style>
+<input type="hidden" id="widget_tz_by_preference" value="<%= @widget_tz %>"/>
+<input type="hidden" id="widget_tf_by_preference" value="<%= @widget_time_format %>"/>
+<input type="hidden" id="widget_language_by_preference" value="<%= @widget_language %>"/>
+<input type="hidden" id="future_days" value="<%= @future_days %>"/>
+<%= invisible_captcha %>
+<section class="h-100 chat-background p-0 p-md-5">
+  <div class="container pt-0 pt-md-4">
+    <div class="row">
+      <div class="col-12 col-md-10 voxi-bg-shadow rounded bg-white mx-auto pl-0 pr-0 pl-md-4 pr-md-4">
+        <% unless @ivr.remove_voxiplan_branding %>
+          <a href="https://voxiplan.com/?utm_campaign=sign_up&utm_medium=badge&utm_source=invitee" target="_blank" class="powerby_link" >
+            <div class="powerby_ribbon" >
+              <div class="powerby_top_text" ><%= t('appointment_widget.powered_by') %></div>
+              <div class="powerby_bottom_text" >Voxiplan</div>
+            </div>
+          </a>
+        <% end %>
+
+        <% if @id_auth %>
+          <input type="hidden" class="time_zone_default" value="<%= @time_zone %>">
+          <input type="hidden" id="level1dropdownForWidget" value="<%= @level1_dropdown %>">
+          <input type="hidden" id="defaultResourceForWidget" value="<%= @default_resource %>">
+          <input type="hidden" id="appointment_type" value="<%= @appointment_type %>" />
+          <input type="hidden" id="event_id" value="<%= @event_id %>" />
+          <input type="hidden" id="appointment_widget_path" value="<%= appointment_widget_url %>" />
+          <input type="hidden" id="appointment_service_id" value="<%= @appointment_service_id %>" />
+          <input type="hidden" id="appointment_resource_id" value="<%= @appointment_resource_id %>" />
+          <input type="hidden" id="appointment_name" value="<%= @appointment_name %>" />
+          <input type="hidden" id="appointment_duration" value="<%= @appointment_duration %>" />
+          <input type="hidden" id="appointment_timezone" value="<%= @appointment_timezone %>" />
+          <input type="hidden" id="appointment_time" value="<%= @appointment_time %>" />
+          <input type="hidden" id="appointment_start_time" value="<%= @appointment_start_time %>" />
+          <input type="hidden" id="appointment_end_time" value="<%= @appointment_end_time %>" />
+          <input type="hidden" id="appointment_customer_id" value="<%= @appointment_customer_id %>" />
+          <input type="hidden" id="appointment_customer_name" value="<%= @appointment_customer_name %>" />
+          <input type="hidden" id="appointment_customer_firstname" value="<%= @appointment_customer_firstname %>" />
+          <input type="hidden" id="appointment_customer_lastname" value="<%= @appointment_customer_lastname %>" />
+          <input type="hidden" id="appointment_customer_phone" value="<%= @appointment_customer_phone %>" />
+          <input type="hidden" id="appointment_customer_email" value="<%= @appointment_customer_email %>" />
+          <input type="hidden" id="appointment_answers" value="<%= @appointment_answers.to_json %>" />
+          <input type="hidden" id="appointment_status" value="<%= @appointment_status %>" />
+          <input type="hidden" id="appointment_booking_success" value="<%= raw I18n.t("appointment_widget.book_success_title") %>" />
+          <input type="hidden" id="appointment_reschedule_success" value="<%= raw I18n.t("appointment_widget.reschedule_success_title") %>" />
+          <input type="hidden" id="appointment_invalid_event" value="<%= raw I18n.t("appointment_widget.invalid_event") %>" />
+          <input type="hidden" id="appointment_invalid_cancel" value="<%= raw I18n.t("appointment_widget.invalid_cancel") %>" />
+          <input type="hidden" id="email_validation_message" value="<%= raw I18n.t("appointment_widget.invalid_email") %>" />
+          <input type="hidden" id="ok_got_it" value="<%= t('sweetalert.ok_got_it') %>" />
+          <input type="hidden" id="appointment_cannot_reschedule" value="<%= t('appointment_widget.cannot_reschedule') %>" />
+          <input type="hidden" id="appointment_cannot_cancel" value="<%= t('appointment_widget.cannot_cancel') %>" />
+          <input type="hidden" id="appointment_already_cancelled" value="<%= t('appointment_widget.already_cancelled') %>" />
+
+          <% if @resources_list.size != 0 && @services_list.size != 0 %>
+            <% if @ivr.use_branding %>
+              <div class="row mt-4 pt-2" >
+                <div class="col-12">
+                  <% if @ivr.logo.exists? %>
+                    <%= image_tag @ivr.logo.url, class: 'rounded mx-auto d-block', size: '100' %>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+          <% if @widget_language == "-" %>
+            <select class="form-control d-inline-block localization" style="width: auto; position: absolute; right: 10px; top: 10px;">
+              <% available_locales.each do |locale| %>
+                <option value="<%= locale %>"><%= locale.upcase %></option>
+              <% end %>
+            </select>
+          <% end %>
+          <% if @widget_title.present? %>
+            <h1 class="mb-2 text-center" style="margin-top: 25px !important;">
+              <span>
+                <%= @widget_title %>
+              </span>
+              <br />
+            </h1>
+          <% end %>
+          <h3 class="mt-3 mb-4 text-center" style="<%= @widget_title.present? ? "" : "margin-top: 25px !important;" %>">
+            <span id="heading_one">
+              <%= t('appointment_widget.cancel_heading') if @appointment_type == 'cancel' %>
+              <%= t('appointment_widget.reschedule_heading') if @appointment_type == 'reschedule' %>
+              <%= t('appointment_widget.book_heading') if @appointment_type != 'cancel' && @appointment_type != 'reschedule' %>
+            </span>
+            <span id="heading_two" class="d-none">
+              <%= @widget_language != "-" ? t("appointment_widget.select_time_slot", locale: @widget_language) : t("appointment_widget.select_time_slot") %>
+            </span>
+            <span id="heading_three" class="d-none">
+              <%= @widget_language != "-" ? t("appointment_widget.enter_details", locale: @widget_language) : t("appointment_widget.enter_details") %>
+            </span>
+          </h3>
+          <% if @resources_list.size != 0 && @services_list.size != 0 %>
+            <%= render "appointment_wizard" %>
+          <% else %>
+            <p class="text-center">
+              <%= @widget_language != "-" ? t("appointment_widget.no_resource_service", locale: @widget_language) : t("appointment_widget.no_resource_service") %>
+            </p>
+          <% end %>
+        <% else %>
+          <div class="container h-100">
+            <div class="row h-75 mt-5 justify-content-center align-items-center">
+              <div class="card mt-5">
+                <div class="card-body">
+                  <h5 class="card-title text-danger">
+                    <%= @widget_language != "-" ? t("appointment_widget.error_label", locale: @widget_language) : t("appointment_widget.error_label") %>
+                  </h5>
+                  <p class="card-text">
+                    <%= @widget_language != "-" ? t("appointment_widget.error_help_text", locale: @widget_language) : t("appointment_widget.error_help_text") %>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="text/javascript">
+  window.I18n = <%= current_translations(@widget_language != "-" ? @widget_language : "").to_json.html_safe %>
+    $(".modal-reload").click(function () {
+        if ($('input#appointment_type').val() == 'invalid_cancel_event') window.location.href = '/';
+        else if ($('input#appointment_type').val() == 'cancel' || $('input#appointment_status').val() == 'cancelled') window.location.href = $('input#appointment_widget_path').val();
+        else window.location.reload();
+    });
+</script>

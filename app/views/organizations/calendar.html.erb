@@ -1,0 +1,496 @@
+<%= stylesheet_link_tag    'datatables.bundle', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'datatables.bundle', 'data-turbolinks-track' => true %>
+
+<style>
+    .header-fixed .wrapper {
+        padding-top: 65px !important;
+    }
+</style>
+
+<div class="toolbar" id="kt_toolbar">
+  <!--begin::Container-->
+  <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+    <div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
+         class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
+      <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3"><%= t('calendar_connection.caption') %></h1>
+    </div>
+    <div class="d-flex align-items-center py-1"></div>
+  </div>
+  <!--end::Container-->
+</div>
+
+<!--begin::Post-->
+<div
+  class="post d-flex flex-column-fluid mt-14"
+  id="kt_post"
+>
+  <!--begin::Container-->
+  <div
+    id="kt_content_container"
+    class="container-fluid"
+  >
+    <div class="card mb-5">
+      <div class="card-body d-flex justify-content-between pt-1 pb-0">
+        <!--begin::Navs-->
+        <div class="d-flex overflow-auto h-55px">
+          <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder flex-nowrap">
+            <!--begin::Nav item-->
+            <li class="nav-item">
+              <a
+                class="nav-link text-active-primary me-6"
+                href="<%= connect_your_agenda_integrations_path %>"
+              ><%= t('calendar_connection.my_calendar') %></a>
+            </li>
+            <!--end::Nav item-->
+            <!--begin::Nav item-->
+            <li class="nav-item">
+              <a
+                class="nav-link text-active-primary me-6 active"
+                href="javascript:;"
+              ><%= t('calendar_connection.voxiplan_calendar') %></a>
+            </li>
+            <!--end::Nav item-->
+          </ul>
+        </div>
+        <!--end::Navs-->
+      </div>
+    </div>
+
+    <!--begin::Card-->
+    <div class="card card-flush mb-0">
+      <div class="card-header d-flex flex-stack align-items-end mb-7">
+        <div class="page-title">
+          <!--begin::Title-->
+          <h2 class="fw-bold mb-0"><%= t('organization.calendar.title') %></h2>
+          <!--end::Title-->
+        </div>
+        <!--end::Page title-->
+        <!--begin::Actions-->
+        <div class="d-flex align-items-center gap-2 gap-lg-3">
+          <a class="btn btn-primary btn-flex" href="javascript:;" id="add_calendar" data-bs-toggle="modal">
+            <i class="bi bi-plus-lg me-2"></i>
+            <%= t('organization.calendar.new_calendar') %>
+          </a>
+        </div>
+      </div>
+      <!--begin::Card body-->
+      <div class="card-body">
+        <!--begin::Table-->
+        <div class="table-responsive">
+          <table
+            class="table align-middle table-row-dashed"
+            id="kt_datatable_automations"
+          >
+            <!--begin::Table head-->
+            <thead>
+            <!--begin::Table row-->
+            <tr>
+              <th class="min-w-125px"><%= t('organization.calendar.name') %></th>
+              <th class="min-w-250px"><%= t('organization.calendar.user') %></th>
+              <th class="min-w-125px"><%= t('organization.calendar.resource') %></th>
+              <th class="text-end min-w-100px"></th>
+            </tr>
+            <!--end::Table row-->
+            </thead>
+            <!--end::Table head-->
+            <!--begin::Table body-->
+            <tbody>
+            <% @application_calendars.each do |calendar| %>
+              <tr>
+                <td><%= calendar.name %></td>
+                <td><%= calendar.client.full_name %></td>
+                <td></td>
+                <td class="text-end">
+                  <div class="d-inline-block">
+                    <a
+                      href="javascript:;"
+                      data-kt-menu-trigger="click"
+                      data-kt-menu-placement="bottom-end"
+                      data-kt-menu-flip="top-end"
+                      class="btn btn-icon btn-sm btn-white text-muted btn-active-light-primary"
+                    >
+                      <i class="bi bi-three-dots-vertical text-inherit fs-3"></i>
+                    </a>
+                    <div
+                      class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fs-7 w-175px py-4 text-start"
+                      data-kt-menu="true"
+                    >
+                      <!--begin::Menu item-->
+                      <div class="menu-item px-3">
+                        <a
+                          class="modal_edit_calendar menu-link px-3"
+                          data-bs-toggle="modal"
+                          href="#kt_modal_edit_calendar"
+                          calendar_id="<%= calendar.id %>"
+                          calendar_name="<%= calendar.name %>"
+                          calendar_user="<%= calendar.client_id %>"
+                        >
+                          <%= t('organization.calendar.edit') %>
+                        </a>
+                      </div>
+                      <!--end::Menu item-->
+                      <!--begin::Menu item-->
+                      <div class="menu-item px-3">
+                        <a
+                          class="remove_calendar menu-link px-3"
+                          href="javascript:void(0)"
+                          data-kt-datatable-delete-row="delete_row"
+                          calendar_id="<%= calendar.id %>"
+                        >
+                          <%= t('organization.calendar.remove') %>
+                        </a>
+                      </div>
+                      <!--end::Menu item-->
+                    </div>
+                    <!--end::Menu-->
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+            </tbody>
+            <!--end::Table body-->
+          </table>
+        </div>
+        <!--end::Table-->
+      </div>
+      <!--end::Card body-->
+    </div>
+    <!--end::Card-->
+  </div>
+  <!--end::Container-->
+</div>
+<!--end::Post-->
+
+<!--begin::Modals-->
+<!--begin::Add Calendar-->
+<div
+  class="modal fade"
+  id="kt_modal_add_calendar"
+  tabindex="-1"
+  aria-hidden="true"
+>
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered mw-650px">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <!--begin::Modal header-->
+      <div class="modal-header border-0">
+        <h3 class="modal-title mb-0"><%= t('organization.calendar.new_calendar') %></h3>
+
+        <!--begin::Close-->
+        <i class="bi bi-x fs-1 text-muted text-hover-primary cursor-pointer" data-bs-dismiss="modal"></i>
+        <!--end::Close-->
+      </div>
+      <!--end::Modal header-->
+      <div class="modal-body py-0">
+
+      </div>
+      <div class="modal-body py-0">
+        <div class="mb-7">
+          <label class="form-label"><%= t('organization.calendar.name') %></label>
+          <input
+            type="text"
+            name="name"
+            id="add_calendar_name"
+            class="form-control form-control-solid"
+            placeholder="<%= t('organization.calendar.name') %>"
+            />
+        </div>
+        <div class="mb-7">
+          <label class="form-label"><%= t('organization.calendar.user') %></label>
+          <select
+            name="user"
+            id="add_calendar_user"
+            aria-label="Select a user"
+            data-control="select2"
+            data-placeholder="<%= t('organization.calendar.select_user') %>"
+            class="form-select form-select-solid"
+          >
+            <option></option>
+            <% @calendar_enabled_members.each do |member| %>
+              <option value="<%= member.id %>"><%= member.full_name %></option>
+            <% end %>
+          </select>
+        </div>
+        <div class="mb-7 d-none">
+          <label class="form-label"><%= t('organization.calendar.resource') %></label>
+          <select
+            name="resource"
+            aria-label="Select a resource"
+            data-control="select2"
+            data-placeholder="Select a resource..."
+            data-hide-search="true"
+            class="form-select form-select-solid"
+            id="add_calendar_resource"
+          >
+            <option></option>
+            <option>Resource 1</option>
+            <option>Resource 2</option>
+            <option>Resource 3</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="modal-footer border-0">
+        <button
+          type="button"
+          class="btn btn-light"
+          data-bs-dismiss="modal"
+        ><%= t('organization.calendar.cancel') %>
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary ms-2"
+          id="add_calendar_button"
+        ><%= t('organization.calendar.add') %>
+        </button>
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+<!--end::Add Calendar-->
+
+<!--begin::Edit Calendar-->
+<div
+  class="modal fade"
+  id="kt_modal_edit_calendar"
+  tabindex="-1"
+  aria-hidden="true"
+>
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered mw-650px">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <!--begin::Modal header-->
+      <div class="modal-header border-0">
+        <h3 class="modal-title mb-0"><%= t('organization.calendar.edit_calendar') %></h3>
+
+        <!--begin::Close-->
+        <i class="bi bi-x fs-1 text-muted text-hover-primary cursor-pointer" data-bs-dismiss="modal"></i>
+        <!--end::Close-->
+      </div>
+      <!--end::Modal header-->
+      <div class="modal-body py-0">
+
+      </div>
+      <div class="modal-body py-0">
+        <div class="mb-7">
+          <label class="form-label"><%= t('organization.calendar.name') %></label>
+          <input type="hidden" name="id" id="edit_calendar_id">
+          <input
+            type="text"
+            name="name"
+            id="edit_calendar_name"
+            class="form-control form-control-solid"
+            value="Email reminder to host"
+            />
+        </div>
+        <div class="mb-7">
+          <label class="form-label"><%= t('organization.calendar.user') %></label>
+          <select
+            name="user"
+            id="edit_calendar_user"
+            aria-label="<%= t('organization.calendar.select_user') %>"
+            data-control="select2"
+            data-placeholder="<%= t('organization.calendar.select_user') %>"
+            class="form-select form-select-solid"
+          >
+            <option></option>
+            <% @calendar_enabled_members.each do |member| %>
+              <option value="<%= member.id %>"><%= member.full_name %></option>
+            <% end %>
+          </select>
+        </div>
+        <div class="mb-7 d-none">
+          <label class="form-label"><%= t('organization.calendar.resource') %></label>
+          <select
+            name="resource"
+            aria-label="Select a resource"
+            data-control="select2"
+            data-placeholder="Select a resource..."
+            data-hide-search="true"
+            class="form-select form-select-solid"
+          >
+            <option></option>
+            <option selected>Booking Widget</option>
+            <option>Resource 2</option>
+            <option>Resource 3</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="modal-footer border-0">
+        <button
+          type="button"
+          class="btn btn-light"
+          data-bs-dismiss="modal"
+        ><%= t('organization.calendar.cancel') %>
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary ms-2"
+          id="edit_calendar"
+        ><%= t('organization.calendar.edit') %>
+        </button>
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+<!--end::Edit Calendar-->
+<!--end::Modals-->
+
+<div class="modal fade" id="kt_modal_upgrade_seats" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered mw-500px">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('services.upgrade_seats_modal.title') %></h5>
+
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+                  <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
+                  <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                        x="0" y="7" width="16" height="2" rx="1"/>
+                </g>
+              </svg>
+            </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+
+      <div class="modal-body">
+        <%= t('services.upgrade_seats_modal.current_plan') %>
+        <br />
+        <%= t('organization.upgrade_modal.content') %>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal"><%= raw t('services.upgrade_seats_modal.cancel_button') %></button>
+        <a class="btn btn-primary" href="<%= billing_client_path(current_client.id) %>"><%= raw t('services.upgrade_seats_modal.upgrade_button') %></a>
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+
+<script>
+  $(document).ready(function() {
+      $('#add_calendar').click(function() {
+          const calendar_num = <%= @external_calendars.count + @application_calendars.count %>;
+          const chargebee_seats = <%= current_client.organizations && current_client.organizations.first.chargebee_seats ? current_client.organizations.first.chargebee_seats : 1 %>;
+          const plan = "<%= current_client.organizations && current_client.organizations.first.chargebee_subscription_plan ? current_client.organizations.first.chargebee_subscription_plan : "free" %>";
+          if (plan != "trial" && calendar_num >= chargebee_seats) {
+              $('#kt_modal_upgrade_seats').modal('show');
+          } else $('#kt_modal_add_calendar').modal('show');
+      });
+
+      function saveCalendar(id, name, member) {
+          $('div.loader-body').show();
+          $.ajax({
+              url: "/organization/save_calendar",
+              type: "POST",
+              data: {
+                  id: id,
+                  name: name,
+                  member_id: member
+              },
+              success: function(response){
+                  $('div.loader-body').hide();
+                  $('#kt_modal_add_calendar').modal('hide');
+                  $('#kt_modal_edit_calendar').modal('hide');
+                  Swal.fire({
+                      text: response.message,
+                      icon: 'success',
+                      buttonsStyling: false,
+                      confirmButtonText: "<%= t('sweetalert.ok_got_it') %>",
+                      customClass: {
+                          confirmButton: 'btn fw-bold btn-primary',
+                      }
+                  }).then(function () {
+                      if (response.success) window.location.reload();
+                  });
+              },
+              error: function (error) {
+                  $('div.loader-body').hide();
+                  console.log(error);
+              }
+          });
+      }
+
+      $('#add_calendar_button').click(function() {
+          if ($('#add_calendar_name').val() && $('#add_calendar_user').val()) {
+              saveCalendar('', $('#add_calendar_name').val(), $('#add_calendar_user').val());
+          }
+      });
+
+      $('.modal_edit_calendar').click(function() {
+          $('#edit_calendar_name').val($(this).attr('calendar_name'));
+          $('select#edit_calendar_user').select2().val($(this).attr('calendar_user')).trigger('change');
+          $('#edit_calendar_id').val($(this).attr('calendar_id'));
+      });
+
+      $('#edit_calendar').click(function() {
+          if ($('#edit_calendar_name').val() && $('#edit_calendar_user').val()) {
+              saveCalendar($('#edit_calendar_id').val(), $('#edit_calendar_name').val(), $('#edit_calendar_user').val());
+          }
+      });
+
+      function remove_calendar(id) {
+          $.ajax({
+              url: "/organization/remove_calendar",
+              type: "POST",
+              data: {
+                  id: id
+              },
+              success: function(response){
+                  Swal.fire({
+                      text: response.message,
+                      icon: 'success',
+                      buttonsStyling: false,
+                      confirmButtonText: "<%= t('sweetalert.ok_got_it') %>",
+                      customClass: {
+                          confirmButton: 'btn fw-bold btn-primary',
+                      }
+                  }).then(function () {
+                      if (response.success) window.location.reload();
+                  });
+              },
+              error: function (error) {
+                  console.log(error);
+              }
+          });
+      }
+
+      $('.remove_calendar').click(function() {
+          const calendar_id = $(this).attr('calendar_id');
+
+          Swal.fire({
+              text: '<%= t('common.button.remove_content') %>',
+              icon: 'warning',
+              showCancelButton: true,
+              buttonsStyling: false,
+              confirmButtonText: '<%= t('common.button.yes_delete') %>',
+              cancelButtonText: '<%= t('common.button.no_cancel') %>',
+              customClass: {
+                  confirmButton: 'btn fw-bold btn-danger',
+                  cancelButton: 'btn fw-bold btn-active-light-primary'
+              }
+          }).then(function (result) {
+              if (result.value) {
+                  remove_calendar(calendar_id);
+              }
+          });
+      });
+  });
+</script>

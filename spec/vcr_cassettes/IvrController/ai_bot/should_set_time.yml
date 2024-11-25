@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:5005/webhooks/rest/webhook
+    body:
+      encoding: UTF-8
+      string: '{"message":"hello","sender":null}'
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '136'
+      Access-Control-Allow-Origin:
+      - "*"
+      Date:
+      - Sat, 09 Mar 2019 22:51:59 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"recipient_id":"default","text":"Hi, welcome to Appointment bot!"},{"recipient_id":"default","text":"When
+        would you like you come."}]
+
+'
+    http_version: 
+  recorded_at: Sat, 09 Mar 2019 22:51:59 GMT
+- request:
+    method: post
+    uri: http://localhost:5005/webhooks/rest/webhook
+    body:
+      encoding: UTF-8
+      string: '{"message":"tomorrow at 10 am","sender":null}'
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '137'
+      Access-Control-Allow-Origin:
+      - "*"
+      Date:
+      - Sat, 09 Mar 2019 23:34:41 GMT
+    body:
+      encoding: UTF-8
+      string: '[{"recipient_id":"default","text":"You selected 2019-03-10T10:00:00.000+00:00
+        =>  day None, hour None should i search this on Agenda?"}]
+
+'
+    http_version: 
+  recorded_at: Sat, 09 Mar 2019 23:34:41 GMT
+recorded_with: VCR 4.0.0

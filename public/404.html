@@ -1,0 +1,107 @@
+<html lang="en" >
+  <head>
+    <meta charset="utf-8"/>
+    <title>Voxiplan</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+    <script>
+      WebFont.load({
+        google: {"families":["Poppins:300,400,500,600,700"]},
+        active: function() {
+          sessionStorage.fonts = true;
+        }
+      });
+    </script>  
+    <style>
+      html {
+        font-size: 13px!important;
+      }
+      
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-size: 13px!important;
+        font-weight: 300;
+        font-family: Poppins,Helvetica,sans-serif;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        background: #f9f9fc;
+        flex-direction: column;
+        color: #646c9a;
+      }
+
+      .kt-grid {
+        -webkit-box-flex: 1;
+        flex: 1;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        flex-direction: row;
+      }
+
+      .kt-error-v1 {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover
+      }
+
+      .kt-error-v1 .kt-error-v1__container .kt-error-v1__number {
+        font-size: 150px;
+        margin-left: 80px;
+        margin-top: 9rem;
+        font-weight: 700;
+        color: #595d6e;
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+      }
+
+      .kt-error-v1 .kt-error-v1__container .kt-error-v1__desc {
+        font-size: 1.5rem;
+        margin-left: 80px;
+        color: #74788d;
+        -webkit-box-direction: normal;
+      }
+
+      p {
+        font-size:19.5px;
+        line-height:29.25px;
+        margin-block-end:13px;
+        margin-block-start:0;
+        margin-bottom:13px;
+        margin-inline-end:0;
+        margin-inline-start:80px;
+        margin-left:80px;
+        margin-top:0;
+        text-align:left;
+      }
+
+      @media (max-width:768px) {
+        .kt-error-v1 .kt-error-v1__container .kt-error-v1__number {
+          margin: 120px 0 0 3rem;
+          font-size: 8rem
+        }
+        .kt-error-v1 .kt-error-v1__container .kt-error-v1__desc {
+          margin-left: 3rem;
+          padding-right: .5rem
+        }
+      }
+    </style>
+    <link rel="shortcut icon" type="image/png" href="/assets/voxiplan_favicon.png" />
+  </head>
+  <body>
+    <div class="kt-grid">
+      <div class="kt-grid__item kt-grid__item--fluid kt-grid  kt-error-v1" style="background-image: url(/assets/media/error/bg1.jpg);">
+        <div class="kt-error-v1__container">
+          <h1 class="kt-error-v1__number">404</h1>
+          <p class="kt-error-v1__desc">
+            OOPS! Something went wrong here
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

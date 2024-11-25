@@ -1,0 +1,112 @@
+<!--begin::Contact Details-->
+<div class="modal fade" id="kt_modal_contact_details" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered mw-500px">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('customers.contact_details') %></h5>
+
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+              <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+                <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
+                <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                      x="0" y="7" width="16" height="2" rx="1" />
+              </g>
+            </svg>
+          </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6 mb-7">
+            <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4">
+              <div class="fs-6 text-gray-800 fw-bolder detail-first-name">Tiger</div>
+              <div class="fw-bold text-gray-400"><%= t('customers.first_name') %></div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-7">
+            <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4">
+              <div class="fs-6 text-gray-800 fw-bolder detail-last-name">Nixon</div>
+              <div class="fw-bold text-gray-400"><%= t('customers.last_name') %></div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-7">
+            <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4">
+              <div class="fs-6 text-gray-800 fw-bolder detail-email">tiger@voxines.com</div>
+              <div class="fw-bold text-gray-400"><%= t('customers.email') %></div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-7">
+            <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4">
+              <div class="fs-6 text-gray-800 fw-bolder detail-gender">Male</div>
+              <div class="fw-bold text-gray-400"><%= t('customers.gender') %></div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-7">
+            <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4">
+              <div class="fs-6 text-gray-800 fw-bolder detail-birthday">2001-11-11</div>
+              <div class="fw-bold text-gray-400"><%= t('customers.birthday') %></div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-7">
+            <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4">
+              <div class="fs-6 text-gray-800 fw-bolder detail-street">Some Awesome St.</div>
+              <div class="fw-bold text-gray-400"><%= t('customers.street') %></div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-7">
+            <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4">
+              <div class="fs-6 text-gray-800 fw-bolder detail-city">New York</div>
+              <div class="fw-bold text-gray-400"><%= t('customers.city') %></div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-7">
+            <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4">
+              <div class="fs-6 text-gray-800 fw-bolder detail-zipcode">12345</div>
+              <div class="fw-bold text-gray-400"><%= t('customers.zipcode') %></div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-7">
+            <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4">
+              <div class="fs-6 text-gray-800 fw-bolder detail-phone-number">+1(234)567-8901</div>
+              <div class="fw-bold text-gray-400"><%= t('customers.phone_number') %></div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-7">
+            <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4">
+              <div class="fs-6 text-gray-800 fw-bolder detail-notes">Some notes.</div>
+              <div class="fw-bold text-gray-400"><%= t('customers.notes') %></div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-7 mb-md-0">
+            <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4">
+              <div class="fs-6 text-gray-800 fw-bolder detail-created-at">Mon, May 27, 2019 10:38 AM</div>
+              <div class="fw-bold text-gray-400"><%= t('customers.created_at') %></div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-0">
+            <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4">
+              <div class="fs-6 text-gray-800 fw-bolder detail-name-recording">&mdash;</div>
+              <div class="fw-bold text-gray-400"><%= t('customers.name_recording') %></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal"><%= t('common.button.close') %></button>
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+<!--end::Contact Details-->

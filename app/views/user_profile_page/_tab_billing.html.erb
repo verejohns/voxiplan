@@ -1,0 +1,83 @@
+<div class="tab-pane" id="tab_billing" role="tabpanel">
+  <div class="row">
+    <label class="col-xl-3"></label>
+    <div class="col-lg-6 col-xl-6">
+      <h3 class="kt-section__title kt-section__title-sm">Billing information:</h3>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-xl-3 col-lg-3 col-form-label">First Name</label>
+    <div class="col-lg-6 col-xl-6">
+      <%= f.text_field :billing_first_name, class: 'form-control m-input' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-xl-3 col-lg-3 col-form-label">Last Name</label>
+    <div class="col-lg-6 col-xl-6">
+      <%= f.text_field :billing_last_name, class: 'form-control m-input' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-xl-3 col-lg-3 col-form-label">Company Name</label>
+    <div class="col-lg-6 col-xl-6">
+      <%= f.text_field :billing_company_name, class: 'form-control m-input' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-xl-3 col-lg-3 col-form-label">Address 1</label>
+    <div class="col-lg-6 col-xl-6">
+      <%= f.text_field :billing_add_1, class: 'form-control m-input' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-xl-3 col-lg-3 col-form-label">Address 2</label>
+    <div class="col-lg-6 col-xl-6">
+      <%= f.text_field :billing_add_2, class: 'form-control m-input' %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-xl-3 col-lg-3 col-form-label">City</label>
+    <div class="col-lg-6 col-xl-6">
+      <%= f.text_field :billing_city, class: "form-control m-input" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-xl-3 col-lg-3 col-form-label">State</label>
+    <div class="col-lg-6 col-xl-6">
+      <%= f.text_field :billing_state, class: "form-control m-input" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-xl-3 col-lg-3 col-form-label">Zip</label>
+    <div class="col-lg-6 col-xl-6">
+      <%= f.text_field :billing_zip, class: "form-control m-input" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-xl-3 col-lg-3 col-form-label">Country</label>
+    <div class="col-lg-6 col-xl-6">
+      <%= f.text_field :billing_country, class: "form-control m-input" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-xl-3 col-lg-3 col-form-label">Tax</label>
+    <div class="col-lg-6 col-xl-6">
+      <%= f.text_field :tax_id, class: "form-control m-input", placeholder: "xxxxxxx" %>
+      <span>Please enter a valid VAT number</span>
+    </div>
+  </div>
+</div>
+<script>
+  $("#client_billing_country").countrySelect({
+    defaultCountry: country_code,
+  });
+</script>

@@ -1,0 +1,731 @@
+<%= stylesheet_link_tag    'plugins/fullcalendar/fullcalendar.bundle', media: 'all', 'data-turbolinks-track' => true %>
+<!--begin::Toolbar-->
+<input type="hidden" name="user_locale" id="user_locale" value="<%= I18n.locale %>" />
+<input type="hidden" name="client_id" id="client_id" value="<%= current_client.id %>" />
+<input type="hidden" name="from_date" id="from_date" />
+<input type="hidden" name="to_date" id="to_date" />
+<input type="hidden" name="webbooking_url" id="webbooking_url" value="<%= request.base_url+appointment_widget_path(current_client.ivrs.first.booking_url, locale: nil) %>?type=schedule">
+<input type="hidden" name="event_reorder" value="<%= t('schedule_event.event_reorder') %>" />
+<input type="hidden" name="event_name_required" value="<%= t('schedule_event.event_name_required') %>" />
+<input type="hidden" name="event_start_date_required" value="<%= t('schedule_event.event_start_date_required') %>" />
+<input type="hidden" name="event_start_time_required" value="<%= t('schedule_event.event_start_time_required') %>" />
+<input type="hidden" name="event_end_date_required" value="<%= t('schedule_event.event_end_date_required') %>" />
+<input type="hidden" name="event_end_time_required" value="<%= t('schedule_event.event_end_time_required') %>" />
+<input type="hidden" name="submit_failure" value="<%= t('schedule_event.submit_failure') %>" />
+<input type="hidden" name="delete_event_confirm" value="<%= t('schedule_event.delete_event_confirm') %>" />
+<input type="hidden" name="new_event" value="<%= t('schedule_event.add_event.title') %>" />
+<input type="hidden" name="edit_event" value="<%= t('schedule_event.edit_event') %>" />
+<input type="hidden" name="ok_got_it" value="<%= t('sweetalert.ok_got_it') %>" />
+<input type="hidden" name="no_cancel" value="<%= t('sweetalert.no_cancel') %>" />
+<input type="hidden" name="yes_delete" value="<%= t('sweetalert.yes_delete') %>" />
+<input type="hidden" name="yes_reorder" value="<%= t('sweetalert.yes_reorder') %>" />
+
+
+<div class="toolbar" id="kt_toolbar">
+  <!--begin::Container-->
+  <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+    <!--begin::Page title-->
+    <div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
+         class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
+      <!--begin::Title-->
+      <div class="d-flex">
+        <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent">
+          <!--begin::Nav item-->
+          <li class="nav-item">
+            <a class="nav-link text-active-primary ms-0 me-5 py-4 px-sm-5" href="<%= services_path() %>"><%= t('nav_menu.event_types') %></a>
+          </li>
+          <!--end::Nav item-->
+          <!--begin::Nav item-->
+          <li class="nav-item">
+            <a class="nav-link text-active-primary ms-0 me-5 py-4 px-sm-5 active" href="<%= schedule_event_index_path() %>"><%= t('nav_menu.scheduled_events') %></a>
+          </li>
+          <!--end::Nav item-->
+          <!--begin::Nav item-->
+          <li class="nav-item">
+            <a href="#kt_modal_coming_soon" data-bs-toggle="modal" class="menu-link text-muted ms-0 me-5 py-4 px-sm-5"><%= t('nav_menu.automations') %></a>
+          </li>
+          <!--end::Nav item-->
+        </ul>
+      </div>
+      <!--end::Title-->
+    </div>
+    <!--end::Page title-->
+    <!--begin::Actions-->
+    <div class="d-flex align-items-center py-1"></div>
+    <!--end::Actions-->
+  </div>
+  <!--end::Container-->
+</div>
+<!--end::Toolbar-->
+
+<!--begin::Post-->
+<div class="post d-flex flex-column-fluid" id="kt_post">
+  <!--begin::Container-->
+  <div id="kt_content_container" class="container-fluid">
+
+    <!--begin::Card-->
+    <div class="card">
+      <!--begin::Card header-->
+      <div class="card-header">
+        <h1 class="card-title fw-bolder"><%= t('nav_menu.scheduled_events') %></h1>
+        <div class="card-toolbar">
+          <button type="button" class="btn btn-primary btn-flex" data-kt-calendar="add">
+            <i class="bi bi-calendar-plus me-2"></i>
+            <%= t('schedule_event.add_event_button') %>
+          </button>
+
+          <!--begin::Menu-->
+          <a href="javascript:;" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end" class="ps-5">
+            <i class="bi bi-three-dots-vertical fs-3 text-muted"></i>
+          </a>
+          <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-state-bg-light-primary w-200px py-3 mt-4 text-body" data-kt-menu="true">
+            <div class="menu-item px-3">
+              <a href="#kt_modal_settings" class="menu-link text-inherit px-3" data-bs-toggle="modal"><i class="bi bi-gear me-2"></i> <%= t('schedule_event.setting.title') %></a>
+            </div>
+            <div class="menu-item px-3">
+              <a href="#kt_modal_business_hours" class="menu-link text-inherit px-3" data-bs-toggle="modal"><i class="bi bi-clock me-2"></i> <%= t('business_hours.heading') %></a>
+            </div>
+          </div>
+          <!--end::Menu-->
+
+          </a>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div id="kt_calendar_app"></div>
+      </div>
+    </div>
+    <!--end::Card-->
+  </div>
+  <!--end::Container-->
+</div>
+<!--end::Post-->
+<!--begin::Modals-->
+<!--begin::Modal - New Product-->
+<div class="modal fade" id="kt_modal_view_event" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered mw-650px">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <!--begin::Modal header-->
+      <div class="modal-header border-0 pb-3">
+        <h3 class="modal-title mb-0" data-kt-calendar="title"></h3>
+        <div>
+          <i class="bi bi-pencil text-muted text-hover-primary cursor-pointer me-5" id="kt_modal_view_event_edit"></i>
+          <i class="bi bi-trash text-muted text-hover-primary cursor-pointer me-5" id="kt_modal_view_event_delete"></i>
+          <i class="bi bi-x-lg text-muted text-hover-primary cursor-pointer" data-bs-dismiss="modal"></i>
+        </div>
+      </div>
+      <!--end::Modal header-->
+      <!--begin::Modal body-->
+      <div class="modal-body py-0">
+        <div class="mb-8">
+          <!--begin::Event description-->
+          <div data-kt-calendar="event_description" style="word-break: break-all"></div>
+          <!--end::Event description-->
+        </div>
+
+        <div class="bg-light rounded p-4 mb-8">
+          <div class="row">
+            <div class="col-md-6 mb-3 mb-md-0">
+              <h6 class="fs-8 text-uppercase fw-normal ls-1 text-muted mb-2"><%= t('schedule_event.view_event.start') %></h6>
+              <span data-kt-calendar="event_start_date"></span> <span data-kt-calendar="event_start_time"></span>
+            </div>
+
+            <div class="col-md-6">
+              <h6 class="fs-8 text-uppercase fw-normal ls-1 text-muted mb-2"><%= t('schedule_event.view_event.end') %></h6>
+              <span data-kt-calendar="event_end_date"></span> <span data-kt-calendar="event_end_time"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <h6 class="fs-8 text-uppercase fw-normal ls-1 text-muted mb-2"><%= t('schedule_event.view_event.contact') %></h6>
+            <div data-kt-calendar="event_contact"></div>
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <h6 class="fs-8 text-uppercase fw-normal ls-1 text-muted mb-2"><%= t('schedule_event.view_event.service') %></h6>
+            <div data-kt-calendar="event_service"></div>
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <h6 class="fs-8 text-uppercase fw-normal ls-1 text-muted mb-2"><%= t('schedule_event.view_event.resource') %></h6>
+            <div data-kt-calendar="event_resource"></div>
+          </div>
+        </div>
+      </div>
+      <!--end::Modal body-->
+      <!--begin::Modal footer-->
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-primary" id="kt_calendar_event_reschedule_button"><%= t('schedule_event.view_event.reschedule') %></button>
+        <div id="event_change_condition" class="alert alert-border alert-border--warning bg-white p-5 alert-dismissible d-flex flex-column flex-sm-row w-100 mb-8 align-items-sm-center">
+          <i class="bi bi-exclamation-octagon fs-2x text-warning me-5 mb-5 mb-sm-0"></i>
+          <div class="pe-0 pe-sm-10"><%= t('schedule_event.view_event.change_event_condition') %></div>
+        </div>
+      </div>
+      <!--end::Modal footer-->
+    </div>
+  </div>
+</div>
+<!--end::Modal - New Product-->
+
+<!--begin::Modal - New Product-->
+<div class="modal fade" id="kt_modal_add_event" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered mw-650px">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <!--begin::Form-->
+      <form class="form" action="<%= schedule_event_index_path %>" method="post" id="kt_modal_add_event_form">
+        <input type="hidden" name="event_id" id="event_id"  />
+        <input type="hidden" name="service_duration" id="service_duration" value="<%= @calendar_setting.slot_duration.split(":")[1] %>" />
+        <input type="hidden" name="service_buffer" id="service_buffer" value="0" />
+        <input type="hidden" name="slot_duration" id="slot_duration" value="<%= @calendar_setting.slot_duration.split(":")[1] %>" />
+        <!--begin::Modal header-->
+        <div class="modal-header">
+          <!--begin::Modal title-->
+          <h2 class="fw-bolder" data-kt-calendar="title"><%= t('schedule_event.add_event.title') %></h2>
+          <!--end::Modal title-->
+          <!--begin::Close-->
+          <div class="btn btn-icon btn-sm btn-active-icon-primary" id="kt_modal_add_event_close">
+            <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+            <span class="svg-icon svg-icon-1">
+															<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                   width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+																<g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)"
+                                   fill="#000000">
+																	<rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
+																	<rect fill="#000000" opacity="0.5"
+                                        transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                                        x="0" y="7" width="16" height="2" rx="1" />
+																</g>
+															</svg>
+														</span>
+            <!--end::Svg Icon-->
+          </div>
+          <!--end::Close-->
+        </div>
+        <!--end::Modal header-->
+        <!--begin::Modal body-->
+        <div class="modal-body py-10 px-lg-17">
+
+          <!--begin::Input group-->
+          <div class="fv-row mb-9">
+            <!--begin::Label-->
+            <label class="fs-6 fw-bold required mb-2"><%= t('schedule_event.add_event.event_title') %></label>
+            <!--end::Label-->
+            <!--begin::Input-->
+            <input type="text" class="form-control form-control-solid" placeholder="" name="calendar_event_name" id="kt_calendar_event_title"/>
+            <!--end::Input-->
+          </div>
+          <!--end::Input group-->
+          <!--begin::Input group-->
+          <div class="row row-cols-lg-2 g-10">
+            <div class="col-12 col-lg-6">
+              <div class="fv-row mb-9">
+                <!--begin::Label-->
+                <label class="fs-6 fw-bold mb-2 required"><%= t('schedule_event.add_event.event_start_date') %></label>
+                <!--end::Label-->
+                <!--begin::Input-->
+                <input class="form-control form-control-solid" name="calendar_event_start_date" id="kt_calendar_datepicker_start_date" />
+                <!--end::Input-->
+              </div>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div class="fv-row mb-9">
+                <label class="mb-2 required"><%= t('schedule_event.add_event.event_start_time') %></label>
+                <select class="calendar_event_start_time form-select form-select-solid d-none d-md-block" id="calendar_event_start_time" name="calendar_event_start_time">
+                  <option></option>
+                  <% @times.each do |time| %>
+                    <option value="<%=time[:value] %>"><%=time[:label] %></option>
+                  <% end %>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row row-cols-lg-2 g-10">
+            <div class="col-12 col-lg-6" data-kt-calendar="datepicker">
+              <div class="fv-row mb-9">
+                <!--begin::Label-->
+                <label class="fs-6 fw-bold mb-2 required"><%= t('schedule_event.add_event.event_end_date') %></label>
+                <!--end::Label-->
+                <!--begin::Input-->
+                <input class="form-control form-control-solid" name="calendar_event_end_date" id="kt_calendar_datepicker_end_date" />
+                <!--end::Input-->
+              </div>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div class="fv-row mb-9">
+                <label class="mb-2 required"><%= t('schedule_event.add_event.event_end_time') %></label>
+                <select class="calendar_event_end_time form-select form-select-solid d-none d-md-block" name="calendar_event_end_time" id="calendar_event_end_time" >
+                  <option></option>
+                  <% @times.each do |time| %>
+                    <option value="<%=time[:value] %>"><%=time[:label] %></option>
+                  <% end %>
+                </select>
+              </div>
+            </div>
+          </div>
+          <!--end::Input group-->
+          
+          <div id="kt_modal_add_event_contact" class="fv-row mb-9">
+            <label class="fs-6 fw-bold mb-2"><%= t('schedule_event.add_event.contact') %></label>
+            <%= select_tag :customers, options_for_select(@customers.map {|c| [(c.first_name || '') + ' ' + (c.last_name || ''), c.id] }), :include_blank=> true, id: "kt_calendar_event_contact",  class: "form-select form-control form-control-solid select-auto-init", data: { control: 'select2', placeholder: t('schedule_event.add_event.select_contact'), 'hide-search': true } %>
+          </div>
+          <div class="fv-row mb-9">
+            <label class="fs-6 fw-bold mb-2"><%= t('schedule_event.add_event.services') %></label>
+            <select name="services" class="form-select form-control form-control-solid select-auto-init" id="kt_calendar_event_service" data-control="select2" data-hide-search="true" data-placeholder="<%= t('schedule_event.add_event.select_service') %>" >
+              <% current_client.ivrs.each do |ivr| %>
+                <optgroup label="<%= ivr.name %>">
+                  <option value=""></option>
+                  <% current_client.services.active.where(ivr_id: ivr.id).each do |service| %>
+                    <option value="<%= service.id %>"><%= service.name %></option>
+                  <% end %>
+                </optgroup>
+              <% end %>
+            </select>
+          </div>
+          <div class="fv-row mb-9">
+            <label class="fs-6 fw-bold mb-2"><%= t('schedule_event.add_event.resources') %></label>
+            <%= select_tag :resources, options_for_select([]), :include_blank=> true, id: "kt_calendar_event_resource", class: "form-select form-control form-control-solid select-auto-init", data: { control: 'select2', placeholder: t('schedule_event.add_event.select_resource'), 'hide-search': true } %>
+          </div>
+          <!--begin::Input group-->
+          <div class="fv-row mb-9 notification-section">
+            <label class="fs-6 fw-bold mb-2"><%= t('schedule_event.add_event.event_notification') %></label>
+            <div id="trigger-group" class="trigger-group row mb-2 d-none">
+              <div class="col-6">
+                <input type="text" class="form-control form-control-solid trigger_time" placeholder="" name="trigger_time" />
+              </div>
+              <div class="col-4">
+                <select class="form-select trigger_duration" name="trigger_duration" data-placeholder="<%= t('common.select_placeholder') %>" >
+                  <option></option>
+                  <option value="minutes" selected><%= t('services.automations.edit_trigger.minutes') %></option>
+                  <option value="hours" ><%= t('services.automations.edit_trigger.hours') %></option>
+                  <option value="days"><%= t('services.automations.edit_trigger.days') %></option>
+                </select>
+              </div>
+              <div class="col-2">
+                <button class="btn btn-sm btn-icon btn-light-primary float-end add-item p-6" type="button" id="add-item" onclick="cloneTrigger(10, 'minutes')">
+                  <i class="fas fa-plus"></i>
+                </button>
+                <button class="d-none btn btn-sm btn-icon btn-light-danger ms-auto float-end remove-item p-6" type="button" onclick="removeTrigger(this)">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+
+            </div>
+            <div id="trigger-clone-box"></div>
+          </div>
+          <!--end::Input group-->
+
+          <!--begin::Input group-->
+          <div class="fv-row mb-9">
+            <!--begin::Label-->
+            <label class="fs-6 fw-bold mb-2"><%= t('schedule_event.add_event.event_description') %></label>
+            <!--end::Label-->
+            <!--begin::Input-->
+            <textarea class="form-control form-control-solid" rows="4" placeholder="" name="calendar_event_description" id="kt_calendar_event_description" ></textarea>
+            <!--end::Input-->
+          </div>
+        </div>
+        <!--end::Modal body-->
+        <!--begin::Modal footer-->
+        <div class="modal-footer flex-center">
+          <!--begin::Button-->
+          <button type="reset" id="kt_modal_add_event_cancel" class="btn btn-light me-3"><%= t('common.button.cancel') %></button>
+          <!--end::Button-->
+          <!--begin::Button-->
+          <button type="button" id="kt_modal_add_event_submit" class="btn btn-primary">
+            <span class="indicator-label"><%= t('common.button.submit') %></span>
+            <span class="indicator-progress"><%= t('common.please_wait') %>
+														<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+          </button>
+          <!--end::Button-->
+        </div>
+        <!--end::Modal footer-->
+      </form>
+      <!--end::Form-->
+    </div>
+  </div>
+</div>
+<!--end::Modal - New Product-->
+<!--begin::Modal - Settings-->
+<div class="modal fade" id="kt_modal_settings" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered mw-650px">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header border-0" id="kt_modal_header_settings">
+        <h3 class="modal-title mb-0"><%= t('schedule_event.setting.title') %></h3>
+
+        <!--begin::Close-->
+        <i class="bi bi-x fs-1 text-muted text-hover-primary cursor-pointer" data-bs-dismiss="modal"></i>
+        <!--end::Close-->
+      </div>
+
+      <!--begin::Modal body-->
+      <div class="modal-body py-0">
+        <!--begin::Form-->
+        <form id="kt_modal_form_settings" class="form" action="<%= save_setting_schedule_event_index_path %>" method="post">
+
+          <div class="row">
+            <div class="col-12 col-lg-6 mb-6">
+              <!--begin::Label-->
+              <label class="form-label"><%= t('schedule_event.setting.time_increments') %></label>
+              <!--end::Label-->
+              <diiv class="d-flex algin-items-center">
+                <!--begin::Input-->
+                <select class="js-select-custom-value form-select form-select-solid slotDuration" name="slotDuration">
+                  <% for i in (5..55).step(5) do %>
+                    <% value = "00:#{format('%02d', i)}:00" %>
+                    <option value="<%= value %>" <%= 'selected' if @calendar_setting.slot_duration == value %>><%= i %></option>
+                  <% end %>
+                </select>
+                <!--end::Input-->
+                <span class="text-muted ms-2 pt-3"><%= t('schedule_event.setting.min') %></span>
+              </diiv>
+              <div class="form-text"><%= t('schedule_event.setting.time_increments_help') %></div>
+            </div>
+            <!--end::Input group-->
+
+            <!--begin::Input group-->
+            <div class="col-12 col-lg-6 mb-6">
+              <!--begin::Label-->
+              <label class="form-label"><%= t('schedule_event.setting.snap_duration') %></label>
+              <!--end::Label-->
+              <div class="d-flex algin-items-center">
+                <!--begin::Input-->
+                <select class="js-select-custom-value form-select form-select-solid snapDuration" name="snapDuration">
+                  <option></option>
+                  <% for i in (5..55).step(5) do %>
+                    <% value = "00:#{format('%02d', i)}:00" %>
+                    <option value="<%= value %>" <%= 'selected' if @calendar_setting.snap_duration == value %>><%= i %></option>
+                  <% end %>
+                </select>
+                <!--end::Input-->
+                <span class="text-muted ms-2 pt-3"><%= t('schedule_event.setting.min') %></span>
+              </div>
+              <div class="form-text"> </div>
+            </div>
+            <!--end::Input group-->
+          </div>
+
+
+          <div class="row">
+
+            <div class="col-12 col-lg-6 mb-6">
+              <!--begin::Label-->
+              <label class="form-label"><%= t('schedule_event.setting.min_time') %></label>
+              <!--end::Label-->
+              <!--begin::Input-->
+              <input class="form-control form-control-solid slotMinTime" placeholder="<%= t('schedule_event.setting.pick_time') %>" id="kt_settings_min_time" name="slotMinTime" value="<%= @calendar_setting.min_time %>" />
+              <!--end::Input-->
+              <div class="form-text"><%= t('schedule_event.setting.min_time_help') %></div>
+            </div>
+            <!--end::Input group-->
+
+            <!--begin::Input group-->
+            <div class="col-12 col-lg-6 mb-6">
+              <!--begin::Label-->
+              <label class="form-label"><%= t('schedule_event.setting.max_time') %></label>
+              <!--end::Label-->
+              <!--begin::Input-->
+              <input class="form-control form-control-solid slotMaxTime" placeholder="<%= t('schedule_event.setting.pick_time') %>" id="kt_settings_max_time" name="slotMaxTime" value="<%= @calendar_setting.max_time %>" />
+              <!--end::Input-->
+              <div class="form-text"><%= t('schedule_event.setting.max_time_help') %></div>
+            </div>
+            <!--end::Input group-->
+          </div>
+
+          <div class="row">
+            <!--begin::Input group-->
+            <div class="col-12 col-lg-6 mb-6">
+              <!--begin::Label-->
+              <label class="form-label"><%= t('schedule_event.setting.weekends') %></label>
+              <!--end::Label-->
+              <!--begin::Options-->
+              <div class="d-flex align-items-center">
+                <!--begin::Option-->
+                <label class="form-check form-check-sm form-check-custom form-check-solid me-8">
+                  <input class="form-check-input" name="weekends[]" id="weekend_saturday" type="checkbox" value="6" <%= 'checked' if @calendar_setting.hidden_days.split(',').include? '6' %> />
+                  <span class="ps-2"><%= t('common.day.saturday') %></span>
+                </label>
+                <!--end::Option-->
+                <!--begin::Option-->
+                <label class="form-check form-check-sm form-check-custom form-check-solid">
+                  <input class="form-check-input" name="weekends[]" id="weekend_sunday" type="checkbox" value="0" <%= 'checked' if @calendar_setting.hidden_days.split(',').include? '0' %> />
+                  <span class="ps-2"><%= t('common.day.sunday') %></span>
+                </label>
+                <!--end::Option-->
+              </div>
+              <!--end::Options-->
+              <div class="form-text"><%= t('schedule_event.setting.weekends_help') %></div>
+            </div>
+            <!--end::Input group-->
+
+            <!--begin::Input group-->
+            <div class="col-12 col-lg-6 mb-6">
+              <!--begin::Label-->
+              <label class="form-label"><%= t('schedule_event.setting.start_week') %></label>
+              <!--end::Label-->
+              <!--begin::Input-->
+              <select class="form-select form-select-solid firstDay" data-control="select2" data-placeholder="<%= t('schedule_event.setting.select_day') %>" name="firstDay" data-hide-search="true" data-dropdown-parent="#kt_modal_settings">
+                <option value="6" <%= 'selected' if @calendar_setting.first_day == '6' %>><%= t('common.day.saturday') %></option>
+                <option value="0" <%= 'selected' if @calendar_setting.first_day == '0' %>><%= t('common.day.sunday') %></option>
+                <option value="1" <%= 'selected' if @calendar_setting.first_day == '1' %>><%= t('common.day.monday') %></option>
+              </select>
+              <!--end::Input-->
+              <div class="form-text"><%= t('schedule_event.setting.start_week_help') %></div>
+            </div>
+            <!--end::Input group-->
+          </div>
+
+          <div class="row">
+            <!--begin::Input group-->
+            <div class="col-12 mb-6">
+              <!--begin::Label-->
+              <label class="form-label"><%= t('schedule_event.setting.time_format') %></label>
+              <!--end::Label-->
+              <!--begin::Input-->
+              <select class="form-select form-select-solid time_format" data-control="select2" data-placeholder="<%= t('schedule_event.setting.select_time_format') %>" name="time_format" data-hide-search="true" data-dropdown-parent="#kt_modal_settings">
+                <option value="24" <%= 'selected' if @calendar_setting.time_format == '24' %>>24 <%= t('schedule_event.setting.hours') %> (ex: 13:00)</option>
+                <option value="12" <%= 'selected' if @calendar_setting.time_format == '12' %>>12 <%= t('schedule_event.setting.hours') %> (ex: 1:00 pm)</option>
+              </select>
+              <!--end::Input-->
+            </div>
+            <!--end::Input group-->
+          </div>
+          <!--begin::Actions-->
+          <div class="text-end pb-6">
+            <button type="button" class="btn btn-light me-3" data-bs-dismiss="modal"><%= t('common.button.cancel') %></button>
+            <button type="button" class="btn btn-primary" id="save_setting" data-kt-users-modal-action="submit">
+              <span class="indicator-label"><%= t('common.button.submit') %></span>
+              <span class="indicator-progress">
+										<%= t('common.please_wait') %>
+										<span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+									</span>
+            </button>
+          </div>
+          <!--end::Actions-->
+        </form>
+        <!--end::Form-->
+      </div>
+      <!--end::Modal body-->
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+<!--end::Modal - Settings-->
+<!--begin::Modal - Business Hours-->
+<div class="modal fade" id="kt_modal_business_hours" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered mw-650px">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header border-0" id="kt_modal_header_business_hours">
+        <h3 class="modal-title mb-0"><%= t('business_hours.heading') %></h3>
+
+        <!--begin::Close-->
+        <i class="bi bi-x fs-1 text-muted text-hover-primary cursor-pointer" data-bs-dismiss="modal"></i>
+        <!--end::Close-->
+      </div>
+
+      <!--begin::Modal body-->
+      <div class="modal-body py-0">
+        <!--begin::Form-->
+        <form id="kt_modal_form_business_hours" class="form" action="<%= save_business_hours_schedule_event_index_path %>" method="post">
+          <div class="row">
+            <div class="col-md schedule_availabilities">
+              <%= render 'shared/availability_week', availability: @calendar_setting.availabilities %>
+            </div>
+          </div>
+
+          <!--begin::Actions-->
+          <div class="text-end pt-11 pb-6">
+            <button type="button" class="btn btn-light me-3" data-bs-dismiss="modal"><%= t('common.button.cancel') %></button>
+            <button type="button" class="btn btn-primary" id="save_default_hours" data-kt-users-modal-action="submit">
+              <span class="indicator-label"><%= t('common.button.submit') %></span>
+              <span class="indicator-progress">
+										<%= t('common.please_wait') %>
+										<span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+									</span>
+            </button>
+          </div>
+          <!--end::Actions-->
+        </form>
+        <!--end::Form-->
+      </div>
+      <!--end::Modal body-->
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+<!--end::Modal - Business Hours-->
+<!--end::Modals-->
+<%= render 'modal/coming_soon' %>
+
+<%= javascript_include_tag 'plugins/fullcalendar/fullcalendar.bundle', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'calendar', 'data-turbolinks-track' => true %>
+<script>
+    $('select#kt_calendar_event_service').select2();
+    $('select#kt_calendar_event_service').on('change', function (e) {
+        if ($(this).val() == '') {
+            $('div.notification-section').removeClass('d-none');
+        }
+        else {
+            $('div.notification-section').addClass('d-none');
+        }
+        $.ajax({
+            type: "GET",
+            async: false,
+            data: { id: $("select#kt_calendar_event_service").val(), type: "Service" },
+            url: "/services/get_dependencies",
+            success: function (response) {
+                $('select#kt_calendar_event_resource').html('');
+                let resources = [];
+                response.dependent_resources.forEach((resource) => {
+                    let element = [];
+                    element['id'] = resource[0];
+                    element['text'] = resource[1];
+                    resources.push(element);
+                })
+                $('select#kt_calendar_event_resource').select2({ data: resources});
+                $('input[name=service_duration]').val(response.duration);
+                $('input[name=service_buffer]').val(response.buffer);
+
+                const start_time = ($('#calendar_event_start_time').val() == '' || $('#calendar_event_start_time').val() == null)
+                    ? "00:00".split(':') : $('#calendar_event_start_time').val().split(':');
+                const end_time_min = parseInt(start_time[0]) * 60 + parseInt(start_time[1]) + response.duration + response.buffer;
+                const end_time = formatNumber(Math.floor(end_time_min / 60)) + ':' + formatNumber(Math.floor(end_time_min % 60));
+
+                $('input#kt_calendar_datepicker_end_date').val($('input#kt_calendar_datepicker_start_date').val());
+                setEndTime($('#calendar_event_start_time').val(), end_time);
+            }
+        });
+    })
+
+    $("select#calendar_event_start_time").on('change', function() {
+        const duration = $('input[name=service_duration]').val();
+        const buffer = $('input[name=service_buffer]').val();
+        const start_time = ($('#calendar_event_start_time').val() == '' || $('#calendar_event_start_time').val() == null)
+            ? "00:00".split(':') : $('#calendar_event_start_time').val().split(':');
+        const end_time_min = parseInt(start_time[0]) * 60 + parseInt(start_time[1]) + parseInt(duration) + parseInt(buffer);
+        const end_time = formatNumber(Math.floor(end_time_min / 60)) + ':' + formatNumber(Math.floor(end_time_min % 60));
+
+        setEndTime($('#calendar_event_start_time').val(), end_time);
+    })
+
+    function setEndTime(start_time, end_time) {
+        initEndTimeDisable();
+        const disabled_endtime = [];
+
+        // will disable previous option of new end time
+        $.each($('select#calendar_event_end_time option'), function(index, option) {
+            const time = $(option).val();
+            if (time == end_time) $(option).removeAttr('disabled');
+            if (time < start_time) {
+                $(option).attr('disabled', 'disabled');
+                disabled_endtime.push(time);
+            }
+        });
+
+        $('#calendar_event_end_time').val(end_time).trigger('change');
+    }
+
+    function initEndTimeDisable() {
+        // set disable of every option of end time dropdown list. so it is same with start time dropdown.
+        $('select#calendar_event_end_time option').removeAttr('disabled');
+        $.each($('select#calendar_event_start_time option'), function(index, option) {
+            if ($(option).attr('disabled') == 'disabled') {
+                const end_time_obj = $('select#calendar_event_end_time option')[index];
+                $(end_time_obj).attr('disabled', 'disabled');
+            }
+        });
+    }
+
+    function cloneTrigger(trigger_time, trigger_duration) {
+        const clone_box = 'div#trigger-clone-box';
+        const clone_obj = $('div#trigger-group').clone();
+        const trigger_id = "trigger_" + $.now();
+
+        if ($('div#trigger-clone-box .trigger-group').length == 0) {
+            $(clone_obj).find('button.remove-item').remove();
+        }
+        else {
+            $(clone_obj).find('button.add-item').remove();
+            $(clone_obj).find('button.remove-item').removeClass('d-none');
+            $(clone_obj).find('button.remove-item').attr('data-trigger-id', trigger_id);
+        }
+
+        $(clone_obj).attr('id', 'trigger_group_repeat');
+        $(clone_obj).find('input.trigger_time').val(trigger_time);
+        $(clone_obj).find('select.trigger_duration').select2().val(trigger_duration).trigger('change');
+
+
+        $(clone_obj).find('input.trigger_time').attr('name', 'customer[trigger_time][]');
+        $(clone_obj).find('input.trigger_time').attr('id', trigger_id);
+        $(clone_obj).find('select.trigger_duration').attr('name', 'customer[trigger_duration][]');
+        $(clone_obj).removeClass('d-none');
+        $(clone_box).append(clone_obj);
+    }
+
+    function removeTrigger(obj) {
+        $(obj).parent().parent().remove();
+    }
+
+    function formatNumber(num) {
+        return num < 10 ? `0${num}` : num;
+    }
+
+    $('select#kt_calendar_event_contact').on('select2:open', function() {
+        setZIndex();
+    })
+    $('select#kt_calendar_event_service').on('select2:open', function() {
+        setZIndex();
+    })
+    $('select#kt_calendar_event_resource').on('select2:open', function() {
+        setZIndex();
+    })
+
+    $("#kt_settings_min_time").flatpickr({
+        enableTime: true,
+        noCalendar: true,
+        dateFormat: "H:i",
+        time_24hr: $('select.time_format').val() == 12 ? false : true
+    });
+    $("#kt_settings_max_time").flatpickr({
+        enableTime: true,
+        noCalendar: true,
+        dateFormat: "H:i",
+        time_24hr: $('select.time_format').val() == 12 ? false : true
+    });
+
+    $(".js-select-custom-value").select2({
+        tags: true,
+        dropdownParent: $('#kt_modal_settings'),
+        allowClear: true
+    }).on('select2:open', function(e){
+        $('.select2-search__field').attr('placeholder', 'Type your custom duration').attr('type', 'number');
+    });
+
+
+    $("select.calendar_event_start_time, select.calendar_event_end_time").select2({
+        tags: true,
+        dropdownParent: $('#kt_modal_add_event'),
+        placeholder: "Pick a time",
+        allowClear: true
+    }).on('select2:open', function(e){
+        $('.select2-search__field').attr('placeholder', 'Type your custom time').attr('type', 'time');
+    });
+
+    function setZIndex() {
+        const z_index = parseInt($('div#kt_modal_add_event').css('z-index'));
+        $('span.select2-container span.select2-dropdown.select2-dropdown--above').css('z-index', z_index + 1);
+        $('span.select2-container span.select2-dropdown.select2-dropdown--below').css('z-index', z_index + 1);
+    }
+</script>

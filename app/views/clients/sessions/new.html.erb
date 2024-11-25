@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <%= google_tag_manager_script_tag('voxiplan') %>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, , shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Voxiplan</title>
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <%= javascript_include_tag "https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js", "https://oss.maxcdn.com/respond/1.4.2/respond.min.js" %>
+    <![endif]-->
+  <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js" %>
+  <script>
+      WebFont.load({ google: {"families":["Poppins:300,400,500,600,700","Roboto:300,400,500,600,700"]}, active: function() {sessionStorage.fonts = true;}});
+  </script>
+  <%= stylesheet_link_tag    'application-v3', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'plugins/plugins.bundle', media: 'all', 'data-turbolinks-track' => true %>
+
+
+  <%= javascript_include_tag 'plugins/plugins.bundle', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application-v3', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body id="kt_body" class="bg-body">
+<%= google_tag_manager_noscript_tag('voxiplan') %>
+<!--begin::Main-->
+<div class="d-flex flex-column flex-root">
+  <!--begin::Authentication - Sign-up -->
+  <div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed">
+    <!--begin::Content-->
+    <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
+      <!--begin::Logo-->
+      <a href="/" class="mb-12">
+        <img alt="Logo" src="/assets/voxi_logo.png" class="h-45px" />
+      </a>
+      <!--end::Logo-->
+      <!--begin::Wrapper-->
+      <div class="<%= URI.parse(request.original_url).path == '/signup' ? 'w-lg-600px' : 'w-lg-500px' %> bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
+        <%= flash_messages %>
+        <div class="text-end" style="margin-top: -20px">
+          <!--begin::Menu-->
+          <div class="menu menu-rounded menu-column menu-gray-600 menu-state-bg fw-semibold w-80px" data-kt-menu="true" style="float:right">
+            <div class="menu-item" data-kt-menu-trigger="hover" data-kt-menu-placement="bottom-end">
+              <a href="#" class="menu-link py-3 bg-hover-light-primary">
+                <span class="menu-title text-primary"><%= t('locales.' + (I18n.locale.to_s || 'en')) %></span>
+              </a>
+              <%= render 'layouts/language' %>
+            </div>
+          </div>
+          <!--end::Menu-->
+        </div>
+
+        <%= form_for('', url: ENV['ORY_URL'] + "/self-service/login?flow=" + @flow, :html => {method: :post, :class => 'form w-100', :id => 'signin-form'}) do |f| %>
+          <%= f.hidden_field :flow, value: @flow %>
+          <%= f.hidden_field :csrf_token, value: @csrf_token %>
+          <%= f.hidden_field :method, value: "password" %>
+
+          <div class="text-center mb-10 mt-15">
+            <% if @organization %>
+              <h1 class="text-dark mb-3"><%= t('devise.registrations.new.welcome_join', organization: @organization) %></h1>
+              <div class="text-gray-400 fw-bold fs-4">
+                <%= t('devise.registrations.new.join_signin') %>
+                <a href="<%= ENV['ORY_URL'] + '/self-service/registration/browser' %>" class="link-primary fw-bolder"><%= t('devise.registrations.new.join_to_organization') %></a>
+              </div>
+            <% else %>
+              <h1 class="text-dark mb-3"><%= t('devise.registrations.new.sign_in_heading') %></h1>
+              <%- if controller_name == 'sessions' %>
+                <div class="text-gray-400 fw-bold fs-4"><%= t('devise.shared.links.new_here') %>
+                  <a href="<%= ENV['ORY_URL'] + '/self-service/registration/browser' %>" class="link-primary fw-bolder"><%= t('devise.registrations.new.sign_up_heading') %></a>
+                </div>
+              <% end -%>
+            <% end %>
+          </div>
+          <!--begin::Heading-->
+
+          <div class="fv-row mb-10">
+            <label class="form-label fs-6 fw-bolder text-dark required"><%= t('placeholders.email') %></label>
+            <%= f.email_field :identifier, autofocus: true, class: "form-control form-control-lg form-control-solid", autocomplete: 'off'%>
+          </div>
+
+          <div class="fv-row mb-5">
+            <div class="d-flex flex-stack mb-2">
+              <label class="form-label fw-bolder text-dark fs-6 mb-0 required"><%= t('placeholders.passwd') %></label>
+            </div>
+            <%= f.password_field :password, autocomplete: "off", class: "form-control form-control-lg form-control-solid" %>
+          </div>
+
+          <div class="fv-row mb-10">
+            <div class="d-flex flex-stack">
+              <label class="form-check form-check-custom form-check-solid form-check-inline">
+                <%= f.check_box :remember_me, class: "form-check-input" %>
+                <span class="form-check-label text-gray-600"><%= t('devise.sessions.new.remember_me', default: 'Remember me') %></span>
+                <span></span>
+              </label>
+
+              <%- if controller_name != 'passwords' && controller_name != 'registrations' %>
+                <%= link_to t('devise.sessions.new.forgot_your_password', default: 'Forgot password?'), ENV['ORY_URL'] + '/self-service/recovery/browser', class: "link-primary fs-6 fw-bolder" %>
+              <% end -%>
+
+            </div>
+          </div>
+          <!--end::Input group-->
+          <!--begin::Actions-->
+          <div class="text-center">
+            <!--begin::Submit button-->
+            <button type="submit" id="kt_sign_in_submit" class="btn btn-lg btn-primary">
+              <span class="indicator-label"><%= t('devise.sessions.new.sign_in', :default => "Sign in") %></span>
+              <span class="indicator-progress">
+                  <%= t('common.please_wait') %>
+                <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                </span>
+            </button>
+            <!--end::Submit button-->
+          </div>
+          <!--end::Actions-->
+        <% end %>
+      </div>
+      <!--end::Wrapper-->
+    </div>
+
+    <!--end::Content-->
+  </div>
+  <!--end::Authentication - Sign-up-->
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  $('.alert-dismissible').each(function() {
+      if ($(this).text().includes('login flow expired')) {
+          setTimeout(function(){ window.location.href = "<%= ENV['ORY_URL'] + '/self-service/login/browser' %>"; }, 2000);
+      }
+  });
+
+  $('button#kt_sign_in_submit').on('click', function() {
+      $(this).attr('data-kt-indicator', 'on');
+      $(this).attr('disabled', 'disabled');
+      $('form#signin-form').submit();
+  })
+</script>
+</body>
+</html>

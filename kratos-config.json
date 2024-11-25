@@ -1,0 +1,310 @@
+{
+  "cookies": {
+    "domain": "recursing-khorana-douoygtthk.projects.oryapis.com",
+    "path": "/",
+    "same_site": "Lax"
+  },
+  "courier": {
+    "smtp": {
+      "from_name": "Voxiplan-DEV via Ory"
+    },
+    "templates": {
+      "recovery": {
+        "invalid": {
+          "email": {
+            "body": {
+              "html": "https://storage.googleapis.com/bac-gcs-production/9d0f9b7e3e5ea8f7e7a616ac9dd15e80c79e80629d96c9cf3db90163b015f58c95987b0659697c501becb989428b94ec170ae04c77cc66872fe97d2632dd6c96.html",
+              "plaintext": "https://storage.googleapis.com/bac-gcs-production/571cde78150f775ff99f01e6f7cd1a5a7cab3a6cbdeab62794f3fb983837afac8c3636023ecd41341adb1ff07701a3aedd73f3537003296b0346adb0dd4c6e98.bin"
+            },
+            "subject": "https://storage.googleapis.com/bac-gcs-production/dff0e8c82b99431b5609ebacf17bc07085fb83a833d8a30c9866d6833c96c156137cbcaf41d1f5341966e5334e6883ae33fbb46299894fd0542d6f245ecbda10.bin"
+          }
+        },
+        "valid": {
+          "email": {
+            "body": {
+              "html": "https://storage.googleapis.com/bac-gcs-production/da2822f672e6478744a12fca340444dd4c0fbdc37c0192c7423c7ebbd17496f0fcd0418b223812b2a99a374142c6d7c91f4ef75c7f07bdc800075c95108419da.html",
+              "plaintext": "https://storage.googleapis.com/bac-gcs-production/d053c714a14930ba9c50df7713aae3ca7cb438890985bc5331e199cc9de47a5373ea95c4b915f9108e23c96eb23df85f3f9aa68cd3caf57d7abb14f25afd9c0f.bin"
+            },
+            "subject": "https://storage.googleapis.com/bac-gcs-production/724d3c3a3129bb11112b584d3025c9bed32c2e906c83e3790ead83553f7a4c48cb2b3b3d22b5ce53c0a78d054429c17c43de2946c1f402ad6de07de7bc0cf68c.bin"
+          }
+        }
+      },
+      "recovery_code": {
+        "invalid": {
+          "email": {
+            "body": {
+              "html": "https://storage.googleapis.com/bac-gcs-production/e309978516790d989557670031ea8cd7971e86bdf1b226589198fbcf010d7309497695aea2b590ec3708df11766183f2bf51646be493a475e33477d07da13cc9.html",
+              "plaintext": "https://storage.googleapis.com/bac-gcs-production/e0b136b4576c35914a0747adcf454a298115202a2cae5ef9d10cefda67ddbac9a5361ed3e75610628a948e835481101834ff9a1c246be3df5771227a1df93b5d.bin"
+            },
+            "subject": "https://storage.googleapis.com/bac-gcs-production/8b79dd7025dafb7649cab74ce2dd6ba7648ba897de2dd0691025523d52520b052b25ab8180a3ae75188884d3df9e62328eb0dbf65dd9fbc2a1244f4564854678.bin"
+          }
+        },
+        "valid": {
+          "email": {
+            "body": {
+              "html": "https://storage.googleapis.com/bac-gcs-production/3a80ea66d296656f6db46efce7de50558f14cef88d2b99b65f34b080e2e67969ffe349692cfda258a57cbae1df67aa09d4864c83e7742f27c30b38da98d2a064.html",
+              "plaintext": "https://storage.googleapis.com/bac-gcs-production/d6469b59d182db0108c5b7c25dc66f53a5f411457354120f352839e02d8aa16c778bfa68f0b315b1f319aa0504add599e66e8bb779142b0e23edc3753b1d6086.bin"
+            },
+            "subject": "https://storage.googleapis.com/bac-gcs-production/724d3c3a3129bb11112b584d3025c9bed32c2e906c83e3790ead83553f7a4c48cb2b3b3d22b5ce53c0a78d054429c17c43de2946c1f402ad6de07de7bc0cf68c.bin"
+          }
+        }
+      },
+      "verification": {
+        "invalid": {
+          "email": {
+            "body": {
+              "html": "https://storage.googleapis.com/bac-gcs-production/98d7a24f3b1ad311835a72d6a2ae59a7105a005a7b2796084668cc5bcb481feaf2cd657f899cfd156c7effab2575f3afa3d5138ccd8f4e43b44f76f03f153db1.html",
+              "plaintext": "https://storage.googleapis.com/bac-gcs-production/50c6737d2efc036809e67afafe7bf9a58b6c005028fa366cfcd141a4ab27d38b84fb21546c1059b59f67cbfe3c85092ba736442b1b39156e42fe6d60cec14e9b.bin"
+            },
+            "subject": "https://storage.googleapis.com/bac-gcs-production/0372f8902ad2bb0d34dd4fade5f4c692e4f8f2191581af32adf4d49c42fee99d662af49cf05006eb811b978767ea7863d1e39ddc53ef9f01c4f36c6b1b660b3f.bin"
+          }
+        },
+        "valid": {
+          "email": {
+            "body": {
+              "html": "https://storage.googleapis.com/bac-gcs-production/a63042c3412175a837e294b562f3faacd7ab33483d8a2aa3e123d3d367deeb38ee6a7792d8d346d18d49f8919efee30c60a0aff6af8a20671accf8716e083fe9.html",
+              "plaintext": "https://storage.googleapis.com/bac-gcs-production/dcaef2b06cecf678c09e96b1ad2292a33af819cb31516a352049594c309eeec0fae73edbf6b769f77379fd023f3615df91525a8bd36a4bedb0a08c78b7007de6.bin"
+            },
+            "subject": "https://storage.googleapis.com/bac-gcs-production/b9ffe15534d7692676b36c3d241895a38c5c6f883c4b9337fe47cba4dcffcfe630471b3d40f39d0ad9fcab766c39f9f2fd1a21afe0903e92d57b3d9c20dd5451.bin"
+          }
+        }
+      },
+      "verification_code": {
+        "invalid": {
+          "email": {
+            "body": {
+              "html": "https://storage.googleapis.com/bac-gcs-production/98d7a24f3b1ad311835a72d6a2ae59a7105a005a7b2796084668cc5bcb481feaf2cd657f899cfd156c7effab2575f3afa3d5138ccd8f4e43b44f76f03f153db1.html",
+              "plaintext": "https://storage.googleapis.com/bac-gcs-production/50c6737d2efc036809e67afafe7bf9a58b6c005028fa366cfcd141a4ab27d38b84fb21546c1059b59f67cbfe3c85092ba736442b1b39156e42fe6d60cec14e9b.bin"
+            },
+            "subject": "https://storage.googleapis.com/bac-gcs-production/0372f8902ad2bb0d34dd4fade5f4c692e4f8f2191581af32adf4d49c42fee99d662af49cf05006eb811b978767ea7863d1e39ddc53ef9f01c4f36c6b1b660b3f.bin"
+          }
+        },
+        "valid": {
+          "email": {
+            "body": {
+              "html": "https://storage.googleapis.com/bac-gcs-production/a8fe04d02dd515f99e15031687c859b05b052d33d63ad3c1f9f2a1759c73b7ba3df11907805fbb561a4277bc6cb0601bd0547e5efaf5a727bb7354091c90f8b7.html",
+              "plaintext": "https://storage.googleapis.com/bac-gcs-production/f589db28eb644bafd32c073eb53ea7edba9b377cdceb75f87afdfe1f76240de0b56eb11f90f97ebd7f7244521b945a3c46f77eb54e042aad782220966bc2b1c0.bin"
+            },
+            "subject": "https://storage.googleapis.com/bac-gcs-production/b9ffe15534d7692676b36c3d241895a38c5c6f883c4b9337fe47cba4dcffcfe630471b3d40f39d0ad9fcab766c39f9f2fd1a21afe0903e92d57b3d9c20dd5451.bin"
+          }
+        }
+      }
+    }
+  },
+  "identity": {
+    "default_schema_id": "eb9a6907d8f32784d7e4f4c580012c6f70326f5d163ea62ca73c076d7b9d6a75b3374559a40012dd1cbd7a0fdb2f4eebdb6b1aa24a70d15822864a88f34562f2",
+    "schemas": [
+      {
+        "id": "eb9a6907d8f32784d7e4f4c580012c6f70326f5d163ea62ca73c076d7b9d6a75b3374559a40012dd1cbd7a0fdb2f4eebdb6b1aa24a70d15822864a88f34562f2",
+        "url": "https://storage.googleapis.com/bac-gcs-production/eb9a6907d8f32784d7e4f4c580012c6f70326f5d163ea62ca73c076d7b9d6a75b3374559a40012dd1cbd7a0fdb2f4eebdb6b1aa24a70d15822864a88f34562f2.json"
+      },
+      {
+        "id": "29833887b485ee356925063114ec0842144269a7eb616c29281755b793d25da2a6533fb4263c84be8c08522b60ef90154ec5dc88c71a29a1ea1969445d605732",
+        "url": "https://storage.googleapis.com/bac-gcs-production/29833887b485ee356925063114ec0842144269a7eb616c29281755b793d25da2a6533fb4263c84be8c08522b60ef90154ec5dc88c71a29a1ea1969445d605732.json"
+      },
+      {
+        "id": "preset://email",
+        "url": "base64://ewogICIkaWQiOiAiaHR0cHM6Ly9zY2hlbWFzLm9yeS5zaC9wcmVzZXRzL2tyYXRvcy9pZGVudGl0eS5lbWFpbC5zY2hlbWEuanNvbiIsCiAgIiRzY2hlbWEiOiAiaHR0cDovL2pzb24tc2NoZW1hLm9yZy9kcmFmdC0wNy9zY2hlbWEjIiwKICAidGl0bGUiOiAiUGVyc29uIiwKICAidHlwZSI6ICJvYmplY3QiLAogICJwcm9wZXJ0aWVzIjogewogICAgInRyYWl0cyI6IHsKICAgICAgInR5cGUiOiAib2JqZWN0IiwKICAgICAgInByb3BlcnRpZXMiOiB7CiAgICAgICAgImVtYWlsIjogewogICAgICAgICAgInR5cGUiOiAic3RyaW5nIiwKICAgICAgICAgICJmb3JtYXQiOiAiZW1haWwiLAogICAgICAgICAgInRpdGxlIjogIkUtTWFpbCIsCiAgICAgICAgICAib3J5LnNoL2tyYXRvcyI6IHsKICAgICAgICAgICAgImNyZWRlbnRpYWxzIjogewogICAgICAgICAgICAgICJwYXNzd29yZCI6IHsKICAgICAgICAgICAgICAgICJpZGVudGlmaWVyIjogdHJ1ZQogICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgIndlYmF1dGhuIjogewogICAgICAgICAgICAgICAgImlkZW50aWZpZXIiOiB0cnVlCiAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAidG90cCI6IHsKICAgICAgICAgICAgICAgICJhY2NvdW50X25hbWUiOiB0cnVlCiAgICAgICAgICAgICAgfQogICAgICAgICAgICB9LAogICAgICAgICAgICAicmVjb3ZlcnkiOiB7CiAgICAgICAgICAgICAgInZpYSI6ICJlbWFpbCIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgInZlcmlmaWNhdGlvbiI6IHsKICAgICAgICAgICAgICAidmlhIjogImVtYWlsIgogICAgICAgICAgICB9CiAgICAgICAgICB9LAogICAgICAgICAgIm1heExlbmd0aCI6IDMyMAogICAgICAgIH0KICAgICAgfSwKICAgICAgInJlcXVpcmVkIjogWwogICAgICAgICJlbWFpbCIKICAgICAgXSwKICAgICAgImFkZGl0aW9uYWxQcm9wZXJ0aWVzIjogZmFsc2UKICAgIH0KICB9Cn0K"
+      },
+      {
+        "id": "ac663ea035edcdcf8f5b2db3049bf0060ca9356273a95bf9486a65b45d941fac59fd033ece2294ad4697ebded4ca76df78ec1c0184d2b76b0698ec4cdf754951",
+        "url": "https://storage.googleapis.com/bac-gcs-production/ac663ea035edcdcf8f5b2db3049bf0060ca9356273a95bf9486a65b45d941fac59fd033ece2294ad4697ebded4ca76df78ec1c0184d2b76b0698ec4cdf754951.json"
+      },
+      {
+        "id": "d49b600c2e50b38f6d72a8c2803fcfd099bbce63088f030ce838558cdcd70ea02b0ec8c20928ff3b3bb47ab07fefc8050c82b847fc88e1ac9855a6408819d7f7",
+        "url": "https://storage.googleapis.com/bac-gcs-production/d49b600c2e50b38f6d72a8c2803fcfd099bbce63088f030ce838558cdcd70ea02b0ec8c20928ff3b3bb47ab07fefc8050c82b847fc88e1ac9855a6408819d7f7.json"
+      }
+    ]
+  },
+  "oauth2_provider": {},
+  "selfservice": {
+    "allowed_return_urls": [],
+    "default_browser_return_url": "https://dev.voxiplan.com/",
+    "flows": {
+      "error": {
+        "ui_url": "https://dev.voxiplan.com/ory_error"
+      },
+      "login": {
+        "after": {
+          "default_browser_return_url": "https://dev.voxiplan.com/post_login",
+          "hooks": [],
+          "oidc": {
+            "hooks": []
+          },
+          "password": {
+            "hooks": []
+          },
+          "webauthn": {
+            "hooks": []
+          }
+        },
+        "before": {
+          "hooks": []
+        },
+        "lifespan": "30m0s",
+        "ui_url": "https://dev.voxiplan.com/signin"
+      },
+      "logout": {
+        "after": {
+          "default_browser_return_url": "https://dev.voxiplan.com/post_logout"
+        }
+      },
+      "recovery": {
+        "after": {
+          "hooks": []
+        },
+        "before": {
+          "hooks": []
+        },
+        "enabled": true,
+        "lifespan": "30m0s",
+        "ui_url": "https://dev.voxiplan.com/recovery",
+        "use": "code"
+      },
+      "registration": {
+        "after": {
+          "default_browser_return_url": "https://dev.voxiplan.com/post_registration",
+          "hooks": [],
+          "oidc": {
+            "hooks": [
+              {
+                "hook": "session"
+              }
+            ]
+          },
+          "password": {
+            "hooks": [
+              {
+                "hook": "session"
+              }
+            ]
+          },
+          "webauthn": {
+            "hooks": []
+          }
+        },
+        "before": {
+          "hooks": []
+        },
+        "enabled": true,
+        "lifespan": "30m0s",
+        "ui_url": "https://dev.voxiplan.com/signup"
+      },
+      "settings": {
+        "after": {
+          "default_browser_return_url": "https://dev.voxiplan.com/post_settings",
+          "hooks": [],
+          "password": {
+            "hooks": []
+          },
+          "profile": {
+            "hooks": []
+          }
+        },
+        "before": {
+          "hooks": []
+        },
+        "lifespan": "30m0s",
+        "privileged_session_max_age": "72h0m0s",
+        "required_aal": "highest_available",
+        "ui_url": "https://dev.voxiplan.com/settings"
+      },
+      "verification": {
+        "after": {
+          "hooks": []
+        },
+        "before": {
+          "hooks": []
+        },
+        "enabled": true,
+        "lifespan": "30m0s",
+        "ui_url": "https://dev.voxiplan.com/verification",
+        "use": "code"
+      }
+    },
+    "methods": {
+      "code": {
+        "config": {
+          "lifespan": "15m0s"
+        },
+        "enabled": true
+      },
+      "link": {
+        "config": {
+          "base_url": "https://auth.dev.voxiplan.com/",
+          "lifespan": "15m0s"
+        },
+        "enabled": true
+      },
+      "lookup_secret": {
+        "enabled": false
+      },
+      "oidc": {
+        "config": {
+          "providers": []
+        },
+        "enabled": false
+      },
+      "password": {
+        "config": {
+          "haveibeenpwned_enabled": true,
+          "identifier_similarity_check_enabled": true,
+          "ignore_network_errors": true,
+          "max_breaches": 1,
+          "min_password_length": 8
+        },
+        "enabled": true
+      },
+      "profile": {
+        "enabled": true
+      },
+      "totp": {
+        "config": {
+          "issuer": "Voxiplan-DEV"
+        },
+        "enabled": false
+      },
+      "webauthn": {
+        "config": {
+          "passwordless": false,
+          "rp": {
+            "display_name": "Voxiplan-DEV",
+            "id": "recursing-khorana-douoygtthk.projects.oryapis.com",
+            "origin": "https://recursing-khorana-douoygtthk.projects.oryapis.com"
+          }
+        },
+        "enabled": false
+      }
+    }
+  },
+  "serve": {
+    "admin": {
+      "base_url": "https://recursing-khorana-douoygtthk.projects.oryapis.com/",
+      "request_log": {
+        "disable_for_health": true
+      }
+    },
+    "public": {
+      "base_url": "https://recursing-khorana-douoygtthk.projects.oryapis.com/",
+      "cors": {
+        "enabled": false
+      },
+      "request_log": {
+        "disable_for_health": true
+      }
+    }
+  },
+  "session": {
+    "cookie": {
+      "domain": "recursing-khorana-douoygtthk.projects.oryapis.com",
+      "name": "ory_session_recursingkhoranadouoygtthk",
+      "path": "/",
+      "persistent": false,
+      "same_site": "Lax"
+    },
+    "lifespan": "72h0m0s",
+    "whoami": {
+      "required_aal": "highest_available"
+    }
+  }
+}

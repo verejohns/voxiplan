@@ -1,0 +1,352 @@
+<div class="py-8 px-9">
+  <div class="fw-bold fs-4 mb-4"><%= t('availabilities.override.header') %></div>
+  <div class="small text-muted mb-4"><%= t('availabilities.override.helper') %></div>
+  <a class="btn btn-sm btn-light-primary" id="service-hours-add-override" href="#service_hours_modal_date_overrides" data-bs-toggle="modal"><%= t('availabilities.override.add_override') %></a>
+  <div class="separator my-7"></div>
+  <div class="service-hours-override-section">
+    <%
+        override_content = ""
+        @override_hours = overrides&.keys || []
+        @override_hours.each do |oday|
+            from_to_content = ''
+            override = overrides[oday]
+            override.each do |override_hour|
+                from_hour = override_hour['from'] || override_hour[:from]
+                to_hour = override_hour['to'] || override_hour[:to]
+                if from_hour.nil? || to_hour.nil?
+                    from_to_content += "<input type='hidden' class='service_hours_override_hours_from' data-override-date='#{oday}' name='service_hours_override_hours[#{oday}][from][]' value='unavailable' />
+                        <input type='hidden' class='service_hours_override_hours_to' data-override-date='#{oday}' name='service_hours_override_hours[#{oday}][to][]' value='unavailable' />#{t('availabilities.unavailable')}"
+                else
+                    from_to_content += "<input type='hidden' class='service_hours_override_hours_from' data-override-date='#{oday}' name='service_hours_override_hours[#{oday}][from][]' value='#{from_hour}' />
+                        <input type='hidden' class='service_hours_override_hours_to' data-override-date='#{oday}' name='service_hours_override_hours[#{oday}][to][]' value='#{to_hour}' />
+                        <span class='d-block' data-from='#{from_hour}' data-to='#{to_hour}'>#{from_hour} - #{to_hour}</span>"
+                end
+            end
+            override_content += "<div class='row mb-2' data-override-date='#{oday}'>
+                <div class='col-5 pt-2'>#{oday}</div>
+                <div class='col-6 pt-2'>#{from_to_content}</div>
+                <div class='col-1'>
+                    <button class='btn btn-sm btn-icon btn-light float-end service-hours-remove-override' type='button'>
+                        <i class='fas fa-minus'></i>
+                    </button>
+                </div></div>"
+        end
+    %>
+    <%= override_content.html_safe %>
+  </div>
+</div>
+
+<div class="modal fade" id="service_hours_modal_date_overrides" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered mw-375px">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+
+      <input type="hidden" name="service_hours_selected_date" id="service_hours_selected_date" />
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('availabilities.override.modal_title') %></h5>
+
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+            <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+              <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
+              <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                    x="0" y="7" width="16" height="2" rx="1" />
+            </g>
+          </svg>
+        </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+
+      <div class="modal-body">
+        <div class="fv-row">
+          <div class="datepicker-no-shadow border rounded p-1">
+            <input id="service_hours_date_overrides" class="form-control d-none" type="text" />
+          </div>
+        </div>
+        <div class="separator my-7"></div>
+        <div class="fv-row service-hours-add-time-section d-none">
+          <div class="fw-bold fs-4 mb-6"><%= t('availabilities.override.modal_help') %>
+            <button class="btn btn-sm btn-icon btn-light float-end" type="button" id="service-hours-add-time">
+              <i class="bi bi-plus fs-3"></i>
+            </button>
+          </div>
+          <div>
+            <div id="service-hours-repeat-customer" class="d-flex mb-3 d-none service-hours-repeat-customer">
+              <div class="input-group input-group-sm flex-nowrap rounded bg-light-primary mw-275px mb-0">
+                <span class="input-group-text bg-primary text-white border-0"><%= t('availabilities.from') %></span>
+                <input class="mask-from form-control form-control-solid w-80px service-hours-from-customer-date service-hours-timepicker-customer"
+                       name="service_hours_customer_hours[from][]" type="text" value="09:00" />
+                <span class="input-group-text bg-primary text-white border-0"><%= t('availabilities.to') %></span>
+                <input type="text" class="mask-to form-control form-control-solid w-80px service-hours-to-customer-date service-hours-timepicker-customer"
+                       name="service_hours_customer_hours[to][]" value="17:00" />
+              </div>
+              <button class="btn btn-sm btn-icon btn-light-danger ms-auto service-hours-remove-item" type="button">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+            <div id="service_hours_customer_clone_box"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal"><%= t('button.cancel') %></button>
+        <button type="button" class="btn btn-primary service-hours-apply-override apply-button" id="service-hours-apply-override"><%= t('button.apply') %></button>
+      </div>
+
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+
+<script>
+    (function () {
+        const $from = document.querySelectorAll(".mask-from");
+        const $to = document.querySelectorAll(".mask-to");
+
+        Inputmask({ alias: 'datetime', inputFormat: 'H2:MM', placeholder: '00:00', min: '00:00', max: '23:59' }).mask($from);
+        Inputmask({ alias: 'datetime', inputFormat: 'H2:MM', placeholder: '00:00', min: '00:00', max: '23:59' }).mask($to);
+    })();
+
+    $(".service-hours-timepicker-customer").flatpickr({
+        enableTime: true,
+        noCalendar: true,
+        time_24hr: true,
+        dateFormat: "H:i",
+        onChange: function(selectedDates, dateStr, instance) {
+            service_hours_customer_time_validation(this.input.id);
+        }
+    });
+
+    let service_hours_overrider_flatpickr = $("#service_hours_date_overrides").flatpickr({
+        inline: true,
+        mode: "multiple",
+        dateFormat: "Y-m-d",
+        onChange: function(selectedDates, dateStr, instance) {
+            $('input#service_hours_selected_date').val(dateStr);
+            if (dateStr == '')
+                $('div.service-hours-add-time-section').addClass('d-none');
+            else {
+                $('div.service-hours-add-time-section').removeClass('d-none');
+                const selected_dates = $('input#service_hours_selected_date').val().split(',').sort();
+                const sel_date = selected_dates[0].replace(/ /g, "");;
+                $('div#service_hours_customer_clone_box').html('');
+                $.each($('div.service-hours-override-section div.row'), function(i, override_row) {
+                    if ($(override_row).data('override-date') == sel_date) {
+
+                        $.each($(override_row).find('span'), function(index, override_hour) {
+                            const clone_box = '#service_hours_customer_clone_box';
+                            const clone_obj = $('#service-hours-repeat-customer').clone();
+
+                            $(clone_obj).removeClass('d-none');
+                            $(clone_obj).find('input.service-hours-from-customer-date').attr('name', 'service_hours_customer_hours[from][]');
+                            $(clone_obj).find('input.service-hours-from-customer-date').val($(override_hour).data('from'));
+                            $(clone_obj).find('input.service-hours-from-customer-date').attr('value', $(override_hour).data('from'));
+                            $(clone_obj).find('input.service-hours-from-customer-date').addClass('service_hours_customer_hours_from');
+                            $(clone_obj).find('input.service-hours-to-customer-date').attr('name', 'service_hours_customer_hours[to][]');
+                            $(clone_obj).find('input.service-hours-to-customer-date').val($(override_hour).data('to'));
+                            $(clone_obj).find('input.service-hours-to-customer-date').attr('value', $(override_hour).data('to'));
+                            $(clone_obj).find('input.service-hours-to-customer-date').addClass('service_hours_customer_hours_to');
+                            $(clone_obj).find('input.service-hours-timepicker-customer').flatpickr({
+                                enableTime: true,
+                                noCalendar: true,
+                                time_24hr: true,
+                                dateFormat: "H:i",
+                                onChange: function(selectedDates, dateStr, instance) {
+                                    service_hours_customer_time_validation();
+                                }
+                            })
+                            $(clone_box).append(clone_obj);
+                            service_hours_customer_time_validation();
+                        })
+
+                        return false;
+                    }
+
+                })
+            }
+        }
+    });
+
+    $('a#service-hours-add-override').on('click', function() {
+        $('div.service-hours-add-time-section').addClass('d-none');
+        service_hours_overrider_flatpickr.clear();
+        $('div#service_hours_customer_clone_box').html('');
+    })
+
+    $('button.service-hours-apply-override').on('click', function(e) {
+        e.preventDefault();
+        let override_hours = [];
+        const selected_dates = $('input#service_hours_selected_date').val().split(',').sort();
+        $.each(selected_dates, function(index, selected_date) {
+            const sel_date = selected_date.replace(/ /g, "");
+
+            let from_to_override_content = '';
+            $.each($('input.service_hours_customer_hours_from'), function(index, from_hours) {
+                const from_hour = $(from_hours).val();
+                const to_hour = $($('input.service_hours_customer_hours_to')[index]).val();
+                from_to_override_content += `
+                    <input type="hidden" class="service_hours_override_hours_from" data-override-date="` + sel_date + `" name="service_hours_override_hours[` + sel_date + `][from][]" value="` + from_hour + `" />
+                    <input type="hidden" class="service_hours_override_hours_to" data-override-date="` + sel_date + `" name="service_hours_override_hours[` + sel_date + `][to][]" value="` + to_hour + `" />
+                    <span class="d-block" data-from="` + from_hour + `" data-to="` + to_hour + `">` + from_hour + ` - ` + to_hour + `</span>`;
+            });
+
+            if (from_to_override_content == '') {
+                from_to_override_content = `
+                    <input type="hidden" class="service_hours_override_hours_from" data-override-date="` + sel_date + `" name="service_hours_override_hours[` + sel_date + `][from][]" value="unavailable" />
+                    <input type="hidden" class="service_hours_override_hours_to" data-override-date="` + sel_date + `" name="service_hours_override_hours[` + sel_date + `][to][]" value="unavailable" />
+                    <%= t('availabilities.unavailable') %>
+                `;
+            }
+            if (sel_date && from_to_override_content) {
+                override_hours.push(`
+                <div class="col-5 pt-2">` + sel_date + `</div>
+                <div class="col-6 pt-2">` + from_to_override_content + `</div>
+                <div class="col-1">
+                    <button class="btn btn-sm btn-icon btn-light float-end service-hours-remove-override" type="button">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>`);
+            }
+        })
+
+        $.each(override_hours, function(index, override_hour) {
+            let is_inserted = false;
+            const sel_date = selected_dates[index].replace(/ /g, "");
+            if ($('div.service-hours-override-section div.row').length == 0) {
+                $('div.service-hours-override-section').append(`<div class="row mb-2" data-override-date="` + sel_date + `">` + override_hour + `</div>`);
+                is_inserted = true;
+            }
+            else {
+                $.each($('div.service-hours-override-section div.row'), function(i, override_row) {
+                    if (is_inserted == false && $(override_row).data('override-date') == sel_date) {
+                        $(override_row).html(override_hour);
+                        is_inserted = true;
+                        return false;
+                    }
+
+                    if (is_inserted == false && $(override_row).data('override-date') > sel_date) {
+                        $(override_row).before(`<div class="row mb-2" data-override-date="` + sel_date + `">` + override_hour + `</div>`);
+                        is_inserted = true;
+                        return false;
+                    }
+                })
+            }
+
+            if (is_inserted == false) $('div.service-hours-override-section').append(`<div class="row mb-2" data-override-date="` + sel_date + `">` + override_hour + `</div>`);
+        })
+
+
+        $('div#service_hours_modal_date_overrides').modal('hide');
+    })
+
+    $('button#service-hours-add-time').on('click', function() {
+        const clone_box = '#service_hours_customer_clone_box';
+        const clone_obj = $('#service-hours-repeat-customer').clone();
+
+        let prev_to_time = '';
+        if ($('#service_hours_customer_clone_box').find('input.service-hours-from-customer-date').length == 0)
+            prev_to_time = $('#service-hours-repeat-customer').find('input.service-hours-to-customer-date').val();
+        else
+            prev_to_time = $('#service_hours_customer_clone_box').find('input.service-hours-to-customer-date:last').val();
+
+        const prev_time_info = prev_to_time.split(':');
+        const prev_hours = prev_time_info[0];
+        const prev_minutes = prev_time_info[1];
+
+        let theAdd = new Date();
+        theAdd.setHours(prev_hours, prev_minutes, 0, 0); // Set Hours, minutes, secons and miliseconds
+        theAdd.setHours(theAdd.getHours() + 1);
+
+        let next_hours = theAdd.getHours();
+        let next_minutes = theAdd.getMinutes();
+        let next_from_time = ('0' + next_hours).slice(-2) + ':' + ('0' + next_minutes).slice(-2);
+
+        theAdd.setHours(theAdd.getHours() + 1);
+        next_hours = theAdd.getHours();
+        next_minutes = theAdd.getMinutes();
+        let next_to_time = ('0' + next_hours).slice(-2) + ':' + ('0' + next_minutes).slice(-2);
+
+        if ($('#service_hours_customer_clone_box').find('input.service-hours-from-customer-date').length == 0) {
+            next_from_time = $('#service-hours-repeat-customer').find('input.service-hours-from-customer-date').val();
+            next_to_time = $('#service-hours-repeat-customer').find('input.service-hours-to-customer-date').val();
+        }
+
+        $(clone_obj).removeClass('d-none');
+        $(clone_obj).find('input.service-hours-from-customer-date').attr('name', 'service_hours_customer_hours[from][]');
+        $(clone_obj).find('input.service-hours-from-customer-date').val(next_from_time);
+        $(clone_obj).find('input.service-hours-from-customer-date').attr('value', next_from_time);
+        $(clone_obj).find('input.service-hours-from-customer-date').addClass('service_hours_customer_hours_from');
+        $(clone_obj).find('input.service-hours-to-customer-date').attr('name', 'service_hours_customer_hours[to][]');
+        $(clone_obj).find('input.service-hours-to-customer-date').val(next_to_time);
+        $(clone_obj).find('input.service-hours-to-customer-date').attr('value', next_to_time);
+        $(clone_obj).find('input.service-hours-to-customer-date').addClass('service_hours_customer_hours_to');
+        $(clone_obj).find('input.service-hours-timepicker-customer').flatpickr({
+            enableTime: true,
+            noCalendar: true,
+            time_24hr: true,
+            dateFormat: "H:i",
+            onChange: function(selectedDates, dateStr, instance) {
+                service_hours_customer_time_validation();
+            }
+        })
+        $(clone_box).append(clone_obj);
+        service_hours_customer_time_validation();
+    });
+
+    $('body').on('click', 'button.service-hours-remove-item', function() {
+        $(this).parent().remove();
+        service_hours_customer_time_validation();
+    })
+
+    $('body').on('click', 'button.service-hours-remove-override', function() {
+        $(this).parent().parent().remove();
+    })
+
+    function service_hours_customer_time_validation() {
+        var time_slot_from = []
+        var time_slot_to = []
+        var fromList = document.querySelectorAll('#service_hours_customer_clone_box input.service-hours-from-customer-date');
+        var toList = document.querySelectorAll('#service_hours_customer_clone_box input.service-hours-to-customer-date');
+        var isOverLap = false;
+
+        for (let i = 0; i < toList.length; i++) {
+            time_slot_from[i]  = parseInt(fromList[i].value.replace(":", ""));
+            time_slot_to[i]    = parseInt(toList[i].value.replace(":", ""));
+            if(time_slot_from[i] >= time_slot_to[i]){
+                isOverLap = true;
+                break;
+            }
+            if(time_slot_to[i-1] >= time_slot_from[i]) {
+                isOverLap = true;
+                break;
+            }
+        }
+
+        submit_button = document.getElementsByClassName("submit-button");
+        apply_button = document.getElementsByClassName("apply-button");
+        if(isOverLap == true){
+            for (let i = 0; i < toList.length; i++) {
+                fromList[i].style.color = "red";
+                toList[i].style.color = "red";
+            }
+            submit_button.disabled = true;
+            apply_button.disabled = true;
+        }
+        else{
+            for (let i = 0; i < toList.length; i++) {
+                fromList[i].style.color = "black";
+                toList[i].style.color = "black";
+            }
+            submit_button.disabled = false;
+            apply_button.disabled = false;
+        }
+    }
+</script>

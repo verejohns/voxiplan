@@ -1,0 +1,747 @@
+<link rel="stylesheet" href="/assets/countrySelect.css">
+<link rel="stylesheet" href="/assets/intlTelInput.min.css">
+<style>
+    .img-flag {
+        width: 20px;
+        height: 20px;
+    }
+
+    .scroll-table {
+        position: relative;
+        max-width: 100%;
+        overscroll-behavior: contain;
+    }
+
+    .scroll-table-thead {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 55px;
+        z-index: 1;
+        background-color: #fff;
+    }
+
+    .scroll-table-tbody {
+        margin-top: 1rem;
+    }
+
+    .syncscroll {
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .scroll-table-thead.syncscroll::-webkit-scrollbar {
+        display: none;
+    }
+
+    .scroll-table-row {
+        display: flex;
+    }
+
+    .scroll-table-tbody .scroll-table-row:nth-child(odd) .scroll-table-column {
+        background-color: rgba(245, 248, 250, 0.75);
+    }
+
+    .scroll-table-tbody .scroll-table-row:nth-child(even) .scroll-table-column {
+        background-color: #fff;
+    }
+
+    .scroll-table-column {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1 0 20%;
+        min-width: 200px;
+        min-height: 50px;
+        padding: 0.5rem;
+        scroll-snap-align: start;
+    }
+
+    .scroll-table-column:first-child {
+        padding-left: 0;
+        flex: 1 0 40%;
+        border-radius: 0.475rem 0 0 0.475rem;
+        justify-content: start;
+    }
+
+    .scroll-table-column:last-child {
+        padding-right: 0;
+        border-radius: 0 0.475rem 0.475rem 0;
+    }
+
+    .scroll-table-thead .scroll-table-column {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+    }
+
+    @media (min-width: 765px) {
+        .scroll-table-thead {
+            top: 65px;
+        }
+    }
+    .iti {
+        width: 100%;
+    }
+    .iti__flag {background-image: url("/assets/flags.png");}
+
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .iti__flag {background-image: url("/assets/flags@2x.png");}
+    }
+
+    .country-select .flag{
+        background-image:url("/assets/flags/flags.png");
+    }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx){
+        .country-select .flag{
+            background-image:url("/assets/flags/flags@2x.png")
+        }
+    }
+</style>
+
+<% content_for :noneed_login do %>
+  <div class="d-flex align-items-stretch justify-content-end flex-lg-grow-1">
+    <!--begin::Topbar-->
+    <div class="d-flex align-items-stretch flex-shrink-0">
+      <!--begin::Currency-->
+      <div class="d-flex align-items-center">
+        <select id="kt_select_change_currency" class="form-select form-select-sm" data-control="select2" data-placeholder="<%= t('pricing.currency_label') %>" data-minimum-results-for-search="Infinity" data-width="100px">
+          <option></option>
+          <option value="eur" <%= params[:u].blank? || params[:u] == 'eur' ? 'selected' : '' %>>EUR (€)</option>
+          <option value="usd" <%= params[:u].present? && params[:u] == 'usd' ? 'selected' : '' %>>USD ($)</option>
+        </select>
+      </div>
+      <!--end::Currency-->
+      <!--begin::Language-->
+      <div class="d-flex align-items-center ms-1 ms-lg-3">
+        <select id="kt_select_change_country" class="form-select form-select-sm" data-control="select2" data-placeholder="<%= t('pricing.language_label') %>" data-minimum-results-for-search="Infinity" data-width="100px">
+          <option></option>
+          <option value="en" <%= params[:locale].blank? || params[:locale] == 'en' ? 'selected' : '' %>>EN</option>
+          <option value="fr" <%= params[:locale].present? && params[:locale] == 'fr' ? 'selected' : '' %>>FR</option>
+          <option value="el" <%= params[:locale].present? && params[:locale] == 'el' ? 'selected' : '' %>>EL</option>
+        </select>
+      </div>
+      <!--end::Language-->
+    </div>
+    <!--end::Topbar-->
+  </div>
+<% end %>
+
+<div class="post d-flex flex-column-fluid" id="kt_post">
+  <!--begin::Container-->
+  <div id="kt_content_container" class="container-fluid">
+    <!--begin::Pricing card-->
+    <div id="kt_pricing" class="card mb-0">
+      <!--begin::Card body-->
+      <div class="card-body">
+        <!--begin::Heading-->
+        <div class="mb-10 text-center">
+          <h1 class="fs-2x mb-18"><%= t('pricing.top_section.heading') %></h1>
+          <div class="position-relative mb-4 w-300px mx-auto mb-6">
+            <div class="nav-group rounded-pill nav-group-outline d-flex p-0" data-kt-buttons="true">
+              <a href="javascript:void(0);" class="btn rounded-pill btn-sm w-50 btn-color-gray-400 btn-active btn-active-primary px-3 px-sm-6 py-3 active" data-kt-plan="annual">
+                <%= t('pricing.top_section.annual') %>
+              </a>
+              <a href="javascript:void(0);" class="btn rounded-pill btn-sm w-50 btn-color-gray-400 btn-active btn-active-primary px-3 px-sm-6 py-3" data-kt-plan="month">
+                <%= t('pricing.top_section.monthly') %>
+              </a>
+            </div>
+
+            <span class="position-absolute top-0 start-0 mt-n10 ms-16">
+              <span>
+                <svg class="position-relative" style="top: .5rem;" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 99.3 57" width="48">
+                  <path fill="none" stroke="#bdc5d1" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="M2,39.5l7.7,14.8c0.4,0.7,1.3,0.9,2,0.4L27.9,42"></path>
+                  <path fill="none" stroke="#bdc5d1" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="M11,54.3c0,0,10.3-65.2,86.3-50"></path>
+                </svg>
+
+                <span class="badge bg-secondary rounded-pill ms-1"><%= t('pricing.top_section.save_annual_plans') %></span>
+              </span>
+            </span>
+          </div>
+        </div>
+        <!--end::Heading-->
+        <div class="row g-10 mb-20">
+          <!--begin::Col-->
+          <div class="col-xl-4">
+            <div class="d-flex h-100 align-items-center">
+              <!--begin::Option-->
+              <div class="w-100 d-flex flex-column flex-center rounded-3 bg-light py-15 px-10">
+                <!--begin::Heading-->
+                <div class="mb-5 text-center">
+                  <!--begin::Title-->
+                  <h2 class="h1 mb-7"><%= t('pricing.top_section.widget.type_0') %></h2>
+                  <!--end::Title-->
+                  <!--begin::Price-->
+                  <div class="d-flex align-items-center justify-content-center lh-1 mb-2 text-dark">
+                    <span class="align-self-start fs-5 mt-2"><span class="currency-sign"><%= @currency_code %></span></span>
+                    <span class="fs-3x fw-bold">0</span>
+                  </div>
+                  <!--end::Price-->
+
+                  <!--begin::Description-->
+                  <div class="text-muted mb-5"><%= t('pricing.per_seat_month') %></div>
+                  <!--end::Description-->
+                </div>
+                <!--end::Heading-->
+                <!--begin::Select-->
+                <a href="<%= ENV['ORY_URL'] + '/self-service/registration/browser' %>" class="btn btn-light-primary"><%= t('billing.upgrade_plan.select') %></a>
+                <!--end::Select-->
+              </div>
+              <!--end::Option-->
+            </div>
+          </div>
+          <!--end::Col-->
+
+          <!--begin::Col-->
+          <div class="col-xl-4">
+            <div class="d-flex h-100 align-items-center">
+              <!--begin::Option-->
+              <div class="w-100 d-flex flex-column flex-center rounded-3 bg-light py-20 px-10">
+                <!--begin::Heading-->
+                <div class="mb-5 text-center">
+                  <!--begin::Title-->
+                  <h2 class="h1 mb-7"><%= t('pricing.top_section.widget.type_1') %></h2>
+                  <!--end::Title-->
+                  <!--begin::Price-->
+                  <div class="d-flex align-items-center justify-content-center lh-1 mb-2 text-dark">
+                    <span class="align-self-start fs-5 mt-2"><span class="currency-sign"><%= @currency_code %></span></span>
+                    <span class="fs-3x fw-bold" data-kt-plan-price-month="10" data-kt-plan-price-annual="<%= (8 * @exchng_rate).ceil(2) %>"><%= (8 * @exchng_rate).ceil(2) %></span>
+                  </div>
+                  <!--end::Price-->
+
+                  <!--begin::Description-->
+                  <div class="text-muted mb-5"><%= t('pricing.per_seat_month') %></div>
+                  <!--end::Description-->
+                </div>
+                <!--end::Heading-->
+                <!--begin::Select-->
+                <a href="<%= ENV['ORY_URL'] + '/self-service/registration/browser' %>" class="btn btn-primary"><%= t('billing.upgrade_plan.select') %></a>
+                <!--end::Select-->
+              </div>
+              <!--end::Option-->
+            </div>
+          </div>
+          <!--end::Col-->
+
+          <!--begin::Col-->
+          <div class="col-xl-4">
+            <div class="d-flex h-100 align-items-center">
+              <!--begin::Option-->
+              <div class="w-100 d-flex flex-column flex-center rounded-3 bg-light py-15 px-10">
+                <!--begin::Heading-->
+                <div class="mb-5 text-center">
+                  <!--begin::Title-->
+                  <h2 class="h1 mb-7"><%= t('pricing.top_section.widget.type_2') %></h2>
+                  <!--end::Title-->
+                  <!--begin::Price-->
+                  <div class="d-flex align-items-center justify-content-center lh-1 mb-2 text-dark">
+                    <span class="align-self-start fs-5 mt-2"><span class="currency-sign"><%= @currency_code %></span></span>
+                    <span class="fs-3x fw-bold" data-kt-plan-price-month="15" data-kt-plan-price-annual="<%= (12 * @exchng_rate).ceil(2) %>"><%= (12 * @exchng_rate).ceil(2) %></span>
+                  </div>
+                  <!--end::Price-->
+
+                  <!--begin::Description-->
+                  <div class="text-muted mb-5"><%= t('pricing.per_seat_month') %></div>
+                  <!--end::Description-->
+                </div>
+                <!--end::Heading-->
+                <!--begin::Select-->
+                <a href="<%= ENV['ORY_URL'] + '/self-service/registration/browser' %>" class="btn btn-light-primary"><%= t('billing.upgrade_plan.select') %></a>
+                <!--end::Select-->
+              </div>
+              <!--end::Option-->
+            </div>
+          </div>
+          <!--end::Col-->
+        </div>
+
+        <div class="scroll-table mb-10">
+					<%= render 'pricing_main' %>
+
+          <div id="kt_accordion_1" class="scroll-table-tbody accordion accordion-icon-toggle syncscroll" data-name="plansTable">
+						<%= render 'pricing_booking_widget' %>
+						<%= render 'pricing_assistant' %>
+          </div>
+        </div>
+
+        <div class="alert alert-border alert-border--warning bg-white p-5 alert-dismissible d-flex flex-column flex-sm-row w-100 mb-8 align-items-sm-center shadow-sm">
+          <!--begin::Content-->
+          <div class="pe-0 pe-sm-10">
+            <p class="mb-2"><%= t('pricing.top_section.help_text') %></p>
+            <p class="small mb-0">* <%= raw t('pricing.pay_per_use_desc') %></p>
+          </div>
+          <!--end::Content-->
+        </div>
+
+      </div>
+      <!--end::Card body-->
+    </div>
+    <!--end::Pricing card-->
+  </div>
+  <!--end::Container-->
+</div>
+<!--end::Post-->
+
+<!--begin::Modals-->
+<!--begin::Pay Per Using Pricing Modal-->
+<div class="modal fade" id="kt_modal_pay_per_using_pricing" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+  <input type="hidden" name="total" id="total" value="<%= (0.49 * @exchng_rate).ceil(2) %>" />
+  <input type="hidden" name="taskRate" id="taskRate" value="<%= (0.01 * @exchng_rate).ceil(3) %>" />
+  <input type="hidden" name="appointmentRate_0" id="appointmentRate_0" value="<%= (0.49 * @exchng_rate).ceil(2) %>" />
+  <input type="hidden" name="appointmentRate_1" id="appointmentRate_1" value="<%= (0.31 * @exchng_rate).ceil(2) %>" />
+  <input type="hidden" name="appointmentRate_2" id="appointmentRate_2" value="<%= (0.25 * @exchng_rate).ceil(2) %>" />
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-body">
+        <form action="/">
+          <div class="fw-normal mb-2"><%= t('pricing.estimated') %></div>
+          <div class="fw-bolder text-dark lh-1 fs-4x">
+            <span class="currency-sign"><%= @currency_code %></span>
+            <span id="kt_calculate_pay_per_use"><%= (0.49 * @exchng_rate).ceil(2) %></span>
+          </div>
+
+          <div class="pb-13 mb-7">
+            <label class="form-label d-flex justify-content-between mb-1">
+									<span class="d-flex align-items-center"><%= t('pricing.tasks') %>
+										<span class="svg-icon svg-icon-dark svg-icon-2 ms-1" title="Some Super Cool Tooltip!" role="button" data-bs-toggle="tooltip">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+												<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black" />
+												<rect x="11" y="14" width="7" height="2" rx="1" transform="rotate(-90 11 14)" fill="black" />
+												<rect x="11" y="17" width="2" height="2" rx="1" transform="rotate(-90 11 17)" fill="black" />
+											</svg>
+										</span>
+									</span>
+              <span id="kt_value_pay_per_use_tasks" class="text-primary">10</span>
+            </label>
+            <div class="small text-muted mb-3"><%= t('pricing.first_50_tasks') %></div>
+            <div id="kt_slider_pay_per_use_tasks"></div>
+          </div>
+          <div class="pb-13 mb-0">
+            <label class="form-label d-flex justify-content-between mb-3"><%= t('pricing.appointments') %>
+              <span id="kt_value_pay_per_use_appointments" class="text-primary">10</span>
+            </label>
+            <div id="kt_slider_pay_per_use_appointments"></div>
+          </div>
+
+          <div class="separator my-7"></div>
+
+          <div class="d-flex align-items-baseline justify-content-between mb-3">
+            <span class="fw-light"><%= t('pricing.task_rate') %></span>
+            <span class="fw-bolder fs-3 text-dark"><span class="currency-sign"><%= @currency_code %></span> <%= (0.01 * @exchng_rate).ceil(3) %></span>
+          </div>
+          <div class="d-flex align-items-baseline justify-content-between mb-0">
+            <span class="fw-light"><%= t('pricing.appointment_rate') %></span>
+            <span class="fw-bolder fs-3">
+									<span id="kt_tooltip_pay_per_use_appointments_rate" class="svg-icon svg-icon-dark svg-icon-2 me-1" role="button">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+											<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"/>
+											<rect x="11" y="14" width="7" height="2" rx="1" transform="rotate(-90 11 14)" fill="black" />
+											<rect x="11" y="17" width="2" height="2" rx="1" transform="rotate(-90 11 17)" fill="black" />
+										</svg>
+									</span>
+									<span class="currency-sign"><%= @currency_code %></span>
+									<span class="text-dark" id="kt_value_current_rate"><%= (0.49 * @exchng_rate).ceil(2) %></span>
+									<span class="fw-normal fs-base text-dark">/ <%= t('pricing.appointment') %></span>
+								</span>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light-danger" data-bs-dismiss="modal"><%= t('common.button.close') %></button>
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+<!--end::Pay Per Using Pricing Modal-->
+
+<!--begin::Exception List-->
+<div class="modal fade" id="kt_modal_telecom_pricing" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title"><%= t('pricing.telecom_rates') %></h3>
+
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+		            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+		              <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)"fill="#000000">
+		                <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1"/>
+		                <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                      x="0" y="7" width="16" height="2" rx="1"/>
+		              </g>
+		            </svg>
+		          </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+
+      <div class="modal-body">
+        <div class="mb-12">
+          <div class="text-center fs-5 text-gray-400 mb-7"><%= t('pricing.telecom_rates_help_text') %></div>
+
+          <div class="container mw-600px">
+            <div class="row">
+              <div class="col-md-auto col-form-label fw-bold fs-6"><%= t('pricing.country_label') %>: </div>
+              <div class="col-md">
+                <input class="form-control m-input" id="country">
+                <input class="form-control m-input d-none" id="country_code" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <input type="hidden" id="usr_country" name="userCountry" value="<%= @usr_country %>">
+
+        <div>
+          <ul class="nav nav-tabs nav-line-tabs nav-line-tabs-2x fs-6 mb-7">
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center text-dark active" href="#kt_tab_pane_telecom_fee_voice" data-bs-toggle="tab">
+                <i class="las la-phone fs-2 text-inherit me-1"></i><%= t('pricing.voice_pricing') %>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center text-dark" href="#kt_tab_pane_telecom_fee_sms" data-bs-toggle="tab">
+                <i class="las la-sms fs-2 text-inherit me-1"></i><%= t('pricing.sms_pricing') %>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center text-dark" href="#kt_tab_pane_telecom_fee_sip" data-bs-toggle="tab">
+                <i class="las la-bell fs-2 text-inherit me-1"></i><%= t('pricing.sip_pricing') %>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center text-dark" href="#kt_tab_pane_telecom_fee_phone_numbers" data-bs-toggle="tab">
+                <i class="las la-layer-group fs-2 text-inherit me-1"></i><%= t('pricing.phone_number_pricing') %>
+              </a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div id="kt_tab_pane_telecom_fee_voice" class="tab-pane fade show active" role="tabpanel">
+              <div class="table-responsive border rounded">
+                <table class="table table-striped gy-5 gs-5 mb-0">
+                  <thead>
+                  <tr class="fw-bold fs-6 text-gray-800 border-bottom-2 border-gray-200">
+                    <th><%= t('pricing.type') %></th>
+                    <th><%= t('pricing.to_make_calls') %></th>
+                    <th><%= t('pricing.to_receive_calls') %></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <% (@voice_prices || []).each do |data| %>
+                    <tr>
+                      <td><%= data[:price_type].camelize %></td>
+                      <td><%= data[:outbound_price] %></td>
+                      <td><%= data[:inbound_price] %></td>
+                    </tr>
+                  <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div id="kt_tab_pane_telecom_fee_sms" class="tab-pane fade" role="tabpanel">
+              <div class="table-responsive border rounded">
+                <table class="table table-striped gy-5 gs-5 mb-0">
+                  <thead>
+                  <tr class="fw-bold fs-6 text-gray-800 border-bottom-2 border-gray-200">
+                    <th><%= t('pricing.type') %></th>
+                    <th><%= t('pricing.to_send') %></th>
+                    <th><%= t('pricing.to_recieve') %></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <% (@sms_prices || []).each do |data| %>
+                    <tr>
+                      <td><%= data[:price_type].camelize %></td>
+                      <td><%= data[:outbound_price] %></td>
+                      <td><%= data[:inbound_price] %></td>
+                    </tr>
+                  <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div id="kt_tab_pane_telecom_fee_sip" class="tab-pane fade" role="tabpanel">
+              <div class="table-responsive border rounded">
+                <table class="table table-striped gy-5 gs-5 mb-0">
+                  <thead>
+                  <tr class="fw-bold fs-6 text-gray-800 border-bottom-2 border-gray-200">
+                    <th><%= t('pricing.type') %></th>
+                    <th><%= t('pricing.to_make_calls') %></th>
+                    <th><%= t('pricing.to_receive_calls') %></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td><%= t('pricing.mobile') %></td>
+                    <td><%= @currency_code %> <%= ((@sip_pricing[:mobile_make].to_f*@exchng_rate).ceil(2)*@sip_margin).ceil(2) %>/min</td>
+                    <td><%= @currency_code %> <%= ((@sip_pricing[:mobile_receive].to_f*@exchng_rate).ceil(2)*@sip_margin).ceil(2) %>/min</td>
+                  </tr>
+                  <tr>
+                    <td><%= t('pricing.local') %></td>
+                    <td><%= @currency_code %> <%= ((@sip_pricing[:local_make].to_f*@exchng_rate).ceil(2)*@sip_margin).ceil(2) %>/min</td>
+                    <td><%= @currency_code %> <%= ((@sip_pricing[:local_receive].to_f*@exchng_rate).ceil(2)*@sip_margin).ceil(2) %>/min</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div id="kt_tab_pane_telecom_fee_phone_numbers" class="tab-pane fade" role="tabpanel">
+              <div class="table-responsive border rounded">
+                <table class="table table-striped gy-5 gs-5 mb-0">
+                  <thead>
+                  <tr class="fw-bold fs-6 text-gray-800 border-bottom-2 border-gray-200">
+                    <th><%= t('pricing.type') %></th>
+                    <th><%= t('pricing.pricing') %></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <% (@phone_pricing&.phone_number_prices || []).each do |data| %>
+                    <tr>
+                      <td><%= data['number_type'].camelize %></td>
+                      <td><%= @currency_code %> <%= ((data['base_price'].to_f*@exchng_rate).ceil(2)*@phone_margin).ceil %></td>
+                    </tr>
+                  <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light-danger" data-bs-dismiss="modal"><%= t('common.button.close') %></button>
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+<!--end::Exception List-->
+<!--end::Modals-->
+
+<%= javascript_include_tag 'pricing', 'data-turbolinks-track' => true %>
+<script src="/assets/intlTelInput.min.js"></script>
+<script src="/assets/countrySelect.min.js"></script>
+<script>
+
+    // Modals
+    (function () {
+        const $telecomPricingModal = new bootstrap.Modal(document.querySelector('#kt_modal_telecom_pricing'));
+        const $telecomPricingVoiceTab = new bootstrap.Tab(document.querySelector('[href="#kt_tab_pane_telecom_fee_voice"]'));
+        const $telecomPricingSmsTab = new bootstrap.Tab(document.querySelector('[href="#kt_tab_pane_telecom_fee_sms"]'));
+
+        $('[href="#kt_modal_telecom_pricing#kt_tab_pane_telecom_fee_voice"]').on('click', function (e) {
+            e.preventDefault();
+            $telecomPricingModal.show();
+            $telecomPricingVoiceTab.show();
+        });
+
+        $('[href="#kt_modal_telecom_pricing#kt_tab_pane_telecom_fee_sms"]').on('click', function (e) {
+            e.preventDefault();
+            $telecomPricingModal.show();
+            $telecomPricingSmsTab.show();
+        });
+    })();
+
+    // Change currency
+    (function () {
+        const appointmentsRateTooltipTemplate = function (sign) {
+            return `
+						<ul class="list-unstyled text-start mb-0">
+							<li class="d-flex pb-2">
+								<span class="bullet bullet-dot bg-primary mt-2 me-2"></span>
+								<span>
+									<div class="fw-bold">Up to 100</div>
+									<small>${sign} ` + $('input#appointmentRate_0').val() + `/appointment</small>
+								</span>
+							</li>
+							<li class="d-flex py-2">
+								<span class="bullet bullet-dot bg-primary mt-2 me-2"></span>
+								<span>
+									<div class="fw-bold">From 101 up to 250</div>
+									<small>${sign} ` + $('input#appointmentRate_1').val() + `/appointment</small>
+								</span>
+							</li>
+							<li class="d-flex py-2">
+								<span class="bullet bullet-dot bg-primary mt-2 me-2"></span>
+								<span>
+									<div class="fw-bold">From 251 up to 400</div>
+									<small>${sign} ` + $('input#appointmentRate_2').val() + `/appointment</small>
+								</span>
+							</li>
+							<li class="d-flex pt-2">
+								<span class="bullet bullet-dot bg-primary mt-2 me-2"></span>
+								<span>
+									<div class="fw-bold">From 401</div>
+									<a class="small" href="/">Contact Us</a>
+								</span>
+							</li>
+						</ul>
+					`;
+        };
+        const appointmentsRateTooltip = document.querySelector('#kt_tooltip_pay_per_use_appointments_rate');
+        let $appointmentsRateTooltip = new bootstrap.Tooltip(appointmentsRateTooltip, {
+            html: true,
+            title: appointmentsRateTooltipTemplate($('select#kt_select_change_currency').val() === 'eur' ? '€' : '$'),
+        });
+
+        $('select#kt_select_change_currency').on('change', function () {
+            const currentURL = window.location.href;
+            const url = new URL(currentURL);
+            url.searchParams.set("u", $(this).val());
+            window.location.href = url;
+        });
+    })();
+
+    // nouisliders
+    (function () {
+        const $tasks = document.querySelector('#kt_slider_pay_per_use_tasks');
+        const $appointments = document.querySelector('#kt_slider_pay_per_use_appointments');
+        const $result = document.querySelector('#kt_calculate_pay_per_use');
+        const $tasksValue = document.querySelector('#kt_value_pay_per_use_tasks');
+        const $appointmentsValue = document.querySelector('#kt_value_pay_per_use_appointments');
+        const $currentRate = document.querySelector('#kt_value_current_rate');
+
+        let tasksQty = 10;
+        const taskRate = $('input#taskRate').val();
+        let appointmentsQty = 10;
+        let total = $('input#total').val();
+
+        noUiSlider.create($tasks, {
+            start: tasksQty,
+            connect: 'lower',
+            snap: true,
+            range: stepValues(10, 4000, 10),
+            pips: {
+                mode: 'values',
+                values: [10, 4000],
+                density: 5
+            }
+        });
+
+        noUiSlider.create($appointments, {
+            start: appointmentsQty,
+            connect: 'lower',
+            snap: true,
+            range: stepValues(10, 400, 10),
+            pips: {
+                mode: 'values',
+                values: [10, 400],
+                density: 5
+            }
+        });
+
+        $tasks.noUiSlider.on('update', function (values) {
+            tasksQty = values[0];
+            checkMinAndSetTotal();
+            $tasksValue.innerHTML = parseInt(tasksQty);
+        });
+
+        $appointments.noUiSlider.on('update', function (values) {
+            appointmentsQty = values[0];
+            checkMinAndSetTotal();
+            $appointmentsValue.innerHTML = parseInt(appointmentsQty);
+            $currentRate.innerHTML = appointmentRate(parseInt(values[0]));
+        });
+
+        $appointments.noUiSlider.on('change', function (values) {
+            if (parseInt(values[0]) > tasksQty) {
+                $tasks.noUiSlider.set(appointmentsQty);
+                tasksQty = appointmentsQty;
+            }
+        });
+
+        $tasks.noUiSlider.on('change', function (values) {
+            if (parseInt(values[0]) < appointmentsQty) {
+                $appointments.noUiSlider.set(tasksQty);
+                appointmentsQty = tasksQty;
+            }
+        });
+
+        function stepValues(min, max, step) {
+            const values = {
+                'min': min,
+                'max': max,
+            };
+            const percentUnit = step / (max / 100); // which value is in percent
+            let start = min || 0;
+            let startPercent = (min / step) * percentUnit; // start value is in percent
+
+            if (!max || start >= max) {
+                return false;
+            }
+
+            while (start < (max - step)) {
+                start += step;
+                startPercent += percentUnit;
+
+                values[`${startPercent.toFixed(1)}%`] = start;
+            }
+
+            return values;
+        }
+
+        function appointmentRate(v) {
+            if (parseInt(v) > 100 && parseInt(v) <= 250) {
+                return $('input#appointmentRate_1').val(); // 0.31
+            } else if (parseInt(v) > 250) {
+                return $('input#appointmentRate_2').val(); // 0.25
+            } else {
+                return $('input#appointmentRate_0').val(); // 0.49
+            }
+        }
+
+        function rateFormula(rate, appointments) {
+            return parseInt(appointments) * rate;
+        }
+
+        function checkMinAndSetTotal() {
+            if (tasksQty <= 50 && appointmentsQty <= 10) {
+                total = parseFloat($('input#total').val());
+            } else {
+                if (appointmentsQty > 100 && appointmentsQty <= 250) {
+                    total = ((rateFormula(appointmentRate(101), (appointmentsQty - 100))) + (rateFormula(appointmentRate(99), 100))) + (parseInt(tasksQty) > 50 ? ((parseInt(tasksQty) - 50) * taskRate) : 0);
+                } else if (appointmentsQty > 250) {
+                    total = ((rateFormula(appointmentRate(399), (appointmentsQty - 250))) + (rateFormula(appointmentRate(99), 100) + (rateFormula(appointmentRate(101), 150)))) + (parseInt(tasksQty) > 50 ? ((parseInt(tasksQty) - 50) * taskRate) : 0);
+                } else {
+                    total = (rateFormula(appointmentRate(99), appointmentsQty)) + (parseInt(tasksQty) > 50 ? ((parseInt(tasksQty) - 50) * taskRate) : 0);
+                }
+            }
+
+            $result.innerHTML = total.toFixed(2);
+        }
+    })();
+
+    $('select#kt_select_change_country').on('change', function() {
+        const currency = $('select#kt_select_change_currency').val();
+        const url = new URL(window.location.href);
+        url.searchParams.set("u", currency);
+        url.searchParams.set("locale", $(this).val());
+        window.location.href = url;
+    })
+
+    var countryValue = $('#usr_country').val();
+    $("#country").countrySelect();
+    if(countryValue) {
+        $("#country").countrySelect("selectCountry",countryValue);
+    }
+    $('#country').change(function() {
+        var selectedCountryCode = $('#country_code').val();
+        var currentURL = window.location.href;
+        var url = new URL(currentURL);
+        url.searchParams.set("c", selectedCountryCode); // setting your param
+        window.location.href = url;
+    });
+</script>

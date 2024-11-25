@@ -1,0 +1,587 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.cronofy.com/oauth/token
+    body:
+      encoding: UTF-8
+      string: client_id=4ahi6GiIhgrxxcJ7HA3ISXo3Y7JINoq0&client_secret=CRONOFY_CLIENT_SECRET&grant_type=refresh_token&refresh_token=CRONOFY_REFRESH_TOKEN
+    headers:
+      User-Agent:
+      - Cronofy Ruby 0.30.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 09 Apr 2019 10:10:08 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Vary:
+      - Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=31536000
+      Pragma:
+      - no-cache
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Request-Id:
+      - 16edfe15-6703-446c-84be-1d28e9c2e9b6
+      X-Runtime:
+      - '0.047105'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - Phusion Passenger 6.0.2
+      Server:
+      - nginx/1.15.8 + Phusion Passenger 6.0.2
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"q33TE2IIaHsCM6wrvIH7X7EWIGD9FCgs","token_type":"bearer","expires_in":10800,"refresh_token":"CRONOFY_REFRESH_TOKEN","scope":"create_event
+        list_calendars read_account delete_event read_free_busy create_calendar read_events"}'
+    http_version: 
+  recorded_at: Tue, 23 Apr 2019 04:00:00 GMT
+- request:
+    method: post
+    uri: https://api.cronofy.com/v1/calendars/cal_XINva9B2PhfuWCFH_DwWD9i7M4LrXM-pbHFxsOQ/events
+    body:
+      encoding: UTF-8
+      string: '{"event_id":"5c16231bececb9af0a774ffce03f9c84","summary":"Appointment
+        for A B 919770555563","description":"First name: A \nLast name: B \nPhone
+        number: 919770555563 \n","start":"2019-04-23T04:00:00Z","end":"2019-04-23T04:30:00Z"}'
+    headers:
+      User-Agent:
+      - Cronofy Ruby 0.30.0
+      Content-Type:
+      - application/json; charset=utf-8
+      Authorization:
+      - Bearer q33TE2IIaHsCM6wrvIH7X7EWIGD9FCgs
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 202
+      message: Accepted
+    headers:
+      Date:
+      - Tue, 09 Apr 2019 10:10:10 GMT
+      Content-Type:
+      - text/plain; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 202 Accepted
+      Cache-Control:
+      - no-cache
+      Vary:
+      - Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Request-Id:
+      - 04535314-8840-4022-8a67-d59022ea4f0c
+      X-Runtime:
+      - '0.315273'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - Phusion Passenger 6.0.2
+      Server:
+      - nginx/1.15.8 + Phusion Passenger 6.0.2
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    http_version: 
+  recorded_at: Tue, 23 Apr 2019 04:00:00 GMT
+- request:
+    method: post
+    uri: https://api.cronofy.com/oauth/token
+    body:
+      encoding: UTF-8
+      string: client_id=4ahi6GiIhgrxxcJ7HA3ISXo3Y7JINoq0&client_secret=CRONOFY_CLIENT_SECRET&grant_type=refresh_token&refresh_token=CRONOFY_REFRESH_TOKEN
+    headers:
+      User-Agent:
+      - Cronofy Ruby 0.30.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 09 Apr 2019 10:18:29 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Vary:
+      - Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=31536000
+      Pragma:
+      - no-cache
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Request-Id:
+      - d1d3f576-96c8-47fc-bfc2-9317dacf6700
+      X-Runtime:
+      - '0.035667'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - Phusion Passenger 6.0.2
+      Server:
+      - nginx/1.15.8 + Phusion Passenger 6.0.2
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"6Ppqlsl3xo6vPy_vRfk4PuzV_LXmernQ","token_type":"bearer","expires_in":10800,"refresh_token":"CRONOFY_REFRESH_TOKEN","scope":"create_event
+        list_calendars read_account delete_event read_free_busy create_calendar read_events"}'
+    http_version: 
+  recorded_at: Tue, 23 Apr 2019 04:00:00 GMT
+- request:
+    method: post
+    uri: https://api.cronofy.com/v1/availability
+    body:
+      encoding: UTF-8
+      string: '{"participants":[{"members":[{"sub":"acc_5692658db4ccd0137100868a","calendar_ids":["cal_XINva9B2PhfuWCFH_DwWD9i7M4LrXM-pbHFxsOQ"]}],"required":"1"}],"required_duration":{"minutes":30},"available_periods":[{"start":"2019-04-23T04:00:05Z","end":"2019-04-23T12:00:00Z"},{"start":"2019-04-24T04:00:00Z","end":"2019-04-24T12:00:00Z"},{"start":"2019-04-25T04:00:00Z","end":"2019-04-25T12:00:00Z"},{"start":"2019-04-26T04:00:00Z","end":"2019-04-26T12:00:00Z"},{"start":"2019-04-29T04:00:00Z","end":"2019-04-29T12:00:00Z"},{"start":"2019-04-30T04:00:00Z","end":"2019-04-30T12:00:00Z"},{"start":"2019-05-01T04:00:00Z","end":"2019-05-01T12:00:00Z"},{"start":"2019-05-02T04:00:00Z","end":"2019-05-02T12:00:00Z"},{"start":"2019-05-03T04:00:00Z","end":"2019-05-03T12:00:00Z"}],"start_interval":{"minutes":30}}'
+    headers:
+      User-Agent:
+      - Cronofy Ruby 0.30.0
+      Content-Type:
+      - application/json; charset=utf-8
+      Authorization:
+      - Bearer 6Ppqlsl3xo6vPy_vRfk4PuzV_LXmernQ
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 09 Apr 2019 10:18:31 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Request-Id:
+      - ee2099d7-39d1-4116-99fa-439a312f238c
+      Etag:
+      - W/"a0d55c7214239a20b7277fd09f85e868"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Runtime:
+      - '0.208607'
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - Phusion Passenger 6.0.2
+      Server:
+      - nginx/1.15.8 + Phusion Passenger 6.0.2
+    body:
+      encoding: ASCII-8BIT
+      string: '{"available_periods":[{"start":"2019-04-23T04:30:00Z","end":"2019-04-23T12:00:00Z","participants":[{"sub":"acc_5692658db4ccd0137100868a"}]},{"start":"2019-04-24T04:00:00Z","end":"2019-04-24T12:00:00Z","participants":[{"sub":"acc_5692658db4ccd0137100868a"}]},{"start":"2019-04-25T04:00:00Z","end":"2019-04-25T12:00:00Z","participants":[{"sub":"acc_5692658db4ccd0137100868a"}]},{"start":"2019-04-26T04:00:00Z","end":"2019-04-26T12:00:00Z","participants":[{"sub":"acc_5692658db4ccd0137100868a"}]},{"start":"2019-04-29T04:00:00Z","end":"2019-04-29T12:00:00Z","participants":[{"sub":"acc_5692658db4ccd0137100868a"}]},{"start":"2019-04-30T04:00:00Z","end":"2019-04-30T12:00:00Z","participants":[{"sub":"acc_5692658db4ccd0137100868a"}]},{"start":"2019-05-01T04:00:00Z","end":"2019-05-01T12:00:00Z","participants":[{"sub":"acc_5692658db4ccd0137100868a"}]},{"start":"2019-05-02T04:00:00Z","end":"2019-05-02T12:00:00Z","participants":[{"sub":"acc_5692658db4ccd0137100868a"}]},{"start":"2019-05-03T04:00:00Z","end":"2019-05-03T12:00:00Z","participants":[{"sub":"acc_5692658db4ccd0137100868a"}]}]}'
+    http_version: 
+  recorded_at: Tue, 23 Apr 2019 04:00:00 GMT
+- request:
+    method: post
+    uri: https://api.cronofy.com/oauth/token
+    body:
+      encoding: UTF-8
+      string: client_id=4ahi6GiIhgrxxcJ7HA3ISXo3Y7JINoq0&client_secret=CRONOFY_CLIENT_SECRET&grant_type=refresh_token&refresh_token=CRONOFY_REFRESH_TOKEN
+    headers:
+      User-Agent:
+      - Cronofy Ruby 0.30.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 09 Apr 2019 10:18:33 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Vary:
+      - Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=31536000
+      Pragma:
+      - no-cache
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Request-Id:
+      - 980a3050-b466-42a6-b7cd-a8fccf17f0bb
+      X-Runtime:
+      - '0.048576'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - Phusion Passenger 6.0.2
+      Server:
+      - nginx/1.15.8 + Phusion Passenger 6.0.2
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"bUSGCS_6mZ8IAvZdMI7jT6hvToxYzEHS","token_type":"bearer","expires_in":10800,"refresh_token":"CRONOFY_REFRESH_TOKEN","scope":"create_event
+        list_calendars read_account delete_event read_free_busy create_calendar read_events"}'
+    http_version: 
+  recorded_at: Tue, 23 Apr 2019 04:00:00 GMT
+- request:
+    method: post
+    uri: https://api.cronofy.com/v1/availability
+    body:
+      encoding: UTF-8
+      string: '{"participants":[{"members":[{"sub":"acc_5692658db4ccd0137100868a","calendar_ids":["cal_XINva9B2PhfuWCFH_DwWD9i7M4LrXM-pbHFxsOQ"]}],"required":"1"}],"required_duration":{"minutes":30},"available_periods":[{"start":"2019-04-23T04:00:05Z","end":"2019-04-23T12:00:00Z"},{"start":"2019-04-24T04:00:00Z","end":"2019-04-24T12:00:00Z"},{"start":"2019-04-25T04:00:00Z","end":"2019-04-25T12:00:00Z"},{"start":"2019-04-26T04:00:00Z","end":"2019-04-26T12:00:00Z"},{"start":"2019-04-29T04:00:00Z","end":"2019-04-29T12:00:00Z"},{"start":"2019-04-30T04:00:00Z","end":"2019-04-30T12:00:00Z"},{"start":"2019-05-01T04:00:00Z","end":"2019-05-01T12:00:00Z"},{"start":"2019-05-02T04:00:00Z","end":"2019-05-02T12:00:00Z"},{"start":"2019-05-03T04:00:00Z","end":"2019-05-03T12:00:00Z"}],"start_interval":{"minutes":30}}'
+    headers:
+      User-Agent:
+      - Cronofy Ruby 0.30.0
+      Content-Type:
+      - application/json; charset=utf-8
+      Authorization:
+      - Bearer bUSGCS_6mZ8IAvZdMI7jT6hvToxYzEHS
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 09 Apr 2019 10:18:35 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Request-Id:
+      - f29fff63-d531-4b7c-95f3-b66fb1901a8f
+      Etag:
+      - W/"a0d55c7214239a20b7277fd09f85e868"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Runtime:
+      - '0.149385'
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - Phusion Passenger 6.0.2
+      Server:
+      - nginx/1.15.8 + Phusion Passenger 6.0.2
+    body:
+      encoding: ASCII-8BIT
+      string: '{"available_periods":[{"start":"2019-04-23T04:30:00Z","end":"2019-04-23T12:00:00Z","participants":[{"sub":"acc_5692658db4ccd0137100868a"}]},{"start":"2019-04-24T04:00:00Z","end":"2019-04-24T12:00:00Z","participants":[{"sub":"acc_5692658db4ccd0137100868a"}]},{"start":"2019-04-25T04:00:00Z","end":"2019-04-25T12:00:00Z","participants":[{"sub":"acc_5692658db4ccd0137100868a"}]},{"start":"2019-04-26T04:00:00Z","end":"2019-04-26T12:00:00Z","participants":[{"sub":"acc_5692658db4ccd0137100868a"}]},{"start":"2019-04-29T04:00:00Z","end":"2019-04-29T12:00:00Z","participants":[{"sub":"acc_5692658db4ccd0137100868a"}]},{"start":"2019-04-30T04:00:00Z","end":"2019-04-30T12:00:00Z","participants":[{"sub":"acc_5692658db4ccd0137100868a"}]},{"start":"2019-05-01T04:00:00Z","end":"2019-05-01T12:00:00Z","participants":[{"sub":"acc_5692658db4ccd0137100868a"}]},{"start":"2019-05-02T04:00:00Z","end":"2019-05-02T12:00:00Z","participants":[{"sub":"acc_5692658db4ccd0137100868a"}]},{"start":"2019-05-03T04:00:00Z","end":"2019-05-03T12:00:00Z","participants":[{"sub":"acc_5692658db4ccd0137100868a"}]}]}'
+    http_version: 
+  recorded_at: Tue, 23 Apr 2019 04:00:00 GMT
+- request:
+    method: post
+    uri: https://api.cronofy.com/oauth/token
+    body:
+      encoding: UTF-8
+      string: client_id=4ahi6GiIhgrxxcJ7HA3ISXo3Y7JINoq0&client_secret=CRONOFY_CLIENT_SECRET&grant_type=refresh_token&refresh_token=CRONOFY_REFRESH_TOKEN
+    headers:
+      User-Agent:
+      - Cronofy Ruby 0.30.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 09 Apr 2019 10:18:36 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Vary:
+      - Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=31536000
+      Pragma:
+      - no-cache
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Request-Id:
+      - 33f6c7ee-726b-4443-bb5a-fb3319e87c4f
+      X-Runtime:
+      - '0.034400'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - Phusion Passenger 6.0.2
+      Server:
+      - nginx/1.15.8 + Phusion Passenger 6.0.2
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"tLcTmwwIC2vwWkEiQpugWdN1sUQfBnNP","token_type":"bearer","expires_in":10800,"refresh_token":"CRONOFY_REFRESH_TOKEN","scope":"create_event
+        list_calendars read_account delete_event read_free_busy create_calendar read_events"}'
+    http_version: 
+  recorded_at: Tue, 23 Apr 2019 04:00:00 GMT
+- request:
+    method: post
+    uri: https://api.cronofy.com/v1/availability
+    body:
+      encoding: UTF-8
+      string: '{"participants":[{"members":[{"sub":"acc_5692658db4ccd0137100868a","calendar_ids":["cal_XINva9B2PhfuWCFH_DwWD9i7M4LrXM-pbHFxsOQ"]}],"required":"1"}],"required_duration":{"minutes":30},"available_periods":[{"start":"2019-04-23T04:00:00Z","end":"2019-04-23T12:00:00Z"},{"start":"2019-04-24T04:00:00Z","end":"2019-04-24T12:00:00Z"},{"start":"2019-04-25T04:00:00Z","end":"2019-04-25T12:00:00Z"},{"start":"2019-04-26T04:00:00Z","end":"2019-04-26T12:00:00Z"},{"start":"2019-04-29T04:00:00Z","end":"2019-04-29T12:00:00Z"},{"start":"2019-04-30T04:00:00Z","end":"2019-04-30T12:00:00Z"},{"start":"2019-05-01T04:00:00Z","end":"2019-05-01T12:00:00Z"},{"start":"2019-05-02T04:00:00Z","end":"2019-05-02T12:00:00Z"},{"start":"2019-05-03T04:00:00Z","end":"2019-05-03T12:00:00Z"}],"start_interval":{"minutes":30}}'
+    headers:
+      User-Agent:
+      - Cronofy Ruby 0.30.0
+      Content-Type:
+      - application/json; charset=utf-8
+      Authorization:
+      - Bearer tLcTmwwIC2vwWkEiQpugWdN1sUQfBnNP
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 09 Apr 2019 10:18:38 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Vary:
+      - Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Request-Id:
+      - ca965a20-d3a2-42a1-8815-7f0d97e59b2c
+      Etag:
+      - W/"a0d55c7214239a20b7277fd09f85e868"
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Runtime:
+      - '0.261424'
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - Phusion Passenger 6.0.2
+      Server:
+      - nginx/1.15.8 + Phusion Passenger 6.0.2
+    body:
+      encoding: ASCII-8BIT
+      string: '{"available_periods":[{"start":"2019-04-23T04:30:00Z","end":"2019-04-23T12:00:00Z","participants":[{"sub":"acc_5692658db4ccd0137100868a"}]},{"start":"2019-04-24T04:00:00Z","end":"2019-04-24T12:00:00Z","participants":[{"sub":"acc_5692658db4ccd0137100868a"}]},{"start":"2019-04-25T04:00:00Z","end":"2019-04-25T12:00:00Z","participants":[{"sub":"acc_5692658db4ccd0137100868a"}]},{"start":"2019-04-26T04:00:00Z","end":"2019-04-26T12:00:00Z","participants":[{"sub":"acc_5692658db4ccd0137100868a"}]},{"start":"2019-04-29T04:00:00Z","end":"2019-04-29T12:00:00Z","participants":[{"sub":"acc_5692658db4ccd0137100868a"}]},{"start":"2019-04-30T04:00:00Z","end":"2019-04-30T12:00:00Z","participants":[{"sub":"acc_5692658db4ccd0137100868a"}]},{"start":"2019-05-01T04:00:00Z","end":"2019-05-01T12:00:00Z","participants":[{"sub":"acc_5692658db4ccd0137100868a"}]},{"start":"2019-05-02T04:00:00Z","end":"2019-05-02T12:00:00Z","participants":[{"sub":"acc_5692658db4ccd0137100868a"}]},{"start":"2019-05-03T04:00:00Z","end":"2019-05-03T12:00:00Z","participants":[{"sub":"acc_5692658db4ccd0137100868a"}]}]}'
+    http_version: 
+  recorded_at: Tue, 23 Apr 2019 04:00:00 GMT
+- request:
+    method: post
+    uri: https://api.cronofy.com/oauth/token
+    body:
+      encoding: UTF-8
+      string: client_id=4ahi6GiIhgrxxcJ7HA3ISXo3Y7JINoq0&client_secret=CRONOFY_CLIENT_SECRET&grant_type=refresh_token&refresh_token=CRONOFY_REFRESH_TOKEN
+    headers:
+      User-Agent:
+      - Cronofy Ruby 0.30.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 09 Apr 2019 10:19:04 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Vary:
+      - Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=31536000
+      Pragma:
+      - no-cache
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Request-Id:
+      - 18c25175-72d0-4d0d-b726-5441c04368f0
+      X-Runtime:
+      - '0.029481'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - Phusion Passenger 6.0.2
+      Server:
+      - nginx/1.15.8 + Phusion Passenger 6.0.2
+    body:
+      encoding: ASCII-8BIT
+      string: '{"access_token":"prRnpfFATvFQ2g3_JBHb8uqLUxe1e_2G","token_type":"bearer","expires_in":10800,"refresh_token":"CRONOFY_REFRESH_TOKEN","scope":"create_event
+        list_calendars read_account delete_event read_free_busy create_calendar read_events"}'
+    http_version: 
+  recorded_at: Tue, 23 Apr 2019 04:00:00 GMT
+- request:
+    method: post
+    uri: https://api.cronofy.com/v1/calendars/cal_XINva9B2PhfuWCFH_DwWD9i7M4LrXM-pbHFxsOQ/events
+    body:
+      encoding: UTF-8
+      string: '{"event_id":"test001","summary":"Appointment for A B 919770555563","description":"First
+        name: A \nLast name: B \nPhone number: 919770555563 \n","start":"2019-04-23T04:30:00Z","end":"2019-04-23T05:00:00Z"}'
+    headers:
+      User-Agent:
+      - Cronofy Ruby 0.30.0
+      Content-Type:
+      - application/json; charset=utf-8
+      Authorization:
+      - Bearer prRnpfFATvFQ2g3_JBHb8uqLUxe1e_2G
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 202
+      message: Accepted
+    headers:
+      Date:
+      - Tue, 09 Apr 2019 10:19:06 GMT
+      Content-Type:
+      - text/plain; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 202 Accepted
+      Cache-Control:
+      - no-cache
+      Vary:
+      - Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Request-Id:
+      - 140fca18-2f9c-42b0-abba-343e0238022f
+      X-Runtime:
+      - '0.413472'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
+      X-Powered-By:
+      - Phusion Passenger 6.0.2
+      Server:
+      - nginx/1.15.8 + Phusion Passenger 6.0.2
+    body:
+      encoding: ASCII-8BIT
+      string: ''
+    http_version: 
+  recorded_at: Tue, 23 Apr 2019 04:00:00 GMT
+recorded_with: VCR 4.0.0

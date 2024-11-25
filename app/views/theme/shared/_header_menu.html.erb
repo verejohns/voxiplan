@@ -1,0 +1,8 @@
+<button class="kt-header-menu-wrapper-close" id="kt_header_menu_mobile_close_btn"><i class="la la-times"></i></button>
+<div class="kt-header-menu-wrapper" id="kt_header_menu_wrapper">
+  <div id="kt_header_menu" class="kt-header-menu kt-header-menu-mobile " >
+    <ul class="kt-menu__nav ">
+      <%= render partial: 'theme/shared/header_menu_item', collection: current_header_menu_items, as: :item %>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<p><%= t('.greeting', recipient: @client.full_name, default: "Hi #{@client.full_name}!") %></p>
+
+<p><%= t('.instruction', default: 'We have created your agenda account') %></p>
+
+Login: <%= @client.agenda_sign_up_fields['ss_account'] %><br>
+Password: <%= @client.agenda_sign_up_fields['ss_password'] %>
+
+<p><%= link_to t('.action', default: 'Sign In'),
+               'https://supersaas.com/dashboard/login' %></p>

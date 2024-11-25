@@ -1,0 +1,1546 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.timify.com/v1/auth/token?appid=TIMIFY_APP_ID&appsecret=TIMIFY_APP_SECRET
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '823'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 26 Aug 2022 14:04:30 GMT
+      X-Amzn-Requestid:
+      - 24609017-f324-450a-9c03-f2a286fcb3ba
+      X-Amzn-Remapped-Content-Length:
+      - '823'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - XeXlMEKqliAFX1g=
+      Vary:
+      - Origin, Accept-Encoding
+      X-Amzn-Remapped-Server:
+      - nginx
+      Etag:
+      - W/"337-eJkKM0/lrUHB9fTvw2SSmV5YR0c"
+      X-Amzn-Remapped-Date:
+      - Fri, 26 Aug 2022 14:04:30 GMT
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 b60e1b44fca3d5bb9d63dcd0fb1737aa.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - kxjrB96L4yLhouknjhOiJQFnoy_OqDaawslt1B6Ied-_6tgAyz2J2g==
+    body:
+      encoding: UTF-8
+      string: '{"accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDJlZGExNDgyYWQwODBmY2JhYWMiLCJpYXQiOjE2NjE1MjI2NjksImV4cCI6MTY2MTUyOTg2OX0.9sLtSh5ZLwy1acZ3WzWx97SqPYX4AOO-84NB3i6dgi0","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDJlZGExNDgyYWQwODBmY2JhYWMiLCJyZWZyZXNoIjp0cnVlLCJpYXQiOjE2NjE1MjI2NjksImV4cCI6MTY2MTg2ODI2OX0.iQs3RYcGkmtYAnSX7vUnsCxWHJJHSsXWgx6JnCnwUJo","expires":7200}'
+  recorded_at: Mon, 24 Sep 2018 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.timify.com/v1/resources/5d9f2a7b6d95c0112ca1cc91/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDJlZGExNDgyYWQwODBmY2JhYWMiLCJpYXQiOjE2NjE1MjI2NjksImV4cCI6MTY2MTUyOTg2OX0.9sLtSh5ZLwy1acZ3WzWx97SqPYX4AOO-84NB3i6dgi0
+      Company-Id:
+      - TIMIFY_TEST_COMPANY_ID
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '481'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 26 Aug 2022 14:04:31 GMT
+      X-Amzn-Requestid:
+      - b9bf83c9-b2c3-418a-bb8b-a079abda5390
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - XeXlcHDLliAFnDQ=
+      Vary:
+      - Origin, Accept-Encoding
+      X-Amzn-Remapped-Server:
+      - nginx
+      Etag:
+      - W/"814-o2XUNGtzyQtQJPPDRkhLoa0Pqus"
+      X-Amzn-Remapped-Date:
+      - Fri, 26 Aug 2022 14:04:31 GMT
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 38ffc136fbbbe1481c6e10814531f56a.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - dTmvpROBSNBl8WyOE1nwUTNTjsRA99cNZI_G6P5T6MOgz82ylhN6Fg==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"id":"5d9f2a7b6d95c0112ca1cc91","externalId":"","userId":"5d9f2a7b6d95c0112ca1cc88","email":"lincoeur@gmail.com","name":"Axel
+        Voxiplan","color":"","avatarUrl":"","isBookable":true,"calendar":{"id":"5d9f2a7b6d95c0112ca1cc91","workingTimes":[{"isActive":false,"beginTime":"","endTime":"","times":[]},{"isActive":true,"beginTime":"","endTime":"","times":[{"begin":"08:00","end":"18:00"}]},{"isActive":true,"beginTime":"","endTime":"","times":[{"begin":"08:00","end":"18:00"}]},{"isActive":true,"beginTime":"","endTime":"","times":[{"begin":"08:00","end":"18:00"}]},{"isActive":true,"beginTime":"","endTime":"","times":[{"begin":"08:00","end":"18:00"}]},{"isActive":true,"beginTime":"","endTime":"","times":[{"begin":"08:00","end":"18:00"}]},{"isActive":false,"beginTime":"","endTime":"","times":[]}],"bookingTimes":[{"isActive":false,"beginTime":"","endTime":"","times":[]},{"isActive":true,"beginTime":"","endTime":"","times":[{"begin":"08:00","end":"18:00"}]},{"isActive":true,"beginTime":"","endTime":"","times":[{"begin":"08:00","end":"18:00"}]},{"isActive":true,"beginTime":"","endTime":"","times":[{"begin":"08:00","end":"18:00"}]},{"isActive":true,"beginTime":"","endTime":"","times":[{"begin":"08:00","end":"18:00"}]},{"isActive":true,"beginTime":"","endTime":"","times":[{"begin":"08:00","end":"18:00"}]},{"isActive":false,"beginTime":"","endTime":"","times":[]}],"timezone":"Europe/London"},"isAdmin":true,"isOwner":true,"locale":"en-gb","permissions":{"accountRead":null,"calendarReadSet":null,"calendarReadResourceIds":null,"calendarReadResourceCategoryIds":null,"calendarWrite":null,"calendarDelete":null,"statisticsRead":null,"notificationsRead":null,"customersReadSet":null,"customersReadResourceIds":null,"customersReadResourceCategoryIds":null,"customersWrite":null,"customersDelete":null,"appsRead":null,"resourcesReadSet":null,"resourcesReadResourceIds":null,"resourcesReadResourceCategoryIds":null,"shiftRead":null,"shiftWrite":null,"shiftDelete":null},"createdAt":"2019-10-10T12:56:27Z","updatedAt":"2022-01-28T12:52:22Z","ts":0},"status":1}'
+  recorded_at: Mon, 24 Sep 2018 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.timify.com/v1/auth/token?appid=TIMIFY_APP_ID&appsecret=TIMIFY_APP_SECRET
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '823'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 26 Aug 2022 14:04:33 GMT
+      X-Amzn-Requestid:
+      - c8861b32-286f-48a0-8fdc-e6505fc79cf7
+      X-Amzn-Remapped-Content-Length:
+      - '823'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - XeXlvGdAFiAFaJA=
+      Vary:
+      - Origin, Accept-Encoding
+      X-Amzn-Remapped-Server:
+      - nginx
+      Etag:
+      - W/"337-Sdb9asH38EqAY5V48g9Wo0Vnxcw"
+      X-Amzn-Remapped-Date:
+      - Fri, 26 Aug 2022 14:04:33 GMT
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 41efe1d1f7a072c409ceae1afe94d364.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - lVLzM9zvXJcOt0DzB0tkt5k8hu-HO55JHvQUPAOxjUUzCCYUdbKe-g==
+    body:
+      encoding: UTF-8
+      string: '{"accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDJmMTcyMDQwZDVmYjgzYmM2MzYiLCJpYXQiOjE2NjE1MjI2NzMsImV4cCI6MTY2MTUyOTg3M30.GHH1-6eXjX9z71nR9mekbwvdlo1AC9GEz7DjoOZZhnI","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDJmMTcyMDQwZDVmYjgzYmM2MzYiLCJyZWZyZXNoIjp0cnVlLCJpYXQiOjE2NjE1MjI2NzMsImV4cCI6MTY2MTg2ODI3M30.sT-ZEmqpcPeYut-3mAUBE8SXnbNZ1bHacWt-MiiCirE","expires":7200}'
+  recorded_at: Mon, 24 Sep 2018 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.timify.com/v1/resources/?limit=100
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDJmMTcyMDQwZDVmYjgzYmM2MzYiLCJpYXQiOjE2NjE1MjI2NzMsImV4cCI6MTY2MTUyOTg3M30.GHH1-6eXjX9z71nR9mekbwvdlo1AC9GEz7DjoOZZhnI
+      Company-Id:
+      - TIMIFY_TEST_COMPANY_ID
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '395'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 26 Aug 2022 14:04:35 GMT
+      X-Amzn-Requestid:
+      - d8dba6d5-7b34-4046-be07-d04a293c7f62
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - XeXmBHcoliAFfuA=
+      Vary:
+      - Origin, Accept-Encoding
+      X-Amzn-Remapped-Server:
+      - nginx
+      Etag:
+      - W/"533-L0JiNHxa7R31+FFo8Odc+TqLUS0"
+      X-Amzn-Remapped-Date:
+      - Fri, 26 Aug 2022 14:04:35 GMT
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 059ffa1366014739c490064f7ef210b4.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - J_V2Buh6KN1HyxjsXTJKaWQu7M2w1kkzCENWjmvKD4iK7I5a1m491Q==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":[{"id":"5d9f2a7b6d95c0112ca1cc91","externalId":"","userId":"5d9f2a7b6d95c0112ca1cc88","categoryId":"5d9f2a7b6d95c0112ca1cc8f","email":"lincoeur@gmail.com","name":"Axel
+        Voxiplan","color":"#6882b0","avatarUrl":"","isBookable":true,"orderIndex":1,"account":{"isAdmin":true,"providers":["EMAIL"]},"calendar":{"id":"5d9f2a7b6d95c0112ca1cc91","workingTimes":[{"isActive":false,"times":[]},{"isActive":true,"times":[{"beginTime":"08:00","endTime":"18:00"}]},{"isActive":true,"times":[{"beginTime":"08:00","endTime":"18:00"}]},{"isActive":true,"times":[{"beginTime":"08:00","endTime":"18:00"}]},{"isActive":true,"times":[{"beginTime":"08:00","endTime":"18:00"}]},{"isActive":true,"times":[{"beginTime":"08:00","endTime":"18:00"}]},{"isActive":false,"times":[]}],"bookingTimes":[{"isActive":false,"times":[]},{"isActive":true,"times":[{"beginTime":"08:00","endTime":"18:00"}]},{"isActive":true,"times":[{"beginTime":"08:00","endTime":"18:00"}]},{"isActive":true,"times":[{"beginTime":"08:00","endTime":"18:00"}]},{"isActive":true,"times":[{"beginTime":"08:00","endTime":"18:00"}]},{"isActive":true,"times":[{"beginTime":"08:00","endTime":"18:00"}]},{"isActive":false,"times":[]}],"timezone":"Europe/London","threads":1},"createdAt":"2019-10-10T12:56:27.000Z","updatedAt":"2022-01-28T12:52:22.000Z","ts":"1643374342932"}],"status":1}'
+  recorded_at: Mon, 24 Sep 2018 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.timify.com/v1/auth/token?appid=TIMIFY_APP_ID&appsecret=TIMIFY_APP_SECRET
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '823'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 26 Aug 2022 14:04:37 GMT
+      X-Amzn-Requestid:
+      - a5b663eb-7bf7-4080-9d93-b629ac7cbb49
+      X-Amzn-Remapped-Content-Length:
+      - '823'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - XeXmSErjFiAFUKg=
+      Vary:
+      - Origin, Accept-Encoding
+      X-Amzn-Remapped-Server:
+      - nginx
+      Etag:
+      - W/"337-OwZFRkjg4fqiflJtk/A/iScE4WM"
+      X-Amzn-Remapped-Date:
+      - Fri, 26 Aug 2022 14:04:37 GMT
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 20abf8fa53791926cff6732fe1dbea5c.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - ese4s3l_EtTXVngPRMhZUJTO0_4XzdIrYWUlGqRTmNei-rFsDYNkfA==
+    body:
+      encoding: UTF-8
+      string: '{"accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDJmNTAwMGE2NzQ4YTk4OGI3M2EiLCJpYXQiOjE2NjE1MjI2NzcsImV4cCI6MTY2MTUyOTg3N30.kNyy7yHvQmSA4oAnM4XeasXUIb6AcyPCE4GId-l-zQM","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDJmNTAwMGE2NzQ4YTk4OGI3M2EiLCJyZWZyZXNoIjp0cnVlLCJpYXQiOjE2NjE1MjI2NzcsImV4cCI6MTY2MTg2ODI3N30.hioumxUWzkexVaupGH1F4nIw4i1SSvua0U57DtzrTVI","expires":7200}'
+  recorded_at: Mon, 24 Sep 2018 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.timify.com/v1/services/5d9f2ac56d95c0112ca1ccab/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDJmNTAwMGE2NzQ4YTk4OGI3M2EiLCJpYXQiOjE2NjE1MjI2NzcsImV4cCI6MTY2MTUyOTg3N30.kNyy7yHvQmSA4oAnM4XeasXUIb6AcyPCE4GId-l-zQM
+      Company-Id:
+      - TIMIFY_TEST_COMPANY_ID
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '884'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 26 Aug 2022 14:04:38 GMT
+      X-Amzn-Requestid:
+      - 9be0df8b-af8a-4205-9e30-bad3e3c03e63
+      X-Amzn-Remapped-Content-Length:
+      - '884'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - XeXmkHSeFiAFpqA=
+      Vary:
+      - Origin, Accept-Encoding
+      X-Amzn-Remapped-Server:
+      - nginx
+      Etag:
+      - W/"374-SxOS21lDEiOtoEVz2Yw8aVXQTsI"
+      X-Amzn-Remapped-Date:
+      - Fri, 26 Aug 2022 14:04:38 GMT
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 059ffa1366014739c490064f7ef210b4.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - y52W5d8xf336CxD1CVi72Da8MyG_sOXuI5TtdNHInN0rqTTjre9kwQ==
+    body:
+      encoding: UTF-8
+      string: '{"data":{"id":"5d9f2ac56d95c0112ca1ccab","externalId":"s1","globalId":null,"name":"Client
+        meeting","description":"","categoryId":"5d9f2a7b6d95c0112ca1cc8d","duration":60,"durationBefore":0,"durationAfter":0,"durationsPattern":[60],"color":"#385f87","price":0,"isBookable":true,"isStalled":false,"isPaymentMandatory":false,"hasOnlinePayment":false,"maxParticipants":0,"dependencies":[{"name":"","resourceCategories":null,"resources":[],"resourcesIds":["5d9f2a7b6d95c0112ca1cc91"],"workParallel":false,"stalled":false}],"shape":[["5d9f2a7b6d95c0112ca1cc91"]],"calendar":null,"isCombination":false,"combinationServiceIds":[],"isCombinationPriceOverwritten":false,"hasCombinationSameResourcesPreference":false,"customerEmailRemindersMinutes":null,"resourceEmailRemindersMinutes":null,"orderIndex":1,"createdAt":"2022-08-26T14:04:38Z","updatedAt":"2022-08-26T14:04:38Z","ts":0},"status":1}'
+  recorded_at: Mon, 24 Sep 2018 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.timify.com/v1/auth/token?appid=TIMIFY_APP_ID&appsecret=TIMIFY_APP_SECRET
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '823'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 26 Aug 2022 14:04:40 GMT
+      X-Amzn-Requestid:
+      - 0301cbf8-201b-44e4-ae73-2d9e71c35256
+      X-Amzn-Remapped-Content-Length:
+      - '823'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - XeXm1GjQliAFvDA=
+      Vary:
+      - Origin, Accept-Encoding
+      X-Amzn-Remapped-Server:
+      - nginx
+      Etag:
+      - W/"337-s67SIE82nSABBtZOYnFx53wLnpE"
+      X-Amzn-Remapped-Date:
+      - Fri, 26 Aug 2022 14:04:40 GMT
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 bb3426a4bcd69769f1392706dccc9fec.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - x9FUxzWmP0RpEAnNqOGCHaabR-PgGrW9wFwIZPl-RdCNpthcLUjUZw==
+    body:
+      encoding: UTF-8
+      string: '{"accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDJmOGIzMDcyNmI1ZjdlZmRlZGEiLCJpYXQiOjE2NjE1MjI2ODAsImV4cCI6MTY2MTUyOTg4MH0.qQQHsLLNQ0lFwJu1WKUZqD0Lbps4LHDX_g6pB37t2ZQ","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDJmOGIzMDcyNmI1ZjdlZmRlZGEiLCJyZWZyZXNoIjp0cnVlLCJpYXQiOjE2NjE1MjI2ODAsImV4cCI6MTY2MTg2ODI4MH0.TC5nObxc8LjIqOlqaf49NCbaUrfwM2AK1faSdos-444","expires":7200}'
+  recorded_at: Mon, 24 Sep 2018 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.timify.com/v1/booker-services/availabilities/?company_id=TIMIFY_TEST_COMPANY_ID&days%5B%5D=2018-09-24&days%5B%5D=2018-09-25&days%5B%5D=2018-09-26&days%5B%5D=2018-09-27&days%5B%5D=2018-09-28&days%5B%5D=2018-09-29&days%5B%5D=2018-09-30&days%5B%5D=2018-10-01&days%5B%5D=2018-10-02&days%5B%5D=2018-10-03&days%5B%5D=2018-10-04&days%5B%5D=2018-10-05&days%5B%5D=2018-10-06&days%5B%5D=2018-10-07&days%5B%5D=2018-10-08&days%5B%5D=2018-10-09&days%5B%5D=2018-10-10&days%5B%5D=2018-10-11&days%5B%5D=2018-10-12&days%5B%5D=2018-10-13&days%5B%5D=2018-10-14&days%5B%5D=2018-10-15&days%5B%5D=2018-10-16&days%5B%5D=2018-10-17&days%5B%5D=2018-10-18&days%5B%5D=2018-10-19&days%5B%5D=2018-10-20&days%5B%5D=2018-10-21&days%5B%5D=2018-10-22&days%5B%5D=2018-10-23&resource_ids%5B%5D=5d9f2a7b6d95c0112ca1cc91&service_id=5d9f2ac56d95c0112ca1ccab&timezone=UTC
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDJmOGIzMDcyNmI1ZjdlZmRlZGEiLCJpYXQiOjE2NjE1MjI2ODAsImV4cCI6MTY2MTUyOTg4MH0.qQQHsLLNQ0lFwJu1WKUZqD0Lbps4LHDX_g6pB37t2ZQ
+      Company-Id:
+      - TIMIFY_TEST_COMPANY_ID
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1327'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 26 Aug 2022 14:04:42 GMT
+      X-Amzn-Requestid:
+      - 2274f986-e71d-42e5-9097-0cbd829578e4
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - XeXnFGhxliAFR7Q=
+      Vary:
+      - Origin, Accept-Encoding
+      X-Amzn-Remapped-Server:
+      - nginx
+      Etag:
+      - W/"1a1c-HlNa2XFV7YUK/sH6HmixDa4ApE4"
+      X-Amzn-Remapped-Date:
+      - Fri, 26 Aug 2022 14:04:42 GMT
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 8ed4fdd19d7dac3a8be7657837a1f01e.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - qLXS-LF5GFAeDOUwUyp7XlN0yY1GFyMw6lyZ2ko7zmcjC1bfd6-f6Q==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"calendarBegin":"2022-08-26 14:05","calendarEnd":"2023-08-26
+        14:05","selectedResourceIds":["5d9f2a7b6d95c0112ca1cc91"],"onDays":["2022-08-26","2022-08-29","2022-08-30","2022-08-31","2022-09-01","2022-09-02","2022-09-05","2022-09-06","2022-09-07","2022-09-08","2022-09-09","2022-09-12","2022-09-13","2022-09-14","2022-09-15","2022-09-16","2022-09-19","2022-09-20","2022-09-21","2022-09-22","2022-09-23","2022-09-26","2022-09-27","2022-09-28","2022-09-29","2022-09-30","2022-10-03","2022-10-04","2022-10-05","2022-10-06","2022-10-07","2022-10-10","2022-10-11","2022-10-12","2022-10-13","2022-10-14","2022-10-17","2022-10-18","2022-10-19","2022-10-20","2022-10-21","2022-10-24","2022-10-25","2022-10-26","2022-10-27","2022-10-28","2022-10-31","2022-11-01","2022-11-02","2022-11-03","2022-11-04","2022-11-07","2022-11-08","2022-11-09","2022-11-10","2022-11-11","2022-11-14","2022-11-15","2022-11-16","2022-11-17","2022-11-18","2022-11-21","2022-11-22","2022-11-23","2022-11-24","2022-11-25","2022-11-28","2022-11-29","2022-11-30","2022-12-01","2022-12-02","2022-12-05","2022-12-06","2022-12-07","2022-12-08","2022-12-09","2022-12-12","2022-12-13","2022-12-14","2022-12-15","2022-12-16","2022-12-19","2022-12-20","2022-12-21","2022-12-22","2022-12-23","2022-12-26","2022-12-27","2022-12-28","2022-12-29","2022-12-30","2023-01-02","2023-01-03","2023-01-04","2023-01-05","2023-01-06","2023-01-09","2023-01-10","2023-01-11","2023-01-12","2023-01-13","2023-01-16","2023-01-17","2023-01-18","2023-01-19","2023-01-20","2023-01-23","2023-01-24","2023-01-25","2023-01-26","2023-01-27","2023-01-30","2023-01-31","2023-02-01","2023-02-02","2023-02-03","2023-02-06","2023-02-07","2023-02-08","2023-02-09","2023-02-10","2023-02-13","2023-02-14","2023-02-15","2023-02-16","2023-02-17","2023-02-20","2023-02-21","2023-02-22","2023-02-23","2023-02-24","2023-02-27","2023-02-28","2023-03-01","2023-03-02","2023-03-03","2023-03-06","2023-03-07","2023-03-08","2023-03-09","2023-03-10","2023-03-13","2023-03-14","2023-03-15","2023-03-16","2023-03-17","2023-03-20","2023-03-21","2023-03-22","2023-03-23","2023-03-24","2023-03-27","2023-03-28","2023-03-29","2023-03-30","2023-03-31","2023-04-03","2023-04-04","2023-04-05","2023-04-06","2023-04-07","2023-04-10","2023-04-11","2023-04-12","2023-04-13","2023-04-14","2023-04-17","2023-04-18","2023-04-19","2023-04-20","2023-04-21","2023-04-24","2023-04-25","2023-04-26","2023-04-27","2023-04-28","2023-05-01","2023-05-02","2023-05-03","2023-05-04","2023-05-05","2023-05-08","2023-05-09","2023-05-10","2023-05-11","2023-05-12","2023-05-15","2023-05-16","2023-05-17","2023-05-18","2023-05-19","2023-05-22","2023-05-23","2023-05-24","2023-05-25","2023-05-26","2023-05-29","2023-05-30","2023-05-31","2023-06-01","2023-06-02","2023-06-05","2023-06-06","2023-06-07","2023-06-08","2023-06-09","2023-06-12","2023-06-13","2023-06-14","2023-06-15","2023-06-16","2023-06-19","2023-06-20","2023-06-21","2023-06-22","2023-06-23","2023-06-26","2023-06-27","2023-06-28","2023-06-29","2023-06-30","2023-07-03","2023-07-04","2023-07-05","2023-07-06","2023-07-07","2023-07-10","2023-07-11","2023-07-12","2023-07-13","2023-07-14","2023-07-17","2023-07-18","2023-07-19","2023-07-20","2023-07-21","2023-07-24","2023-07-25","2023-07-26","2023-07-27","2023-07-28","2023-07-31","2023-08-01","2023-08-02","2023-08-03","2023-08-04","2023-08-07","2023-08-08","2023-08-09","2023-08-10","2023-08-11","2023-08-14","2023-08-15","2023-08-16","2023-08-17","2023-08-18","2023-08-21","2023-08-22","2023-08-23","2023-08-24","2023-08-25"],"offDays":["2022-08-27","2022-08-28","2022-09-03","2022-09-04","2022-09-10","2022-09-11","2022-09-17","2022-09-18","2022-09-24","2022-09-25","2022-10-01","2022-10-02","2022-10-08","2022-10-09","2022-10-15","2022-10-16","2022-10-22","2022-10-23","2022-10-29","2022-10-30","2022-11-05","2022-11-06","2022-11-12","2022-11-13","2022-11-19","2022-11-20","2022-11-26","2022-11-27","2022-12-03","2022-12-04","2022-12-10","2022-12-11","2022-12-17","2022-12-18","2022-12-24","2022-12-25","2022-12-31","2023-01-01","2023-01-07","2023-01-08","2023-01-14","2023-01-15","2023-01-21","2023-01-22","2023-01-28","2023-01-29","2023-02-04","2023-02-05","2023-02-11","2023-02-12","2023-02-18","2023-02-19","2023-02-25","2023-02-26","2023-03-04","2023-03-05","2023-03-11","2023-03-12","2023-03-18","2023-03-19","2023-03-25","2023-03-26","2023-04-01","2023-04-02","2023-04-08","2023-04-09","2023-04-15","2023-04-16","2023-04-22","2023-04-23","2023-04-29","2023-04-30","2023-05-06","2023-05-07","2023-05-13","2023-05-14","2023-05-20","2023-05-21","2023-05-27","2023-05-28","2023-06-03","2023-06-04","2023-06-10","2023-06-11","2023-06-17","2023-06-18","2023-06-24","2023-06-25","2023-07-01","2023-07-02","2023-07-08","2023-07-09","2023-07-15","2023-07-16","2023-07-22","2023-07-23","2023-07-29","2023-07-30","2023-08-05","2023-08-06","2023-08-12","2023-08-13","2023-08-19","2023-08-20","2023-08-26"],"slots":[{"day":"2018-09-24","times":[],"minutes":[]},{"day":"2018-09-25","times":[],"minutes":[]},{"day":"2018-09-26","times":[],"minutes":[]},{"day":"2018-09-27","times":[],"minutes":[]},{"day":"2018-09-28","times":[],"minutes":[]},{"day":"2018-09-29","times":[],"minutes":[]},{"day":"2018-09-30","times":[],"minutes":[]},{"day":"2018-10-01","times":[],"minutes":[]},{"day":"2018-10-02","times":[],"minutes":[]},{"day":"2018-10-03","times":[],"minutes":[]},{"day":"2018-10-04","times":[],"minutes":[]},{"day":"2018-10-05","times":[],"minutes":[]},{"day":"2018-10-06","times":[],"minutes":[]},{"day":"2018-10-07","times":[],"minutes":[]},{"day":"2018-10-08","times":[],"minutes":[]},{"day":"2018-10-09","times":[],"minutes":[]},{"day":"2018-10-10","times":[],"minutes":[]},{"day":"2018-10-11","times":[],"minutes":[]},{"day":"2018-10-12","times":[],"minutes":[]},{"day":"2018-10-13","times":[],"minutes":[]},{"day":"2018-10-14","times":[],"minutes":[]},{"day":"2018-10-15","times":[],"minutes":[]},{"day":"2018-10-16","times":[],"minutes":[]},{"day":"2018-10-17","times":[],"minutes":[]},{"day":"2018-10-18","times":[],"minutes":[]},{"day":"2018-10-19","times":[],"minutes":[]},{"day":"2018-10-20","times":[],"minutes":[]},{"day":"2018-10-21","times":[],"minutes":[]},{"day":"2018-10-22","times":[],"minutes":[]},{"day":"2018-10-23","times":[],"minutes":[]}],"service":{"id":"5d9f2ac56d95c0112ca1ccab","externalId":"s1","name":"Client
+        meeting","duration":60},"resources":[{"id":"5d9f2a7b6d95c0112ca1cc91","externalId":null,"orderIndex":1,"name":"Axel
+        Voxiplan","color":"#6882b0","avatarUrl":null,"categoryId":"5d9f2a7b6d95c0112ca1cc8f"}],"resourceCategories":[{"id":"5d9f2a7b6d95c0112ca1cc8f","name":"default","translationKey":"resources.category.default","orderIndex":1}]}}'
+  recorded_at: Mon, 24 Sep 2018 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.timify.com/v1/auth/token?appid=TIMIFY_APP_ID&appsecret=TIMIFY_APP_SECRET
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '823'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 26 Aug 2022 14:04:44 GMT
+      X-Amzn-Requestid:
+      - 11318b72-e335-4054-ad4d-6c390448e796
+      X-Amzn-Remapped-Content-Length:
+      - '823'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - XeXnfFcBliAFQYA=
+      Vary:
+      - Origin, Accept-Encoding
+      X-Amzn-Remapped-Server:
+      - nginx
+      Etag:
+      - W/"337-2ofaTC3vZtK1I30Y4DU8s4TriBI"
+      X-Amzn-Remapped-Date:
+      - Fri, 26 Aug 2022 14:04:44 GMT
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 eaaf15907191c2ffe9bca255f7e191f6.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - PutvaTP9TnFrqt9Kst9-uK97m3x5ptO_gNXZ51L4z8qh_equFFvRgA==
+    body:
+      encoding: UTF-8
+      string: '{"accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDJmY2Q5MGRkOTgyYjQyZDYxYjUiLCJpYXQiOjE2NjE1MjI2ODQsImV4cCI6MTY2MTUyOTg4NH0.nojEF8qD-pTzGDx2jDcMTkxQtdbf-4SMLsvO-0bkRfE","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDJmY2Q5MGRkOTgyYjQyZDYxYjUiLCJyZWZyZXNoIjp0cnVlLCJpYXQiOjE2NjE1MjI2ODQsImV4cCI6MTY2MTg2ODI4NH0.jm8Y67Xv1XXHp_4Ui9PtFJCTFuur40LEUHjfzvmXpNI","expires":7200}'
+  recorded_at: Mon, 24 Sep 2018 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.timify.com/v1/booker-services/availabilities/?company_id=TIMIFY_TEST_COMPANY_ID&days%5B%5D=2018-09-25&days%5B%5D=2018-09-26&days%5B%5D=2018-09-27&days%5B%5D=2018-09-28&days%5B%5D=2018-09-29&days%5B%5D=2018-09-30&days%5B%5D=2018-10-01&days%5B%5D=2018-10-02&days%5B%5D=2018-10-03&days%5B%5D=2018-10-04&days%5B%5D=2018-10-05&days%5B%5D=2018-10-06&days%5B%5D=2018-10-07&days%5B%5D=2018-10-08&days%5B%5D=2018-10-09&days%5B%5D=2018-10-10&days%5B%5D=2018-10-11&days%5B%5D=2018-10-12&days%5B%5D=2018-10-13&days%5B%5D=2018-10-14&days%5B%5D=2018-10-15&days%5B%5D=2018-10-16&days%5B%5D=2018-10-17&days%5B%5D=2018-10-18&days%5B%5D=2018-10-19&days%5B%5D=2018-10-20&days%5B%5D=2018-10-21&days%5B%5D=2018-10-22&days%5B%5D=2018-10-23&days%5B%5D=2018-10-24&resource_ids%5B%5D=5d9f2a7b6d95c0112ca1cc91&service_id=5d9f2ac56d95c0112ca1ccab&timezone=UTC
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDJmY2Q5MGRkOTgyYjQyZDYxYjUiLCJpYXQiOjE2NjE1MjI2ODQsImV4cCI6MTY2MTUyOTg4NH0.nojEF8qD-pTzGDx2jDcMTkxQtdbf-4SMLsvO-0bkRfE
+      Company-Id:
+      - TIMIFY_TEST_COMPANY_ID
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1327'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 26 Aug 2022 14:04:47 GMT
+      X-Amzn-Requestid:
+      - 325fa4f4-d523-4729-9df3-4cdbf64aca3b
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - XeXnwEBaFiAFRXg=
+      Vary:
+      - Origin, Accept-Encoding
+      X-Amzn-Remapped-Server:
+      - nginx
+      Etag:
+      - W/"1a1c-k+EkpTATKMQm7rmH9y2MDgZAYc4"
+      X-Amzn-Remapped-Date:
+      - Fri, 26 Aug 2022 14:04:47 GMT
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 a113eb34f19d8c0a26066d20924efa32.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - rfvjV7QJqa6CSqlEHrFIcnbwFcm7jCePcGDgYFzQUY37TPEcEmjNKg==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"calendarBegin":"2022-08-26 14:05","calendarEnd":"2023-08-26
+        14:05","selectedResourceIds":["5d9f2a7b6d95c0112ca1cc91"],"onDays":["2022-08-26","2022-08-29","2022-08-30","2022-08-31","2022-09-01","2022-09-02","2022-09-05","2022-09-06","2022-09-07","2022-09-08","2022-09-09","2022-09-12","2022-09-13","2022-09-14","2022-09-15","2022-09-16","2022-09-19","2022-09-20","2022-09-21","2022-09-22","2022-09-23","2022-09-26","2022-09-27","2022-09-28","2022-09-29","2022-09-30","2022-10-03","2022-10-04","2022-10-05","2022-10-06","2022-10-07","2022-10-10","2022-10-11","2022-10-12","2022-10-13","2022-10-14","2022-10-17","2022-10-18","2022-10-19","2022-10-20","2022-10-21","2022-10-24","2022-10-25","2022-10-26","2022-10-27","2022-10-28","2022-10-31","2022-11-01","2022-11-02","2022-11-03","2022-11-04","2022-11-07","2022-11-08","2022-11-09","2022-11-10","2022-11-11","2022-11-14","2022-11-15","2022-11-16","2022-11-17","2022-11-18","2022-11-21","2022-11-22","2022-11-23","2022-11-24","2022-11-25","2022-11-28","2022-11-29","2022-11-30","2022-12-01","2022-12-02","2022-12-05","2022-12-06","2022-12-07","2022-12-08","2022-12-09","2022-12-12","2022-12-13","2022-12-14","2022-12-15","2022-12-16","2022-12-19","2022-12-20","2022-12-21","2022-12-22","2022-12-23","2022-12-26","2022-12-27","2022-12-28","2022-12-29","2022-12-30","2023-01-02","2023-01-03","2023-01-04","2023-01-05","2023-01-06","2023-01-09","2023-01-10","2023-01-11","2023-01-12","2023-01-13","2023-01-16","2023-01-17","2023-01-18","2023-01-19","2023-01-20","2023-01-23","2023-01-24","2023-01-25","2023-01-26","2023-01-27","2023-01-30","2023-01-31","2023-02-01","2023-02-02","2023-02-03","2023-02-06","2023-02-07","2023-02-08","2023-02-09","2023-02-10","2023-02-13","2023-02-14","2023-02-15","2023-02-16","2023-02-17","2023-02-20","2023-02-21","2023-02-22","2023-02-23","2023-02-24","2023-02-27","2023-02-28","2023-03-01","2023-03-02","2023-03-03","2023-03-06","2023-03-07","2023-03-08","2023-03-09","2023-03-10","2023-03-13","2023-03-14","2023-03-15","2023-03-16","2023-03-17","2023-03-20","2023-03-21","2023-03-22","2023-03-23","2023-03-24","2023-03-27","2023-03-28","2023-03-29","2023-03-30","2023-03-31","2023-04-03","2023-04-04","2023-04-05","2023-04-06","2023-04-07","2023-04-10","2023-04-11","2023-04-12","2023-04-13","2023-04-14","2023-04-17","2023-04-18","2023-04-19","2023-04-20","2023-04-21","2023-04-24","2023-04-25","2023-04-26","2023-04-27","2023-04-28","2023-05-01","2023-05-02","2023-05-03","2023-05-04","2023-05-05","2023-05-08","2023-05-09","2023-05-10","2023-05-11","2023-05-12","2023-05-15","2023-05-16","2023-05-17","2023-05-18","2023-05-19","2023-05-22","2023-05-23","2023-05-24","2023-05-25","2023-05-26","2023-05-29","2023-05-30","2023-05-31","2023-06-01","2023-06-02","2023-06-05","2023-06-06","2023-06-07","2023-06-08","2023-06-09","2023-06-12","2023-06-13","2023-06-14","2023-06-15","2023-06-16","2023-06-19","2023-06-20","2023-06-21","2023-06-22","2023-06-23","2023-06-26","2023-06-27","2023-06-28","2023-06-29","2023-06-30","2023-07-03","2023-07-04","2023-07-05","2023-07-06","2023-07-07","2023-07-10","2023-07-11","2023-07-12","2023-07-13","2023-07-14","2023-07-17","2023-07-18","2023-07-19","2023-07-20","2023-07-21","2023-07-24","2023-07-25","2023-07-26","2023-07-27","2023-07-28","2023-07-31","2023-08-01","2023-08-02","2023-08-03","2023-08-04","2023-08-07","2023-08-08","2023-08-09","2023-08-10","2023-08-11","2023-08-14","2023-08-15","2023-08-16","2023-08-17","2023-08-18","2023-08-21","2023-08-22","2023-08-23","2023-08-24","2023-08-25"],"offDays":["2022-08-27","2022-08-28","2022-09-03","2022-09-04","2022-09-10","2022-09-11","2022-09-17","2022-09-18","2022-09-24","2022-09-25","2022-10-01","2022-10-02","2022-10-08","2022-10-09","2022-10-15","2022-10-16","2022-10-22","2022-10-23","2022-10-29","2022-10-30","2022-11-05","2022-11-06","2022-11-12","2022-11-13","2022-11-19","2022-11-20","2022-11-26","2022-11-27","2022-12-03","2022-12-04","2022-12-10","2022-12-11","2022-12-17","2022-12-18","2022-12-24","2022-12-25","2022-12-31","2023-01-01","2023-01-07","2023-01-08","2023-01-14","2023-01-15","2023-01-21","2023-01-22","2023-01-28","2023-01-29","2023-02-04","2023-02-05","2023-02-11","2023-02-12","2023-02-18","2023-02-19","2023-02-25","2023-02-26","2023-03-04","2023-03-05","2023-03-11","2023-03-12","2023-03-18","2023-03-19","2023-03-25","2023-03-26","2023-04-01","2023-04-02","2023-04-08","2023-04-09","2023-04-15","2023-04-16","2023-04-22","2023-04-23","2023-04-29","2023-04-30","2023-05-06","2023-05-07","2023-05-13","2023-05-14","2023-05-20","2023-05-21","2023-05-27","2023-05-28","2023-06-03","2023-06-04","2023-06-10","2023-06-11","2023-06-17","2023-06-18","2023-06-24","2023-06-25","2023-07-01","2023-07-02","2023-07-08","2023-07-09","2023-07-15","2023-07-16","2023-07-22","2023-07-23","2023-07-29","2023-07-30","2023-08-05","2023-08-06","2023-08-12","2023-08-13","2023-08-19","2023-08-20","2023-08-26"],"slots":[{"day":"2018-09-25","times":[],"minutes":[]},{"day":"2018-09-26","times":[],"minutes":[]},{"day":"2018-09-27","times":[],"minutes":[]},{"day":"2018-09-28","times":[],"minutes":[]},{"day":"2018-09-29","times":[],"minutes":[]},{"day":"2018-09-30","times":[],"minutes":[]},{"day":"2018-10-01","times":[],"minutes":[]},{"day":"2018-10-02","times":[],"minutes":[]},{"day":"2018-10-03","times":[],"minutes":[]},{"day":"2018-10-04","times":[],"minutes":[]},{"day":"2018-10-05","times":[],"minutes":[]},{"day":"2018-10-06","times":[],"minutes":[]},{"day":"2018-10-07","times":[],"minutes":[]},{"day":"2018-10-08","times":[],"minutes":[]},{"day":"2018-10-09","times":[],"minutes":[]},{"day":"2018-10-10","times":[],"minutes":[]},{"day":"2018-10-11","times":[],"minutes":[]},{"day":"2018-10-12","times":[],"minutes":[]},{"day":"2018-10-13","times":[],"minutes":[]},{"day":"2018-10-14","times":[],"minutes":[]},{"day":"2018-10-15","times":[],"minutes":[]},{"day":"2018-10-16","times":[],"minutes":[]},{"day":"2018-10-17","times":[],"minutes":[]},{"day":"2018-10-18","times":[],"minutes":[]},{"day":"2018-10-19","times":[],"minutes":[]},{"day":"2018-10-20","times":[],"minutes":[]},{"day":"2018-10-21","times":[],"minutes":[]},{"day":"2018-10-22","times":[],"minutes":[]},{"day":"2018-10-23","times":[],"minutes":[]},{"day":"2018-10-24","times":[],"minutes":[]}],"service":{"id":"5d9f2ac56d95c0112ca1ccab","externalId":"s1","name":"Client
+        meeting","duration":60},"resources":[{"id":"5d9f2a7b6d95c0112ca1cc91","externalId":null,"orderIndex":1,"name":"Axel
+        Voxiplan","color":"#6882b0","avatarUrl":null,"categoryId":"5d9f2a7b6d95c0112ca1cc8f"}],"resourceCategories":[{"id":"5d9f2a7b6d95c0112ca1cc8f","name":"default","translationKey":"resources.category.default","orderIndex":1}]}}'
+  recorded_at: Mon, 24 Sep 2018 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.timify.com/v1/auth/token?appid=TIMIFY_APP_ID&appsecret=TIMIFY_APP_SECRET
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '823'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 26 Aug 2022 14:04:48 GMT
+      X-Amzn-Requestid:
+      - 7ba67da3-cedb-473c-951e-b641589499f6
+      X-Amzn-Remapped-Content-Length:
+      - '823'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - XeXoKH9JFiAFjGg=
+      Vary:
+      - Origin, Accept-Encoding
+      X-Amzn-Remapped-Server:
+      - nginx
+      Etag:
+      - W/"337-krg8JtBLOLQQzqxaJP77cTP+4n4"
+      X-Amzn-Remapped-Date:
+      - Fri, 26 Aug 2022 14:04:48 GMT
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 2a15fc22687d5cd46d30f0e206dc6708.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - yEd6BOCiAhtpyXrskfc3A-XYxPy7xDVnobhGqWaxftlNIB8FqAjYNQ==
+    body:
+      encoding: UTF-8
+      string: '{"accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDMwMGEyZjViNzEzYWMyODY0NjUiLCJpYXQiOjE2NjE1MjI2ODgsImV4cCI6MTY2MTUyOTg4OH0.SSurJbg4mg-sRX_yaB49eKALH6sMREvIbq3LoSLhZgc","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDMwMGEyZjViNzEzYWMyODY0NjUiLCJyZWZyZXNoIjp0cnVlLCJpYXQiOjE2NjE1MjI2ODgsImV4cCI6MTY2MTg2ODI4OH0.rVT8ZcrGp-_Zr2dNpiFe5E0RB0Tf_Dq7spIBEOcJ17s","expires":7200}'
+  recorded_at: Mon, 24 Sep 2018 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.timify.com/v1/booker-services/availabilities/?company_id=TIMIFY_TEST_COMPANY_ID&days%5B%5D=2018-09-26&days%5B%5D=2018-09-27&days%5B%5D=2018-09-28&days%5B%5D=2018-09-29&days%5B%5D=2018-09-30&days%5B%5D=2018-10-01&days%5B%5D=2018-10-02&days%5B%5D=2018-10-03&days%5B%5D=2018-10-04&days%5B%5D=2018-10-05&days%5B%5D=2018-10-06&days%5B%5D=2018-10-07&days%5B%5D=2018-10-08&days%5B%5D=2018-10-09&days%5B%5D=2018-10-10&days%5B%5D=2018-10-11&days%5B%5D=2018-10-12&days%5B%5D=2018-10-13&days%5B%5D=2018-10-14&days%5B%5D=2018-10-15&days%5B%5D=2018-10-16&days%5B%5D=2018-10-17&days%5B%5D=2018-10-18&days%5B%5D=2018-10-19&days%5B%5D=2018-10-20&days%5B%5D=2018-10-21&days%5B%5D=2018-10-22&days%5B%5D=2018-10-23&days%5B%5D=2018-10-24&days%5B%5D=2018-10-25&resource_ids%5B%5D=5d9f2a7b6d95c0112ca1cc91&service_id=5d9f2ac56d95c0112ca1ccab&timezone=UTC
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDMwMGEyZjViNzEzYWMyODY0NjUiLCJpYXQiOjE2NjE1MjI2ODgsImV4cCI6MTY2MTUyOTg4OH0.SSurJbg4mg-sRX_yaB49eKALH6sMREvIbq3LoSLhZgc
+      Company-Id:
+      - TIMIFY_TEST_COMPANY_ID
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1325'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 26 Aug 2022 14:04:51 GMT
+      X-Amzn-Requestid:
+      - 9138cfd7-e651-41b3-8efa-c54a28c8877a
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - XeXoXHbjliAFXjg=
+      Vary:
+      - Origin, Accept-Encoding
+      X-Amzn-Remapped-Server:
+      - nginx
+      Etag:
+      - W/"1a1c-ilzhNrJ8xBcLlukE1x/3BzeipZU"
+      X-Amzn-Remapped-Date:
+      - Fri, 26 Aug 2022 14:04:51 GMT
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 ba9ad273c0684cef5994a90b6f62666e.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - m_mmVjC_DLnZipAwzEF54aG9YukYb9FM3iEfgu6CUQ8sCqIRgQO-uQ==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"calendarBegin":"2022-08-26 14:05","calendarEnd":"2023-08-26
+        14:05","selectedResourceIds":["5d9f2a7b6d95c0112ca1cc91"],"onDays":["2022-08-26","2022-08-29","2022-08-30","2022-08-31","2022-09-01","2022-09-02","2022-09-05","2022-09-06","2022-09-07","2022-09-08","2022-09-09","2022-09-12","2022-09-13","2022-09-14","2022-09-15","2022-09-16","2022-09-19","2022-09-20","2022-09-21","2022-09-22","2022-09-23","2022-09-26","2022-09-27","2022-09-28","2022-09-29","2022-09-30","2022-10-03","2022-10-04","2022-10-05","2022-10-06","2022-10-07","2022-10-10","2022-10-11","2022-10-12","2022-10-13","2022-10-14","2022-10-17","2022-10-18","2022-10-19","2022-10-20","2022-10-21","2022-10-24","2022-10-25","2022-10-26","2022-10-27","2022-10-28","2022-10-31","2022-11-01","2022-11-02","2022-11-03","2022-11-04","2022-11-07","2022-11-08","2022-11-09","2022-11-10","2022-11-11","2022-11-14","2022-11-15","2022-11-16","2022-11-17","2022-11-18","2022-11-21","2022-11-22","2022-11-23","2022-11-24","2022-11-25","2022-11-28","2022-11-29","2022-11-30","2022-12-01","2022-12-02","2022-12-05","2022-12-06","2022-12-07","2022-12-08","2022-12-09","2022-12-12","2022-12-13","2022-12-14","2022-12-15","2022-12-16","2022-12-19","2022-12-20","2022-12-21","2022-12-22","2022-12-23","2022-12-26","2022-12-27","2022-12-28","2022-12-29","2022-12-30","2023-01-02","2023-01-03","2023-01-04","2023-01-05","2023-01-06","2023-01-09","2023-01-10","2023-01-11","2023-01-12","2023-01-13","2023-01-16","2023-01-17","2023-01-18","2023-01-19","2023-01-20","2023-01-23","2023-01-24","2023-01-25","2023-01-26","2023-01-27","2023-01-30","2023-01-31","2023-02-01","2023-02-02","2023-02-03","2023-02-06","2023-02-07","2023-02-08","2023-02-09","2023-02-10","2023-02-13","2023-02-14","2023-02-15","2023-02-16","2023-02-17","2023-02-20","2023-02-21","2023-02-22","2023-02-23","2023-02-24","2023-02-27","2023-02-28","2023-03-01","2023-03-02","2023-03-03","2023-03-06","2023-03-07","2023-03-08","2023-03-09","2023-03-10","2023-03-13","2023-03-14","2023-03-15","2023-03-16","2023-03-17","2023-03-20","2023-03-21","2023-03-22","2023-03-23","2023-03-24","2023-03-27","2023-03-28","2023-03-29","2023-03-30","2023-03-31","2023-04-03","2023-04-04","2023-04-05","2023-04-06","2023-04-07","2023-04-10","2023-04-11","2023-04-12","2023-04-13","2023-04-14","2023-04-17","2023-04-18","2023-04-19","2023-04-20","2023-04-21","2023-04-24","2023-04-25","2023-04-26","2023-04-27","2023-04-28","2023-05-01","2023-05-02","2023-05-03","2023-05-04","2023-05-05","2023-05-08","2023-05-09","2023-05-10","2023-05-11","2023-05-12","2023-05-15","2023-05-16","2023-05-17","2023-05-18","2023-05-19","2023-05-22","2023-05-23","2023-05-24","2023-05-25","2023-05-26","2023-05-29","2023-05-30","2023-05-31","2023-06-01","2023-06-02","2023-06-05","2023-06-06","2023-06-07","2023-06-08","2023-06-09","2023-06-12","2023-06-13","2023-06-14","2023-06-15","2023-06-16","2023-06-19","2023-06-20","2023-06-21","2023-06-22","2023-06-23","2023-06-26","2023-06-27","2023-06-28","2023-06-29","2023-06-30","2023-07-03","2023-07-04","2023-07-05","2023-07-06","2023-07-07","2023-07-10","2023-07-11","2023-07-12","2023-07-13","2023-07-14","2023-07-17","2023-07-18","2023-07-19","2023-07-20","2023-07-21","2023-07-24","2023-07-25","2023-07-26","2023-07-27","2023-07-28","2023-07-31","2023-08-01","2023-08-02","2023-08-03","2023-08-04","2023-08-07","2023-08-08","2023-08-09","2023-08-10","2023-08-11","2023-08-14","2023-08-15","2023-08-16","2023-08-17","2023-08-18","2023-08-21","2023-08-22","2023-08-23","2023-08-24","2023-08-25"],"offDays":["2022-08-27","2022-08-28","2022-09-03","2022-09-04","2022-09-10","2022-09-11","2022-09-17","2022-09-18","2022-09-24","2022-09-25","2022-10-01","2022-10-02","2022-10-08","2022-10-09","2022-10-15","2022-10-16","2022-10-22","2022-10-23","2022-10-29","2022-10-30","2022-11-05","2022-11-06","2022-11-12","2022-11-13","2022-11-19","2022-11-20","2022-11-26","2022-11-27","2022-12-03","2022-12-04","2022-12-10","2022-12-11","2022-12-17","2022-12-18","2022-12-24","2022-12-25","2022-12-31","2023-01-01","2023-01-07","2023-01-08","2023-01-14","2023-01-15","2023-01-21","2023-01-22","2023-01-28","2023-01-29","2023-02-04","2023-02-05","2023-02-11","2023-02-12","2023-02-18","2023-02-19","2023-02-25","2023-02-26","2023-03-04","2023-03-05","2023-03-11","2023-03-12","2023-03-18","2023-03-19","2023-03-25","2023-03-26","2023-04-01","2023-04-02","2023-04-08","2023-04-09","2023-04-15","2023-04-16","2023-04-22","2023-04-23","2023-04-29","2023-04-30","2023-05-06","2023-05-07","2023-05-13","2023-05-14","2023-05-20","2023-05-21","2023-05-27","2023-05-28","2023-06-03","2023-06-04","2023-06-10","2023-06-11","2023-06-17","2023-06-18","2023-06-24","2023-06-25","2023-07-01","2023-07-02","2023-07-08","2023-07-09","2023-07-15","2023-07-16","2023-07-22","2023-07-23","2023-07-29","2023-07-30","2023-08-05","2023-08-06","2023-08-12","2023-08-13","2023-08-19","2023-08-20","2023-08-26"],"slots":[{"day":"2018-09-26","times":[],"minutes":[]},{"day":"2018-09-27","times":[],"minutes":[]},{"day":"2018-09-28","times":[],"minutes":[]},{"day":"2018-09-29","times":[],"minutes":[]},{"day":"2018-09-30","times":[],"minutes":[]},{"day":"2018-10-01","times":[],"minutes":[]},{"day":"2018-10-02","times":[],"minutes":[]},{"day":"2018-10-03","times":[],"minutes":[]},{"day":"2018-10-04","times":[],"minutes":[]},{"day":"2018-10-05","times":[],"minutes":[]},{"day":"2018-10-06","times":[],"minutes":[]},{"day":"2018-10-07","times":[],"minutes":[]},{"day":"2018-10-08","times":[],"minutes":[]},{"day":"2018-10-09","times":[],"minutes":[]},{"day":"2018-10-10","times":[],"minutes":[]},{"day":"2018-10-11","times":[],"minutes":[]},{"day":"2018-10-12","times":[],"minutes":[]},{"day":"2018-10-13","times":[],"minutes":[]},{"day":"2018-10-14","times":[],"minutes":[]},{"day":"2018-10-15","times":[],"minutes":[]},{"day":"2018-10-16","times":[],"minutes":[]},{"day":"2018-10-17","times":[],"minutes":[]},{"day":"2018-10-18","times":[],"minutes":[]},{"day":"2018-10-19","times":[],"minutes":[]},{"day":"2018-10-20","times":[],"minutes":[]},{"day":"2018-10-21","times":[],"minutes":[]},{"day":"2018-10-22","times":[],"minutes":[]},{"day":"2018-10-23","times":[],"minutes":[]},{"day":"2018-10-24","times":[],"minutes":[]},{"day":"2018-10-25","times":[],"minutes":[]}],"service":{"id":"5d9f2ac56d95c0112ca1ccab","externalId":"s1","name":"Client
+        meeting","duration":60},"resources":[{"id":"5d9f2a7b6d95c0112ca1cc91","externalId":null,"orderIndex":1,"name":"Axel
+        Voxiplan","color":"#6882b0","avatarUrl":null,"categoryId":"5d9f2a7b6d95c0112ca1cc8f"}],"resourceCategories":[{"id":"5d9f2a7b6d95c0112ca1cc8f","name":"default","translationKey":"resources.category.default","orderIndex":1}]}}'
+  recorded_at: Mon, 24 Sep 2018 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.timify.com/v1/auth/token?appid=TIMIFY_APP_ID&appsecret=TIMIFY_APP_SECRET
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '823'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 26 Aug 2022 14:04:52 GMT
+      X-Amzn-Requestid:
+      - a9a0ab42-3759-48b6-a0fd-d55fed4894b5
+      X-Amzn-Remapped-Content-Length:
+      - '823'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - XeXoxGLhFiAFSpg=
+      Vary:
+      - Origin, Accept-Encoding
+      X-Amzn-Remapped-Server:
+      - nginx
+      Etag:
+      - W/"337-KLnsdW3YjvR5B4+z6eRSEbAgVGg"
+      X-Amzn-Remapped-Date:
+      - Fri, 26 Aug 2022 14:04:52 GMT
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 d43e30683e06d5a961780768e13e3c18.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - xXREni2uc3fD11CuqBKlZAab9kHZ_lH9M6BArRGayYdJ-ZShVvsomw==
+    body:
+      encoding: UTF-8
+      string: '{"accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDMwNDkyMjFiZTIwMjA0ZTdlODIiLCJpYXQiOjE2NjE1MjI2OTIsImV4cCI6MTY2MTUyOTg5Mn0.K_4d6R5nOE7VyHESPGCeaXQNmM3uTy2tQR_wzXG-NOw","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDMwNDkyMjFiZTIwMjA0ZTdlODIiLCJyZWZyZXNoIjp0cnVlLCJpYXQiOjE2NjE1MjI2OTIsImV4cCI6MTY2MTg2ODI5Mn0.r1ZFgLf7VdGfxWPKpapdAL1Pua4gxhd8SMl4sZgkfxE","expires":7200}'
+  recorded_at: Mon, 24 Sep 2018 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.timify.com/v1/booker-services/availabilities/?company_id=TIMIFY_TEST_COMPANY_ID&days%5B%5D=2018-09-27&days%5B%5D=2018-09-28&days%5B%5D=2018-09-29&days%5B%5D=2018-09-30&days%5B%5D=2018-10-01&days%5B%5D=2018-10-02&days%5B%5D=2018-10-03&days%5B%5D=2018-10-04&days%5B%5D=2018-10-05&days%5B%5D=2018-10-06&days%5B%5D=2018-10-07&days%5B%5D=2018-10-08&days%5B%5D=2018-10-09&days%5B%5D=2018-10-10&days%5B%5D=2018-10-11&days%5B%5D=2018-10-12&days%5B%5D=2018-10-13&days%5B%5D=2018-10-14&days%5B%5D=2018-10-15&days%5B%5D=2018-10-16&days%5B%5D=2018-10-17&days%5B%5D=2018-10-18&days%5B%5D=2018-10-19&days%5B%5D=2018-10-20&days%5B%5D=2018-10-21&days%5B%5D=2018-10-22&days%5B%5D=2018-10-23&days%5B%5D=2018-10-24&days%5B%5D=2018-10-25&days%5B%5D=2018-10-26&resource_ids%5B%5D=5d9f2a7b6d95c0112ca1cc91&service_id=5d9f2ac56d95c0112ca1ccab&timezone=UTC
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDMwNDkyMjFiZTIwMjA0ZTdlODIiLCJpYXQiOjE2NjE1MjI2OTIsImV4cCI6MTY2MTUyOTg5Mn0.K_4d6R5nOE7VyHESPGCeaXQNmM3uTy2tQR_wzXG-NOw
+      Company-Id:
+      - TIMIFY_TEST_COMPANY_ID
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1325'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 26 Aug 2022 14:04:55 GMT
+      X-Amzn-Requestid:
+      - 16516a01-da22-478f-9f78-bd979e8bcd9d
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - XeXpAGeNFiAFgKQ=
+      Vary:
+      - Origin, Accept-Encoding
+      X-Amzn-Remapped-Server:
+      - nginx
+      Etag:
+      - W/"1a1c-jE0ypu8odxpyY9t+7QMcfU1XEVQ"
+      X-Amzn-Remapped-Date:
+      - Fri, 26 Aug 2022 14:04:55 GMT
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 84ec4992ba0ab19b37c67d59be5e5f82.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - jePRdStLw4NGLJ6AAH08TGcxOqm__8T6_URTPewhODchC1JyXmSpJg==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"calendarBegin":"2022-08-26 14:05","calendarEnd":"2023-08-26
+        14:05","selectedResourceIds":["5d9f2a7b6d95c0112ca1cc91"],"onDays":["2022-08-26","2022-08-29","2022-08-30","2022-08-31","2022-09-01","2022-09-02","2022-09-05","2022-09-06","2022-09-07","2022-09-08","2022-09-09","2022-09-12","2022-09-13","2022-09-14","2022-09-15","2022-09-16","2022-09-19","2022-09-20","2022-09-21","2022-09-22","2022-09-23","2022-09-26","2022-09-27","2022-09-28","2022-09-29","2022-09-30","2022-10-03","2022-10-04","2022-10-05","2022-10-06","2022-10-07","2022-10-10","2022-10-11","2022-10-12","2022-10-13","2022-10-14","2022-10-17","2022-10-18","2022-10-19","2022-10-20","2022-10-21","2022-10-24","2022-10-25","2022-10-26","2022-10-27","2022-10-28","2022-10-31","2022-11-01","2022-11-02","2022-11-03","2022-11-04","2022-11-07","2022-11-08","2022-11-09","2022-11-10","2022-11-11","2022-11-14","2022-11-15","2022-11-16","2022-11-17","2022-11-18","2022-11-21","2022-11-22","2022-11-23","2022-11-24","2022-11-25","2022-11-28","2022-11-29","2022-11-30","2022-12-01","2022-12-02","2022-12-05","2022-12-06","2022-12-07","2022-12-08","2022-12-09","2022-12-12","2022-12-13","2022-12-14","2022-12-15","2022-12-16","2022-12-19","2022-12-20","2022-12-21","2022-12-22","2022-12-23","2022-12-26","2022-12-27","2022-12-28","2022-12-29","2022-12-30","2023-01-02","2023-01-03","2023-01-04","2023-01-05","2023-01-06","2023-01-09","2023-01-10","2023-01-11","2023-01-12","2023-01-13","2023-01-16","2023-01-17","2023-01-18","2023-01-19","2023-01-20","2023-01-23","2023-01-24","2023-01-25","2023-01-26","2023-01-27","2023-01-30","2023-01-31","2023-02-01","2023-02-02","2023-02-03","2023-02-06","2023-02-07","2023-02-08","2023-02-09","2023-02-10","2023-02-13","2023-02-14","2023-02-15","2023-02-16","2023-02-17","2023-02-20","2023-02-21","2023-02-22","2023-02-23","2023-02-24","2023-02-27","2023-02-28","2023-03-01","2023-03-02","2023-03-03","2023-03-06","2023-03-07","2023-03-08","2023-03-09","2023-03-10","2023-03-13","2023-03-14","2023-03-15","2023-03-16","2023-03-17","2023-03-20","2023-03-21","2023-03-22","2023-03-23","2023-03-24","2023-03-27","2023-03-28","2023-03-29","2023-03-30","2023-03-31","2023-04-03","2023-04-04","2023-04-05","2023-04-06","2023-04-07","2023-04-10","2023-04-11","2023-04-12","2023-04-13","2023-04-14","2023-04-17","2023-04-18","2023-04-19","2023-04-20","2023-04-21","2023-04-24","2023-04-25","2023-04-26","2023-04-27","2023-04-28","2023-05-01","2023-05-02","2023-05-03","2023-05-04","2023-05-05","2023-05-08","2023-05-09","2023-05-10","2023-05-11","2023-05-12","2023-05-15","2023-05-16","2023-05-17","2023-05-18","2023-05-19","2023-05-22","2023-05-23","2023-05-24","2023-05-25","2023-05-26","2023-05-29","2023-05-30","2023-05-31","2023-06-01","2023-06-02","2023-06-05","2023-06-06","2023-06-07","2023-06-08","2023-06-09","2023-06-12","2023-06-13","2023-06-14","2023-06-15","2023-06-16","2023-06-19","2023-06-20","2023-06-21","2023-06-22","2023-06-23","2023-06-26","2023-06-27","2023-06-28","2023-06-29","2023-06-30","2023-07-03","2023-07-04","2023-07-05","2023-07-06","2023-07-07","2023-07-10","2023-07-11","2023-07-12","2023-07-13","2023-07-14","2023-07-17","2023-07-18","2023-07-19","2023-07-20","2023-07-21","2023-07-24","2023-07-25","2023-07-26","2023-07-27","2023-07-28","2023-07-31","2023-08-01","2023-08-02","2023-08-03","2023-08-04","2023-08-07","2023-08-08","2023-08-09","2023-08-10","2023-08-11","2023-08-14","2023-08-15","2023-08-16","2023-08-17","2023-08-18","2023-08-21","2023-08-22","2023-08-23","2023-08-24","2023-08-25"],"offDays":["2022-08-27","2022-08-28","2022-09-03","2022-09-04","2022-09-10","2022-09-11","2022-09-17","2022-09-18","2022-09-24","2022-09-25","2022-10-01","2022-10-02","2022-10-08","2022-10-09","2022-10-15","2022-10-16","2022-10-22","2022-10-23","2022-10-29","2022-10-30","2022-11-05","2022-11-06","2022-11-12","2022-11-13","2022-11-19","2022-11-20","2022-11-26","2022-11-27","2022-12-03","2022-12-04","2022-12-10","2022-12-11","2022-12-17","2022-12-18","2022-12-24","2022-12-25","2022-12-31","2023-01-01","2023-01-07","2023-01-08","2023-01-14","2023-01-15","2023-01-21","2023-01-22","2023-01-28","2023-01-29","2023-02-04","2023-02-05","2023-02-11","2023-02-12","2023-02-18","2023-02-19","2023-02-25","2023-02-26","2023-03-04","2023-03-05","2023-03-11","2023-03-12","2023-03-18","2023-03-19","2023-03-25","2023-03-26","2023-04-01","2023-04-02","2023-04-08","2023-04-09","2023-04-15","2023-04-16","2023-04-22","2023-04-23","2023-04-29","2023-04-30","2023-05-06","2023-05-07","2023-05-13","2023-05-14","2023-05-20","2023-05-21","2023-05-27","2023-05-28","2023-06-03","2023-06-04","2023-06-10","2023-06-11","2023-06-17","2023-06-18","2023-06-24","2023-06-25","2023-07-01","2023-07-02","2023-07-08","2023-07-09","2023-07-15","2023-07-16","2023-07-22","2023-07-23","2023-07-29","2023-07-30","2023-08-05","2023-08-06","2023-08-12","2023-08-13","2023-08-19","2023-08-20","2023-08-26"],"slots":[{"day":"2018-09-27","times":[],"minutes":[]},{"day":"2018-09-28","times":[],"minutes":[]},{"day":"2018-09-29","times":[],"minutes":[]},{"day":"2018-09-30","times":[],"minutes":[]},{"day":"2018-10-01","times":[],"minutes":[]},{"day":"2018-10-02","times":[],"minutes":[]},{"day":"2018-10-03","times":[],"minutes":[]},{"day":"2018-10-04","times":[],"minutes":[]},{"day":"2018-10-05","times":[],"minutes":[]},{"day":"2018-10-06","times":[],"minutes":[]},{"day":"2018-10-07","times":[],"minutes":[]},{"day":"2018-10-08","times":[],"minutes":[]},{"day":"2018-10-09","times":[],"minutes":[]},{"day":"2018-10-10","times":[],"minutes":[]},{"day":"2018-10-11","times":[],"minutes":[]},{"day":"2018-10-12","times":[],"minutes":[]},{"day":"2018-10-13","times":[],"minutes":[]},{"day":"2018-10-14","times":[],"minutes":[]},{"day":"2018-10-15","times":[],"minutes":[]},{"day":"2018-10-16","times":[],"minutes":[]},{"day":"2018-10-17","times":[],"minutes":[]},{"day":"2018-10-18","times":[],"minutes":[]},{"day":"2018-10-19","times":[],"minutes":[]},{"day":"2018-10-20","times":[],"minutes":[]},{"day":"2018-10-21","times":[],"minutes":[]},{"day":"2018-10-22","times":[],"minutes":[]},{"day":"2018-10-23","times":[],"minutes":[]},{"day":"2018-10-24","times":[],"minutes":[]},{"day":"2018-10-25","times":[],"minutes":[]},{"day":"2018-10-26","times":[],"minutes":[]}],"service":{"id":"5d9f2ac56d95c0112ca1ccab","externalId":"s1","name":"Client
+        meeting","duration":60},"resources":[{"id":"5d9f2a7b6d95c0112ca1cc91","externalId":null,"orderIndex":1,"name":"Axel
+        Voxiplan","color":"#6882b0","avatarUrl":null,"categoryId":"5d9f2a7b6d95c0112ca1cc8f"}],"resourceCategories":[{"id":"5d9f2a7b6d95c0112ca1cc8f","name":"default","translationKey":"resources.category.default","orderIndex":1}]}}'
+  recorded_at: Mon, 24 Sep 2018 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.timify.com/v1/auth/token?appid=TIMIFY_APP_ID&appsecret=TIMIFY_APP_SECRET
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '823'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 26 Aug 2022 14:04:56 GMT
+      X-Amzn-Requestid:
+      - abe90cb9-6d9a-4243-a410-b4fd6804d697
+      X-Amzn-Remapped-Content-Length:
+      - '823'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - XeXpWGsRliAFXBg=
+      Vary:
+      - Origin, Accept-Encoding
+      X-Amzn-Remapped-Server:
+      - nginx
+      Etag:
+      - W/"337-ZMsJZdNcGe2XtTWnt4MxMh3QmzM"
+      X-Amzn-Remapped-Date:
+      - Fri, 26 Aug 2022 14:04:56 GMT
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 2035a6f801af87d805a04e267b20f496.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - AaV-AvaJyb9w4EIDbOD4QnSCX1879kbI2iIgdGkAQNDIHGlTygHndQ==
+    body:
+      encoding: UTF-8
+      string: '{"accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDMwODU2Njc0MThmMjBlNzY3MzgiLCJpYXQiOjE2NjE1MjI2OTYsImV4cCI6MTY2MTUyOTg5Nn0.N53vfirIvGTuTaiFzTHEqLEYZX7zeMnHUDdgpBycjvY","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDMwODU2Njc0MThmMjBlNzY3MzgiLCJyZWZyZXNoIjp0cnVlLCJpYXQiOjE2NjE1MjI2OTYsImV4cCI6MTY2MTg2ODI5Nn0.EWhJjLKve35hH9wg46uJ2j9CDhjZatRGldQXYaQRgjM","expires":7200}'
+  recorded_at: Mon, 24 Sep 2018 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.timify.com/v1/booker-services/availabilities/?company_id=TIMIFY_TEST_COMPANY_ID&days%5B%5D=2018-09-28&days%5B%5D=2018-09-29&days%5B%5D=2018-09-30&days%5B%5D=2018-10-01&days%5B%5D=2018-10-02&days%5B%5D=2018-10-03&days%5B%5D=2018-10-04&days%5B%5D=2018-10-05&days%5B%5D=2018-10-06&days%5B%5D=2018-10-07&days%5B%5D=2018-10-08&days%5B%5D=2018-10-09&days%5B%5D=2018-10-10&days%5B%5D=2018-10-11&days%5B%5D=2018-10-12&days%5B%5D=2018-10-13&days%5B%5D=2018-10-14&days%5B%5D=2018-10-15&days%5B%5D=2018-10-16&days%5B%5D=2018-10-17&days%5B%5D=2018-10-18&days%5B%5D=2018-10-19&days%5B%5D=2018-10-20&days%5B%5D=2018-10-21&days%5B%5D=2018-10-22&days%5B%5D=2018-10-23&days%5B%5D=2018-10-24&days%5B%5D=2018-10-25&days%5B%5D=2018-10-26&days%5B%5D=2018-10-27&resource_ids%5B%5D=5d9f2a7b6d95c0112ca1cc91&service_id=5d9f2ac56d95c0112ca1ccab&timezone=UTC
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDMwODU2Njc0MThmMjBlNzY3MzgiLCJpYXQiOjE2NjE1MjI2OTYsImV4cCI6MTY2MTUyOTg5Nn0.N53vfirIvGTuTaiFzTHEqLEYZX7zeMnHUDdgpBycjvY
+      Company-Id:
+      - TIMIFY_TEST_COMPANY_ID
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1323'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 26 Aug 2022 14:04:58 GMT
+      X-Amzn-Requestid:
+      - 340b984a-b2bd-46ed-8121-aefaacfa798c
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - XeXpjETCFiAFhLA=
+      Vary:
+      - Origin, Accept-Encoding
+      X-Amzn-Remapped-Server:
+      - nginx
+      Etag:
+      - W/"1a1c-JHTUoTkLuAGX9llqKCJS8FGob54"
+      X-Amzn-Remapped-Date:
+      - Fri, 26 Aug 2022 14:04:58 GMT
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 1598a1a5d9d162f6130046bd771e3fa0.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - JOheA4cPVe-wF4nAGKrxarO1f4D7kbhUlCTGDu2MkAUHuzB0ESH_1Q==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"calendarBegin":"2022-08-26 14:05","calendarEnd":"2023-08-26
+        14:05","selectedResourceIds":["5d9f2a7b6d95c0112ca1cc91"],"onDays":["2022-08-26","2022-08-29","2022-08-30","2022-08-31","2022-09-01","2022-09-02","2022-09-05","2022-09-06","2022-09-07","2022-09-08","2022-09-09","2022-09-12","2022-09-13","2022-09-14","2022-09-15","2022-09-16","2022-09-19","2022-09-20","2022-09-21","2022-09-22","2022-09-23","2022-09-26","2022-09-27","2022-09-28","2022-09-29","2022-09-30","2022-10-03","2022-10-04","2022-10-05","2022-10-06","2022-10-07","2022-10-10","2022-10-11","2022-10-12","2022-10-13","2022-10-14","2022-10-17","2022-10-18","2022-10-19","2022-10-20","2022-10-21","2022-10-24","2022-10-25","2022-10-26","2022-10-27","2022-10-28","2022-10-31","2022-11-01","2022-11-02","2022-11-03","2022-11-04","2022-11-07","2022-11-08","2022-11-09","2022-11-10","2022-11-11","2022-11-14","2022-11-15","2022-11-16","2022-11-17","2022-11-18","2022-11-21","2022-11-22","2022-11-23","2022-11-24","2022-11-25","2022-11-28","2022-11-29","2022-11-30","2022-12-01","2022-12-02","2022-12-05","2022-12-06","2022-12-07","2022-12-08","2022-12-09","2022-12-12","2022-12-13","2022-12-14","2022-12-15","2022-12-16","2022-12-19","2022-12-20","2022-12-21","2022-12-22","2022-12-23","2022-12-26","2022-12-27","2022-12-28","2022-12-29","2022-12-30","2023-01-02","2023-01-03","2023-01-04","2023-01-05","2023-01-06","2023-01-09","2023-01-10","2023-01-11","2023-01-12","2023-01-13","2023-01-16","2023-01-17","2023-01-18","2023-01-19","2023-01-20","2023-01-23","2023-01-24","2023-01-25","2023-01-26","2023-01-27","2023-01-30","2023-01-31","2023-02-01","2023-02-02","2023-02-03","2023-02-06","2023-02-07","2023-02-08","2023-02-09","2023-02-10","2023-02-13","2023-02-14","2023-02-15","2023-02-16","2023-02-17","2023-02-20","2023-02-21","2023-02-22","2023-02-23","2023-02-24","2023-02-27","2023-02-28","2023-03-01","2023-03-02","2023-03-03","2023-03-06","2023-03-07","2023-03-08","2023-03-09","2023-03-10","2023-03-13","2023-03-14","2023-03-15","2023-03-16","2023-03-17","2023-03-20","2023-03-21","2023-03-22","2023-03-23","2023-03-24","2023-03-27","2023-03-28","2023-03-29","2023-03-30","2023-03-31","2023-04-03","2023-04-04","2023-04-05","2023-04-06","2023-04-07","2023-04-10","2023-04-11","2023-04-12","2023-04-13","2023-04-14","2023-04-17","2023-04-18","2023-04-19","2023-04-20","2023-04-21","2023-04-24","2023-04-25","2023-04-26","2023-04-27","2023-04-28","2023-05-01","2023-05-02","2023-05-03","2023-05-04","2023-05-05","2023-05-08","2023-05-09","2023-05-10","2023-05-11","2023-05-12","2023-05-15","2023-05-16","2023-05-17","2023-05-18","2023-05-19","2023-05-22","2023-05-23","2023-05-24","2023-05-25","2023-05-26","2023-05-29","2023-05-30","2023-05-31","2023-06-01","2023-06-02","2023-06-05","2023-06-06","2023-06-07","2023-06-08","2023-06-09","2023-06-12","2023-06-13","2023-06-14","2023-06-15","2023-06-16","2023-06-19","2023-06-20","2023-06-21","2023-06-22","2023-06-23","2023-06-26","2023-06-27","2023-06-28","2023-06-29","2023-06-30","2023-07-03","2023-07-04","2023-07-05","2023-07-06","2023-07-07","2023-07-10","2023-07-11","2023-07-12","2023-07-13","2023-07-14","2023-07-17","2023-07-18","2023-07-19","2023-07-20","2023-07-21","2023-07-24","2023-07-25","2023-07-26","2023-07-27","2023-07-28","2023-07-31","2023-08-01","2023-08-02","2023-08-03","2023-08-04","2023-08-07","2023-08-08","2023-08-09","2023-08-10","2023-08-11","2023-08-14","2023-08-15","2023-08-16","2023-08-17","2023-08-18","2023-08-21","2023-08-22","2023-08-23","2023-08-24","2023-08-25"],"offDays":["2022-08-27","2022-08-28","2022-09-03","2022-09-04","2022-09-10","2022-09-11","2022-09-17","2022-09-18","2022-09-24","2022-09-25","2022-10-01","2022-10-02","2022-10-08","2022-10-09","2022-10-15","2022-10-16","2022-10-22","2022-10-23","2022-10-29","2022-10-30","2022-11-05","2022-11-06","2022-11-12","2022-11-13","2022-11-19","2022-11-20","2022-11-26","2022-11-27","2022-12-03","2022-12-04","2022-12-10","2022-12-11","2022-12-17","2022-12-18","2022-12-24","2022-12-25","2022-12-31","2023-01-01","2023-01-07","2023-01-08","2023-01-14","2023-01-15","2023-01-21","2023-01-22","2023-01-28","2023-01-29","2023-02-04","2023-02-05","2023-02-11","2023-02-12","2023-02-18","2023-02-19","2023-02-25","2023-02-26","2023-03-04","2023-03-05","2023-03-11","2023-03-12","2023-03-18","2023-03-19","2023-03-25","2023-03-26","2023-04-01","2023-04-02","2023-04-08","2023-04-09","2023-04-15","2023-04-16","2023-04-22","2023-04-23","2023-04-29","2023-04-30","2023-05-06","2023-05-07","2023-05-13","2023-05-14","2023-05-20","2023-05-21","2023-05-27","2023-05-28","2023-06-03","2023-06-04","2023-06-10","2023-06-11","2023-06-17","2023-06-18","2023-06-24","2023-06-25","2023-07-01","2023-07-02","2023-07-08","2023-07-09","2023-07-15","2023-07-16","2023-07-22","2023-07-23","2023-07-29","2023-07-30","2023-08-05","2023-08-06","2023-08-12","2023-08-13","2023-08-19","2023-08-20","2023-08-26"],"slots":[{"day":"2018-09-28","times":[],"minutes":[]},{"day":"2018-09-29","times":[],"minutes":[]},{"day":"2018-09-30","times":[],"minutes":[]},{"day":"2018-10-01","times":[],"minutes":[]},{"day":"2018-10-02","times":[],"minutes":[]},{"day":"2018-10-03","times":[],"minutes":[]},{"day":"2018-10-04","times":[],"minutes":[]},{"day":"2018-10-05","times":[],"minutes":[]},{"day":"2018-10-06","times":[],"minutes":[]},{"day":"2018-10-07","times":[],"minutes":[]},{"day":"2018-10-08","times":[],"minutes":[]},{"day":"2018-10-09","times":[],"minutes":[]},{"day":"2018-10-10","times":[],"minutes":[]},{"day":"2018-10-11","times":[],"minutes":[]},{"day":"2018-10-12","times":[],"minutes":[]},{"day":"2018-10-13","times":[],"minutes":[]},{"day":"2018-10-14","times":[],"minutes":[]},{"day":"2018-10-15","times":[],"minutes":[]},{"day":"2018-10-16","times":[],"minutes":[]},{"day":"2018-10-17","times":[],"minutes":[]},{"day":"2018-10-18","times":[],"minutes":[]},{"day":"2018-10-19","times":[],"minutes":[]},{"day":"2018-10-20","times":[],"minutes":[]},{"day":"2018-10-21","times":[],"minutes":[]},{"day":"2018-10-22","times":[],"minutes":[]},{"day":"2018-10-23","times":[],"minutes":[]},{"day":"2018-10-24","times":[],"minutes":[]},{"day":"2018-10-25","times":[],"minutes":[]},{"day":"2018-10-26","times":[],"minutes":[]},{"day":"2018-10-27","times":[],"minutes":[]}],"service":{"id":"5d9f2ac56d95c0112ca1ccab","externalId":"s1","name":"Client
+        meeting","duration":60},"resources":[{"id":"5d9f2a7b6d95c0112ca1cc91","externalId":null,"orderIndex":1,"name":"Axel
+        Voxiplan","color":"#6882b0","avatarUrl":null,"categoryId":"5d9f2a7b6d95c0112ca1cc8f"}],"resourceCategories":[{"id":"5d9f2a7b6d95c0112ca1cc8f","name":"default","translationKey":"resources.category.default","orderIndex":1}]}}'
+  recorded_at: Mon, 24 Sep 2018 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.timify.com/v1/auth/token?appid=TIMIFY_APP_ID&appsecret=TIMIFY_APP_SECRET
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '823'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 26 Aug 2022 14:05:00 GMT
+      X-Amzn-Requestid:
+      - 2163a6ec-818c-4ac1-9111-05c0eae0a350
+      X-Amzn-Remapped-Content-Length:
+      - '823'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - XeXp7G8bFiAFYUA=
+      Vary:
+      - Origin, Accept-Encoding
+      X-Amzn-Remapped-Server:
+      - nginx
+      Etag:
+      - W/"337-mydxmKYiS9grqaCsYr8oBs8e0x8"
+      X-Amzn-Remapped-Date:
+      - Fri, 26 Aug 2022 14:05:00 GMT
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 50e5d5267caad4bbba42e8e11cdd9960.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - czmo5vmiTUG72scaMaTYMxnpFELKp6rE-tMWHoFurEhJC_t8wACCCA==
+    body:
+      encoding: UTF-8
+      string: '{"accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDMwYzVhY2YzOGQxZTFiMjdmZWEiLCJpYXQiOjE2NjE1MjI3MDAsImV4cCI6MTY2MTUyOTkwMH0.OAvbHha-PNWj5fAiXAk5e3T5Y8FlDYhH8xW1ZSujmnw","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDMwYzVhY2YzOGQxZTFiMjdmZWEiLCJyZWZyZXNoIjp0cnVlLCJpYXQiOjE2NjE1MjI3MDAsImV4cCI6MTY2MTg2ODMwMH0.WetekjhR42ZsfjPqT0apq2NUcpN3Iz1cnJRlUnpJwno","expires":7200}'
+  recorded_at: Mon, 24 Sep 2018 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.timify.com/v1/booker-services/availabilities/?company_id=TIMIFY_TEST_COMPANY_ID&days%5B%5D=2018-09-29&days%5B%5D=2018-09-30&days%5B%5D=2018-10-01&days%5B%5D=2018-10-02&days%5B%5D=2018-10-03&days%5B%5D=2018-10-04&days%5B%5D=2018-10-05&days%5B%5D=2018-10-06&days%5B%5D=2018-10-07&days%5B%5D=2018-10-08&days%5B%5D=2018-10-09&days%5B%5D=2018-10-10&days%5B%5D=2018-10-11&days%5B%5D=2018-10-12&days%5B%5D=2018-10-13&days%5B%5D=2018-10-14&days%5B%5D=2018-10-15&days%5B%5D=2018-10-16&days%5B%5D=2018-10-17&days%5B%5D=2018-10-18&days%5B%5D=2018-10-19&days%5B%5D=2018-10-20&days%5B%5D=2018-10-21&days%5B%5D=2018-10-22&days%5B%5D=2018-10-23&days%5B%5D=2018-10-24&days%5B%5D=2018-10-25&days%5B%5D=2018-10-26&days%5B%5D=2018-10-27&days%5B%5D=2018-10-28&resource_ids%5B%5D=5d9f2a7b6d95c0112ca1cc91&service_id=5d9f2ac56d95c0112ca1ccab&timezone=UTC
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDMwYzVhY2YzOGQxZTFiMjdmZWEiLCJpYXQiOjE2NjE1MjI3MDAsImV4cCI6MTY2MTUyOTkwMH0.OAvbHha-PNWj5fAiXAk5e3T5Y8FlDYhH8xW1ZSujmnw
+      Company-Id:
+      - TIMIFY_TEST_COMPANY_ID
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1322'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 26 Aug 2022 14:05:02 GMT
+      X-Amzn-Requestid:
+      - aae0eb83-b1d9-49e5-b665-650241358a2c
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - XeXqKGcZFiAFj9g=
+      Vary:
+      - Origin, Accept-Encoding
+      X-Amzn-Remapped-Server:
+      - nginx
+      Etag:
+      - W/"1a1c-5f6GWSLzj5bIfvqAJj5sZSXXoF8"
+      X-Amzn-Remapped-Date:
+      - Fri, 26 Aug 2022 14:05:02 GMT
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 d7c70605abb1d4f3f46a602091a4517c.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - e6w0Aka00sODmechh9-FRUEBy_vvIBcumsXS3tMov04y8xsmg49DHQ==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"calendarBegin":"2022-08-26 14:10","calendarEnd":"2023-08-26
+        14:10","selectedResourceIds":["5d9f2a7b6d95c0112ca1cc91"],"onDays":["2022-08-26","2022-08-29","2022-08-30","2022-08-31","2022-09-01","2022-09-02","2022-09-05","2022-09-06","2022-09-07","2022-09-08","2022-09-09","2022-09-12","2022-09-13","2022-09-14","2022-09-15","2022-09-16","2022-09-19","2022-09-20","2022-09-21","2022-09-22","2022-09-23","2022-09-26","2022-09-27","2022-09-28","2022-09-29","2022-09-30","2022-10-03","2022-10-04","2022-10-05","2022-10-06","2022-10-07","2022-10-10","2022-10-11","2022-10-12","2022-10-13","2022-10-14","2022-10-17","2022-10-18","2022-10-19","2022-10-20","2022-10-21","2022-10-24","2022-10-25","2022-10-26","2022-10-27","2022-10-28","2022-10-31","2022-11-01","2022-11-02","2022-11-03","2022-11-04","2022-11-07","2022-11-08","2022-11-09","2022-11-10","2022-11-11","2022-11-14","2022-11-15","2022-11-16","2022-11-17","2022-11-18","2022-11-21","2022-11-22","2022-11-23","2022-11-24","2022-11-25","2022-11-28","2022-11-29","2022-11-30","2022-12-01","2022-12-02","2022-12-05","2022-12-06","2022-12-07","2022-12-08","2022-12-09","2022-12-12","2022-12-13","2022-12-14","2022-12-15","2022-12-16","2022-12-19","2022-12-20","2022-12-21","2022-12-22","2022-12-23","2022-12-26","2022-12-27","2022-12-28","2022-12-29","2022-12-30","2023-01-02","2023-01-03","2023-01-04","2023-01-05","2023-01-06","2023-01-09","2023-01-10","2023-01-11","2023-01-12","2023-01-13","2023-01-16","2023-01-17","2023-01-18","2023-01-19","2023-01-20","2023-01-23","2023-01-24","2023-01-25","2023-01-26","2023-01-27","2023-01-30","2023-01-31","2023-02-01","2023-02-02","2023-02-03","2023-02-06","2023-02-07","2023-02-08","2023-02-09","2023-02-10","2023-02-13","2023-02-14","2023-02-15","2023-02-16","2023-02-17","2023-02-20","2023-02-21","2023-02-22","2023-02-23","2023-02-24","2023-02-27","2023-02-28","2023-03-01","2023-03-02","2023-03-03","2023-03-06","2023-03-07","2023-03-08","2023-03-09","2023-03-10","2023-03-13","2023-03-14","2023-03-15","2023-03-16","2023-03-17","2023-03-20","2023-03-21","2023-03-22","2023-03-23","2023-03-24","2023-03-27","2023-03-28","2023-03-29","2023-03-30","2023-03-31","2023-04-03","2023-04-04","2023-04-05","2023-04-06","2023-04-07","2023-04-10","2023-04-11","2023-04-12","2023-04-13","2023-04-14","2023-04-17","2023-04-18","2023-04-19","2023-04-20","2023-04-21","2023-04-24","2023-04-25","2023-04-26","2023-04-27","2023-04-28","2023-05-01","2023-05-02","2023-05-03","2023-05-04","2023-05-05","2023-05-08","2023-05-09","2023-05-10","2023-05-11","2023-05-12","2023-05-15","2023-05-16","2023-05-17","2023-05-18","2023-05-19","2023-05-22","2023-05-23","2023-05-24","2023-05-25","2023-05-26","2023-05-29","2023-05-30","2023-05-31","2023-06-01","2023-06-02","2023-06-05","2023-06-06","2023-06-07","2023-06-08","2023-06-09","2023-06-12","2023-06-13","2023-06-14","2023-06-15","2023-06-16","2023-06-19","2023-06-20","2023-06-21","2023-06-22","2023-06-23","2023-06-26","2023-06-27","2023-06-28","2023-06-29","2023-06-30","2023-07-03","2023-07-04","2023-07-05","2023-07-06","2023-07-07","2023-07-10","2023-07-11","2023-07-12","2023-07-13","2023-07-14","2023-07-17","2023-07-18","2023-07-19","2023-07-20","2023-07-21","2023-07-24","2023-07-25","2023-07-26","2023-07-27","2023-07-28","2023-07-31","2023-08-01","2023-08-02","2023-08-03","2023-08-04","2023-08-07","2023-08-08","2023-08-09","2023-08-10","2023-08-11","2023-08-14","2023-08-15","2023-08-16","2023-08-17","2023-08-18","2023-08-21","2023-08-22","2023-08-23","2023-08-24","2023-08-25"],"offDays":["2022-08-27","2022-08-28","2022-09-03","2022-09-04","2022-09-10","2022-09-11","2022-09-17","2022-09-18","2022-09-24","2022-09-25","2022-10-01","2022-10-02","2022-10-08","2022-10-09","2022-10-15","2022-10-16","2022-10-22","2022-10-23","2022-10-29","2022-10-30","2022-11-05","2022-11-06","2022-11-12","2022-11-13","2022-11-19","2022-11-20","2022-11-26","2022-11-27","2022-12-03","2022-12-04","2022-12-10","2022-12-11","2022-12-17","2022-12-18","2022-12-24","2022-12-25","2022-12-31","2023-01-01","2023-01-07","2023-01-08","2023-01-14","2023-01-15","2023-01-21","2023-01-22","2023-01-28","2023-01-29","2023-02-04","2023-02-05","2023-02-11","2023-02-12","2023-02-18","2023-02-19","2023-02-25","2023-02-26","2023-03-04","2023-03-05","2023-03-11","2023-03-12","2023-03-18","2023-03-19","2023-03-25","2023-03-26","2023-04-01","2023-04-02","2023-04-08","2023-04-09","2023-04-15","2023-04-16","2023-04-22","2023-04-23","2023-04-29","2023-04-30","2023-05-06","2023-05-07","2023-05-13","2023-05-14","2023-05-20","2023-05-21","2023-05-27","2023-05-28","2023-06-03","2023-06-04","2023-06-10","2023-06-11","2023-06-17","2023-06-18","2023-06-24","2023-06-25","2023-07-01","2023-07-02","2023-07-08","2023-07-09","2023-07-15","2023-07-16","2023-07-22","2023-07-23","2023-07-29","2023-07-30","2023-08-05","2023-08-06","2023-08-12","2023-08-13","2023-08-19","2023-08-20","2023-08-26"],"slots":[{"day":"2018-09-29","times":[],"minutes":[]},{"day":"2018-09-30","times":[],"minutes":[]},{"day":"2018-10-01","times":[],"minutes":[]},{"day":"2018-10-02","times":[],"minutes":[]},{"day":"2018-10-03","times":[],"minutes":[]},{"day":"2018-10-04","times":[],"minutes":[]},{"day":"2018-10-05","times":[],"minutes":[]},{"day":"2018-10-06","times":[],"minutes":[]},{"day":"2018-10-07","times":[],"minutes":[]},{"day":"2018-10-08","times":[],"minutes":[]},{"day":"2018-10-09","times":[],"minutes":[]},{"day":"2018-10-10","times":[],"minutes":[]},{"day":"2018-10-11","times":[],"minutes":[]},{"day":"2018-10-12","times":[],"minutes":[]},{"day":"2018-10-13","times":[],"minutes":[]},{"day":"2018-10-14","times":[],"minutes":[]},{"day":"2018-10-15","times":[],"minutes":[]},{"day":"2018-10-16","times":[],"minutes":[]},{"day":"2018-10-17","times":[],"minutes":[]},{"day":"2018-10-18","times":[],"minutes":[]},{"day":"2018-10-19","times":[],"minutes":[]},{"day":"2018-10-20","times":[],"minutes":[]},{"day":"2018-10-21","times":[],"minutes":[]},{"day":"2018-10-22","times":[],"minutes":[]},{"day":"2018-10-23","times":[],"minutes":[]},{"day":"2018-10-24","times":[],"minutes":[]},{"day":"2018-10-25","times":[],"minutes":[]},{"day":"2018-10-26","times":[],"minutes":[]},{"day":"2018-10-27","times":[],"minutes":[]},{"day":"2018-10-28","times":[],"minutes":[]}],"service":{"id":"5d9f2ac56d95c0112ca1ccab","externalId":"s1","name":"Client
+        meeting","duration":60},"resources":[{"id":"5d9f2a7b6d95c0112ca1cc91","externalId":null,"orderIndex":1,"name":"Axel
+        Voxiplan","color":"#6882b0","avatarUrl":null,"categoryId":"5d9f2a7b6d95c0112ca1cc8f"}],"resourceCategories":[{"id":"5d9f2a7b6d95c0112ca1cc8f","name":"default","translationKey":"resources.category.default","orderIndex":1}]}}'
+  recorded_at: Mon, 24 Sep 2018 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.timify.com/v1/auth/token?appid=TIMIFY_APP_ID&appsecret=TIMIFY_APP_SECRET
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '823'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 26 Aug 2022 14:05:04 GMT
+      X-Amzn-Requestid:
+      - 545a8e71-d7db-4c1b-9cd0-8bfd773cee94
+      X-Amzn-Remapped-Content-Length:
+      - '823'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - XeXqkG_4liAFvDA=
+      Vary:
+      - Origin, Accept-Encoding
+      X-Amzn-Remapped-Server:
+      - nginx
+      Etag:
+      - W/"337-hfUPcIEGI6VWWj/c5MZQrIzMbyE"
+      X-Amzn-Remapped-Date:
+      - Fri, 26 Aug 2022 14:05:04 GMT
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 84ec4992ba0ab19b37c67d59be5e5f82.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - wVZHkeb4P1ZwYZm5fS-1e-hgE9gHM0SycMuQcjdgA4c_FLdJ-yIffw==
+    body:
+      encoding: UTF-8
+      string: '{"accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDMxMDJkYWQ4MTJhZWIxY2M5NDEiLCJpYXQiOjE2NjE1MjI3MDQsImV4cCI6MTY2MTUyOTkwNH0.3DFQio8PJmvqo0pQ7Fn7PWQcM0YGC5TK93hIx9q0PZI","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDMxMDJkYWQ4MTJhZWIxY2M5NDEiLCJyZWZyZXNoIjp0cnVlLCJpYXQiOjE2NjE1MjI3MDQsImV4cCI6MTY2MTg2ODMwNH0.zO_KXIiFfyitpfbZo8mc74x_SXuwSxoCA02gHiA-s8w","expires":7200}'
+  recorded_at: Mon, 24 Sep 2018 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.timify.com/v1/booker-services/availabilities/?company_id=TIMIFY_TEST_COMPANY_ID&days%5B%5D=2018-09-30&days%5B%5D=2018-10-01&days%5B%5D=2018-10-02&days%5B%5D=2018-10-03&days%5B%5D=2018-10-04&days%5B%5D=2018-10-05&days%5B%5D=2018-10-06&days%5B%5D=2018-10-07&days%5B%5D=2018-10-08&days%5B%5D=2018-10-09&days%5B%5D=2018-10-10&days%5B%5D=2018-10-11&days%5B%5D=2018-10-12&days%5B%5D=2018-10-13&days%5B%5D=2018-10-14&days%5B%5D=2018-10-15&days%5B%5D=2018-10-16&days%5B%5D=2018-10-17&days%5B%5D=2018-10-18&days%5B%5D=2018-10-19&days%5B%5D=2018-10-20&days%5B%5D=2018-10-21&days%5B%5D=2018-10-22&days%5B%5D=2018-10-23&days%5B%5D=2018-10-24&days%5B%5D=2018-10-25&days%5B%5D=2018-10-26&days%5B%5D=2018-10-27&days%5B%5D=2018-10-28&days%5B%5D=2018-10-29&resource_ids%5B%5D=5d9f2a7b6d95c0112ca1cc91&service_id=5d9f2ac56d95c0112ca1ccab&timezone=UTC
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDMxMDJkYWQ4MTJhZWIxY2M5NDEiLCJpYXQiOjE2NjE1MjI3MDQsImV4cCI6MTY2MTUyOTkwNH0.3DFQio8PJmvqo0pQ7Fn7PWQcM0YGC5TK93hIx9q0PZI
+      Company-Id:
+      - TIMIFY_TEST_COMPANY_ID
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1316'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 26 Aug 2022 14:05:06 GMT
+      X-Amzn-Requestid:
+      - 88698fc0-b4f2-4aca-9b58-fd85f3aeda71
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - XeXqzEddliAFkDQ=
+      Vary:
+      - Origin, Accept-Encoding
+      X-Amzn-Remapped-Server:
+      - nginx
+      Etag:
+      - W/"1a1c-W4ypT3HKjkkuCKBPRIC9AIAVM/E"
+      X-Amzn-Remapped-Date:
+      - Fri, 26 Aug 2022 14:05:06 GMT
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 1fecc0e0fb1429e598926aceb10850cc.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - goEMlnvUgSh2jxkrrx2a0uvXSxPwM-iHIqjRvwwUTFH6a564bfeAmQ==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"calendarBegin":"2022-08-26 14:10","calendarEnd":"2023-08-26
+        14:10","selectedResourceIds":["5d9f2a7b6d95c0112ca1cc91"],"onDays":["2022-08-26","2022-08-29","2022-08-30","2022-08-31","2022-09-01","2022-09-02","2022-09-05","2022-09-06","2022-09-07","2022-09-08","2022-09-09","2022-09-12","2022-09-13","2022-09-14","2022-09-15","2022-09-16","2022-09-19","2022-09-20","2022-09-21","2022-09-22","2022-09-23","2022-09-26","2022-09-27","2022-09-28","2022-09-29","2022-09-30","2022-10-03","2022-10-04","2022-10-05","2022-10-06","2022-10-07","2022-10-10","2022-10-11","2022-10-12","2022-10-13","2022-10-14","2022-10-17","2022-10-18","2022-10-19","2022-10-20","2022-10-21","2022-10-24","2022-10-25","2022-10-26","2022-10-27","2022-10-28","2022-10-31","2022-11-01","2022-11-02","2022-11-03","2022-11-04","2022-11-07","2022-11-08","2022-11-09","2022-11-10","2022-11-11","2022-11-14","2022-11-15","2022-11-16","2022-11-17","2022-11-18","2022-11-21","2022-11-22","2022-11-23","2022-11-24","2022-11-25","2022-11-28","2022-11-29","2022-11-30","2022-12-01","2022-12-02","2022-12-05","2022-12-06","2022-12-07","2022-12-08","2022-12-09","2022-12-12","2022-12-13","2022-12-14","2022-12-15","2022-12-16","2022-12-19","2022-12-20","2022-12-21","2022-12-22","2022-12-23","2022-12-26","2022-12-27","2022-12-28","2022-12-29","2022-12-30","2023-01-02","2023-01-03","2023-01-04","2023-01-05","2023-01-06","2023-01-09","2023-01-10","2023-01-11","2023-01-12","2023-01-13","2023-01-16","2023-01-17","2023-01-18","2023-01-19","2023-01-20","2023-01-23","2023-01-24","2023-01-25","2023-01-26","2023-01-27","2023-01-30","2023-01-31","2023-02-01","2023-02-02","2023-02-03","2023-02-06","2023-02-07","2023-02-08","2023-02-09","2023-02-10","2023-02-13","2023-02-14","2023-02-15","2023-02-16","2023-02-17","2023-02-20","2023-02-21","2023-02-22","2023-02-23","2023-02-24","2023-02-27","2023-02-28","2023-03-01","2023-03-02","2023-03-03","2023-03-06","2023-03-07","2023-03-08","2023-03-09","2023-03-10","2023-03-13","2023-03-14","2023-03-15","2023-03-16","2023-03-17","2023-03-20","2023-03-21","2023-03-22","2023-03-23","2023-03-24","2023-03-27","2023-03-28","2023-03-29","2023-03-30","2023-03-31","2023-04-03","2023-04-04","2023-04-05","2023-04-06","2023-04-07","2023-04-10","2023-04-11","2023-04-12","2023-04-13","2023-04-14","2023-04-17","2023-04-18","2023-04-19","2023-04-20","2023-04-21","2023-04-24","2023-04-25","2023-04-26","2023-04-27","2023-04-28","2023-05-01","2023-05-02","2023-05-03","2023-05-04","2023-05-05","2023-05-08","2023-05-09","2023-05-10","2023-05-11","2023-05-12","2023-05-15","2023-05-16","2023-05-17","2023-05-18","2023-05-19","2023-05-22","2023-05-23","2023-05-24","2023-05-25","2023-05-26","2023-05-29","2023-05-30","2023-05-31","2023-06-01","2023-06-02","2023-06-05","2023-06-06","2023-06-07","2023-06-08","2023-06-09","2023-06-12","2023-06-13","2023-06-14","2023-06-15","2023-06-16","2023-06-19","2023-06-20","2023-06-21","2023-06-22","2023-06-23","2023-06-26","2023-06-27","2023-06-28","2023-06-29","2023-06-30","2023-07-03","2023-07-04","2023-07-05","2023-07-06","2023-07-07","2023-07-10","2023-07-11","2023-07-12","2023-07-13","2023-07-14","2023-07-17","2023-07-18","2023-07-19","2023-07-20","2023-07-21","2023-07-24","2023-07-25","2023-07-26","2023-07-27","2023-07-28","2023-07-31","2023-08-01","2023-08-02","2023-08-03","2023-08-04","2023-08-07","2023-08-08","2023-08-09","2023-08-10","2023-08-11","2023-08-14","2023-08-15","2023-08-16","2023-08-17","2023-08-18","2023-08-21","2023-08-22","2023-08-23","2023-08-24","2023-08-25"],"offDays":["2022-08-27","2022-08-28","2022-09-03","2022-09-04","2022-09-10","2022-09-11","2022-09-17","2022-09-18","2022-09-24","2022-09-25","2022-10-01","2022-10-02","2022-10-08","2022-10-09","2022-10-15","2022-10-16","2022-10-22","2022-10-23","2022-10-29","2022-10-30","2022-11-05","2022-11-06","2022-11-12","2022-11-13","2022-11-19","2022-11-20","2022-11-26","2022-11-27","2022-12-03","2022-12-04","2022-12-10","2022-12-11","2022-12-17","2022-12-18","2022-12-24","2022-12-25","2022-12-31","2023-01-01","2023-01-07","2023-01-08","2023-01-14","2023-01-15","2023-01-21","2023-01-22","2023-01-28","2023-01-29","2023-02-04","2023-02-05","2023-02-11","2023-02-12","2023-02-18","2023-02-19","2023-02-25","2023-02-26","2023-03-04","2023-03-05","2023-03-11","2023-03-12","2023-03-18","2023-03-19","2023-03-25","2023-03-26","2023-04-01","2023-04-02","2023-04-08","2023-04-09","2023-04-15","2023-04-16","2023-04-22","2023-04-23","2023-04-29","2023-04-30","2023-05-06","2023-05-07","2023-05-13","2023-05-14","2023-05-20","2023-05-21","2023-05-27","2023-05-28","2023-06-03","2023-06-04","2023-06-10","2023-06-11","2023-06-17","2023-06-18","2023-06-24","2023-06-25","2023-07-01","2023-07-02","2023-07-08","2023-07-09","2023-07-15","2023-07-16","2023-07-22","2023-07-23","2023-07-29","2023-07-30","2023-08-05","2023-08-06","2023-08-12","2023-08-13","2023-08-19","2023-08-20","2023-08-26"],"slots":[{"day":"2018-09-30","times":[],"minutes":[]},{"day":"2018-10-01","times":[],"minutes":[]},{"day":"2018-10-02","times":[],"minutes":[]},{"day":"2018-10-03","times":[],"minutes":[]},{"day":"2018-10-04","times":[],"minutes":[]},{"day":"2018-10-05","times":[],"minutes":[]},{"day":"2018-10-06","times":[],"minutes":[]},{"day":"2018-10-07","times":[],"minutes":[]},{"day":"2018-10-08","times":[],"minutes":[]},{"day":"2018-10-09","times":[],"minutes":[]},{"day":"2018-10-10","times":[],"minutes":[]},{"day":"2018-10-11","times":[],"minutes":[]},{"day":"2018-10-12","times":[],"minutes":[]},{"day":"2018-10-13","times":[],"minutes":[]},{"day":"2018-10-14","times":[],"minutes":[]},{"day":"2018-10-15","times":[],"minutes":[]},{"day":"2018-10-16","times":[],"minutes":[]},{"day":"2018-10-17","times":[],"minutes":[]},{"day":"2018-10-18","times":[],"minutes":[]},{"day":"2018-10-19","times":[],"minutes":[]},{"day":"2018-10-20","times":[],"minutes":[]},{"day":"2018-10-21","times":[],"minutes":[]},{"day":"2018-10-22","times":[],"minutes":[]},{"day":"2018-10-23","times":[],"minutes":[]},{"day":"2018-10-24","times":[],"minutes":[]},{"day":"2018-10-25","times":[],"minutes":[]},{"day":"2018-10-26","times":[],"minutes":[]},{"day":"2018-10-27","times":[],"minutes":[]},{"day":"2018-10-28","times":[],"minutes":[]},{"day":"2018-10-29","times":[],"minutes":[]}],"service":{"id":"5d9f2ac56d95c0112ca1ccab","externalId":"s1","name":"Client
+        meeting","duration":60},"resources":[{"id":"5d9f2a7b6d95c0112ca1cc91","externalId":null,"orderIndex":1,"name":"Axel
+        Voxiplan","color":"#6882b0","avatarUrl":null,"categoryId":"5d9f2a7b6d95c0112ca1cc8f"}],"resourceCategories":[{"id":"5d9f2a7b6d95c0112ca1cc8f","name":"default","translationKey":"resources.category.default","orderIndex":1}]}}'
+  recorded_at: Mon, 24 Sep 2018 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.timify.com/v1/auth/token?appid=TIMIFY_APP_ID&appsecret=TIMIFY_APP_SECRET
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '823'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 26 Aug 2022 14:05:08 GMT
+      X-Amzn-Requestid:
+      - ec2dee46-ce7e-4a3d-9f2f-9fc37caa8007
+      X-Amzn-Remapped-Content-Length:
+      - '823'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - XeXrKEfqliAFicA=
+      Vary:
+      - Origin, Accept-Encoding
+      X-Amzn-Remapped-Server:
+      - nginx
+      Etag:
+      - W/"337-HBy9IK+W3U2zWkSAlkXLCFC0Ec0"
+      X-Amzn-Remapped-Date:
+      - Fri, 26 Aug 2022 14:05:08 GMT
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 efce8e5e7b3f97565d6d1820ceb90242.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - e5eXSk5nR-54lXD60s6o6oEcGDB3HzQqm10dASG0cvW1u9D_RJeLrA==
+    body:
+      encoding: UTF-8
+      string: '{"accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDMxNDY2NjQ2NTk0MzY4ZWQ2OGIiLCJpYXQiOjE2NjE1MjI3MDgsImV4cCI6MTY2MTUyOTkwOH0.yinLoHfNPddbxvgovFDo-afO6LeY-eKeSKASZ3csZTQ","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDMxNDY2NjQ2NTk0MzY4ZWQ2OGIiLCJyZWZyZXNoIjp0cnVlLCJpYXQiOjE2NjE1MjI3MDgsImV4cCI6MTY2MTg2ODMwOH0.MbXcjdHeitau9ouFd6qaUXY3cGAy_MWkyX2294VJgMQ","expires":7200}'
+  recorded_at: Mon, 24 Sep 2018 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.timify.com/v1/booker-services/availabilities/?company_id=TIMIFY_TEST_COMPANY_ID&days%5B%5D=2018-10-01&days%5B%5D=2018-10-02&days%5B%5D=2018-10-03&days%5B%5D=2018-10-04&days%5B%5D=2018-10-05&days%5B%5D=2018-10-06&days%5B%5D=2018-10-07&days%5B%5D=2018-10-08&days%5B%5D=2018-10-09&days%5B%5D=2018-10-10&days%5B%5D=2018-10-11&days%5B%5D=2018-10-12&days%5B%5D=2018-10-13&days%5B%5D=2018-10-14&days%5B%5D=2018-10-15&days%5B%5D=2018-10-16&days%5B%5D=2018-10-17&days%5B%5D=2018-10-18&days%5B%5D=2018-10-19&days%5B%5D=2018-10-20&days%5B%5D=2018-10-21&days%5B%5D=2018-10-22&days%5B%5D=2018-10-23&days%5B%5D=2018-10-24&days%5B%5D=2018-10-25&days%5B%5D=2018-10-26&days%5B%5D=2018-10-27&days%5B%5D=2018-10-28&days%5B%5D=2018-10-29&days%5B%5D=2018-10-30&resource_ids%5B%5D=5d9f2a7b6d95c0112ca1cc91&service_id=5d9f2ac56d95c0112ca1ccab&timezone=UTC
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDMxNDY2NjQ2NTk0MzY4ZWQ2OGIiLCJpYXQiOjE2NjE1MjI3MDgsImV4cCI6MTY2MTUyOTkwOH0.yinLoHfNPddbxvgovFDo-afO6LeY-eKeSKASZ3csZTQ
+      Company-Id:
+      - TIMIFY_TEST_COMPANY_ID
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1318'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 26 Aug 2022 14:05:10 GMT
+      X-Amzn-Requestid:
+      - f75c5256-27ff-4d35-b39e-5c8d7b7cb898
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - XeXraGg8FiAFgGw=
+      Vary:
+      - Origin, Accept-Encoding
+      X-Amzn-Remapped-Server:
+      - nginx
+      Etag:
+      - W/"1a1c-p2abU1elKf0oIaFP62ku7Il2ThM"
+      X-Amzn-Remapped-Date:
+      - Fri, 26 Aug 2022 14:05:10 GMT
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 20abf8fa53791926cff6732fe1dbea5c.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - rsWZ3-A8rVGFdX3tsWE7XAldvDmNHXnTS6vCL3udPkBPu9fdn9_tKA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"calendarBegin":"2022-08-26 14:10","calendarEnd":"2023-08-26
+        14:10","selectedResourceIds":["5d9f2a7b6d95c0112ca1cc91"],"onDays":["2022-08-26","2022-08-29","2022-08-30","2022-08-31","2022-09-01","2022-09-02","2022-09-05","2022-09-06","2022-09-07","2022-09-08","2022-09-09","2022-09-12","2022-09-13","2022-09-14","2022-09-15","2022-09-16","2022-09-19","2022-09-20","2022-09-21","2022-09-22","2022-09-23","2022-09-26","2022-09-27","2022-09-28","2022-09-29","2022-09-30","2022-10-03","2022-10-04","2022-10-05","2022-10-06","2022-10-07","2022-10-10","2022-10-11","2022-10-12","2022-10-13","2022-10-14","2022-10-17","2022-10-18","2022-10-19","2022-10-20","2022-10-21","2022-10-24","2022-10-25","2022-10-26","2022-10-27","2022-10-28","2022-10-31","2022-11-01","2022-11-02","2022-11-03","2022-11-04","2022-11-07","2022-11-08","2022-11-09","2022-11-10","2022-11-11","2022-11-14","2022-11-15","2022-11-16","2022-11-17","2022-11-18","2022-11-21","2022-11-22","2022-11-23","2022-11-24","2022-11-25","2022-11-28","2022-11-29","2022-11-30","2022-12-01","2022-12-02","2022-12-05","2022-12-06","2022-12-07","2022-12-08","2022-12-09","2022-12-12","2022-12-13","2022-12-14","2022-12-15","2022-12-16","2022-12-19","2022-12-20","2022-12-21","2022-12-22","2022-12-23","2022-12-26","2022-12-27","2022-12-28","2022-12-29","2022-12-30","2023-01-02","2023-01-03","2023-01-04","2023-01-05","2023-01-06","2023-01-09","2023-01-10","2023-01-11","2023-01-12","2023-01-13","2023-01-16","2023-01-17","2023-01-18","2023-01-19","2023-01-20","2023-01-23","2023-01-24","2023-01-25","2023-01-26","2023-01-27","2023-01-30","2023-01-31","2023-02-01","2023-02-02","2023-02-03","2023-02-06","2023-02-07","2023-02-08","2023-02-09","2023-02-10","2023-02-13","2023-02-14","2023-02-15","2023-02-16","2023-02-17","2023-02-20","2023-02-21","2023-02-22","2023-02-23","2023-02-24","2023-02-27","2023-02-28","2023-03-01","2023-03-02","2023-03-03","2023-03-06","2023-03-07","2023-03-08","2023-03-09","2023-03-10","2023-03-13","2023-03-14","2023-03-15","2023-03-16","2023-03-17","2023-03-20","2023-03-21","2023-03-22","2023-03-23","2023-03-24","2023-03-27","2023-03-28","2023-03-29","2023-03-30","2023-03-31","2023-04-03","2023-04-04","2023-04-05","2023-04-06","2023-04-07","2023-04-10","2023-04-11","2023-04-12","2023-04-13","2023-04-14","2023-04-17","2023-04-18","2023-04-19","2023-04-20","2023-04-21","2023-04-24","2023-04-25","2023-04-26","2023-04-27","2023-04-28","2023-05-01","2023-05-02","2023-05-03","2023-05-04","2023-05-05","2023-05-08","2023-05-09","2023-05-10","2023-05-11","2023-05-12","2023-05-15","2023-05-16","2023-05-17","2023-05-18","2023-05-19","2023-05-22","2023-05-23","2023-05-24","2023-05-25","2023-05-26","2023-05-29","2023-05-30","2023-05-31","2023-06-01","2023-06-02","2023-06-05","2023-06-06","2023-06-07","2023-06-08","2023-06-09","2023-06-12","2023-06-13","2023-06-14","2023-06-15","2023-06-16","2023-06-19","2023-06-20","2023-06-21","2023-06-22","2023-06-23","2023-06-26","2023-06-27","2023-06-28","2023-06-29","2023-06-30","2023-07-03","2023-07-04","2023-07-05","2023-07-06","2023-07-07","2023-07-10","2023-07-11","2023-07-12","2023-07-13","2023-07-14","2023-07-17","2023-07-18","2023-07-19","2023-07-20","2023-07-21","2023-07-24","2023-07-25","2023-07-26","2023-07-27","2023-07-28","2023-07-31","2023-08-01","2023-08-02","2023-08-03","2023-08-04","2023-08-07","2023-08-08","2023-08-09","2023-08-10","2023-08-11","2023-08-14","2023-08-15","2023-08-16","2023-08-17","2023-08-18","2023-08-21","2023-08-22","2023-08-23","2023-08-24","2023-08-25"],"offDays":["2022-08-27","2022-08-28","2022-09-03","2022-09-04","2022-09-10","2022-09-11","2022-09-17","2022-09-18","2022-09-24","2022-09-25","2022-10-01","2022-10-02","2022-10-08","2022-10-09","2022-10-15","2022-10-16","2022-10-22","2022-10-23","2022-10-29","2022-10-30","2022-11-05","2022-11-06","2022-11-12","2022-11-13","2022-11-19","2022-11-20","2022-11-26","2022-11-27","2022-12-03","2022-12-04","2022-12-10","2022-12-11","2022-12-17","2022-12-18","2022-12-24","2022-12-25","2022-12-31","2023-01-01","2023-01-07","2023-01-08","2023-01-14","2023-01-15","2023-01-21","2023-01-22","2023-01-28","2023-01-29","2023-02-04","2023-02-05","2023-02-11","2023-02-12","2023-02-18","2023-02-19","2023-02-25","2023-02-26","2023-03-04","2023-03-05","2023-03-11","2023-03-12","2023-03-18","2023-03-19","2023-03-25","2023-03-26","2023-04-01","2023-04-02","2023-04-08","2023-04-09","2023-04-15","2023-04-16","2023-04-22","2023-04-23","2023-04-29","2023-04-30","2023-05-06","2023-05-07","2023-05-13","2023-05-14","2023-05-20","2023-05-21","2023-05-27","2023-05-28","2023-06-03","2023-06-04","2023-06-10","2023-06-11","2023-06-17","2023-06-18","2023-06-24","2023-06-25","2023-07-01","2023-07-02","2023-07-08","2023-07-09","2023-07-15","2023-07-16","2023-07-22","2023-07-23","2023-07-29","2023-07-30","2023-08-05","2023-08-06","2023-08-12","2023-08-13","2023-08-19","2023-08-20","2023-08-26"],"slots":[{"day":"2018-10-01","times":[],"minutes":[]},{"day":"2018-10-02","times":[],"minutes":[]},{"day":"2018-10-03","times":[],"minutes":[]},{"day":"2018-10-04","times":[],"minutes":[]},{"day":"2018-10-05","times":[],"minutes":[]},{"day":"2018-10-06","times":[],"minutes":[]},{"day":"2018-10-07","times":[],"minutes":[]},{"day":"2018-10-08","times":[],"minutes":[]},{"day":"2018-10-09","times":[],"minutes":[]},{"day":"2018-10-10","times":[],"minutes":[]},{"day":"2018-10-11","times":[],"minutes":[]},{"day":"2018-10-12","times":[],"minutes":[]},{"day":"2018-10-13","times":[],"minutes":[]},{"day":"2018-10-14","times":[],"minutes":[]},{"day":"2018-10-15","times":[],"minutes":[]},{"day":"2018-10-16","times":[],"minutes":[]},{"day":"2018-10-17","times":[],"minutes":[]},{"day":"2018-10-18","times":[],"minutes":[]},{"day":"2018-10-19","times":[],"minutes":[]},{"day":"2018-10-20","times":[],"minutes":[]},{"day":"2018-10-21","times":[],"minutes":[]},{"day":"2018-10-22","times":[],"minutes":[]},{"day":"2018-10-23","times":[],"minutes":[]},{"day":"2018-10-24","times":[],"minutes":[]},{"day":"2018-10-25","times":[],"minutes":[]},{"day":"2018-10-26","times":[],"minutes":[]},{"day":"2018-10-27","times":[],"minutes":[]},{"day":"2018-10-28","times":[],"minutes":[]},{"day":"2018-10-29","times":[],"minutes":[]},{"day":"2018-10-30","times":[],"minutes":[]}],"service":{"id":"5d9f2ac56d95c0112ca1ccab","externalId":"s1","name":"Client
+        meeting","duration":60},"resources":[{"id":"5d9f2a7b6d95c0112ca1cc91","externalId":null,"orderIndex":1,"name":"Axel
+        Voxiplan","color":"#6882b0","avatarUrl":null,"categoryId":"5d9f2a7b6d95c0112ca1cc8f"}],"resourceCategories":[{"id":"5d9f2a7b6d95c0112ca1cc8f","name":"default","translationKey":"resources.category.default","orderIndex":1}]}}'
+  recorded_at: Mon, 24 Sep 2018 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.timify.com/v1/auth/token?appid=TIMIFY_APP_ID&appsecret=TIMIFY_APP_SECRET
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '823'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 26 Aug 2022 14:05:12 GMT
+      X-Amzn-Requestid:
+      - ba37882a-d342-42ad-971b-59e7aa292247
+      X-Amzn-Remapped-Content-Length:
+      - '823'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - XeXr2ETQFiAFYQQ=
+      Vary:
+      - Origin, Accept-Encoding
+      X-Amzn-Remapped-Server:
+      - nginx
+      Etag:
+      - W/"337-DA4/zeHec5L/jpFf7hZIdJ3lRP4"
+      X-Amzn-Remapped-Date:
+      - Fri, 26 Aug 2022 14:05:12 GMT
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 1fecc0e0fb1429e598926aceb10850cc.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - Ie-LsvniKi9wvzRNzpe5lWJgP4xiokhW7CES7c_WM669_rVqYMQj5A==
+    body:
+      encoding: UTF-8
+      string: '{"accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDMxOGY0NjNhNzk3NzA4MjgwMDYiLCJpYXQiOjE2NjE1MjI3MTIsImV4cCI6MTY2MTUyOTkxMn0.I0XNU0QlyDBPB9SsXm-2soqbLTBDG-3hzHSbV4-_GAo","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDMxOGY0NjNhNzk3NzA4MjgwMDYiLCJyZWZyZXNoIjp0cnVlLCJpYXQiOjE2NjE1MjI3MTIsImV4cCI6MTY2MTg2ODMxMn0.yyLLpukQn1CPkHoR74MfLpobGtYxLMrogxxus7tZnIQ","expires":7200}'
+  recorded_at: Mon, 24 Sep 2018 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.timify.com/v1/booker-services/availabilities/?company_id=TIMIFY_TEST_COMPANY_ID&days%5B%5D=2018-10-02&days%5B%5D=2018-10-03&days%5B%5D=2018-10-04&days%5B%5D=2018-10-05&days%5B%5D=2018-10-06&days%5B%5D=2018-10-07&days%5B%5D=2018-10-08&days%5B%5D=2018-10-09&days%5B%5D=2018-10-10&days%5B%5D=2018-10-11&days%5B%5D=2018-10-12&days%5B%5D=2018-10-13&days%5B%5D=2018-10-14&days%5B%5D=2018-10-15&days%5B%5D=2018-10-16&days%5B%5D=2018-10-17&days%5B%5D=2018-10-18&days%5B%5D=2018-10-19&days%5B%5D=2018-10-20&days%5B%5D=2018-10-21&days%5B%5D=2018-10-22&days%5B%5D=2018-10-23&days%5B%5D=2018-10-24&days%5B%5D=2018-10-25&days%5B%5D=2018-10-26&days%5B%5D=2018-10-27&days%5B%5D=2018-10-28&days%5B%5D=2018-10-29&days%5B%5D=2018-10-30&days%5B%5D=2018-10-31&resource_ids%5B%5D=5d9f2a7b6d95c0112ca1cc91&service_id=5d9f2ac56d95c0112ca1ccab&timezone=UTC
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDMxOGY0NjNhNzk3NzA4MjgwMDYiLCJpYXQiOjE2NjE1MjI3MTIsImV4cCI6MTY2MTUyOTkxMn0.I0XNU0QlyDBPB9SsXm-2soqbLTBDG-3hzHSbV4-_GAo
+      Company-Id:
+      - TIMIFY_TEST_COMPANY_ID
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1317'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 26 Aug 2022 14:05:14 GMT
+      X-Amzn-Requestid:
+      - '099fe75e-4df0-47b6-a62a-f376f6249768'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - XeXsGFLzliAFZ8Q=
+      Vary:
+      - Origin, Accept-Encoding
+      X-Amzn-Remapped-Server:
+      - nginx
+      Etag:
+      - W/"1a1c-+myuK0J83vq0ek3IwUdvv99oYpw"
+      X-Amzn-Remapped-Date:
+      - Fri, 26 Aug 2022 14:05:14 GMT
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 e1a572b80f9ca8e29740d17fe0a46a6e.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - 4diglwxJ0pRPFPrN91OtY5f1IOAKA39DXRibT1OE6b0LD8JCOeTxKA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"calendarBegin":"2022-08-26 14:10","calendarEnd":"2023-08-26
+        14:10","selectedResourceIds":["5d9f2a7b6d95c0112ca1cc91"],"onDays":["2022-08-26","2022-08-29","2022-08-30","2022-08-31","2022-09-01","2022-09-02","2022-09-05","2022-09-06","2022-09-07","2022-09-08","2022-09-09","2022-09-12","2022-09-13","2022-09-14","2022-09-15","2022-09-16","2022-09-19","2022-09-20","2022-09-21","2022-09-22","2022-09-23","2022-09-26","2022-09-27","2022-09-28","2022-09-29","2022-09-30","2022-10-03","2022-10-04","2022-10-05","2022-10-06","2022-10-07","2022-10-10","2022-10-11","2022-10-12","2022-10-13","2022-10-14","2022-10-17","2022-10-18","2022-10-19","2022-10-20","2022-10-21","2022-10-24","2022-10-25","2022-10-26","2022-10-27","2022-10-28","2022-10-31","2022-11-01","2022-11-02","2022-11-03","2022-11-04","2022-11-07","2022-11-08","2022-11-09","2022-11-10","2022-11-11","2022-11-14","2022-11-15","2022-11-16","2022-11-17","2022-11-18","2022-11-21","2022-11-22","2022-11-23","2022-11-24","2022-11-25","2022-11-28","2022-11-29","2022-11-30","2022-12-01","2022-12-02","2022-12-05","2022-12-06","2022-12-07","2022-12-08","2022-12-09","2022-12-12","2022-12-13","2022-12-14","2022-12-15","2022-12-16","2022-12-19","2022-12-20","2022-12-21","2022-12-22","2022-12-23","2022-12-26","2022-12-27","2022-12-28","2022-12-29","2022-12-30","2023-01-02","2023-01-03","2023-01-04","2023-01-05","2023-01-06","2023-01-09","2023-01-10","2023-01-11","2023-01-12","2023-01-13","2023-01-16","2023-01-17","2023-01-18","2023-01-19","2023-01-20","2023-01-23","2023-01-24","2023-01-25","2023-01-26","2023-01-27","2023-01-30","2023-01-31","2023-02-01","2023-02-02","2023-02-03","2023-02-06","2023-02-07","2023-02-08","2023-02-09","2023-02-10","2023-02-13","2023-02-14","2023-02-15","2023-02-16","2023-02-17","2023-02-20","2023-02-21","2023-02-22","2023-02-23","2023-02-24","2023-02-27","2023-02-28","2023-03-01","2023-03-02","2023-03-03","2023-03-06","2023-03-07","2023-03-08","2023-03-09","2023-03-10","2023-03-13","2023-03-14","2023-03-15","2023-03-16","2023-03-17","2023-03-20","2023-03-21","2023-03-22","2023-03-23","2023-03-24","2023-03-27","2023-03-28","2023-03-29","2023-03-30","2023-03-31","2023-04-03","2023-04-04","2023-04-05","2023-04-06","2023-04-07","2023-04-10","2023-04-11","2023-04-12","2023-04-13","2023-04-14","2023-04-17","2023-04-18","2023-04-19","2023-04-20","2023-04-21","2023-04-24","2023-04-25","2023-04-26","2023-04-27","2023-04-28","2023-05-01","2023-05-02","2023-05-03","2023-05-04","2023-05-05","2023-05-08","2023-05-09","2023-05-10","2023-05-11","2023-05-12","2023-05-15","2023-05-16","2023-05-17","2023-05-18","2023-05-19","2023-05-22","2023-05-23","2023-05-24","2023-05-25","2023-05-26","2023-05-29","2023-05-30","2023-05-31","2023-06-01","2023-06-02","2023-06-05","2023-06-06","2023-06-07","2023-06-08","2023-06-09","2023-06-12","2023-06-13","2023-06-14","2023-06-15","2023-06-16","2023-06-19","2023-06-20","2023-06-21","2023-06-22","2023-06-23","2023-06-26","2023-06-27","2023-06-28","2023-06-29","2023-06-30","2023-07-03","2023-07-04","2023-07-05","2023-07-06","2023-07-07","2023-07-10","2023-07-11","2023-07-12","2023-07-13","2023-07-14","2023-07-17","2023-07-18","2023-07-19","2023-07-20","2023-07-21","2023-07-24","2023-07-25","2023-07-26","2023-07-27","2023-07-28","2023-07-31","2023-08-01","2023-08-02","2023-08-03","2023-08-04","2023-08-07","2023-08-08","2023-08-09","2023-08-10","2023-08-11","2023-08-14","2023-08-15","2023-08-16","2023-08-17","2023-08-18","2023-08-21","2023-08-22","2023-08-23","2023-08-24","2023-08-25"],"offDays":["2022-08-27","2022-08-28","2022-09-03","2022-09-04","2022-09-10","2022-09-11","2022-09-17","2022-09-18","2022-09-24","2022-09-25","2022-10-01","2022-10-02","2022-10-08","2022-10-09","2022-10-15","2022-10-16","2022-10-22","2022-10-23","2022-10-29","2022-10-30","2022-11-05","2022-11-06","2022-11-12","2022-11-13","2022-11-19","2022-11-20","2022-11-26","2022-11-27","2022-12-03","2022-12-04","2022-12-10","2022-12-11","2022-12-17","2022-12-18","2022-12-24","2022-12-25","2022-12-31","2023-01-01","2023-01-07","2023-01-08","2023-01-14","2023-01-15","2023-01-21","2023-01-22","2023-01-28","2023-01-29","2023-02-04","2023-02-05","2023-02-11","2023-02-12","2023-02-18","2023-02-19","2023-02-25","2023-02-26","2023-03-04","2023-03-05","2023-03-11","2023-03-12","2023-03-18","2023-03-19","2023-03-25","2023-03-26","2023-04-01","2023-04-02","2023-04-08","2023-04-09","2023-04-15","2023-04-16","2023-04-22","2023-04-23","2023-04-29","2023-04-30","2023-05-06","2023-05-07","2023-05-13","2023-05-14","2023-05-20","2023-05-21","2023-05-27","2023-05-28","2023-06-03","2023-06-04","2023-06-10","2023-06-11","2023-06-17","2023-06-18","2023-06-24","2023-06-25","2023-07-01","2023-07-02","2023-07-08","2023-07-09","2023-07-15","2023-07-16","2023-07-22","2023-07-23","2023-07-29","2023-07-30","2023-08-05","2023-08-06","2023-08-12","2023-08-13","2023-08-19","2023-08-20","2023-08-26"],"slots":[{"day":"2018-10-02","times":[],"minutes":[]},{"day":"2018-10-03","times":[],"minutes":[]},{"day":"2018-10-04","times":[],"minutes":[]},{"day":"2018-10-05","times":[],"minutes":[]},{"day":"2018-10-06","times":[],"minutes":[]},{"day":"2018-10-07","times":[],"minutes":[]},{"day":"2018-10-08","times":[],"minutes":[]},{"day":"2018-10-09","times":[],"minutes":[]},{"day":"2018-10-10","times":[],"minutes":[]},{"day":"2018-10-11","times":[],"minutes":[]},{"day":"2018-10-12","times":[],"minutes":[]},{"day":"2018-10-13","times":[],"minutes":[]},{"day":"2018-10-14","times":[],"minutes":[]},{"day":"2018-10-15","times":[],"minutes":[]},{"day":"2018-10-16","times":[],"minutes":[]},{"day":"2018-10-17","times":[],"minutes":[]},{"day":"2018-10-18","times":[],"minutes":[]},{"day":"2018-10-19","times":[],"minutes":[]},{"day":"2018-10-20","times":[],"minutes":[]},{"day":"2018-10-21","times":[],"minutes":[]},{"day":"2018-10-22","times":[],"minutes":[]},{"day":"2018-10-23","times":[],"minutes":[]},{"day":"2018-10-24","times":[],"minutes":[]},{"day":"2018-10-25","times":[],"minutes":[]},{"day":"2018-10-26","times":[],"minutes":[]},{"day":"2018-10-27","times":[],"minutes":[]},{"day":"2018-10-28","times":[],"minutes":[]},{"day":"2018-10-29","times":[],"minutes":[]},{"day":"2018-10-30","times":[],"minutes":[]},{"day":"2018-10-31","times":[],"minutes":[]}],"service":{"id":"5d9f2ac56d95c0112ca1ccab","externalId":"s1","name":"Client
+        meeting","duration":60},"resources":[{"id":"5d9f2a7b6d95c0112ca1cc91","externalId":null,"orderIndex":1,"name":"Axel
+        Voxiplan","color":"#6882b0","avatarUrl":null,"categoryId":"5d9f2a7b6d95c0112ca1cc8f"}],"resourceCategories":[{"id":"5d9f2a7b6d95c0112ca1cc8f","name":"default","translationKey":"resources.category.default","orderIndex":1}]}}'
+  recorded_at: Mon, 24 Sep 2018 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.timify.com/v1/auth/token?appid=TIMIFY_APP_ID&appsecret=TIMIFY_APP_SECRET
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '823'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 26 Aug 2022 14:05:16 GMT
+      X-Amzn-Requestid:
+      - 806eeea2-a731-4dd3-a401-5128db06c63e
+      X-Amzn-Remapped-Content-Length:
+      - '823'
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - XeXsdEl9liAFrcQ=
+      Vary:
+      - Origin, Accept-Encoding
+      X-Amzn-Remapped-Server:
+      - nginx
+      Etag:
+      - W/"337-ID/I9IVSjyyWLmZnxv0Irbz7jI0"
+      X-Amzn-Remapped-Date:
+      - Fri, 26 Aug 2022 14:05:16 GMT
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 3f2bb0b7d3cbbd4106d43fdfd66b1720.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - LJ6BqBZiTk7frbho7276qK22nWxqkmcbrlLxYT3aA-yRgm7RSjzwiA==
+    body:
+      encoding: UTF-8
+      string: '{"accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDMxYzY0MDI3OWU4NzA4MGZlZGMiLCJpYXQiOjE2NjE1MjI3MTYsImV4cCI6MTY2MTUyOTkxNn0.h8yPbsfUfkV9UwXIDU6w82HT7Lm9V_AsYP-191jNAUY","refreshToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDMxYzY0MDI3OWU4NzA4MGZlZGMiLCJyZWZyZXNoIjp0cnVlLCJpYXQiOjE2NjE1MjI3MTYsImV4cCI6MTY2MTg2ODMxNn0.HhXhw1hh6pDy7sROedI3vHTrXfqQdum3dHDp5uC3MBU","expires":7200}'
+  recorded_at: Mon, 24 Sep 2018 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.timify.com/v1/booker-services/availabilities/?company_id=TIMIFY_TEST_COMPANY_ID&days%5B%5D=2018-10-03&days%5B%5D=2018-10-04&days%5B%5D=2018-10-05&days%5B%5D=2018-10-06&days%5B%5D=2018-10-07&days%5B%5D=2018-10-08&days%5B%5D=2018-10-09&days%5B%5D=2018-10-10&days%5B%5D=2018-10-11&days%5B%5D=2018-10-12&days%5B%5D=2018-10-13&days%5B%5D=2018-10-14&days%5B%5D=2018-10-15&days%5B%5D=2018-10-16&days%5B%5D=2018-10-17&days%5B%5D=2018-10-18&days%5B%5D=2018-10-19&days%5B%5D=2018-10-20&days%5B%5D=2018-10-21&days%5B%5D=2018-10-22&days%5B%5D=2018-10-23&days%5B%5D=2018-10-24&days%5B%5D=2018-10-25&days%5B%5D=2018-10-26&days%5B%5D=2018-10-27&days%5B%5D=2018-10-28&days%5B%5D=2018-10-29&days%5B%5D=2018-10-30&days%5B%5D=2018-10-31&days%5B%5D=2018-11-01&resource_ids%5B%5D=5d9f2a7b6d95c0112ca1cc91&service_id=5d9f2ac56d95c0112ca1ccab&timezone=UTC
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      Authorization:
+      - eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRoU2NvcGUiOiJBUFAiLCJ1c2VySWQiOiI2MWYwNDhlMTkyMjE3ZTExMTA1NGIxNjIiLCJhY2NvdW50SWQiOmZhbHNlLCJyZWdpb24iOmZhbHNlLCJsb25nU2Vzc2lvbiI6ZmFsc2UsImxvbmdBY2Nlc3NUb2tlbkR1cmF0aW9uIjpmYWxzZSwidmVyc2lvbiI6Miwiand0SWQiOiI2MzA4ZDMxYzY0MDI3OWU4NzA4MGZlZGMiLCJpYXQiOjE2NjE1MjI3MTYsImV4cCI6MTY2MTUyOTkxNn0.h8yPbsfUfkV9UwXIDU6w82HT7Lm9V_AsYP-191jNAUY
+      Company-Id:
+      - TIMIFY_TEST_COMPANY_ID
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1320'
+      Connection:
+      - keep-alive
+      Date:
+      - Fri, 26 Aug 2022 14:05:18 GMT
+      X-Amzn-Requestid:
+      - cf6f535d-5119-4704-9fe2-2b84207f2d8a
+      X-Amzn-Remapped-Connection:
+      - keep-alive
+      X-Amz-Apigw-Id:
+      - XeXssHHuliAFsKg=
+      Vary:
+      - Origin, Accept-Encoding
+      X-Amzn-Remapped-Server:
+      - nginx
+      Etag:
+      - W/"1a1c-Otyczz/VT/l9J0cHYWzJomo2X1s"
+      X-Amzn-Remapped-Date:
+      - Fri, 26 Aug 2022 14:05:18 GMT
+      Access-Control-Allow-Credentials:
+      - 'true'
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 b729fd175985735cfe99dcbef152dcfe.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - IAH50-C3
+      X-Amz-Cf-Id:
+      - q5B4aGlQLbdHKJJx02jLpMvCOnTdVe18_79nipcgpGnwfKblgZegNA==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"data":{"calendarBegin":"2022-08-26 14:10","calendarEnd":"2023-08-26
+        14:10","selectedResourceIds":["5d9f2a7b6d95c0112ca1cc91"],"onDays":["2022-08-26","2022-08-29","2022-08-30","2022-08-31","2022-09-01","2022-09-02","2022-09-05","2022-09-06","2022-09-07","2022-09-08","2022-09-09","2022-09-12","2022-09-13","2022-09-14","2022-09-15","2022-09-16","2022-09-19","2022-09-20","2022-09-21","2022-09-22","2022-09-23","2022-09-26","2022-09-27","2022-09-28","2022-09-29","2022-09-30","2022-10-03","2022-10-04","2022-10-05","2022-10-06","2022-10-07","2022-10-10","2022-10-11","2022-10-12","2022-10-13","2022-10-14","2022-10-17","2022-10-18","2022-10-19","2022-10-20","2022-10-21","2022-10-24","2022-10-25","2022-10-26","2022-10-27","2022-10-28","2022-10-31","2022-11-01","2022-11-02","2022-11-03","2022-11-04","2022-11-07","2022-11-08","2022-11-09","2022-11-10","2022-11-11","2022-11-14","2022-11-15","2022-11-16","2022-11-17","2022-11-18","2022-11-21","2022-11-22","2022-11-23","2022-11-24","2022-11-25","2022-11-28","2022-11-29","2022-11-30","2022-12-01","2022-12-02","2022-12-05","2022-12-06","2022-12-07","2022-12-08","2022-12-09","2022-12-12","2022-12-13","2022-12-14","2022-12-15","2022-12-16","2022-12-19","2022-12-20","2022-12-21","2022-12-22","2022-12-23","2022-12-26","2022-12-27","2022-12-28","2022-12-29","2022-12-30","2023-01-02","2023-01-03","2023-01-04","2023-01-05","2023-01-06","2023-01-09","2023-01-10","2023-01-11","2023-01-12","2023-01-13","2023-01-16","2023-01-17","2023-01-18","2023-01-19","2023-01-20","2023-01-23","2023-01-24","2023-01-25","2023-01-26","2023-01-27","2023-01-30","2023-01-31","2023-02-01","2023-02-02","2023-02-03","2023-02-06","2023-02-07","2023-02-08","2023-02-09","2023-02-10","2023-02-13","2023-02-14","2023-02-15","2023-02-16","2023-02-17","2023-02-20","2023-02-21","2023-02-22","2023-02-23","2023-02-24","2023-02-27","2023-02-28","2023-03-01","2023-03-02","2023-03-03","2023-03-06","2023-03-07","2023-03-08","2023-03-09","2023-03-10","2023-03-13","2023-03-14","2023-03-15","2023-03-16","2023-03-17","2023-03-20","2023-03-21","2023-03-22","2023-03-23","2023-03-24","2023-03-27","2023-03-28","2023-03-29","2023-03-30","2023-03-31","2023-04-03","2023-04-04","2023-04-05","2023-04-06","2023-04-07","2023-04-10","2023-04-11","2023-04-12","2023-04-13","2023-04-14","2023-04-17","2023-04-18","2023-04-19","2023-04-20","2023-04-21","2023-04-24","2023-04-25","2023-04-26","2023-04-27","2023-04-28","2023-05-01","2023-05-02","2023-05-03","2023-05-04","2023-05-05","2023-05-08","2023-05-09","2023-05-10","2023-05-11","2023-05-12","2023-05-15","2023-05-16","2023-05-17","2023-05-18","2023-05-19","2023-05-22","2023-05-23","2023-05-24","2023-05-25","2023-05-26","2023-05-29","2023-05-30","2023-05-31","2023-06-01","2023-06-02","2023-06-05","2023-06-06","2023-06-07","2023-06-08","2023-06-09","2023-06-12","2023-06-13","2023-06-14","2023-06-15","2023-06-16","2023-06-19","2023-06-20","2023-06-21","2023-06-22","2023-06-23","2023-06-26","2023-06-27","2023-06-28","2023-06-29","2023-06-30","2023-07-03","2023-07-04","2023-07-05","2023-07-06","2023-07-07","2023-07-10","2023-07-11","2023-07-12","2023-07-13","2023-07-14","2023-07-17","2023-07-18","2023-07-19","2023-07-20","2023-07-21","2023-07-24","2023-07-25","2023-07-26","2023-07-27","2023-07-28","2023-07-31","2023-08-01","2023-08-02","2023-08-03","2023-08-04","2023-08-07","2023-08-08","2023-08-09","2023-08-10","2023-08-11","2023-08-14","2023-08-15","2023-08-16","2023-08-17","2023-08-18","2023-08-21","2023-08-22","2023-08-23","2023-08-24","2023-08-25"],"offDays":["2022-08-27","2022-08-28","2022-09-03","2022-09-04","2022-09-10","2022-09-11","2022-09-17","2022-09-18","2022-09-24","2022-09-25","2022-10-01","2022-10-02","2022-10-08","2022-10-09","2022-10-15","2022-10-16","2022-10-22","2022-10-23","2022-10-29","2022-10-30","2022-11-05","2022-11-06","2022-11-12","2022-11-13","2022-11-19","2022-11-20","2022-11-26","2022-11-27","2022-12-03","2022-12-04","2022-12-10","2022-12-11","2022-12-17","2022-12-18","2022-12-24","2022-12-25","2022-12-31","2023-01-01","2023-01-07","2023-01-08","2023-01-14","2023-01-15","2023-01-21","2023-01-22","2023-01-28","2023-01-29","2023-02-04","2023-02-05","2023-02-11","2023-02-12","2023-02-18","2023-02-19","2023-02-25","2023-02-26","2023-03-04","2023-03-05","2023-03-11","2023-03-12","2023-03-18","2023-03-19","2023-03-25","2023-03-26","2023-04-01","2023-04-02","2023-04-08","2023-04-09","2023-04-15","2023-04-16","2023-04-22","2023-04-23","2023-04-29","2023-04-30","2023-05-06","2023-05-07","2023-05-13","2023-05-14","2023-05-20","2023-05-21","2023-05-27","2023-05-28","2023-06-03","2023-06-04","2023-06-10","2023-06-11","2023-06-17","2023-06-18","2023-06-24","2023-06-25","2023-07-01","2023-07-02","2023-07-08","2023-07-09","2023-07-15","2023-07-16","2023-07-22","2023-07-23","2023-07-29","2023-07-30","2023-08-05","2023-08-06","2023-08-12","2023-08-13","2023-08-19","2023-08-20","2023-08-26"],"slots":[{"day":"2018-10-03","times":[],"minutes":[]},{"day":"2018-10-04","times":[],"minutes":[]},{"day":"2018-10-05","times":[],"minutes":[]},{"day":"2018-10-06","times":[],"minutes":[]},{"day":"2018-10-07","times":[],"minutes":[]},{"day":"2018-10-08","times":[],"minutes":[]},{"day":"2018-10-09","times":[],"minutes":[]},{"day":"2018-10-10","times":[],"minutes":[]},{"day":"2018-10-11","times":[],"minutes":[]},{"day":"2018-10-12","times":[],"minutes":[]},{"day":"2018-10-13","times":[],"minutes":[]},{"day":"2018-10-14","times":[],"minutes":[]},{"day":"2018-10-15","times":[],"minutes":[]},{"day":"2018-10-16","times":[],"minutes":[]},{"day":"2018-10-17","times":[],"minutes":[]},{"day":"2018-10-18","times":[],"minutes":[]},{"day":"2018-10-19","times":[],"minutes":[]},{"day":"2018-10-20","times":[],"minutes":[]},{"day":"2018-10-21","times":[],"minutes":[]},{"day":"2018-10-22","times":[],"minutes":[]},{"day":"2018-10-23","times":[],"minutes":[]},{"day":"2018-10-24","times":[],"minutes":[]},{"day":"2018-10-25","times":[],"minutes":[]},{"day":"2018-10-26","times":[],"minutes":[]},{"day":"2018-10-27","times":[],"minutes":[]},{"day":"2018-10-28","times":[],"minutes":[]},{"day":"2018-10-29","times":[],"minutes":[]},{"day":"2018-10-30","times":[],"minutes":[]},{"day":"2018-10-31","times":[],"minutes":[]},{"day":"2018-11-01","times":[],"minutes":[]}],"service":{"id":"5d9f2ac56d95c0112ca1ccab","externalId":"s1","name":"Client
+        meeting","duration":60},"resources":[{"id":"5d9f2a7b6d95c0112ca1cc91","externalId":null,"orderIndex":1,"name":"Axel
+        Voxiplan","color":"#6882b0","avatarUrl":null,"categoryId":"5d9f2a7b6d95c0112ca1cc8f"}],"resourceCategories":[{"id":"5d9f2a7b6d95c0112ca1cc8f","name":"default","translationKey":"resources.category.default","orderIndex":1}]}}'
+  recorded_at: Mon, 24 Sep 2018 04:00:00 GMT
+recorded_with: VCR 6.0.0

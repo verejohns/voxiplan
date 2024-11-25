@@ -1,0 +1,28 @@
+<% if @invalid_email_content.blank? %>
+  <%= t('mails.confirmation.body_line1') %>,
+  <br />
+  <br />
+  <%= t('mails.confirmation.body_line2') %>
+  <br />
+  <br />
+  <strong><%= t('mails.confirmation.body_line3') %></strong>
+  <br />
+  <%= t('services.general.event_name_label') %> <%= @event_name %>
+
+  <br />
+  <%= t('mails.confirmation.body_line4') %> <%= @event_date %> <%= @event_time %> <%= @event_day %>
+  <br />
+  <%= t('mails.confirmation.body_line5') %> <%= @phone %>
+  <br />
+
+  <% if @email_cancel_link.present? && @email_reschedule_link.present? %>
+    <br><br>
+    <%= I18n.t('mails.cancel_reschedule_text') %>
+    <br>
+    <%= I18n.t('mails.cancel_link_text') %>: <%= @email_cancel_link %>
+    <br>
+    <%= I18n.t('mails.reschedule_link_text') %>: <%= @email_reschedule_link %>
+  <% end %>
+<% else %>
+  <%= @invalid_email_content %>
+<% end %>

@@ -1,0 +1,2383 @@
+---
+el:
+  activerecord:
+    models:
+      ivr: λογαριασμός
+  activity_summary:
+    heading: Περίληψη δραστηριότητας
+    total_confirmed_appointments: Σύνολο επιβεβαιωμένων ραντεβού
+    total_incoming_calls: Σύνολο εισερχόμενων κλήσεων
+    total_incoming_calls_minutes: Σύνολο λεπτών εισερχόμενων κλήσεων
+    total_outgoing_calls: Σύνολο εξερχόμενων κλήσεων
+    total_outgoing_calls_minutes: Σύνολο λεπτών εξερχόμενων κλήσεων
+    total_sms: Σύνολο sms
+  add_workspace:
+    button:
+      add_new_workspace: Προσθήκη νέου χώρου εργασίας
+    create_message: Ένας νέος χώρος εργασίας προστέθηκε με επιτυχία
+    new_workspace: Νέος χώρος εργασίας
+    required_name: Απαιτούμενο όνομα χώρου εργασίας!
+    required_url: Απαιτούμενο Voxiplan Url!
+    voxiplan_url: URL του Voxiplan
+    workspace_name: Όνομα χώρου εργασίας
+  administrate:
+    actions:
+      reify: Επαναστρέφω
+  agenda_apps:
+    change_agenda: Αλλαγή ατζέντας
+    choose: Επιλέξτε μια ατζέντα
+    filters:
+      all: Ολα
+      calenders: Διαδικτυακές ατζέντες
+      systems: Ηλεκτρονικά συστήματα κρατήσεων
+    login: Εξουσιοδοτώ
+    set_as_default: Ορίσετε ως προεπιλογή
+    try_it: Δοκίμασε το δωρεάν
+  ai_bot:
+    appointment_failed: Δυστυχώς, δεν ήταν δυνατή η δημιουργία του ραντεβού σας.
+    appointment_success: Σας ευχαριστούμε, επιβεβαιώθηκε το ραντεβού σας για το %{time}.
+    available_free_slots: Έχουμε δωρεάν κουλοχέρηδες στα %{time1}, %{time2} και %{time3}. Ποιο λειτουργεί καλύτερα για εσάς;
+    slot_available: Έχουμε μια δωρεάν υποδοχή για το %{time}. Θέλετε να το επιβεβαιώσετε αυτό ;;
+    slot_not_available: Συγνώμη. Δεν έχουμε δωρεάν κουλοχέρηδες αυτήν την ημέρα.
+  ai_phone_assistant_enabled: Διακόπτης τηλεφώνου
+  announce:
+    alert: Ο βοηθός σας μπορεί να κάνει μια ανακοίνωση στην αρχή κάθε συνομιλίας. Χρησιμοποιήστε αυτό για να τραβήξετε την προσοχή σε ειδικές ώρες λειτουργίας, προσφορές ή άλλες σημαντικές πληροφορίες για τις οποίες θέλετε να γνωρίζουν οι άνθρωποι.
+    closed_hours: Κάντε μια ανακοίνωση κατά τη διάρκεια των κλειστών ωρών
+    heading: Κάντε μια ειδική ανακοίνωση
+    open_hours: Κάντε μια ανακοίνωση κατά τη διάρκεια των ωρών λειτουργίας
+    preview: Προεπισκόπηση
+    say_label: Πες
+    should_i: Θα πρέπει να
+  announcement:
+    accept_callers_phone: Να επιτρέπονται κρατήσεις από νέους πελάτες
+    anonymous: Ζητήστε από τους καλούντες να εισάγουν έναν αριθμό τηλεφώνου εάν η ταυτότητα του καλούντος είναι ανώνυμη;
+    anonymous_text: Όταν είναι ενεργοποιημένη, οι καλούντες με κρυμμένους αριθμούς θα κληθούν να εισαγάγουν τον αριθμό τους πριν ακούσουν τα χρονικά διαστήματα συνάντησης.
+    booking_example_message: Εισαγάγετε τον αριθμό τηλεφώνου σας
+    closed: Παίξτε ανακοίνωση κατά τις κλειστές ώρες
+    closed_example_message: 'Παράδειγμα: Γεια σας, είμαι η Λάουρα. Καλέστε εκτός των ωρών λειτουργίας μας, αλλά είμαι εδώ για να σας βοηθήσω να κλείσετε ραντεβού σε μια στιγμή που σας ταιριάζει καλύτερα.'
+    dont_accept_new_client: Όταν απενεργοποιηθεί, οι νέοι πελάτες δεν θα μπορούν να κλείσουν ραντεβού.
+    hangup_caller_sms_heading: Κλείσιμο SMS
+    make_announcement_1: Ο καλών έχει εισέλθει στο μενού ραντεβού σας.
+    make_announcement_2: Τι θα θέλατε να πω πριν αρχίσω να προτείνω ραντεβού;
+    make_announcement_note: 'Σημείωση: αυτό είναι προαιρετικό. Η ανακοίνωση μπορεί να είναι διαφορετική κατά τις ώρες λειτουργίας και λειτουργίας.'
+    open: Παίξτε ανακοίνωση κατά τις ανοιχτές ώρες
+    open_example_message: 'Παράδειγμα: Γεια σας, είμαι η Laura και είμαι εδώ για να σας βοηθήσω να βρείτε ένα ραντεβού σε μια στιγμή που σας ταιριάζει καλύτερα. Εάν θέλετε να μιλήσετε με έναν πράκτορα ανά πάσα στιγμή, πατήστε το πλήκτρο αστεριού.'
+    record_user_name: Ζητήστε από τον καλούντα να ηχογραφήσει το όνομά του;
+  appoinments_scheduling_sidebar:
+    announcement: Ανακοίνωση
+    cancellation_changes: Ακύρωση & Αλλαγές
+    confirmation: Επιβεβαίωση
+    services_resources: Υπηρεσίες & πόροι
+    suggesting_appointments: Προτείνοντας ραντεβού
+  appointment_widget:
+    already_cancelled: Το ραντεβού είχε ήδη ακυρωθεί.
+    appointment_duration: Διάρκεια
+    appointment_not_booked: Δεν έγινε κράτηση ραντεβού
+    appointment_static_error: Υπάρχει κάποιο σφάλμα
+    back_button: πίσω
+    book_heading: Κλείστε ραντεβού
+    book_success_title: Το ραντεβού κλείστηκε με επιτυχία!
+    cancel_event: Ακύρωση Εκδήλωσης
+    cancel_heading: Ακύρωση ραντεβού
+    cancel_success_title: Το ραντεβού ακυρώθηκε επιτυχώς!
+    cannot_cancel: Δεν μπορείτε να ακυρώσετε το ραντεβού
+    cannot_reschedule: Δεν μπορείτε να προγραμματίσετε εκ νέου το ραντεβού
+    check_validity: Πρόγραμμα
+    create_customer_button: Δημιουργία πελάτη
+    email_address_label: Διεύθυνση ηλεκτρονικού ταχυδρομείου
+    email_help_text: Εισαγάγετε μια διεύθυνση email για να συνεχίσετε
+    email_invalid_help_text: Το email δεν είναι έγκυρο!
+    enter_details: Εισαγάγετε λεπτομέρειες
+    error_help_text: Δυστυχώς, δεν μπορείτε να αποκτήσετε πρόσβαση σε αυτήν τη σελίδα. Επικοινωνήστε με την Υποστήριξη Voxi.ai μέσω συνομιλίας ή μέσω email (contact@voxi.ai)
+    error_label: Κάτι πήγε στραβά
+    first_name_help_text: Το Όνομα απαιτείται και πρέπει να περιέχει τουλάχιστον 2 χαρακτήρες
+    first_name_label: Ονομα
+    full_name_help_text: Το πλήρες όνομα είναι υποχρεωτικό και πρέπει να περιέχει τουλάχιστον 2 χαρακτήρες
+    full_name_label: Ονοματεπώνυμο
+    heading: Προγραμματισμός Επίσκεψης
+    invalid_cancel: Το ραντεβού δεν ακυρώθηκε.
+    invalid_email: Συγγνώμη, η διεύθυνση email σας είναι άκυρη
+    invalid_event: Το γεγονός δεν υπάρχει.
+    invalid_number: Μη έγκυρος αριθμός
+    last_name_help_text: Το επώνυμο απαιτείται και πρέπει να περιέχει τουλάχιστον 2 χαρακτήρες
+    last_name_label: Επίθετο
+    last_step: Ένα ακόμη βήμα για να πάει ...
+    more_info: Απαιτούνται περισσότερες πληροφορίες ...
+    next_button: Επόμενο
+    next_slots_button: 'Επόμενη διαθέσιμη υποδοχή '
+    no_resource_service: Δεν υπάρχει διαθέσιμος πόρος ή υπηρεσία
+    no_slots_button: Δεν υπάρχουν διαθέσιμοι κουλοχέρηδες
+    phone_number_help_text: Εισαγάγετε έναν αριθμό τηλεφώνου για να συνεχίσετε
+    phone_number_label: Τηλεφωνικό νούμερο
+    phone_number_not_valid: Παρακαλώ εισάγετε έναν έγκυρο αριθμό τηλεφώνου!
+    powered_by: Powered by
+    questions_heading: Οι ακόλουθες ερωτήσεις δεν απαντώνται
+    questions_title: Επιπλέον Λεπτομέρειες
+    reason: 'Λόγος:'
+    reschedule_heading: Επαναπρογραμματισμός ραντεβού
+    reschedule_success_title: Το ραντεβού επαναπρογραμματίστηκε με επιτυχία!
+    select_a_time: Επιλέξτε Ώρα
+    select_placeholder: Ορίστε μια επιλογή
+    select_resource: Επιλέξτε πόρους
+    select_services: Επιλέξτε Dienste
+    select_time_slot: Επιλέξτε ημερομηνία και ώρα
+    service_resource_help_text: Κάντε μια επιλογή
+    success_detail: Λεπτομέρειες ραντεβού
+    success_duration: Διάρκεια
+    success_email: ΗΛΕΚΤΡΟΝΙΚΗ ΔΙΕΥΘΥΝΣΗ
+    success_name: Ονομα
+    success_phone: Τηλεφωνικό νούμερο
+    success_selected_slot: Επιλεγμένη ώρα
+    success_time: Ζώνη ώρας
+    success_title: Επιτυχής καταχώρηση ραντεβού
+    time_format_label: Μορφή ώρας
+    time_range_afternoon: Απόγευμα
+    time_range_label: Επιλέξτε το χρονικό εύρος που ταιριάζει καλύτερα στο πρόγραμμά σας.
+    time_range_monring: Πρωί
+    time_range_no_preference: Καμία προτίμηση
+    time_zone_label: Ζώνη ώρας
+    valid_number: "✓ Ισχύει"
+  availabilities:
+    add_new_schedule: Προσθήκη νέου προγράμματος
+    clone: Κλώνος
+    cloned_ok: Κλωνοποιήθηκε με επιτυχία
+    copy_times: Αντιγράψτε χρόνους σε...
+    default_ok: Ρύθμισε το πρόγραμμα ως προεπιλεγμένο με επιτυχία
+    delete_ok: Διαγράφηκε επιτυχώς
+    delete_schedule_confirm: Αυτή η ενέργεια δεν μπορεί να αναιρεθεί. Είστε σίγουροι ότι θέλετε να διαγράψετε αυτό το πρόγραμμα
+    edit_name: Επεξεργασία ονόματος
+    edit_schedule: Επεξεργασία χρονοδιαγράμματος
+    from: Από το
+    new_schedule: Νέο πρόγραμμα
+    override:
+      add_override: Προσθέστε μια παράκαμψη ημερομηνίας
+      header: Προσθήκη παρακάμψεων ημερομηνίας
+      helper: Προσθέστε ημερομηνίες όταν η διαθεσιμότητά σας αλλάζει από τις εβδομαδιαίες ώρες σας
+      modal_help: Τι ώρες είστε διαθέσιμοι
+      modal_title: Επιλέξτε την/τις ημερομηνία/ες που θέλετε να αντιστοιχίσετε συγκεκριμένες ώρες
+    required_schedule_name: Το όνομα του προγράμματος είναι υποχρεωτικό
+    save_as_schedule_help: Αποθηκεύστε αυτές τις ώρες για να τις επαναχρησιμοποιήσετε με άλλους τύπους εκδηλώσεων. Διαχειριστείτε όλα τα προγράμματά σας στο πλαίσιο της διαθεσιμότητας.
+    save_as_schedule_title: Θέλετε να το αποθηκεύσετε ως νέο πρόγραμμα
+    save_success: Αποθηκεύτηκε με επιτυχία ως νέο πρόγραμμα.
+    schedule_name: Όνομα προγράμματος
+    schedule_name_placeholder: Ώρες εργασίας, αποκλειστικές ώρες, κ.λπ...
+    set_as_default: Ορισμός ως προεπιλογή
+    to: Προς
+    unavailable: Μη διαθέσιμο
+    working_hours: Ώρες εργασίας
+  billing:
+    add_seat:
+      add_seats: Προσθήκη θέσεων
+      due_today: σήμερα
+      per_year: ανά έτος
+      price_usd: Οι τιμές είναι σε %{currency}
+      save: save
+      upgrade_essential: Αναβάθμιση σε Essentials
+      usd_annually: "/ χρήστης / mo που καταβάλλεται ετησίως"
+      usd_monthly: "/ χρήστης / mo πληρωμένο μηνιαίως"
+    aggregate:
+      all_account_total: Όλοι οι λογαριασμοί Σύνολο
+      appointment: ραντεβού
+      appointments: Ραντεβού
+      as_of_utc: Από τις 00:00 UTC
+      assistant: Βοηθός
+      basic: Βασικό
+      cost: Κόστος
+      inbound: Εισερχόμενο
+      local: Τοπικό
+      looking_event: Ψάχνετε να πάρετε ακόμα περισσότερα από τη Voxiplan
+      manage_subscription: Διαχείριση συνδρομής
+      message: Μηνύματα
+      minutes: λεπτό(α)
+      mobile: Κινητό
+      monthly: Μηνιαία
+      national: Εθνικό
+      no_any_data: Δεν υπάρχουν δεδομένα για την τιμολόγηση.
+      numbers: αριθμός(ες)
+      outbound: Εξερχόμενο
+      phone_number: Αριθμοί τηλεφώνου
+      pick_month: Διαλέξτε ένα μήνα
+      premium: Premium
+      product: Προϊόν
+      quantity: Ποσότητα
+      seat: θέση(ες)
+      seats: Καθίσματα
+      segments: τμήμα(τα)
+      sip: SIP
+      sms: SMS
+      subscription: Συνδρομή
+      task: εργασίες
+      tasks: Εργασίες
+      telecom: Τηλεπικοινωνίες
+      unit: Μονάδες
+      view_all_plans: Προβολή όλων των σχεδίων
+      voice: Φωνή
+      yearly: Ετήσια
+    billing_plan:
+      free_plan: Δωρεάν σχέδιο
+      trail_plan: Δοκιμή Premium
+      upgrade_now: Αναβάθμιση τώρα
+      want_upgrade_account: Θέλετε να αναβαθμίσετε το λογαριασμό σας
+      you_downgraded: θα υποβαθμιστείτε στο
+      you_enjoying: Αυτή τη στιγμή απολαμβάνετε το
+      you_on: Είσαι στο
+      you_trial_end: Η δίκη σας έληξε στις
+    title: Τιμολόγηση
+    upgrade_plan:
+      active_event_type: Τύπος ενεργού συμβάντος
+      ai_assistant: Βοηθός AI
+      always_free: Πάντα δωρεάν
+      appointment_scheduling: Προγραμματισμός ραντεβού
+      automated_event_notifications: Αυτοματοποιημένες ειδοποιήσεις συμβάντων
+      basic: Βασικό
+      basic_features_plus: Όλα τα βασικά χαρακτηριστικά συν
+      billed_yearly: Χρεώνεται ετησίως
+      booking_widget: Widget κρατήσεων
+      call_recovery_followup: Ανάκτηση κλήσεων / Follow-ups
+      choose_subscription: Επιλέξτε τη σωστή συνδρομή για εσάς
+      config_service_integration: Ενσωμάτωση υπηρεσιών συνδιάσκεψης
+      connect_agenda: Σύνδεση με ημερολόγιο Google, Exchange, Outlook, Office 365, ενσωμάτωση iCloud
+      conversation_ai_tech: Συνομιλιακή τεχνολογία AI
+      custom_questions: Προσαρμοσμένες ερωτήσεις
+      customize_notifications: Προσαρμογή ειδοποιήσεων
+      email_reminder: Υπενθυμίσεις Email & SMS
+      enterprise: Επιχείρηση
+      features_seats_individual: Όλα τα χαρακτηριστικά και η ποσότητα των καθισμάτων είναι ατομικά.
+      free_features_plus: Όλα τα χαρακτηριστικά του Always Free συν
+      languages: γλώσσες
+      most_popular: Τα πιο δημοφιλή
+      multi_channel: Πολυκαναλικό SMS, τηλέφωνο, διαδικτυακή συνομιλία, WhatsApp
+      no_shows_recovery: Ανάκτηση των μη εμφανίσεων
+      pay_per_use_telecom: Πληρωμή ανά χρήση Τηλεπικοινωνίες
+      payment_stripe: Συλλογή πληρωμών μέσω Stripe
+      per_seat_month: ανά θέση/μήνα
+      phone_menu_tech: Τεχνολογία τηλεφωνικού μενού (IVR)
+      phone_single_channel: Τηλέφωνο Ενιαίο κανάλι
+      premium: Premium
+      pricing_euro: Οι τιμές είναι σε EUR για την Ευρώπη (συμπεριλαμβανομένου του Ηνωμένου Βασιλείου) και σε USD για τον υπόλοιπο κόσμο (χωρίς ΦΠΑ)
+      receptionist: Υπάλληλος υποδοχής
+      redirect_after_booking: Ανακατεύθυνση μετά την κράτηση
+      redirect_your_invitee: Ανακατευθύνετε τους προσκεκλημένους σας
+      remove_voxiplan_branding: Αφαίρεση της επωνυμίας Voxiplan
+      select: Επιλέξτε
+      send_sms_campaigns: Αποστολή εκστρατειών SMS
+      unlimited_event_types: Απεριόριστοι τύποι ενεργών συμβάντων
+      unlimted_appointments: Απεριόριστα ραντεβού
+  breadcrumb:
+    appoinments_scheduling: Προγραμματισμός συναντήσεων
+    my_assistant: Βοηθός μου
+  business_hours:
+    add: Προσθήκη
+    alert: Κατά τη διάρκεια των εργάσιμων ωρών, οι καλούντες θα κατευθύνονται στο μενού του τηλεφώνου σας με τις διαφορετικές επιλογές που έχετε ορίσει. Εκτός εργάσιμων ωρών, οι καλούντες δεν ακούνε τις επιλογές μενού και μεταφέρονται απευθείας για να προγραμματίσουν ένα ραντεβού.
+    heading: Εργάσιμες ώρες
+    help_text: Επιλέξτε τις ημέρες και τις ώρες που είστε ανοιχτοί για να χειριστείτε κλήσεις
+    remove: Διαγράφω
+  button:
+    add: Προσθήκη
+    apply: Ισχύουν
+    cancel: Ματαίωση
+    close: κλείσιμο
+    create: Δημιουργία
+    delete: Διαγράφω
+    edit: Επεξεργασία
+    new: Νέος
+    save: Αποθηκεύσετε
+    save_and_continue: Αποθήκευση & συνέχεια
+    save_changes: Αποθήκευσε τις αλλαγές
+    submit: Υποβολή
+  calendar_connection:
+    add_new_calendar_connection: Προσθήκη νέας σύνδεσης ημερολογίου
+    add_to_calendar:
+      add_to: Προσθήκη στο
+      calendar_not_selected: Ημερολόγιο δεν έχει επιλεγεί
+      cancel_event: Η διαγραφή ή η απόρριψη ενός συμβάντος στο ημερολόγιό σας θα το ακυρώσει και στο Voxiplan.
+      caption: Προσθήκη στο ημερολόγιο
+      description: Ορίστε το ημερολόγιο στο οποίο θέλετε να προσθέτετε νέες εκδηλώσεις καθώς προγραμματίζονται.
+      dialog_title: Σε ποιο ημερολόγιο θα πρέπει να προσθέσουμε νέες εκδηλώσεις
+      donot_add_an_event: Μην προσθέτετε νέα συμβάντα σε ένα ημερολόγιο
+      donot_add_any_event: Μην προσθέτετε νέα συμβάντα σε κανένα ημερολόγιο
+      select_calendar: Επιλέξτε ένα ημερολόγιο
+      sync_cancellations: Ακυρώσεις συγχρονισμού
+      there_is_no_calendar: Δεν υπάρχει επιλεγμένο ημερολόγιο για να προσθέσετε εκδήλωση.<br />Οι εκδηλώσεις που έχουν κρατηθεί δεν θα προστεθούν αυτόματα στο ημερολόγιό σας.
+    alert_message1: Πρέπει να αποσυνδέσουμε πρώτα όλη την ατζέντα για να αλλάξουμε την περιοχή. Θέλετε να συνεχίσετε
+    alert_message2: Θα χάσετε τα δεδομένα ραντεβού αν αλλάξετε περιοχή. Θέλετε να συνεχίσετε
+    button:
+      add_new: Προσθήκη νέου
+    calendar: Ημερολόγιο
+    calendar_enable:
+      content: Παρακαλείστε να ζητήσετε από τον ιδιοκτήτη να ενεργοποιήσει το ημερολόγιο για εσάς
+      title: Ημερολόγιο Απενεργοποιημένο
+    caption: Συνδέσεις ημερολογίου
+    check_conflicts:
+      check: Ελέγξτε το
+      check_places: Ελέγξτε αυτά τα μέρη για συγκρούσεις
+      description: Ποια ημερολόγια πρέπει να ελέγξουμε για συγκρούσεις
+      donot_check_conflict: Μην ελέγχετε αυτό το ημερολόγιο για συγκρούσεις
+    check_for_conflicts: Έλεγχος για συγκρούσεις
+    check_for_conflicts_detail: Ρυθμίστε το ημερολόγιο (ή τα ημερολόγια) να ελέγχει για συγκρούσεις, ώστε να αποφεύγονται οι διπλές κρατήσεις.
+    disconnect_calendar_confirm: Θέλετε να αποσυνδέσετε το ημερολόγιο
+    my_calendar: Το ημερολόγιό μου
+    voxiplan_calendar: Ημερολόγιο Voxiplan
+  call_forwarding:
+    caller_msg: Εάν ένας καλούντας κάνει λάθος επιλογή περισσότερες από 2 φορές, θα προωθήσω την κλήση σε εσάς ή σε μέλος της ομάδας σας.
+    heading: Σφάλματα και προώθηση κλήσεων
+    note: 'Σημείωση: Εάν δεν έχετε προσθέσει ακόμη χρήστη, μπορείτε να το κάνετε στην ενότητα Ρυθμίσεις -> Χρήστες.'
+    prefer_voice_mail_istead_of_transfer: Προτιμήστε τον αυτόματο τηλεφωνητή αντί της μεταφοράς κλήσεων
+    selected_appointment: Τι πρέπει να πω για να επιβεβαιώσω ένα επιλεγμένο ραντεβού;
+    when_we_will_transfer_or_voice_mail: Μπορούμε να μεταφέρουμε ή να σας στείλουμε φωνητικό ταχυδρομείο σε περίπτωση σφαλμάτων, χρονικού ορίου λήξης, ορίου ραντεβού και άλλων παρόμοιων πραγμάτων
+  call_stats:
+    forwarded: Προωθήθηκε
+    forwarded_tooltip: Ο καλών προωθήθηκε σε ένα μέλος της ομάδας ή άφησε ένα μήνυμα
+    new: Νέος
+    no_appointment: Οχι
+    not_completed: Μη ολοκληρωμένο
+    not_completed_tooltip: Ο καλούντος έκλεισε πριν προβεί σε οποιαδήποτε ενέργεια
+    processed: Επεξεργασμένο
+    processed_tooltip: Η κλήση υποβλήθηκε σε επεξεργασία με επιτυχία
+    undefined: Χωρίς αρχείο
+    unknown: Αγνωστος
+    yes_appointment: Ναί
+  cancelation:
+    cancel_sms: Αποστολή SMS σχετικά με την ακύρωση;
+  chat_enabled: Διακόπτης συνομιλίας
+  classic_agenda:
+    event_summary: "%{people_name} - %{service}"
+  clients:
+    agenda: Agenda
+    created: Ημερομηνία δημιουργίας
+    email: ΗΛΕΚΤΡΟΝΙΚΗ ΔΙΕΥΘΥΝΣΗ
+    heading: Πελάτες
+    name: Ονομα
+    phone: Τηλέφωνο
+    widget: Online Widget
+  coming_soon:
+    contact_support: Πρέπει να αρχίσετε να το χρησιμοποιείτε αμέσως; Επικοινωνήστε με την ομάδα υποστήριξής μας για να μας ενημερώσετε.
+    email_address: Διεύθυνση ηλεκτρονικού ταχυδρομείου
+    email_below: 'Εισαγάγετε το email σας παρακάτω για να είστε ο πρώτος που θα γνωρίζει πότε είναι έτοιμο:'
+    enter_email: Εισάγετε ηλεκτρονική διεύθυνση
+    feature_not_released_yet: Αυτή η δυνατότητα δεν έχει κυκλοφορήσει ακόμη.
+    heading: Ερχομαι συντομα
+  common:
+    allow_image: 'Επιτρεπόμενοι τύποι αρχείων: png, jpg, jpeg.'
+    allow_image_size: 'Μέγεθος: 100x100px.'
+    badge:
+      connected: Συνδεδεμένο
+      disconnected: Αποσυνδεδεμένο
+      unverified: Μη επαληθευμένο
+      verified: Επαληθευμένο
+      verify: Επαληθεύστε τώρα
+    button:
+      add: Προσθέστε
+      back: Πίσω
+      cancel: Ακύρωση
+      close: Κλείστε το
+      connect: Συνδέστε το
+      continue: Συνεχίστε
+      copy: Αντιγραφή
+      csv: CSV
+      discard: Απορρίψτε το
+      disconnect: Αποσύνδεση
+      excel: Excel
+      exception_list: Λίστα εξαιρέσεων
+      export: Εξαγωγή
+      finish: Τέλος
+      import: Εισαγωγή
+      import_csv: Εισαγωγή CSV
+      pdf: PDF
+      print: Εκτύπωση
+      remove_content: Είστε σίγουροι ότι θέλετε να το αφαιρέσετε
+      save_change: Αποθήκευση αλλαγών
+      simple_file: Απλό αρχείο
+      skip: Παράλειψη
+      submit: Υποβολή
+      update: Ενημέρωση
+      upgrade: Αναβάθμιση
+      view_details: Προβολή λεπτομερειών
+    change: Αλλαγή
+    coming_soon: σύντομα
+    configuration: Διαμόρφωση
+    copied: Αντιγραφή!
+    day:
+      friday: Παρασκευή
+      monday: Δευτέρα
+      saturday: Σάββατο
+      sunday: Κυριακή
+      thursday: Πέμπτη
+      tuesday: Τρίτη
+      wednesday: Τετάρτη
+    friday: Παρασκευή
+    monday: Δευτέρα
+    network_error: Συγγνώμη, φαίνεται ότι εντοπίστηκαν κάποια σφάλματα, παρακαλούμε ελέγξτε τη σύνδεση δικτύου.
+    normal_error_text: Συγγνώμη, φαίνεται ότι εντοπίστηκαν κάποια σφάλματα, παρακαλώ δοκιμάστε ξανά.
+    or: Ή
+    phone_number_required: Πρέπει να εισαγάγετε τουλάχιστον έναν αριθμό τηλεφώνου.
+    please_wait: Παρακαλώ περιμένετε...
+    saturday: Σάββατο
+    save_failure: Κάτι πήγε στραβά!!!
+    save_success: Οι αλλαγές σας αποθηκεύτηκαν.
+    select_placeholder: Επιλέξτε μια επιλογή
+    sunday: Κυριακή
+    table:
+      selected: Επιλεγμένα
+      selection_action: Δράση επιλογής
+    thursday: Πέμπτη
+    'true': true
+    tuesday: Τρίτη
+    validation_error: Σφάλμα επικύρωσης! Παρακαλούμε ελέγξτε τι έχετε εισάγει.
+    wednesday: Τετάρτη
+  confirmation:
+    appointment_confirmation_header: Επιβεβαίωση ραντεβού
+    post_appointment_header: Δημοσίευση ραντεβού
+    post_confirmation_reminder: Πείτε μια υπενθύμιση μετά το ραντεβού
+    record_name: Ζητήστε από τους καλούντες να αφήσουν ένα μήνυμα;
+    say_msg_after_recording: Πείτε ένα μήνυμα μετά την εγγραφή
+    send_sms_confirmation_header: Αποστολή SMS επιβεβαίωσης
+    sms_confirmation: Επιβεβαίωση SMS
+    sms_text: Κείμενο SMS
+    sms_to_client: SMS στον πελάτη
+    sms_to_user: SMS στον χρήστη
+    text: Ζητήστε από τον καλούντα να αφήσει ένα μήνυμα
+  contact_us:
+    company: Εταιρεία
+    email: Ηλεκτρονικό ταχυδρομείο
+    enter_detail: Εισάγετε τα στοιχεία της ερώτησης ή του προβληματισμού σας
+    first_name: Όνομα
+    last_name: Επώνυμο
+    phone_number: Αριθμός τηλεφώνου
+    title: Επικοινωνήστε μαζί μας
+  context:
+    appointment_confirmed: Σας ευχαριστούμε %{customer_first_name}., Επιβεβαιώθηκε το ραντεβού σας για το %{chat_appointment_start_time}.
+    select_resource: Για %{resource_1}, πατήστε 1. Για %{resource_2}, πατήστε 2. Ή πατήστε 9 για να επαναλάβετε αυτές τις επιλογές.
+    select_time: Για αύριο, στις 04:00 μ.μ. πατήστε 1. Για να επαναλάβετε αυτήν την επιλογή, πατήστε 9. Ή παρακαλώ περιμένετε για να ακούσετε περισσότερες διαθεσιμότητα.
+  custom_text:
+    alert: Προσαρμόστε τα κείμενα που θα αναφέρονται σε διαφορετικά στάδια της διαδικασίας κράτησης.
+    all_availabilities: Όλα τα ακόλουθα διαθέσιμα
+    appointment_booked: Η συνάντηση έγινε με επιτυχία
+    ask_customer_for_message: Ζητήστε από τον πελάτη να αφήσει ένα μήνυμα
+    avaiable_times: Παρουσιάστε διαθέσιμους χρονικούς χρόνους
+    cancellations_changes: Ακυρώσεις και αλλαγές
+    changes_existing_apointment: Πραγματοποίηση αλλαγών σε υπάρχον ραντεβού
+    close_hour_check: Κάντε μια ανακοίνωση κατά τις κλειστές ώρες
+    confirm_appointment_message: Λάβετε ένα μήνυμα μετά την επιβεβαίωση του ραντεβού
+    confirmation1: Απαιτείται επιβεβαίωση
+    confirmation2: Όταν επιλέγετε ένα χρονικό διάστημα ή κάνετε αλλαγές σε ένα υπάρχον ραντεβού
+    customer_announcement: Ανακοίνωση για πελάτες που έρχονται για νέο ραντεβού
+    double_confirmation: Διπλή επιβεβαίωση
+    first_availability: Πρώτη διαθεσιμότητα
+    heading: Προσαρμοσμένα κείμενα
+    last_message_for_hanging_call: Περάστε ένα τελευταίο μήνυμα πριν κλείσετε την κλήση
+    next_availabilities: Επόμενη διαθεσιμότητα
+    open_hour_check: Κάντε μια ανακοίνωση κατά τις ώρες λειτουργίας
+    post_confirmation: Μετά την επιβεβαίωση
+    present_service_resource: Παρούσες υπηρεσίες και επιλογές πόρων
+    selecting_time_slot: Επιλογή χρονικού διαστήματος
+    simple_confirmation: Απλή επιβεβαίωση
+    system_field_note: 'Σημείωση: Το %{system_field} είναι πεδία συστήματος και δεν πρέπει να επεξεργαστεί.'
+    thank_for_message: Σας ευχαριστούμε που αφήσατε ένα μήνυμα
+    too_late_to_edit_appointment: Πολύ αργά για να επεξεργαστείτε μια συνάντηση
+    too_many_appointments_booked: Έγινε κράτηση πάρα πολλών ραντεβού
+  customers:
+    actions: Ενέργειες
+    add_phone_number: Πρόσθεσε αριθμό τηλεφώνου
+    already_registered: Το email ή ο αριθμός τηλεφώνου ήταν ήδη καταχωρημένα
+    birthday: Γενέθλια
+    birthday_PH: Εισαγάγετε γενέθλια
+    city: Πόλη
+    city_PH: Μπείτε στην πόλη
+    contact_details: Στοιχεία επικοινωνίας
+    contacts: Επαφές
+    contacts_title: Διαχείριση επαφών
+    country: Χώρα
+    country_code: Κωδικός χώρας
+    created_at: Δημιουργήθηκε στις
+    edit_customer: Επεξεργασία επαφής
+    email: ΗΛΕΚΤΡΟΝΙΚΗ ΔΙΕΥΘΥΝΣΗ
+    email_PH: Εισάγετε ηλεκτρονική διεύθυνση
+    exception_list: Λίστα εξαιρέσεων
+    female: Γυναίκα
+    first_name: Ονομα
+    first_name_PH: Εισαγάγετε το όνομα
+    gender: Γένος
+    heading: Επαφές
+    invalid_mobile_number: Μη έγκυρος αριθμός κινητού τηλεφώνου
+    invalid_phone_number: Μη έγκυρος αριθμός
+    last_name: Επίθετο
+    last_name_PH: Εισαγάγετε επώνυμο
+    male: Αρσενικό
+    name_recording: Όνομα Καταγραφή
+    new_customer: Νέα επαφή
+    new_record: Νέα επαφή
+    not_applicable: Δεν ισχύει
+    notes: Σημειώσεις
+    notes_PH: Εισαγάγετε σημειώσεις
+    phone: Τηλέφωνο
+    phone_country: Χώρα τηλεφώνου
+    phone_number: Τηλεφωνικό νούμερο
+    record_id: Αναγνωριστικό εγγραφής
+    search_contacts: Αναζήτηση επαφών
+    select_phones: Επιλέξτε τηλέφωνο(α)
+    street: Δρόμος
+    street_PH: Μπείτε στο δρόμο
+    valid_phone_number: "✓ Ισχύει"
+    want_delete: Είστε σίγουροι ότι θέλετε να διαγράψετε
+    want_delete_selected: Είστε σίγουροι ότι θέλετε να διαγράψετε τις επιλεγμένες επαφές
+    zipcode: Ταχυδρομικός κώδικας
+    zipcode_PH: Εισάγετε τον ταχυδρομικό κώδικα
+  dashboard:
+    all_records: Όλες οι εγγραφές
+    amount: Ποσοστό
+    appointments: Κατάσταση ραντεβού
+    bot_intro: Είμαι η Λόρα, ο εικονικός σας βοηθός. Είμαι εδώ για να σας βοηθήσω να ρυθμίσετε το σύστημα προγραμματισμού ραντεβού σας. Μπορείτε να ξεκινήσετε επιλέγοντας το διαδικτυακό σας πρόγραμμα.
+    calls: Κλήσεις
+    cancelled_appointment: Ακυρώθηκε
+    contacts_by_types: Επαφές ανά Τύποι
+    custom_range: Προσαρμοσμένο εύρος
+    dashboard_title: Ταμπλό
+    follow_up_sms: Αποστολή SMS παρακολούθησης
+    greeting: Γεια, %{name}!
+    last_30_days: Τελευταίες 30 ημέρες
+    last_7_days: Τελευταίες 7 ημέρες
+    last_month: Τον προηγούμενο μήνα
+    modified_appointment: Τροποποιήθηκε
+    month: Μήνας
+    new_appointment: Νέος
+    new_appointments: Νέα ραντεβού
+    new_calls: Νέος
+    new_contacts: Νέες επαφές
+    new_vs_returning_customer: Νέες vs Εγγεγραμμένες Επαφές
+    no_record: Δεν Βρέθηκε Αρχείο!
+    recent_calls: Πρόσφατες κλήσεις
+    returning_calls: Επιστροφή
+    this_month: Αυτο το μηνα
+    today: Σήμερα
+    unknown_appointment: Αγνωστος
+    view_all: Προβολή όλων
+    year: Ετος
+    yesterday: Εχθές
+  date:
+    formats:
+      weekday_and_num: "%A, %-d %{greek_month}"
+    today: σήμερα
+    tomorrow: αύριο
+  errors:
+    donot_agree: Παρακαλώ τσεκάρετε αυτό για να συνεχίσετε
+    existed_identity: Υπήρχε Email ή αριθμός τηλεφώνου!
+    invalid_confirm_email: Το email επιβεβαίωσης δεν ταιριάζει
+    invalid_email: Παρέχεται μη έγκυρο email!
+    invalid_email_password: Μη έγκυρη διεύθυνση email ή κωδικός πρόσβασης!
+    invalid_password: Παρέχεται άκυρος κωδικός πρόσβασης!
+    invalid_phone: Παρέχεται μη έγκυρος αριθμός τηλεφώνου!
+    something_wrong: Κάτι δεν πάει καλά, δοκιμάστε ξανά αργότερα...
+  extensions:
+    add_new_extension: Προσθήκη νέας επέκτασης
+    availabilities: Διαθεσιμότητες
+    configure_extension: Διαμόρφωση επεκτάσεων
+    default: Προεπιλογή
+    delete_confirm: Σίγουρα θέλετε να διαγράψετε αυτή την επιλογή
+    edit_extension: Επεξεργασία επέκτασης
+    email: Διεύθυνση ηλεκτρονικού ταχυδρομείου
+    enable_notifications: Ενεργοποίηση ειδοποιήσεων
+    enter_email: Εισάγετε email
+    enter_name: Πληκτρολογήστε το πλήρες όνομα
+    name: Όνομα
+    new_extension: Νέα επέκταση
+    phone: Αριθμός τηλεφώνου
+    required_name: Απαιτούμενο όνομα επέκτασης
+    set_default: Ορισμός ως προεπιλογή
+    sip_account: Λογαριασμός SIP
+    title: Επεκτάσεις
+  follow_up:
+    alert: Μπορώ να στείλω αυτόματα ένα SMS παρακολούθησης σε χρήστες που ξεκίνησαν μια κλήση, αλλά δεν άφησαν ένα μήνυμα ή κράτησαν ραντεβού.
+    heading: Ακολουθω
+    max_symbols: Μέγιστα σύμβολα = 160
+    send_follow_up_sms: Αποστολή SMS παρακολούθησης
+    sms_text: Κείμενο SMS
+    want_to_follow_up: Θέλετε να συνεχίσετε όταν δεν πραγματοποιήθηκε καμία ενέργεια;
+  footer:
+    about: Σχετικά με
+    terms: Όροι και προϋποθέσεις
+  greetings:
+    alert: Ο κύριος χαιρετισμός είναι το πρώτο πράγμα που ακούνε οι καλούντες σας. Εδώ τους καλωσορίζουμε. Μπορώ να πω διαφορετικά πράγματα κατά τις ώρες λειτουργίας και κλεισίματος.
+    closed_hours: Κλειστές ώρες
+    during_closed_hours: 'Χαιρετισμός κλειστών ωρών:'
+    during_opening_hours: 'Χαιρετισμός ωρών λειτουργίας:'
+    heading: Χαιρετίσματα
+    help_text: Πώς θα θέλατε να χαιρετήσω τους πελάτες σας;
+    opening_hours: Ωρες λειτουργίας
+    preview_label: Προεπισκόπηση
+    say_label: Λένε
+  hello: Γειά σου Κόσμε
+  integrations:
+    api_webhooks: API & Webhooks
+    api_webhooks_help: Κατασκευάστε προσαρμοσμένες ενσωματώσεις που χρησιμοποιούν δεδομένα από το Voxiplan.
+    partner_agenda: Ατζέντες εταίρων
+    partner_agenda_help: Συνδέστε το ημερολόγιό σας στο Voxiplan και διαχειριστείτε τις ρυθμίσεις του ημερολογίου σας.
+    phone_booking: Τηλεφωνική κράτηση
+    phone_booking_help: Vestibulum eleifend a est quis mollis. Nullam tincidunt pulvinar efficitur.
+    phone_connection:
+      help: Nullam urna dui, lobortis sed urna in, interdum elementum turpis.
+      title: Συνδέσεις τηλεφώνου
+    phone_number:
+      actions: Δράσεις
+      capabilities: Δυνατότητες
+      disable_inbound_sms: Απενεργοποίηση SMS
+      disabled_inbound_sms: Απενεργοποίηση εισερχόμενων SMS με επιτυχία
+      edit_phone_number: Επεξεργασία αριθμού τηλεφώνου
+      enable_inbound_sms: Εισερχόμενα SMS
+      enabled_inbound_sms: Ενεργοποιήθηκε επιτυχώς το εισερχόμενο SMS
+      friendly_name: Φιλικό όνομα
+      local: Τοπικό
+      mobile: Κινητό
+      name: Όνομα
+      number: Αριθμός
+      phone: Τηλέφωνο
+      search_phone_number: Αναζήτηση αριθμού τηλεφώνου
+      selected: Επιλεγμένα
+      selection_action: Δράση επιλογής
+      sms: SMS
+      title: Αριθμοί τηλεφώνου
+      type: Τύπος
+      unknown: Άγνωστος
+    sms_connection:
+      config_sms_channel: Διαμορφώστε το κανάλι SMS σας
+      config_sms_channel_help: Αλλαγή του προεπιλεγμένου αριθμού τηλεφώνου για επικοινωνία με τις επαφές σας
+      config_sms_step1: Ανοίξτε το πρόγραμμα περιήγησης ιστού στο τηλέφωνο Android και μεταβείτε στη διεύθυνση <a href="#">voxiplan.com/voxisms</a> για να κατεβάσετε την εφαρμογή VoxiSMS.
+      config_sms_step2: Εισάγετε τον αριθμό του κινητού σας παρακάτω για να ενεργοποιήσετε την εφαρμογή και, στη συνέχεια, ανοίξτε την εφαρμογή VoxiSMS.
+      config_sms_step3: Μεταβείτε στις Ρυθμίσεις στο VoxiSMS και εισάγετε το παρακάτω Token για να ολοκληρώσετε τη ρύθμιση. Τώρα ο βοηθός σας μπορεί να στέλνει και να λαμβάνει SMS από το τηλέφωνο Android σας.
+      confirm_phone: Κάντε κλικ για επιβεβαίωση
+      confirm_phone_error_msg: Δεν μπορείτε να επιβεβαιώσετε το τηλέφωνο επειδή είναι άκυρος αριθμός.
+      connect_android_phone: Συνδέστε το τηλέφωνο Android
+      default: Προεπιλογή
+      download: Λήψη
+      download_android_phone: Κατεβάστε την εφαρμογή VoxiSMS στο τηλέφωνο Android.
+      edit_phone: Κάντε κλικ για επεξεργασία
+      enable_alpha_senderid: Ενεργοποίηση αλφαριθμητικού SenderID
+      enter_alpha_senderid: Εισάγετε αλφαριθμητικό SenderID
+      enter_mobile_phone: Εισάγετε τον αριθμό τηλεφώνου σας
+      enter_secret_key: Εισάγετε το διακριτικό σας
+      help: Vivamus id ligula id est viverra maximus.
+      invalid_senderid: Μη έγκυρο αναγνωριστικό αποστολέα.
+      mobile_phone: Κινητό τηλέφωνο
+      need_confirm_phone: Πρέπει να επιβεβαιώσετε τον αριθμό τηλεφώνου κάνοντας κλικ στο κουμπί <b>Κλικ για επιβεβαίωση</b>
+      secret_key: Μυστικό κλειδί
+      select_phone_number: Επιλέξτε τον αριθμό τηλεφώνου σας
+      select_route: Επιλέξτε διαδρομή
+      select_route_help: Επιλέξτε το κανάλι SMS σας
+      select_sms_channel: Επιλέξτε ένα κανάλι SMS
+      select_sms_channel_help: Για να επικοινωνήσετε με επαφές σε κινητά τηλέφωνα μέσω SMS, ο βοηθός σας πρέπει να χρησιμοποιήσει μια διαδρομή. Υπάρχουν πολλές επιλογές για τη δημιουργία μιας διαδρομής. Η καλύτερη επιλογή εξαρτάται από την τοποθεσία σας, τον όγκο των μηνυμάτων και τον προϋπολογισμό σας.
+      select_workspace: Επιλέξτε ένα χώρο εργασίας
+      senderid: Αναγνωριστικό αποστολέα
+      senderid_condition:
+        letter: Τα αναγνωριστικά αποστολέα πρέπει να περιέχουν τουλάχιστον ένα γράμμα
+        lower_case: Μικρά γράμματα a - z
+        number: Αριθμοί 0 - 9
+        space: Χώροι
+        special_char: Δεν επιτρέπονται οι ειδικοί χαρακτήρες και τα σημεία στίξης
+        title: 'Τα αλφαριθμητικά αναγνωριστικά αποστολέα μπορούν να περιέχουν έως και 11 χαρακτήρες από τις ακόλουθες κατηγορίες:'
+        upper_case: Κεφαλαία γράμματα A - Z
+      setup_route: Ρύθμιση διαδρομής
+      setup_route_help: Διαμόρφωση του καναλιού SMS
+      sms: SMS
+      telco: Telco - εικονικός αριθμός τηλεφώνου
+      telco_help: Ένας εικονικός αριθμός επιτρέπει στον βοηθό σας να στέλνει και να λαμβάνει μηνύματα SMS χωρίς να χρειάζεται φυσικό τηλέφωνο. Για να χρησιμοποιήσετε έναν εικονικό αριθμό με το Voxi.ai, πρέπει απλώς να επιλέξετε αυτή την επιλογή και να αφήσετε τους φορείς εκμετάλλευσης τηλεπικοινωνιών να αναλάβουν τα υπόλοιπα για εσάς.
+      title: Συνδέσεις SMS
+      voxisms: VoxiSMS - Εφαρμογή για κινητά τηλέφωνα Android
+      voxisms_help: Η εφαρμογή VoxiSMS επιτρέπει στον βοηθό σας να στέλνει και να λαμβάνει SMS απευθείας από το τηλέφωνο Android. Αν δεν έχετε ήδη τηλέφωνο Android, μην ανησυχείτε! Πολλοί χρήστες αποκτούν ένα ειδικό τηλέφωνο Android για το Voxi.ai, αντί να χρησιμοποιούν το προσωπικό τους κινητό τηλέφωνο.
+      workspaces: Χώροι εργασίας
+  language:
+    alert: Επιλέξτε την κύρια γλώσσα και τη φωνή του βοηθού σας.
+    assistant_name: Όνομα βοηθού
+    assistant_name_help: Επιλέξτε ένα όνομα για τον βοηθό τεχνητής νοημοσύνης σας.
+    heading: Γλώσσα
+    language_and_voice: Γλώσσα και φωνή
+    phone_settings: Ρυθμίσεις τηλεφώνου
+  locales:
+    de: Deutsch
+    el: Ελληνικά
+    en: English
+    fr: Français
+    it: Italiano
+    language: Ελληνικά
+  mails:
+    cancel_link_text: Ακύρωση
+    cancel_reschedule_text: Θέλετε να κάνετε αλλαγές σε αυτή την εκδήλωση
+    cancellation_email_host:
+      body: Το ραντεβού σας για την %{event_day} %{event_date} στις %{event_time} ακυρώθηκε.
+      greetings: Γεια σας, %{full_name}
+      subject: Ακύρωση κράτησης
+      title: Η κράτησή σας ακυρώνεται
+    cancellation_email_invitee:
+      body: Το ραντεβού σας για την %{event_day} %{event_date} στις %{event_time} ακυρώθηκε.
+      greetings: Γεια σας, %{full_name}
+      subject: Ακύρωση κράτησης
+      title: Η κράτησή σας ακυρώνεται
+    cancellation_sms_host:
+      body: Το ραντεβού σας για την %{event_day} %{event_date} στις %{event_time} ακυρώθηκε. Ανυπομονούμε να σας δούμε την επόμενη φορά.
+    cancellation_sms_invitee:
+      body: Το ραντεβού σας για την %{event_day} %{event_date} στις %{event_time} ακυρώθηκε. Ανυπομονούμε να σας δούμε την επόμενη φορά.
+    client_appointment_confirmed:
+      booking_details: Λεπτομέρειες κράτησης
+      caller: 'Καλούντος: %{email_full_name} ''%{caller_id}'' (%{email_contact_type})'
+      conclusion: Το ραντεβού έχει προγραμματιστεί στην ατζέντα σας.
+      date: 'Ημερομηνία: %{choosen_slot_start}'
+      greetings: Καλά νέα, %{client_first_name}
+      new_caller: 'Επικοινωνία: %{caller_id}'
+      new_summary: Έχετε ένα νέο ραντεβού
+      play_recording_btn_text: Κάντε κλικ εδώ για να παίξετε
+      play_recording_btn_url: "%{appointment_success_record}"
+      summary: Έχετε ένα νέο ραντεβού με το %{caller_id}.
+      title: Επιβεβαιώθηκε νέο ραντεβού
+    client_call_hangup:
+      greetings: Γεια σας, %{client_first_name}
+      summary: 'Η κλήση δεν ολοκληρώθηκε από το %{email_full_name} ''%{caller_id}'' (%{email_contact_type}). Ο καλούντος έκλεισε πριν προβεί σε οποιαδήποτε ενέργεια: δεν μίλησε με έναν πράκτορα, δεν άφησε ένα μήνυμα ή έκανε κράτηση για ραντεβού.'
+      title: Νέα αναπάντητη κλήση
+    client_new_voicemail:
+      greetings: Γεια σας, %{client_first_name}
+      play_recording_btn_text: Κάντε κλικ εδώ για να παίξετε
+      play_recording_btn_url: "%{%{var}}"
+      summary: Έχετε ένα νέο φωνητικό μήνυμα από το %{caller_id}.
+      title: Καταγράφηκε νέο φωνητικό μήνυμα
+    confirmation:
+      body_line1: Χαίρετε
+      body_line2: Έχετε μια νέα επιβεβαιωμένη κράτηση.
+      body_line3: 'Λεπτομέριες:'
+      body_line4: 'Πότε:'
+      body_line5: 'Τηλέφωνο:'
+      body_line6: Μην απαντήσετε σε αυτό το μήνυμα, δημιουργήθηκε αυτόματα. Η απάντησή σας σε αυτό το e-mail δεν θα προβληθεί!
+      body_line7: Έχετε μια αναπροσαρμοσμένη κράτηση.
+      body_line8: Η κράτησή σας αναβάλλεται
+      body_line9: Παρακαλώ μην απαντήσετε σε αυτό το μήνυμα, δημιουργήθηκε αυτόματα. Η απάντησή σας σε αυτό το e-mail δεν θα προβληθεί!
+      rescheduled_subject: Αλλαγή κράτησης
+      subject: Επιβεβαιώθηκε νέα κράτηση
+    confirmation_email_host:
+      body: 'Γεια σας <br>Η κράτησή σας έχει επιβεβαιωθεί. <br><b>Λεπτομέρειες: </b> <br>Πότε: %{event_day} %{event_date} at %{event_time} <br>Παρακαλούμε μην απαντήσετε σε αυτό το μήνυμα, δημιουργήθηκε αυτόματα. Η απάντησή σας σε αυτό το e-mail δεν θα προβληθεί!'
+      body_line1: Γεια σας
+      body_line2: Η κράτησή σας έχει επιβεβαιωθεί.
+      body_line3: 'Λεπτομέρειες:'
+      body_line4: 'Πότε:'
+      body_line5: 'Τηλέφωνο :'
+      body_line6: Παρακαλώ μην απαντήσετε σε αυτό το μήνυμα, δημιουργήθηκε αυτόματα. Η απάντησή σας σε αυτό το e-mail δεν θα προβληθεί!
+      subject: Νέα κράτηση επιβεβαιώθηκε
+    confirmation_email_invitee:
+      body: 'Γεια σας <br>Η κράτησή σας έχει επιβεβαιωθεί. <br><b>Λεπτομέρειες: </b> <br>Πότε: %{event_day} %{event_date} at %{event_time} <br>Παρακαλούμε μην απαντήσετε σε αυτό το μήνυμα, δημιουργήθηκε αυτόματα. Η απάντησή σας σε αυτό το e-mail δεν θα προβληθεί!'
+      body_line1: Γεια σας
+      body_line2: Η κράτησή σας έχει επιβεβαιωθεί.
+      body_line3: 'Λεπτομέρειες:'
+      body_line4: 'Πότε:'
+      body_line5: 'Τηλέφωνο :'
+      body_line6: Παρακαλώ μην απαντήσετε σε αυτό το μήνυμα, δημιουργήθηκε αυτόματα. Η απάντησή σας σε αυτό το e-mail δεν θα προβληθεί!
+      subject: Νέα κράτηση επιβεβαιώθηκε
+    confirmation_invitee:
+      body_line1: Χαίρετε
+      body_line2: Η κράτησή σας επιβεβαιώθηκε.
+      body_line3: 'Λεπτομέριες:'
+      body_line4: 'Πότε:'
+      body_line5: 'Τηλέφωνο:'
+      body_line6: Μην απαντήσετε σε αυτό το μήνυμα, δημιουργήθηκε αυτόματα. Η απάντησή σας σε αυτό το e-mail δεν θα προβληθεί!
+      subject: Επιβεβαιώθηκε νέα κράτηση
+    confirmation_sms_host:
+      body: Ένα ραντεβού για την %{event_day} %{event_date} στις %{event_time} έχει επιβεβαιωθεί.
+    confirmation_sms_invitee:
+      body: Ένα ραντεβού για την %{event_day} %{event_date} στις %{event_time} έχει επιβεβαιωθεί.
+    copyright: 2020 voxi.ai. Ολα τα δικαιώματα διατηρούνται.
+    default_reminder:
+      reminder_email_subject: 'Υπενθύμιση: ραντεβού την %{event_day} %{event_date} στις %{event_time}'
+      reminder_email_subject_host: 'Υπενθύμιση: ραντεβού την %{event_day} %{event_date} στις %{event_time}'
+      reminder_sms_text: 'Γεια σας %{first_name}, Υπενθύμιση: ραντεβού αύριο, %{event_day} %{event_date} at %{event_time}'
+      reminder_text: Γεια σας %{full_name}, <br> Αυτή είναι μια υπενθύμιση για το ραντεβού σας αύριο, %{event_day} %{event_date} στις %{event_time}. <br> Με εκτίμηση,
+      reminder_text_host: Γεια σας %{full_name}, <br> Αυτή είναι μια υπενθύμιση για το ραντεβού σας αύριο, %{event_day} %{event_date} στις %{event_time}. <br> Με εκτίμηση,
+    followup_email_host:
+      body: ''
+      subject: Σας ευχαριστούμε για το τηλεφώνημά σας!
+    followup_email_invitee:
+      body: ''
+      subject: Σας ευχαριστούμε για το τηλεφώνημά σας!
+    followup_sms_host:
+      body: ''
+    followup_sms_invitee:
+      body: Σας ευχαριστώ για την κλήση σας. Αυτή τη στιγμή βρισκόμαστε σε σύσκεψη ή δεν είμαστε διαθέσιμοι. Για να κλείσετε ένα ραντεβού, επισκεφθείτε μας online www.voxiplan.com ή καλέστε μας στο +3228084080.
+    generic_email:
+      title: Voxiplan Email
+    no_availability:
+      body: Δεν μπορούσα να βρω δωρεάν κουλοχέρηδες στην ατζέντα σας. Προσθέστε τη διαθεσιμότητα στην ατζέντα σας για να αποφύγετε την αναστάτωση.
+      standard_error: πελάτης %{client_email_locale} δεν έχει διαθεσιμότητα!
+      subject: Δεν υπάρχουν διαθέσιμα στην ατζέντα σας
+    organization_invitation:
+      body: Θα ήθελα να σας προσκαλέσω στην οργάνωσή μου
+      content: Κάντε κλικ στο σύνδεσμο για να γίνετε μέλος του Voxiplan.
+      subject: Πρόσκληση στους οργανισμούς μου
+    pre_confirmation:
+      accept: Αποδέχομαι
+      body_line1: Χαίρετε
+      body_line2: Έχετε μια νέα κράτηση σε εκκρεμότητα.
+      body_line3: Μπορείς
+      body_line4: " ή "
+      body_line5: Να έχεις μια υπέροχη μέρα,
+      decline: Πτώση
+      subject: Νέα κράτηση σε εκκρεμότητα
+    pre_confirmation_invitee:
+      body_line1: Χαίρετε
+      body_line2: Έχετε προγραμματίσει ένα ραντεβού για
+      body_line3: Θα σας στείλουμε ένα μήνυμα επιβεβαίωσης μόλις εγκριθεί αυτό το ραντεβού.
+      body_line4: Να έχεις μια υπέροχη μέρα,
+      body_line5: Μην απαντήσετε σε αυτό το μήνυμα, δημιουργήθηκε αυτόματα. Η απάντησή σας σε αυτό το e-mail δεν θα προβληθεί!
+      subject: Το αίτημα ραντεβού επιβεβαιώθηκε
+    rejected_invitee:
+      body_line1: Χαίρετε
+      body_line2: Το αίτημα ραντεβού σας απορρίφθηκε για
+      body_line3: Να έχεις μια υπέροχη μέρα,
+      body_line4: Μην απαντήσετε σε αυτό το μήνυμα, δημιουργήθηκε αυτόματα. Η απάντησή σας σε αυτό το e-mail δεν θα προβληθεί!
+      subject: Το αίτημα ραντεβού απορρίφθηκε
+    reminder_email_host:
+      body: Γεια σας %{full_name}, <br> Αυτή είναι μια υπενθύμιση για το ραντεβού σας αύριο, %{event_day} %{event_date} στις %{event_time}. <br> Με εκτίμηση,
+      subject: 'Υπενθύμιση: ραντεβού την %{event_day} %{event_date} στις %{event_time}'
+    reminder_email_invitee:
+      body: Γεια σας %{full_name}, <br> Αυτή είναι μια υπενθύμιση για το ραντεβού σας αύριο, %{event_day} %{event_date} στις %{event_time}. <br> Με εκτίμηση,
+      subject: 'Υπενθύμιση: ραντεβού την %{event_day} %{event_date} στις %{event_time}'
+    reminder_sms_host:
+      body: ''
+    reminder_sms_invitee:
+      body: 'Γεια σας %{first_name}, Υπενθύμιση: ραντεβού αύριο, %{event_day} %{event_date} at %{event_time}'
+    reply_to_or_contact_us: Ερωτήσεις; Απαντήστε σε αυτό το email ή επικοινωνήστε μαζί μας στο
+    reschedule_appointment:
+      conclusion: Το ραντεβού έχει επαναπρογραμματιστεί στην ατζέντα σας.
+      greetings: Γεια σας, %{client_first_name}
+    reschedule_link_text: Επαναπρογραμματισμός
+    rescheduling_email_host:
+      body: 'Το ραντεβού σας για την %{event_day} %{event_date} στις %{event_time} έχει επαναπρογραμματιστεί. <br><b>Περιγραφές: </b> <br>Πότε: %{event_day} %{event_date} at %{event_time} at %{event_time}'
+      subject: Αλλαγή κράτησης
+    rescheduling_email_invitee:
+      body: 'Το ραντεβού σας για την %{event_day} %{event_date} στις %{event_time} έχει επαναπρογραμματιστεί. <br><b>Περιγραφές: </b> <br>Πότε: %{event_day} %{event_date} at %{event_time} at %{event_time}'
+      subject: Αλλαγή κράτησης
+    rescheduling_sms_host:
+      body: Το ραντεβού σας για την %{event_day} %{event_date} στις %{event_time} έχει επαναπρογραμματιστεί.
+    rescheduling_sms_invitee:
+      body: Το ραντεβού σας για την %{event_day} %{event_date} στις %{event_time} έχει επαναπρογραμματιστεί.
+    transcription_title: Μεταγραφή
+  manage_resource:
+    add_service_modal:
+      error: Η εφαρμογή Agenda δεν έχει διαμορφωθεί
+      heading1: 'Προσθεσε νεο '
+      heading1a: Υπηρεσία
+      heading1b: Πόρος
+      heading2: " στο μενού τηλεφώνου"
+      tab_head1: Υπηρεσίες
+      tab_head2: Πόροι
+    addition_questions_modal:
+      add_another: Προσθήκη άλλου
+      add_question: Προσθήκη ερώτησης
+      answer: Απαντήσεις
+      answer1: Απάντηση
+      answer_type: Τύπος απάντησης
+      enabled: Ενεργοποιήθηκε
+      heading: ΕΠΙΠΡΟΣΘΕΤΕΣ ΕΡΩΤΗΣΕΙΣ
+      questions: Ερωτήσεις
+      required: Απαιτείται
+      type1: Μία γραμμή
+      type2: Πολλαπλές γραμμές
+      type3: Κουμπιά ραδιοφώνου
+      type4: Πλαίσια ελέγχου
+    default_avail_modal:
+      heading: Ορισμός προεπιλεγμένων διαθεσιμότητας
+    default_availabilities: Ορισμός προεπιλεγμένων διαθεσιμότητας
+    edit_modal:
+      heading: Επεξεργασία
+      name: Ονομα
+      price: Τιμή
+    form_modal:
+      heading: 'Προσθεσε νεο '
+    heading: Τύποι συμβάντων
+    heading1: Διαχείριση τύπων συμβάντων και πόρων
+    listing_modal:
+      additional_tooltip: Προσθήκη πρόσθετης ερώτησης
+      heading: Επιλογές τύπου και πόρων συμβάντων
+      tab1: S.No
+      tab2: Ονομα
+      tab3a: Αντιστοιχισμένος πόρος
+      tab3b: Εξαρτήσεις
+      tab3c: Υπηρεσίες χαρτογραφημένες
+      tab4: Διάρκεια
+      tab4a: Διάρκεια (λεπτά)
+      tab5: Ρυθμιστής
+      tab5a: Buffer (Λεπτά)
+      tab6: Δράση
+      tab7: Διαθεσιμότητα
+      tab8: Ημερολόγιο
+      tab9: Χάρτης
+    tab1: Τύποι συμβάντων
+    tab2: Πόροι
+    widget_heading: 'Widget ραντεβού:'
+  menu:
+    allow_bookings: Να επιτρέπονται κρατήσεις μόνο από υπάρχοντες πελάτες
+    before_caller_enters: Η ανακοίνωση αναπαράγεται αμέσως μετά τον κύριο χαιρετισμό σας, προτού οι καλούντες ακούσουν το μενού του τηλεφώνου σας.
+    business_hours_title: Εισαγάγετε τις ώρες λειτουργίας σας
+    call_forwarding: Προώθηση κλήσεων
+    call_fwd_number: Αριθμός προώθησης κλήσεων
+    call_transfer_announcement_text: Κρατήστε πατημένο ενώ σας συνδέω με έναν πράκτορα
+    caller_announcement: Ανακοίνωση καλούντος
+    calls_are_only: Οι κλήσεις προωθούνται μόνο κατά τις ενεργές εργάσιμες ώρες.
+    close_time_greeting: Κύριος χαιρετισμός κατά τις κλειστές ώρες
+    close_time_greeting_example: 'Παράδειγμα: Καλώς ορίσατε στην εταιρεία XYZ. Κλήσεις εκτός των ωρών λειτουργίας μας.'
+    confirm_appointment: Ευχαριστώ. Το ραντεβού σας για το %{time1} έχει επιβεβαιωθεί.
+    copy_example_url: Προσθήκη παραδείγματος διεύθυνσης URL
+    departments: Τμήματα
+    enable: επιτρέπω
+    enter_message: Εισαγάγετε το μήνυμα που θέλετε να ακούσουν οι καλούντες και κάντε κλικ στο "Αποθήκευση".
+    enter_the_close_time_greeting: Εισάγετε τον κύριο χαιρετισμό που θα ακούσουν οι καλούντες κατά τις κλειστές ώρες.
+    enter_the_greeting: Εισαγάγετε τον κύριο χαιρετισμό που θέλετε να ακούσουν οι καλούντες σας και κάντε κλικ στο "Αποθήκευση".
+    example_booking: 'Παράδειγμα: Η κράτησή σας στην ABC Company στο %{time} επιβεβαιώθηκε. Ανυπομονούμε να σας δούμε εκεί! PS: Μην ξεχάσετε να φέρετε ένα χαμόγελο.'
+    example_message: 'Παράδειγμα: Αγαπητέ καλούντα, τα γραφεία μας θα είναι κλειστά κατά τη διάρκεια των διακοπών των Χριστουγέννων από τις 24 έως τις 26 Δεκεμβρίου'
+    first_suggestion_text: Το επόμενο πιθανό ραντεβού μας είναι στο %{time1}. Πατήστε 1 για επιβεβαίωση αυτού του ραντεβού. Πατήστε 2 για να ακούσετε άλλες διαθέσιμες δυνατότητες.
+    first_suggestion_text_error: Λυπάμαι, δεν είναι σωστή επιλογή.
+    general: Γενικός
+    greeting_example: 'Παράδειγμα: Καλώς ορίσατε στην εταιρεία XYZ.'
+    i_am_laura_closed: Γεια σας, είμαι η Λάουρα. Οι πράκτορές μας δεν είναι διαθέσιμοι αυτήν τη στιγμή, επομένως είμαι εδώ για να σας βοηθήσω να κλείσετε ραντεβού.
+    i_am_laura_opened: Είμαι η Laura, ο εικονικός βοηθός σας που θα σας βοηθήσει να βρείτε μια διαθεσιμότητα που σας ταιριάζει καλύτερα.
+    introduction: Εισαγωγή
+    language_and_voice: Γλώσσα και φωνή
+    main_greeting: Κύριος χαιρετισμός
+    next_availabilities_text: Πατήστε 1 για %{time1}. Πατήστε 2 για %{time2}. Πατήστε 3 για να ακούσετε άλλες διαθέσιμες δυνατότητες. Ή πατήστε 9 για να μιλήσετε με έναν πράκτορα.
+    phone_menu: Το μενού τηλεφώνου ενημερώνει τους καλούντες σας για τα πλήκτρα που θα πατήσετε για διαφορετικά τμήματα. Εισαγάγετε το μήνυμα που θέλετε να ακούσουν οι καλούντες σας και κάντε κλικ στο «Αποθήκευση».
+    phone_menu_example: Πατήστε 1 για να κλείσετε ραντεβού. Πατήστε 2 για πωλήσεις. Πατήστε 3 για υποστήριξη.
+    phone_number_should: Οι κλήσεις αριθμού τηλεφώνου θα πρέπει να προωθούνται εάν ο πελάτης σας θέλει να σας μιλήσει.
+    phone_receptionist: Ρεσεψιονίστ τηλεφώνου
+    receiving_calls: Λήψη κλήσεων
+    record_client_name: Εγγραφή ονόματος πελάτη
+    record_name: Όνομα εγγραφής
+    record_name_text: Για να κλείσετε ραντεβού, καταγράψτε το όνομά σας σύμφωνα με τον τόνο.
+    request_phone_number: Για να συνεχίσετε, εισαγάγετε τον αριθμό τηλεφώνου σας
+    select_assistant: Επιλέξτε τον εικονικό βοηθό σας
+    send_sms_confirm: Αποστολή SMS επιβεβαίωσης κράτησης
+    send_sms_confirmation: Αποστολή SMS επιβεβαίωσης
+    send_sms_confirmation_text: 'Παράδειγμα: Η κράτησή σας στην ABC Company στο %{time} επιβεβαιώθηκε. Ανυπομονούμε να σας δούμε εκεί! PS: Μην ξεχάσετε να φέρετε ένα χαμόγελο.'
+    services: Υπηρεσίες
+    smart_services: Έξυπνες υπηρεσίες
+    sms_confirmation: Κείμενο επιβεβαίωσης SMS
+    tracking_url_enter: Εισαγάγετε τη διεύθυνση URL και κάντε κλικ στο "Αποθήκευση". Αυτή η διεύθυνση URL θα ενεργοποιηθεί μετά τη λήξη της κλήσης.
+    variables: 'Μεταβλητές παρακολούθησης:'
+    virtual_assistant: Εικονικός βοηθός
+  menu_type:
+    no_cronofy_help_text: Αυτή η υπηρεσία δεν είναι διαθέσιμη με το πρόγραμμα που είναι συγχρονισμένο. Για περισσότερες πληροφορίες, επικοινωνήστε με την <strong> υποστήριξη </strong>.
+    online: Σε σύνδεση
+    online_text: Widget κρατήσεων
+    phone: Τηλέφωνο
+    service_change_heading: Υπηρεσίες
+    voice_assistant: Βοηθός φωνής
+  nav_menu:
+    activity: Πληροφορίες
+    announce: Ειδική ανακοίνωση
+    appointment_widget: Widget ραντεβού
+    automations: Αυτοματισμοί
+    availability: Διαθεσιμότητα
+    billing: Χρέωση
+    booking_widgets: Widget online κρατήσεων
+    business_hours: Εργάσιμες ώρες
+    calls: Κλήσεις
+    chat: Κουβέντα
+    clicks: Κλικ
+    communication_channels: Κανάλια
+    configure: Ρυθμίσεις
+    confirmation: Επιβεβαίωση
+    contacts: Επαφές
+    custom_texts: Προσαρμοσμένα κείμενα
+    dashboard: Ταμπλό
+    event_selection: Προσθήκη Επιλογών Κράτησης
+    event_types: Επιλογές κράτησης
+    follow_up: Παρακολούθηση μηνυμάτων
+    forward: Προς τα εμπρός
+    greetings: Χαιρετίσματα
+    group: Μαζικά μηνύματα
+    home: Αρχική σελίδα
+    integrations: Ενσωματώσεις
+    interact: Συνομιλίες
+    language: Γλώσσα
+    language_lv1: Γλώσσα και φωνή
+    language_lv2: Πολύγλωσσο (σύντομα)
+    menu: Μενού τηλεφώνου
+    my_account: Ο λογαριασμός μου
+    my_team: Η ομάδα μου
+    notifications: Ειδοποιήσεις
+    notify: Μετάδοση SMS
+    online_agenda: Διαδικτυακή ατζέντα
+    phone_menu: Μενού τηλεφώνου
+    phone_numbers: Αριθμοί
+    preferences: Προτιμήσεις
+    private: Γρήγορη αποστολή
+    receptionist: Υπεύθυνος υποδοχής
+    reminders: Υπενθυμίσεις
+    reports: ΣΦΑΙΡΙΚΗ ΕΙΚΟΝΑ
+    say_opening_hours: Πείτε ώρες λειτουργίας
+    scheduled_events: Ημερολόγια
+    scheduling_rules: Κανόνες προγραμματισμού
+    select_agenda: Επιλέξτε ημερήσια διάταξη
+    services_resources: Προσθήκη εκδηλώσεων
+    sms: γραπτό μήνυμα
+    take_messages: Λήψη μηνυμάτων (Φωνητικό ταχυδρομείο σε email)
+    tracking_analytics: Analytics και παρακολούθηση
+    voice: Φωνή
+  notification:
+    alert: Στείλτε ειδοποιήσεις SMS για επιβεβαιώσεις ραντεβού και αλλαγές στους πελάτες σας και στον εαυτό σας.
+    appointment_cofirmation_sms: SMS επιβεβαίωσης ραντεβού
+    cancellation_sms: Ακύρωση SMS
+    check1: Στείλτε μια επιβεβαίωση SMS σε εσάς όταν επιβεβαιωθεί το ραντεβού
+    check2: Στείλτε μια επιβεβαίωση SMS στους ΠΕΛΑΤΕΣ όταν επιβεβαιωθεί το ραντεβού
+    check3: Στείλτε μια ειδοποίηση SMS στους ΠΕΛΑΤΕΣ όταν ακυρωθεί το ραντεβού
+    heading: Ειδοποιήσεις
+    sms_notifications: Αποστολή ειδοποιήσεων SMS
+    sms_text: Κείμενο SMS
+  onboarding:
+    call_modal_text_1: Κλήση
+    call_modal_text_2: για να δοκιμάσετε τον βοηθό σας
+    call_modal_text_3: 'Σημείωση: πραγματοποιήστε την κλήση από τον αριθμό τηλεφώνου σας'
+    call_modal_upgrade_plan: Αναβάθμιση ενός προγράμματος
+    connect_calendar:
+      apple_company: Apple
+      auth_failure_content: Could not authorize Agenda!
+      auth_failure_title: Authorize failure!
+      calendar_processed_in: Τα δεδομένα του ημερολογίου σας επεξεργάζονται σε
+      exchange: Exchange Calendar
+      exchange_detail: Exchange Server 2013, 2016, or 2019
+      google: Google Calendar
+      google_company: Google
+      google_detail: Gmail, G Suite
+      icloud: iCloud Calendar
+      icloud_detail: Default calendar for all Apple products
+      menu_description: Google, Microsoft, Apple
+      menu_name: Connect Calendar
+      microsoft_company: Microsoft
+      office_365: Office 365 Calendar
+      office_365_detail: Office 365, Outlook.com, live.com, or hotmail calendar
+      outlook: Outlook Plug-In
+      outlook_detail: Outlook 2007 and higher, with Windows 7 and higher
+      region: Περιοχή
+      server_region_tooltip: Αν δεν είστε σίγουροι για το ποια τοποθεσία πρέπει να χρησιμοποιήσετε, το πιθανότερο είναι να είναι η τοποθεσία <img class='h-15px' src='/assets/flags/united-states.svg' alt='voxiplan' /> ΗΠΑ.
+      title: Connect your Calendar
+      title_description: Connect your calendar to auto-check for busy times and add new events as they are scheduled.
+      title_warning: If you want to continue without calendar provider selection, then just click the "Continue" button without a selection.
+      voxiplan: Ημερολόγιο Voxiplan
+      voxiplan_detail: Ημερολόγιο Voxiplan
+      voxiplan_title: Voxiplan
+    general_info:
+      create_url: Create you Voxiness URL
+      create_url_description: Choose a URL that describes you or your business in a concise way. Make it short and easy to remember, so you can share links with ease.
+      menu_description: URL, Timezone
+      menu_name: General Info
+      organization_name: Όνομα οργανισμού
+      organization_name_description: Δημιουργήστε τον οργανισμό σας που σας ανήκει.
+      timezone: Time Zone
+      title: Welcome to Voxiplan!
+      title_description: We take the work out of connecting with others, so you can accomplish more.
+    online_booking_appointment: Online κράτηση ραντεβού
+    order_your_number: Order your phone number
+    order_your_number_text: Ένας αντιπρόσωπος της Voxiplan θα επικοινωνήσει μαζί σας για να επεξεργαστεί την παραγγελία σας.
+    phone_appointment_booking: Κράτηση ραντεβού μέσω τηλεφώνου
+    set_availability:
+      available_days: Available Days
+      available_hours: Available Hours
+      fridays: Fridays
+      from: From
+      menu_description: Available hours, Available days
+      menu_name: Set Your Availability
+      mondays: Mondays
+      saturdays: Saturdays
+      sundays: Sundays
+      thursdays: Thursdays
+      title: Set Your Availability
+      title_description: Let Voxiness know when you're typically available to accept meetings.
+      to: To
+      tuesdays: Tuesdays
+      wednesdays: Wednesdays
+    step1_button: Ξεκινήστε την επίδειξη
+    step1_heading: Εδώ είναι μια γρήγορη επίδειξη
+    step1_help_text: Είναι ο γρηγορότερος τρόπος για να φτάσετε στην ταχύτητα με τα νέα σας εργαλεία.
+    step2_button: Τσέκαρέ το
+    step2_heading: Φανταστείτε ότι κάποιος θέλει να κλείσει ραντεβού μαζί σας
+    step2_help_text: Τα νέα σας εργαλεία προγραμματισμού θα τους βοηθήσουν να βρουν την καλύτερη υποδοχή, είτε είναι συνδεδεμένη είτε μέσω τηλεφώνου.
+    step3_button: Να συνεχίσει
+    step3_heading: Οι χρήστες μπορούν να κλείσουν ραντεβού στο διαδίκτυο ή μέσω τηλεφώνου
+    step3_sub_heading: Κάντε κλικ σε κάθε κουμπί για να κλείσετε ραντεβού
+    step4_button: Πίσω
+    step4_heading: Τώρα ας συνδέσουμε το ημερολόγιό σας
+    step4_sub_heaidng: Αυτό θα σας επιτρέψει να αποδεχτείτε κρατήσεις
+    try_it_now: Δοκίμασέ το τώρα
+    welcome:
+      menu_description: Review and Submit
+      menu_name: Welcome
+      title: Release!
+      title_description: Submit your app to Voxiplan.
+  organization:
+    add_to_group: Προσθήκη σε ομάδα
+    add_user: Προσθήκη μέλους
+    apply_templates: Εφαρμογή προτύπων
+    calendar:
+      add: Προσθέστε
+      cancel: Ακύρωση
+      disabled: Άτομα με ειδικές ανάγκες
+      edit: Επεξεργασία
+      edit_calendar: Επεξεργασία ημερολογίου
+      enabled: Ενεργοποιημένο
+      go_back: Πίσω
+      name: Όνομα
+      new_calendar: Νέο ημερολόγιο
+      remove: Αφαιρέστε το
+      resource: Πόροι
+      select_user: Επιλέξτε έναν χρήστη
+      title: Ημερολόγιο Voxiplan
+      user: Χρήστης
+    change_role: Αλλαγή ρόλου
+    delete_customer_confirm: Είστε σίγουροι ότι θέλετε να διαγράψετε επιλεγμένους πελάτες
+    deleted_all: Έχετε διαγράψει όλους τους επιλεγμένους πελάτες!
+    deleted_one: Έχετε αφαιρέσει
+    disable_calendar: Απενεργοποίηση ημερολογίου
+    enable_calendar: Ενεργοποίηση Ημερολογίου
+    export: Εξαγωγή
+    filter:
+      button:
+        apply: Εφαρμογή
+        reset: Επαναφορά
+      label:
+        group: Ομάδα
+        role: Ρόλος
+      options: Επιλογές φίλτρου
+      placeholder: Επιλέξτε επιλογή
+      title: Φίλτρο
+    message:
+      add_calendar_success: Προστέθηκε νέο ημερολόγιο εφαρμογής με επιτυχία
+      already_accepted: Ο χρήστης με αυτό το email έχει ήδη αποδεχτεί την πρόσκλησή σας.
+      already_pending: Έχετε ήδη στείλει μια πρόσκληση σε αυτόν τον χρήστη και εκκρεμεί ακόμα.
+      calendar_enable_changed: Αλλαγή ενεργοποίησης ημερολογίου για το μέλος με επιτυχία
+      edit_calendar_success: Ενημέρωση ημερολογίου εφαρμογής με επιτυχία
+      failed_invitation_email: Αποτυχία αποστολής email πρόσκλησης
+      invalid_email: Μη έγκυρο email
+      non_existed_calendar: Δεν υπάρχει ημερολόγιο voxiplan
+      non_id: Δεν παρέχεται ταυτότητα ημερολογίου!
+      owner_calendar_enable_changed: Ο ιδιοκτήτης πρέπει να έχει ημερολόγιο
+      remove_calendar_success: Αφαίρεση ημερολογίου εφαρμογής με επιτυχία
+      success_sent: Στείλατε μια πρόσκληση στο %{email} με επιτυχία.
+    modal:
+      discard: Απορρίψτε το
+      enable_calendar: Ενεργοποίηση Ημερολογίου
+      member: Μέλος
+      please_wait: Παρακαλώ περιμένετε...
+      role: Ρόλος
+      select_role: Επιλέξτε έναν ρόλο
+      submit: Υποβολή
+    owner_cannot_remove: Ο ιδιοκτήτης δεν μπορεί να απομακρυνθεί!
+    placeholder:
+      search: Αναζήτηση...
+    remove: Αφαιρέστε το
+    remove_member: Διαγραφή μέλους
+    remove_user_confirm: Είστε σίγουροι ότι θέλετε να αφαιρέσετε
+    selected: Επιλεγμένα
+    thead:
+      calendar_enabled: Κατάσταση ημερολογίου
+      email: Ηλεκτρονικό ταχυδρομείο
+      group: Ομάδα
+      name: Όνομα
+      role: Ρόλος
+      voxiplan_page: Voxiplan Σελίδα
+    title: Διαχείριση μελών οργανισμού
+  ory:
+    error:
+      button: Πίσω
+      content: Παρακαλώ επιστρέψτε και δοκιμάστε ξανά αργότερα
+      title: Εμφανίστηκε σφάλμα
+    infor:
+      session_expired: Η σύνοδος έληξε, παρακαλώ συνδεθείτε ξανά!
+    recovery:
+      caption1: Εισάγετε το email σας για να επαναφέρετε τον κωδικό πρόσβασής σας
+      caption2: Επαλήθευση κωδικού
+      resend: Ξαναστείλε τον κωδικό
+      send: Στέλνω κωδικό
+      submit: υποβάλλουν
+    verification:
+      button: Συνεχίστε
+      content: Κάντε κλικ στο παρακάτω κουμπί για να συνεχίσετε στο λογαριασμό σας
+      title: Email επαληθεύτηκε επιτυχώς
+  phone_assistant_enabled: Διακόπτης τηλεφωνικών κρατήσεων
+  phone_menu:
+    Offer_closed_hours: Επιλογές μενού προσφοράς κατά τις κλειστές ώρες
+    Offer_opening_hours: Επιλογές μενού προσφοράς κατά τις ώρες λειτουργίας
+    action: Δράση
+    alert: Χρησιμοποιήστε το μενού τηλεφώνου για να δώσετε στους καλούντες διαφορετικές επιλογές για να διαλέξετε. Μπορεί να υπάρχουν διαφορετικές επιλογές μενού κατά τις ώρες λειτουργίας και κλεισίματος. Οι καλούντες θα το ακούσουν μετά τον κύριο χαιρετισμό.
+    alert1: Χρησιμοποιήστε το μενού τηλεφώνου για να δώσετε στους καλούντες διαφορετικές επιλογές για να διαλέξετε. Μπορεί να υπάρχουν διαφορετικές επιλογές κατά το άνοιγμα και το κλειστό ωράριο.
+    alert2: Οι καλούντες θα το ακούσουν μετά τον κύριο χαιρετισμό.
+    call_rings_text: Πόσο καιρό η κλήση χτυπά πριν μεταβείτε στον αυτόματο τηλεφωνητή.
+    call_transfer: Μεταφορά κλήσης
+    closed_hours: Μενού κλειστών ωρών
+    configure_caller_menu: 'Διαμορφώστε το μενού καλούντος:'
+    configure_menu_options: 'Διαμορφώστε τις επιλογές μενού:'
+    edit_extension: Επεξεργασία επέκτασης
+    enable_phone_menu: Ενεργοποίηση μενού τηλεφώνου
+    extension: Επέκταση
+    extension_enable_say: Ενημερώστε τον πελάτη πριν πάρετε ένα μήνυμα
+    extension_enable_say2: Πώς πρέπει να ενημερώσω την επαφή πριν λάβω ένα μήνυμα
+    extension_number: Αριθμός επέκτασης
+    heading: Μενού
+    menu_options: Επιλογές μενού
+    new_extension: Νέα επέκταση
+    no_title: Δεν υπάρχει τίτλος
+    no_user: Δεν υπάρχουν χρήστες
+    opening_hours: Μενού ωρών λειτουργίας
+    present_choices: 'Παρουσίαση των επιλογών μενού του τηλεφώνου σας:'
+    select_user: Παρακαλούμε επιλέξτε Χρήστες
+    should_i: Θα έπρεπε εγω
+    should_i_present: Πρέπει να προσφέρω
+    title: Τίτλος
+    transfer_extension_enable_say: Πείτε κάτι πριν μεταφέρετε την κλήση τους;
+    transfer_extension_say_custom_message: γράψε το μήνυμά σου εδώ
+    type: Τύπος
+    users: Χρήστες
+    voicemail_extension_enable_say: Πείτε κάτι πριν πάρετε ένα μήνυμα;
+    wait_time: Περιμένετε λίγο πριν προσφέρω να λάβω ένα μήνυμα
+  pre_confirmation:
+    accepted: Το ραντεβού που σχετίζεται με αυτόν τον σύνδεσμο γίνεται αποδεκτό με επιτυχία!
+    already_confirmed: Το ραντεβού που σχετίζεται με αυτόν τον σύνδεσμο έχει ήδη επιβεβαιωθεί!
+    already_rejected: Το ραντεβού που σχετίζεται με αυτόν τον σύνδεσμο έχει ήδη απορριφθεί!
+    no_association: Δεν υπάρχει ραντεβού που να σχετίζεται με αυτόν τον σύνδεσμο!
+    non_pre_confirm_appointment: Το ραντεβού που σχετίζεται με αυτόν τον σύνδεσμο δεν είναι ενεργοποιημένο για ΠΡΟ-ΕΠΙΒΕΒΑΙΩΣΗ
+    rejected: Το ραντεβού που σχετίζεται με αυτόν τον σύνδεσμο ακυρώθηκε με επιτυχία!
+  preference:
+    ai_bot_switch: Συνομιλητική AI
+    ai_bot_title: Τύπος βοηθού
+    alert: Αποφασίστε εάν οι πελάτες πρέπει να εγγραφούν, πώς επιτρέπεται να κλείσουν ραντεβού και τι πρέπει να συμβεί όταν επιβεβαιωθεί ένα ραντεβού
+    booking_limits: Όρια κράτησης
+    check1: Ρωτήστε ανώνυμους πελάτες για τον αριθμό τηλεφώνου τους
+    check2: Ρωτήστε τους νέους πελάτες για το όνομά τους
+    check3: Να επιτρέπονται κρατήσεις από νέους πελάτες
+    check4: Αποτρέψτε τους πελάτες από την κράτηση νέων ραντεβού λιγότερο από
+    check5: Επιτρέψτε στους πελάτες να ακυρώσουν ή να τροποποιήσουν ραντεβού στο τηλέφωνο έως
+    check6a: Επιτρέψτε στους πελάτες να προγραμματίζουν έως
+    check6b: ραντεβού κάθε φορά. (Αφήστε κενό για να επιτρέψετε απεριόριστες κρατήσεις)
+    check7: Ζητήστε από τους πελάτες να σας αφήσουν ένα μήνυμα
+    check8: Υπενθυμίστε στους πελάτες να μην ξεχάσουν κάτι
+    check9a: Ζητήστε από τους πελάτες να επιβεβαιώσουν την επιλεγμένη χρονική περίοδο.
+    check9b: Επιλέξτε έναν τύπο επιβεβαίωσης παρακάτω.
+    confirmation: Επιβεβαίωση
+    enable_ai_bot: Ενεργοποίηση AI
+    heading: Προτιμήσεις
+    post_confirmation: Μετά την επιβεβαίωση
+    radio1_head: Διπλή επιβεβαίωση
+    radio1_text1: Επαναλάβετε την επιλεγμένη χρονική περίοδο και ζητήστε επιβεβαίωση για άλλη μια φορά πριν κλείσετε το ραντεβού.
+    radio1_text2: «Επιλέξατε αύριο στις 10 π.μ. Για να επιβεβαιώσετε την επιλογή σας, πατήστε 1. "
+    radio2_head: Απλή επιβεβαίωση
+    radio2_text1: Κλείστε την επιλεγμένη χρονική περίοδο και δώστε τους την επιλογή να επιστρέψουν και να αλλάξουν την επιλογή τους.
+    radio2_text2: «Επιλέξατε αύριο στις 10 π.μ. Για να το αλλάξετε, πατήστε 0 .. "
+    registration: Εγγραφή
+  pricing:
+    additional_fee: Πρόσθετες χρεώσεις ανά αερομεταφορέα
+    agenda_connection_pricing: Ατζέντα Σύνδεση
+    appointment: ραντεβού
+    appointment_Pricing_help_text: Ανάλογα με το αποτέλεσμα της αλληλεπίδρασης με τον βοηθό σας, θα χρεωθείτε με μια μικρή χρέωση όταν ένα ραντεβού κλείσει ή τροποποιηθεί επιτυχώς.
+    appointment_pricing: Εφόδια
+    appointment_rate: Ποσοστό ραντεβού
+    appointments: Ραντεβού
+    assistant: Βοηθός
+    assistant_tooltip: Να πληρώνετε την εργασία του βοηθού σας μόνο όταν ολοκληρώνει επιτυχώς μια εργασία
+    assistant_type: Τύπος βοηθού
+    assistant_type_help: Εργαστείτε με έναν βοηθό IVR που βασίζεται σε τηλέφωνο ή έναν βοηθό συνομιλίας AI για τηλέφωνο και συνομιλία.
+    automation: Αυτοματοποίηση
+    beta: BETA
+    check_rates: Έλεγχος τιμών
+    comming_soon: έρχεται σύντομα!
+    communication_channel: Κανάλια επικοινωνίας (Εργαλεία)
+    communication_channel_help: Αυτόματη λήψη κρατήσεων μέσω πολλαπλών καναλιών επικοινωνίας.
+    converstation_ai: Συνομιλιακή τεχνητή νοημοσύνη
+    country_label: Επέλεξε τη χώρα σου
+    currency_label: Νόμισμα
+    estimated: Εκτιμώμενο
+    first_50_tasks: Οι πρώτες 50 εργασίες ΔΩΡΕΑΝ ανά μήνα
+    first_x_agendas: Πρώτες συνδέσεις Χ
+    first_x_appointments: Έως 100 ραντεβού
+    language_label: Γλώσσα
+    local: Τοπικός
+    mobile: Κινητό
+    next_y_agendas: Επόμενες συνδέσεις Υ
+    next_y_appointments: Μέχρι 250 ραντεβού
+    next_z_appointments: Έως 400 ραντεβού
+    online: Σε σύνδεση
+    pay_per_use: Πληρωμή ανά χρήση
+    pay_per_use_desc: "- Pay-per-use Telecom (<a class='text-decoration-underline text-info' href='#kt_modal_telecom_pricing#kt_tab_pane_telecom_fee_voice'>Ελέγξτε τις τιμές</a>)"
+    pay_per_use_formula: τέλος χρήσης   =   τέλος υπηρεσίας +   τέλος βοηθού   +   τέλος τηλεπικοινωνιών
+    pay_per_use_help_text: Οι βοηθοί μας AI και τηλεφώνου χρεώνονται ανά χρήση. Δεν ισχύει για το Widget κράτησης.
+    pay_per_use_pricing: Τιμολόγηση ανά χρήση
+    per_appointmnet: ανά ραντεβού
+    per_seat_month: Ανά θέση / μήνα
+    per_user_month: ανά χρήστη / μήνα
+    phone: Τηλέφωνο
+    phone_&_text: Τηλέφωνο και κείμενο
+    phone_and_ai_pricing: Τηλεφωνικοί βοηθοί και τιμές AI
+    phone_number_pricing: Τηλεφωνικοί αριθμοί
+    plan_description: Όλα τα σχέδιά μας περιλαμβάνουν ένα <strong> widget συνομιλίας </strong> που μπορείτε να προσθέσετε στον ιστότοπό σας
+    plan_name: Τιμολόγηση
+    pricing: Τιμολόγηση
+    session_desc: Μια αλληλεπίδραση πολλαπλών στροφών μεταξύ του βοηθού σας και μιας επαφής θεωρείται ως συνεδρία, ανεξάρτητα από τον αριθμό των μηνυμάτων.
+    session_line_1: Περιλαμβάνονται 50 συνεδρίες/αλληλεπιδράσεις
+    session_line_2: "/μήνα ανά 50 επιπλέον συνεδρίες/αλληλεπιδράσεις"
+    session_tooltip: Για να πληρώσετε το VoxiPlan κατ' αποκοπήν ανά συνεδρία
+    sessions: Συνεδρίες
+    sessions_help_text: Ανεξάρτητα από το είδος της αλληλεπίδρασης, θα χρεώνεται μια μικρή χρέωση για κάθε συνεδρία με τον βοηθό σας.
+    sip_pricing: ΓΟΥΛΙΑ
+    sms_pricing: γραπτό μήνυμα
+    sms_pricing_modal: Για περισσότερες πληροφορίες σχετικά με την τιμολόγηση sms, κάντε κλικ εδώ
+    task_rate: Ποσοστό εργασιών
+    tasks: Εργασίες
+    technology: Τεχνολογία
+    technology_help: Επιτρέψτε στους καλούντες να κάνουν αυτόματη κράτηση συμβάντων μέσω ενός μενού τηλεφώνου ή να χρησιμοποιούν μακροχρόνιες συνομιλίες με τον βοηθό τεχνητής νοημοσύνης.
+    telecom_rates: Τιμές τηλεπικοινωνιών
+    telecom_rates_help_text: Ορισμένα κανάλια επικοινωνίας εφαρμόζουν χρεώσεις τηλεπικοινωνιών. Ελέγξτε τις παρακάτω τιμές ανάλογα με το κανάλι επικοινωνίας και τη χώρα.
+    telecom_tooltip: Για την πληρωμή των μεταβλητών εξόδων των τηλεπικοινωνιών
+    to_make_calls: Εξερχόμενες κλήσεις
+    to_receive_calls: Εισερχόμενες κλήσεις
+    to_recieve: Εισερχόμενος
+    to_recieve_calls: Εισερχόμενες κλήσεις
+    to_send: Εξερχόμενος
+    top_section:
+      annual: Ετήσια σχέδια
+      heading: Διαφανής & απλή τιμολόγηση
+      help_text: Η τιμολόγηση είναι σε ευρώ για την Ευρώπη (συμπεριλαμβανομένου του Ηνωμένου Βασιλείου) και σε USD για τον υπόλοιπο κόσμο (χωρίς ΦΠΑ).
+      monthly: Μηνιαία σχέδια
+      plan_comparison: Σύγκριση σχεδίων
+      plan_comparison_description: Επιλέξτε τα χαρακτηριστικά που είναι πιο χρήσιμα για την επιχείρησή σας.
+      save_annual_plans: Εξοικονομήστε 20%
+      virtual:
+        answer_faq: Απαντήσεις στις συχνές ερωτήσεις (σύντομα)
+        answer_faq_tooltip: Απαντήστε σε αιτήματα για διεύθυνση, ώρες λειτουργίας, τιμές, τρόπος πληρωμής κ.λπ.
+        appoinments_scheduling_skills: Πραγματοποίηση ραντεβού
+        appoinments_scheduling_skills_help: Επιτρέψτε στους προσκεκλημένους να κάνουν κράτηση, να αλλάξουν και να ακυρώσουν αυτόματα τις κρατήσεις μέσω τηλεφώνου και συνομιλίας.
+        channel_1: Φωνή
+        channel_2: Συνομιλία & SMS (σύντομα!)
+        channel_3: Whatsapp (σύντομα!)
+        channel_4: Webhooks (έρχονται σύντομα!)
+        collect_feedback: Συλλογή σχολίων και σχολίων (σύντομα)
+        comm_channel: "(κανάλια επικοινωνίας)"
+        detail_1: 51 γλώσσες
+        detail_10: Συνομιλητική AI
+        detail_1_1: Πολύγλωσσο
+        detail_1_1_help: Επιτρέψτε στους προσκεκλημένους να κλείσουν ραντεβού μαζί σας μέσω τηλεφώνου και να συνομιλήσουν σε περισσότερες από 51 γλώσσες.
+        detail_2: Υπεύθυνος υποδοχής
+        detail_2_help: Ο βοηθός σας καλωσορίζει τους καλούντες με ένα μήνυμα καλωσορίσματος, προωθεί τις κλήσεις στη σωστή ομάδα, λαμβάνει μηνύματα και κάνει ανακοινώσεις.
+        detail_3: Καλωσορίσατε τους καλεσμένους, λάβετε μηνύματα, προωθήστε κλήσεις, κάνετε ανακοινώσεις
+        detail_4: Προγραμματισμός ραντεβού
+        detail_4_1: Κράτηση, ακύρωση και επαναπρογραμματισμός
+        detail_5: Παρακολούθηση μετά από κλήση / Ειδοποιήσεις παρακολούθησης
+        detail_5_help: Στείλτε αυτόματη παρακολούθηση SMS στους καλούντες όταν η ομάδα σας δεν είναι διαθέσιμη ή δεν έχει ολοκληρωθεί η κράτηση.
+        detail_6: Αποστολή SMS Καμπάνιες
+        detail_6_help: Μεταδώστε καμπάνιες SMS στη λίστα επαφών σας
+        detail_7: Μενού τηλεφώνου (IVR)
+        detail_7_1: Μονό κανάλι
+        detail_8: Χαρακτηριστικά
+        detail_9: 3 γλώσσες
+        heading: Εικονικός βοηθός
+        included: Περιλαμβάνεται στο πρόγραμμα Basic ή Premium για περιορισμένο χρονικό διάστημα
+        no_show_recovery: Μειώστε την απουσία (σύντομα)
+        no_show_recovery_help: Αποτρέψτε και επαναπρογραμματίστε μη εμφανίσεις με αυτοματοποιημένες ροές υπενθύμισης και κρατήσεων.
+        no_show_recovery_tooltip: Απαντήστε στην υπενθύμιση ραντεβού και στα μηνύματα παρακολούθησης
+        pay_per: Πληρωμή ανά χρήση
+        phone: Τηλέφωνο
+        plus: 'Όλα σε Premium, συν:'
+        plus_1: 'Τα πάντα στο Pro, συν:'
+        rates_below: "(δείτε τιμές παρακάτω)"
+        skills: Δεξιότητες
+        sms: SMS
+        tools: 'Εργαλεία:'
+        type_1: Υπέρ
+        type_2: Όλα συμπεριλαμβάνονται
+        web_chat: Web Chat
+      widget:
+        active_event_type: Τύποι ενεργών συμβάντων
+        active_event_type_help: Ορίστε διαθεσιμότητα, διάρκεια, τοποθεσία, μέλη ομάδας και πολλά άλλα για κάθε τύπο εκδήλωσης.
+        automated_notification: Αυτοματοποιημένες ειδοποιήσεις συμβάντων
+        automated_notification_help: Εσείς και οι προσκεκλημένοι σας λαμβάνουν email σχετικά με κρατήσεις, αλλαγές και ακυρώσεις.
+        custom_questions: Προσαρμοσμένες ερωτήσεις
+        custom_questions_help: Προσθέστε πεδία ερωτήσεων σε συμβάντα και προσαρμόστε τα για διαφορετικά συμβάντα.
+        detail_0: Ημερολογιακές συνδέσεις ανά θέση
+        detail_1: Απεριόριστα ραντεβού
+        detail_1_help: Κλείστε απεριόριστο αριθμό ραντεβού με προσκεκλημένους
+        detail_2: Ημερολόγιο Google, Outlook, Office 365, ενσωμάτωση iCal
+        detail_2_help: Συγχρονίστε όλα τα ημερολόγιά σας με το Voxiplan.
+        detail_3: Ειδοποιήσεις μέσω email και SMS
+        detail_3_help: Προσαρμόστε και στείλτε υπενθυμίσεις για τις εκδηλώσεις σας σε εσάς και στους προσκεκλημένους σας.
+        detail_4: Κατάργηση επωνυμίας
+        detail_4_help: Καταργήστε το λογότυπο και την επωνυμία Voxiplan από το γραφικό στοιχείο κράτησης και τα email σας
+        detail_5: Ανακατεύθυνση στη διεύθυνση URL
+        detail_5_help: Αυτόματη ανακατεύθυνση προσκεκλημένων σε μια προσαρμοσμένη διεύθυνση URL μετά την κράτηση.
+        detail_6: Ενσωμάτωση διασκέψεων
+        detail_6_help: Συνδεθείτε στη διάσκεψη Ιστού Google Meet και Zoom
+        detail_7: Συλλέξτε πληρωμές μέσω Stripe (σύντομα!)
+        detail_7_help: Συνδέστε τον λογαριασμό σας Stripe για να συλλέγετε με ασφάλεια πληρωμές από προσκεκλημένους.
+        detail_8: Προσαρμόσιμες & αυτοματοποιημένες ειδοποιήσεις συμβάντων
+        detail_8_help: Προσαρμόστε και στείλτε ειδοποιήσεις σε εσάς, την ομάδα σας και τους προσκεκλημένους με τις πληροφορίες που χρειάζονται για την εκδήλωσή σας.
+        detail_9: Βασική φόρμα εισαγωγής
+        heading: Διαδικτυακό widget κράτησης
+        included: 'Τι περιλαμβάνεται:'
+        plus: 'Τα πάντα στη Βασική, συν:'
+        sms_rates: Τιμές SMS
+        type_0: Πάντα δωρεάν
+        type_1: Βασικός
+        type_2: Ασφάλιστρο
+        voxisms_help: Στείλτε SMS χρησιμοποιώντας τον δικό σας αριθμό τηλεφώνου και πρόγραμμα κινητής τηλεφωνίας χρησιμοποιώντας την εφαρμογή VoxiSMS.
+    type: Τύπος
+    unlimited: Απεριόριστα
+    voice_pricing: Φωνή
+    voice_pricing_modal: Για περισσότερες πληροφορίες σχετικά με τη φωνητική τιμολόγηση, κάντε κλικ εδώ
+  profile:
+    close_account:
+      deactivated: Ο λογαριασμός σας είναι απενεργοποιημένος
+      deactivated_help: Αυτή είναι η ευκαιρία σας να πάρετε δημιουργικές καταπληκτικές ευκαιρίες <br>που δίνει στους αναγνώστες μια ιδέα
+      goto_voxiplan: Μετάβαση στο Voxiplan
+    faq: Συχνές ερωτήσεις
+    my_profile: Το ΠΡΟΦΙΛ μου
+    overview:
+      allow_changes: Επιτρέψτε τις αλλαγές
+      allow_marketing: Επιτρέψτε το μάρκετινγκ
+      communication: Επικοινωνία
+      company: Εταιρεία
+      country: Χώρα
+      edit_profile: Επεξεργασία προφίλ
+      full_name: Ονοματεπώνυμο
+      organization: Οργάνωση
+      phone: Τηλέφωνο επικοινωνίας
+      title: Επισκόπηση προφίλ
+      verify_required: Επαληθεύστε τον λογαριασμό σας για να ενημερώσετε το προφίλ σας.
+    overview_title: Επισκόπηση
+    setting_title: Ρυθμίσεις
+    settings:
+      deactivate_account:
+        deactivate_confirmation: Επιβεβαιώνω την απενεργοποίηση του λογαριασμού μου
+        learn_more: Μάθετε περισσότερα
+        need_confirmation: Πρέπει να τσεκάρετε το πλαίσιο ελέγχου για την απενεργοποίηση
+        notification_help: Για μεγαλύτερη ασφάλεια, αυτό απαιτεί να επιβεβαιώσετε το email ή τον αριθμό τηλεφώνου σας όταν επαναφέρετε τον κωδικό πρόσβασης yousignr.
+        notification_title: Απενεργοποιείτε το λογαριασμό σας
+        title: Απενεργοποίηση λογαριασμού
+      first_name: Όνομα
+      invalid_email_text: Η τιμή δεν είναι έγκυρη διεύθυνση email
+      language: Γλώσσα
+      language_tooltip: Επιλέξτε την προτιμώμενη γλώσσα, συμπεριλαμβανομένης της μορφοποίησης ημερομηνίας, ώρας και αριθμών.
+      last_name: Επώνυμο
+      matchnot_confirm_password_text: Ο κωδικός πρόσβασης και η επιβεβαίωσή του δεν είναι το ίδιο
+      password_invalid: Ο τρέχων κωδικός πρόσβασης είναι άκυρος
+      require_confirm_password_text: Απαιτείται επιβεβαίωση κωδικού πρόσβασης
+      require_current_password_text: Απαιτείται τρέχων κωδικός πρόσβασης
+      require_email: Απαιτείται email
+      require_new_password_text: Απαιτείται νέος κωδικός πρόσβασης
+      require_password_text: Απαιτείται κωδικός πρόσβασης
+      signin-method:
+        change_email: Αλλαγή email
+        change_password: Αλλαγή κωδικού πρόσβασης
+        confirm_new_password: Επιβεβαίωση νέου κωδικού πρόσβασης
+        confirm_password: Επιβεβαίωση κωδικού πρόσβασης
+        current_password: Τρέχων κωδικός πρόσβασης
+        email_address: Διεύθυνση ηλεκτρονικού ταχυδρομείου
+        new_email_address: Εισάγετε νέα διεύθυνση email
+        new_password: Νέος κωδικός πρόσβασης
+        password: Κωδικός πρόσβασης
+        password_tooltip: Ο κωδικός πρόσβασης πρέπει να είναι τουλάχιστον 8 χαρακτήρων και να περιέχει σύμβολα
+        title: Μέθοδος εγγραφής
+        update_email: Ενημέρωση email
+        update_password: Ενημέρωση κωδικού πρόσβασης
+      timezone: Ζώνη ώρας
+      title: Λεπτομέρειες προφίλ
+    support: Υποστήριξη
+    title: Ρυθμίσεις προφίλ
+  reminders:
+    before_appointment: before appointment
+    before_day_reminders: Υπενθυμίσεις πριν από την ημέρα του ραντεβού
+    before_day_reminders_tooltip: Μόλις ορίσετε αυτήν την επιλογή. Οι <b> Υπενθυμίσεις </b> θα σταλούν <u> πριν από την ημέρα </u> κατά την οποία πραγματοποιούνται <b> ραντεβού </b> με βάση τις <b> προτιμήσεις σας </b>.
+    days: Ημέρες
+    email_subject: 'Υπενθύμιση: ραντεβού στις %{event_date} στο %{event_time}'
+    email_template: Γεια %{full_name}, <br> Αυτή είναι μια υπενθύμιση για το ραντεβού σας αύριο, %{event_day} %{event_date} στο %{event_time}. Με εκτίμηση,
+    for_email: Για email
+    for_sms: Για SMS
+    for_subject: Θέμα του μέιλ
+    heading: Υπενθυμίσεις
+    help_text: Θα στείλουμε υπενθυμίσεις στους πελάτες σας με βάση τις προτιμήσεις σας.
+    hours: Ωρες
+    in_advance: εκ των προτέρων
+    in_advance_at: εκ των προτέρων στις
+    minutes: Λεπτά
+    months: Μήνες
+    notify_through_email: Ειδοποίηση μέσω email
+    notify_through_sms: Ειδοποίηση μέσω SMS
+    overwite_deny_button: Ματαίωση
+    overwite_ok_button: Αντικατάσταση
+    overwrite_error: Θέλετε να αντικαταστήσετε το υπάρχον κείμενο;
+    prefill_templates: Πρότυπα συμπλήρωσης
+    reminder_channels: Κανάλια υπενθύμισης
+    reminder_text: Κείμενο υπενθύμισης
+    reminder_types: Τύποι υπενθύμισης
+    same_day_reminders: Υπενθυμίσεις αυθημερόν
+    same_day_reminders_tooltip: Μόλις ορίσετε αυτήν την επιλογή. Οι <b> Υπενθυμίσεις </b> θα σταλούν <u> την ίδια ημέρα </u> κατά την οποία πραγματοποιούνται <b> ραντεβού </b> βάσει των <b> προτιμήσεών σας </b>.
+    save_changes: Αποθήκευσε τις αλλαγές
+    send_reminders: Αποστολή υπενθυμίσεων
+    sms_template: 'Γεια %{first_name}, Υπενθύμιση: ραντεβού αύριο, %{event_day} %{event_date} στο %{event_time}'
+    time_preferences: Προτιμήσεις χρόνου
+    weeks: Εβδομάδες
+  schedule_event:
+    add_event:
+      added_success: Νέα εκδήλωση προστέθηκε στο ημερολόγιο!
+      all_day: Όλη την ημέρα
+      contact: Επικοινωνία
+      deleted_success: Το συμβάν διαγράφηκε με επιτυχία!
+      event_description: Περιγραφή
+      event_end_date: Ημερομηνία λήξης
+      event_end_time: Χρόνος τέλους
+      event_notification: Ειδοποίηση συμβάντος
+      event_start_date: Ημερομηνία έναρξης
+      event_start_time: Ώρα έναρξης
+      event_title: Τίτλος
+      pick_end_time: Επιλέξτε ώρα λήξης
+      pick_start_time: Επιλέξτε ώρα έναρξης
+      resources: Πόροι
+      select_contact: Επιλέξτε μια επαφή
+      select_resource: Επιλέξτε έναν πόρο
+      select_service: Επιλέξτε μια υπηρεσία
+      services: Υπηρεσίες
+      title: Προσθήκη νέου συμβάντος
+      updated_success: Το συμβάν ενημερώθηκε με επιτυχία!
+    add_event_button: Βιβλίο
+    calendar: Ημερολόγιο
+    delete_event_confirm: Σίγουρα θέλετε να διαγράψετε αυτό το συμβάν
+    edit_event: Επεξεργασία συμβάντος
+    event_end_date_required: Απαιτείται ημερομηνία λήξης
+    event_end_time_required: Απαιτείται χρόνος λήξης
+    event_name_required: Το όνομα του συμβάντος είναι υποχρεωτικό
+    event_reorder: Είστε σίγουροι ότι θέλετε να επαναπαραγγείλετε αυτό το γεγονός
+    event_start_date_required: Απαιτείται ημερομηνία έναρξης
+    event_start_time_required: Απαιτείται ώρα έναρξης
+    setting:
+      hours: ώρες
+      max_time: Μέγιστος χρόνος
+      max_time_help: Καθορίζει την τελευταία χρονοθυρίδα που θα εμφανίζεται για κάθε ημέρα.
+      min: min.
+      min_time: Ελάχιστος χρόνος
+      min_time_help: Καθορίζει την πρώτη χρονοθυρίδα που θα εμφανίζεται για κάθε ημέρα.
+      pick_time: Διαλέξτε μια ώρα
+      select_day: Επιλέξτε μια ημέρα
+      select_time_format: Επιλέξτε μια μορφή ώρας
+      snap_duration: Διάρκεια Snap
+      snap_duration_help: Το χρονικό διάστημα στο οποίο ένα συρόμενο συμβάν θα μετατοπιστεί στον άξονα χρόνου.
+      start_week: Ξεκινήστε την εβδομάδα
+      start_week_help: Η ημέρα που αρχίζει κάθε εβδομάδα.
+      time_format: Μορφή χρόνου
+      time_increments: Αύξηση χρόνου
+      time_increments_help: Η συχνότητα εμφάνισης των χρονοθυρίδων.
+      title: Ρυθμίσεις
+      weekends: Σαββατοκύριακα
+      weekends_help: Εάν θέλετε να συμπεριλάβετε τις στήλες Σάββατο/Κυριακή σε οποιαδήποτε από τις προβολές ημερολογίου.
+    submit_failure: Συγγνώμη, φαίνεται ότι εντοπίστηκαν κάποια σφάλματα, παρακαλώ δοκιμάστε ξανά.
+    view_event:
+      change_event_condition: Αυτό το γεγονός δημιουργήθηκε εκτός του Voxiplan. Για να κάνετε αλλαγές σε αυτή την εκδήλωση, χρησιμοποιήστε το ηλεκτρονικό σας ημερολόγιο.
+      contact: Επικοινωνία εκδήλωσης
+      end: Τέλος
+      reschedule: Επαναπρογραμματισμός μέσω widget
+      resource: Πόρος εκδήλωσης
+      service: Υπηρεσία εκδηλώσεων
+      start: Έναρξη
+  select_agenda:
+    back_selection: Επιστροφή στην επιλογή
+    connect_failure: Αποτυχία σύνδεσης!. Παρακαλούμε ελέγξτε τα στοιχεία σας.
+    mobminder:
+      autrization_key: Κλειδί εξουσιοδότησης
+      caption: Mobminder
+      connect_success: Το Mobminder σας συνδέθηκε με επιτυχία.
+      description: Το Lorem Ipsum είναι απλά ένα εικονικό κείμενο της εκτύπωσης και της στοιχειοθεσίας που είναι κρυπτογραφημένο ένα κείμενο βιβλίου τύπου δείγματος του εικονικού κειμένου της εκτύπωσης της εκτύπωσης και της στοιχειοθεσίας της βιομηχανίας που είναι κρυπτογραφημένο εικονικό κείμενο της εκτύπωσης.
+      disconnect_success: Το Mobminder σας αποσυνδέθηκε με επιτυχία.
+      login: Σύνδεση
+      password: Κωδικός πρόσβασης
+    notice_link: Μάθετε περισσότερα.
+    notice_message: Το Voxi.ai πρέπει να συνδεθεί με το ημερολόγιό σας, ώστε να μπορούμε να προσδιορίσουμε τη διαθεσιμότητά σας και να διασφαλίσουμε ότι δεν θα έχετε ποτέ διπλές κρατήσεις.
+    notice_title: Γιατί πρέπει να συνδέσω το ημερολόγιό μου
+    sign_up: Εγγραφείτε
+    timify:
+      caption: Timify
+      company_id: Αναγνωριστικό εταιρείας
+      connect_success: Το Timify σας συνδέθηκε με επιτυχία.
+      description: Το Lorem Ipsum είναι απλά ένα εικονικό κείμενο της εκτύπωσης και της στοιχειοθεσίας που είναι κρυπτογραφημένο ένα κείμενο βιβλίου τύπου δείγματος του εικονικού κειμένου της εκτύπωσης της εκτύπωσης και της στοιχειοθεσίας της βιομηχανίας που είναι κρυπτογραφημένο εικονικό κείμενο της εκτύπωσης.
+      disconnect_success: Το Timify σας αποσυνδέθηκε με επιτυχία.
+    title: Ας συνδέσουμε το ημερολόγιό σας. Αυτό θα σας επιτρέψει να δέχεστε κρατήσεις.
+    title_description: Το Voxi.ai πρέπει να συνδεθεί με το ημερολόγιό σας, ώστε να μπορούμε να προσδιορίσουμε τη διαθεσιμότητά σας και να διασφαλίσουμε ότι δεν θα έχετε ποτέ διπλές κρατήσεις.
+  services:
+    ai: AI
+    ai_assistant_setting: AI Assistant Settings
+    assistant_booking_setting: Assistant Booking Settings
+    automations:
+      automation: Αυτοματισμός
+      booking_widget: Widget κρατήσεων
+      cancellation: Cancellation
+      cancellation_description: Αποστολή ειδοποιήσεων ακύρωσης
+      confirmation: Confirmation
+      confirmation_description: Αποστολή επιβεβαιώσεων κρατήσεων
+      custom: Προσαρμοσμένο
+      done: Έγινε
+      edit: Επεξεργασία
+      edit_action:
+        body: Σώμα
+        choose_template: Επιλέξτε ένα πρότυπο
+        email_host_action: Επεξεργασία της ενέργειας "Αποστολή email στον οικοδεσπότη"
+        email_invitee_action: Επεξεργασία της ενέργειας "Αποστολή email σε προσκεκλημένο"
+        include_link: Συμπεριλάβετε συνδέσμους ακύρωσης και επαναπρογραμματισμού
+        include_link_tooltip: Οι προσκεκλημένοι σας θα δουν κουμπιά που θα τους επιτρέπουν να ακυρώσουν ή να αναβάλουν την εκδήλωσή σας.
+        restore_default: Επαναφορά προεπιλογής
+        sms_host_action: Επεξεργασία της ενέργειας "Αποστολή SMS στον οικοδεσπότη"
+        sms_invitee_action: Επεξεργασία της ενέργειας "Αποστολή SMS σε προσκεκλημένο"
+        sms_text: Κείμενο SMS
+        subject: Θέμα
+      edit_automation:
+        action: Δράση(ες)
+        add_new_action: Προσθήκη νέας ενέργειας
+        all_resources: Όλοι οι πόροι
+        all_services: Όλες οι υπηρεσίες
+        booking_widget: Widget κρατήσεων
+        channel: Κανάλι
+        email_host: Στείλτε email στον οικοδεσπότη
+        email_invitee: Στείλτε email στον προσκεκλημένο
+        filter: Φίλτρο(α)
+        invitee: Προσκεκλημένος
+        is_include_agenda: Συμπεριλάβετε εξωτερικές εκδηλώσεις
+        is_include_agenda_help: Οι εξωτερικές εκδηλώσεις είναι εκδηλώσεις που δεν έχουν κλειστεί μέσω του Voxiplan
+        name: Όνομα
+        phone: Τηλέφωνο
+        resource: Πόρος(οι)
+        service: Υπηρεσία(ες)
+        sms_host: Αποστολή SMS στον οικοδεσπότη
+        sms_invitee: Αποστολή SMS στον προσκεκλημένο
+        trigger: Σκανδάλη
+      edit_trigger:
+        days: Ημέρες
+        group_event_options: Επιλογές ομαδικής εκδήλωσης
+        hours: Ώρες
+        in_advance_at: εκ των προτέρων στο
+        minutes: Πρακτικά
+        modal_title: Επεξεργασία σκανδάλου
+        months: Μήνες
+        weeks: Εβδομάδες
+        when_each_invitee: Όταν κάθε προσκεκλημένος κάνει κράτηση (προεπιλογή)
+        when_first_invitee: Όταν μόνο ο πρώτος προσκεκλημένος κάνει κράτηση
+        when_happen: Όταν συμβαίνει αυτό
+        when_trigger_happen: Για ομαδικές εκδηλώσεις, πότε θα πρέπει να ενεργοποιείται αυτή η ενεργοποίηση
+      email: Email
+      event_before_start_help: Πόση ώρα πριν από την έναρξη της εκδήλωσης
+      event_cancel_help: Πόσο καιρό μετά την ακύρωση της εκδήλωσης
+      event_end_help: Πόσο καιρό μετά τη λήξη της εκδήλωσης
+      event_new_help: Πόσο καιρό μετά το νέο συμβάν έχει προγραμματιστεί
+      event_not_completed_help: Πόσο καιρό μετά τη μη ολοκλήρωση της κατάστασης κλήσης
+      event_reschedule_help: Πόσο καιρό μετά την ανανέωση της εκδήλωσης
+      event_specific_time_help: Αποστολή υπενθυμίσεων
+      event_start_help: Πόση ώρα μετά την έναρξη της εκδήλωσης
+      follow_up: Follow-Up
+      follow_up_description: Αποστολή SMS παρακολούθησης για κλήσεις χωρίς ενέργειες ραντεβού
+      immediately_event_cancel: Αμέσως όταν ακυρώνεται το συμβάν
+      immediately_event_end: Αμέσως μόλις τελειώσει η εκδήλωση
+      immediately_event_new: Αμέσως όταν προγραμματίζεται νέο συμβάν
+      immediately_event_not_completed: Αμέσως όταν η κατάσταση κλήσης δεν έχει ολοκληρωθεί
+      immediately_event_reschedule: Αμέσως όταν η εκδήλωση επαναπρογραμματιστεί
+      immediately_event_start: Αμέσως μόλις ξεκινήσει η εκδήλωση
+      invitee: Προσκεκλημένος
+      new_automation: Προσθήκη νέου αυτοματισμού
+      notifications: Notifications
+      other: Other
+      phone_assistant: Phone assistant
+      reminder_description: Αποστολή αυτοματοποιημένων υπενθυμίσεων
+      reminders: Reminders
+      rescheduling: Επαναπρογραμματισμός
+      rescheduling_description: Αποστολή ειδοποιήσεων αναπρογραμματισμού
+      sms: SMS
+      tinymce:
+        event_date: Ημερομηνία εκδήλωσης
+        event_day: Ημέρα εκδήλωσης
+        event_name: Όνομα εκδήλωσης
+        event_time: Ώρα εκδήλωσης
+        invitee_first_name: Πρόσκληση Όνομα
+        invitee_full_name: Ονοματεπώνυμο προσκεκλημένου
+        invitee_last_name: Πρόσκληση Επώνυμο
+        resource_name: Όνομα πόρου
+      trigger_event_before_start: Πριν από την έναρξη της εκδήλωσης
+      trigger_event_cancel: Η εκδήλωση ακυρώνεται
+      trigger_event_end: Η εκδήλωση τελειώνει
+      trigger_event_new: Νέα εκδήλωση έχει προγραμματιστεί
+      trigger_event_not_completed: Η κατάσταση κλήσης είναι Μη ολοκληρωμένη
+      trigger_event_reschedule: Η εκδήλωση επαναπρογραμματίζεται
+      trigger_event_specific_time: Πριν από την έναρξη της εκδήλωσης σε συγκεκριμένη ώρα
+      trigger_event_start: Έναρξη εκδήλωσης
+      widget: Booking widget
+    available_for: Available for
+    booking_time:
+      availability_additional_rules:
+        response_type_overlapping: προσαυξήσεις χρόνου έναρξης
+        response_type_slot: διάρκεια του συμβάντος
+        start_time_helper: Ορίστε τη συχνότητα των διαθέσιμων χρονοθυρίδων για τους προσκεκλημένους.
+        start_time_increments: Προσαυξήσεις χρόνου έναρξης
+        start_time_label: Εμφάνιση διαθέσιμων ωρών έναρξης σε βήματα των...
+        time_slot_helper: Ορίστε τη διάρκεια των διαθέσιμων χρονοθυρίδων των προσκεκλημένων.
+        time_slot_label: Εμφάνιση διαθέσιμων χρονοθυρίδων με μήκος ίσο με...
+        time_slot_length: Μήκος χρονοθυρίδων
+        title: Πρόσθετοι κανόνες για τη διαθεσιμότητά σας
+      availability_help: Επιλέξτε ένα από τα προγράμματά σας ή ορίστε προσαρμοσμένες ώρες ειδικά για αυτόν τον τύπο εκδήλωσης.
+      buffer: Add a buffer before/after the event
+      buffer_after: Προσθέστε ένα buffer μετά το συμβάν
+      buffer_after_help: Αφιερώστε χρόνο μετά την εκδήλωση, τον οποίο μπορείτε να χρησιμοποιήσετε για να προετοιμαστείτε για την εκδήλωση ή να την ολοκληρώσετε.
+      buffer_after_placeholder: Χρόνος μετά τις εκδηλώσεις σας
+      buffer_before: Προσθέστε ένα buffer πριν από το συμβάν
+      buffer_before_help: Διαθέστε χρόνο πριν από την εκδήλωση, τον οποίο μπορείτε να χρησιμοποιήσετε για να προετοιμαστείτε για την εκδήλωση ή να την ολοκληρώσετε.
+      buffer_before_placeholder: Χρόνος πριν από τις εκδηλώσεις σας
+      buffer_extra_time: Προσθέστε έναν επιπλέον χρόνο
+      buffer_extra_time_help: Εμφάνιση της διάρκειας της υπηρεσίας στο widget για τους προσκεκλημένους, αλλά επέκταση της διάρκειας των χρονοθυρίδων με την προσθήκη επιπλέον χρόνου στη διάρκεια της υπηρεσίας
+      buffer_extra_time_placeholder: Επέκταση της διάρκειας της υπηρεσίας
+      buffer_help: Διαθέστε χρόνο πριν και μετά την εκδήλωση, τον οποίο μπορείτε να χρησιμοποιήσετε για να προετοιμαστείτε για την εκδήλωση ή να την ολοκληρώσετε.
+      choose_duration: Choose a duration
+      confirm_remove_slot: Are you sure you want to remove this element?
+      custom_hours_long: Define custom availability specific to the event type
+      custom_hours_short: Set custom availability
+      default_hours_long: Use default availability set on your profile for all events
+      default_hours_short: Use default availability
+      event_length: Define how long your event will be
+      set_custom_hours: Ορισμός προσαρμοσμένων ωρών
+      set_custom_hours_help: Ορισμός προσαρμοσμένων ωρών ειδικά για τον τύπο εκδήλωσης
+      use_default_hours: Χρήση προεπιλεγμένων ωρών
+      use_default_hours_help: Χρησιμοποιήστε τις προεπιλεγμένες ώρες που έχουν οριστεί στο προφίλ σας για όλες τις εκδηλώσεις
+    booking_widget: Widget κρατήσεων
+    bought_number: Αγοράσατε έναν αριθμό τηλεφώνου με επιτυχία.
+    button:
+      add_new_event: Add New Event
+      assistant_settings: Assistant Settings
+      bulk_actions: Bulk actions
+      copy_link: Copy Link
+      create: Create Service
+      edit: Edit
+      new_event_for_all: Νέα εκδήλωση για όλους
+      remove: Remove
+      turn_off: Turn off
+      turn_on: Turn on
+      turn_on_off: Ενεργοποίηση/απενεργοποίηση
+      update: Update Service
+      widget_settings: Widget Settings
+    buy_number: Αγοράστε αριθμό
+    buy_number_modal:
+      address_requirement: Απαίτηση διεύθυνσης
+      advanced_search: Σύνθετη αναζήτηση
+      buy: Αγοράστε
+      capabilities: Δυνατότητες
+      local: Τοπικό
+      mobile: Κινητό
+      monthly_fee: Μηνιαίο τέλος
+      number: Αριθμός
+      number_type: Αριθμός Τύπος
+      reset: Επαναφορά
+      search: Αναζήτηση
+      select_country: Επιλέξτε μια χώρα
+      sms: SMS
+      title: Αγοράστε έναν αριθμό
+      toll_free: Χωρίς χρέωση
+      type: Τύπος
+      voice: Φωνή
+    calendar_connection:
+      add_new_calendar_connection: Add new calendar connection
+      add_to_calendar:
+        add_to: 'Add to '
+        caption: Add to calendar
+        description: Set the calendar you would like to add new events to as they're scheduled.
+        dialog_title: Which calendar should we add new events to?
+      button:
+        add_new: Add New
+      calendar: Calendar
+      caption: Calendar Connections
+      check_for_conflicts: Check for conflicts
+      check_for_conflicts_detail: Set the calendar(s) to check for conflicts to prevent double bookings.
+    chat_widget:
+      error_content: Λυπάμαι, δεν μπορείτε να έχετε πρόσβαση σε αυτή τη σελίδα. Παρακαλούμε επικοινωνήστε με την Υποστήριξη Voxiplan μέσω chat ή μέσω email (support@voxiplan.com)
+      error_title: Κάτι πήγε στραβά
+    common:
+      allow_image: 'Allowed file types: png, jpg, jpeg.'
+      button:
+        add: Add
+        back: Back
+        cancel: Cancel
+        close: Close
+        connect: Connect
+        contact_us: Επικοινωνήστε μαζί μας
+        continue: Continue
+        disconnect: Disconnect
+        submit: Submit
+        update: Update
+      configuration: Configuration
+      please_wait: Please wait...
+      save_failure: Something went wrong!!!
+      save_success: Your changes were saved.
+    copy_phone: Αντιγραφή τηλεφώνου
+    demo:
+      label1: 15 Minute Meeting
+      label2: 30 Minute Meeting
+      label3: 60 Minute Meeting
+    disable_service_paid_plan: Θα πρέπει να διατηρείτε τουλάχιστον μία ενεργοποιημένη υπηρεσία με τηλεφωνική κράτηση.
+    edit_url: Επεξεργασία URL
+    event_delete_confirm: Σίγουρα θέλετε να διαγράψετε αυτό το συμβάν
+    'false': false
+    filter: Φίλτρο
+    general:
+      advanced_rules: Προκαταρκτικοί κανόνες
+      event_name_help: Enter a default name for your event. This name will be used by default for all your channels.
+      event_name_label: Event name
+      event_other_name: Χρησιμοποιήστε διαφορετικό όνομα εκδήλωσης για τηλεφωνική κράτηση
+      event_other_name_help: Εισάγετε ένα προεπιλεγμένο όνομα για την εκδήλωσή σας. Αυτό το όνομα θα χρησιμοποιηθεί από προεπιλογή για όλα τα κανάλια σας.
+      select_resource_name: Επιλέξτε όνομα πόρου
+      service_exist: Η υπηρεσία υπάρχει ήδη.
+    general_setting:
+      shorten_urls:
+        title: Συντόμευση διευθύνσεων URL
+        url_shortener: Συντόμευση διεύθυνσης URL
+        url_shortener_checkbox: Συντομεύστε τις διευθύνσεις URL στις ειδοποιήσεις SMS
+      title: Γενικές Ρυθμίσεις
+    keep_one_phone_service: Η τηλεφωνική κράτηση χρειάζεται τουλάχιστον μία υπηρεσία ενεργοποιημένη.
+    keep_one_service: Θα πρέπει να διατηρείτε τουλάχιστον μία ενεργοποιημένη υπηρεσία.
+    menu: Active and inactive services
+    messaging: Μηνύματα
+    minutes: λεπτά
+    new_event_type: Νέος τύπος συμβάντος
+    new_number_request_title: Ζητείται νέος αριθμός
+    new_number_requested: Το αίτημά σας στάλθηκε στην ομάδα Voxiplan.
+    new_number_requested_title: Ζητήσατε νέο αριθμό
+    no_calendars_modal:
+      button: OK
+      content: Ο ιδιοκτήτης θα πρέπει να δημιουργήσει και να εκχωρήσει ένα ημερολόγιο εφαρμογής για αυτό το μέλος ή αυτό το μέλος θα πρέπει να συνδέσει το εξωτερικό του ημερολόγιο.
+      title: Άδειο ημερολόγιο
+    order_phone_modal:
+      content: Ο βοηθός σας δεν είναι προς το παρόν διαθέσιμος τηλεφωνικά. <br> Για να χρησιμοποιήσετε αυτή τη λειτουργία, μπορείτε να παραγγείλετε έναν ειδικό αριθμό τηλεφώνου. <br><br>Ή κάντε κλικ στην επιλογή Προεπισκόπηση για να πραγματοποιήσετε μια δοκιμαστική κλήση
+      order_button: Αγοράστε αριθμό
+      title: Ενεργοποίηση τηλεφωνικής κράτησης
+    phone_booking: Phone Booking
+    phone_call: min. - Phone Call
+    preview: Προεπισκόπηση
+    resources:
+      add_resource: Add Resource
+      advance_settings: Ρυθμίσεις για προχωρημένους
+      app_calendar: Ημερολόγιο εφαρμογών
+      availability: Διαθεσιμότητα
+      calendar: Calendar
+      changed_enable: Επιτυχής αλλαγή ενεργοποιημένου πόρου
+      choose_calendar: Επιλέξτε ημερολόγιο
+      create_failed: Failed to create Resource
+      create_modal_title: New Resource
+      created_error: Προέκυψε σφάλμα κατά τη δημιουργία του πόρου.
+      created_success: Ο πόρος δημιουργήθηκε με επιτυχία.
+      custom_configuration: Ορίστε μια προσαρμοσμένη διαμόρφωση
+      different_resource_name: Χρήση διαφορετικού ονόματος πόρου για τηλεφωνική κράτηση
+      distribution_collective: Συλλογική διανομή
+      distribution_collective_help: Βιβλίο όταν οι πόροι είναι όλοι διαθέσιμοι ταυτόχρονα (πολλά προς ένα)
+      distribution_invitee: Επιλογή προσκεκλημένων
+      distribution_invitee_help: Αφήστε τους προσκεκλημένους να επιλέξουν έναν πόρο από μια λίστα (one-on-one)
+      distribution_one: One-on-one
+      distribution_one_help: Αφήστε τους προσκεκλημένους να κλείσουν χρόνο μαζί σας (ένας προς έναν)
+      distribution_random: Τυχαία κατανομή
+      distribution_random_help: Αναθέστε έναν πόρο τυχαία (ένας προς έναν)
+      duration_help: Αυτή η λειτουργία θα επιτρέψει τον ορισμό διαφορετικής διάρκειας για τον πάροχο.
+      duration_label: Επιλέξτε διάρκεια παροχής (σύντομα!)
+      edit_modal_title: Edit Resource
+      existing_user_calendar: Υπάρχοντες χρήστες με ημερολόγιο
+      goto_availability: Πηγαίνετε στη Διαθεσιμότητα
+      individual_resource: Ατομικός πόρος
+      invite_user: Πρόσκληση νέου χρήστη
+      keep_one_resource: Θα πρέπει να διατηρείτε τουλάχιστον έναν ενεργοποιημένο πόρο.
+      multi_resources: Πολλαπλές πηγές
+      my_calendar: Το ημερολόγιό μου
+      name_label: Name
+      override_help: Για να παρακάμψετε τις ώρες σας σε συγκεκριμένες ημερομηνίες, ενημερώστε το πρόγραμμά σας στην ενότητα "Διαθεσιμότητα".
+      removed_success: Ο πόρος αφαιρέθηκε με επιτυχία.
+      required_name: Απαιτούμενο όνομα πόρου
+      resource_already_using: Ο πόρος χρησιμοποιείται από άλλον πόρο. Έτσι δεν μπορεί να αφαιρεθεί ο πόρος.
+      resource_delete_confirm: Σίγουρα θέλετε να διαγράψετε αυτόν τον πόρο
+      resource_distribution_strategy: Στρατηγική Διανομής
+      resource_distribution_strategy_tooltip: Καθορίστε τον τρόπο κατανομής των κρατήσεων για αυτήν την εκδήλωση μεταξύ των διαθέσιμων πόρων.
+      resource_exist: Ο πόρος υπάρχει ήδη.
+      saveas_schedule: Αποθήκευση ως νέο πρόγραμμα
+      schedule: Schedule
+      select_users: Επιλογή χρήστη(ων)
+      setting_help1: 'Σημείωση: Για να ελέγξετε αυτό, πρέπει να έχετε πολλαπλούς πόρους και πρέπει να ορίσετε την επιλογή <b>Services first</b> στη σελίδα <i>Widget Setting</i>'
+      setting_help2: 'Σημείωση: Για να ελέγξετε αυτό, πρέπει να έχετε πολλούς πόρους και πρέπει να ορίσετε την επιλογή <b>Resource first</b> στη σελίδα <i>Widget Setting</i>'
+      synced_calendar: Συγχρονισμένο ημερολόγιο
+      team_calendar: Ημερολόγιο μέλους της ομάδας
+      update_failed: Failed to update Resource
+      updated_error: Προέκυψε σφάλμα κατά την ενημέρωση του πόρου.
+      updated_success: Ο πόρος ενημερώθηκε με επιτυχία.
+      use_default: Χρήση προεπιλεγμένων ρυθμίσεων (διαχείριση στη σελίδα "Συνδέσεις ημερολογίου")
+      what_resource: Ποιος πόρος είναι αυτός
+      when_book_resource: Πότε μπορούν οι ενδιαφερόμενοι να κάνουν κράτηση για αυτόν τον πόρο
+      which_calendar: Ποιο ημερολόγιο πρέπει να χρησιμοποιεί
+      which_schedule: Ποιο πρόγραμμα θέλετε να χρησιμοποιήσετε για αυτόν τον τύπο εκδήλωσης
+    review_phone_number:
+      add_information: Επιλέξτε Τελικός χρήστης και προσθέστε πληροφορίες.
+      back: Πίσω
+      business: Επιχείρηση
+      business_address: Διεύθυνση επιχείρησης
+      business_description: Μια επιχείρηση θα πραγματοποιήσει ή θα λάβει μια κλήση με αυτόν τον αριθμό τηλεφώνου.
+      business_first_name: Όνομα
+      business_last_name: Επώνυμο
+      business_name: Όνομα επιχείρησης
+      business_number: Αριθμός μητρώου επιχείρησης
+      business_represent: Όνομα εξουσιοδοτημένου αντιπροσώπου
+      cancel: Ακύρωση
+      comply: Συμμόρφωση με τις κανονιστικές απαιτήσεις.
+      comply_content1: Για να συμμορφωθούμε με τους τοπικούς κανονισμούς, πρέπει να παρέχουμε δικαιολογητικά στους μεταφορείς ή στις τοπικές υπηρεσίες επιβολής του νόμου. Τα δικαιολογητικά χρησιμοποιούνται για την επαλήθευση των στοιχείων ταυτότητάς σας.
+      comply_content2: Ένας πράκτορας της Voxiplan θα επικοινωνήσει σύντομα μαζί σας για να δημιουργήσει ένα ρυθμιστικό πακέτο για εσάς, ώστε να μπορείτε να παρέχετε και να χρησιμοποιείτε νόμιμα τηλεφωνικούς αριθμούς.
+      individual: Ατομικό
+      individual_description: Ένα άτομο θα πραγματοποιήσει ή θα λάβει μια κλήση με αυτόν τον αριθμό τηλεφώνου.
+      individual_first_name: Όνομα
+      individual_last_name: Επώνυμο
+      infor: Θα χρεωθείτε αμέσως με 1,00 δολάριο. Στη συνέχεια, θα χρεώνεστε 1,00 δολάριο/μήνα επιπλέον της χρήσης που πραγματοποιείτε στον αριθμό τηλεφώνου.
+      next: Επόμενο
+      please_wait: Παρακαλώ περιμένετε...
+      select_end_user: Επιλέξτε Τελικός χρήστης και προσθέστε πληροφορίες
+      sms_content: Αποστολή και λήψη μηνυμάτων κειμένου.
+      step_1: Βήμα 1
+      step_2: Βήμα 2
+      step_3: Βήμα 3
+      title: Αναθεώρηση αριθμού τηλεφώνου
+      voice_content: Λήψη εισερχόμενων κλήσεων και πραγματοποίηση εξερχόμενων κλήσεων.
+      who_will_use: Ποιος θα χρησιμοποιήσει
+    share: Μοιραστείτε το
+    share_messaging:
+      button: Κουμπί
+      button_help: Προσθέστε ένα κουμπί στον ιστότοπό σας που ανακατευθύνει στο widget συνομιλίας σας.
+      chat_subtitle: Widget συνομιλίας
+      chat_title: Voxiplan
+      copy_link_help: Αντιγράψτε τον σύνδεσμο και προσθέστε τον στο κουμπί.
+      title: Πώς θέλετε να προσθέσετε το widget συνομιλίας στον ιστότοπό σας
+      widget: Widget
+      widget_code_help: Προσθέστε σενάριο στον ιστότοπό σας.
+      widget_help: Φορτώνει το widget συνομιλίας σας απευθείας στον ιστότοπό σας.
+    share_phone:
+      forward: Εμπρός
+      forward_condition: Κατάσταση
+      forward_condition_1: Πάντα προώθηση (ανεπιφύλακτη προώθηση όλων των εισερχόμενων κλήσεων στον αριθμό τηλεφώνου του εικονικού βοηθού σας)
+      forward_condition_2: Προώθηση υπό όρους (όταν είναι κατειλημμένο, όταν δεν απαντάται, όταν δεν είναι προσβάσιμο)
+      forward_description: Εκτρέψτε τις εισερχόμενες κλήσεις στον αριθμό τηλεφώνου του εικονικού βοηθού σας (μόνο εσείς μπορείτε να δείτε τον αριθμό, οι προσκεκλημένοι συνεχίζουν να χρησιμοποιούν τον κύριο αριθμό τηλεφώνου σας).
+      forward_help: Διατηρήστε τον υπάρχοντα αριθμό τηλεφώνου σας ως κύριο αριθμό τηλεφώνου.
+      share: Μοιραστείτε το
+      share_description: Επικοινωνήστε απευθείας τον αριθμό τηλεφώνου του εικονικού βοηθού σας στους προσκεκλημένους (οι προσκεκλημένοι μπορούν να δουν τον αριθμό).
+      share_help: Χρησιμοποιήστε τον αριθμό τηλεφώνου Voxiplan ως κύριο αριθμό τηλεφώνου.
+      title: Πώς θέλετε οι άνθρωποι να φτάσουν στον βοηθό σας
+    share_web_widget:
+      button: Κουμπί
+      button_help: Προσθέστε ένα κουμπί στον ιστότοπό σας που ανακατευθύνει στο widget κρατήσεων.
+      copy_link_help: Αντιγράψτε τον σύνδεσμο και προσθέστε τον στο κουμπί.
+      title: Πώς θέλετε να προσθέσετε το Voxiplan στον ιστότοπό σας
+      voxiplan_widget: Widget Voxiplan
+      widget: Widget
+      widget_code_help: Προσθέστε widget ως iframe στον ιστότοπό σας.
+      widget_help: Φορτώνει το widget κρατήσεων απευθείας στον ιστότοπό σας.
+    test_phone_modal:
+      content1: 'Καλέστε τον δοκιμαστικό μας αριθμό <a class=''text-nowrap'' href=''tel:%{phone_number}''>%{phone_number}</a> για να δοκιμάσετε την τηλεφωνική κράτηση με τον βοηθό σας. <br> Σημείωση: πραγματοποιήστε την κλήση από τον αριθμό τηλεφώνου σας %{αριθμός πελάτη}. <br><br> Για να ενεργοποιήσετε αυτή τη λειτουργία, πρέπει να παραγγείλετε έναν αποκλειστικό αριθμό τηλεφώνου.'
+      content2: Καλέστε %{αριθμός τηλεφώνου} για να δοκιμάσετε την τηλεφωνική κράτηση με τον βοηθό σας.
+      content3: 'Καλέστε τον δοκιμαστικό μας αριθμό <a class=''text-nowrap'' href=''tel:%{phone_number}''>%{phone_number}</a> για να δοκιμάσετε την τηλεφωνική κράτηση με τον βοηθό σας. <br> Σημείωση: πραγματοποιήστε την κλήση από τον αριθμό τηλεφώνου σας %{αριθμός πελάτη}. <br><br> Για να ενεργοποιήσετε αυτή τη λειτουργία, μπορείτε να αναβαθμίσετε τη συνδρομή σας και στη συνέχεια να παραγγείλετε έναν αποκλειστικό αριθμό τηλεφώνου.'
+      order_button: Αγοράστε αριθμό
+      title: Τηλεφωνική κράτηση δοκιμής
+      upgrade_button: Αναβάθμιση
+    title:
+      additional_options: Additional Options
+      automations: Automations
+      automations_tooltip: Πρώτον, πρέπει να επιλέξετε ένα συμβάν
+      booking_time: When can people book this event?
+      edit_service: Edit Event Type
+      general: What event is this?
+      invitee_questions:
+        add_new: Προσθήκη νέου
+        add_new_question: Προσθήκη νέας ερώτησης
+        allow_invitee: Επιτρέψτε στους προσκεκλημένους να προσθέσουν επιπλέον καλεσμένους
+        answer: Απάντηση
+        answer_type: Τύπος απάντησης
+        answer_type_content: 'Ο προσκεκλημένος μπορεί να επιλέξει ένα ή περισσότερα από τα ακόλουθα:'
+        autofill_invitee: Αυτόματη συμπλήρωση του ονόματος του προσκεκλημένου, του email και του αριθμού τηλεφώνου υπενθύμισης μέσω κειμένου (κατά περίπτωση) από προηγούμενες κρατήσεις
+        caption: Ερωτήσεις προσκεκλημένων
+        checkbox: Κουτιά ελέγχου
+        edit_name_question: Επεξεργασία ερώτησης ονόματος
+        'false': false
+        multiline: Πολλαπλές γραμμές
+        name_input: Όνομα Εισαγωγή
+        new_question_modal: Νέα ερώτηση
+        oneline: Μία γραμμή
+        question: Ερώτηση
+        question_validation: Τουλάχιστον 4 χαρακτήρες
+        radio_button: Κουμπιά ραδιοφώνου
+        required: Απαιτούμενο
+        'true': true
+      new_service: New Event Type
+      reosurces_tooltip: Πρώτα, πρέπει να επιλέξετε ένα όνομα πόρου
+      resources: Team members, Resources?
+      services_tooltip: Πρώτα, πρέπει να δημιουργήσετε ένα όνομα υπηρεσίας
+    toggle:
+      ai_assistant: AI Assistant
+      all: All
+      assistant: Assistant
+      chat: Chat
+      phone: Phone
+      sms: SMS
+      web: Web
+      widget: Widget
+    'true': true
+    update_event_type: Ενημέρωση τύπου συμβάντος
+    upgrade_plan_modal:
+      cancel_button: Ακύρωση
+      current_plan: Αυτή τη στιγμή βρίσκεστε στο συνδρομητικό πρόγραμμα <span class='fw-bolder'>%{plan}</span>.
+      title: Αναβαθμίστε τη συνδρομή σας
+      to_upgrade: Για να χρησιμοποιήσετε αυτή τη λειτουργία, μπορείτε να αναβαθμίσετε τη συνδρομή σας.
+      to_upgrade_for_buy_number: Για να ενεργοποιήσετε αυτή τη λειτουργία, μπορείτε να αναβαθμίσετε τη συνδρομή σας και στη συνέχεια να παραγγείλετε έναν αποκλειστικό αριθμό τηλεφώνου.
+      to_upgrade_for_trial_plan: Μπορείτε να αναβαθμίσετε τη συνδρομή σας και, στη συνέχεια, να παραγγείλετε έναν ειδικό αριθμό τηλεφώνου για να μπορέσετε να κάνετε τηλεφωνικές κρατήσεις. <br><br>Ή κάντε κλικ στο <b>Προβολή</b> για να πραγματοποιήσετε μια δοκιμαστική κλήση.
+      upgrade_button: Αναβάθμιση
+    upgrade_seats_modal:
+      cancel_button: Ακύρωση
+      current_plan: Έχετε προς το παρόν 0 διαθέσιμες θέσεις στον οργανισμό σας.
+      title: Προσθήκη νέας θέσης
+      to_upgrade: Για να προσθέσετε έναν νέο πόρο, μπορείτε να αγοράσετε μια επιπλέον θέση.
+      upgrade_button: Προσθήκη θέσης
+    was_set_to: τέθηκε σε
+    web_booking: Web Booking
+    web_booking_setting: Web Booking Settings
+    workspace_header:
+      tooltip:
+        copy: Αντιγραφή
+        edit: Επεξεργασία
+  services_resource:
+    Actions: Ενέργειες
+    add_new_to_phone_number: Προσθήκη νέου %{service_or_resource} στο μενού τηλεφώνου
+    agenda_not_configured: Η εφαρμογή Agenda δεν έχει διαμορφωθεί
+    alert: Δημιουργήστε και επεξεργαστείτε τις διαφορετικές επιλογές κράτησης που μπορούν να κάνουν οι πελάτες σας. Οι πόροι είναι μέλη της ομάδας, προσωπικό ή δωμάτια που μπορούν να αντιστοιχιστούν σε κάθε επιλογή κράτησης.
+    heading: Επιλογές και πόροι κράτησης
+    manage_resource_&_services: Διαχείριση επιλογών και πόρων κράτησης
+    options: Επιλογές
+    presenting_choices: Παρουσιάζοντας επιλογές
+    randomly_select_resources: Επιλέξτε τυχαία πόρους
+    randomly_select_resources_booking_widget: Επιλέξτε τυχαία πόρους στο widget κράτησης
+    resources_first: Πόροι πρώτα
+    service_&_resource_choices: Επιλογές κράτησης και επιλογές πόρων
+    services_first: Πρώτα οι επιλογές κράτησης
+    sr_no: ΝΟ
+    title: Τίτλος
+  settings:
+    phone_numbers:
+      sub_account_info: Θέλετε να προσθέσετε πολλούς οργανισμούς; Δημιουργία δευτερεύοντος λογαριασμού για κάθε οργανισμό.
+  sidebar_menu:
+    accounts_numbers: Λογαριασμοί / Αριθμοί
+    agenda_settings: Ρυθμίσεις ατζέντας
+    analytics_tracking: Analytics / Παρακολούθηση
+    announcements: Ανακοινώσεις
+    appointment_scheduling: Προγραμματισμός ραντεβού
+    business_hours: Εργάσιμες ώρες
+    call_forwarding: Προώθηση κλήσεων
+    call_recording: Εγγραφή κλήσεων
+    call_settings: Ρυθμίσεις κλήσεων
+    calls_appointments: Κλήσεις & ραντεβού
+    clients: Πελάτες
+    customers: Οι πελάτες
+    dashboard: Ταμπλό
+    extras: Πρόσθετα
+    general: Γενικός
+    language_menu: Μενού γλώσσας
+    my_agenda: Η ατζέντα μου
+    my_virtual_assistant: Ο εικονικός βοηθός μου
+    online_agenda: Διαδικτυακή ατζέντα
+    phone_menu: Μενού τηλεφώνου
+    redirect_URL: Ανακατεύθυνση URL
+    reports: Αναφορές
+    resources: Πόροι
+    settings: Ρυθμίσεις
+    users: Χρήστες
+    voicemail_to_email: Φωνητικό ταχυδρομείο για ηλεκτρονικό ταχυδρομείο
+    welcome_message: Κύριος χαιρετισμός
+  sms_enabled: Εναλλαγή SMS
+  sms_stats:
+    action: Ενέργειες
+    call: Κλήση
+    date: Ημερομηνία
+    delivered: Παραδόθηκε
+    delivery_failed: Η παράδοση απέτυχε
+    delivery_report: Αναφορά παράδοσης
+    direction: Κατεύθυνση
+    from: Από
+    heading: Αναφορά SMS
+    incoming: Εισερχόμενο
+    incoming_sms: Εισερχόμενα SMS
+    message: Μήνυμα
+    outgoing: Εξερχόμενο
+    outgoing_sms: Εξερχόμενα SMS
+    search_date: Ημερομηνία αναζήτησης
+    sending_failed: Η αποστολή απέτυχε
+    sent: Απεσταλμένα
+    to: Προς το
+    total_sms: Σύνολο SMS
+  static_ivr:
+    announcement_closed: Εχετε ακούσει? Τώρα μπορείτε να χρησιμοποιήσετε την SmartCard για να στείλετε με ασφάλεια όλα τα δεδομένα του ασθενούς σας με ένα κλικ. Ένα μέλος της ομάδας μας μπορεί να σας δώσει περισσότερες πληροφορίες.
+    announcement_closed_strip_ssmd: Εχετε ακούσει? Τώρα μπορείτε να χρησιμοποιήσετε την SmartCard για να στείλετε με ασφάλεια όλα τα δεδομένα του ασθενούς σας με ένα κλικ. Ένα μέλος της ομάδας μας μπορεί να σας δώσει περισσότερες πληροφορίες.
+    announcement_open: Εχετε ακούσει? Τώρα μπορείτε να χρησιμοποιήσετε την SmartCard για να στείλετε με ασφάλεια όλα τα δεδομένα του ασθενούς σας με ένα κλικ. Ρωτήστε ένα μέλος της ομάδας μας για περισσότερες πληροφορίες.
+    announcement_open_strip_ssmd: Εχετε ακούσει? Τώρα μπορείτε να χρησιμοποιήσετε την SmartCard για να στείλετε με ασφάλεια όλα τα δεδομένα του ασθενούς σας με ένα κλικ. Ρωτήστε ένα μέλος της ομάδας μας για περισσότερες πληροφορίες.
+    appointment_announcement_closed: Γεια σας %{customer_first_name}! Χαίρομαι που σε έχω εδώ! Η ομάδα μας δεν είναι διαθέσιμη αυτήν τη στιγμή, γι 'αυτό θα σας βοηθήσω να προγραμματίσετε το επόμενο ραντεβού σας.
+    appointment_announcement_closed_strip_ssmd: Γεια σας %{customer_first_name}! Χαίρομαι που σε έχω εδώ! Η ομάδα μας δεν είναι διαθέσιμη αυτήν τη στιγμή, γι 'αυτό θα σας βοηθήσω να προγραμματίσετε το επόμενο ραντεβού σας.
+    appointment_announcement_open: Γεια σας %{customer_first_name}! Πώς είσαι σήμερα? Ας δούμε πότε μπορείτε να μπείτε στο επόμενο ραντεβού σας.
+    appointment_announcement_open_strip_ssmd: Γεια σας %{customer_first_name}! Πώς είσαι σήμερα? Ας δούμε πότε μπορείτε να μπείτε στο επόμενο ραντεβού σας.
+    appointment_cancel_caller_sms: Η συνάντησή σας για το %{%{var}} ακυρώθηκε. Ανυπομονούμε να σας δούμε την επόμενη φορά.
+    appointment_cancelled: Σας ευχαριστούμε %{customer_first_name}, το ραντεβού σας ακυρώθηκε. Εάν έχετε οποιεσδήποτε απορίες, καλέστε ή στείλτε μας email διεύθυνση. Ελπίζουμε να σας ξαναδούμε σύντομα. Να εχετε μια ομορφη μερα.
+    appointment_cancelled_strip_ssmd: Σας ευχαριστούμε %{customer_first_name}, το ραντεβού σας ακυρώθηκε. Εάν έχετε οποιεσδήποτε απορίες, καλέστε ή στείλτε μας email διεύθυνση. Ελπίζουμε να σας ξαναδούμε σύντομα. Να εχετε μια ομορφη μερα.
+    appointment_cofirmation: Για να επιβεβαιώσετε την επιλογή σας, πατήστε 1. Ή πατήστε 0 για να επιστρέψετε στο προηγούμενο βήμα.
+    appointment_cofirmation_implicit: Επιλέξατε %{%{time}}. Πατήστε 0 για να αλλάξετε την επιλογή σας.
+    appointment_cofirmation_implicit_strip_ssmd: Επιλέξατε %{%{time}}. Πατήστε 0 για να αλλάξετε την επιλογή σας.
+    appointment_cofirmation_strip_ssmd: Για να επιβεβαιώσετε την επιλογή σας, πατήστε 1. Ή πατήστε 0 για να επιστρέψετε στο προηγούμενο βήμα.
+    appointment_fail: Δυστυχώς, δεν ήταν δυνατή η δημιουργία του ραντεβού σας.
+    appointment_fail_strip_ssmd: Δυστυχώς, δεν ήταν δυνατή η δημιουργία του ραντεβού σας.
+    appointment_group_menu:
+      generic:
+        multiple: "<Για %{day}, μεταξύ %{start} και %{finish}, πατήστε %{num}.< ...c"
+        multiple_strip_ssmd: Για %{day}, μεταξύ %{start} και %{finish}, πατήστε %{num}.
+        single: "<Για %{day}, στο %{time} πατήστε %{num}< ...c"
+        single_strip_ssmd: Για %{day}, στο %{time} πατήστε %{num}.
+      other: Για να επαναλάβετε αυτήν την επιλογή, πατήστε 9. Ή περιμένετε στη γραμμή για να ακούσετε περισσότερες διαθέσιμες δυνατότητες.
+      other_strip_ssmd: Για να επαναλάβετε αυτήν την επιλογή, πατήστε 9. Ή περιμένετε στη γραμμή για να ακούσετε περισσότερες διαθέσιμες δυνατότητες.
+    appointment_group_menu2_no_slot_found: Δεν έχουμε πλέον διαθέσιμες πληροφορίες αυτήν την ημέρα. Για να επαναλάβετε τις επιλογές σας, πατήστε 1. Ή πατήστε 2 για να ακούσετε τη διαθεσιμότητα τις επόμενες ημέρες.
+    appointment_group_menu2_no_slot_found_strip_ssmd: Δεν έχουμε πλέον διαθέσιμες πληροφορίες αυτήν την ημέρα. Για να επαναλάβετε τις επιλογές σας, πατήστε 1. Ή πατήστε 2 για να ακούσετε τη διαθεσιμότητα τις επόμενες ημέρες.
+    appointment_group_menu3:
+      manual_other: Για να ακούσετε άλλες διαθέσιμες δυνατότητες, πατήστε 4. Ή πατήστε 0 για να μιλήσετε με έναν πράκτορα.
+      manual_other_strip_ssmd: Για να ακούσετε άλλες διαθέσιμες δυνατότητες, πατήστε 4. Ή πατήστε 0 για να μιλήσετε με έναν πράκτορα.
+      other: " Πατήστε 9 για να επαναλάβετε αυτές τις διαθεσιμότητες. Ή κρατήστε τη γραμμή για περισσότερες επιλογές."
+      other_strip_ssmd: " Πατήστε 9 για να επαναλάβετε αυτές τις διαθεσιμότητες. Ή κρατήστε τη γραμμή για περισσότερες επιλογές."
+      time1: " Για %{%{time1}}, πατήστε 1. ...400ms"
+      time1_strip_ssmd: " Για %{%{time1}}, πατήστε 1."
+      time2: " Για %{%{time2}}, πατήστε 2. ...400ms"
+      time2_strip_ssmd: " Για %{%{time2}}, πατήστε 2."
+      time3: " Για %{%{time3}}, πατήστε 3. ...400ms"
+      time3_strip_ssmd: " Για %{%{time3}}, πατήστε 3."
+    appointment_group_menu4: Για αναζήτηση κατά ημερομηνία, πατήστε 1. Για αναζήτηση κατά την ημέρα της εβδομάδας, πατήστε 2. Για αναζήτηση ανά πρωί ή απόγευμα, πατήστε 3. Για αναζήτηση ανά ώρα, πατήστε 4.
+    appointment_group_menu4_no_slot_found: Για επανάληψη, πατήστε 1. Για να δοκιμάσετε ξανά, πατήστε 2. Για να επιλέξετε άλλη προτίμηση, πατήστε 3.
+    appointment_group_menu4_no_slot_found_strip_ssmd: Για επανάληψη, πατήστε 1. Για να δοκιμάσετε ξανά, πατήστε 2. Για να επιλέξετε άλλη προτίμηση, πατήστε 3.
+    appointment_group_menu4_strip_ssmd: Για αναζήτηση κατά ημερομηνία, πατήστε 1. Για αναζήτηση κατά την ημέρα της εβδομάδας, πατήστε 2. Για αναζήτηση ανά πρωί ή απόγευμα, πατήστε 3. Για αναζήτηση ανά ώρα, πατήστε 4.
+    appointment_max_limit_reached: Δεν μπορείτε να πραγματοποιήσετε νέο ραντεβού, επειδή έχετε φτάσει τον μέγιστο επιτρεπόμενο ραντεβού. Ζητήστε από ένα μέλος της ομάδας μας να σας βοηθήσει.
+    appointment_max_limit_reached_strip_ssmd: Δεν μπορείτε να πραγματοποιήσετε νέο ραντεβού, επειδή έχετε φτάσει τον μέγιστο επιτρεπόμενο ραντεβού. Ζητήστε από ένα μέλος της ομάδας μας να σας βοηθήσει.
+    appointment_menu1: Για %{%{time1}}, πατήστε 1. Περιμένετε να ακούσετε τις επόμενες διαθεσιμότητες ή πατήστε 9 για να επαναλάβετε αυτήν την επιλογή.
+    appointment_menu1_manual: Ο γιατρός μου είπε να σας προσφέρω το επόμενο πιθανό ραντεβού στο %{%{time1}}. Πατήστε 1 για επιβεβαίωση αυτού του ραντεβού. Πατήστε 2 για να ακούσετε άλλες διαθέσιμες δυνατότητες
+    appointment_menu1_manual_strip_ssmd: Ο γιατρός μου είπε να σας προσφέρω το επόμενο πιθανό ραντεβού στο %{%{time1}}. Πατήστε 1 για επιβεβαίωση αυτού του ραντεβού. Πατήστε 2 για να ακούσετε άλλες διαθέσιμες δυνατότητες
+    appointment_menu1_strip_ssmd: Για %{%{time1}}, πατήστε 1. Περιμένετε να ακούσετε τις επόμενες διαθεσιμότητες ή πατήστε 9 για να επαναλάβετε αυτήν την επιλογή.
+    appointment_menu2: Για το %{%{time1}}, πατήστε 1. Για το %{%{time2}}, πατήστε 2. Περιμένετε να ακούσετε τις επόμενες διαθεσιμότητες. Ή πατήστε 9 για επανάληψη
+    appointment_menu2_manual: Τώρα θα ακούσετε την επόμενη πιθανή διαθεσιμότητα Πατήστε 1 για %{%{time1}}. Πατήστε 2 για %{%{time2}}. Πατήστε 3 για να ακούσετε άλλες διαθέσιμες δυνατότητες. Ή πατήστε 0 για να μιλήσετε στον πελάτη.
+    appointment_menu2_manual_strip_ssmd: Τώρα θα ακούσετε την επόμενη πιθανή διαθεσιμότητα Πατήστε 1 για %{%{time1}}. Πατήστε 2 για %{%{time2}}. Πατήστε 3 για να ακούσετε άλλες διαθέσιμες δυνατότητες. Ή πατήστε 0 για να μιλήσετε στον πελάτη.
+    appointment_menu2_strip_ssmd: Για το %{%{time1}}, πατήστε 1. Για το %{%{time2}}, πατήστε 2. Περιμένετε να ακούσετε τις επόμενες διαθεσιμότητες. Ή πατήστε 9 για επανάληψη
+    appointment_modified: Σας ευχαριστούμε %{customer_first_name}, το ραντεβού σας ακυρώθηκε. Επιλέξτε μία από τις ακόλουθες επιλογές για να κλείσετε ένα νέο ραντεβού.
+    appointment_modified_strip_ssmd: Σας ευχαριστούμε %{customer_first_name}, το ραντεβού σας ακυρώθηκε. Επιλέξτε μία από τις ακόλουθες επιλογές για να κλείσετε ένα νέο ραντεβού.
+    appointment_success: Σας ευχαριστούμε %{%{name}}, επιβεβαιώθηκε το ραντεβού σας για %{%{time}}.
+    appointment_success_caller_sms: Έχει επιβεβαιωθεί ένα ραντεβού για %{%{time}}.
+    appointment_success_client_sms: Το ραντεβού για το %{%{time}} επιβεβαιώθηκε από το %{%{caller}}
+    appointment_success_mail_body: "Έχει επιβεβαιωθεί ένα ραντεβού για το %{%{time}}. \n %{%{record}}"
+    appointment_success_mail_sub: Νέο επιβεβαιωμένο ραντεβού
+    appointment_success_record: Εάν θέλετε να μεταφέρω ένα μήνυμα σχετικά με το ραντεβού σας, ηχογραφήστε το μετά τον τόνο. Διαφορετικά μπορείτε να κλείσετε το τηλέφωνο.
+    appointment_success_record_strip_ssmd: Εάν θέλετε να μεταφέρω ένα μήνυμα σχετικά με το ραντεβού σας, ηχογραφήστε το μετά τον τόνο. Διαφορετικά μπορείτε να κλείσετε το τηλέφωνο.
+    appointment_success_recorded: Σας ευχαριστούμε για το μήνυμά σας, %{customer_first_name}. Θα το δώσω στην ομάδα. Ανυπομονούμε να σας δούμε! Αντιο σας.
+    appointment_success_recorded_strip_ssmd: Σας ευχαριστούμε για το μήνυμά σας, %{customer_first_name}. Θα το δώσω στην ομάδα. Ανυπομονούμε να σας δούμε! Αντιο σας.
+    appointment_success_strip_ssmd: Σας ευχαριστούμε %{%{name}}, επιβεβαιώθηκε το ραντεβού σας για το %{%{time}}.
+    call_hangup_mail_body: 'Η κλήση τερματίστηκε από: %{caller_id}'
+    call_hangup_mail_subject: Κλείσιμο κλήσεων Voxiplan
+    cancel_appointment:
+      generic: Για να ακυρώσετε το ραντεβού σας στο %{%{var}}, πατήστε %{%{num}}.
+      generic_strip_ssmd: Για να ακυρώσετε το ραντεβού σας στο %{%{var}}, πατήστε %{%{num}}.
+      other: " Ή πατήστε 9 για επανάληψη."
+      other_strip_ssmd: " Ή πατήστε 9 για επανάληψη."
+    cancel_time_limit_reached: Δεν μπορείτε να κάνετε αλλαγές στο ραντεβού σας τόσο σύντομα.
+    cancel_time_limit_reached_strip_ssmd: Δεν μπορείτε να κάνετε αλλαγές στο ραντεβού σας τόσο σύντομα.
+    cmd_menu:
+      create: " Για να κλείσετε ένα νέο ραντεβού, πατήστε 3."
+      create_strip_ssmd: " Για να κλείσετε ένα νέο ραντεβού, πατήστε 3."
+      delete: " Για να ακυρώσετε μια υπάρχουσα συνάντηση, πατήστε 2."
+      delete_strip_ssmd: " Για να ακυρώσετε μια υπάρχουσα συνάντηση, πατήστε 2."
+      modify: " Για να πραγματοποιήσετε αλλαγές σε υπάρχον ραντεβού, πατήστε 1."
+      modify_strip_ssmd: " Για να πραγματοποιήσετε αλλαγές σε υπάρχον ραντεβού, πατήστε 1."
+      more_then_one_appointments: " Έχετε ήδη επιβεβαιώσει ραντεβού %{%{count}}. ...400ms"
+      more_then_one_appointments_strip_ssmd: " Έχετε ήδη επιβεβαιώσει ραντεβού %{%{count}}."
+      only_one_appointment: " Έχετε ήδη επιβεβαιωμένο ραντεβού για το %{%{time}}. ...400ms"
+      only_one_appointment_strip_ssmd: " Έχετε ήδη επιβεβαιωμένο ραντεβού για το %{%{time}}."
+    ext_action_appointment_bot: Bot ραντεβού
+    ext_action_say_message: Πείτε μήνυμα
+    ext_action_send_to_voicemail: Αποστολή στο φωνητικό ταχυδρομείο
+    ext_action_transfer_call: Μεταφορά κλήσης
+    gather_number: Εισαγάγετε τον αριθμό τηλεφώνου σας
+    gather_number_strip_ssmd: Εισαγάγετε τον αριθμό τηλεφώνου σας
+    hangup_caller_sms: Ευχαριστώ για την κλήση σας. Αυτήν τη στιγμή βρίσκεται σε σύσκεψη ή δεν είναι διαθέσιμη. Για να κλείσετε ραντεβού, επισκεφθείτε μας στο διαδίκτυο www.voxiplan.com ή καλέστε μας στο +3228084080.
+    internal_error: Δυστυχώς, δεν ήταν δυνατή η επεξεργασία του αιτήματός σας.
+    internal_error_strip_ssmd: Δυστυχώς, δεν ήταν δυνατή η επεξεργασία του αιτήματός σας.
+    invalid: Δεν ορίσατε μια έγκυρη επιλογή
+    invalid_strip_ssmd: Δεν ορίσατε μια έγκυρη επιλογή
+    menu_closed: Για κράτηση, αλλαγή ή ακύρωση ραντεβού, πατήστε 1. Για να αφήσετε ένα μήνυμα, πατήστε 2
+    menu_closed_strip_ssmd: Για κράτηση, αλλαγή ή ακύρωση ραντεβού, πατήστε 1. Για να αφήσετε ένα μήνυμα, πατήστε 2
+    menu_open: Για κράτηση, αλλαγή ή ακύρωση ραντεβού, πατήστε 1. Για να μιλήσετε με τις πωλήσεις, πατήστε 2.
+    menu_open_strip_ssmd: Για κράτηση, αλλαγή ή ακύρωση ραντεβού, πατήστε 1. Για να μιλήσετε με τις πωλήσεις, πατήστε 2.
+    modify_appointment:
+      generic: Για να κάνετε αλλαγές στο ραντεβού σας στο %{%{var}}, πατήστε %{%{num}}.
+      generic_strip_ssmd: Για να πραγματοποιήσετε αλλαγές στο ραντεβού σας στο %{%{var}}, πατήστε %{%{num}}.
+      other: " Ή πατήστε 9 για επανάληψη."
+      other_strip_ssmd: " Ή πατήστε 9 για επανάληψη."
+    new_customer_enter_your_name: Καταγράψτε το όνομά σας μετά τον τόνο
+    new_customer_enter_your_name_strip_ssmd: Καταγράψτε το όνομά σας μετά τον τόνο
+    new_customer_not_allowed: Λυπούμαστε, δεν έχω εξουσιοδότηση για προγραμματισμό ραντεβού για νέους πελάτες.
+    new_customer_not_allowed_strip_ssmd: Λυπούμαστε, δεν έχω εξουσιοδότηση για προγραμματισμό ραντεβού για νέους πελάτες.
+    post_confirmation_reminder: Μην ξεχάσετε να φέρετε ένα χαμόγελο
+    post_confirmation_reminder_strip_ssmd: Μην ξεχάσετε να φέρετε ένα χαμόγελο
+    record_your_message: Καταγράψτε το μήνυμά σας μετά τον τόνο
+    record_your_message_strip_ssmd: Καταγράψτε το μήνυμά σας μετά τον τόνο
+    resources:
+      generic: Για %{%{var}}, πατήστε %{%{num}}. ...400ms
+      generic_strip_ssmd: Για %{%{var}}, πατήστε %{%{num}}.
+      other: " Ή πατήστε 9 για να επαναλάβετε αυτές τις επιλογές."
+      other_strip_ssmd: " Ή πατήστε 9 για να επαναλάβετε αυτές τις επιλογές."
+    say_invalid_number: Δεν εισαγάγατε έναν έγκυρο αριθμό.
+    say_invalid_number_strip_ssmd: Δεν εισαγάγατε έναν έγκυρο αριθμό.
+    search_by_ampm: Για το πρωί, πατήστε 1. Για το απόγευμα, πατήστε 2.
+    search_by_ampm_strip_ssmd: Για το πρωί, πατήστε 1. Για το απόγευμα, πατήστε 2.
+    search_by_date: Εισαγάγετε μια ημερομηνία
+    search_by_date_strip_ssmd: Εισαγάγετε μια ημερομηνία
+    search_by_time: Εισαγάγετε ένα χρονικό πλαίσιο
+    search_by_time_strip_ssmd: Εισαγάγετε ένα χρονικό πλαίσιο
+    search_by_weekday: Για Δευτέρα, πατήστε 1. Τρίτη, πιέστε 2. Τετάρτη, πιέστε 3. Πέμπτη, πιέστε 4. Παρασκευή, πιέστε 5. Σάββατο, πιέστε 6. Κυριακή, πιέστε 7.
+    search_by_weekday_strip_ssmd: Για Δευτέρα, πατήστε 1. Τρίτη, πιέστε 2. Τετάρτη, πιέστε 3. Πέμπτη, πιέστε 4. Παρασκευή, πιέστε 5. Σάββατο, πιέστε 6. Κυριακή, πιέστε 7.
+    services:
+      generic: Για %{%{var}}, πατήστε %{%{num}}. ...400ms
+      generic_strip_ssmd: Για %{%{var}}, πατήστε %{%{num}}.
+      other: " Ή πατήστε 9 για να επαναλάβετε αυτές τις επιλογές."
+      other_strip_ssmd: " Ή πατήστε 9 για να επαναλάβετε αυτές τις επιλογές."
+    timeout: Δεν πατήσατε κανένα πλήκτρο
+    timeout_strip_ssmd: Δεν πατήσατε κανένα πλήκτρο
+    to_repeat_and_other: " Ή πατήστε 9 για να επαναλάβετε τις επιλογές σας."
+    to_repeat_and_other_strip_ssmd: " Ή πατήστε 9 για να επαναλάβετε τις επιλογές σας."
+    transfer_menu_closed: Δεν μπορείτε να βρείτε διαθεσιμότητα; Πατήστε 0 για να εγγράψετε το μήνυμά σας ή περιμένετε να ακούσετε περισσότερες διαθεσιμότητες
+    transfer_menu_closed_strip_ssmd: Δεν μπορείτε να βρείτε διαθεσιμότητα; Πατήστε 0 για να εγγράψετε το μήνυμά σας ή περιμένετε να ακούσετε περισσότερες διαθεσιμότητες
+    transfer_menu_open: Δεν μπορείτε να βρείτε διαθεσιμότητα; Πατήστε 0 για να μιλήσετε σε κάποιον ή περιμένετε να ακούσετε περισσότερες διαθεσιμότητες
+    transfer_menu_open_strip_ssmd: Δεν μπορείτε να βρείτε διαθεσιμότητα; Πατήστε 0 για να μιλήσετε σε κάποιον ή περιμένετε να ακούσετε περισσότερες διαθεσιμότητες
+    voice_mail_subject: Λάβατε φωνητικό email
+    welcome_closed: Γεια !, και σας ευχαριστώ που καλέσατε την κλινική του Δρ John! Κλήσεις εκτός των ωρών λειτουργίας μας. Είμαι η Λάουρα και είμαι εδώ για να σε βοηθήσω.
+    welcome_closed_strip_ssmd: Γεια !, και σας ευχαριστώ που καλέσατε την κλινική του Δρ John! Κλήσεις εκτός των ωρών λειτουργίας μας. Είμαι η Λάουρα και είμαι εδώ για να σε βοηθήσω.
+    welcome_open: Γεια !, και σας ευχαριστώ που καλέσατε την κλινική του Δρ John! Είμαι η Λάουρα και είμαι εδώ για να βοηθήσω να κατευθύνω την κλήση σας.
+    welcome_open_strip_ssmd: Γεια !, και σας ευχαριστώ που καλέσατε την κλινική του Δρ John! Είμαι η Λάουρα και είμαι εδώ για να βοηθήσω να κατευθύνω την κλήση σας.
+    your_call_being_transfer: ΠΑΡΑΚΑΛΩ ΠΕΡΙΜΕΝΕΤΕ. Η κλήση σας μεταφέρεται.
+    your_call_being_transfer_strip_ssmd: ΠΑΡΑΚΑΛΩ ΠΕΡΙΜΕΝΕΤΕ. Η κλήση σας μεταφέρεται.
+  stats:
+    appointment_status: Κατάσταση ραντεβού
+    call_for_appointment: Πρόσκληση για ραντεβού
+    call_title: Κλήση
+    contact_type: Τύπος επαφής
+    date: Ημερομηνία
+    date_range: Εύρος ημερομηνίας
+    direction: Κατεύθυνση
+    duration: Διάρκεια
+    duration_minutes: Λεπτά
+    entered_number: Επισκέπτης
+    from: Από
+    heading: Αναφορά κλήσης
+    incoming: Εισερχόμενος
+    incoming_calls: Εισερχόμενες κλήσεις
+    outgoing: Εξερχόμενος
+    outgoing_calls: Εξερχόμενες κλήσεις
+    parsed_from: Αναλύθηκε από
+    record_id: Αναγνωριστικό εγγραφής
+    recordings: Εγγραφές
+    reset: Επαναφορά
+    search: Αναζήτηση
+    search_date: Ημερομηνία αναζήτησης
+    search_report: Αναφορά αναζήτησης
+    sms: ΓΡΑΠΤΟ ΜΗΝΥΜΑ
+    sms_title: γραπτό μήνυμα
+    status: Κατάσταση
+    to: Προς το
+    total: Σύνολο
+    total_calls: Σύνολο κλήσεων
+  sweetalert:
+    cancel_button: Ματαίωση
+    confirmation_text: Δεν θα μπορείτε να το επαναφέρετε!
+    confirmation_title: Είσαι σίγουρος?
+    delete_confirm_button: Ναι, διαγράψτε το!
+    no_cancel: Όχι, ακυρώστε
+    ok_got_it: Εντάξει, το βρήκα!
+    yes_change: Ναι, αλλάξτε το!
+    yes_delete: Ναι, διαγράψτε το!
+    yes_disconnect: Ναι, αποσύνδεση!
+    yes_reorder: Ναι, ξαναπαραγγείλτε το!
+  time:
+    formats:
+      custom: "%A, %-d %{greek_month} στις %I:%M %p"
+      date: "%-d %{greek_month}"
+      day: "%A"
+      hour: "%I:%M %p"
+  url_stats:
+    breadcrumb_title: Κάντε κλικ
+    clicks: Κλικ
+    contact_name: όνομα επαφής
+    contact_number: Αριθμός επαφής
+    heading: Κάντε κλικ στην Αναφορά
+    last_clicked_at: Τελευταίο κλικ στο
+    sent_on: Στάλθηκε στις
+    short_url: Σύντομη διεύθυνση URL
+    target_url: URL προορισμού
+  user_bar_new_ui:
+    billing: Χρέωση
+    call: Καλέστε +%{number}
+    call_desc: για να δοκιμάσετε τον βοηθό σας
+    my_profile: Το ΠΡΟΦΙΛ μου
+    my_profile_desc: Το ΠΡΟΦΙΛ μου
+    my_team: Η ομάδα μου
+    my_team_desc: Χρήστες
+    plans_and_invoices: Σχέδια και τιμολόγια
+    pricing: Τιμολόγηση
+  user_menu:
+    billing: Τιμολόγηση
+    calendar_connection: Διαχείριση ημερολογίων
+    language: Γλώσσα
+    my_organization: Ο Οργανισμός μου
+    my_profile: Το προφίλ μου
+    my_team: Η ομάδα μου
+    pricing: Τιμολόγηση
+    sign_out: Υπογράψτε έξω
+    switch_organization: Οργάνωση Switch
+  validation:
+    available: Διαθέσιμο
+    detected_key: Δεν είναι δυνατή η χρήση "space, &, /, ?"
+    not_empty: Δεν μπορεί να είναι άδειο
+    unavailable: Μη διαθέσιμο
+  verification:
+    button: Παραλείψτε προς το παρόν
+    first_content: Σας έχουμε στείλει έναν σύνδεσμο επαλήθευσης και έναν κωδικό για να επιβεβαιώσετε τη διεύθυνση email σας. Μπορείτε να επαληθεύσετε κάνοντας κλικ στον σύνδεσμο ή υποβάλλοντας τον κωδικό.
+    second_content: Δεν έλαβα το email στο
+    title: Επαληθεύστε τη διεύθυνση email σας
+    try_again: Επαναποστολή
+  widget_preference:
+    24_hour: 24ωρο
+    allow_clients_to_schedule: Επιτρέψτε στις επαφές να προγραμματίζουν έως
+    am_pm: AM/PM
+    company_title: Τίτλος εταιρείας για κράτηση
+    custom_text_enable_help: Μπορείτε να χρησιμοποιήσετε αυτή τη λειτουργία όταν η επιλογή "Ενεργοποίηση AI Bot" της ρύθμισης του μενού του τηλεφώνου είναι απενεργοποιημένη.
+    days_in_future: μέρες στο μέλλον.
+    empty_select_error: Παρακαλώ επιλέξτε μια επιλογή
+    give_an_order: Δώστε μια παραγγελία
+    give_an_order_help_text: Επιλέξτε πρώτα υπηρεσίες Ή πρώτα επιλέξτε πόρους και μετά τις άλλες.
+    heading: Widget κρατήσεων
+    hide_resources: Απόκρυψη πόρων
+    hide_resouse_help_text: Εμφανίζουμε υπηρεσίες μόνο και κρύβουμε πόρους.
+    language: Γλώσσα
+    language_help_text: Προεπιλεγμένη γλώσσα που θα χρησιμοποιηθεί στο widget κράτησης.
+    morning_afternoon: Πρωί/Απόγευμα
+    options_heading: Διαθέσιμες επιλογές για τους πελάτες
+    preference_disable_tooltip: Μπορείτε να χρησιμοποιήσετε αυτή τη λειτουργία όταν Phone:ivr
+    preference_phone_ai_disable_tooltip: Μπορείτε να χρησιμοποιήσετε αυτή τη λειτουργία όταν υπάρχει Appointment Bot
+    resource_first: Πρώτη πηγή
+    resource_first_help_text: Εμφανίστε ταυτόχρονα το αναπτυσσόμενο μενού πόρων και το αναπτυσσόμενο μενού υπηρεσιών.
+    resource_first_note_text: 'Σημείωση: Για να το αλλάξετε, πρέπει να ρυθμίσετε την κατανομή πόρων όλων των υπηρεσιών σε one-on-one ή σε επιλογή προσκεκλημένου'
+    resource_service_options_heading: Αναπτυσσόμενες επιλογές πόρων και υπηρεσιών
+    scheduling_conditions: Συνθήκες προγραμματισμού
+    select_order: Επιλέξτε παραγγελία
+    service_first: Πρώτα σέρβις
+    service_first_help_text: Εμφανίστε ταυτόχρονα το αναπτυσσόμενο μενού υπηρεσιών και το αναπτυσσόμενο μενού πόρων.
+    service_resource_help_text: Κατά την επιλογή αυτής της επιλογής, τα αναπτυσσόμενα μενού για υπηρεσίες και πόρους θα εμφανίζονται ταυτόχρονα στον πελάτη στο widget κράτησης ραντεβού
+    time_format: Μορφή ώρας
+    time_format_help_text: Προεπιλεγμένη μορφή ώρας που θα χρησιμοποιηθεί στο widget κράτησης.
+    timezone: Ζώνη ώρας
+    timezone_help_text: Προεπιλεγμένη ζώνη ώρας που θα χρησιμοποιηθεί στο widget κράτησης.
+    widget_branding:
+      description: Description
+      logo: Logo
+      menu: Widget Branding
+      no_logo: Χωρίς λογότυπο
+      remove_branding: Αφαίρεση της επωνυμίας Voxiplan
+      remove_branding_helper: Αυτό σας επιτρέπει να ελέγχετε τον τρόπο με τον οποίο εμφανίζεται η επωνυμία της Voxiplan στη σελίδα προγραμματισμού σας.
+      require_description: Description required.
+      use_branding: Use Branding

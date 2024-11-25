@@ -1,0 +1,66 @@
+{{define "en"}}
+Hi {{ title .Identity.traits.firstName }},
+
+Please verify your account by clicking the following link:
+
+{{ .VerificationURL }}
+
+Thanks,
+Team Voxiplan
+{{end}}
+
+{{define "fr"}}
+Bonjour {{ title .Identity.traits.firstName }},
+
+Veuillez vérifier votre compte en cliquant sur le lien suivant :
+
+{{ .VerificationURL }}
+
+Merci,
+Team Voxiplan
+{{end}}
+
+{{define "it"}}
+Ciao {{ title .Identity.traits.firstName }},
+
+Verifica il tuo account cliccando sul seguente link:
+
+{{ .VerificationURL }}
+
+Grazie,
+Team Voxiplan
+{{end}}
+
+{{define "nl"}}
+Hallo {{ title .Identity.traits.firstName }},
+
+Gelieve uw account te verifiëren door op de volgende link te klikken:
+
+{{ .VerificationURL }}
+
+Bedankt,
+Team Voxiplan
+{{end}}
+
+{{define "de"}}
+Hallo {{ title .Identity.traits.firstName }},
+
+Um Ihr Konto wiederherzustellen, klicken Sie bitte auf den folgenden Link:
+
+{{ .VerificationURL }}
+
+Danke,
+Team Voxiplan
+{{end}}
+
+{{- if eq .Identity.traits.language "de" -}}
+{{ template "de" . }}
+{{- else if eq .Identity.traits.language "fr" -}}
+{{ template "fr" . }}
+{{- else if eq .Identity.traits.language "nl" -}}
+{{ template "nl" . }}
+{{- else if eq .Identity.traits.language "it" -}}
+{{ template "it" . }}
+{{- else -}}
+{{ template "en" . }}
+{{- end -}}

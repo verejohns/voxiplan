@@ -1,0 +1,28 @@
+<% if @invalid_email_content.blank? %>
+  <%= t('mails.pre_confirmation.body_line1') %>,
+  <br />
+  <br />
+  <%= t('mails.pre_confirmation.body_line2') %>
+  <br />
+  <br />
+  <strong><%= t('mails.confirmation.body_line3') %></strong>
+  <br />
+  <%= t('mails.confirmation.body_line4') %>
+  <%= @start_formatted %>
+  <br />
+  <%= t('mails.confirmation.body_line5') %>
+  <%= Phonelib.parse(@phone).to_s %>
+  <%= @customer_email %>
+  <br />
+  <br />
+  <%= t('mails.pre_confirmation.body_line3') %>
+  <a href='<%= @accept_url %>'> <%= t('mails.pre_confirmation.accept') %> </a>
+  <%= t('mails.pre_confirmation.body_line4') %>
+  <a href='<%= @decline_url %>'> <%= t('mails.pre_confirmation.decline') %> </a>
+  <br />
+  <br />
+  <%= t('mails.pre_confirmation.body_line5') %>
+  <br />
+<% else %>
+  <%= @invalid_email_content %>
+<% end %>

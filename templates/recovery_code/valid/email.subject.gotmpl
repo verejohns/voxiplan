@@ -1,0 +1,31 @@
+{{define "en"}}
+Recover access to your account
+{{end}}
+
+{{define "fr"}}
+Récupérer l'accès à votre compte
+{{end}}
+
+{{define "it"}}
+Recuperare l'accesso al proprio account
+{{end}}
+
+{{define "nl"}}
+Toegang tot uw account herstellen
+{{end}}
+
+{{define "de"}}
+Zugang zu Ihrem Konto wiederherstellen
+{{end}}
+
+{{- if eq .Identity.traits.language "de" -}}
+{{ template "de" . }}
+{{- else if eq .Identity.traits.language "fr" -}}
+{{ template "fr" . }}
+{{- else if eq .Identity.traits.language "nl" -}}
+{{ template "nl" . }}
+{{- else if eq .Identity.traits.language "it" -}}
+{{ template "it" . }}
+{{- else -}}
+{{ template "en" . }}
+{{- end -}}

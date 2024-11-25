@@ -1,0 +1,273 @@
+<!--begin::Save as new schedule-->
+<div class="modal fade" id="<%= target == 'service' ? 'kt_modal_service_save_as_new_schedule' : 'kt_modal_save_as_new_schedule' %>" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('availabilities.save_as_schedule_title') %></h5>
+
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+              <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+                <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1"/>
+                <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                      x="0" y="7" width="16" height="2" rx="1"/>
+              </g>
+            </svg>
+          </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+
+      <div class="modal-body">
+        <!--begin::Alert-->
+        <div class="alert bg-light-info border border-info d-flex align-items-center flex-column flex-sm-row w-100 py-3 px-5 mb-10">
+          <!--begin::Icon-->
+          <!--begin::Svg Icon | path: icons/duotone/Code/Warning-2.svg-->
+          <span class="svg-icon svg-icon-2x svg-icon-info me-3 mb-5 mb-sm-0">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+							<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"></rect>
+							<rect x="11" y="14" width="7" height="2" rx="1" transform="rotate(-90 11 14)" fill="black"></rect>
+							<rect x="11" y="17" width="2" height="2" rx="1" transform="rotate(-90 11 17)" fill="black"></rect>
+						</svg>
+					</span>
+          <!--end::Svg Icon-->
+          <!--end::Icon-->
+          <!--begin::Content-->
+          <div class="d-flex flex-column pe-0 pe-sm-10">
+            <span class="fw-bold text-info"><%= t('availabilities.save_as_schedule_help') %></span>
+          </div>
+          <!--end::Content-->
+        </div>
+        <!--end::Alert-->
+
+        <!--begin::Field-->
+        <div class="mb-5">
+          <label class="form-label"><%= t('availabilities.schedule_name') %></label>
+          <input type="text" class="form-control" name="<%= target == 'service' ? 'service_schedule_name' : 'schedule_name' %>" placeholder="<%= t('availabilities.schedule_name_placeholder') %>">
+        </div>
+        <!--end::Field-->
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal"><%= t('common.button.cancel') %></button>
+        <button type="button" class="btn btn-primary" onclick="<%= target == 'service' ? 'saveServiceSchedule()' : 'saveSchedule()' %>"><%= t('button.save') %></button>
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+<!--end::Save as new schedule-->
+<script>
+    $('#kt_modal_save_as_new_schedule').on('hidden.bs.modal', function (event) {
+        console.log('hide');
+        if (!$('body').hasClass('modal-open')) $('body').addClass('modal-open');
+    })
+
+    function saveServiceSchedule() {
+        const schedule_name = $('input[name=service_schedule_name]').val();
+        if (schedule_name == '') {
+            showMessage('error', '<%= t('availabilities.required_schedule_name') %>');
+            return false;
+        }
+
+        // get working hours that customized
+        let from_hours_array = [];
+        $.each($('input.service_hours_from_time_default'), function (index, from_obj) {
+            if (!$(from_obj).parent().hasClass('d-none')) {
+                from_hours = {};
+                from_hours[$(from_obj).attr('id')] = $(from_obj).val();
+                from_hours_array.push(from_hours);
+            }
+        })
+
+        let to_hours_array = [];
+        $.each($('input.service_hours_to_time_default'), function (index, to_obj) {
+            if (!$(to_obj).parent().hasClass('d-none')) {
+                to_hours = {};
+                to_hours[$(to_obj).attr('id')] = $(to_obj).val();
+                to_hours_array.push(to_hours);
+            }
+        })
+
+        let schedule_hours = {};
+        const working_hours_mon = getWorkingHours('mon', from_hours_array, to_hours_array);
+        const working_hours_tue = getWorkingHours('tue', from_hours_array, to_hours_array);
+        const working_hours_wed = getWorkingHours('wed', from_hours_array, to_hours_array);
+        const working_hours_thu = getWorkingHours('thu', from_hours_array, to_hours_array);
+        const working_hours_fri = getWorkingHours('fri', from_hours_array, to_hours_array);
+        const working_hours_sat = getWorkingHours('sat', from_hours_array, to_hours_array);
+        const working_hours_sun = getWorkingHours('sun', from_hours_array, to_hours_array);
+        if (working_hours_mon.length > 0) schedule_hours['mon'] = working_hours_mon;
+        if (working_hours_tue.length > 0) schedule_hours['tue'] = working_hours_tue;
+        if (working_hours_wed.length > 0) schedule_hours['wed'] = working_hours_wed;
+        if (working_hours_thu.length > 0) schedule_hours['thu'] = working_hours_thu;
+        if (working_hours_fri.length > 0) schedule_hours['fri'] = working_hours_fri;
+        if (working_hours_sat.length > 0) schedule_hours['sat'] = working_hours_sat;
+        if (working_hours_sun.length > 0) schedule_hours['sun'] = working_hours_sun;
+
+
+        // get override dates
+        let override_dates = [];
+        from_hours_array = [];
+        $.each($('input.service_hours_override_hours_from'), function (index, from_obj) {
+            if ($(from_obj).val() != 'unavailable') {
+                const override_date = $(from_obj).data('override-date');
+                from_hours = {};
+                from_hours[override_date] = $(from_obj).val();
+                from_hours_array.push(from_hours);
+                if (! override_dates.includes(override_date)) override_dates.push(override_date)
+            }
+        })
+
+        to_hours_array = [];
+        $.each($('input.service_hours_override_hours_to'), function (index, to_obj) {
+            if ($(to_obj).val() != 'unavailable') {
+                const override_date = $(to_obj).data('override-date');
+                to_hours = {};
+                to_hours[override_date] = $(to_obj).val();
+                to_hours_array.push(to_hours);
+            }
+        })
+
+        let schedule_override_hours = {}
+        $.each(override_dates, function(key, override_date) {
+            schedule_override_hours[override_date] = getWorkingHours(override_date, from_hours_array, to_hours_array)
+        })
+
+        $.ajax({
+            method: 'post',
+            url: '<%= save_as_schedule_services_path %>',
+            data: {
+                schedule_name: schedule_name,
+                working_hours: schedule_hours,
+                override_hours: schedule_override_hours
+            },
+            success: function(response) {
+                if (response.result == 'success') {
+                    $('input[name=service_schedule_name]').val('');
+                    $('div#kt_modal_service_save_as_new_schedule').modal('hide');
+
+                    const new_schedule = {id: response.new_schedule_id, text: schedule_name};
+                    const newOption = new Option(new_schedule.text, new_schedule.id, false, false);
+                    $('select#resource_schedule_templates, select#service_schedule_templates').append(newOption).select2().trigger('change');
+                }
+                showMessage(response.result, response.message);
+            }
+        })
+    }
+
+    function saveSchedule() {
+        const schedule_name = $('input[name=schedule_name]').val();
+        if (schedule_name == '') {
+            showMessage('error', '<%= t('availabilities.required_schedule_name') %>');
+            return false;
+        }
+
+        // get working hours that customized
+        let from_hours_array = [];
+        $.each($('input.from_time_default'), function (index, from_obj) {
+            if (!$(from_obj).parent().hasClass('d-none')) {
+                from_hours = {};
+                from_hours[$(from_obj).attr('id')] = $(from_obj).val();
+                from_hours_array.push(from_hours);
+            }
+        })
+
+        let to_hours_array = [];
+        $.each($('input.to_time_default'), function (index, to_obj) {
+            if (!$(to_obj).parent().hasClass('d-none')) {
+                to_hours = {};
+                to_hours[$(to_obj).attr('id')] = $(to_obj).val();
+                to_hours_array.push(to_hours);
+            }
+        })
+
+        let schedule_hours = {};
+        const working_hours_mon = getWorkingHours('mon', from_hours_array, to_hours_array);
+        const working_hours_tue = getWorkingHours('tue', from_hours_array, to_hours_array);
+        const working_hours_wed = getWorkingHours('wed', from_hours_array, to_hours_array);
+        const working_hours_thu = getWorkingHours('thu', from_hours_array, to_hours_array);
+        const working_hours_fri = getWorkingHours('fri', from_hours_array, to_hours_array);
+        const working_hours_sat = getWorkingHours('sat', from_hours_array, to_hours_array);
+        const working_hours_sun = getWorkingHours('sun', from_hours_array, to_hours_array);
+        if (working_hours_mon.length > 0) schedule_hours['mon'] = working_hours_mon;
+        if (working_hours_tue.length > 0) schedule_hours['tue'] = working_hours_tue;
+        if (working_hours_wed.length > 0) schedule_hours['wed'] = working_hours_wed;
+        if (working_hours_thu.length > 0) schedule_hours['thu'] = working_hours_thu;
+        if (working_hours_fri.length > 0) schedule_hours['fri'] = working_hours_fri;
+        if (working_hours_sat.length > 0) schedule_hours['sat'] = working_hours_sat;
+        if (working_hours_sun.length > 0) schedule_hours['sun'] = working_hours_sun;
+
+
+        // get override dates
+        let override_dates = [];
+        from_hours_array = [];
+        $.each($('input.override_hours_from'), function (index, from_obj) {
+            if ($(from_obj).val() != 'unavailable') {
+                const override_date = $(from_obj).data('override-date');
+                from_hours = {};
+                from_hours[override_date] = $(from_obj).val();
+                from_hours_array.push(from_hours);
+                if (! override_dates.includes(override_date)) override_dates.push(override_date)
+            }
+        })
+
+        to_hours_array = [];
+        $.each($('input.override_hours_to'), function (index, to_obj) {
+            if ($(to_obj).val() != 'unavailable') {
+                const override_date = $(to_obj).data('override-date');
+                to_hours = {};
+                to_hours[override_date] = $(to_obj).val();
+                to_hours_array.push(to_hours);
+            }
+        })
+
+        let schedule_override_hours = {}
+        $.each(override_dates, function(key, override_date) {
+            schedule_override_hours[override_date] = getWorkingHours(override_date, from_hours_array, to_hours_array)
+        })
+
+        $.ajax({
+            method: 'post',
+            url: '<%= save_as_schedule_services_path %>',
+            data: {
+                schedule_name: schedule_name,
+                working_hours: schedule_hours,
+                override_hours: schedule_override_hours
+            },
+            success: function(response) {
+                if (response.result == 'success') {
+                    $('input[name=schedule_name]').val('');
+                    $('div#kt_modal_save_as_new_schedule').modal('hide');
+
+                    const new_schedule = {id: response.new_schedule_id, text: schedule_name};
+                    const newOption = new Option(new_schedule.text, new_schedule.id, false, false);
+                    $('select#resource_schedule_templates, select#service_schedule_templates').append(newOption).select2().trigger('change');
+                }
+                showMessage(response.result, response.message);
+            }
+        })
+    }
+
+    function getWorkingHours(short_day, from_hours_array, to_hours_array) {
+        let working_hours = [];
+        for (let i = 0; i < from_hours_array.length; i ++) {
+            const from_hours = from_hours_array[i];
+            const to_hours = to_hours_array[i];
+            $.each(from_hours, function(key, value) {
+                if (key == short_day) {
+                    working_hours.push({ 'from': value, 'to': to_hours[key] });
+                }
+            })
+
+        }
+        return working_hours;
+    }
+</script>

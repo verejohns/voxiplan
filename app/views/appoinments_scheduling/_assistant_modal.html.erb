@@ -1,0 +1,189 @@
+<!--begin::Modals-->
+<!--begin::Extension-->
+<%= form_tag({controller: "appoinments_scheduling", action: "save_phone_menu_extentions"}, method: "post", class: 'form', id: 'appoinments_scheduling_phone_menu_detail') do %>
+<%= hidden_field_tag :ivr_id, params[:ivr_id] %>
+<input type="hidden" name="hours_type"/>
+<div class="modal fade" id="kt_modal_phone_menu_extension" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered mw-500px">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <!--begin::Modal header-->
+      <div class="modal-header justify-content-between">
+        <h2 class="modal-title m-0"><%= @extention_data['action_type'] %></h2>
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+              <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+                <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
+                <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                      x="0" y="7" width="16" height="2" rx="1" />
+              </g>
+            </svg>
+          </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+      <!--begin::Modal header-->
+      <!--begin::Modal body-->
+
+      <div class="modal-body scroll-y">
+        <!--begin::Field-->
+        <div class="mb-10">
+          <label class="form-label"><%= t('phone_menu.extension_number') %></label>
+          <%= select_tag "extension[number]", options_for_select(@extention_data['available_ext'].map(&:to_s), @extention_data['number']), class: "form-select",
+                         id: "extension_number_select",  data: { control: 'select2', placeholder: t('common.select_placeholder'), 'minimum-results-for-search': 'Infinity'} %>
+          <%= hidden_field_tag "previous_ext" %>
+        </div>
+        <!--end::Field-->
+        <!--begin::Field-->
+        <div class="mb-10">
+          <label class="form-label"><%= t('phone_menu.title') %></label>
+          <%= text_field_tag "extension[title]", nil ,  class: "form-control timepicker", id: "extension_title"  %>
+        </div>
+        <!--end::Field-->
+        <!--begin::Field-->
+        <div>
+          <label class="form-label"><%= t('phone_menu.action') %></label>
+          <%= select_tag "extension[action]", options_for_select(extension_options(@menu_node, @extention_data['action']), @extention_data['action']),
+                         class: "form-select", id: "select_action", data: { control: 'select2', placeholder: t('common.select_placeholder'), 'minimum-results-for-search': 'Infinity'} %>
+          <!--begin::Field-->
+          <div id="kt_opening_hours_new_extension_message" class="mt-4" style="display: none;">
+          <textarea class="form-control" rows="4"><%= t('phone_menu.transfer_extension_say_custom_message') %></textarea>
+          </div>
+          <!--end::Field-->
+        </div>
+        <!--end::Field-->
+        <!--begin::Field-->
+        <div id="users_div" class="mt-10" style="display: none;">
+          <label class="form-label"><%= t('phone_menu.users') %></label>
+          <%= select_tag "extension[users]", options_from_collection_for_select( @extention_data['available_users'], 'id', 'name', @extention_data['users']),
+                         class: "form-select select2_user", id: "user_select", multiple: true, data: { control: 'select2', placeholder: t('common.select_placeholder')} %>
+          <span class="text-danger select-user-error" style="display: none;"><%= t('phone_menu.select_user') %></span>
+        </div>
+        <!--end::Field-->
+        <!--begin::Field-->
+        <div id="transfer_call_toggle_say" class="mt-10" style="display: none;">
+          <label class="form-check form-check-custom form-check-solid">
+            <input id="transfer_call_toggle_say_checkbox" name="extension[message_before_call_enabled]" class="form-check-input" value="on" <%= 'checked' if @extention_data['message_before_call_enabled'] %> type="checkbox">
+            <span class="form-check-label extension-enable-say"><%= t('phone_menu.extension_enable_say') %></span>
+            <span></span>
+          </label>
+        </div>
+        <!--end::Field-->
+        <!--begin::Field-->
+        <div id="transfer_call_say_text" class="mt-4" style="display: none;">
+          <%= text_area_tag 'extension[message_before_call]',  @extention_data['message_before_call'],  class: "form-control", id: "add_message", rows: 4 %>
+        </div>
+        <!--end::Field-->
+
+        <!--begin::Field-->
+        <div id="transfer_call_wait_time" class="mt-10" style="display: none;">
+          <label class="form-label"><%= t('phone_menu.wait_time') %></label>
+          <%= select_tag "extension[time_out]", options_for_select([ ['Select', '0'], "1 sec.", "5 sec.", "6 sec.", "7 sec.", "8 sec.", "9 sec.", "10 sec.", "15 sec.", "20 sec.", "25 sec." , "30 sec.", "40 sec.", "50 sec.", "60 sec."], "#{@extention_data['timeout']} sec."),
+                         class: "form-select", id: "time_out_select", data: { control: 'select2', placeholder: t('common.select_placeholder'), 'minimum-results-for-search': 'Infinity'} %>
+        </div>
+        <!--end::Field-->
+        <!--begin::Field-->
+        <div id="transfer_call_toggle_say2" class="mt-10" style="display: none;">
+          <label class="form-label"><%= t('phone_menu.extension_enable_say2') %></label>
+          <%= text_area_tag 'extension[message_before_call2]', @extention_data['message_before_call2'],  class: "form-control", rows: 4 %>
+        </div>
+        <!--end::Field-->
+      </div>
+
+      <!--end::Modal body-->
+      <!--begin::Modal footer-->
+      <div class="modal-footer justify-content-end">
+        <button type="reset" class="btn btn-light btn-active-light-primary me-2" data-bs-dismiss="modal"><%= t('common.button.cancel') %></button>
+        <button type="button" class="btn btn-primary submit-button" onclick="save_phone_menu_extension()">
+          <span class="indicator-label"><%= t('common.button.submit') %></span>
+          <span class="indicator-progress"><%= t('common.please_wait') %>
+            <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+        </button>
+      </div>
+      <!--end::Modal footer-->
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+<% end %>
+<!--end::Extension-->
+
+<!--end::Modals-->
+
+<script>
+    // Create New Menu Option (Opening)
+    (function () {
+
+        $('input#transfer_call_toggle_say_checkbox').click(function(e){
+            show_hide_transfer_call_say_text()
+        });
+
+        $('select#select_action').on('select2:select', function () {
+            box_show();
+        });
+
+        function box_show() {
+            var _val = $('select#select_action').val();
+            if (_val === "ext_action_appointment_bot") {
+                $("div#transfer_call_toggle_say").hide();
+                $("div#transfer_call_toggle_say2").hide();
+                $("div#transfer_call_wait_time").hide();
+                $('div#users_div').hide();
+                // show_hide_transfer_call_say_text();
+                $('div#transfer_call_say_text').hide();
+            } else if (_val === "ext_action_say_message") {
+                $('textarea#add_message').text("<%= @extention_data['message_before_call'] || I18n.t('phone_menu.transfer_extension_say_custom_message') %>");
+                $("div#transfer_call_toggle_say").hide();
+                $("div#transfer_call_toggle_say2").hide();
+                $("div#transfer_call_wait_time").hide();
+                $('div#users_div').hide();
+                $('div#transfer_call_say_text').show();
+            } else if (_val === "ext_action_transfer_call") {
+                $("div#transfer_call_toggle_say2").show();
+                $('span.extension-enable-say').text("<%= I18n.t('phone_menu.transfer_extension_enable_say') %>");
+                $('textarea#add_message').text("<%= @extention_data['message_before_call'] || I18n.t('static_ivr.your_call_being_transfer') %>");
+                $("div#transfer_call_toggle_say").show();
+                $("div#transfer_call_wait_time").show();
+                $('div#users_div').show();
+                show_hide_transfer_call_say_text();
+            } else if (_val === "ext_action_send_to_voicemail") {
+                $("div#transfer_call_toggle_say2").show();
+                $('span.extension-enable-say').text("<%= I18n.t('phone_menu.voicemail_extension_enable_say') %>");
+                $('textarea#add_message').text("<%= @extention_data['message_before_call'] || I18n.t('static_ivr.record_your_message') %>");
+                $('div#users_div').show();
+                $("div#transfer_call_wait_time").hide();
+                $("div#transfer_call_toggle_say").hide();
+                $("div#transfer_call_say_text").hide();
+                // show_hide_transfer_call_say_text();
+            }
+        }
+
+        function show_hide_transfer_call_say_text() {
+            if ($('input#transfer_call_toggle_say_checkbox').is(":checked")){
+                $('div#transfer_call_say_text').show();
+            }else{
+                $('div#transfer_call_say_text').hide();
+            }
+        }
+
+
+    })();
+
+    function save_phone_menu_extension() {
+        if($('div#users_div').is(':visible') && $('select#user_select').val().length == 0) {
+            $('span.select-user-error').show();
+        }
+        else {
+            let hours_type = 'open';
+            if ($('a.phone-menu-close-hours').hasClass('active')) hours_type = 'close';
+            $('input[name=hours_type]').val(hours_type);
+            $('form#appoinments_scheduling_phone_menu_detail').submit();
+        }
+    }
+</script>

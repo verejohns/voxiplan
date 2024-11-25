@@ -1,0 +1,74 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.mobminder.com/query/config.php?kid=MM_KEY&lgn=MM_LOGIN&pwd=MM_PASSWORD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 31 Oct 2018 13:56:05 GMT
+      Server:
+      - Apache
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '701'
+      Content-Type:
+      - text/html
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        PGRhdGE+I0NfZFNfYWNjb3VudA0yODYwfE9saXZpZXIgRXllRGVzaWduZXJ8MzYwMHwxfDEwMHw0fDMzfDN8MHwzMHw0MHw4MHxyaWVAcmllbi5iZQ0jQ19kU19yZXNvdXJjZQ02OTc4fDJ8Q2xpbmlxdWUgMnx8SmUgc3VpcyBsYSBzZXVsZSByZXNvdXJjZSBkYW5zIGNldCBhZ2VuZGEgOikNMTMxMzV8MnxDbGluaXF1ZSAxfHwNMTMxMzZ8MnxDbGluaXF1ZSAzfHwNMTMxMzd8MXxSdWJhfHwNMTMxMzh8MXxBeGVsfHwNMTMxMzl8NHxSYWRpb3x8DSNDX2RTX2N1c3RvbUNzcw0xNDIyfDExfDgwfGV4dGVuc2lvbiBkZSBjaWxzIGdsYW1vdXJ8MTA2fDJoDTE0MjN8M3w4MHx6YXBwZSB0dCBsZSB0ZW1wc3wxODN8cGFzIGZpYWJsZQ0xNDI0fDExfDgxfGhvbm5vcsOpfDgwMnwNMTQyNXwxMXw4MXxub24gaG9ub3LDqXw5MDN8DTIxNTc0fDExfDgwfFBlcm1hbmVudHwxNzN8DSNDX2RTX3RpbWVib3hpbmcNMTAwMzE1NnxUZXN0fDI1NHwwfDB8DSNDX2RTX3dvcmtleHBlcnQNMTY5ODZ8MTMxMzcNMTU2NDh8MTMxMzcNMTU2NTB8MTMxMzkNMTU2NTB8MTMxMzcNMTU2NTB8MTMxMzgNMTU2NTB8MTMxMzYNMTU2NTB8Njk3OA0xNTY1MHwxMzEzNQ0xNTQxNHwxMzEzOA0xNTY0OXwxMzEzOA0xNTY0OXw2OTc4DTE1NjQ4fDEzMTM4DTE1NjQ4fDEzMTM2DTE1NjQ4fDY5NzgNMTU2NDh8MTMxMzUNMTM4MDV8Njk3OA0xMzgwN3w2OTc4DTEzODA4fDY5NzgNMTY5ODZ8MTMxMzgNMTY5ODZ8MTMxMzYNMTY5ODZ8Njk3OA0xNjk4NnwxMzEzNQ0xNTQxNHw2OTc4DSNDX2RTX3dvcmt0Ym94aW5nDSNDX2RTX3dvcmtjb2RlDTEzODA1fEMuIE1hcXVpbGxhZ2UgcGVybWFuZW50fHw0fDF8MjE1NzR8MHwwDTEzODA3fEQuIFJldG91Y2hlIG1hcXVpbGxhZ2V8fDJ8MXwyMTU3NHwwfDENMTM4MDh8Qi4gRXh0ZW5zaW9uIGRlIGNpbHMgZ2xhbW91cnxvaCBtb24gZGlldXggY29tbWUgdHUgdmFzIMOqdHJlIGJlbGxlIXwzfDF8MTQyMnwwfDENMTU0MTR8RC4gVGVzdCBzZXJ2aWNlfHwyfDF8MHwwfDANMTU2NDh8QS4gQ29uc3VsdGF0aW9uIGJpZW4tZXRyZXx8MnwxfDB8MHwwDTE1NjQ5fEEuIFRlc3Qgc2VydmljZSAzfHwyfDF8MHwwfDENMTU2NTB8Qy4gVGVzdCBzZXJ2aWNlIDR8fDJ8MnwwfDB8MQ0xNjk4NnxCLiBDb25zdWx0YXRpb24gVGVzdHx8MnwxfDB8MHwwDTwvZGF0YT4NDVBlcmYgUmVwb3J0Og0gICAgIDE1NDA5OTQxNjUuMjg3NCBzZWMgKCswIG1zKSA8LT4gaW5pdA0gICAgIDE1NDA5OTQxNjUuMjk0MyBzZWMgKCs2IG1zKSA8LT4gOjp0aW1lIG5lZWRlZCB0byByZXRyaWV2ZSBjb250ZXh0IGFuZCBwb3N0ZWQgcGFyYW1ldGVycw0gICAgIDE1NDA5OTQxNjUuMjk0NSBzZWMgKCswIG1zKSA8LT4gOjpwcm90b2NvbCBzdHJlYW1lZA0NICAgICBUb3RhbCBkZWx0YTogICgrNyBtcyk=
+    http_version: 
+  recorded_at: Mon, 31 Dec 2018 04:00:00 GMT
+- request:
+    method: get
+    uri: https://api.mobminder.com/post/visitor.php?firstname=Voxiplan&id=-1&kid=MM_KEY&lastname=Caller&lgn=MM_LOGIN&note=Recorded%20name:%20Shan&pwd=MM_PASSWORD
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 31 Oct 2018 13:56:06 GMT
+      Server:
+      - Apache
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '251'
+      Content-Type:
+      - text/html
+    body:
+      encoding: ASCII-8BIT
+      string: "<data>#C_dS_visitor\r4579849|2018-10-31 14:56:06|Laura Axel Boven|12567|0||0|0|0|1|Voxiplan|Caller||||||||||1|0||0|0||Recorded
+        name: Shan\r</data>\r\rPerf Report:\r     1540994166.1593 sec (+0 ms) <->
+        init\r     1540994166.1605 sec (+1 ms) <-> ::posted parameters retrieved and
+        parsed\r     1540994166.161 sec (+0 ms) <-> ::posted\r     1540994166.1611
+        sec (+0 ms) <-> ::streamed\r\r     Total delta:  (+1 ms)"
+    http_version: 
+  recorded_at: Mon, 31 Dec 2018 04:00:00 GMT
+recorded_with: VCR 4.0.0

@@ -1,0 +1,261 @@
+<%= render 'reports/header' %>
+
+<div class="post d-flex flex-column-fluid" id="kt_post">
+  <!--begin::Container-->
+  <div id="kt_content_container" class="container-fluid">
+    <div class="row g-5 g-md-8">
+      <div class="col-md-4">
+        <!--begin::Statistics Widget 5-->
+        <div class="card card-md-stretch mb-5 mb-md-8">
+          <!--begin::Body-->
+          <div class="card-body px-5 px-md-9 py-5">
+            <div class="ms-n1 mb-4">
+													<span class="svg-icon svg-icon-primary svg-icon-3x">
+														<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+															<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+																<rect x="0" y="0" width="24" height="24"></rect>
+																<path d="M22,17 L22,21 C22,22.1045695 21.1045695,23 20,23 L4,23 C2.8954305,23 2,22.1045695 2,21 L2,17 L6.27924078,17 L6.82339262,18.6324555 C7.09562072,19.4491398 7.8598984,20 8.72075922,20 L15.381966,20 C16.1395101,20 16.8320364,19.5719952 17.1708204,18.8944272 L18.118034,17 L22,17 Z" fill="#000000"></path>
+																<path d="M2.5625,15 L5.92654389,9.01947752 C6.2807805,8.38972356 6.94714834,8 7.66969497,8 L16.330305,8 C17.0528517,8 17.7192195,8.38972356 18.0734561,9.01947752 L21.4375,15 L18.118034,15 C17.3604899,15 16.6679636,15.4280048 16.3291796,16.1055728 L15.381966,18 L8.72075922,18 L8.17660738,16.3675445 C7.90437928,15.5508602 7.1401016,15 6.27924078,15 L2.5625,15 Z" fill="#000000" opacity="0.3"></path>
+																<path d="M11.1288761,0.733697713 L11.1288761,2.69017121 L9.12120481,2.69017121 C8.84506244,2.69017121 8.62120481,2.91402884 8.62120481,3.19017121 L8.62120481,4.21346991 C8.62120481,4.48961229 8.84506244,4.71346991 9.12120481,4.71346991 L11.1288761,4.71346991 L11.1288761,6.66994341 C11.1288761,6.94608579 11.3527337,7.16994341 11.6288761,7.16994341 C11.7471877,7.16994341 11.8616664,7.12798964 11.951961,7.05154023 L15.4576222,4.08341738 C15.6683723,3.90498251 15.6945689,3.58948575 15.5161341,3.37873564 C15.4982803,3.35764848 15.4787093,3.33807751 15.4576222,3.32022374 L11.951961,0.352100892 C11.7412109,0.173666017 11.4257142,0.199862688 11.2472793,0.410612793 C11.1708299,0.500907473 11.1288761,0.615386087 11.1288761,0.733697713 Z" fill="#000000" fill-rule="nonzero" transform="translate(11.959697, 3.661508) rotate(-270.000000) translate(-11.959697, -3.661508) "></path>
+															</g>
+														</svg>
+													</span>
+            </div>
+            <h3 class="fs-3x mb-1"><%= @incoming_nums %></h3>
+            <div class="fs-7 text-uppercase fw-normal ls-1 text-muted"><%= t('sms_stats.incoming_sms') %></div>
+          </div>
+          <!--end::Body-->
+        </div>
+        <!--end::Statistics Widget 5-->
+      </div>
+
+      <div class="col-md-4">
+        <!--begin::Statistics Widget 5-->
+        <div class="card  card-md-stretch mb-5 mb-md-8">
+          <!--begin::Body-->
+          <div class="card-body px-5 px-md-9 py-5">
+            <div class="ms-n1 mb-4">
+													<span class="svg-icon svg-icon-primary svg-icon-3x">
+														<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+															<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+																<rect x="0" y="0" width="24" height="24"></rect>
+																<path d="M22,17 L22,21 C22,22.1045695 21.1045695,23 20,23 L4,23 C2.8954305,23 2,22.1045695 2,21 L2,17 L6.27924078,17 L6.82339262,18.6324555 C7.09562072,19.4491398 7.8598984,20 8.72075922,20 L15.381966,20 C16.1395101,20 16.8320364,19.5719952 17.1708204,18.8944272 L18.118034,17 L22,17 Z" fill="#000000"></path>
+																<path d="M2.5625,15 L5.92654389,9.01947752 C6.2807805,8.38972356 6.94714834,8 7.66969497,8 L16.330305,8 C17.0528517,8 17.7192195,8.38972356 18.0734561,9.01947752 L21.4375,15 L18.118034,15 C17.3604899,15 16.6679636,15.4280048 16.3291796,16.1055728 L15.381966,18 L8.72075922,18 L8.17660738,16.3675445 C7.90437928,15.5508602 7.1401016,15 6.27924078,15 L2.5625,15 Z" fill="#000000" opacity="0.3"></path>
+																<path d="M11.1288761,0.733697713 L11.1288761,2.69017121 L9.12120481,2.69017121 C8.84506244,2.69017121 8.62120481,2.91402884 8.62120481,3.19017121 L8.62120481,4.21346991 C8.62120481,4.48961229 8.84506244,4.71346991 9.12120481,4.71346991 L11.1288761,4.71346991 L11.1288761,6.66994341 C11.1288761,6.94608579 11.3527337,7.16994341 11.6288761,7.16994341 C11.7471877,7.16994341 11.8616664,7.12798964 11.951961,7.05154023 L15.4576222,4.08341738 C15.6683723,3.90498251 15.6945689,3.58948575 15.5161341,3.37873564 C15.4982803,3.35764848 15.4787093,3.33807751 15.4576222,3.32022374 L11.951961,0.352100892 C11.7412109,0.173666017 11.4257142,0.199862688 11.2472793,0.410612793 C11.1708299,0.500907473 11.1288761,0.615386087 11.1288761,0.733697713 Z" fill="#000000" fill-rule="nonzero" transform="translate(11.959697, 3.661508) rotate(-90.000000) translate(-11.959697, -3.661508) "></path>
+															</g>
+														</svg>
+													</span>
+            </div>
+            <h3 class="fs-3x mb-1"><%= @outgoing_nums %></h3>
+            <div class="fs-7 text-uppercase fw-normal ls-1 text-muted"><%= t('sms_stats.outgoing_sms') %></div>
+          </div>
+          <!--end::Body-->
+        </div>
+        <!--end::Statistics Widget 5-->
+      </div>
+      <div class="col-md-4">
+        <!--begin::Statistics Widget 5-->
+        <div class="card card-md-stretch mb-5 mb-md-8">
+          <!--begin::Body-->
+          <div class="card-body px-5 px-md-9 py-5">
+            <div class="ms-n1 mb-4">
+													<span class="svg-icon svg-icon-primary svg-icon-3x">
+														<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+															<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+																<rect x="0" y="0" width="24" height="24"></rect>
+																<path d="M16,15.6315789 L16,12 C16,10.3431458 14.6568542,9 13,9 L6.16183229,9 L6.16183229,5.52631579 C6.16183229,4.13107011 7.29290239,3 8.68814808,3 L20.4776218,3 C21.8728674,3 23.0039375,4.13107011 23.0039375,5.52631579 L23.0039375,13.1052632 L23.0206157,17.786793 C23.0215995,18.0629336 22.7985408,18.2875874 22.5224001,18.2885711 C22.3891754,18.2890457 22.2612702,18.2363324 22.1670655,18.1421277 L19.6565168,15.6315789 L16,15.6315789 Z" fill="#000000"></path>
+																<path d="M1.98505595,18 L1.98505595,13 C1.98505595,11.8954305 2.88048645,11 3.98505595,11 L11.9850559,11 C13.0896254,11 13.9850559,11.8954305 13.9850559,13 L13.9850559,18 C13.9850559,19.1045695 13.0896254,20 11.9850559,20 L4.10078614,20 L2.85693427,21.1905292 C2.65744295,21.3814685 2.34093638,21.3745358 2.14999706,21.1750444 C2.06092565,21.0819836 2.01120804,20.958136 2.01120804,20.8293182 L2.01120804,18.32426 C1.99400175,18.2187196 1.98505595,18.1104045 1.98505595,18 Z M6.5,14 C6.22385763,14 6,14.2238576 6,14.5 C6,14.7761424 6.22385763,15 6.5,15 L11.5,15 C11.7761424,15 12,14.7761424 12,14.5 C12,14.2238576 11.7761424,14 11.5,14 L6.5,14 Z M9.5,16 C9.22385763,16 9,16.2238576 9,16.5 C9,16.7761424 9.22385763,17 9.5,17 L11.5,17 C11.7761424,17 12,16.7761424 12,16.5 C12,16.2238576 11.7761424,16 11.5,16 L9.5,16 Z" fill="#000000" opacity="0.3"></path>
+															</g>
+														</svg>
+													</span>
+            </div>
+            <h3 class="fs-3x mb-1"><%= @incoming_nums + @outgoing_nums %></h3>
+            <div class="fs-7 text-uppercase fw-normal ls-1 text-muted"><%= t('sms_stats.total_sms') %></div>
+          </div>
+          <!--end::Body-->
+        </div>
+        <!--end::Statistics Widget 5-->
+      </div>
+    </div>
+
+    <div class="card mb-0">
+      <%= render 'reports/tabs', report_type: 'sms_report' %>
+      <div class="card-body px-5 px-md-9 py-5">
+        <!--begin::Wrapper-->
+        <div class="d-sm-flex flex-stack mb-5">
+          <!--begin::Search-->
+          <div class="d-flex align-items-center position-relative my-1 mb-6 mb-sm-0">
+            <i class="bi bi-search position-absolute ms-6"></i>
+            <input type="text" data-kt-docs-table-filter="search" class="form-control form-control-solid w-250px ps-15" placeholder="<%= t('stats.search_report') %>"/>
+          </div>
+          <!--end::Search-->
+
+          <!--begin::Toolbar-->
+          <div class="d-sm-flex justify-content-end" data-kt-docs-table-toolbar="base">
+            <!--begin::Date Range Picker-->
+            <div>
+              <input type="text" name="birthday" class="kt_datepicker form-control form-control-solid w-225px" placeholder="<%= t('stats.date_range') %>" data-mode="range"/>
+            </div>
+            <!--end::Date Range Picker-->
+          </div>
+          <!--end::Toolbar-->
+        </div>
+        <!--end::Wrapper-->
+
+        <!--begin::Datatable-->
+        <table id="kt_datatable_sms_report" class="table table-row-dashed gy-5">
+          <thead>
+          <tr class="text-start text-uppercase gs-0">
+            <th class="align-top"><%= t('sms_stats.date') %></th>
+            <th class="align-top"><%= t('sms_stats.to') %></th>
+            <th class="align-top"><%= t('sms_stats.from') %></th>
+            <th class="align-top"><%= t('stats.status') %></th>
+            <th class="align-top"><%= t('sms_stats.message') %></th>
+            <th class="align-top"><%= t('sms_stats.delivery_report') %></th>
+          </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <!--end::Datatable-->
+      </div>
+    </div>
+  </div>
+  <!--end::Container-->
+</div>
+
+<script>
+    (function () {
+        // Class definition
+        var KTDatatablesServerSide = function () {
+            // Mock
+            var dataSet = <%= raw @sms_data.to_json %>;
+
+            // Shared variables
+            var table;
+            var dt;
+
+            // Private functions
+            var initDatatable = function () {
+                dt = $('#kt_datatable_sms_report').DataTable({
+                    searchDelay: 500,
+                    order: [[0, 'asc']],
+                    select: {
+                        style: 'os',
+                        selector: 'td:first-child',
+                        className: 'row-selected'
+                    },
+                    data: dataSet,
+                    columns: [
+                        {data: 'Date'},
+                        {data: 'To'},
+                        {data: 'From'},
+                        {data: 'Status'},
+                        {data: 'Message'},
+                        {data: 'DeliveryReport'},
+                    ],
+                    columnDefs: [
+                        {
+                            // Date
+                            targets: 0,
+                            render: function (data) {
+                                moment.locale(data[1]);
+                                return moment(data[0]).format("LLLL");
+                            }
+                        },
+                        {
+                            // status
+                            targets: 3,
+                            render: function (data) {
+                                if (data == 'incoming') return `<span class="badge badge-success"><%= t('sms_stats.incoming') %></span>`
+                                else if (data == 'outgoing') return `<span class="badge badge-light"><%= t('sms_stats.outgoing') %></span>`
+                                else return '-'
+                            }
+                        },
+                        {
+                            // Message
+                            targets: 4,
+                            className: 'text-nowrap',
+                        },
+                        {
+                            // delivery report
+                            targets: -1,
+                            render: function (data) {
+                                if (data == 'delivered') return `<span class="badge badge-success"><%= t('sms_stats.delivered') %></span>`
+                                else if (data == 'sent') return `<span class="badge badge-light"><%= t('sms_stats.sent') %></span>`
+                                else if (data == 'delivery_failed') return `<span class="badge badge-warning"><%= t('sms_stats.delivery_failed') %></span>`
+                                else if (data == 'send_failed') return `<span class="badge badge-danger"><%= t('sms_stats.sending_failed') %></span>`
+                                else return '-'
+                            }
+                        }
+
+                    ],
+                    initComplete: function () {
+                        KTMenu.createInstances();
+                    }
+                });
+
+                table = dt.$;
+
+                // Re-init functions on every table re-draw -- more info: https://datatables.net/reference/event/draw
+                dt.on('draw', function () {
+                    KTMenu.createInstances();
+                });
+            };
+
+            // Search Datatable --- official docs reference: https://datatables.net/reference/api/search()
+            var handleSearchDatatable = function () {
+                const filterSearch = document.querySelector('[data-kt-docs-table-filter="search"]');
+
+                filterSearch.addEventListener('keyup', function (e) {
+                    dt.search(e.target.value).draw();
+                });
+            };
+
+            // Public methods
+            return {
+                init: function () {
+                    initDatatable();
+                    handleSearchDatatable();
+
+                    $('.kt_new_added_tooltip').each(function (i, el) {
+                        const newTooltip = new bootstrap.Tooltip(el);
+                    });
+                }
+            };
+        }();
+
+        // On document ready
+        KTUtil.onDOMContentLoaded(function () {
+            KTDatatablesServerSide.init();
+        });
+    })();
+
+    (function () {
+        $('input.kt_datepicker').flatpickr({
+            defaultDate: ["<%= params[:from_date] || '' %>", "<%= params[:to_date] || ''  %>"],
+            onClose: function(selectedDates, dateStr, instance) {
+                if (selectedDates.length == 1)
+                    window.location.href = "<%= sms_reports_path %>";
+                else {
+                    let d = selectedDates[0];
+                    let from_date = d.getFullYear() + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
+                    d = selectedDates[1]
+                    let to_date = d.getFullYear() + "-" + ("0"+(d.getMonth()+1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2);
+                    window.location.href = "/activity/reports/sms_list?from_date=" + from_date + "&to_date=" + to_date + "&locale=" + "<%= params[:locale] %>";
+                }
+            }
+        });
+    })();
+</script>
+<style>
+    #kt_datatable_sms_report_wrapper {
+        margin-top: -10px;
+    }
+    #kt_datatable_sms_report_filter {
+        margin-top: -48px;
+        display: none;
+    }
+    div#kt_datatable_sms_report_length {
+        display: none;
+    }
+</style>

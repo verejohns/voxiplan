@@ -1,0 +1,256 @@
+<div class="mb-5">
+  <!--begin::Header-->
+  <div class="position-relative">
+    <div class="accordion-header d-flex justify-content-between border rounded p-5" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#kt_accordion_1_item_2">
+			<div>
+				<h4 class="d-inline-block mb-0"><%= t('pricing.assistant') %></h4>
+				<a class="text-nowrap ms-4" href="#kt_modal_pay_per_using_pricing" style="left: 105px;" data-bs-toggle="modal">
+					<%= t('pricing.pay_per_use_pricing') %>
+				</a>
+			</div>
+			<i class="bi bi-chevron-down collapse-icon text-primary"></i>
+    </div>
+  </div>
+  <!--end::Header-->
+
+  <!--begin::Body-->
+  <div id="kt_accordion_1_item_2" class="collapse" data-bs-parent="#kt_accordion_1">
+    <div class="pt-5">
+      <div class="scroll-table-row">
+        <div class="scroll-table-column">
+          <div class="ps-5"><%= t('pricing.assistant_type') %>
+            <span class="ms-2" title="<%= t('pricing.assistant_type_help') %>" data-bs-toggle="tooltip">
+							<i class="bi bi-question-circle-fill"></i>
+						</span>
+          </div>
+        </div>
+        <div class="scroll-table-column">
+					<i class="bi bi-dash fs-1 fw-boldest"></i>
+        </div>
+        <div class="scroll-table-column">
+          <span><%= t('pricing.phone') %></span>
+        </div>
+        <div class="scroll-table-column">
+          <span><%= t('pricing.automation') %></span>
+					<span class="badge badge-secondary ms-2 fs-9 text-white"><%= t('pricing.beta') %></span>
+        </div>
+      </div>
+      <div class="scroll-table-row">
+        <div class="scroll-table-column">
+          <div class="ps-5"><%= t('pricing.technology') %>
+            <span class="ms-2" title="<%= t('pricing.technology_help') %>" data-bs-toggle="tooltip">
+							<i class="bi bi-question-circle-fill"></i>
+						</span>
+          </div>
+        </div>
+        <div class="scroll-table-column">
+					<i class="bi bi-dash fs-1 fw-boldest"></i>
+        </div>
+        <div class="scroll-table-column"><span><%= t('pricing.top_section.virtual.detail_7') %></span></div>
+        <div class="scroll-table-column"><span><%= t('pricing.converstation_ai') %></span></div>
+      </div>
+      <div class="scroll-table-row">
+        <div class="scroll-table-column">
+          <div class="d-flex flex-wrap ps-5">
+            <div class="me-5"><%= t('pricing.communication_channel') %>
+              <span class="ms-2" title="<%= t('pricing.communication_channel_help') %>" data-bs-toggle="tooltip">
+								<i class="bi bi-question-circle-fill"></i>
+							</span>
+            </div>
+            <a class="text-nowrap" href="#kt_modal_telecom_pricing#kt_tab_pane_telecom_fee_voice">
+              <%= t('pricing.check_rates') %>
+							<sup>*</sup>
+            </a>
+          </div>
+        </div>
+        <div class="scroll-table-column">
+					<i class="bi bi-dash fs-1 fw-boldest"></i>
+        </div>
+        <div class="scroll-table-column">
+          <div class="align-self-start">
+            <div class="fw-bold text-dark mb-2"><%= t('pricing.top_section.virtual.detail_7_1') %></div>
+            <div class="d-flex flex-column">
+              <div class="d-flex align-items-center">
+                <span class="bullet bg-primary me-3"></span><%= t('pricing.top_section.virtual.phone') %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-table-column">
+          <div class="align-self-start">
+            <div class="fw-bold text-dark mb-2"><%= t('pricing.top_section.virtual.detail_10') %></div>
+            <div class="d-flex flex-column">
+              <div class="d-flex align-items-center">
+                <span class="bullet bg-primary me-3"></span><%= t('pricing.top_section.virtual.sms') %>
+              </div>
+              <div class="d-flex align-items-center">
+                <span class="bullet bg-primary me-3"></span><%= t('pricing.top_section.virtual.phone') %>
+              </div>
+              <div class="d-flex align-items-center">
+                <span class="bullet bg-primary me-3"></span><%= t('pricing.top_section.virtual.web_chat') %>
+              </div>
+              <div class="d-flex">
+                <span class="bullet bg-muted mt-2 me-2"></span>
+								<div class="text-muted"><%= t('pricing.top_section.virtual.channel_3') %>
+									<br>
+									<span class="badge badge-light-primary fs-9 text-uppercase fw-normal ls-1"><%= t('pricing.comming_soon') %></span>
+								</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="scroll-table-row">
+        <div class="scroll-table-column">
+          <div class="ps-5"><%= t('pricing.top_section.virtual.detail_1_1') %>
+            <span class="ms-2" title="<%= t('pricing.top_section.virtual.detail_1_1_help') %>" data-bs-toggle="tooltip">
+							<i class="bi bi-question-circle-fill"></i>
+						</span>
+          </div>
+        </div>
+        <div class="scroll-table-column">
+					<i class="bi bi-dash fs-1 fw-boldest"></i>
+        </div>
+        <div class="scroll-table-column"><div><%= t('pricing.top_section.virtual.detail_1') %></div></div>
+        <div class="scroll-table-column"><div><%= t('pricing.top_section.virtual.detail_9') %></div></div>
+      </div>
+      <div class="scroll-table-row">
+        <div class="scroll-table-column">
+          <div class="ps-5"><%= t('pricing.top_section.virtual.detail_2') %>
+            <span class="ms-2" title="<%= t('pricing.top_section.virtual.detail_2_help') %>" data-bs-toggle="tooltip">
+							<i class="bi bi-question-circle-fill"></i>
+						</span>
+          </div>
+        </div>
+        <div class="scroll-table-column">
+					<i class="bi bi-dash fs-1 fw-boldest"></i>
+        </div>
+        <div class="scroll-table-column">
+          <span class="svg-icon svg-icon-2x">
+																		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																			<path fill-rule="evenodd" clip-rule="evenodd" d="M0.679199 11.1502C0.679199 5.06277 5.61404 0.12793 11.7015 0.12793C17.786 0.135016 22.7167 5.06571 22.7238 11.1502C22.7238 17.2376 17.7889 22.1725 11.7015 22.1725C5.61404 22.1725 0.679199 17.2376 0.679199 11.1502ZM11.7714 16.1917L18.0587 7.65959C18.2712 7.39651 18.322 7.03791 18.1909 6.72616C18.0597 6.41441 17.7679 6.19996 17.4312 6.16794C17.0945 6.13593 16.7674 6.29153 16.5799 6.57298L10.8602 14.3354L7.11632 11.3401C6.72013 11.0231 6.14193 11.0872 5.82487 11.4834C5.50782 11.8796 5.57197 12.4578 5.96816 12.7748L10.4579 16.3644C10.6542 16.5179 10.9039 16.586 11.1509 16.5535C11.3979 16.521 11.6215 16.3907 11.7714 16.1917Z" fill="currentColor"></path>
+																		</svg>
+																	</span>
+        </div>
+        <div class="scroll-table-column">
+          <span class="svg-icon svg-icon-2x">
+																		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																			<path fill-rule="evenodd" clip-rule="evenodd" d="M0.679199 11.1502C0.679199 5.06277 5.61404 0.12793 11.7015 0.12793C17.786 0.135016 22.7167 5.06571 22.7238 11.1502C22.7238 17.2376 17.7889 22.1725 11.7015 22.1725C5.61404 22.1725 0.679199 17.2376 0.679199 11.1502ZM11.7714 16.1917L18.0587 7.65959C18.2712 7.39651 18.322 7.03791 18.1909 6.72616C18.0597 6.41441 17.7679 6.19996 17.4312 6.16794C17.0945 6.13593 16.7674 6.29153 16.5799 6.57298L10.8602 14.3354L7.11632 11.3401C6.72013 11.0231 6.14193 11.0872 5.82487 11.4834C5.50782 11.8796 5.57197 12.4578 5.96816 12.7748L10.4579 16.3644C10.6542 16.5179 10.9039 16.586 11.1509 16.5535C11.3979 16.521 11.6215 16.3907 11.7714 16.1917Z" fill="currentColor"></path>
+																		</svg>
+																	</span>
+        </div>
+      </div>
+      <div class="scroll-table-row">
+        <div class="scroll-table-column">
+          <div class="ps-5"><%= t('pricing.top_section.virtual.appoinments_scheduling_skills') %>
+            <span class="ms-2" title="<%= t('pricing.top_section.virtual.appoinments_scheduling_skills_help') %>" data-bs-toggle="tooltip" >
+							<i class="bi bi-question-circle-fill"></i>
+						</span>
+          </div>
+        </div>
+        <div class="scroll-table-column">
+					<i class="bi bi-dash fs-1 fw-boldest"></i>
+        </div>
+        <div class="scroll-table-column">
+          <span class="svg-icon svg-icon-2x">
+																		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																			<path fill-rule="evenodd" clip-rule="evenodd" d="M0.679199 11.1502C0.679199 5.06277 5.61404 0.12793 11.7015 0.12793C17.786 0.135016 22.7167 5.06571 22.7238 11.1502C22.7238 17.2376 17.7889 22.1725 11.7015 22.1725C5.61404 22.1725 0.679199 17.2376 0.679199 11.1502ZM11.7714 16.1917L18.0587 7.65959C18.2712 7.39651 18.322 7.03791 18.1909 6.72616C18.0597 6.41441 17.7679 6.19996 17.4312 6.16794C17.0945 6.13593 16.7674 6.29153 16.5799 6.57298L10.8602 14.3354L7.11632 11.3401C6.72013 11.0231 6.14193 11.0872 5.82487 11.4834C5.50782 11.8796 5.57197 12.4578 5.96816 12.7748L10.4579 16.3644C10.6542 16.5179 10.9039 16.586 11.1509 16.5535C11.3979 16.521 11.6215 16.3907 11.7714 16.1917Z" fill="currentColor"></path>
+																		</svg>
+																	</span>
+        </div>
+        <div class="scroll-table-column">
+          <span class="svg-icon svg-icon-2x">
+																		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																			<path fill-rule="evenodd" clip-rule="evenodd" d="M0.679199 11.1502C0.679199 5.06277 5.61404 0.12793 11.7015 0.12793C17.786 0.135016 22.7167 5.06571 22.7238 11.1502C22.7238 17.2376 17.7889 22.1725 11.7015 22.1725C5.61404 22.1725 0.679199 17.2376 0.679199 11.1502ZM11.7714 16.1917L18.0587 7.65959C18.2712 7.39651 18.322 7.03791 18.1909 6.72616C18.0597 6.41441 17.7679 6.19996 17.4312 6.16794C17.0945 6.13593 16.7674 6.29153 16.5799 6.57298L10.8602 14.3354L7.11632 11.3401C6.72013 11.0231 6.14193 11.0872 5.82487 11.4834C5.50782 11.8796 5.57197 12.4578 5.96816 12.7748L10.4579 16.3644C10.6542 16.5179 10.9039 16.586 11.1509 16.5535C11.3979 16.521 11.6215 16.3907 11.7714 16.1917Z" fill="currentColor"></path>
+																		</svg>
+																	</span>
+        </div>
+      </div>
+      <div class="scroll-table-row">
+        <div class="scroll-table-column">
+          <div class="ps-5"><%= t('pricing.top_section.virtual.detail_5') %>
+            <span class="ms-2" title="<%= t('pricing.top_section.virtual.detail_5_help') %>" data-bs-toggle="tooltip">
+							<i class="bi bi-question-circle-fill"></i>
+						</span>
+          </div>
+        </div>
+        <div class="scroll-table-column">
+					<i class="bi bi-dash fs-1 fw-boldest"></i>
+        </div>
+        <div class="scroll-table-column">
+          <span class="svg-icon svg-icon-2x">
+																		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																			<path fill-rule="evenodd" clip-rule="evenodd" d="M0.679199 11.1502C0.679199 5.06277 5.61404 0.12793 11.7015 0.12793C17.786 0.135016 22.7167 5.06571 22.7238 11.1502C22.7238 17.2376 17.7889 22.1725 11.7015 22.1725C5.61404 22.1725 0.679199 17.2376 0.679199 11.1502ZM11.7714 16.1917L18.0587 7.65959C18.2712 7.39651 18.322 7.03791 18.1909 6.72616C18.0597 6.41441 17.7679 6.19996 17.4312 6.16794C17.0945 6.13593 16.7674 6.29153 16.5799 6.57298L10.8602 14.3354L7.11632 11.3401C6.72013 11.0231 6.14193 11.0872 5.82487 11.4834C5.50782 11.8796 5.57197 12.4578 5.96816 12.7748L10.4579 16.3644C10.6542 16.5179 10.9039 16.586 11.1509 16.5535C11.3979 16.521 11.6215 16.3907 11.7714 16.1917Z" fill="currentColor"></path>
+																		</svg>
+																	</span>
+        </div>
+        <div class="scroll-table-column">
+          <span class="svg-icon svg-icon-2x">
+																		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																			<path fill-rule="evenodd" clip-rule="evenodd" d="M0.679199 11.1502C0.679199 5.06277 5.61404 0.12793 11.7015 0.12793C17.786 0.135016 22.7167 5.06571 22.7238 11.1502C22.7238 17.2376 17.7889 22.1725 11.7015 22.1725C5.61404 22.1725 0.679199 17.2376 0.679199 11.1502ZM11.7714 16.1917L18.0587 7.65959C18.2712 7.39651 18.322 7.03791 18.1909 6.72616C18.0597 6.41441 17.7679 6.19996 17.4312 6.16794C17.0945 6.13593 16.7674 6.29153 16.5799 6.57298L10.8602 14.3354L7.11632 11.3401C6.72013 11.0231 6.14193 11.0872 5.82487 11.4834C5.50782 11.8796 5.57197 12.4578 5.96816 12.7748L10.4579 16.3644C10.6542 16.5179 10.9039 16.586 11.1509 16.5535C11.3979 16.521 11.6215 16.3907 11.7714 16.1917Z" fill="currentColor"></path>
+																		</svg>
+																	</span>
+        </div>
+      </div>
+
+			<div class="scroll-table-row">
+				<div class="scroll-table-column">
+					<div class="ps-5">VoxiSMS
+						<span class="badge badge-secondary ms-2 fs-9 text-white"><%= t('pricing.beta') %></span>
+						<span class="ms-2" title="<%= t('pricing.top_section.widget.voxisms_help') %>" data-bs-toggle="tooltip">
+							<i class="bi bi-question-circle-fill"></i>
+						</span>
+					</div>
+				</div>
+				<div class="scroll-table-column">
+					<i class="bi bi-dash fs-1 fw-boldest"></i>
+				</div>
+				<div class="scroll-table-column">
+					<!--begin::Svg Icon | path: icons/duotune/arrows/arr085.svg-->
+					<span class="svg-icon svg-icon-2x">
+																		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																			<path fill-rule="evenodd" clip-rule="evenodd" d="M0.679199 11.1502C0.679199 5.06277 5.61404 0.12793 11.7015 0.12793C17.786 0.135016 22.7167 5.06571 22.7238 11.1502C22.7238 17.2376 17.7889 22.1725 11.7015 22.1725C5.61404 22.1725 0.679199 17.2376 0.679199 11.1502ZM11.7714 16.1917L18.0587 7.65959C18.2712 7.39651 18.322 7.03791 18.1909 6.72616C18.0597 6.41441 17.7679 6.19996 17.4312 6.16794C17.0945 6.13593 16.7674 6.29153 16.5799 6.57298L10.8602 14.3354L7.11632 11.3401C6.72013 11.0231 6.14193 11.0872 5.82487 11.4834C5.50782 11.8796 5.57197 12.4578 5.96816 12.7748L10.4579 16.3644C10.6542 16.5179 10.9039 16.586 11.1509 16.5535C11.3979 16.521 11.6215 16.3907 11.7714 16.1917Z" fill="currentColor"></path>
+																		</svg>
+																	</span>
+					<!--end::Svg Icon-->
+				</div>
+				<div class="scroll-table-column">
+					<!--begin::Svg Icon | path: icons/duotune/arrows/arr085.svg-->
+					<span class="svg-icon svg-icon-2x">
+																		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																			<path fill-rule="evenodd" clip-rule="evenodd" d="M0.679199 11.1502C0.679199 5.06277 5.61404 0.12793 11.7015 0.12793C17.786 0.135016 22.7167 5.06571 22.7238 11.1502C22.7238 17.2376 17.7889 22.1725 11.7015 22.1725C5.61404 22.1725 0.679199 17.2376 0.679199 11.1502ZM11.7714 16.1917L18.0587 7.65959C18.2712 7.39651 18.322 7.03791 18.1909 6.72616C18.0597 6.41441 17.7679 6.19996 17.4312 6.16794C17.0945 6.13593 16.7674 6.29153 16.5799 6.57298L10.8602 14.3354L7.11632 11.3401C6.72013 11.0231 6.14193 11.0872 5.82487 11.4834C5.50782 11.8796 5.57197 12.4578 5.96816 12.7748L10.4579 16.3644C10.6542 16.5179 10.9039 16.586 11.1509 16.5535C11.3979 16.521 11.6215 16.3907 11.7714 16.1917Z" fill="currentColor"></path>
+																		</svg>
+																	</span>
+					<!--end::Svg Icon-->
+				</div>
+			</div>
+
+      <div class="scroll-table-row">
+        <div class="scroll-table-column">
+          <div class="ps-5">
+						<span class="text-muted"><%= t('pricing.top_section.virtual.no_show_recovery') %></span>
+            <span class="ms-2" title="<%= t('pricing.top_section.virtual.no_show_recovery_help') %>" data-bs-toggle="tooltip">
+							<i class="bi bi-question-circle-fill"></i>
+						</span>
+						<br>
+						<span class="badge badge-light-primary fs-9 text-uppercase fw-normal ls-1"><%= t('pricing.comming_soon') %></span>
+          </div>
+        </div>
+        <div class="scroll-table-column">
+					<i class="bi bi-dash fs-1 fw-boldest"></i>
+        </div>
+        <div class="scroll-table-column">
+					<i class="bi bi-dash fs-1 fw-boldest"></i>
+        </div>
+        <div class="scroll-table-column">
+          <span class="svg-icon svg-icon-2x">
+																		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																			<path fill-rule="evenodd" clip-rule="evenodd" d="M0.679199 11.1502C0.679199 5.06277 5.61404 0.12793 11.7015 0.12793C17.786 0.135016 22.7167 5.06571 22.7238 11.1502C22.7238 17.2376 17.7889 22.1725 11.7015 22.1725C5.61404 22.1725 0.679199 17.2376 0.679199 11.1502ZM11.7714 16.1917L18.0587 7.65959C18.2712 7.39651 18.322 7.03791 18.1909 6.72616C18.0597 6.41441 17.7679 6.19996 17.4312 6.16794C17.0945 6.13593 16.7674 6.29153 16.5799 6.57298L10.8602 14.3354L7.11632 11.3401C6.72013 11.0231 6.14193 11.0872 5.82487 11.4834C5.50782 11.8796 5.57197 12.4578 5.96816 12.7748L10.4579 16.3644C10.6542 16.5179 10.9039 16.586 11.1509 16.5535C11.3979 16.521 11.6215 16.3907 11.7714 16.1917Z" fill="currentColor"></path>
+																		</svg>
+																	</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end::Body-->
+</div>

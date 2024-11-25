@@ -1,0 +1,52 @@
+<!--begin::details View-->
+<div class="card mb-0" id="kt_profile_details_view">
+  <div class="card-header cursor-pointer">
+    <div class="card-title m-0">
+      <h3 class="fw-bolder m-0"><%= t('profile.overview.title') %></h3>
+    </div>
+    <a href="<%= @isVerified ? ENV['ORY_URL'] + '/self-service/settings/browser' : profile_path('overview') %>" class="btn btn-primary align-self-center" ><%= t('profile.overview.edit_profile') %></a>
+  </div>
+
+  <div class="card-body p-9">
+    <div class="row mb-7">
+      <label class="col-lg-4 fw-bold text-muted"><%= t('profile.overview.full_name') %></label>
+      <div class="col-lg-8">
+        <span class="fw-bolder fs-6 text-gray-800"><%= current_client.full_name %></span>
+      </div>
+    </div>
+    <div class="row mb-7">
+      <label class="col-lg-4 fw-bold text-muted"><%= t('profile.overview.company') %></label>
+      <div class="col-lg-8 fv-row">
+        <span class="fw-bold text-gray-800 fs-6"><%= current_client.company %></span>
+      </div>
+    </div>
+    <div class="row mb-7">
+      <label class="col-lg-4 fw-bold text-muted"><%= t('profile.overview.phone') %></label>
+      <div class="col-lg-8 d-flex align-items-center">
+        <span class="fw-bolder fs-6 text-gray-800 me-2"><%= current_client.phone %></span>
+      </div>
+      <!--end::Col-->
+    </div>
+    <div class="row mb-7">
+      <label class="col-lg-4 fw-bold text-muted"><%= t('profile.overview.country') %>
+        <i class="fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="tooltip" title="Country of origination"></i>
+      </label>
+      <div class="col-lg-8">
+        <span class="fw-bolder fs-6 text-gray-800"><%= current_client.country %></span>
+      </div>
+    </div>
+    <div class="row mb-7 d-none">
+      <label class="col-lg-4 fw-bold text-muted"><%= t('profile.overview.communication') %></label>
+      <div class="col-lg-8">
+        <span class="fw-bolder fs-6 text-gray-800">Email, Phone</span>
+      </div>
+    </div>
+    <div class="row mb-10 d-none">
+      <label class="col-lg-4 fw-bold text-muted"><%= t('profile.overview.allow_marketing') %></label>
+      <div class="col-lg-8">
+        <span class="fw-bold fs-6 text-gray-800">Yes</span>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end::details View-->

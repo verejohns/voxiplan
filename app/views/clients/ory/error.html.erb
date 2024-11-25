@@ -1,0 +1,50 @@
+<style>
+  .error_message:first-letter {
+      text-transform: capitalize;
+  }
+</style>
+
+<div class="post d-flex flex-column-fluid" id="kt_post">
+  <div class="d-flex flex-column flex-center flex-column-fluid">
+    <!--begin::Content-->
+    <div class="d-flex flex-column flex-center text-center p-10">
+      <!--begin::Wrapper-->
+      <div class="card card-flush w-lg-650px rounded shadow-sm">
+        <div class="card-body py-15 py-lg-20">
+          <!--begin::Logo-->
+          <div class="mb-8">
+            <a href="/" class=""><img alt="Logo" src="/assets/voxi_logo.png" class="h-40px"></a>
+          </div>
+          <!--end::Logo-->
+          <!--begin::Title-->
+          <h1 class="fw-bolder text-gray-900 mb-5"><%= t('ory.error.title') %></h1>
+          <!--end::Title-->
+          <!--begin::Text-->
+          <div class="error_message fw-semibold fs-6 text-gray-500 mb-4"><%= t('ory.error.content') %></div>
+<!--          <div class="error_message fw-semibold fs-6 text-gray-500 mb-4"><%#= @message %></div>-->
+<!--          <div class="error_message fw-semibold fs-6 text-gray-500 mb-10"><%#= @reason %></div>-->
+          <!--end::Text-->
+          <!--begin::Link-->
+          <div class="">
+            <%= link_to t('ory.error.button'), :back, class: "btn btn-sm btn-primary" %>
+          </div>
+          <!--end::Link-->
+        </div>
+      </div>
+      <!--end::Wrapper-->
+    </div>
+    <!--end::Content-->
+  </div>
+</div>
+<!--end::Post-->
+
+
+<script>
+
+    $('select#kt_select_change_country').on('change', function() {
+        const url = new URL(window.location.href);
+        url.searchParams.set("locale", $(this).val());
+        window.location.href = url;
+    })
+
+</script>

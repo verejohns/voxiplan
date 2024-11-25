@@ -1,0 +1,55 @@
+<style>
+    #send_verification {
+        color: #1B72E8;
+        font-weight: 600;
+        border: none;
+        background: none;
+    }
+</style>
+<div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed">
+  <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
+    <div class="bg-body rounded shadow-sm p-10 p-lg-15 mx-auto w-100 w-lg-75">
+      <%= form_for('', url: send_verification_path(''), :html => {method: :post, role: 'form', :class => 'form w-100'}) do |f| %>
+        <%= flash_messages %>
+        <div class="stepper stepper-pills stepper-column d-flex flex-column flex-xl-row flex-row-fluid" id="kt_create_account_stepper">
+          <div class="d-flex flex-row-fluid flex-center bg-body rounded">
+            <div class="w-100">
+              <div class="pb-2 pb-lg-4 text-center">
+                <a href="/" class="mb-12">
+                  <img alt="Logo" src="/assets/voxi_logo.png" class="h-45px" />
+                </a>
+                <%= f.hidden_field(:preferred_locale, id: "preferred_locale_hidden") %>
+                <h2 class="fw-bolder text-dark mt-10"><%= t('verification.title') %></h2>
+                <div class="text-muted fw-bold fs-6 mt-6"><%= t('verification.first_content') %></div>
+                <div class="text-muted fw-bold fs-7 mt-2"><%= t('verification.second_content') %> <span class="text-dark fw-bold"><%=current_client.email %></span>? <a href="<%=ENV['ORY_URL'] + '/self-service/verification/browser' %>" id="send_verification"><%= t('verification.try_again') %></a></div>
+                <div class="text-center mt-6">
+                  <!--begin::Menu-->
+                  <div class="menu menu-rounded menu-column menu-gray-600 menu-state-bg fw-semibold w-80px" data-kt-menu="true" style="float:right">
+                    <div class="menu-item" data-kt-menu-trigger="hover" data-kt-menu-placement="bottom-end">
+                      <a href="#" class="menu-link py-3 bg-hover-light-primary">
+                        <span class="menu-title text-primary"><%= t('locales.' + (I18n.locale.to_s || 'en')) %></span>
+                      </a>
+                      <%= render 'layouts/language' %>
+                    </div>
+                  </div>
+                  <!--end::Menu-->
+                </div>
+                <!--end::Notice-->
+                <!--              <div class="mt-10">-->
+                <!--                <a href="<%#=onboarding_path %>" class="btn btn-sm btn-primary"><%#= t('verification.button') %></a>-->
+                <!--              </div>-->
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+    $("#preferred_locale_hidden").val(getUrlParameter('locale') ? getUrlParameter('locale') : (getCookie('locale') ? getCookie('locale') : "en"));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,356 @@
+<link rel="stylesheet" href="/assets/intlTelInput.min.css">
+<link rel="stylesheet" href="/assets/countrySelect.css">
+<style>
+    div.iti {
+        width: 100%;
+    }
+    input.customer_phone_country+div.iti {
+        width: 85%;
+    }
+
+    .iti__flag {background-image: url("/assets/flags.png");}
+
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .iti__flag {background-image: url("/assets/flags@2x.png");}
+    }
+
+    div.country-select .flag{
+        background-image:url("/assets/flags/flags.png");
+    }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx){
+        div.country-select .flag{
+            background-image:url("/assets/flags/flags@2x.png")
+        }
+    }
+    div.country-select.inside {
+        width: 100% !important;
+    }
+
+    #phone-clone-box .phone-group {
+        margin-top: 10px;
+    }
+
+    #phone-clone-box .phone-group:first-of-type {
+        margin-top: 0px;
+    }
+</style>
+
+<!-- begin New contact modal -->
+<div class="modal fade" id="kt_modal_add_new_contact" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" id="contact-header">
+        <h5 class="modal-title"><%= t('customers.new_customer') %></h5>
+
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal" data-kt-modal-action="close">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+              <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+                <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
+                <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                      x="0" y="7" width="16" height="2" rx="1" />
+              </g>
+            </svg>
+          </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+
+      <%= nested_form_for(@customer, remote: true, authenticity_token: true, method: "post", class: 'form') do |f| %>
+      <input type="hidden" name="selected_customer_id" id="selected_customer_id" />
+      <div class="modal-body">
+        <div class="fv-row mb-5 row">
+          <div class="col-12 col-lg-6">
+            <label class="form-label required"><%= t('customers.first_name') %></label>
+            <input type="text" name="customer[first_name]" id="customer_first_name" class="form-control" placeholder="<%= t('customers.first_name') %>" />
+          </div>
+          <div class="col-12 col-lg-6">
+            <label class="form-label required"><%= t('customers.last_name') %></label>
+            <input type="text" name="customer[last_name]" id="customer_last_name" class="form-control" placeholder="<%= t('customers.last_name') %>" />
+          </div>
+        </div>
+
+        <div class="fv-row mb-5 row">
+          <div class="col-12 col-lg-6">
+            <label class="form-label required"><%= t('customers.phone_number') %></label>
+            <div id="phone-group" class="phone-group d-none">
+              <input class="customer_phone_country" type="hidden" name="customer_phone_country">
+
+              <input class="form-control customer_phone_number" type="text" name="customer_phone_number" onchange="changePhoneNumber(this)">
+              <button class="btn btn-sm btn-icon btn-light-primary float-end add-item p-6" type="button" id="add-item" onclick="clonePhoneNumber()">
+                <i class="fas fa-plus"></i>
+              </button>
+              <button class="d-none btn btn-sm btn-icon btn-light-danger ms-auto float-end remove-item p-6" type="button" onclick="removePhoneNumber(this)">
+                <i class="fas fa-trash"></i>
+              </button>
+
+              <span class="phone-valid-msg" style="display:none;color: #00C900"><%= t('customers.valid_phone_number') %></span>
+              <span class="phone-error-msg" style="display:none;color: #f4516c"><%= t('customers.invalid_phone_number') %></span>
+            </div>
+            <div id="phone-clone-box"></div>
+          </div>
+          <div class="col-12 col-lg-6">
+            <label class="form-label"><%= t('customers.email') %></label>
+            <input type="email" name="customer[email]" id="customer_email" class="form-control" placeholder="<%= t('customers.email') %>" />
+          </div>
+        </div>
+
+        <div class="fv-row mb-5 row">
+          <div class="col-12 col-lg-6">
+            <label class="form-label"><%= t('customers.gender') %></label>
+            <select name="customer[gender]" id="customer_gender" aria-label="Select a gender" data-control="select2" data-placeholder="<%= t('common.select_placeholder') %>" data-hide-search="true" class="form-select">
+              <option value="0"></option>
+              <option value="1"><%= t('customers.male') %></option>
+              <option value="2"><%= t('customers.female') %></option>
+              <option value="9"><%= t('customers.not_applicable') %></option>
+            </select>
+          </div>
+          <div class="col-12 col-lg-6">
+            <label class="form-label"><%= t('customers.birthday') %></label>
+            <input type="text" name="customer[birthday]" id="customer_birthday" class="kt_datepicker form-control" placeholder="<%= t('customers.birthday') %>" />
+          </div>
+        </div>
+
+
+        <div class="fv-row mb-5 row">
+          <div class="col-12 col-lg-6">
+            <label class="form-label"><%= t('customers.street') %></label>
+            <input type="text" name="customer[street]" id="customer_street" class="form-control" placeholder="<%= t('customers.street') %>" />
+          </div>
+          <div class="col-12 col-lg-6">
+            <label class="form-label"><%= t('customers.zipcode') %></label>
+            <input type="number" name="customer[zipcode]" id="customer_zipcode" class="form-control" placeholder="<%= t('customers.zipcode') %>" />
+          </div>
+        </div>
+
+        <div class="fv-row mb-5 row">
+          <div class="col-12 col-lg-6">
+            <label class="form-label"><%= t('customers.city') %></label>
+            <input type="text" name="customer[city]" id="customer_city" class="form-control" placeholder="<%= t('customers.city') %>" />
+          </div>
+          <div class="col-12 col-lg-6">
+            <label class="form-label required"><%= t('customers.country') %></label>
+            <input type="text" name="user_country" id="user_country" class="form-control" placeholder="<%= t('customers.country') %>" />
+            <input type="hidden" name="user_country_code" id="user_country_code" />
+          </div>
+        </div>
+
+        <div class="fv-row">
+          <label class="form-label"><%= t('customers.notes') %></label>
+          <textarea name="customer[notes]" id="customer_notes" rows="3" class="form-control" placeholder="<%= t('customers.notes') %>"></textarea>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal" data-kt-modal-action="cancel"><%= t('common.button.cancel') %></button>
+        <button type="submit" class="btn btn-primary save-button" data-kt-modal-action="submit">
+          <span class="indicator-label"><%= t('common.button.add') %></span>
+          <span class="indicator-progress"><%= t('common.please_wait') %>
+            <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+          </span>
+        </button>
+      </div>
+      <% end %>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+
+<!--end::Add Contact-->
+
+<script src="/assets/intlTelInput.min.js"></script>
+<script src="/assets/countrySelect.min.js"></script>
+<script>
+    function changePhoneNumber(obj) {
+        const obj_id = $(obj).attr('id')
+        const iti = iti_array[obj_id];
+        if (iti == undefined) return;
+
+        $(obj).css("border-color", "");
+        const phone_country = $(obj).parent().parent().parent().find('input.customer_phone_country');
+        const valid_msg = $(obj).parent().parent().parent().find('span.phone-valid-msg');
+        const error_msg = $(obj).parent().parent().parent().find('span.phone-error-msg');
+        $(valid_msg).hide();
+        $(error_msg).hide();
+
+        if (iti.isValidNumber()) {
+            let client_country = iti.getSelectedCountryData();
+            $(obj).val(iti.getNumber());
+            $(phone_country).val(client_country.iso2.toUpperCase());
+            $(valid_msg).show();
+            $(valid_msg).css('display', 'block');
+        } else {
+            $(obj).css("border-color", "#f4516c");
+            $(phone_country).val('');
+            $(error_msg).show();
+        }
+    }
+    function clonePhoneNumber(phone_number) {
+        const clone_box = 'div#phone-clone-box';
+        const clone_obj = $('div#phone-group').clone();
+        const phone_number_id = "phone_" + $.now();
+
+        if ($('div#phone-clone-box .phone-group').length == 0) {
+            $(clone_obj).find('button.remove-item').remove();
+        }
+        else {
+            $(clone_obj).find('button.add-item').remove();
+            $(clone_obj).find('button.remove-item').removeClass('d-none');
+            $(clone_obj).find('button.remove-item').attr('data-phone-number-id', phone_number_id);
+        }
+
+        $(clone_obj).attr('id', 'phone_group_repeat');
+        $(clone_obj).find('input.customer_phone_number').val('');
+        $(clone_obj).find('input.customer_phone_country').val('');
+
+        $(clone_obj).find('input.customer_phone_number').attr('name', 'customer[phone_number][]');
+        $(clone_obj).find('input.customer_phone_number').attr('id', phone_number_id);
+        $(clone_obj).find('input.customer_phone_country').attr('name', 'customer[phone_country][]');
+        $(clone_obj).find('span.phone-valid-msg').hide();
+        $(clone_obj).find('span.phone-error-msg').hide();
+        $(clone_obj).removeClass('d-none');
+        $(clone_box).append(clone_obj);
+
+        let input = document.querySelector('#' + phone_number_id);
+        const iti = window.intlTelInput(input, {
+            initialCountry: "auto",
+            utilsScript: "/assets/utils.js",
+            preferredCountries: ["fr", "be", "de", "gb", "us", "ca"],
+            geoIpLookup: function (callback) {
+                $.get("https://api.ipdata.co?api-key=" + IPdata_key, function () {
+                }, "jsonp").always(function (resp) {
+                    let countryCode = (resp && resp.country_code) ? resp.country_code : "fr";
+                    callback(countryCode);
+                }).fail(function() {
+                    callback('fr');
+                });
+            }
+        });
+
+        iti_array[phone_number_id] = iti;
+        if (phone_number != "") iti.setNumber(phone_number);
+    }
+
+    function removePhoneNumber(obj) {
+        $(obj).parent().remove();
+    }
+
+
+
+    "use strict";
+    var KTTableAddItem = function () {
+        const contact_modal = document.getElementById("kt_modal_add_new_contact"),
+            contact_modal_form = contact_modal.querySelector("#new_customer"),
+            contact_modal_dialog = new bootstrap.Modal(contact_modal);
+        return {
+            init: function () {
+                (() => {
+                    var contact_validation = FormValidation.formValidation(contact_modal_form, {
+                        fields: {
+                            'customer[first_name]': {validators: {notEmpty: {message: "First name is required"}}},
+                            'customer[last_name]': {validators: {notEmpty: {message: "Last name is required"}}},
+                        },
+                        plugins: {
+                            trigger: new FormValidation.plugins.Trigger,
+                            bootstrap: new FormValidation.plugins.Bootstrap5({
+                                rowSelector: ".fv-row",
+                                eleInvalidClass: "",
+                                eleValidClass: ""
+                            })
+                        }
+                    });
+
+                    const class_submit = contact_modal.querySelector('[data-kt-modal-action="submit"]');
+                    class_submit.addEventListener("click", (t => {
+                        t.preventDefault(), contact_validation && contact_validation.validate().then((function (t) {
+                            if (t == "Valid") {
+                                let validation = true;
+                                for (let i = 1; i < $('input.customer_phone_number').length; i ++) {
+                                    if ($('input.customer_phone_number')[i].value == '') {
+                                        validation = false;
+                                    }
+                                }
+                                if (!validation) {
+                                    Swal.fire({
+                                        text: "<%= t('common.phone_number_required') %>",
+                                        icon: "error",
+                                        buttonsStyling: !1,
+                                        confirmButtonText: "<%= t('sweetalert.ok_got_it') %>",
+                                        customClass: {confirmButton: "btn btn-primary"}
+                                    });
+                                    return;
+                                }
+                                const submit_button = $('button[data-kt-modal-action=submit]');
+                                $(submit_button).attr('data-kt-indicator', 'on');
+                                $(submit_button).attr('disabled', 'disabled');
+
+                                $('#contact-header .modal-title').html('<%= t('customers.new_customer') %>');
+                                $('#new_customer').ajaxSubmit({
+                                    success: function(response) {
+                                        if (response.status == 'success')
+                                            window.location.reload();
+                                        else
+                                            Swal.fire({
+                                                text: response.message,
+                                                icon: "error",
+                                                buttonsStyling: !1,
+                                                confirmButtonText: "<%= t('sweetalert.ok_got_it') %>",
+                                                customClass: {confirmButton: "btn btn-primary"}
+                                            }).then((function () {
+                                                $(submit_button).removeAttr('data-kt-indicator');
+                                                $(submit_button).removeAttr('disabled');
+                                                KTUtil.scrollTop();
+                                            }))
+
+                                    },
+                                    error: function() {
+                                        Swal.fire({
+                                            text: "<%= t('common.network_error') %>",
+                                            icon: "error",
+                                            buttonsStyling: !1,
+                                            confirmButtonText: "<%= t('sweetalert.ok_got_it') %>",
+                                            customClass: {confirmButton: "btn btn-primary"}
+                                        }).then((function () {
+                                            $(submit_button).removeAttr('data-kt-indicator');
+                                            $(submit_button).removeAttr('disabled');
+                                            KTUtil.scrollTop();
+                                        }))
+                                    }
+                                })
+                            }
+                            else {
+                                Swal.fire({
+                                    text: "<%= t('common.validation_error') %>",
+                                    icon: "error",
+                                    buttonsStyling: !1,
+                                    confirmButtonText: "<%= t('sweetalert.ok_got_it') %>",
+                                    customClass: {confirmButton: "btn btn-primary"}
+                                })
+                            }
+                        }))
+                    })), contact_modal.querySelector('[data-kt-modal-action="cancel"]').addEventListener("click", (event => {
+                        event.preventDefault(), $('#contact-header .modal-title').html('<%= t('customers.new_customer') %>'),
+                        $('input[name=selected_contact_id]').val(''), contact_modal_form.reset(), contact_modal_dialog.hide()
+                    })), contact_modal.querySelector('[data-kt-modal-action="close"]').addEventListener("click", (event => {
+                        event.preventDefault(), $('#contact-header .modal-title').html('<%= t('customers.new_customer') %>'),
+                        $('input[name=selected_contact_id]').val(''), contact_modal_form.reset(), contact_modal_dialog.hide()
+                    }))
+                })()
+            }
+        }
+    }();
+    KTUtil.onDOMContentLoaded((function () {
+        KTTableAddItem.init();
+    }));
+</script>
+

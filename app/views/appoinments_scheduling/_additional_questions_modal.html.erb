@@ -1,0 +1,86 @@
+<div class="modal fade" id="additional_questions_modal" data-backdrop="static" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('manage_resource.addition_questions_modal.heading') %></h5>
+      </div>
+      <div class="modal-body pl-4 pr-4">
+        <div class="row">
+          <div class="col-sm-12 col-md-6" id="displayQuesiton" style="border-right: 1px dashed;"></div>
+          <div class="col-sm-12 col-md-6">
+            <input type="hidden" id="exisitng-question-id" value="null">
+            <div class="mb-3">
+              <label for="questionText" class="font-weight-bold"><%= t('manage_resource.addition_questions_modal.questions') %><span class="ml-1 text-danger">*</span></label>
+              <textarea class="form-control" id="questionText" rows="3"></textarea>
+            </div>
+            <div class="d-flex justify-content-between">
+              <span class="kt-switch align-self-center">
+              <label class="col-6 col-form-label" style="position: absolute; left: 60px;"><%= t('manage_resource.addition_questions_modal.enabled') %></label>
+                <label>
+                  <input type="checkbox" id="questionEnabled" />
+                  <span></span>
+                </label>
+              </span>
+              <label class="kt-checkbox kt-checkbox--brand align-self-center">
+                <input type="checkbox" id="questionMandatory"> <%= t('manage_resource.addition_questions_modal.required') %>
+                <span></span>
+              </label>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="font-weight-bold"><%= t('manage_resource.addition_questions_modal.answer_type') %></label>
+              <select class="form-control kt-selectpicker" id="answerType">
+                <option value="oneLine" data-icon="la la-minus">
+                  <%= t('manage_resource.addition_questions_modal.type1') %>
+                </option>
+                <option value="multipleLine" data-icon="las la-grip-lines">
+                  <%= t('manage_resource.addition_questions_modal.type2') %>
+                </option>
+                <option value="radioButtons" data-icon="las la-dot-circle">
+                  <%= t('manage_resource.addition_questions_modal.type3') %>
+                </option>
+                <option value="checkboxes" data-icon="la la-check-circle">
+                  <%= t('manage_resource.addition_questions_modal.type4') %>
+                </option>
+              </select>
+            </div>
+            <div class="mb-3 d-none" id="show-multi-options">
+              <label for="optionAnswers" class="font-weight-bold"><%= t('manage_resource.addition_questions_modal.answer') %><span class="ml-1 text-danger">*</span></label>
+              <small id="check-radio-text"></small>
+              <div id="option-question-list">
+                <div class="row mb-2 justify-content-center">
+                  <div class="col-10">
+                    <input type="text" class="form-control optionAnswerTe" id="multi_0" placeholder="<%= t('manage_resource.addition_questions_modal.answer1') %>" required>
+                  </div>
+                  <div class="col-1 d-flex align-items-center">
+                    <i class="flaticon2-trash d-none"></i>
+                  </div>
+                </div>
+                <div class="row mb-2 justify-content-center">
+                  <div class="col-10">
+                    <input type="text" class="form-control optionAnswerTe" id="multi_1" placeholder="<%= t('manage_resource.addition_questions_modal.answer1') %>" required>
+                  </div>
+                  <div class="col-1 d-flex align-items-center">
+                    <i class="flaticon2-trash cursor-pointer delete-answer"></i>
+                  </div>
+                </div>
+              </div>
+              <a class="ml-3 text-primary cursor-pointer add-another-option"><small><i class="flaticon2-add-1 pr-2" style="font-size: 8px;"></i><%= t('manage_resource.addition_questions_modal.add_another') %></small></a>
+              <hr />
+            </div>
+            <button type="button" class="btn btn-outline-brand btn-square add-question-in-json float-right"><%= t('manage_resource.addition_questions_modal.add_question') %></button>
+            <button type="button" class="btn btn-secondary btn-square cancel-edit float-right mr-2"><%= t('button.cancel') %></button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary closse-modal" data-dismiss="modal"><%= t('button.close') %></button>
+        <button type="button" class="btn btn-primary send-json-to-backend"><%= t('button.save') %></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+$('.kt-selectpicker').selectpicker();
+</script>

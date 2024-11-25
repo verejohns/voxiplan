@@ -1,0 +1,33 @@
+<% content_for :content_head_title do %>
+  Quick SMS
+<% end %>
+<div class="kt-content  kt-grid__item kt-grid__item--fluid" id="kt_content">
+  <div class="kt-portlet kt-portlet--tabs">
+    <div class="kt-portlet__body">
+      <%= form_tag sms_path, authenticity_token: true, method: :post, :novalidate => true,  :class => "needs-validation"  do %>
+        <div class="col-md-6  mx-auto">
+          <div class="form-group row">
+            <label for="messagePhone" class="col-sm-3 col-form-label text-left text-md-right">Phone Number:</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control m-input tel" id="messagePhone" name="phone" required>
+              <div class="invalid-feedback">
+              </div>
+            </div>
+          </div>
+          <div class="form-group row mb-0">
+            <label for="msg_body" class="col-sm-3 col-form-label text-left text-md-right">Message:</label>
+            <div class="col-sm-9">
+              <textarea type="text" style="resize: none;" class="form-control" rows="12" id="smsMessage" name="msg_body" maxlength="160" required></textarea>
+              <div class="invalid-feedback">
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-9 offset-sm-3 pl-1 pr-0">
+            <span class="d-inline-block mt-2">Remaining characters: <span class="badge badge-secondary" id='remainingC'>160</span></span>
+            <%= submit_tag 'Send', class: 'btn btn-primary pl-5 pr-5 float-right mt-4' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

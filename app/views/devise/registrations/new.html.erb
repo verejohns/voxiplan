@@ -1,0 +1,286 @@
+<%= form_for('', as: resource_name, url: '/signup?locale=en', :html => {method: :post, :class => 'form w-100', id: 'new_client'}) do |f| %>
+  <%= invisible_captcha :user_name %>
+  <%= f.hidden_field :csrf_token, value: @csrf_token %>
+  <%= f.hidden_field :method, value: "password" %>
+
+  <!--begin::Heading-->
+  <div class="text-center mb-10">
+    <!--begin::Title-->
+    <h1 class="text-dark mb-3"><%= t('.sign_up_heading', default: 'Sign up')  %></h1>
+    <!--end::Title-->
+    <!--begin::Link-->
+    <div class="text-gray-400 fw-bold fs-4"><%= t('.already_account', default: 'Already have an account?') %>
+      <%= link_to t('.sign_in', default: 'Sign in here'), new_session_path(resource_name), class: "link-primary fw-bolder" %>
+    </div>
+    <!--end::Link-->
+  </div>
+  <!--end::Heading-->
+
+  <!--begin::Input group-->
+  <div class="fv-row mb-7">
+    <div class="row">
+      <div class="col-12 col-lg-6">
+        <label class="form-label fw-bolder text-dark fs-6 required"><%= t('placeholders.first_name', default: 'First name') %></label>
+        <%= f.text_field :first_name, minlength: 2, autofocus: true, class: "form-control form-control-lg form-control-solid", id: "signup_firstname", :required => true  %>
+        <span class="text-danger fw-bolder"><%= error_on(resource, :first_name) %></span>
+      </div>
+      <div class="col-12 col-lg-6">
+        <label class="form-label fw-bolder text-dark fs-6 required"><%= t('placeholders.last_name', default: 'Last name') %></label>
+        <%= f.text_field :last_name, minlength: 2, class: "form-control form-control-lg form-control-solid", id: "signup_lastname", :required => true %>
+        <span class="text-danger fw-bolder"><%= error_on(resource, :last_name) %></span>
+      </div>
+    </div>
+
+  </div>
+  <!--end::Input group-->
+
+  <!--begin::Input group-->
+  <div class="fv-row mb-7">
+    <div class="row">
+      <div class="col-12 col-lg-6">
+        <label class="form-label fw-bolder text-dark fs-6 required"><%= t('placeholders.email', default: 'Email') %></label>
+        <%= f.email_field :email, class: "form-control form-control-lg form-control-solid", id: "signup_email", autocomplete: "off", :required => true  %>
+        <span id="email-error-msg" class="hide" style="display: none;float: left;color: #f4516c"><%= t('errors.invalid_confirm_email') %></span>
+        <span class="text-danger fw-bolder"><%= error_on(resource, :email) %></span>
+      </div>
+      <div class="col-12 col-lg-6">
+        <label class="form-label fw-bolder text-dark fs-6 required"><%= t('placeholders.confirm_email', default: 'Confirm Email') %></label>
+        <%= f.email_field :email, class: "form-control form-control-lg form-control-solid", id: "signup_confirm_email", autocomplete: "off", :required => true  %>
+      </div>
+    </div>
+
+  </div>
+  <!--end::Input group-->
+
+  <div class="fv-row mb-10">
+    <div class="col-lg-12">
+      <div class="form-group m-form__group <%= has_error_on(:phone) %>">
+        <%= f.hidden_field :country, id: "country" %>
+        <%= f.hidden_field :time_zone, id: "test_time_zone" %>
+        <%= f.hidden_field :server_region, id: "server_region" %>
+        <%= f.hidden_field :phone_country, id: "phone_country" %>
+        <%= f.hidden_field(:preferred_locale, id: "preferred_locale_hidden") %>
+        <%= f.hidden_field :country_code, id: "country_code" %>
+
+        <label class="form-label text-dark fs-6 required"><%= t('placeholders.phone', default: 'Phone Number') %></label>
+        <%= f.text_field :phone, class: "form-control m-input tel", id: "phone", style: "padding-left:55px;", :required => true %>
+        <span id="phone-valid-msg" class="hide" style="display: none;float: left;color: #00C900"><%= t('customers.valid_phone_number') %></span>
+        <span id="phone-error-msg" class="hide" style="display: none;float: left;color: #f4516c"><%= t('customers.invalid_phone_number') %></span>
+        <span class="text-danger fw-bolder"><%= error_on(resource, :phone) %></span>
+      </div>
+    </div>
+  </div>
+
+  <!--begin::Input group-->
+  <div class="fv-row mb-10" data-kt-password-meter="true">
+    <!--begin::Wrapper-->
+    <div class="mb-1">
+      <!--begin::Label-->
+      <label class="form-label fw-bolder text-dark fs-6 required"><%= t('placeholders.passwd', default: 'Password') %></label>
+      <!--end::Label-->
+      <!--begin::Input wrapper-->
+      <div class="position-relative mb-3">
+        <%= f.password_field :password, autocomplete: "off", class: "form-control form-control-lg form-control-solid" %>
+        <span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility">
+                  <i class="bi bi-eye-slash fs-2"></i>
+                  <i class="bi bi-eye fs-2 d-none"></i>
+                </span>
+      </div>
+      <!--end::Input wrapper-->
+      <!--begin::Meter-->
+      <div class="d-flex align-items-center mb-3" data-kt-password-meter-control="highlight">
+        <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+        <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+        <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+        <div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px"></div>
+      </div>
+      <!--end::Meter-->
+    </div>
+    <div class="text-muted mb-1"><%= raw t('placeholders.passwd_help', default: 'Use 8 or more characters with a mix of letters, numbers & symbols.') %></div>
+    <div class="mb-5">
+      <!--begin::Label-->
+      <label class="form-label fw-bolder text-dark fs-6 required"><%= t('placeholders.confirm_password', default: 'Confirm Password') %></label>
+      <!--end::Label-->
+      <!--begin::Input wrapper-->
+      <div class="position-relative mb-3">
+        <%= f.password_field :confirm_password, autocomplete: "off", class: "form-control form-control-lg form-control-solid" %>
+        <span id="password-error-msg" class="hide" style="display: none;float: left;color: #f4516c"><%= t('placeholders.password_error', default: "Confirm password doesn't the password.") %></span>
+      </div>
+    </div>
+    <!--end::Wrapper-->
+  </div>
+  <!--end::Input group=-->
+
+  <!--begin::Input group-->
+  <div class="fv-row mb-7">
+    <label class="form-check form-check-custom form-check-solid form-check-inline">
+      <input type="checkbox" name="agree" class="form-check-input" id="terms_and_condition">
+      <span class="form-check-label fw-bold text-gray-700 fs-6">
+          <%= t('.i_agree_the', :default => "I agree to the") %>
+          <a href="https://voxiplan.com/privacy-policy/" class="ms-1 link-primary" target="_blank"><%= t('.privacy_policy', :default => "Privacy Policy") %></a> <%= t('.and') %>
+          <a href="https://voxiplan.com/terms-conditions/" class="ms-1 link-primary" target="_blank"><%= t('.terms_and_conditions', :default => "terms and conditions") %></a>
+      </span>
+    </label>
+    <span id="tc-error-msg" class="hide mb-1" style="display: none;float: left;color: #f4516c"><%= t('errors.donot_agree') %></span>
+  </div>
+  <!--end::Input group-->
+  <!--begin::Input group-->
+  <div class="fv-row mb-10">
+    <label class="form-check form-check-custom form-check-solid form-check-inline">
+      <input type="checkbox" name="agree" class="form-check-input" id="receive_email">
+      <input type="hidden" name="receive_email_value" >
+      <span class="form-check-label fw-bold text-gray-700 fs-6">
+        <%= t('.receive_email', :default => "I would like to receive emails about new features and news at Voxiplan.") %>
+      </span>
+    </label>
+    <span id="pp-error-msg" class="hide" style="display: none;float: left;color: #f4516c"><%= t('errors.donot_agree') %></span>
+  </div>
+  <!--end::Input group-->
+  <!--begin::Actions-->
+  <div class="text-center">
+    <button type="submit" id="voxi_sign_up" class="btn btn-lg btn-primary">
+      <span class="indicator-label"><%= t('.sign_up', :default => "Sign Up") %></span>
+      <span class="indicator-progress">
+                <%= t('common.please_wait') %>
+                <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+              </span>
+    </button>
+  </div>
+  <!--end::Actions-->
+<% end %>
+
+<link rel="stylesheet" href="/assets/intlTelInput.min.css">
+<script src="/assets/intlTelInput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/libphonenumber-js/0.4.27/libphonenumber-js.min.js"></script>
+
+<script type="text/javascript">
+    const IPdata_key = "<%= ENV['IPdata_key'] %>";
+    const input = document.querySelector("#phone");
+    iti = window.intlTelInput(input, {
+        initialCountry: "auto",
+        utilsScript: "/assets/utils.js",
+        preferredCountries: ["fr", "be", "de", "gb", "us", "ca"],
+        geoIpLookup: function (callback) {
+            $.get("https://api.ipdata.co?api-key=" + IPdata_key, function () {
+            }, "jsonp").always(function (resp) {
+                let countryCode ='FR';
+                if (resp && resp.country_code) countryCode = resp.country_code;
+
+                callback(countryCode);
+            }).fail(function() {
+                callback('FR');
+            });
+        }
+    });
+
+    function reset() {
+        $("#phone").css("border-color", "");
+        $("#phone-valid-msg").hide();
+        $("#phone-error-msg").hide();
+        $("#email-error-msg").hide();
+        $("#tc-error-msg").hide();
+        $("#pp-error-msg").hide();
+    };
+
+    $('#phone').on('change', function () {
+        reset();
+        if (iti.isValidNumber()) {
+            $("#phone-valid-msg").show();
+        } else {
+            $('#phone').css("border-color", "#f4516c");
+            $("#phone-error-msg").show();
+        }
+    })
+
+    $('button#voxi_sign_up').click(function (e) {
+        e.preventDefault();
+
+        $("span#phone-valid-msg").hide();
+        $("span#phone-error-msg").hide();
+        $("span#email-error-msg").hide();
+        $("span#tc-error-msg").hide();
+        $("span#pp-error-msg").hide();
+        $('span#password-error-msg').hide();
+
+        if ($('input#signup_email').val() != $('input#signup_confirm_email').val()) {
+            $('span#email-error-msg').show();
+        }
+        else if ($('input#password').val() != $('input#confirm_password').val()) {
+            $('span#password-error-msg').show();
+        }
+        else if ($('input#terms_and_condition').prop('checked') == false) {
+            $('span#tc-error-msg').show();
+        }
+        else {
+            const number = iti.getNumber();
+            const client_country = iti.getSelectedCountryData();
+            const phone_country = client_country.iso2.toUpperCase();
+            const country_code = phone_country;
+            const country = client_country.name;
+
+            $("#phone").val(number);
+            $("#phone_country").val(phone_country);
+            $("#country_code").val(country_code);
+            $("#country").val(country);
+            $("#preferred_locale_hidden").val(getUrlParameter('locale') ? getUrlParameter('locale') : (getCookie('locale') ? getCookie('locale') : "en"));
+            $("input[name=receive_email_value]").val($("input#receive_email").prop('checked') ? "true" : "false")
+
+            $.get("https://api.ipdata.co?api-key=" + IPdata_key, function () {
+            }, "jsonp").always(function (resp) {
+                let time_zone = '';
+                if (resp.statusText == 'error' || resp.time_zone.name == null) {
+                    const country_info = getCountryInfo($("#phone").val());
+                    $("#phone_country").val(country_info.country_code);
+                    $("#country_code").val(country_info.country_code);
+                    $("#country").val(country_info.country_name);
+                    time_zone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                }
+                else {
+                    time_zone = resp.time_zone.name;
+                }
+
+                $("#test_time_zone").val(time_zone);
+                $('#new_client').submit();
+            });
+
+        }
+    });
+
+    function getCountryInfo( input ) {
+        // Set default country code to FR if no real country code is specified
+        const defaultCountryCode = input.substr( 0, 1 ) !== '+' ? 'FR' : null;
+        let lib_phonenumber = new libphonenumber.asYouType( defaultCountryCode );
+        let formatted = lib_phonenumber.input( input );
+        let country_code = '';
+        // let withoutCountryCode = formatted;
+
+        if ( defaultCountryCode === 'FR' ) {
+            country_code = '+33';
+            // formatted = '+1 ' + formatted;
+        }
+        else {
+            const parts = formatted.split( ' ' );
+            country_code = parts.length > 1 ? parts.shift() : '';
+            // withoutCountryCode = parts.join( ' ' );
+        }
+
+        let getCountryNames = new Intl.DisplayNames(['en'], {type: 'region'});
+        return {
+            country_number_code: country_code,
+            country_code: lib_phonenumber.country == undefined ? 'FR' : lib_phonenumber.country,
+            country_name: lib_phonenumber.country == undefined ? 'France' : getCountryNames.of(lib_phonenumber.country)
+        }
+    }
+
+</script>
+
+<style type="text/css">
+    .iti {
+        width: 100%;
+    }
+    .iti__flag {background-image: url("/assets/flags.png");}
+
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .iti__flag {background-image: url("/assets/flags@2x.png");}
+    }
+</style>

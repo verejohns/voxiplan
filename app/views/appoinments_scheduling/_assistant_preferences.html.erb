@@ -1,0 +1,341 @@
+<%= form_tag({controller: "appoinments_scheduling", action: "save_preferences"}, remote: true, method: "post", class: true) do %>
+  <%= hidden_field_tag :ivr_id, params[:ivr_id] %>
+  <div class="d-flex flex-column h-100">
+    <!--begin::Wrapper-->
+    <div class="w-100">
+      <!--begin::Alert-->
+      <div
+        class="alert alert-dismissible bg-light-warning border border-warning d-flex align-items-center flex-column flex-sm-row w-100 py-3 px-5 mb-10">
+        <!--begin::Icon-->
+        <!--begin::Svg Icon | path: icons/duotone/Code/Warning-2.svg-->
+        <span class="svg-icon svg-icon-2x svg-icon-warning me-3 mb-5 mb-sm-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                  <path d="M11.1669899,4.49941818 L2.82535718,19.5143571 C2.557144,19.9971408 2.7310878,20.6059441 3.21387153,20.8741573 C3.36242953,20.9566895 3.52957021,21 3.69951446,21 L21.2169432,21 C21.7692279,21 22.2169432,20.5522847 22.2169432,20 C22.2169432,19.8159952 22.1661743,19.6355579 22.070225,19.47855 L12.894429,4.4636111 C12.6064401,3.99235656 11.9909517,3.84379039 11.5196972,4.13177928 C11.3723594,4.22181902 11.2508468,4.34847583 11.1669899,4.49941818 Z"
+                                    fill="#000000" opacity="0.3" />
+                                  <rect fill="#000000" x="11" y="9" width="2" height="7" rx="1" />
+                                  <rect fill="#000000" x="11" y="17" width="2" height="2" rx="1" />
+                                </svg>
+                              </span>
+        <!--end::Svg Icon-->
+        <!--end::Icon-->
+        <!--begin::Content-->
+        <div class="d-flex flex-column pe-0 pe-sm-10">
+          <span class="fw-bold text-warning"><%= t('preference.alert') %></span>
+        </div>
+        <!--end::Content-->
+        <!--begin::Close-->
+        <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon w-auto h-auto ms-sm-auto" data-bs-dismiss="alert">
+          <i class="bi bi-x fs-1 text-warning"></i>
+        </button>
+        <!--end::Close-->
+      </div>
+      <!--end::Alert-->
+
+      <!--begin::Group-->
+      <div class="<%= 'd-none' if @ivr.preference['only_ai'] %>">
+        <h2 class="fw-bolder text-dark mb-5"><%= t('preference.registration') %></h2>
+        <!--begin::Field-->
+        <div class="mb-10">
+          <label class="form-label"><%= t('phone_menu.should_i') %></label>
+          <label class="form-check form-check-custom form-check-solid mb-4">
+            <%= check_box_tag("gather_number[enabled]",(@gather_number.enabled ? true : false), (@gather_number.enabled ? true : false), class: 'form-check-input') %>
+            <span class="form-check-label"><%= t('preference.check1') %></span>
+          </label>
+          <label class="form-check form-check-custom form-check-solid">
+            <%= check_box_tag("allow_new_customers", nil, @ivr.allow_new_customers?, class: 'form-check-input') %>
+            <span class="form-check-label"><%= t('preference.check3') %></span>
+          </label>
+        </div>
+      </div>
+      <!--end::Field-->
+      <!--end::Group-->
+
+      <!--begin::Group-->
+      <h2 class="fw-bolder text-dark mb-5"><%= t('preference.booking_limits') %></h2>
+      <!--begin::Field-->
+      <div class="mb-10">
+        <label class="form-label"><%= t('phone_menu.should_i') %></label>
+        <div class="d-flex mb-4">
+          <input type="hidden" value=<%= @ivr.nodes.find_by_name("agenda_group_availabilities").parameters["after_time"]%>  id="after_time_existing">
+          <input type="hidden" value=<%= @ivr.allow_cancel_or_modify? %>  id="cancel_time_existing">
+          <label class="form-check form-check-custom form-check-solid">
+            <%= check_box_tag("prevent_customer","", "", class: 'form-check-input') %>
+            <span class="form-check-label"></span>
+          </label>
+          <span><%= t('preference.check4') %>
+            <%= select_tag "after_time", options_for_select([]), class: "form-select form-select-sm time-format", data: {control: 'select2', placeholder: '...', 'minimum-results-for-search': 'Infinity', width: '80px'} %>
+            <%= select_tag 'time_format', options_for_select(AgendaApi::TimeFrame, selected: get_selected_agenda_group_availabilities(@agenda_group_availabilities)),
+                     class: "form-select form-select-sm time-format", data: {control: 'select2', placeholder: '...', 'minimum-results-for-search': 'Infinity', width: '100px'} %> in advance.
+          </span>
+        </div>
+        <div class="d-flex mb-4">
+          <label class="form-check form-check-custom form-check-solid">
+            <%= check_box_tag("preference[allow_cancel_or_modify]", nil , @ivr.allow_cancel_or_modify?, class: 'form-check-input') %>
+            <span class="form-check-label"></span>
+          </label>
+          <span><%= t('preference.check5') %>
+            <%= select_tag "cancel_time_offset", options_for_select([]), class: "form-select form-select-sm fw-bolder time-format", data: {control: 'select2', placeholder: '', 'minimum-results-for-search': 'Infinity', width: '80px'} %>
+            <%= select_tag 'cancel_time_format', options_for_select(AgendaApi::TimeFrame, selected:  @ivr.preference['cancel_time_offset'].gsub(/[^A-Za-z]/, '').capitalize ),
+                     class: "form-select form-select-sm time-format", data: {control: 'select2', placeholder: 'Select...', 'minimum-results-for-search': 'Infinity', width: '100px'} %> in advance.
+          </span>
+        </div>
+        <div class="d-flex">
+          <label class="form-check form-check-custom form-check-solid">
+<!--            <input id="kt_allow_customers_to_schedule_up" class="form-check-input" type="checkbox" />-->
+            <%= check_box_tag("kt_allow_customers_to_schedule_up",( (@ivr.preference["max_allowed_appointments"].nil? || @ivr.preference["max_allowed_appointments"] == 888873 ) ? false : true),
+                              ( (@ivr.preference["max_allowed_appointments"].nil? || @ivr.preference["max_allowed_appointments"] == 888873 ) ? false : true), class: 'form-check-input') %>
+            <span class="form-check-label"></span>
+          </label>
+          <span><%= t("preference.check6a") %>
+            <%= text_field_tag "preference[limit]", (@ivr.preference["max_allowed_appointments"].nil? || @ivr.preference["max_allowed_appointments"] == 888873) ? "" : @ivr.preference["max_allowed_appointments"] ,
+                               class: "appointment-check-input form-control form-control-sm d-inline-block w-100px", min: 1, type: "number" %>
+            <%= t("preference.check6b") %>
+          </span>
+        </div>
+      </div>
+      <!--end::Field-->
+      <!--end::Group-->
+
+      <!--begin::Group-->
+      <div class="<%= 'd-none' if @ivr.preference['only_ai'] %>">
+        <h2 class="fw-bolder text-dark mb-5"><%= t("preference.confirmation") %></h2>
+        <!--begin::Field-->
+        <div class="mb-10">
+          <label class="form-label"><%= t('phone_menu.should_i') %></label>
+          <label class="form-check form-check-custom form-check-solid">
+            <%= check_box_tag("confirm_create[enabled]",(@confirm_create.enabled ? true : false), (@confirm_create.enabled ? true : false), class: 'form-check-input') %>
+            <span class="form-check-label"><%= t('preference.check9a') %></span>
+          </label>
+          <span class="form-text ms-9"><%= t('preference.check9b') %></span>
+        </div>
+        <!--end::Field-->
+        <!--begin::Row-->
+        <div class="row">
+          <!--begin::Col-->
+          <div class="col-md-6">
+            <!--begin::Option-->
+            <input type="radio" class="btn-check" name="preference[implicit_confirmation]" checked="checked" id="kt_mega_checkbox_01" value="true">
+            <label class="btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center h-md-100 mb-10 mb-md-0" for="kt_mega_checkbox_01">
+              <!--begin::Svg Icon | path: icons/duotone/Code/Time-schedule.svg-->
+              <span class="svg-icon svg-icon-3x me-5">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path opacity="0.5" d="M12.8956 13.4982L10.7949 11.2651C10.2697 10.7068 9.38251 10.7068 8.85731 11.2651C8.37559 11.7772 8.37559 12.5757 8.85731 13.0878L12.7499 17.2257C13.1448 17.6455 13.8118 17.6455 14.2066 17.2257L21.1427 9.85252C21.6244 9.34044 21.6244 8.54191 21.1427 8.02984C20.6175 7.47154 19.7303 7.47154 19.2051 8.02984L14.061 13.4982C13.7451 13.834 13.2115 13.834 12.8956 13.4982Z" fill="black" />
+                                        <path d="M7.89557 13.4982L5.79487 11.2651C5.26967 10.7068 4.38251 10.7068 3.85731 11.2651C3.37559 11.7772 3.37559 12.5757 3.85731 13.0878L7.74989 17.2257C8.14476 17.6455 8.81176 17.6455 9.20663 17.2257L16.1427 9.85252C16.6244 9.34044 16.6244 8.54191 16.1427 8.02984C15.6175 7.47154 14.7303 7.47154 14.2051 8.02984L9.06096 13.4982C8.74506 13.834 8.21146 13.834 7.89557 13.4982Z" fill="black" />
+                                      </svg>
+                                    </span>
+              <!--end::Svg Icon-->
+              <!--begin::Info-->
+              <span class="d-block fw-bold text-start">
+                                      <span class="text-dark fw-bolder d-block fs-4 mb-2"><%= t('preference.radio1_head') %></span>
+                                      <span class="text-muted fw-bold fs-6"><%= t('preference.radio1_text1') %> <%= t('preference.radio1_text2') %></span>
+                                    </span>
+              <!--end::Info-->
+            </label>
+            <!--end::Option-->
+          </div>
+          <!--end::Col-->
+          <!--begin::Col-->
+          <div class="col-md-6">
+            <!--begin::Option-->
+            <input type="radio" class="btn-check" name="preference[implicit_confirmation]" id="kt_mega_checkbox_02" value="false">
+            <label class="btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center h-md-100" for="kt_mega_checkbox_02">
+              <!--begin::Svg Icon | path: icons/duotone/Code/Time-schedule.svg-->
+              <span class="svg-icon svg-icon-3x me-5">
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path opacity="0.5" d="M12.8956 13.4982L10.7949 11.2651C10.2697 10.7068 9.38251 10.7068 8.85731 11.2651C8.37559 11.7772 8.37559 12.5757 8.85731 13.0878L12.7499 17.2257C13.1448 17.6455 13.8118 17.6455 14.2066 17.2257L21.1427 9.85252C21.6244 9.34044 21.6244 8.54191 21.1427 8.02984C20.6175 7.47154 19.7303 7.47154 19.2051 8.02984L14.061 13.4982C13.7451 13.834 13.2115 13.834 12.8956 13.4982Z" fill="black" />
+                                        <path d="M7.89557 13.4982L5.79487 11.2651C5.26967 10.7068 4.38251 10.7068 3.85731 11.2651C3.37559 11.7772 3.37559 12.5757 3.85731 13.0878L7.74989 17.2257C8.14476 17.6455 8.81176 17.6455 9.20663 17.2257L16.1427 9.85252C16.6244 9.34044 16.6244 8.54191 16.1427 8.02984C15.6175 7.47154 14.7303 7.47154 14.2051 8.02984L9.06096 13.4982C8.74506 13.834 8.21146 13.834 7.89557 13.4982Z" fill="black" />
+                                      </svg>
+                                    </span>
+              <!--end::Svg Icon-->
+              <!--begin::Info-->
+              <span class="d-block fw-bold text-start">
+                                      <span class="text-dark fw-bolder d-block fs-4 mb-2"><%= t('preference.radio2_head') %></span>
+                                      <span class="text-muted fw-bold fs-6"><%= t('preference.radio2_text1') %> <%= t('preference.radio2_text2') %></span>
+                                    </span>
+              <!--end::Info-->
+            </label>
+            <!--end::Option-->
+          </div>
+          <!--end::Col-->
+        </div>
+      <!--end::Row-->
+      </div>
+      <!--end::Group-->
+    </div>
+    <!--end::Wrapper-->
+    <div class="separator mt-20 mb-10"></div>
+
+    <!--begin::Actions-->
+    <div class="d-flex justify-content-end flex-stack">
+      <button type="submit" class="btn btn-outline btn-outline-primary btn-color-primary btn-active-color-white ms-5">
+        <!--begin::Svg Icon | path: icons/duotone/Navigation/Double-check.svg-->
+        <span class="svg-icon svg-icon-2x me-1">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <polygon points="0 0 24 0 24 24 0 24" />
+                        <path d="M9.26193932,16.6476484 C8.90425297,17.0684559 8.27315905,17.1196257 7.85235158,16.7619393 C7.43154411,16.404253 7.38037434,15.773159 7.73806068,15.3523516 L16.2380607,5.35235158 C16.6013618,4.92493855 17.2451015,4.87991302 17.6643638,5.25259068 L22.1643638,9.25259068 C22.5771466,9.6195087 22.6143273,10.2515811 22.2474093,10.6643638 C21.8804913,11.0771466 21.2484189,11.1143273 20.8356362,10.7474093 L17.0997854,7.42665306 L9.26193932,16.6476484 Z"
+                              fill="#000000" fill-rule="nonzero" opacity="0.5" transform="translate(14.999995, 11.000002) rotate(-180.000000) translate(-14.999995, -11.000002) " />
+                        <path d="M4.26193932,17.6476484 C3.90425297,18.0684559 3.27315905,18.1196257 2.85235158,17.7619393 C2.43154411,17.404253 2.38037434,16.773159 2.73806068,16.3523516 L11.2380607,6.35235158 C11.6013618,5.92493855 12.2451015,5.87991302 12.6643638,6.25259068 L17.1643638,10.2525907 C17.5771466,10.6195087 17.6143273,11.2515811 17.2474093,11.6643638 C16.8804913,12.0771466 16.2484189,12.1143273 15.8356362,11.7474093 L12.0997854,8.42665306 L4.26193932,17.6476484 Z"
+                              fill="#000000" fill-rule="nonzero" transform="translate(9.999995, 12.000002) rotate(-180.000000) translate(-9.999995, -12.000002) " />
+                    </g>
+                </svg>
+              </span>
+        <!--end::Svg Icon-->
+        <%= t('button.save') %>
+      </button>
+    </div>
+    <!--end::Actions-->
+  </div>
+<% end %>
+<script>
+    const $allowCustomersToScheduleUp = document.querySelector('#kt_allow_customers_to_schedule_up');
+    const $allowCustomersToScheduleUpQty = document.querySelector('#preference_limit');
+
+    timefreame("<%= get_selected_agenda_group_availabilities(@agenda_group_availabilities) %>");
+    selectedtimeframe();
+    function timefreame(input_val){
+        var range = Array.new;
+        var list = "";
+        var input = input_val;
+        if(input == "Minute"){
+            range = <%= AgendaApi::TimeFrameRange[:minutes].to_a %>
+        }
+        else if(input == "Hour"){
+            range = <%= AgendaApi::TimeFrameRange[:hours].to_a %>
+        }
+        else if(input == "Day"){
+            range = <%= AgendaApi::TimeFrameRange[:days].to_a %>
+        }
+        else if(input == "Week"){
+            range = <%= AgendaApi::TimeFrameRange[:weeks].to_a %>
+        }
+        else if(input == "Month"){
+            range = <%= AgendaApi::TimeFrameRange[:months].to_a %>
+        }
+        var select = $('#after_time');
+        var lower = input.toLowerCase();
+        $.each(range, function( index, value ) {
+            list += '<option value="'+value+'_'+lower+'">'+value+'</option>'
+        });
+        select.empty().append(list)
+    };
+
+    function selectedtimeframe(){
+        let selected_value = "<%= @agenda_group_availabilities.parameters['after_time'].gsub("%{",'').gsub("}",'') %>";
+        if (selected_value == '0_day') selected_value = '1_day';
+
+        $("#after_time").select2().val(selected_value).trigger('change');
+    };
+
+    <% if(@ivr.preference["implicit_confirmation"]) %>
+      $("#kt_mega_checkbox_01").prop("checked", true);
+    <% else %>
+      $("#kt_mega_checkbox_02").prop("checked", true);
+    <% end %>
+
+    $("#time_format").change(function(){
+        timefreame(this.value)
+    });
+
+    $allowCustomersToScheduleUp.addEventListener('change', function (e) {
+        $allowCustomersToScheduleUpQty.disabled = !e.target.checked;
+        if ($allowCustomersToScheduleUpQty.disabled === false && $('#preference_limit').val() === '')
+            $('#preference_limit').val(1);
+    });
+
+    var preventCheckbox = $("input:checkbox[name=prevent_customer]");
+    var afterTime = $('#after_time');
+    var timeFormat = $('#time_format');
+
+    function updatePreventCheck() {
+        if($('#after_time_existing').val() === "%{0_day}") {
+            preventCheckbox.removeAttr('checked')
+        }
+        if(!preventCheckbox.is(':checked')) {
+            afterTime.prop('disabled', true);
+            timeFormat.prop('disabled', true);
+            $('<input />').attr('type', 'hidden')
+                .attr('name', "after_time")
+                .attr('value', "0_day")
+                .attr('class', "after_time_input d-none")
+                .appendTo('.time-checkbox-list');
+        } else {
+            afterTime.prop('disabled', false);
+            timeFormat.prop('disabled', false);
+            $('.time-checkbox-list .after_time_input').remove();
+        }
+    }
+
+    updatePreventCheck();
+
+    preventCheckbox.change(function (e) {
+        updatePreventCheck();
+    });
+
+    var $checkbox = $('#preference_allow_cancel_or_modify'),
+        $cancel_offset = $('#cancel_time_offset'),
+        $cancel_format = $('#cancel_time_format');
+
+    function updatedAllowCancelandModify() {
+        if(!$('#cancel_time_existing').val()) {
+            preventCheckbox.removeAttr('checked')
+        }
+        if(!$checkbox.is(':checked')) {
+            $cancel_offset.prop('disabled', true);
+            $cancel_format.prop('disabled', true);
+            $('<input />').attr('type', 'hidden')
+                .attr('name', "cancel_time_offset")
+                .attr('value', "0_day")
+                .attr('class', "cancel_time_input d-none")
+                .appendTo('.time-checkbox-list');
+        } else {
+            $cancel_offset.prop('disabled', false);
+            $cancel_format.prop('disabled', false);
+            $('.time-checkbox-list .cancel_time_input').remove();
+        }
+    }
+
+    updatedAllowCancelandModify();
+
+    $checkbox.change(function (e) {
+        updatedAllowCancelandModify();
+    });
+
+    cancelTimeFreame("<%= (@ivr.preference['cancel_time_offset'].gsub(/[^A-Za-z]/, '').capitalize) %>");
+    selectedCancelledtimeframe();
+
+    $("#cancel_time_format").change(function(){
+        cancelTimeFreame(this.value);
+    });
+
+    function cancelTimeFreame(input_val){
+        var range = Array.new;
+        var list = "";
+        var input = input_val;
+        if(input == "Minute"){
+            range = <%= AgendaApi::TimeFrameRange[:minutes].to_a %>
+        }
+        else if(input == "Hour"){
+            range = <%= AgendaApi::TimeFrameRange[:hours].to_a %>
+        }
+        else if(input == "Day"){
+            range = <%= AgendaApi::TimeFrameRange[:days].to_a %>
+        }
+        else if(input == "Week"){
+            range = <%= AgendaApi::TimeFrameRange[:weeks].to_a %>
+        }
+        else if(input == "Month"){
+            range = <%= AgendaApi::TimeFrameRange[:months].to_a %>
+        }
+        var select = $('#cancel_time_offset');
+        var lower = input.toLowerCase();
+        $.each(range, function( index, value ) {
+            list += '<option value="'+value+'_'+lower+'">'+value+'</option>'
+        })
+        select.empty().append(list)
+    }
+    function selectedCancelledtimeframe(){
+        const selected_value = "<%= @ivr.preference['cancel_time_offset'].gsub("%{",'').gsub("}",'') %>";
+        $("#cancel_time_offset").select2().val(selected_value).trigger('change');
+    }
+</script>

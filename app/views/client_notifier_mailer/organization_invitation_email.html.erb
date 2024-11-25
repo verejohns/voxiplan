@@ -1,0 +1,8 @@
+<% if @invalid_email_content.blank? %>
+  <%= t("mails.organization_invitation.body") + '(' + @organization_name + ')' %>
+  <br />
+  <%=t("mails.organization_invitation.content") %>
+  <a href="<%= @link %>"><%= @link %></a>
+<% else %>
+  <%= @invalid_email_content %>
+<% end %>

@@ -1,0 +1,2 @@
+class TelephonyNode < Node
+end

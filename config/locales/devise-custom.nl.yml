@@ -1,0 +1,38 @@
+---
+nl:
+  devise:
+    registrations:
+      new:
+        agree_terms: Ik heb gelezen en ga akkoord met de site's
+        and: en
+        i_agree_the: Ik heb gelezen en ga akkoord met de
+        privacy_policy: Privacybeleid
+        receive_email: Ik wil graag e-mails ontvangen over nieuwe functies en nieuws van Voxiplan.
+        terms_and_conditions: Voorwaarden en bepalingen
+    sessions:
+      new:
+        forgot_your_password: Wachtwoord vergeten?
+        remember_me: Herinner mij
+    shared:
+      links:
+        do_not_have_account: Heb je nog geen account ?
+        new_here: Nieuw hier?
+  login:
+    message:
+      html: 'Werk efficiënter met uw AI-assistent<br>zodat u zich kunt concentreren op wat het belangrijkst is: uw klanten.</br> '
+    welcome: Krijg meer gedaan met uw AI assistent
+  placeholders:
+    company: Bedrijf
+    confirm_email: Bevestig e-mail *
+    confirm_password: Bevestig wachtwoord *
+    email: E-mail *
+    first_name: Voornaam *
+    fullname: Volledige naam
+    industry: Industrie *
+    last_name: Achternaam *
+    passwd: Wachtwoord
+    passwd_help: Gebruik 8 of meer tekens met een mix van letters, cijfers en symbolen.
+    password: Wachtwoord
+    password_error: Wachtwoord bevestigen doet het wachtwoord niet.
+    password_instructions: Minimaal 6 tekens
+    phone: Telefoon *

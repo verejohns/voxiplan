@@ -1,0 +1,54 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => 'form w-100'}) do |f| %>
+  <div class="text-center mb-10">
+    <h1 class="text-dark mb-3"><%= t('devise.registrations.new.sign_in_heading') %></h1>
+    <%- if controller_name == 'sessions' %>
+      <div class="text-gray-400 fw-bold fs-4"><%= t('devise.shared.links.new_here') %>
+        <a href="<%= new_registration_path(resource_name) %>" class="link-primary fw-bolder"><%= t('devise.registrations.new.sign_up_heading') %></a>
+      </div>
+    <% end -%>
+  </div>
+  <!--begin::Heading-->
+
+  <div class="fv-row mb-10">
+    <label class="form-label fs-6 fw-bolder text-dark required"><%= t('placeholders.email') %></label>
+    <%= f.email_field :email, autofocus: true, class: "form-control form-control-lg form-control-solid", autocomplete: 'off'%>
+  </div>
+
+  <div class="fv-row mb-5">
+    <div class="d-flex flex-stack mb-2">
+      <label class="form-label fw-bolder text-dark fs-6 mb-0 required"><%= t('placeholders.passwd') %></label>
+    </div>
+    <%= f.password_field :password, autocomplete: "off", class: "form-control form-control-lg form-control-solid" %>
+  </div>
+
+  <div class="fv-row mb-10">
+    <div class="d-flex flex-stack">
+      <% if devise_mapping.rememberable? -%>
+        <label class="form-check form-check-custom form-check-solid form-check-inline">
+          <%= f.check_box :remember_me, class: "form-check-input" %>
+          <span class="form-check-label text-gray-600"><%= t('.remember_me', default: 'Remember me') %></span>
+          <span></span>
+        </label>
+      <% end -%>
+
+      <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+        <%= link_to t('.forgot_your_password', default: 'Forgot password?'), ENV['ORY_URL'] + '/self-service/recovery/browser', class: "link-primary fs-6 fw-bolder" %>
+      <% end -%>
+
+    </div>
+  </div>
+  <!--end::Input group-->
+  <!--begin::Actions-->
+  <div class="text-center">
+    <!--begin::Submit button-->
+    <button type="submit" id="kt_sign_in_submit" class="btn btn-lg btn-primary">
+      <span class="indicator-label"><%= t('.sign_in', :default => "Sign in") %></span>
+      <span class="indicator-progress">
+                  <%= t('common.please_wait') %>
+                  <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                </span>
+    </button>
+    <!--end::Submit button-->
+  </div>
+  <!--end::Actions-->
+<% end %>

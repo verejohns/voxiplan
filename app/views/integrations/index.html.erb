@@ -1,0 +1,696 @@
+<div class="toolbar" id="kt_toolbar">
+  <!--begin::Container-->
+  <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+    <!--begin::Page title-->
+    <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
+         data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
+         class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
+      <!--begin::Title-->
+      <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3"><%= t('nav_menu.integrations') %></h1>
+      <!--end::Title-->
+    </div>
+    <!--end::Page title-->
+    <!--begin::Actions-->
+    <div class="d-flex align-items-center py-1"></div>
+    <!--end::Actions-->
+  </div>
+  <!--end::Container-->
+</div>
+<!--end::Toolbar-->
+<!--begin::Post-->
+<div class="post d-flex flex-column-fluid" id="kt_post">
+  <!--begin::Container-->
+  <div id="kt_content_container" class="container-fluid">
+    <div class="card mb-7 d-none">
+      <div class="card-body">
+        <p>
+          Your API key: Only use this key when integrations on other platforms require an API key to connect. Otherwise, see the
+          <a href="#kt_inner_section_api_and_webhooks">API & Webhooks</a>
+          section below.
+        </p>
+        <!--begin::Input Group-->
+        <div class="input-group">
+          <input class="form-control" type="password" value="1234567890" />
+          <a class="input-group-text" href="javascript:void(0);" title="Copy Key" data-bs-toggle="tooltip">
+            <i class="bi bi-files fs-4"></i>
+          </a>
+          <a class="input-group-text" href="javascript:void(0);" title="Regenerate Key" data-bs-toggle="tooltip">
+            <i class="fas fa-sync-alt fs-4"></i>
+          </a>
+        </div>
+        <!--end::Input Group-->
+      </div>
+    </div>
+
+    <!--begin::Row-->
+    <div class="row">
+      <!--begin::Col-->
+      <div class="col-md-4 col-lg-3 mb-7 d-none">
+        <!--begin::Card-->
+        <div id="kt_inner_section_api_and_webhooks" class="card position-relative min-h-md-100">
+          <!--begin::Card body-->
+          <a class="card-body d-flex flex-center flex-column pt-12 p-9" href="#">
+            <!--begin::Avatar-->
+            <div class="symbol symbol-75px symbol-circle bg-light p-5 mb-7">
+              <img class="rounded-0" src="/assets/integration/Code.svg" alt="Code">
+            </div>
+            <!--end::Avatar-->
+            <!--begin::Name-->
+            <span class="fs-4 text-gray-800 fw-bolder mb-2"><%= t('integrations.api_webhooks') %></span>
+            <!--end::Name-->
+            <!--begin::Description-->
+            <div class="fw-bold text-gray-400 text-center"><%= t('integrations.api_webhooks_help') %></div>
+            <!--end::Description-->
+          </a>
+          <!--end::Card body-->
+        </div>
+        <!--end::Card-->
+      </div>
+      <!--end::Col-->
+      <!--begin::Col-->
+      <div class="col-md-4 col-lg-3 mb-7">
+        <!--begin::Card-->
+        <div class="card position-relative min-h-md-100">
+          <!--begin::Card body-->
+          <a class="card-body d-flex flex-center flex-column pt-12 p-9" href="<%= select_agenda_integrations_path %>" >
+            <!--begin::Avatar-->
+            <div class="symbol symbol-75px symbol-circle bg-light p-5 mb-7">
+              <img class="rounded-0" src="/assets/integration/Calendar.svg" alt="Calendar">
+            </div>
+            <!--end::Avatar-->
+            <!--begin::Name-->
+            <span class="fs-4 text-gray-800 fw-bolder mb-2"><%= t('integrations.partner_agenda') %></span>
+            <!--end::Name-->
+            <!--begin::Description-->
+            <div class="fw-bold text-gray-400 text-center"><%= t('integrations.partner_agenda_help') %></div>
+            <!--end::Description-->
+          </a>
+          <!--end::Card body-->
+        </div>
+        <!--end::Card-->
+      </div>
+      <!--end::Col-->
+      <!--begin::Col-->
+
+      <div class="col-md-4 col-lg-3 mb-7">
+        <!--begin::Card-->
+        <div class="card position-relative min-h-md-100">
+          <!--begin::Card body-->
+          <a class="detail_function card-body d-flex flex-center flex-column pt-12 p-9" href="<%= (@subscription_plan == 'trial' || @subscription_plan == 'free') ? '#kt_modal_upgrade_plan' : phone_integrations_path %>" <%= "data-bs-toggle=modal" if @subscription_plan == 'free' || @subscription_plan == 'trial'%> >
+            <!--begin::Avatar-->
+            <div class="symbol symbol-75px symbol-circle bg-light p-5 mb-7">
+              <img class="rounded-0" src="/assets/integration/Call.svg" alt="Phone">
+            </div>
+            <!--end::Avatar-->
+            <!--begin::Name-->
+            <span class="fs-4 text-gray-800 fw-bolder mb-2"><%= t('integrations.phone_connection.title') %></span>
+            <!--end::Name-->
+            <!--begin::Description-->
+            <div class="fw-bold text-gray-400 text-center"><%= t('integrations.phone_connection.help') %></div>
+            <!--end::Description-->
+          </a>
+          <!--end::Card body-->
+        </div>
+        <!--end::Card-->
+      </div>
+      <!--end::Col-->
+      <!--begin::Col-->
+      <div class="col-md-4 col-lg-3 mb-7 d-none">
+        <!--begin::Card-->
+        <div class="card position-relative min-h-md-100">
+          <!--begin::Card body-->
+          <a class="card-body d-flex flex-center flex-column pt-12 p-9" href="#">
+            <!--begin::Avatar-->
+            <div class="symbol symbol-75px symbol-circle bg-light p-5 mb-7">
+              <img class="rounded-0" src="/assets/integration/Adress-book2.svg" alt="Phone Booking">
+            </div>
+            <!--end::Avatar-->
+            <!--begin::Name-->
+            <span class="fs-4 text-gray-800 fw-bolder mb-2"><%= t('integrations.phone_booking') %></span>
+            <!--end::Name-->
+            <!--begin::Description-->
+            <div class="fw-bold text-gray-400 text-center"><%= t('integrations.phone_booking_help') %></div>
+            <!--end::Description-->
+          </a>
+          <!--end::Card body-->
+        </div>
+        <!--end::Card-->
+      </div>
+      <!--end::Col-->
+      <!--begin::Col-->
+      <div class="col-md-4 col-lg-3 mb-7">
+        <!--begin::Card-->
+        <div class="card position-relative min-h-md-100">
+          <!--begin::Card body-->
+          <a class="detail_function card-body d-flex flex-center flex-column pt-12 p-9" href="<%= (@subscription_plan == 'trial' || @subscription_plan == 'free') ? '#kt_modal_upgrade_plan' : sms_integrations_path %>" <%= "data-bs-toggle=modal" if @subscription_plan == 'free' || @subscription_plan == 'trial'%> >
+            <!--begin::Avatar-->
+            <div class="symbol symbol-75px symbol-circle bg-light p-5 mb-7">
+              <img class="rounded-0" src="/assets/integration/Group-chat.svg" alt="SMS">
+            </div>
+            <!--end::Avatar-->
+            <!--begin::Name-->
+            <span class="fs-4 text-gray-800 fw-bolder mb-2"><%= t('integrations.sms_connection.title') %></span>
+            <!--end::Name-->
+            <!--begin::Description-->
+            <div class="fw-bold text-gray-400 text-center"><%= t('integrations.sms_connection.help') %></div>
+            <!--end::Description-->
+          </a>
+          <!--end::Card body-->
+        </div>
+        <!--end::Card-->
+      </div>
+      <!--end::Col-->
+      <!--begin::Col-->
+      <div class="d-none">
+        <div class="col-md-4 col-lg-3 mb-7">
+          <!--begin::Card-->
+          <div class="card position-relative min-h-md-100">
+            <span class="badge badge-light-primary border border-primary position-absolute top-0 end-0 mt-n2 me-n2">Coming Soon</span>
+            <!--begin::Card body-->
+            <a class="card-body d-flex flex-center flex-column opacity-50 pt-12 p-9 pe-none" href="#">
+              <!--begin::Avatar-->
+              <div class="symbol symbol-75px symbol-circle bg-light p-5 mb-7">
+                <img class="rounded-0" src="/assets/integration/chrome.svg" alt="Chrome">
+              </div>
+              <!--end::Avatar-->
+              <!--begin::Name-->
+              <span class="fs-4 text-gray-800 fw-bolder mb-2">Voxiplan for Chrome</span>
+              <!--end::Name-->
+              <!--begin::Description-->
+              <div class="fw-bold text-gray-400 text-center">Access your links, create one-offs, add times to email, and more.</div>
+              <!--end::Description-->
+            </a>
+            <!--end::Card body-->
+          </div>
+          <!--end::Card-->
+        </div>
+        <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col-md-4 col-lg-3 mb-7">
+          <!--begin::Card-->
+          <div class="card position-relative min-h-md-100">
+            <span class="badge badge-light-primary border border-primary position-absolute top-0 end-0 mt-n2 me-n2">Coming Soon</span>
+            <!--begin::Card body-->
+            <a class="card-body d-flex flex-center flex-column opacity-50 pt-12 p-9 pe-none" href="#">
+              <!--begin::Avatar-->
+              <div class="symbol symbol-75px symbol-circle bg-light p-5 mb-7">
+                <img class="rounded-0" src="/assets/integration/icloud-calendar.svg" alt="Apple">
+              </div>
+              <!--end::Avatar-->
+              <!--begin::Name-->
+              <span class="fs-4 text-gray-800 fw-bolder mb-2">Voxiplan iPhone App</span>
+              <!--end::Name-->
+              <!--begin::Description-->
+              <div
+                class="fw-bold text-gray-400 text-center">Check your schedule, get alerts, and share links on the go.
+              </div>
+              <!--end::Description-->
+            </a>
+            <!--end::Card body-->
+          </div>
+          <!--end::Card-->
+        </div>
+        <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col-md-4 col-lg-3 mb-7">
+          <!--begin::Card-->
+          <div class="card position-relative min-h-md-100">
+            <span class="badge badge-light-primary border border-primary position-absolute top-0 end-0 mt-n2 me-n2">Coming Soon</span>
+            <!--begin::Card body-->
+            <a class="card-body d-flex flex-center flex-column opacity-50 pt-12 p-9 pe-none" href="#">
+              <!--begin::Avatar-->
+              <div class="symbol symbol-75px symbol-circle bg-light p-5 mb-7">
+                <img class="rounded-0" src="/assets/integration/android-os.svg" alt="Android">
+              </div>
+              <!--end::Avatar-->
+              <!--begin::Name-->
+              <span class="fs-4 text-gray-800 fw-bolder mb-2">Voxiplan Android App</span>
+              <!--end::Name-->
+              <!--begin::Description-->
+              <div
+                class="fw-bold text-gray-400 text-center">Check your schedule, get alerts, and share links on the go.
+              </div>
+              <!--end::Description-->
+            </a>
+            <!--end::Card body-->
+          </div>
+          <!--end::Card-->
+        </div>
+        <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col-md-4 col-lg-3 mb-7">
+          <!--begin::Card-->
+          <div class="card position-relative min-h-md-100">
+            <span class="badge badge-light-primary border border-primary position-absolute top-0 end-0 mt-n2 me-n2">Coming Soon</span>
+            <!--begin::Card body-->
+            <a class="card-body d-flex flex-center flex-column opacity-50 pt-12 p-9 pe-none" href="#">
+              <!--begin::Avatar-->
+              <div class="symbol symbol-75px symbol-circle bg-light p-5 mb-7">
+                <img class="rounded-0" src="/assets/integration/salesforce.svg" alt="Salesforce">
+              </div>
+              <!--end::Avatar-->
+              <!--begin::Name-->
+              <span class="fs-4 text-gray-800 fw-bolder mb-2">Salesforce</span>
+              <!--end::Name-->
+              <!--begin::Description-->
+              <div
+                class="fw-bold text-gray-400 text-center">Automatically update Salesforce records as Voxiplan meetings are scheduled.
+              </div>
+              <!--end::Description-->
+            </a>
+            <!--end::Card body-->
+          </div>
+          <!--end::Card-->
+        </div>
+        <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col-md-4 col-lg-3 mb-7">
+          <!--begin::Card-->
+          <div class="card position-relative min-h-md-100">
+            <span class="badge badge-light-primary border border-primary position-absolute top-0 end-0 mt-n2 me-n2">Coming Soon</span>
+            <!--begin::Card body-->
+            <a class="card-body d-flex flex-center flex-column opacity-50 pt-12 p-9 pe-none" href="#">
+              <!--begin::Avatar-->
+              <div class="symbol symbol-75px symbol-circle bg-light p-5 mb-7">
+                <img class="rounded-0" src="/assets/integration/hubspot.svg" alt="HubSpot">
+              </div>
+              <!--end::Avatar-->
+              <!--begin::Name-->
+              <span class="fs-4 text-gray-800 fw-bolder mb-2">HubSpot</span>
+              <!--end::Name-->
+              <!--begin::Description-->
+              <div
+                class="fw-bold text-gray-400 text-center">Update HubSpot with meeting details to manage contacts and track metrics.
+              </div>
+              <!--end::Description-->
+            </a>
+            <!--end::Card body-->
+          </div>
+          <!--end::Card-->
+        </div>
+        <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col-md-4 col-lg-3 mb-7">
+          <!--begin::Card-->
+          <div class="card position-relative min-h-md-100">
+            <span class="badge badge-light-primary border border-primary position-absolute top-0 end-0 mt-n2 me-n2">Coming Soon</span>
+            <!--begin::Card body-->
+            <a class="card-body d-flex flex-center flex-column opacity-50 pt-12 p-9 pe-none" href="#">
+              <!--begin::Avatar-->
+              <div class="symbol symbol-75px symbol-circle bg-light p-5 mb-7">
+                <img class="rounded-0" src="/assets/integration/mailchimp.svg" alt="Mailchimp">
+              </div>
+              <!--end::Avatar-->
+              <!--begin::Name-->
+              <span class="fs-4 text-gray-800 fw-bolder mb-2">Mailchimp</span>
+              <!--end::Name-->
+              <!--begin::Description-->
+              <div
+                class="fw-bold text-gray-400 text-center">Update Mailchimp contacts when meetings are scheduled.
+              </div>
+              <!--end::Description-->
+            </a>
+            <!--end::Card body-->
+          </div>
+          <!--end::Card-->
+        </div>
+        <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col-md-4 col-lg-3 mb-7">
+          <!--begin::Card-->
+          <div class="card position-relative min-h-md-100">
+            <span class="badge badge-light-primary border border-primary position-absolute top-0 end-0 mt-n2 me-n2">Coming Soon</span>
+            <!--begin::Card body-->
+            <a class="card-body d-flex flex-center flex-column opacity-50 pt-12 p-9 pe-none" href="#">
+              <!--begin::Avatar-->
+              <div class="symbol symbol-75px symbol-circle bg-light p-5 mb-7">
+                <img class="rounded-0" src="/assets/integration/zoom.svg" alt="Zoom">
+              </div>
+              <!--end::Avatar-->
+              <!--begin::Name-->
+              <span class="fs-4 text-gray-800 fw-bolder mb-2">Zoom</span>
+              <!--end::Name-->
+              <!--begin::Description-->
+              <div
+                class="fw-bold text-gray-400 text-center">Automatically include Zoom meeting details in Voxiplan events.
+              </div>
+              <!--end::Description-->
+            </a>
+            <!--end::Card body-->
+          </div>
+          <!--end::Card-->
+        </div>
+        <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col-md-4 col-lg-3 mb-7">
+          <!--begin::Card-->
+          <div class="card position-relative min-h-md-100">
+            <span class="badge badge-light-primary border border-primary position-absolute top-0 end-0 mt-n2 me-n2">Coming Soon</span>
+            <!--begin::Card body-->
+            <a class="card-body d-flex flex-center flex-column opacity-50 pt-12 p-9 pe-none" href="#">
+              <!--begin::Avatar-->
+              <div class="symbol symbol-75px symbol-circle bg-light p-5 mb-7">
+                <img class="rounded-0" src="/assets/integration/microsoft-teams.svg" alt="Microsoft Teams">
+              </div>
+              <!--end::Avatar-->
+              <!--begin::Name-->
+              <span class="fs-4 text-gray-800 fw-bolder mb-2">Microsoft Teams</span>
+              <!--end::Name-->
+              <!--begin::Description-->
+              <div
+                class="fw-bold text-gray-400 text-center">Automatically include Microsoft Teams Conferencing details in Voxiplan events.
+              </div>
+              <!--end::Description-->
+            </a>
+            <!--end::Card body-->
+          </div>
+          <!--end::Card-->
+        </div>
+        <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col-md-4 col-lg-3 mb-7">
+          <!--begin::Card-->
+          <div class="card position-relative min-h-md-100">
+            <span class="badge badge-light-primary border border-primary position-absolute top-0 end-0 mt-n2 me-n2">Coming Soon</span>
+            <!--begin::Card body-->
+            <a class="card-body d-flex flex-center flex-column opacity-50 pt-12 p-9 pe-none" href="#">
+              <!--begin::Avatar-->
+              <div class="symbol symbol-75px symbol-circle bg-light p-5 mb-7">
+                <img class="rounded-0" src="/assets/integration/webex.svg" alt="Webex">
+              </div>
+              <!--end::Avatar-->
+              <!--begin::Name-->
+              <span class="fs-4 text-gray-800 fw-bolder mb-2">Webex</span>
+              <!--end::Name-->
+              <!--begin::Description-->
+              <div
+                class="fw-bold text-gray-400 text-center">Automatically include Webex details in Voxiplan events.
+              </div>
+              <!--end::Description-->
+            </a>
+            <!--end::Card body-->
+          </div>
+          <!--end::Card-->
+        </div>
+        <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col-md-4 col-lg-3 mb-7">
+          <!--begin::Card-->
+          <div class="card position-relative min-h-md-100">
+            <span class="badge badge-light-primary border border-primary position-absolute top-0 end-0 mt-n2 me-n2">Coming Soon</span>
+            <!--begin::Card body-->
+            <a class="card-body d-flex flex-center flex-column opacity-50 pt-12 p-9 pe-none" href="#">
+              <!--begin::Avatar-->
+              <div class="symbol symbol-75px symbol-circle bg-light p-5 mb-7">
+                <img class="rounded-0" src="/assets/integration/google-meet.svg" alt="Google Meet">
+              </div>
+              <!--end::Avatar-->
+              <!--begin::Name-->
+              <span class="fs-4 text-gray-800 fw-bolder mb-2">Google Meet</span>
+              <!--end::Name-->
+              <!--begin::Description-->
+              <div
+                class="fw-bold text-gray-400 text-center">Automatically include Google Meet details in Voxiplan events.
+              </div>
+              <!--end::Description-->
+            </a>
+            <!--end::Card body-->
+          </div>
+          <!--end::Card-->
+        </div>
+        <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col-md-4 col-lg-3 mb-7">
+          <!--begin::Card-->
+          <div class="card position-relative min-h-md-100">
+            <span class="badge badge-light-primary border border-primary position-absolute top-0 end-0 mt-n2 me-n2">Coming Soon</span>
+            <!--begin::Card body-->
+            <a class="card-body d-flex flex-center flex-column opacity-50 pt-12 p-9 pe-none" href="#">
+              <!--begin::Avatar-->
+              <div class="symbol symbol-75px symbol-circle bg-light p-5 mb-7">
+                <img class="rounded-0" src="/assets/integration/slack.svg" alt="Slack">
+              </div>
+              <!--end::Avatar-->
+              <!--begin::Name-->
+              <span class="fs-4 text-gray-800 fw-bolder mb-2">Slack</span>
+              <!--end::Name-->
+              <!--begin::Description-->
+              <div
+                class="fw-bold text-gray-400 text-center">Access and share your Voxiplan links in Slack.
+              </div>
+              <!--end::Description-->
+            </a>
+            <!--end::Card body-->
+          </div>
+          <!--end::Card-->
+        </div>
+        <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col-md-4 col-lg-3 mb-7">
+          <!--begin::Card-->
+          <div class="card position-relative min-h-md-100">
+            <span class="badge badge-light-primary border border-primary position-absolute top-0 end-0 mt-n2 me-n2">Coming Soon</span>
+            <!--begin::Card body-->
+            <a class="card-body d-flex flex-center flex-column opacity-50 pt-12 p-9 pe-none" href="#">
+              <!--begin::Avatar-->
+              <div class="symbol symbol-75px symbol-circle bg-light p-5 mb-7">
+                <img class="rounded-0" src="/assets/integration/gmail.svg" alt="Gmail">
+              </div>
+              <!--end::Avatar-->
+              <!--begin::Name-->
+              <span class="fs-4 text-gray-800 fw-bolder mb-2">Gmail for Workflows</span>
+              <!--end::Name-->
+              <!--begin::Description-->
+              <div
+                class="fw-bold text-gray-400 text-center">Send emails with workflows from your Gmail account.
+              </div>
+              <!--end::Description-->
+            </a>
+            <!--end::Card body-->
+          </div>
+          <!--end::Card-->
+        </div>
+        <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col-md-4 col-lg-3 mb-7">
+          <!--begin::Card-->
+          <div class="card position-relative min-h-md-100">
+            <span class="badge badge-light-primary border border-primary position-absolute top-0 end-0 mt-n2 me-n2">Coming Soon</span>
+            <!--begin::Card body-->
+            <a class="card-body d-flex flex-center flex-column opacity-50 pt-12 p-9 pe-none" href="#">
+              <!--begin::Avatar-->
+              <div class="symbol symbol-75px symbol-circle bg-light p-5 mb-7">
+                <img class="rounded-0" src="/assets/integration/microsoft-outlook.svg" alt="Microsoft Outlook">
+              </div>
+              <!--end::Avatar-->
+              <!--begin::Name-->
+              <span class="fs-4 text-gray-800 fw-bolder mb-2">Outlook for Workflows</span>
+              <!--end::Name-->
+              <!--begin::Description-->
+              <div
+                class="fw-bold text-gray-400 text-center">Send emails with workflows from your Outlook account.
+              </div>
+              <!--end::Description-->
+            </a>
+            <!--end::Card body-->
+          </div>
+          <!--end::Card-->
+        </div>
+        <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col-md-4 col-lg-3 mb-7">
+          <!--begin::Card-->
+          <div class="card position-relative min-h-md-100">
+            <span class="badge badge-light-primary border border-primary position-absolute top-0 end-0 mt-n2 me-n2">Coming Soon</span>
+            <!--begin::Card body-->
+            <a class="card-body d-flex flex-center flex-column opacity-50 pt-12 p-9 pe-none" href="#">
+              <!--begin::Avatar-->
+              <div class="symbol symbol-75px symbol-circle bg-light p-5 mb-7">
+                <img class="rounded-0" src="/assets/integration/stripe.svg" alt="Stripe">
+              </div>
+              <!--end::Avatar-->
+              <!--begin::Name-->
+              <span class="fs-4 text-gray-800 fw-bolder mb-2">Stripe</span>
+              <!--end::Name-->
+              <!--begin::Description-->
+              <div
+                class="fw-bold text-gray-400 text-center">Use Stripe to accept payments from events.
+              </div>
+              <!--end::Description-->
+            </a>
+            <!--end::Card body-->
+          </div>
+          <!--end::Card-->
+        </div>
+        <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col-md-4 col-lg-3 mb-7">
+          <!--begin::Card-->
+          <div class="card position-relative min-h-md-100">
+            <span class="badge badge-light-primary border border-primary position-absolute top-0 end-0 mt-n2 me-n2">Coming Soon</span>
+            <!--begin::Card body-->
+            <a class="card-body d-flex flex-center flex-column opacity-50 pt-12 p-9 pe-none" href="#">
+              <!--begin::Avatar-->
+              <div class="symbol symbol-75px symbol-circle bg-light p-5 mb-7">
+                <img class="rounded-0" src="/assets/integration/paypal.svg" alt="PayPal">
+              </div>
+              <!--end::Avatar-->
+              <!--begin::Name-->
+              <span class="fs-4 text-gray-800 fw-bolder mb-2">PayPal</span>
+              <!--end::Name-->
+              <!--begin::Description-->
+              <div
+                class="fw-bold text-gray-400 text-center">Use PayPal to accept payments from events.
+              </div>
+              <!--end::Description-->
+            </a>
+            <!--end::Card body-->
+          </div>
+          <!--end::Card-->
+        </div>
+        <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col-md-4 col-lg-3 mb-7">
+          <!--begin::Card-->
+          <div class="card position-relative min-h-md-100">
+            <span class="badge badge-light-primary border border-primary position-absolute top-0 end-0 mt-n2 me-n2">Coming Soon</span>
+            <!--begin::Card body-->
+            <a class="card-body d-flex flex-center flex-column opacity-50 pt-12 p-9 pe-none" href="#">
+              <!--begin::Avatar-->
+              <div class="symbol symbol-75px symbol-circle bg-light p-5 mb-7">
+                <img class="rounded-0" src="/assets/integration/intercom.svg" alt="Intercom">
+              </div>
+              <!--end::Avatar-->
+              <!--begin::Name-->
+              <span class="fs-4 text-gray-800 fw-bolder mb-2">Voxiplan for Intercom</span>
+              <!--end::Name-->
+              <!--begin::Description-->
+              <div
+                class="fw-bold text-gray-400 text-center">Schedule meetings with leads and customers right from Intercom Messenger.
+              </div>
+              <!--end::Description-->
+            </a>
+            <!--end::Card body-->
+          </div>
+          <!--end::Card-->
+        </div>
+        <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col-md-4 col-lg-3 mb-7">
+          <!--begin::Card-->
+          <div class="card position-relative min-h-md-100">
+            <span class="badge badge-light-primary border border-primary position-absolute top-0 end-0 mt-n2 me-n2">Coming Soon</span>
+            <!--begin::Card body-->
+            <a class="card-body d-flex flex-center flex-column opacity-50 pt-12 p-9 pe-none" href="#">
+              <!--begin::Avatar-->
+              <div class="symbol symbol-75px symbol-circle bg-light p-5 mb-7">
+                <img class="rounded-0" src="/assets/integration/google-analytics.svg" alt="Google Analytics">
+              </div>
+              <!--end::Avatar-->
+              <!--begin::Name-->
+              <span class="fs-4 text-gray-800 fw-bolder mb-2">Google Analytics</span>
+              <!--end::Name-->
+              <!--begin::Description-->
+              <div
+                class="fw-bold text-gray-400 text-center">Track your Event Types and create goals with Google Analytics.
+              </div>
+              <!--end::Description-->
+            </a>
+            <!--end::Card body-->
+          </div>
+          <!--end::Card-->
+        </div>
+        <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col-md-4 col-lg-3 mb-7">
+          <!--begin::Card-->
+          <div class="card position-relative min-h-md-100">
+            <span class="badge badge-light-primary border border-primary position-absolute top-0 end-0 mt-n2 me-n2">Coming Soon</span>
+            <!--begin::Card body-->
+            <a class="card-body d-flex flex-center flex-column opacity-50 pt-12 p-9 pe-none" href="#">
+              <!--begin::Avatar-->
+              <div class="symbol symbol-75px symbol-circle bg-light p-5 mb-7">
+                <img class="rounded-0" src="/assets/integration/facebook.svg" alt="Facebook">
+              </div>
+              <!--end::Avatar-->
+              <!--begin::Name-->
+              <span class="fs-4 text-gray-800 fw-bolder mb-2">Facebook Pixel</span>
+              <!--end::Name-->
+              <!--begin::Description-->
+              <div
+                class="fw-bold text-gray-400 text-center">Track your event types and create goals with Facebook Pixel.
+              </div>
+              <!--end::Description-->
+            </a>
+            <!--end::Card body-->
+          </div>
+          <!--end::Card-->
+        </div>
+        <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col-md-4 col-lg-3 mb-7">
+          <!--begin::Card-->
+          <div class="card position-relative min-h-md-100">
+            <span class="badge badge-light-primary border border-primary position-absolute top-0 end-0 mt-n2 me-n2">Coming Soon</span>
+            <!--begin::Card body-->
+            <a class="card-body d-flex flex-center flex-column opacity-50 pt-12 p-9 pe-none" href="#">
+              <!--begin::Avatar-->
+              <div class="symbol symbol-75px symbol-circle bg-light p-5 mb-7">
+                <img class="rounded-0" src="/assets/integration/zapier.svg" alt="Zapier">
+              </div>
+              <!--end::Avatar-->
+              <!--begin::Name-->
+              <span class="fs-4 text-gray-800 fw-bolder mb-2">Zapier</span>
+              <!--end::Name-->
+              <!--begin::Description-->
+              <div
+                class="fw-bold text-gray-400 text-center">Integrate with virtually anything online.
+              </div>
+              <!--end::Description-->
+            </a>
+            <!--end::Card body-->
+          </div>
+          <!--end::Card-->
+        </div>
+      </div>
+      <!--end::Col-->
+    </div>
+    <!--end::Row-->
+
+    <div class="alert bg-light-warning border border-warning d-flex flex-column flex-sm-row w-100 p-5 mb-0 d-none">
+      <!--begin::Icon-->
+      <!--begin::Svg Icon | path: icons/duotone/Code/Warning-2.svg-->
+      <span class="svg-icon svg-icon-2hx svg-icon-warning me-4 mb-5 mb-sm-0">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+									<path fill="#000000" d="M17,12 L18.5,12 C19.3284271,12 20,12.6715729 20,13.5 C20,14.3284271 19.3284271,15 18.5,15 L5.5,15 C4.67157288,15 4,14.3284271 4,13.5 C4,12.6715729 4.67157288,12 5.5,12 L7,12 L7.5582739,6.97553494 C7.80974924,4.71225688 9.72279394,3 12,3 C14.2772061,3 16.1902508,4.71225688 16.4417261,6.97553494 L17,12 Z" />
+        					<rect fill="#000000" opacity="0.3" x="10" y="16" width="4" height="4" rx="2" />
+								</svg>
+							</span>
+      <!--end::Svg Icon-->
+      <!--end::Icon-->
+      <!--begin::Content-->
+      <div class="d-flex flex-column pe-0 pe-sm-10">
+        <h5 class="text-warning mb-3">Don't see the integration you're looking for?</h5>
+        <div>
+          <a class="btn btn-sm btn-outline btn-active-color-white btn-outline-warning" href="#">Let us know!</a>
+        </div>
+      </div>
+      <!--end::Content-->
+    </div>
+  </div>
+  <!--end::Container-->
+</div>
+<!--end::Post-->
+
+<%= render '/modal/update_plan' %>
+
+<script>
+  $(document).ready(function() {
+      $('.detail_function').on('click', function(e) {
+          if (<%= session[:current_organization].chargebee_subscription_plan == "free" %>) {
+              e.preventDefault();
+              $('#kt_modal_upgrade_plan').modal('show');
+          }
+      });
+  });
+</script>

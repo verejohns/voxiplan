@@ -1,0 +1,1077 @@
+[
+    {
+        "iso": "AF",	
+        "country": "Afghanistan",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "AL",	
+        "country": "Albania",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "DZ",	
+        "country": "Algeria",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "AS",	
+        "country": "American Samoa", 
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "AD",	
+        "country": "Andorra",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "AO",	
+        "country": "Angola",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "AI",	
+        "country": "Anguilla",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "AG",	
+        "country": "Antigua & Barbuda", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "AR",	
+        "country": "Argentina",	
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "AM",	
+        "country": "Armenia",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "AW",	
+        "country": "Aruba",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "AU",	
+        "country": "Australia",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "AT",	
+        "country": "Austria",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "AZ",	
+        "country": "Azerbaijan",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "BS",	
+        "country": "Bahamas",	
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "BH",	
+        "country": "Bahrain",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "BD",	
+        "country": "Bangladesh",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "BB",	
+        "country": "Barbados",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "BY",	
+        "country": "Belarus",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "BE",	
+        "country": "Belgium",	
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "BZ",	
+        "country": "Belize",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "BJ",	
+        "country": "Benin",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "BM",	
+        "country": "Bermuda",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "BT",	
+        "country": "Bhutan",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "BO",	
+        "country": "Bolivia",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "BA",	
+        "country": "Bosnia and Herzegovina", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "BW",	
+        "country": "Botswana",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "BR",	
+        "country": "Brazil",	
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "BN",	
+        "country": "Brunei",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "BG",	
+        "country": "Bulgaria",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "BF",	
+        "country": "Burkina Faso", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "BI",	
+        "country": "Burundi",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "KH",	
+        "country": "Cambodia",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "CM",	
+        "country": "Cameroon",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "CA",	
+        "country": "Canada",	
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "CV",	
+        "country": "Cape Verde", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "KY",	
+        "country": "Cayman Islands (UK)", 
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "CF",	
+        "country": "Central African Republic", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "TD",	
+        "country": "Chad",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "CL",	
+        "country": "Chile",	
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "CN",	
+        "country": "China", 
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "CO",	
+        "country": "Colombia",	
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "KM",	
+        "country": "Comoros",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "CG",	
+        "country": "Congo (Republic of the Congo)", 
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "CD",	
+        "country": "Congo (Democratic Republic of the Congo)", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "CK",	
+        "country": "Cook Islands", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "CR",	
+        "country": "Costa Rica", 
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "HR",	
+        "country": "Croatia",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "CU",	
+        "country": "Cuba",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "CY",	
+        "country": "Cyprus",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "CZ",	
+        "country": "Czech Republic", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "DK",	
+        "country": "Denmark",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "DJ",	
+        "country": "Djibouti",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "DM",	
+        "country": "Dominica",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "DO",
+        "country": "Dominican Republic",
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "EC",
+        "country": "Ecuador",	
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "EG",	
+        "country": "Egypt",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "SV",	
+        "country": "El Salvador", 
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "GQ",	
+        "country": "Equatorial Guinea", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "EE",	
+        "country": "Estonia",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "ET",	
+        "country": "Ethiopia",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "FK",	
+        "country": "Falkland Islands", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "FO",	
+        "country": "Faroe Islands", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "FJ",	
+        "country": "Fiji",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "FI",	
+        "country": "Finland",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "FR",	
+        "country": "France",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "GF",	
+        "country": "French Guiana", 
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "PF",	
+        "country": "French Polynesia", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "GA",	
+        "country": "Gabon",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "GM",	
+        "country": "Gambia",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso":"GE",	
+        "country": "Georgia",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "DE",	
+        "country": "Germany",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "GH",	
+        "country": "Ghana",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "GI",	
+        "country": "Gibraltar",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "GR",	
+        "country": "Greece",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "GL",	
+        "country": "Greenland",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "GD",	
+        "country": "Grenada",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "GP",	
+        "country": "Guadeloupe & Martinique", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "GU",	
+        "country": "Guam",	
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "GT",	
+        "country": "Guatemala",	
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "GG",	
+        "country": "Guernsey",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "GN",	
+        "country": "Guinea",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "GW",	
+        "country": "Guinea-Bissau",
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "GY",	
+        "country": "Guyana",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "HT",	
+        "country": "Haiti",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso":"HN",	
+        "country": "Honduras",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "HK",	
+        "country": "Hong Kong", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "HU",	
+        "country": "Hungary",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "IS",	
+        "country": "Iceland",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "IN",	
+        "country": "India",	
+        "alphanumaric": "No"
+    },
+    {
+        "iso":"ID",	
+        "country": "Indonesia",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso":"IR",	
+        "country": "Iran",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "IQ",	
+        "country": "Iraq",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "IE",	
+        "country": "Ireland",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "IM",	
+        "country": "Isle of Man", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "IL",	
+        "country": "Israel",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "IT",	
+        "country": "Italy",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "CI",	
+        "country": "Ivory Coast (Côte d'Ivoire)", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "JM",	
+        "country": "Jamaica",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "JP",	
+        "country": "Japan",	
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "JE",	
+        "country": "Jersey",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "JO",	
+        "country": "Jordan",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso":"KZ",	
+        "country": "Kazakhstan",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "KE",	
+        "country": "Kenya",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "KW",	
+        "country": "Kuwait",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "KG",	
+        "country": "Kyrgyzstan",	
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "LA",	
+        "country": "Laos (Lao People's Democratic Republic)", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "LV",	
+        "country": "Latvia",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "LB",	
+        "country": "Lebanon",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "LS",	
+        "country": "Lesotho",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "LR",	
+        "country": "Liberia",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "LY",	
+        "country": "Libya",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "LI",	
+        "country": "Liechtenstein",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "LT",	
+        "country": "Lithuania",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "LU",	
+        "country": "Luxembourg",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "MO",	
+        "country": "Macau (PRC)", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "MK",	
+        "country": "Macedonia",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "MG",	
+        "country": "Madagascar",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "MW",	
+        "country": "Malawi",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "MY",	
+        "country": "Malaysia",	
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "MV",	
+        "country": "Maldives",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "ML",	
+        "country": "Mali",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "MT",	
+        "country": "Malta",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "MQ",	
+        "country": "Martinique",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "MR",	
+        "country": "Mauritania",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "MU",	
+        "country": "Mauritius",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "YT",	
+        "country": "Mayotte",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "MX",	
+        "country": "Mexico",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "MD",	
+        "country": "Moldova",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "MC",	
+        "country": "Monaco",	
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "MN",	
+        "country": "Mongolia",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "ME",	
+        "country": "Montenegro",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "MS",	
+        "country": "Montserrat",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "MA",	
+        "country": "Morocco",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "MZ",	
+        "country": "Mozambique",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "MM",	
+        "country": "Myanmar",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "NA",	
+        "country": "Namibia",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "NR",	
+        "country": "Nauru",	
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "NP",	
+        "country": "Nepal",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "NL",	
+        "country": "Netherlands",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "NC",	
+        "country": "New Caledonia", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "NZ",	
+        "country": "New Zealand", 
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "NI",	
+        "country": "Nicaragua",	
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "NE",	
+        "country": "Niger",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "NG",	
+        "country": "Nigeria",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "NO",	
+        "country": "Norway",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "OM",	
+        "country": "Oman",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "PK",	
+        "country": "Pakistan",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "PW",	
+        "country": "Palestine",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "PA",	
+        "country": "Panama",	
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "PG",	
+        "country": "Papua New Guinea", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "PY",	
+        "country": "Paraguay",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "PE",	
+        "country": "Peru",	
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "PH",	
+        "country": "Philippines",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "PL",	
+        "country": "Poland",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "PT",	
+        "country": "Portugal",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "PR",	
+        "country": "Puerto Rico", 
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "QA",	
+        "country": "Qatar",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "RE",	
+        "country": "Réunion",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "RO",	
+        "country": "Romania",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "RU",	
+        "country": "Russia",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "RW",	
+        "country": "Rwanda",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "WS",	
+        "country": "Samoa",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "SM",	
+        "country": "San Marino", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "ST",	
+        "country": "Sao Tome and Principe", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "SA",	
+        "country": "Saudi Arabia", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "SN",	
+        "country": "Senegal",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "RS",	
+        "country": "Serbia",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "SC",	
+        "country": "Seychelles",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "SL",	
+        "country": "Sierra Leone", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "SG",	
+        "country": "Singapore",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "SK",	
+        "country": "Slovakia",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "SI",	
+        "country": "Slovenia",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "SB",	
+        "country": "Solomon Islands", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "SO",	
+        "country": "Somalia",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "ZA",	
+        "country": "South Africa", 
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "KR",	
+        "country": "South Korea", 
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "SS",	
+        "country": "South Sudan", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "ES",	
+        "country": "Spain",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "LK",	
+        "country": "Sri Lanka", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "KN",	
+        "country": "St. Kitts and Nevis",
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "LC",	
+        "country": "St. Lucia",
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "VC",	
+        "country": "Saint Vincent and the Grenadines", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "SD",	
+        "country": "Sudan",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "SR",	
+        "country": "Suriname",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "SZ",	
+        "country": "Swaziland",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "SE",	
+        "country": "Sweden",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "CH",	
+        "country": "Switzerland",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "SY",	
+        "country": "Syria",	
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "TW",	
+        "country": "Taiwan",	
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "TJ",	
+        "country": "Tajikistan",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "TZ",	
+        "country": "Tanzania",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "TH",	
+        "country": "Thailand",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "TL",	
+        "country": "Timor-Leste (East Timor)",
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "TG",	
+        "country": "Togo",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "TO",	
+        "country": "Tonga",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "TT",	
+        "country": "Trinidad and Tobago", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "TN",	
+        "country": "Tunisia",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "TR",	
+        "country": "Turkey",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "TM",	
+        "country": "Turkmenistan",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "TC",	
+        "country": "Turks and Caicos Islands", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "UG",	
+        "country": "Uganda",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "UA",	
+        "country": "Ukraine",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "AE",	
+        "country": "United Arab Emirates", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "GB",	
+        "country": "United Kingdom", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "US",	
+        "country": "United States", 
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "UY",	
+        "country": "Uruguay",	
+        "alphanumaric": "No"
+    },
+    {
+        "iso":"UZ",	
+        "country": "Uzbekistan",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "VU",	
+        "country": "Vanuatu",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "VE",	
+        "country": "Venezuela",	
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "VN",	
+        "country": "Vietnam",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso":"VG",	
+        "country": "Virgin Islands (British Virgin Islands)", 
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "YE",	
+        "country": "Yemen",	
+        "alphanumaric": "No"
+    },
+    {
+        "iso": "ZM",	
+        "country": "Zambia",	
+        "alphanumaric": "Yes"
+    },
+    {
+        "iso": "ZW",	
+        "country": "Zimbabwe",	
+        "alphanumaric": "Yes"
+    }
+]

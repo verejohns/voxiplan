@@ -1,0 +1,106 @@
+{{define "en"}}
+Hi {{ title .Identity.traits.firstName }},
+<br />
+<br />
+Click below to recover access to your account:
+<br />
+<a href="{{ .RecoveryURL }}">Recover account</a>
+<br />
+<br />
+Or, use the following link:
+<br />
+{{ .RecoveryURL }}
+<br />
+<br />
+Thanks,
+<br />
+Team Voxiplan
+{{end}}
+
+{{define "fr"}}
+Bonjour {{ title .Identity.traits.firstName }},
+<br />
+<br />
+Cliquez ci-dessous pour récupérer l'accès à votre compte :
+<br />
+<a href="{{ .RecoveryURL }}">Récupérer le compte</a>
+<br />
+<br />
+Ou, utilisez le lien suivant :
+<br />
+{{ .RecoveryURL }}
+<br />
+<br />
+Merci,
+<br />
+Team Voxiplan
+{{end}}
+
+{{define "it"}}
+Ciao {{ title .Identity.traits.firstName }},
+<br />
+<br />
+Fare clic qui sotto per recuperare l'accesso al proprio account:
+<br />
+<a href="{{ .RecoveryURL }}">Recuperare conto</a>
+<br />
+<br />
+Oppure, utilizzare il seguente link:
+<br />
+{{ .RecoveryURL }}
+<br />
+<br />
+Grazie,
+<br />
+Team Voxiplan
+{{end}}
+
+{{define "nl"}}
+Hallo {{ title .Identity.traits.firstName }},
+<br />
+<br />
+Klik hieronder om de toegang tot uw account te herstellen:
+<br />
+<a href="{{ .RecoveryURL }}">Account herstellen</a>
+<br />
+<br />
+Of, gebruik de volgende link:
+<br />
+{{ .RecoveryURL }}
+<br />
+<br />
+Bedankt,
+<br />
+Team Voxiplan
+{{end}}
+
+{{define "de"}}
+Hallo {{ title .Identity.traits.firstName }},
+<br />
+<br />
+Klicken Sie unten, um den Zugang zu Ihrem Konto wiederherzustellen:
+<br />
+<a href="{{ .RecoveryURL }}">Account wiederherstellen</a>
+<br />
+<br />
+Oder verwenden Sie den folgenden Link:
+<br />
+{{ .RecoveryURL }}
+<br />
+<br />
+Danke,
+<br />
+Team Voxiplan
+{{end}}
+
+{{- if eq .Identity.traits.language "de" -}}
+{{ template "de" . }}
+{{- else if eq .Identity.traits.language "fr" -}}
+{{ template "fr" . }}
+{{- else if eq .Identity.traits.language "nl" -}}
+{{ template "nl" . }}
+{{- else if eq .Identity.traits.language "it" -}}
+{{ template "it" . }}
+{{- else -}}
+{{ template "en" . }}
+{{- end -}}

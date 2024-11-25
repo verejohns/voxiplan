@@ -1,0 +1,75 @@
+(function(){
+  // close the open modal
+  $(".modal[id*='resource']").modal("hide");
+  setTimeout(function(){
+    // reset the new resource form
+    $("#new-resource-modal").replaceWith(<%= render('services/event_resource_modal', title: "New Resource", resource: Resource.new).to_json.html_safe %>);
+    $("#new-resource-modal").find('.resource-availability-container').availabilityEditor({
+      availabilityInputSelector: `#new-resource-modal input[name="resource[availability]"]`,
+      useDefaultsInputSelector: `#new-resource-modal input[name="resource[use_default_availability]"]`,
+      submitSelector: `#new-resource-modal #save-resource`,
+      messages: {
+        'business_hours.add':    "<%= t('business_hours.add') %>",
+        'business_hours.remove': "<%= t('business_hours.remove') %>",
+        'services.booking_time.confirm_remove_slot': "<%= t('services.booking_time.confirm_remove_slot') %>"
+      },
+      dayIds: ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'],
+      dayNames: {
+        mon: "<%= full_day_name(:mon) %>",
+        tue: "<%= full_day_name(:tue) %>",
+        wed: "<%= full_day_name(:wed) %>",
+        thu: "<%= full_day_name(:thu) %>",
+        fri: "<%= full_day_name(:fri) %>",
+        sat: "<%= full_day_name(:sat) %>",
+        sun: "<%= full_day_name(:sun) %>"
+      }
+    });
+
+    // add the newly created resource card to the list
+    var last_resource = $("#resource-list").children().last();
+    $(last_resource).before($(<%= render('services/event_resource_card', resource: @resource, service: @service).to_json.html_safe %>));
+
+    // initialize the new resource card
+    var resourceId   = "<%= @resource.id %>";
+    var modalId      = `#edit-resource-${resourceId}-modal`;
+    $(`#resource-card-${resourceId}`).find('.edit-resource').click(function(evt) {
+      $(modalId).modal('toggle');
+    });
+    $(`#resource-card-${resourceId}`).find('.close_button_1').click(function(evt) {
+      $(modalId).modal('toggle');
+    });
+    $(`#resource-card-${resourceId}`).find('.close_button_2').click(function(evt) {
+      $(modalId).modal('toggle');
+    });
+    $('#new-resource-modal').find('.close_button_1').click(function(evt) {
+      $('#new-resource-modal').modal('toggle');
+    });
+    $('#new-resource-modal').find('.close_button_2').click(function(evt) {
+      $('#new-resource-modal').modal('toggle');
+    });
+    $(modalId).find('.resource-availability-container').availabilityEditor({
+      availabilityInputSelector: `${modalId} input[name="resource[availability]"]`,
+      useDefaultsInputSelector: `${modalId} input[name="resource[use_default_availability]"]`,
+      submitSelector: `${modalId} #save-resource`,
+      initialState: {
+        useDefaults: $(`${modalId} input[name="resource[use_default_availability]"]:checked`).val() == 'true',
+      },
+      messages: {
+        'business_hours.add':    "<%= t('business_hours.add') %>",
+        'business_hours.remove': "<%= t('business_hours.remove') %>"
+      },
+      dayIds: ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'],
+      dayNames: {
+        mon: "<%= full_day_name(:mon) %>",
+        tue: "<%= full_day_name(:tue) %>",
+        wed: "<%= full_day_name(:wed) %>",
+        thu: "<%= full_day_name(:thu) %>",
+        fri: "<%= full_day_name(:fri) %>",
+        sat: "<%= full_day_name(:sat) %>",
+        sun: "<%= full_day_name(:sun) %>"
+      }
+    });
+
+    showMessage('success', 'Resource created!');
+  }, 200);
+})();

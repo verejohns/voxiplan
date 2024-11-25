@@ -1,0 +1,258 @@
+<!--begin::Edit Trigger-->
+<div class="modal fade z-index-10000 " id="kt_modal_edit_trigger" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('services.automations.edit_trigger.modal_title') %></h5>
+
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+		            <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+		              <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+		                <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1"/>
+		                <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                          x="0" y="7" width="16" height="2" rx="1"/>
+		              </g>
+		            </svg>
+		          </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+
+      <div class="modal-body">
+        <!--begin::Field-->
+        <div class="mb-0">
+          <label class="form-label"><%= t('services.automations.edit_trigger.when_happen') %></label>
+          <select name="trigger_type" id="trigger_type" class="form-select" data-control="select2" data-placeholder="<%= t('common.select_placeholder') %>" data-minimum-results-for-search="Infinity">
+            <option></option>
+            <option value="trigger_event_new" selected><%= t('services.automations.trigger_event_new') %></option>
+            <option value="trigger_event_before_start"><%= t('services.automations.trigger_event_before_start') %></option>
+            <option value="trigger_event_specific_time"><%= t('services.automations.trigger_event_specific_time') %></option>
+            <option value="trigger_event_start"><%= t('services.automations.trigger_event_start') %></option>
+            <option value="trigger_event_end"><%= t('services.automations.trigger_event_end') %></option>
+            <option value="trigger_event_cancel"><%= t('services.automations.trigger_event_cancel') %></option>
+            <option value="trigger_event_reschedule"><%= t('services.automations.trigger_event_reschedule') %></option>
+            <option value="trigger_event_not_completed"><%= t('services.automations.trigger_event_not_completed') %></option>
+          </select>
+        </div>
+        <!--end::Field-->
+
+        <div>
+          <div>
+            <div class="pt-7">
+              <div class="form-label trigger-action-help">How long after new event is scheduled?</div>
+              <!--begin::Field-->
+              <label class="form-check form-check-custom form-check-solid mb-4 radio-now-section">
+                <input name="trigger_action" class="form-check-input" type="radio" value="now" checked/>
+                <span class="form-check-label trigger-immediately-help">Immediately when new event is scheduled</span>
+              </label>
+              <!--end::Field-->
+              <!--begin::Field-->
+              <div class="row align-items-center gx-2 mb-4 event-normal-section">
+                <div class="col-auto radio-after-section">
+                  <label class="form-check form-check-custom form-check-solid">
+                    <input name="trigger_action" class="form-check-input" type="radio" value="after"/>
+                    <span class="form-check-label ms-0"></span>
+                  </label>
+                </div>
+                <div class="col-auto">
+                  <input class="form-control w-100px" name="trigger_time" value="24" />
+                </div>
+                <div class="col">
+                  <select class="form-select" data-control="select2" data-placeholder="<%= t('common.select_placeholder') %>" data-minimum-results-for-search="Infinity">
+                    <option></option>
+                    <option value="1"><%= t('services.automations.edit_trigger.days') %></option>
+                    <option value="2" selected><%= t('services.automations.edit_trigger.hours') %></option>
+                    <option value="3"><%= t('services.automations.edit_trigger.minutes') %></option>
+                  </select>
+                </div>
+              </div>
+              <!--end::Field-->
+              <div class="row align-items-center gx-2 event-specific-time-section" style="display:none">
+                <div class="col-auto">
+                  <select class="form-select" data-control="select2" data-placeholder="<%= t('common.select_placeholder') %>" data-minimum-results-for-search="Infinity" data-width="80px">
+                    <option></option>
+                    <% for i in 1..90 do %>
+                      <option value="<%= i %>" <%= i == 1 ? 'selected' : '' %>><%= i %></option>
+                    <% end %>
+                  </select>
+                </div>
+                <div class="col">
+                  <select class="form-select" data-control="select2" data-placeholder="<%= t('common.select_placeholder') %>" data-minimum-results-for-search="Infinity" data-width="100%">
+                    <option></option>
+                    <option value="minutes"><%= t('services.automations.edit_trigger.minutes') %></option>
+                    <option value="hours"><%= t('services.automations.edit_trigger.hours') %></option>
+                    <option value="days" selected><%= t('services.automations.edit_trigger.days') %></option>
+                    <option value="weeks"><%= t('services.automations.edit_trigger.weeks') %></option>
+                    <option value="months"><%= t('services.automations.edit_trigger.months') %></option>
+                  </select>
+                </div>
+                <div class="col-auto"><%= t('services.automations.edit_trigger.in_advance_at') %></div>
+                <div class="col">
+                  <select class="form-select" data-control="select2" data-placeholder="<%= t('common.select_placeholder') %>" data-minimum-results-for-search="Infinity" data-width="100%">
+                    <option></option>
+                    <% for i in 0..23 do %>
+                      <% for j in 0..5 do %>
+                        <% value = ("%02d" % i) + ':' + ("%02d" % (j * 10)) %>
+                        <option value="<%= value %>" <%= i.zero? && j.zero? ? 'selected' : '' %>><%= value %></option>
+                      <% end %>
+                    <% end %>
+                  </select>
+                </div>
+              </div>
+
+              <a class="btn btn-flex btn-color-primary fs-base p-0 rotate group_event_options" href="#kt_collapse_group_event_options" data-bs-toggle="collapse">
+                <%= t('services.automations.edit_trigger.group_event_options') %>
+                <span class="svg-icon svg-icon-3 rotate-180 ms-1">
+																			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+																				<path opacity="0.5" d="M12.5657 9.63427L16.75 5.44995C17.1642 5.03574 17.8358 5.03574 18.25 5.44995C18.6642 5.86416 18.6642 6.53574 18.25 6.94995L12.7071 12.4928C12.3166 12.8834 11.6834 12.8834 11.2929 12.4928L5.75 6.94995C5.33579 6.53574 5.33579 5.86416 5.75 5.44995C6.16421 5.03574 6.83579 5.03574 7.25 5.44995L11.4343 9.63427C11.7467 9.94669 12.2533 9.94668 12.5657 9.63427Z" fill="currentColor"></path>
+																				<path d="M12.5657 15.6343L16.75 11.45C17.1642 11.0357 17.8358 11.0357 18.25 11.45C18.6642 11.8642 18.6642 12.5357 18.25 12.95L12.7071 18.4928C12.3166 18.8834 11.6834 18.8834 11.2929 18.4928L5.75 12.95C5.33579 12.5357 5.33579 11.8642 5.75 11.45C6.16421 11.0357 6.83579 11.0357 7.25 11.45L11.4343 15.6343C11.7467 15.9467 12.2533 15.9467 12.5657 15.6343Z" fill="currentColor"></path>
+																			</svg>
+																		</span>
+              </a>
+              <div id="kt_collapse_group_event_options" class="collapse">
+                <div class="pt-4">
+                  <div class="form-label"><%= t('services.automations.edit_trigger.when_trigger_happen') %></div>
+                  <!--begin::Field-->
+                  <label class="form-check form-check-custom form-check-solid mb-4">
+                    <input name="editTriggerWhenThisHappensGroupEventOptions" class="form-check-input" type="radio" value="1" checked/>
+                    <span class="form-check-label"><%= t('services.automations.edit_trigger.when_each_invitee') %></span>
+                  </label>
+                  <!--end::Field-->
+                  <!--begin::Field-->
+                  <label class="form-check form-check-custom form-check-solid mb-0">
+                    <input name="editTriggerWhenThisHappensGroupEventOptions" class="form-check-input" type="radio" value="2" />
+                    <span class="form-check-label"><%= t('services.automations.edit_trigger.when_first_invitee') %></span>
+                  </label>
+                  <!--end::Field-->
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal"><%= t('common.button.cancel') %></button>
+        <button type="button" class="btn btn-primary"><%= t('services.automations.done') %></button>
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+<!--end::Edit Trigger-->
+
+<script>
+    // begin trigger
+    (function () {
+
+        $('select#trigger_type').on('change', function () {
+            const value = $(this).val();
+
+            const event_new_help = "<%= t('services.automations.event_new_help') %>";
+            const event_before_start_help = "<%= t('services.automations.event_before_start_help') %>";
+            const event_specific_time_help = "<%= t('services.automations.event_specific_time_help') %>";
+            const event_start_help = "<%= t('services.automations.event_start_help') %>";
+            const event_end_help = "<%= t('services.automations.event_end_help') %>";
+            const event_cancel_help = "<%= t('services.automations.event_cancel_help') %>";
+            const event_reschedule_help = "<%= t('services.automations.event_reschedule_help') %>";
+            const event_not_completed_help = "<%= t('services.automations.event_not_completed_help') %>";
+            const immediately_event_new = "<%= t('services.automations.immediately_event_new') %>";
+            const immediately_event_start = "<%= t('services.automations.immediately_event_start') %>";
+            const immediately_event_end = "<%= t('services.automations.immediately_event_end') %>";
+            const immediately_event_cancel = "<%= t('services.automations.immediately_event_cancel') %>";
+            const immediately_event_reschedule = "<%= t('services.automations.immediately_event_reschedule') %>";
+            const immediately_event_not_completed = "<%= t('services.automations.immediately_event_not_completed') %>";
+
+            if (value == 'trigger_event_specific_time') {
+                $('div.form-label.trigger-action-help').html(event_specific_time_help);
+                $('label.radio-now-section').hide();
+                $('div.event-normal-section').hide();
+                $('a.group_event_options').hide();
+                $('div#kt_collapse_group_event_options').hide();
+                $('div.event-specific-time-section').show();
+            }
+            else {
+                if (value == 'trigger_event_new') {
+                    $('div.form-label.trigger-action-help').html(event_new_help);
+                    $('span.form-check-label.trigger-immediately-help').html(immediately_event_new);
+                    $('label.radio-now-section').show();
+                    $('div.radio-after-section').show();
+                    $('div.event-normal-section').show();
+                    $('a.group_event_options').show();
+                    $('div#kt_collapse_group_event_options').show();
+                    $('div.event-specific-time-section').hide();
+                }
+                if (value == 'trigger_event_before_start') {
+                    $('div.form-label.trigger-action-help').html(event_before_start_help);
+                    $('label.radio-now-section').hide();
+                    $('div.radio-after-section').hide();
+                    $('div.event-normal-section').show();
+                    $('a.group_event_options').hide();
+                    $('div#kt_collapse_group_event_options').hide();
+                    $('div.event-specific-time-section').hide();
+                }
+                if (value == 'trigger_event_start') {
+                    $('div.form-label.trigger-action-help').html(event_start_help);
+                    $('span.form-check-label.trigger-immediately-help').html(immediately_event_start);
+                    $('label.radio-now-section').show();
+                    $('div.radio-after-section').show();
+                    $('div.event-normal-section').show();
+                    $('a.group_event_options').hide();
+                    $('div#kt_collapse_group_event_options').hide();
+                    $('div.event-specific-time-section').hide();
+                }
+                if (value == 'trigger_event_end') {
+                    $('div.form-label.trigger-action-help').html(event_end_help);
+                    $('span.form-check-label.trigger-immediately-help').html(immediately_event_end);
+                    $('label.radio-now-section').show();
+                    $('div.radio-after-section').show();
+                    $('div.event-normal-section').show();
+                    $('a.group_event_options').hide();
+                    $('div#kt_collapse_group_event_options').hide();
+                    $('div.event-specific-time-section').hide();
+                }
+                if (value == 'trigger_event_cancel') {
+                    $('div.form-label.trigger-action-help').html(event_cancel_help);
+                    $('span.form-check-label.trigger-immediately-help').html(immediately_event_cancel);
+                    $('label.radio-now-section').show();
+                    $('div.radio-after-section').show();
+                    $('div.event-normal-section').show();
+                    $('a.group_event_options').hide();
+                    $('div#kt_collapse_group_event_options').hide();
+                    $('div.event-specific-time-section').hide();
+                }
+                if (value == 'trigger_event_reschedule') {
+                    $('div.form-label.trigger-action-help').html(event_reschedule_help);
+                    $('span.form-check-label.trigger-immediately-help').html(immediately_event_reschedule);
+                    $('label.radio-now-section').show();
+                    $('div.radio-after-section').show();
+                    $('div.event-normal-section').show();
+                    $('a.group_event_options').hide();
+                    $('div#kt_collapse_group_event_options').hide();
+                    $('div.event-specific-time-section').hide();
+                }
+                if (value == 'trigger_event_not_completed') {
+                    $('div.form-label.trigger-action-help').html(event_not_completed_help);
+                    $('span.form-check-label.trigger-immediately-help').html(immediately_event_not_completed);
+                    $('label.radio-now-section').show();
+                    $('div.radio-after-section').show();
+                    $('div.event-normal-section').show();
+                    $('a.group_event_options').hide();
+                    $('div#kt_collapse_group_event_options').hide();
+                    $('div.event-specific-time-section').hide();
+                }
+            }
+
+        });
+
+    })();
+    // end trigger
+</script>

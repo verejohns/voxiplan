@@ -1,0 +1,684 @@
+<input type="hidden" id="widget_filter_response" value="<%= @widget_filter %>">
+<input type="hidden" id="widget_time_format_response" value="<%= @widget_time_format %>">
+<input type="hidden" id="widget_language_response" value="<%= @widget_language %>">
+<input type="hidden" id="widget_tz_response" value="<%= @widget_tz %>">
+<!--begin::Toolbar-->
+<div class="toolbar" id="kt_toolbar">
+  <!--begin::Container-->
+  <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+    <!--begin::Page title-->
+    <div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
+         class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
+      <!--begin::Title-->
+      <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3"><%= t('services.button.widget_settings') %></h1>
+      <!--end::Title-->
+    </div>
+    <!--end::Page title-->
+    <!--begin::Actions-->
+    <div class="d-flex align-items-center py-1"></div>
+    <!--end::Actions-->
+  </div>
+  <!--end::Container-->
+</div>
+<!--end::Toolbar-->
+
+<div class="post d-flex flex-column-fluid" id="kt_post">
+  <!--begin::Container-->
+  <div id="kt_content_container" class="container-fluid">
+    <!--begin::Stepper-->
+    <div class="stepper stepper-pills stepper-column d-flex flex-column flex-md-row">
+      <!--begin::Aside-->
+      <div
+        class="d-flex justify-content-center bg-body rounded justify-content-xl-start flex-row-auto w-100 w-md-300px me-9">
+        <!--begin::Wrapper-->
+        <div class="w-100 p-9">
+          <a class="btn btn-sm btn-outline btn-outline-primary btn-color-primary btn-active-color-white" href="<%= services_services_path() %>">
+            <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+            <span class="svg-icon svg-icon-2">
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <polygon points="0 0 24 0 24 24 0 24" />
+                      <rect fill="#000000" opacity="0.3" transform="translate(15.000000, 12.000000) scale(-1, 1) rotate(-90.000000) translate(-15.000000, -12.000000) "
+                            x="14" y="7" width="2" height="10" rx="1" />
+                      <path d="M3.7071045,15.7071045 C3.3165802,16.0976288 2.68341522,16.0976288 2.29289093,15.7071045 C1.90236664,15.3165802 1.90236664,14.6834152 2.29289093,14.2928909 L8.29289093,8.29289093 C8.67146987,7.914312 9.28105631,7.90106637 9.67572234,8.26284357 L15.6757223,13.7628436 C16.0828413,14.136036 16.1103443,14.7686034 15.7371519,15.1757223 C15.3639594,15.5828413 14.7313921,15.6103443 14.3242731,15.2371519 L9.03007346,10.3841355 L3.7071045,15.7071045 Z"
+                        fill="#000000" fill-rule="nonzero" transform="translate(9.000001, 11.999997) scale(-1, -1) rotate(90.000000) translate(-9.000001, -11.999997) " />
+                  </g>
+              </svg>
+            </span>
+            <!--end::Svg Icon-->
+            <%= t('appointment_widget.back_button') %>
+          </a>
+
+          <div class="separator my-8"></div>
+
+          <!--begin::Nav-->
+          <ul class="position-sticky stepper-nav nav nav-tabs border-0" style="top: 150px;">
+            <!--begin::Step 1-->
+            <li class="nav-item">
+              <a href="#kt_tab_pane_01" class="stepper-item nav-link border-0 active" data-bs-toggle="tab">
+                <!--begin::Label-->
+                <div class="stepper-label">
+                  <h3 class="stepper-title"><%= t('widget_preference.options_heading') %></h3>
+                </div>
+                <!--end::Label-->
+              </a>
+            </li>
+            <!--end::Step 1-->
+            <!--begin::Step 2-->
+            <li class="nav-item">
+              <a href="#kt_tab_pane_02" class="stepper-item nav-link border-0" data-bs-toggle="tab">
+                <!--begin::Label-->
+                <div class="stepper-label">
+                  <h3 class="stepper-title"><%= t('widget_preference.resource_service_options_heading') %></h3>
+                </div>
+                <!--end::Label-->
+              </a>
+            </li>
+            <!--end::Step 2-->
+            <!--begin::Step 3-->
+            <li class="nav-item">
+              <a href="#kt_tab_pane_03" class="stepper-item nav-link border-0" data-bs-toggle="tab">
+                <!--begin::Label-->
+                <div class="stepper-label">
+                  <h3 class="stepper-title"><%= t('widget_preference.widget_branding.menu') %></h3>
+                </div>
+                <!--end::Label-->
+              </a>
+            </li>
+            <!--end::Step 3-->
+
+          </ul>
+          <!--end::Nav-->
+        </div>
+        <!--end::Wrapper-->
+      </div>
+      <!--begin::Aside-->
+      <!--begin::Content-->
+      <div class="bg-body w-100 rounded p-10">
+          <!--begin::Tab content-->
+          <div class="tab-content pb-10">
+            <!--begin::Step 1-->
+            <div class="tab-pane fade show active" id="kt_tab_pane_01" role="tabpanel">
+              <!--begin::Wrapper-->
+              <div class="w-100">
+                <!--begin::Field-->
+                <div class="mb-10">
+                  <label class="form-label"><%= t('widget_preference.company_title') %></label>
+                  <input type="text" class="form-control" id="widget_title" value="<%= @widget_title %>" />
+                </div>
+                <!--end::Field-->
+                <!--begin::Field-->
+                <div class="mb-10">
+                  <label class="form-label"><%= t('services_resource.options') %></label>
+                  <div class="row">
+                    <div class="col-md-4 mb-4">
+                      <label class="form-check form-switch form-check-custom form-check-solid form-check-primary my-2 me-5">
+                        <input class="form-check-input h-30px w-50px" type="checkbox" id="widget_filter" checked />
+                        <span class="form-check-label"><%= t('widget_preference.morning_afternoon') %></span>
+                      </label>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                      <label class="form-check form-switch form-check-custom form-check-solid form-check-primary my-2 me-5">
+                        <input id="widget_tz" class="form-check-input h-30px w-50px" type="checkbox" checked />
+                        <span class="form-check-label"><%= t('widget_preference.timezone') %></span>
+                      </label>
+                      <div id="widget_tz_default" class="pt-4">
+                        <select class="form-select widget-timezone-select" data-control="select2" data-placeholder="<%= t('common.select_placeholder') %>">
+                        </select>
+                        <span class="form-text"><%= t('widget_preference.timezone_help_text') %></span>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-4 mb-4">
+                      <label class="form-check form-switch form-check-custom form-check-solid form-check-primary my-2 me-5">
+                        <input id="widget_time_format" class="form-check-input h-30px w-50px" type="checkbox" checked />
+                        <span class="form-check-label"><%= t('widget_preference.time_format') %></span>
+                      </label>
+                      <div id="widget_time_format_default" class="pt-4">
+                        <select class="form-select widget-time-format" data-control="select2" data-placeholder="<%= t('common.select_placeholder') %>" data-minimum-results-for-search="Infinity">
+                          <option></option>
+                          <option value="24h" selected><%= t('widget_preference.24_hour') %></option>
+                          <option value="am/pm"><%= t('widget_preference.am_pm') %></option>
+                        </select>
+                        <span class="form-text"><%= t('widget_preference.time_format_help_text') %></span>
+                      </div>
+                    </div>
+
+                    <div class="col-md-4 mb-4">
+                      <label class="form-check form-switch form-check-custom form-check-solid form-check-primary my-2 me-5">
+                        <input id="widget_language"  class="form-check-input h-30px w-50px" type="checkbox" checked />
+                        <span class="form-check-label"><%= t('widget_preference.language') %></span>
+                      </label>
+                      <div id="widget_language_default" class="pt-4">
+                        <select class="form-select widget_language_code" data-control="select2" data-placeholder="<%= t('common.select_placeholder') %>"
+                                data-minimum-results-for-search="Infinity">
+                          <% available_locales.each do |locale| %>
+                            <option value="<%= locale %>"><%= t("locales.#{locale}") %></option>
+                          <% end %>
+                        </select>
+                        <span class="form-text"><%= t('widget_preference.language_help_text') %></span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <!--end::Field-->
+                <!--begin::Field-->
+                <div>
+                  <input type="hidden" value=<%= @ivr.nodes.find_by_name("agenda_group_availabilities").parameters["after_time"]%>  id="after_time_existing">
+                  <label class="form-label"><%= t('widget_preference.scheduling_conditions') %></label>
+                  <div class="d-flex mb-4">
+                    <label class="form-check form-check-custom form-check-solid">
+<!--                      <input id="prevent_customer" name="prevent_customer" class="form-check-input" type="checkbox" />-->
+                      <%= check_box_tag("prevent_customer","", "", {class: "form-check-input"}) %>
+                      <span class="form-check-label"></span>
+                    </label>
+                    <span><%= t('preference.check4') %>
+                      <%= select_tag "after_time", options_for_select([]), class: "time-format form-select form-select-sm", data: { control: 'select2', placeholder: '...', 'minimum-results-for-search': 'Infinity', 'width': '80px'} %>
+                      <%= select_tag 'time_format', options_for_select(AgendaApi::TimeFrame, selected: get_selected_agenda_group_availabilities(@agenda_group_availabilities)), class: "time-format form-select form-select-sm", data: { control: 'select2', placeholder: '...', 'minimum-results-for-search': 'Infinity', 'width': '100px'} %>
+
+                      <%= t('reminders.in_advance') %>.
+                    </span>
+                  </div>
+                  <div class="d-flex mb-4">
+                    <label class="form-check form-check-custom form-check-solid">
+                      <input id="allow_contacts_to_schedule_up" class="form-check-input" type="checkbox" <%= @future_days == "" ? "" : "checked" %> />
+                      <span class="form-check-label"></span>
+                    </label>
+                    <span><%= t('widget_preference.allow_clients_to_schedule') %>
+                        <input type="number" id="future_days" class="form-control form-control-sm d-inline-block w-60px" min="1" value="<%= @future_days %>" disabled />
+                        <%= t('widget_preference.days_in_future') %>.
+                    </span>
+                  </div>
+                  <div class="d-flex">
+                    <label class="form-check form-check-custom form-check-solid">
+                      <input id="allow_customers_to_schedule_up" class="form-check-input" type="checkbox" <%= (@ivr.preference["max_allowed_appointments"].nil? || @ivr.preference["max_allowed_appointments"] == 888873 ) ? "" : "checked" %>/>
+                      <span class="form-check-label"></span>
+                    </label>
+                    <span><%= t('preference.check6a') %>
+                      <%= text_field_tag "preference_limit", (@ivr.preference["max_allowed_appointments"].nil? || @ivr.preference["max_allowed_appointments"] == 888873 ) ? "" : @ivr.preference["max_allowed_appointments"] ,
+                                         class: "appointment-check-input form-control form-control-sm d-inline-block w-80px",
+                                         disabled: (@ivr.preference["max_allowed_appointments"].nil? || @ivr.preference["max_allowed_appointments"] == 888873 ) %>
+                      <%= t('preference.check6b') %>
+                    </span>
+                  </div>
+                </div>
+                <!--end::Field-->
+              </div>
+              <!--end::Wrapper-->
+
+              <div class="separator mt-20 mb-10"></div>
+
+              <!--begin::Actions-->
+              <div class="d-flex justify-content-end flex-stack">
+                <button type="button" class="btn btn-outline btn-outline-primary btn-color-primary btn-active-color-white ms-5" id="save_widget_setting">
+                  <!--begin::Svg Icon | path: icons/duotone/Navigation/Double-check.svg-->
+                  <span class="svg-icon svg-icon-2x me-1">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <polygon points="0 0 24 0 24 24 0 24" />
+                        <path d="M9.26193932,16.6476484 C8.90425297,17.0684559 8.27315905,17.1196257 7.85235158,16.7619393 C7.43154411,16.404253 7.38037434,15.773159 7.73806068,15.3523516 L16.2380607,5.35235158 C16.6013618,4.92493855 17.2451015,4.87991302 17.6643638,5.25259068 L22.1643638,9.25259068 C22.5771466,9.6195087 22.6143273,10.2515811 22.2474093,10.6643638 C21.8804913,11.0771466 21.2484189,11.1143273 20.8356362,10.7474093 L17.0997854,7.42665306 L9.26193932,16.6476484 Z"
+                              fill="#000000" fill-rule="nonzero" opacity="0.5" transform="translate(14.999995, 11.000002) rotate(-180.000000) translate(-14.999995, -11.000002) " />
+                        <path d="M4.26193932,17.6476484 C3.90425297,18.0684559 3.27315905,18.1196257 2.85235158,17.7619393 C2.43154411,17.404253 2.38037434,16.773159 2.73806068,16.3523516 L11.2380607,6.35235158 C11.6013618,5.92493855 12.2451015,5.87991302 12.6643638,6.25259068 L17.1643638,10.2525907 C17.5771466,10.6195087 17.6143273,11.2515811 17.2474093,11.6643638 C16.8804913,12.0771466 16.2484189,12.1143273 15.8356362,11.7474093 L12.0997854,8.42665306 L4.26193932,17.6476484 Z"
+                              fill="#000000" fill-rule="nonzero" transform="translate(9.999995, 12.000002) rotate(-180.000000) translate(-9.999995, -12.000002) " />
+                    </g>
+                </svg>
+              </span>
+                  <!--end::Svg Icon-->
+                  <%= t('button.save') %>
+                </button>
+              </div>
+              <!--end::Actions-->
+
+
+            </div>
+            <!--end::Step 1-->
+            <!--begin::Step 2-->
+            <div class="tab-pane fade" id="kt_tab_pane_02" role="tabpanel">
+              <!--begin::Wrapper-->
+              <div class="w-100">
+                <!--begin::Field-->
+                <div>
+                  <input type="hidden" id="level1_h_input" value="<%= @level1_dropdown %>">
+                  <input type="hidden" id="level2_h_input" value="<%= @default_resource %>">
+
+                  <label class="form-label"><%= t('widget_preference.give_an_order_help_text') %></label>
+                </div>
+                <!--end::Field-->
+
+                <div id="kt_define_an_order_content">
+                  <!--begin::Field-->
+                  <div class="pt-4">
+                    <label class="d-flex flex-stack mb-5 cursor-pointer">
+                        <span class="d-flex align-items-center me-2">
+                            <span class="form-check form-check-custom form-check-solid me-5">
+                              <input class="form-check-input" type="radio" name="serviceResourceOrderBookingOption" id="serviceResourceOrderBookingOption_service" value="serviceFirst"
+                                     <%= 'checked' if @default_resource == 'serviceFirst' && @level1_dropdown == 'Custom Order' %> />
+                            </span>
+
+                            <span class="d-flex flex-column">
+                                <span class="fs-6 "><%= t('widget_preference.service_first') %></span>
+                                <span class="fs-7 text-muted fw-normal"><%= t('widget_preference.service_first_help_text') %></span>
+                            </span>
+                        </span>
+                    </label>
+
+                    <label class="d-flex flex-stack mb-5 cursor-pointer">
+                        <span class="d-flex align-items-center me-2">
+                            <span class="form-check form-check-custom form-check-solid me-5">
+                              <input class="form-check-input" type="radio" name="serviceResourceOrderBookingOption" id="serviceResourceOrderBookingOption_resource" value="resourceFirst"
+                                     <%= 'checked' if @default_resource == 'resourceFirst' %>
+                                     <%= 'disabled' unless @is_possible_resource_first %> />
+                            </span>
+
+                            <span class="d-flex flex-column">
+                                <span class="fs-6 <%= 'text-muted' unless @is_possible_resource_first %>"><%= t('widget_preference.resource_first') %></span>
+                                <span class="fs-7 text-muted fw-normal"><%= t('widget_preference.resource_first_help_text') %></span>
+                                <span class="fs-7 text-muted fst-italic fw-normal"><%= t('widget_preference.resource_first_note_text') %></span>
+                            </span>
+                        </span>
+                    </label>
+
+                  </div>
+                  <!--end::Field-->
+                </div>
+              </div>
+              <!--end::Wrapper-->
+
+              <div class="separator mt-20 mb-10"></div>
+
+              <!--begin::Actions-->
+              <div class="d-flex justify-content-end flex-stack">
+                <button type="button" class="btn btn-outline btn-outline-primary btn-color-primary btn-active-color-white ms-5" id="save_booking_option">
+                  <!--begin::Svg Icon | path: icons/duotone/Navigation/Double-check.svg-->
+                  <span class="svg-icon svg-icon-2x me-1">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <polygon points="0 0 24 0 24 24 0 24" />
+                        <path d="M9.26193932,16.6476484 C8.90425297,17.0684559 8.27315905,17.1196257 7.85235158,16.7619393 C7.43154411,16.404253 7.38037434,15.773159 7.73806068,15.3523516 L16.2380607,5.35235158 C16.6013618,4.92493855 17.2451015,4.87991302 17.6643638,5.25259068 L22.1643638,9.25259068 C22.5771466,9.6195087 22.6143273,10.2515811 22.2474093,10.6643638 C21.8804913,11.0771466 21.2484189,11.1143273 20.8356362,10.7474093 L17.0997854,7.42665306 L9.26193932,16.6476484 Z"
+                              fill="#000000" fill-rule="nonzero" opacity="0.5" transform="translate(14.999995, 11.000002) rotate(-180.000000) translate(-14.999995, -11.000002) " />
+                        <path d="M4.26193932,17.6476484 C3.90425297,18.0684559 3.27315905,18.1196257 2.85235158,17.7619393 C2.43154411,17.404253 2.38037434,16.773159 2.73806068,16.3523516 L11.2380607,6.35235158 C11.6013618,5.92493855 12.2451015,5.87991302 12.6643638,6.25259068 L17.1643638,10.2525907 C17.5771466,10.6195087 17.6143273,11.2515811 17.2474093,11.6643638 C16.8804913,12.0771466 16.2484189,12.1143273 15.8356362,11.7474093 L12.0997854,8.42665306 L4.26193932,17.6476484 Z"
+                              fill="#000000" fill-rule="nonzero" transform="translate(9.999995, 12.000002) rotate(-180.000000) translate(-9.999995, -12.000002) " />
+                    </g>
+                </svg>
+              </span>
+                  <!--end::Svg Icon-->
+                  <%= t('button.save') %>
+                </button>
+              </div>
+              <!--end::Actions-->
+
+            </div>
+            <!--end::Step 2-->
+            <!--begin::Step 3-->
+            <div class="tab-pane fade" id="kt_tab_pane_03" role="tabpanel">
+              <%= form_for(@ivr, url: save_branding_appoinments_scheduling_index_path, remote: true, method: "post", html: {id: 'branding-form'}) do |f| %>
+                <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                <%= hidden_field_tag :ivr_id, params[:ivr_id] %>
+              <!--begin::Wrapper-->
+              <div class="w-100">
+                <div class="row mb-6">
+                  <!--begin::Label-->
+                  <label class="col-lg-4 col-form-label fw-bold fs-6">
+                    <%= t('widget_preference.widget_branding.remove_branding') %>
+                    <span><i class="las la-question-circle fs-2 text-gray pt-1 ms-1" title="<%= raw t('widget_preference.widget_branding.remove_branding_helper') %>" data-bs-html="true" data-bs-toggle="tooltip"></i></span>
+                  </label>
+
+                  <div class="col-lg-8 d-flex align-items-center">
+                    <label class="form-check form-check-solid form-switch fv-row">
+                      <% if session[:current_organization].chargebee_subscription_plan == "free" || session[:current_organization].chargebee_subscription_plan == "basic" %>
+                        <%= f.check_box :remove_voxiplan_branding, class: 'form-check-input handle_brand w-45px h-30px', disabled: true %>
+                      <% else %>
+                        <%= f.check_box :remove_voxiplan_branding, class: 'form-check-input handle_brand w-45px h-30px' %>
+                      <% end %>
+                      <span class="form-check-label"></span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="row mb-6">
+                  <!--begin::Label-->
+                  <label class="col-lg-4 col-form-label fw-bold fs-6">
+                    <%= t('widget_preference.widget_branding.use_branding') %>
+                  </label>
+
+                  <div class="col-lg-8 d-flex align-items-center">
+                    <label class="form-check form-check-solid form-switch fv-row">
+                      <%= f.check_box :use_branding, class: 'form-check-input handle_brand w-45px h-30px' %>
+                      <span class="form-check-label"></span>
+                    </label>
+                  </div>
+                </div>
+                <!--end::Input group-->
+                <!--begin::Input group-->
+                <div class="row mb-6">
+                  <!--begin::Label-->
+                  <label class="col-lg-4 col-form-label fw-bold fs-6"><%= t('widget_preference.widget_branding.logo') %></label>
+                  <!--end::Label-->
+                  <!--begin::Col-->
+                  <div class="col-lg-8">
+                    <!--begin::Image input-->
+                    <div class="image-input image-input-outline" data-kt-image-input="true" >
+                      <!--begin::Preview existing avatar-->
+                      <div class="image-input-wrapper w-125px h-125px" style="background-image: url(<%= @ivr.logo.exists? ? @ivr.logo.url : '' %>)">
+                        <div id="no_logo_section" class="text-center pt-13 fs-1 text-secondary <%= @ivr.logo.exists? ? 'd-none' : '' %>" ><%= t('widget_preference.widget_branding.no_logo') %></div>
+                      </div>
+                      <!--end::Preview existing avatar-->
+                      <!--begin::Label-->
+                      <input type="hidden" name="is_removed_logo" value="no" />
+                      <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change logo">
+                        <i class="bi bi-pencil-fill fs-7"></i>
+                        <!--begin::Inputs-->
+                        <%= f.file_field :logo, accept: '.png, .jpg, .jpeg' %>
+                        <input type="hidden" name="logo_remove" />
+                        <!--end::Inputs-->
+                      </label>
+                      <!--end::Label-->
+                      <!--begin::Cancel-->
+                      <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel logo">
+                          <i class="bi bi-x fs-2"></i>
+                        </span>
+                      <!--end::Cancel-->
+                      <!--begin::Remove-->
+                      <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow remove_logo" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove logo">
+                          <i class="bi bi-x fs-2"></i>
+                        </span>
+                      <!--end::Remove-->
+                    </div>
+                    <!--end::Image input-->
+                    <!--begin::Hint-->
+                    <div class="form-text"><%= t('common.allow_image') %></div>
+                    <div class="form-text"><%= t('common.allow_image_size') %></div>
+                    <!--end::Hint-->
+                  </div>
+                  <!--end::Col-->
+                </div>
+                <!--end::Input group-->
+                <!--begin::Input group-->
+                <div class="row mb-0">
+                  <!--begin::Label-->
+                  <label class="col-lg-4 col-form-label fw-bold fs-6"><%= t('widget_preference.widget_branding.description') %></label>
+                  <!--end::Label-->
+                  <!--begin::Col-->
+                  <div class="col-lg-8 fv-row">
+                    <%= f.text_area :description, class: "form-control orm-control-lg form-control-solid #{"is-invalid" if @ivr.errors.full_messages_for(:description).present?}" %>
+                  </div>
+                  <!--end::Col-->
+                </div>
+                <!--end::Input group-->
+              </div>
+              <!--end::Wrapper-->
+
+              <div class="separator mt-20 mb-10"></div>
+
+              <!--begin::Actions-->
+              <div class="d-flex justify-content-end flex-stack">
+                <button type="button" class="btn btn-outline btn-outline-primary btn-color-primary btn-active-color-white ms-5" id="save_branding">
+                  <!--begin::Svg Icon | path: icons/duotone/Navigation/Double-check.svg-->
+                  <span class="svg-icon svg-icon-2x me-1">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                              <polygon points="0 0 24 0 24 24 0 24" />
+                              <path d="M9.26193932,16.6476484 C8.90425297,17.0684559 8.27315905,17.1196257 7.85235158,16.7619393 C7.43154411,16.404253 7.38037434,15.773159 7.73806068,15.3523516 L16.2380607,5.35235158 C16.6013618,4.92493855 17.2451015,4.87991302 17.6643638,5.25259068 L22.1643638,9.25259068 C22.5771466,9.6195087 22.6143273,10.2515811 22.2474093,10.6643638 C21.8804913,11.0771466 21.2484189,11.1143273 20.8356362,10.7474093 L17.0997854,7.42665306 L9.26193932,16.6476484 Z"
+                                    fill="#000000" fill-rule="nonzero" opacity="0.5" transform="translate(14.999995, 11.000002) rotate(-180.000000) translate(-14.999995, -11.000002) " />
+                              <path d="M4.26193932,17.6476484 C3.90425297,18.0684559 3.27315905,18.1196257 2.85235158,17.7619393 C2.43154411,17.404253 2.38037434,16.773159 2.73806068,16.3523516 L11.2380607,6.35235158 C11.6013618,5.92493855 12.2451015,5.87991302 12.6643638,6.25259068 L17.1643638,10.2525907 C17.5771466,10.6195087 17.6143273,11.2515811 17.2474093,11.6643638 C16.8804913,12.0771466 16.2484189,12.1143273 15.8356362,11.7474093 L12.0997854,8.42665306 L4.26193932,17.6476484 Z"
+                                    fill="#000000" fill-rule="nonzero" transform="translate(9.999995, 12.000002) rotate(-180.000000) translate(-9.999995, -12.000002) " />
+                          </g>
+                      </svg>
+                    </span>
+                  <!--end::Svg Icon-->
+                  <%= t('button.save') %>
+                </button>
+              </div>
+              <!--end::Actions-->
+              <% end %>
+            </div>
+            <!--end::Step 3-->
+          </div>
+          <!--end::Tab content-->
+
+
+      </div>
+      <!--end::Content-->
+    </div>
+    <!--end::Stepper-->
+  </div>
+  <!--end::Container-->
+</div>
+<!--end::Post-->
+
+<%= render '/modal/update_plan' %>
+
+
+<script type="text/javascript">
+  window.I18n = <%= current_translations.to_json.html_safe %>
+  $(document).ready(function() {
+    $('.handle_brand').on('click', function(e) {
+        if (<%= session[:current_organization].chargebee_subscription_plan == "free" %> || <%= session[:current_organization].chargebee_subscription_plan == "basic" %>) {
+            e.preventDefault();
+            $('#kt_modal_upgrade_plan').modal('show');
+        }
+    });
+
+    $('span.remove_logo').on('click', function() {
+        $('input[name=is_removed_logo]').val('yes');
+    });
+
+    var timezone = moment.tz.names();
+    for (var i = 0; i < timezone.length; i++) {
+        $(".widget-timezone-select").append(
+            '<option value="' + timezone[i] + '">' + timezone[i] + "</option>"
+        );
+    }
+    $(".widget-timezone-select").select2();
+    timefreame("<%= get_selected_agenda_group_availabilities(@agenda_group_availabilities) %>");
+    selectedtimeframe();
+
+
+    $("#time_format").change(function(){
+      timefreame(this.value)
+    });
+
+    function timefreame(input_val){
+      var range = Array.new;
+      var list = "";
+      var input = input_val;
+      if(input == "Minute"){
+        range = <%= AgendaApi::TimeFrameRange[:minutes].to_a %>
+      }
+      else if(input == "Hour"){
+        range = <%= AgendaApi::TimeFrameRange[:hours].to_a %>
+      }
+      else if(input == "Day"){
+        range = <%= AgendaApi::TimeFrameRange[:days].to_a %>
+      }
+      else if(input == "Week"){
+        range = <%= AgendaApi::TimeFrameRange[:weeks].to_a %>
+      }
+      else if(input == "Month"){
+        range = <%= AgendaApi::TimeFrameRange[:months].to_a %>
+      }
+      var select = $('#after_time');
+      var lower = input.toLowerCase();
+      $.each(range, function( index, value ) {
+        list += '<option value="'+value+'_'+lower+'">'+value+'</option>'
+      })
+      select.empty().append(list)
+    };
+
+    function selectedtimeframe(){
+        let selected_value = "<%= @agenda_group_availabilities.parameters['after_time'].gsub("%{",'').gsub("}",'') %>";
+        if (selected_value == '0_day') selected_value = '1_day';
+
+        $("#after_time").select2().val(selected_value).trigger('change');
+    }
+
+    var preventCheckbox = $("input:checkbox[name=prevent_customer]");
+    var afterTime = $('#after_time');
+    var timeFormat = $('#time_format');
+
+    function updatePreventCheck() {
+      if($('#after_time_existing').val() === "%{0_day}") {
+        preventCheckbox.removeAttr('checked')
+      }
+      if(!preventCheckbox.is(':checked')) {
+        afterTime.prop('disabled', true);
+        timeFormat.prop('disabled', true);
+      } else {
+        afterTime.prop('disabled', false);
+        timeFormat.prop('disabled', false);
+      }
+    }
+
+    updatePreventCheck();
+
+    preventCheckbox.change(function (e) {
+      updatePreventCheck();
+    });
+
+    // populate values from response
+    var widget_filter_response = $("#widget_filter_response").val();
+    var widget_time_format_response = $("#widget_time_format_response").val();
+    var widget_language_response = $("#widget_language_response").val();
+    var widget_tz_response = $("#widget_tz_response").val();
+
+    $("#widget_filter").prop("checked", widget_filter_response == "false" ? false : true);
+    $("#widget_time_format").prop("checked", widget_time_format_response == "-" ? true : false );
+    $("#widget_tz").prop("checked", widget_tz_response == "-" ? true : false );
+    $("#widget_language").prop("checked", widget_language_response == "-" ? true : false );
+
+    if(widget_time_format_response != "-") {
+      $(".widget-time-format").val(widget_time_format_response).trigger('change');
+    }
+
+    if(widget_tz_response != "-") {
+      $(".widget-timezone-select").val(widget_tz_response).trigger('change');
+    }
+
+    if(widget_language_response != "-") {
+      $(".widget_language_code").val(widget_language_response).trigger('change');
+    }
+
+    // populate switch using library
+    var timezone_switch = $("#widget_tz").prop("checked");
+    var timeformat_switch = $("#widget_time_format").prop("checked");
+    var language_switch = $("#widget_language").prop("checked");
+    timezone_switch ? $("#widget_tz_default").addClass("d-none") : $("#widget_tz_default").removeClass("d-none");
+    timeformat_switch ? $("#widget_time_format_default").addClass("d-none") : $("#widget_time_format_default").removeClass("d-none");
+    language_switch ? $("#widget_language_default").addClass("d-none") : $("#widget_language_default").removeClass("d-none");
+
+    $("#widget_tz, #widget_time_format, #widget_language").on("change", function () {
+      $(this).prop('checked') ? $("#"+ this.id +"_default").addClass("d-none") : $("#"+ this.id +"_default").removeClass("d-none");
+    });
+
+    $('button#save_widget_setting').click(function() {
+        var data = {};
+        data["widget_title"] = $("#widget_title").val();
+
+        // switches
+        data["filter"] = $("#widget_filter").prop("checked");
+        data["time_format"] = $("#widget_time_format").prop("checked") ? "true" : "";
+        data["tz"] = $("#widget_tz").prop("checked") ? "true" : "";
+        data["language"] = $("#widget_language").prop("checked") ? "true" : "";
+
+        // default data
+        data["widget_tz"] = $(".widget-timezone-select").val();
+        data["widget_time_format"] = $(".widget-time-format").val();
+        data["widget_language"] = $(".widget_language_code").val();
+
+        // csrf token
+        data["authenticity_token"] = $('[name="csrf-token"]')[0].content
+
+        // future days
+        data["future_days"] = $('#future_days').val();
+        data["preference_limit"] = document.getElementById('allow_customers_to_schedule_up').checked ? $('.appointment-check-input').val() : '';
+        data["after_time"] = preventCheckbox.is(':checked') ? $("#after_time").val() : "0_day";
+        data['ivr_id'] = $('input[name=ivr_id]').val();
+
+        $.ajax({
+            url: "/appoinments_scheduling/save_widget_setting",
+            type: "POST",
+            data: data,
+            success: function(response){
+                showMessage('success', "<%= t('common.save_success') %>")
+            }
+        });
+    });
+
+    $('button#save_booking_option').click(function() {
+        let data = {};
+        data["dropdown_default_resource"] = 'serviceFirst';
+        data["level1_dropdown"] = "Custom Order";
+        data["ivr_id"] = $('input#ivr_id').val();
+        if ($('input#serviceResourceOrderBookingOption_resource').prop('checked')) data["dropdown_default_resource"] = 'resourceFirst';
+
+        $.ajax({
+            url: "/appoinments_scheduling/save_booking_option",
+            type: "POST",
+            data: data,
+            success: function(response){
+                showMessage('success', "<%= t('common.save_success') %>")
+            }
+        });
+    });
+
+    $('button#save_branding').click(function() {
+        if ($('input#ivr_use_branding').prop('checked')) {
+            if ($('textarea#ivr_description').val() == '') {
+                showMessage('error', "<%= t('widget_preference.widget_branding.require_description') %>")
+                return;
+            }
+        }
+
+        $('#branding-form').ajaxSubmit({
+            success: function(response) {
+                if (response.message == 'success')
+                    showMessage('success', "<%= t('common.save_success') %>");
+                else
+                    showMessage('error', "<%= t('common.save_failure') %>");
+
+            }
+        })
+    });
+
+    $('span.remove_logo').on('click', function() {
+        $('div#no_logo_section').parent().css('background-image', '');
+        $('div#no_logo_section').removeClass('d-none');
+        $('div#no_logo_section').addClass('d-block');
+    })
+
+    $('input#ivr_logo').on('change', function() {
+        $('div#no_logo_section').addClass('d-none');
+        $('div#no_logo_section').removeClass('d-block');
+    })
+
+  });
+
+  $('#preference_limit').on('keypress', function(e) {
+      if (e.which < 48 || e.which > 57) e.preventDefault();
+  });
+
+  $('#allow_customers_to_schedule_up').change(function(e) {
+      $("#preference_limit").prop( "disabled", !e.target.checked);
+  });
+
+  (function () {
+      const $allowContactsToScheduleUp = document.querySelector('#allow_contacts_to_schedule_up');
+      const $allowContactsToScheduleUpQty = document.querySelector('#future_days');
+
+      const $allowCustomersToScheduleUp = document.querySelector('#allow_customers_to_schedule_up');
+      const $allowCustomersToScheduleUpQty = document.querySelector('#preference_limit');
+
+      $allowContactsToScheduleUp.addEventListener('change', function (e) {
+          $allowContactsToScheduleUpQty.disabled = !e.target.checked;
+      });
+
+      $allowCustomersToScheduleUp.addEventListener('change', function (e) {
+          $allowCustomersToScheduleUpQty.disabled = !e.target.checked;
+      });
+  })();
+
+</script>

@@ -1,0 +1,86 @@
+{{define "en"}}
+Hi {{ title .Identity.traits.firstName }},
+
+Please verify your account by entering the following code:
+
+{{ .VerificationCode }}
+
+Or click the following link:
+
+{{ .VerificationURL }}
+
+Thanks,
+Team Voxiplan
+{{end}}
+
+{{define "fr"}}
+Bonjour {{ title .Identity.traits.firstName }},
+
+Veuillez vérifier votre compte en saisissant le code suivant:
+
+{{ .VerificationCode }}
+
+Ou cliquez sur le lien suivant:
+
+{{ .VerificationURL }}
+
+Merci,
+Team Voxiplan
+{{end}}
+
+{{define "it"}}
+Ciao {{ title .Identity.traits.firstName }},
+
+Verifica il tuo account inserendo il seguente codice:
+
+{{ .VerificationCode }}
+
+Oppure clicca sul seguente link:
+
+{{ .VerificationURL }}
+
+Grazie,
+Team Voxiplan
+{{end}}
+
+{{define "nl"}}
+Hallo {{ title .Identity.traits.firstName }},
+
+Verifieer uw account door de volgende code in te voeren:
+
+{{ .VerificationCode }}
+
+Of klik op de volgende link:
+
+{{ .VerificationURL }}
+
+Bedankt,
+Team Voxiplan
+{{end}}
+
+{{define "de"}}
+Hallo {{ title .Identity.traits.firstName }},
+
+Bitte verifizieren Sie Ihr Konto, indem Sie den folgenden Code eingeben:
+
+{{ .VerificationCode }}
+
+Oder klicken Sie auf den folgenden Link:
+
+{{ .VerificationURL }}
+
+Danke,
+Team Voxiplan
+{{end}}
+
+{{- if eq .Identity.traits.language "de" -}}
+{{ template "de" . }}
+{{- else if eq .Identity.traits.language "fr" -}}
+{{ template "fr" . }}
+{{- else if eq .Identity.traits.language "nl" -}}
+{{ template "nl" . }}
+{{- else if eq .Identity.traits.language "it" -}}
+{{ template "it" . }}
+{{- else -}}
+{{ template "en" . }}
+{{- end -}}

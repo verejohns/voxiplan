@@ -1,0 +1,357 @@
+<div class="w-100">
+  <div class="row mb-n6">
+    <div class="col-md-6 col-lg-4 col-xl-3 mb-6">
+      <div class="position-relative h-md-100">
+        <!--begin::Mixed Widget-->
+        <div class="card h-md-100 bg-light rounded-bottom-0 border-bottom border-4 border-primary" >
+          <div class="card-header min-h-50px border-0 pt-4 px-6">
+            <div class="card-title">
+              <div class="card-label"><%= t('services.automations.confirmation') %></div>
+            </div>
+            <div class="card-toolbar">
+              <a class="d-block automation-card-edit" href="#kt_modal_edit_automations" data-automation-name='<%= t('services.automations.confirmation') %>' data-automation-type='confirmation' data-bs-toggle="modal">
+                <i class="bi bi-pencil-square text-muted"></i>
+              </a>
+            </div>
+          </div>
+          <!--begin::Body-->
+          <div class="card-body d-flex flex-column pt-0 pb-2 px-6">
+            <div class="d-block text-gray-600 fs-7 mb-3"><%= t('services.automations.confirmation_description') %></div>
+          </div>
+          <!--end::Body-->
+        </div>
+        <!--end::Mixed Widget-->
+      </div>
+    </div>
+
+    <% unless @first_agenda.is_online_agenda? %>
+    <div class="col-md-6 col-lg-4 col-xl-3 mb-6">
+      <div class="kt_automation position-relative h-md-100">
+        <!--begin::Mixed Widget-->
+        <div class="kt_card_automation card h-md-100 bg-light rounded-bottom-0 border-bottom border-4 border-primary <%= @reminder_enabled ? '' : 'opacity-50' %>">
+          <div class="card-header min-h-50px border-0 pt-4 px-6">
+            <div class="card-title">
+              <div class="card-label"><%= t('services.automations.reminders') %></div>
+            </div>
+            <div class="card-toolbar">
+              <a class="d-block automation-card-edit" href="#kt_modal_edit_automations" data-automation-name='<%= t('services.automations.reminders') %>' data-automation-type='reminder' data-bs-toggle="modal">
+                <i class="bi bi-pencil-square text-muted"></i>
+              </a>
+            </div>
+          </div>
+          <!--begin::Body-->
+          <div class="card-body d-flex flex-column pt-0 pb-15 px-6">
+            <div class="d-block text-gray-600 fs-7 mb-3"><%= t('services.automations.reminder_description') %></div>
+          </div>
+          <!--end::Body-->
+        </div>
+        <!--end::Mixed Widget-->
+        <label class="position-absolute bottom-0 end-0 z-index-2 form-check form-switch form-check-custom form-check-solid form-check-info mb-4 me-6">
+          <input class="kt_check_enable_automation form-check-input h-30px w-50px opacity-100" data-automation-type='reminder' type="checkbox" <%= @reminder_enabled ? 'checked' : '' %>>
+        </label>
+      </div>
+    </div>
+    <% end %>
+
+    <div class="col-md-6 col-lg-4 col-xl-3 mb-6">
+      <div class="position-relative h-md-100">
+        <!--begin::Mixed Widget-->
+        <div class="card h-md-100 bg-light rounded-bottom-0 border-bottom border-4 border-primary">
+          <div class="card-header min-h-50px border-0 pt-4 px-6">
+            <div class="card-title">
+              <div class="card-label"><%= t('services.automations.cancellation') %></div>
+            </div>
+            <div class="card-toolbar">
+              <a class="d-block automation-card-edit" href="#kt_modal_edit_automations" data-automation-name='<%= t('services.automations.cancellation') %>' data-automation-type='cancellation' data-bs-toggle="modal">
+                <i class="bi bi-pencil-square text-muted"></i>
+              </a>
+            </div>
+          </div>
+          <!--begin::Body-->
+          <div class="card-body d-flex flex-column pt-0 pb-2 px-6">
+            <div class="d-block text-gray-600 fs-7 mb-3"><%= t('services.automations.cancellation_description') %></div>
+          </div>
+          <!--end::Body-->
+        </div>
+        <!--end::Mixed Widget-->
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 col-xl-3 mb-6">
+      <div class="position-relative h-md-100">
+        <!--begin::Mixed Widget-->
+        <div class="card h-md-100 bg-light rounded-bottom-0 border-bottom border-4 border-primary">
+          <div class="card-header min-h-50px border-0 pt-4 px-6">
+            <div class="card-title">
+              <div class="card-label"><%= t('services.automations.rescheduling') %></div>
+            </div>
+            <div class="card-toolbar">
+              <a class="d-block automation-card-edit" href="#kt_modal_edit_automations" data-automation-name='<%= t('services.automations.rescheduling') %>' data-automation-type='rescheduling' data-bs-toggle="modal">
+                <i class="bi bi-pencil-square text-muted"></i>
+              </a>
+            </div>
+          </div>
+          <!--begin::Body-->
+          <div class="card-body d-flex flex-column pt-0 pb-2 px-6">
+            <div class="d-block text-gray-600 fs-7 mb-3"><%= t('services.automations.rescheduling_description') %></div>
+          </div>
+          <!--end::Body-->
+        </div>
+        <!--end::Mixed Widget-->
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4 col-xl-3 mb-6 d-none">
+      <div class="kt_automation position-relative h-md-100">
+        <!--begin::Mixed Widget-->
+        <div class="kt_card_automation card h-md-100 bg-light rounded-bottom-0 border-bottom border-4 border-primary <%= @followup_enabled ? '' : 'opacity-50' %>">
+          <div class="card-header min-h-50px border-0 pt-4 px-6">
+            <div class="card-title">
+              <div class="card-label"><%= t('services.automations.follow_up') %></div>
+            </div>
+            <div class="card-toolbar">
+              <a class="d-block automation-card-edit" href="#kt_modal_edit_automations" data-automation-name='<%= t('services.automations.follow_up') %>' data-automation-type='followup' data-bs-toggle="modal">
+                <i class="bi bi-pencil-square text-muted"></i>
+              </a>
+            </div>
+          </div>
+          <!--begin::Body-->
+          <div class="card-body d-flex flex-column pt-0 pb-15 px-6">
+            <div class="d-block text-gray-600 fs-7 mb-3"><%= t('services.automations.follow_up_description') %></div>
+          </div>
+          <!--end::Body-->
+        </div>
+        <!--end::Mixed Widget-->
+        <label class="position-absolute bottom-0 end-0 z-index-2 form-check form-switch form-check-custom form-check-solid form-check-info mb-4 me-6">
+          <input class="kt_check_enable_automation form-check-input h-30px w-50px opacity-100" data-automation-type='followup' type="checkbox" <%= @followup_enabled ? 'checked' : '' %>>
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<input type="hidden" id="is_online_agenda" value="<%= @first_agenda.is_online_agenda? %>" />
+<input type="hidden" id="reminder_data" value="<%= @reminder.to_json %>" />
+
+<%= render '/modal/update_plan' %>
+
+<script>
+    (function () {
+        $('.kt_check_enable_automation').each(function () {
+            const $this = $(this);
+
+            $this.on('click', function (e) {
+                if (<%= session[:current_organization].chargebee_subscription_plan == "free" %>) {
+                    e.preventDefault();
+                    $('#kt_modal_upgrade_plan_automations').modal('show');
+                    return;
+                }
+
+                const $parent = $this.closest('.kt_automation');
+                const $card = $parent.find('.kt_card_automation');
+                const $card_enabled = $this.is(':checked')
+
+                if ($card_enabled) $card.removeClass('opacity-50');
+                else $card.addClass('opacity-50');
+
+                $.ajax({
+                    url: "<%= automation_enabled_services_path %>",
+                    method: 'post',
+                    async: false,
+                    data: {
+                        id: $('input[name=current_service_id]').val(),
+                        automation_type: $(this).data('automation-type'),
+                        enabled: $card_enabled
+                    },
+                    success: function(response) {
+                        showMessage(response.result, response.message);
+                    }
+                })
+            });
+        });
+    })();
+
+    $('a.automation-card-edit').on('click', function(e) {
+        // set modal title
+        e.preventDefault();
+        $('div#kt_modal_edit_automations h5.modal-title').html("<%= t('services.automations.edit') %>" + " " + $(this).data('automation-name') + " " + "<%= t('services.automations.automation') %>");
+        $('div#kt_modal_edit_automations input[name=automation_name]').val($(this).data('automation-name'));
+        $('div#kt_modal_edit_automations input[name=automation_name]').attr('disabled', 'disabled');
+        $('div#kt_modal_edit_automations select#automation_filters').attr('disabled', 'disabled');
+
+        const automation_type = $(this).data('automation-type');
+        const trigger_event_new_label = "<%= t('services.automations.trigger_event_new') %>";
+        const trigger_event_specific_time_label = "<%= t('services.automations.trigger_event_specific_time') %>";
+        const trigger_event_cancel_label = "<%= t('services.automations.trigger_event_cancel') %>";
+        const trigger_event_reschedule_label = "<%= t('services.automations.trigger_event_reschedule') %>";
+        const trigger_event_not_completed_label = "<%= t('services.automations.trigger_event_not_completed') %>";
+
+        if (automation_type == 'confirmation' || automation_type == 'reminder' || automation_type == 'cancellation' || automation_type == 'rescheduling' || automation_type == 'followup') {
+            $('div#kt_modal_edit_automations a.trigger-edit-icon').hide();
+            $('select#kt_select_edit_action_email_choose_a_template').prop('disabled', true);
+            $('select#kt_select_edit_action_sms_choose_a_template').prop('disabled', true);
+            $('select#kt_select_edit_action_email_choose_a_template').select2().val(automation_type).trigger('change');
+            $('select#kt_select_edit_action_sms_choose_a_template').select2().val(automation_type).trigger('change');
+
+            $('input[name=automation_type]').val(automation_type);
+            if ($('input#is_online_agenda').val() == "true") {
+                // if agenda is Mobminder or Timify, hide the [Send Email to host] and [Send Email to invitee]
+                $('div.card.send_email_host').hide();
+                $('div.card.send_email_invitee').hide();
+            }
+            else {
+                // if agenda is Classic, show the [Send Email to host] and [Send Email to invitee]
+                $('div.card.send_email_host').show();
+                $('div.card.send_email_invitee').show();
+            }
+
+            $('div.card.send_sms_host').show();
+            $('div.add_new_action_button').hide();
+            $('label.include_cancel_reschedule_link').hide();
+            $('label.include_agenda_section').hide();
+            $('label.include_agenda_section').parent().next().hide();   // include_agenda_section help
+
+            $.each($('select#trigger_type option'), function(index, option) {
+                $(option).removeAttr('disabled')
+            });
+
+            if (automation_type == 'confirmation') {
+                $('select#trigger_type').val('trigger_event_new');
+                $('span.trigger-event-value').html(trigger_event_new_label);
+                $('label.include_cancel_reschedule_link').show();
+
+                const confirmation_filter_value = [$('input[name=current_service_id]').val()];
+                $('select#automation_filters').val(confirmation_filter_value);
+                $('select#automation_filters').trigger('change');
+            }
+            if (automation_type == 'reminder') {
+                const reminder_data = JSON.parse($("input#reminder_data").val());
+                if(reminder_data.advance_time_duration === "-") {
+                    const time = reminder_data.advance_time_offset;
+                    const duration = reminder_data.time_duration;
+
+                    $('select#trigger_type').select2().val('trigger_event_before_start').trigger('change');
+                    $('input[name=trigger_type_value]').val('trigger_event_before_start');
+                    $('select[name=trigger_duration]').select2().val(duration).trigger('change');
+                    $('input[name=trigger_duration_value]').val(duration);
+                    $('span.trigger-event-value').attr('data-trigger-type', 'trigger_event_before_start');
+                    if (duration == 'minutes') {
+                        $('input[name=trigger_time]').val(parseInt(time));
+                        $('input[name=trigger_time_value]').val(parseInt(time));
+                    }
+                    if (duration == 'hours') {
+                        $('input[name=trigger_time]').val(parseInt(time) / 60);
+                        $('input[name=trigger_time_value]').val(parseInt(time) / 60);
+                    }
+                    if (duration == 'days') {
+                        $('input[name=trigger_time]').val(parseInt(time) / 60 / 24);
+                        $('input[name=trigger_time_value]').val(parseInt(time) / 60 / 24);
+                    }
+                }
+                else {
+                    $('select#trigger_type').select2().val('trigger_event_specific_time').trigger('change');
+                    $('input[name=trigger_type_value]').val('trigger_event_specific_time');
+                    $('select[name=trigger_specific_offset]').select2().val(reminder_data.advance_time_offset).trigger('change');
+                    $('select[name=trigger_specific_duration]').select2().val(reminder_data.advance_time_duration).trigger('change');
+                    $('select[name=trigger_specific_time]').select2().val(reminder_data.time).trigger('change');
+
+                    $('input[name=trigger_specific_offset_value]').val(reminder_data.advance_time_offset);
+                    $('input[name=trigger_specific_duration_value]').val(reminder_data.advance_time_duration);
+                    $('input[name=trigger_specific_time_value]').val(reminder_data.time)
+                    $('span.trigger-event-value').attr('data-trigger-type', 'trigger_event_specific_time');
+                }
+
+                $.each($('select#trigger_type option'), function(index, option) {
+                    $(option).attr('disabled', 'disabled');
+                });
+                $('select#trigger_type option[value=trigger_event_before_start]').removeAttr('disabled');
+                $('select#trigger_type option[value=trigger_event_specific_time]').removeAttr('disabled');
+
+                $('span.trigger-event-value').html($('select#trigger_type option:selected').text());
+                $('div.card.send_sms_host').hide();
+                $('label.include_cancel_reschedule_link').show();
+                $('label.include_agenda_section').show();
+                $('label.include_agenda_section').parent().next().show();   // include_agenda_section help
+                $('div#kt_modal_edit_automations a.trigger-edit-icon').show();
+
+                const reminder_filter_value = [$('input[name=current_service_id]').val()];
+                $('select#automation_filters').val(reminder_filter_value);
+                $('select#automation_filters').trigger('change');
+            }
+            if (automation_type == 'cancellation') {
+                $('select#trigger_type').val('trigger_event_cancel');
+                $('span.trigger-event-value').html(trigger_event_cancel_label);
+
+                const cancellation_fitler_value = [$('input[name=current_service_id]').val()];
+                $('select#automation_filters').val(cancellation_fitler_value);
+                $('select#automation_filters').trigger('change');
+
+                $('div.card.send_sms_host').hide();
+            }
+            if (automation_type == 'rescheduling') {
+                $('select#trigger_type').val('');
+                $('span.trigger-event-value').html(trigger_event_reschedule_label);
+
+                const rescheduling_filter_value = [$('input[name=current_service_id]').val()];
+                $('select#automation_filters').val(rescheduling_filter_value);
+                $('select#automation_filters').trigger('change');
+            }
+            if (automation_type == 'followup') {
+                $('select#trigger_type').val('');
+                $('span.trigger-event-value').html(trigger_event_not_completed_label);
+                $('div.card.send_email_host').hide();
+                $('div.card.send_email_invitee').hide();
+                $('div.card.send_sms_host').hide();
+
+                const follow_filter_value = ['services_0', 'channel_booking_phone'];
+                $('select#automation_filters').val(follow_filter_value);
+                $('select#automation_filters').trigger('change');
+            }
+
+            $('a.remove-action-sms').hide();
+
+            $.ajax({
+                url: "<%= get_automation_services_path %>",
+                method: 'post',
+                async: false,
+                data: {
+                    id: $('input[name=current_service_id]').val(),
+                    automation_type: automation_type
+                },
+                success: function(response) {
+                    $('input[name=email_invitee_body]').val(response.email_invitee_body);
+                    $('input[name=email_invitee_subject]').val(response.email_invitee_subject);
+
+                    $('input[name=email_host_body]').val(response.email_host_body);
+                    $('input[name=email_host_subject]').val(response.email_host_subject);
+
+                    $('input[name=sms_host_body]').val(response.sms_host_body);
+                    $('input[name=sms_invitee_body]').val(response.sms_invitee_body);
+                    $('input[name=invitee_include_cancel_link_value]').val(response.invitee_include_cancel_link);
+                    $('input[name=host_include_cancel_link_value]').val(response.host_include_cancel_link);
+
+                    $('input#email_host_switch').prop('checked', response.email_host_switch_value);
+                    $('input#sms_invitee_switch').prop('checked', response.sms_invitee_switch_value);
+                    $('input#sms_host_switch').prop('checked', response.sms_host_switch_value);
+                    $('input#kt_check_include_agenda').prop('checked', response.is_include_agenda);
+                    $('input[name=is_include_agenda_value]').val(response.is_include_agenda);
+
+                    $('input[name=sms_invitee_switch_value]').val(response.sms_invitee_switch_value);
+                    $('input[name=sms_host_switch_value]').val(response.sms_host_switch_value);
+                    $('input[name=email_host_switch_value]').val(response.email_host_switch_value);
+
+                    if (response.email_host_switch_value) $('a.action_email_host').show();
+                    else $('a.action_email_host').hide();
+
+                    if (response.sms_invitee_switch_value) $('a.action_sms_invitee').show();
+                    else $('a.action_sms_invitee').hide();
+
+                    if (response.sms_host_switch_value) $('a.action_sms_host').show();
+                    else $('a.action_sms_host').hide();
+                }
+            })
+        }
+        else {
+            $('div#kt_modal_edit_automations a.trigger-edit-icon').show();
+            $('a.remove-action-sms').show();
+        }
+    })
+</script>

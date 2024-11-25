@@ -1,0 +1,45 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<%= ivr.id %>  <%= ivr.name %> </br>
+<%= id_auth %> </br>
+<%= dummy_data %> </br>
+<% resources_list.each do |e| %>
+	<%= e.name %></br>
+<% end %>
+<ul class="mylist"></ul>
+
+<button type="button" id="fetchSlot" class="btn btn-primary float-right">Next</button>
+ <script>
+   	console.log("load works");
+   $(document).ready(function(){
+   $("#fetchSlot").click(function(){
+   console.log("button works");
+   	var utcDate = "2020-07-18 00:00";
+      $.ajax({
+	      url: "https://a1d74bd6a38b.ngrok.io/fetch_agenda_slots",
+	      type: "POST",
+	      data: {
+	      	ivr_id: 1,
+	        resource_id: 3,
+	        service_id: 3,
+	        start_time: utcDate
+	      },
+	      success: function(response){
+	        console.log(response);
+	        var slots = response.slots;
+	        var cList = $('ul.mylist')
+	        $.each(slots, function(i)
+	        {
+	          var li = $('<li/>')
+	            .addClass('ui-menu-item')
+	            .attr('role', 'menuitem')
+	            .appendTo(cList);
+	          var aaa = $('<a/>')
+	            .addClass('ui-all')
+	            .text(slots[i]['start'])
+	            .appendTo(li);
+	        });
+	      }
+	    });
+   });
+});
+ </script>

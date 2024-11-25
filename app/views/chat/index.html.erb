@@ -1,0 +1,51 @@
+<section class="h-100 chat-background">
+  <div class="container h-100">
+    <div class="d-flex flex-column align-items-center justify-content-center h-100 w-100">
+      <% if @uid.present? %>
+        <!--<button class="btn btn-primary" data-toggle="modal" data-target="#embeddedChatForm">Generate Embedded Chat Link</button>
+        <h6 class="text-primary ml-auto">Powered by Voxi.ai</h6>-->
+        <h1 class="text-primary lg-auto"><%= @ivr.name == "Default" ? @ivr.client.full_name : @ivr.name %></h1>
+        <div class="d-flex flex-column w-100 rounded-lg overflow-auto shadow" style="height: auto;">
+          <div id="rasaWebchatPro"><div class="rw-pro-widget-embedded" style=""><div class="rw-widget-embedded"></div></div></div>
+        </div>
+      <% else %>
+        <div class="card" >
+          <div class="card-body">
+            <h5 class="card-title text-danger"><%= t('services.chat_widget.error_title') %></h5>
+            <p class="card-text"><%= t('services.chat_widget.error_content') %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<script>!(function () {
+  let e = document.createElement("script"),
+    t = document.head || document.getElementsByTagName("rasaWebchatPro");
+  (e.src =
+    "https://cdn.jsdelivr.net/npm/rasa-webchat@1.0.1/lib/index.js"),
+    (e.async = !0),
+    (e.onload = () => {
+        <% if @ivr %>
+        window.WebChat.default(
+            {
+                initPayload: '/chat_widget_register{"client_identifier": "<%= @ivr.uid %>", "language":"<%= @ivr.message_locale[0..1] %>", "assistant_name":"<%= @ivr.assistant_name %>", "timezone": "<%= @ivr.preference['widget_tz'] %>", "locale" : "<%= @ivr.message_locale %>-<%= @ivr.client.country_code %>"}', // initPayload: '/chat_widget_register{"client_identifier":"<%= @ivr.uid %>", "language":"fr"}',
+                customData: {"language": "<%= @ivr.message_locale[0..1] %>", "client_identifier": "<%= @ivr.uid %>", "timezone": "<%= @ivr.preference['widget_tz'] %>", "locale" : "<%= @ivr.message_locale %>-<%= @ivr.client.country_code %>"},
+                socketUrl: "<%= ENV['RASA_URL'] %>",
+                socketPath: "/socket.io/",
+                embedded: true,
+                title: "<%= t('services.share_messaging.chat_title') %>",
+                subtitle: "<%= t('services.share_messaging.chat_subtitle') %>",
+                hideWhenNotConnected: true,
+                showCloseButton: true,
+                showFullScreenButton: true,
+                storage: "session"
+            },
+            null
+        );
+        <% end %>
+    }),
+    t.insertBefore(e, t.firstChild);
+})();
+</script>

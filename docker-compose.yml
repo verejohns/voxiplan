@@ -1,0 +1,37 @@
+version: '3.6'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    container_name: voxi-db
+    volumes:
+      - "pg_data:/var/lib/postgresql/data"
+    environment:
+      POSTGRES_PASSWORD: password
+
+  app:
+    image: ruby:voxiplan-v2
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    container_name: voxiplan
+    working_dir: /app
+    command: bash -c "
+      bundle config github.com 7a910ea8f5fc6f0772d6f5f12e34c62b4cc0b6d8 && bundle update google-cloud-speech
+      && RAILS_ENV=development rake db:setup
+      && bundle exec rails s -b 0.0.0.0 "
+    volumes:
+      - ".:/app"
+      - "bundle_path:/usr/local/bundle"
+    environment:
+      RAILS_ENV: development
+    # restart: always
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+
+volumes:
+  bundle_path:
+  pg_data:

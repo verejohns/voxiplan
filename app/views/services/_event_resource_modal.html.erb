@@ -1,0 +1,1127 @@
+<!--begin::Add New Resource-->
+<form class="d-flex flex-column h-100 p-9" id="resource_modal_form" accept-charset="UTF-8" method="post">
+<input type="hidden" name="current_service_id" value="<%= params[:id] %>" />
+<div class="modal fade" id="kt_modal_add_new_resource" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+    <!--begin::Modal content-->
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('services.resources.add_resource') %></h5>
+
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+		            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+		              <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000" >
+		                <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
+		                <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                      x="0" y="7" width="16" height="2" rx="1" />
+		              </g>
+		            </svg>
+		          </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+
+      <div class="modal-body">
+        <div class="container">
+          <!--begin::Stepper-->
+          <div class="stepper stepper-pills stepper-column d-flex flex-column flex-md-row">
+            <!--begin::Aside-->
+            <div class="d-flex bg-body rounded justify-content-xl-start flex-row-auto w-100 w-md-300px me-9">
+              <!--begin::Wrapper-->
+              <div class="w-100 p-9">
+                <!--begin::Nav-->
+                <ul class="position-sticky stepper-nav nav nav-tabs border-0" style="top: 30px;" >
+                  <!--begin::Step 1-->
+                  <li class="nav-item">
+                    <a href="#kt_tab_pane_what_resource_is_this" class="resource-pane resource-name-link stepper-item nav-link border-0 active" data-pane="what_resource" data-bs-toggle="tab" >
+                      <!--begin::Label-->
+                      <div class="stepper-label"><h3 class="stepper-title"><%= t('services.resources.what_resource') %></h3></div>
+                      <!--end::Label-->
+                    </a>
+                  </li>
+                  <!--end::Step 1-->
+                  <!--begin::Step 2-->
+                  <li class="nav-item">
+                    <i class="las la-info-circle position-absolute end-100 align-self-start fs-2 text-dark me-1 " title="<%= t('services.title.reosurces_tooltip') %>" data-bs-toggle="tooltip"></i>
+                    <a href="#kt_tab_pane_when_can_people_book_this_resource" class="resource-pane resource-availability-link stepper-item nav-link border-0" data-pane="when_can_book" data-bs-toggle="tab">
+                      <!--begin::Label-->
+                      <div class="stepper-label"><h3 class="stepper-title"><%= t('services.resources.when_book_resource') %></h3></div>
+                      <!--end::Label-->
+                    </a>
+                  </li>
+                  <!--end::Step 2-->
+                  <!--begin::Step 3-->
+                  <li class="nav-item">
+                    <i class="las la-info-circle position-absolute end-100 align-self-start fs-2 text-dark me-1 " title="<%= t('services.title.reosurces_tooltip') %>" data-bs-toggle="tooltip"></i>
+                    <a href="#kt_tab_pane_which_calendar_should_it_use" class="resource-pane resource-calendar-link stepper-item nav-link border-0 pb-0" data-pane="which_calendar" data-bs-toggle="tab">
+                      <!--begin::Label-->
+                      <div class="stepper-label"><h3 class="stepper-title"><%= t('services.resources.which_calendar') %></h3></div>
+                      <!--end::Label-->
+                    </a>
+                  </li>
+                  <!--end::Step 3-->
+                </ul>
+                <!--end::Nav-->
+              </div>
+              <!--end::Wrapper-->
+            </div>
+            <!--begin::Aside-->
+            <!--begin::Content-->
+            <div class="bg-body w-100 rounded">
+              <!--begin::Form-->
+              <form class="d-flex flex-column h-100 p-9" id="resource_modal_form" action="/" method="post">
+                <input type="hidden" name="selected_resource_id" id="selected_resource_id" value="" />
+                <input type="hidden" name="conflict_calendar_ids" />
+                <input type="hidden" name="added_calendar_ids" />
+                <input type="hidden" name="cur_ivr" value="<%= params[:ivr_id] %>" />
+                <!--begin::Tab content-->
+                <div class="tab-content pb-10">
+                  <!--begin::Step 1-->
+                  <div class="tab-pane fade show active" id="kt_tab_pane_what_resource_is_this" role="tabpanel" >
+                    <!--begin::Wrapper-->
+                    <div class="w-100">
+                      <!--begin::Field-->
+                      <div class="mb-5">
+                        <label class="form-label"><%= t('services.resources.name_label') %></label>
+                        <input type="text" class="form-control" name="resource_ename" id="resource_ename"/>
+                      </div>
+                      <!--end::Field-->
+                      <div id="kt_accordion_advance_settings">
+                        <a href="javascript:;" class="fw-bold text-decoration-underline" data-bs-toggle="collapse" data-bs-target="#kt_accordion_advance_settings_content">
+                          <%= t('services.resources.advance_settings') %>
+                          <i class="fas fa-angle-right text-primary mt-1 ps-1"></i>
+                        </a>
+                        <div id="kt_accordion_advance_settings_content" class="collapse pt-4" data-bs-parent="#kt_accordion_advance_settings" >
+                          <!--begin::Field-->
+                          <div>
+                            <label class="form-label"><%= t('services.resources.different_resource_name') %></label>
+                            <input type="text" class="form-control" name="resource_name" id="resource_name"/>
+                          </div>
+                          <!--end::Field-->
+                        </div>
+                      </div>
+                    </div>
+                    <!--end::Wrapper-->
+                  </div>
+                  <!--end::Step 1-->
+                  <!--begin::Step 2-->
+                  <div class="tab-pane fade" id="kt_tab_pane_when_can_people_book_this_resource" role="tabpanel">
+                    <!--begin::Wrapper-->
+                    <div class="w-100">
+                      <!--begin::Field-->
+                      <div class="mb-10">
+                        <label class="form-label"><%= t('services.resources.duration_label') %></label>
+                        <div class="input-group mb-3">
+                          <input type="number" class="form-control" name="resource_duration" id="resource_duration"/>
+                          <span class="input-group-text"><%= t('services.minutes') %></span>
+                        </div>
+                        <span class="form-text"><%= t('services.resources.duration_help') %></span>
+                      </div>
+                      <!--end::Field-->
+                      <div class="mb-0">
+                        <label class="form-label"><%= t('services.resources.availability') %></label>
+                        <!--begin::Row-->
+                        <div class="row">
+                          <!--begin::Col-->
+                          <div class="col-md-6">
+                            <!--begin::Option-->
+                            <input type="hidden" name="resource_availability_category" id="resource_availability_category">
+                            <input type="radio" class="btn-check" name="resource_availability_type" id="resource_availability_default" checked >
+                            <label class="btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center h-md-100 mb-10 mb-md-0" for="resource_availability_default" >
+                              <!--begin::Svg Icon | path: icons/duotone/Code/Time-schedule.svg-->
+                              <span class="svg-icon svg-icon-3x me-5">
+																		<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+																				<path d="M10.9630156,7.5 L11.0475062,7.5 C11.3043819,7.5 11.5194647,7.69464724 11.5450248,7.95024814 L12,12.5 L15.2480695,14.3560397 C15.403857,14.4450611 15.5,14.6107328 15.5,14.7901613 L15.5,15 C15.5,15.2109164 15.3290185,15.3818979 15.1181021,15.3818979 C15.0841582,15.3818979 15.0503659,15.3773725 15.0176181,15.3684413 L10.3986612,14.1087258 C10.1672824,14.0456225 10.0132986,13.8271186 10.0316926,13.5879956 L10.4644883,7.96165175 C10.4845267,7.70115317 10.7017474,7.5 10.9630156,7.5 Z" fill="#000000" />
+																				<path d="M7.38979581,2.8349582 C8.65216735,2.29743306 10.0413491,2 11.5,2 C17.2989899,2 22,6.70101013 22,12.5 C22,18.2989899 17.2989899,23 11.5,23 C5.70101013,23 1,18.2989899 1,12.5 C1,11.5151324 1.13559454,10.5619345 1.38913364,9.65805651 L3.31481075,10.1982117 C3.10672013,10.940064 3,11.7119264 3,12.5 C3,17.1944204 6.80557963,21 11.5,21 C16.1944204,21 20,17.1944204 20,12.5 C20,7.80557963 16.1944204,4 11.5,4 C10.54876,4 9.62236069,4.15592757 8.74872191,4.45446326 L9.93948308,5.87355717 C10.0088058,5.95617272 10.0495583,6.05898805 10.05566,6.16666224 C10.0712834,6.4423623 9.86044965,6.67852665 9.5847496,6.69415008 L4.71777931,6.96995273 C4.66931162,6.97269931 4.62070229,6.96837279 4.57348157,6.95710938 C4.30487471,6.89303938 4.13906482,6.62335149 4.20313482,6.35474463 L5.33163823,1.62361064 C5.35654118,1.51920756 5.41437908,1.4255891 5.49660017,1.35659741 C5.7081375,1.17909652 6.0235153,1.2066885 6.2010162,1.41822583 L7.38979581,2.8349582 Z" fill="#000000" opacity="0.3" />
+																		</svg>
+																	</span>
+                              <!--end::Svg Icon-->
+                              <!--begin::Info-->
+                              <span class="d-block fw-bold text-start">
+																		<span class="text-dark fw-bolder d-block fs-4 mb-2"><%= t('services.booking_time.use_default_hours') %></span>
+																		<span class="text-muted fw-bold fs-6"><%= t('services.booking_time.use_default_hours_help') %></span>
+																	</span>
+                              <!--end::Info-->
+                            </label>
+                            <!--end::Option-->
+                          </div>
+                          <!--end::Col-->
+                          <!--begin::Col-->
+                          <div class="col-md-6">
+                            <!--begin::Option-->
+                            <input type="radio" class="btn-check" name="resource_availability_type" id="resource_availability_customize" >
+                            <label class="btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center h-md-100" for="resource_availability_customize">
+                              <!--begin::Svg Icon | path: icons/duotone/Code/Time-schedule.svg-->
+                              <span class="svg-icon svg-icon-3x me-5">
+																		<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+																				<path d="M10.9630156,7.5 L11.0475062,7.5 C11.3043819,7.5 11.5194647,7.69464724 11.5450248,7.95024814 L12,12.5 L15.2480695,14.3560397 C15.403857,14.4450611 15.5,14.6107328 15.5,14.7901613 L15.5,15 C15.5,15.2109164 15.3290185,15.3818979 15.1181021,15.3818979 C15.0841582,15.3818979 15.0503659,15.3773725 15.0176181,15.3684413 L10.3986612,14.1087258 C10.1672824,14.0456225 10.0132986,13.8271186 10.0316926,13.5879956 L10.4644883,7.96165175 C10.4845267,7.70115317 10.7017474,7.5 10.9630156,7.5 Z" fill="#000000" />
+																				<path d="M7.38979581,2.8349582 C8.65216735,2.29743306 10.0413491,2 11.5,2 C17.2989899,2 22,6.70101013 22,12.5 C22,18.2989899 17.2989899,23 11.5,23 C5.70101013,23 1,18.2989899 1,12.5 C1,11.5151324 1.13559454,10.5619345 1.38913364,9.65805651 L3.31481075,10.1982117 C3.10672013,10.940064 3,11.7119264 3,12.5 C3,17.1944204 6.80557963,21 11.5,21 C16.1944204,21 20,17.1944204 20,12.5 C20,7.80557963 16.1944204,4 11.5,4 C10.54876,4 9.62236069,4.15592757 8.74872191,4.45446326 L9.93948308,5.87355717 C10.0088058,5.95617272 10.0495583,6.05898805 10.05566,6.16666224 C10.0712834,6.4423623 9.86044965,6.67852665 9.5847496,6.69415008 L4.71777931,6.96995273 C4.66931162,6.97269931 4.62070229,6.96837279 4.57348157,6.95710938 C4.30487471,6.89303938 4.13906482,6.62335149 4.20313482,6.35474463 L5.33163823,1.62361064 C5.35654118,1.51920756 5.41437908,1.4255891 5.49660017,1.35659741 C5.7081375,1.17909652 6.0235153,1.2066885 6.2010162,1.41822583 L7.38979581,2.8349582 Z" fill="#000000" opacity="0.3" />
+																		</svg>
+																	</span>
+                              <!--end::Svg Icon-->
+                              <!--begin::Info-->
+                              <span class="d-block fw-bold text-start">
+																		<span class="text-dark fw-bolder d-block fs-4 mb-2"><%= t('services.booking_time.set_custom_hours') %></span>
+																		<span class="text-muted fw-bold fs-6"><%= t('services.booking_time.set_custom_hours_help') %></span>
+																	</span>
+                              <!--end::Info-->
+                            </label>
+                            <!--end::Option-->
+                          </div>
+                          <!--end::Col-->
+                        </div>
+                        <!--end::Row-->
+                        <div id="resource_availability_default_content" class="collapse show">
+                          <div class="pt-10">
+                            <!--begin::Field-->
+                            <div class="mb-10">
+                              <label class="form-label"><%= t('services.resources.which_schedule') %></label>
+                              <%= select_tag :resource_schedule_templates, options_for_select(@schedule_templates.map {|s| [s.is_default ? '* ' + s.template_name : s.template_name, s.id] }),
+                                             class: "form-select", data: { control: 'select2', placeholder: "Select an option", 'minimum-results-for-search': 'Infinity' } %>
+
+                            </div>
+                            <!--end::Field-->
+
+                            <div class="card card-bordered">
+                              <div class="card-body p-0">
+                                <div class="row gx-0">
+                                  <div class="col-md">
+                                    <div class="py-8 px-9 default_availability_section">
+
+                                    </div>
+                                  </div>
+                                  <div class="col-md-auto w-md-300px border-start">
+                                    <div class="py-8 px-9">
+                                      <div class="fw-bold fs-4 mb-4"><%= t('availabilities.override.header') %></div>
+                                      <div class="small text-muted mb-4"><%= t('services.resources.override_help') %></div>
+                                      <a class="btn btn-sm btn-light-primary" href="<%= availablities_path %>"><%= t('services.resources.goto_availability') %></a>
+
+                                      <div class="separator my-7"></div>
+                                      <div class="default_overrides_section">
+
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="resource_availability_customize_content" class="collapse">
+                          <div class="pt-10">
+                            <div class="card card-bordered">
+                              <div class="card-header">
+                                <div class="card-toolbar"></div>
+                                <div class="card-toolbar">
+                                  <a class="btn btn-sm btn-light-primary" href="#kt_modal_save_as_new_schedule" data-bs-toggle="modal">
+                                    <%= t('services.resources.saveas_schedule') %>
+                                  </a>
+                                </div>
+                              </div>
+                              <div class="card-body p-0">
+                                <div class="row gx-0">
+                                  <div class="col-md availability_week">
+                                    <%= render 'shared/availability_week', availability: @resource_availability %>
+                                  </div>
+                                  <div class="col-md-auto w-md-300px border-start availability_date_override">
+                                    <%= render 'shared/availability_date_override', overrides: nil %>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--end::Wrapper-->
+                  </div>
+                  <!--end::Step 2-->
+                  <!--begin::Step 3-->
+                  <div class="tab-pane fade" id="kt_tab_pane_which_calendar_should_it_use" role="tabpanel" >
+                    <!--begin::Wrapper-->
+                    <div class="w-100">
+                      <!--begin::Field-->
+                      <div class="mb-0">
+                        <label class="form-label"><%= t('services.resources.choose_calendar') %></label>
+                        <select id="kt_option_my_calendar" name="calendar_type" class="form-select" data-control="select2" data-placeholder="<%= t('calendar_connection.add_to_calendar.select_calendar') %>" data-minimum-results-for-search="Infinity">
+                          <option value="my_calendar"><%= t('services.resources.my_calendar') %></option>
+                          <% if checkRelationTuple("/organization-" + session[:current_organization].id.to_s, "manage", "client-" + current_client.id.to_s) %>
+                            <option value="team_calendar"><%= t('services.resources.team_calendar') %></option>
+                          <% end %>
+                        </select>
+                      </div>
+                      <!--end::Field-->
+
+                      <div id="kt_option_content_my_calendar" class="collapse">
+                        <div class="pt-7">
+                          <label class="form-label"><%= t('services.resources.synced_calendar') %></label>
+                          <!--begin::Radio-->
+                          <input type="hidden" name="my_calendar_type" id="my_calendar_type">
+                          <label class="form-check form-check-custom form-check-solid align-self-start mb-4">
+                            <input id="kt_checkbox_set_a_default_configuration" name="resource_calendar_type" class="form-check-input" type="radio" checked >
+                            <span class="form-check-label"><%= t('services.resources.use_default') %></span>
+                          </label>
+                          <!--end::Radio-->
+                          <!--begin::Radio-->
+                          <label class="form-check form-check-custom form-check-solid align-self-start mb-0">
+                            <input id="kt_checkbox_set_a_custom_configuration" name="resource_calendar_type" class="form-check-input" type="radio" >
+                            <span class="form-check-label"><%= t('services.resources.custom_configuration') %></span>
+                          </label>
+                          <!--end::Radio-->
+                          <div id="kt_checkbox_content_set_a_custom_configuration" class="collapse">
+                            <div class="pt-7">
+                              <div class="row">
+                                <div class='px-10 py-5 check-conflict-section'>
+                                  <div class="d-flex align-items-center">
+
+                                    <!--begin::Wrapper-->
+                                    <div class="d-flex flex-stack flex-grow-1 flex-wrap flex-md-nowrap">
+                                      <!--begin::Content-->
+                                      <div class="mb-3 mb-md-0 fw-bold">
+                                        <h4 class="text-gray-900 fw-bolder"><%= t('calendar_connection.check_for_conflicts') %></h4>
+                                        <div class="fs-6 text-muted pe-7"><%= t('calendar_connection.check_for_conflicts_detail') %></div>
+                                      </div>
+                                      <!--end::Content-->
+                                    </div>
+                                    <!--end::Wrapper-->
+                                  </div>
+                                  <!--begin::Items-->
+                                  <div class="row check-conflict-list">
+
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="px-10 py-5 added-calendar-section">
+                                  <div class="d-flex align-items-center">
+
+                                    <!--begin::Wrapper-->
+                                    <div class="d-flex flex-stack flex-grow-1 flex-wrap flex-md-nowrap">
+                                      <!--begin::Content-->
+                                      <div class="mb-3 mb-md-0 fw-bold">
+                                        <h4 class="text-gray-900 fw-bolder"><%= t('calendar_connection.add_to_calendar.caption') %></h4>
+                                        <div class="fs-6 muted pe-7"><%= t('calendar_connection.add_to_calendar.description') %></div>
+                                      </div>
+                                      <!--end::Content-->
+                                    </div>
+                                    <!--end::Wrapper-->
+                                  </div>
+                                  <!--begin::Items-->
+
+                                  <div class="row added-calendar-list">
+
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="kt_option_content_team_members_calendar" class="collapse">
+                        <div class="pt-7">
+                          <!--begin::Field-->
+                          <div class="mb-7">
+                            <label class="form-label"><%= t('services.resources.existing_user_calendar') %></label>
+                            <input type="hidden" name="team_calendar_client_id" id="team_calendar_client_id">
+                            <select class="form-select" id="team_calendar" name="team_calendar" data-control="select2" data-placeholder="<%= t('services.resources.select_users') %>" data-minimum-results-for-search="Infinity">
+                              <option value=""></option>
+                              <% @calendar_enabled_members.each do |member| %>
+                                <option value="<%= member[:id] %>" calendars="<%=member[:calendars] %>"><%= member[:name] %></option>
+                              <% end %>
+                            </select>
+                          </div>
+                          <!--end::Field-->
+                          <!--begin::Field-->
+                          <div class="mb-0">
+                            <label class="form-label"><%= t('services.resources.invite_user') %></label>
+                            <input type="email" class="form-control" />
+                          </div>
+                          <!--end::Field-->
+                        </div>
+                      </div>
+                    </div>
+                    <!--end::Wrapper-->
+                  </div>
+                  <!--end::Step 3-->
+                </div>
+                <!--end::Tab content-->
+              </form>
+              <!--end::Form-->
+            </div>
+            <!--end::Content-->
+          </div>
+          <!--end::Stepper-->
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal" ><%= t('button.cancel') %></button>
+        <button id="save_default_hours" type="button" class="btn btn-primary" onclick="saveResource(this)">
+          <span class="indicator-label"><%= t('common.button.submit') %></span>
+          <span class="indicator-progress"><%= t('common.please_wait') %>
+            <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+        </button>
+      </div>
+    </div>
+
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+<!--end::Add New Resource-->
+</form>
+
+<div class="modal fade" id="kt_modal_check_for_conflicts" tabindex="-1" aria-hidden="true">
+  <input type="hidden" name="selected_calendar_account" />
+  <input type="hidden" name="calendar_type" />
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered mw-500px">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title d-flex">
+					<span class="symbol symbol-40px me-2">
+						<!--begin::Icon-->
+						<img class="provider-icon" alt="Google Calendar">
+            <!--end::Icon-->
+					</span>
+          <span><%= t('calendar_connection.check_conflicts.description') %><br />
+						<span class="fw-normal small text-muted profile-name"></span>
+					</span>
+        </h5>
+
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+              <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+                <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
+                <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                      x="0" y="7" width="16" height="2" rx="1" />
+              </g>
+            </svg>
+          </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+
+      <div class="modal-body">
+        <!--begin::Field-->
+        <div class="fv-row">
+          <label class="form-label"><%= t('calendar_connection.check_conflicts.check_places') %></label>
+          <div class="conflict-calendars"></div>
+        </div>
+        <!--end::Field-->
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal"><%= t('button.cancel') %></button>
+        <button type="button" class="btn btn-primary update-conflict-calendar"><%= t('common.button.update') %></button>
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+
+<!--begin::Add to calendar -->
+<div class="modal fade" id="kt_modal_add_to_calendar" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered mw-500px">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('calendar_connection.add_to_calendar.dialog_title') %></h5>
+
+        <!--begin::Close-->
+        <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+          <span class="svg-icon svg-icon-2x"></span>
+        </div>
+        <!--end::Close-->
+      </div>
+
+      <div class="modal-body">
+        <% ApplicationCalendar.where(organization_id: session[:current_organization].id, client_id: current_client.id ).each_with_index do |application_calendar, index| %>
+          <div class="d-flex fv-row mb-4">
+            <div class="form-check form-check-custom form-check-solid">
+              <input type="hidden" name="application_calendar_id" value="<%=application_calendar.calendar_id %>" />
+              <input type="hidden" name="application_name" value="<%=application_calendar.name %>" />
+              <input class="form-check-input me-3" name="calendar_account" type="radio" value="<%= application_calendar.calendar_name %>" id="application-account-<%= index+1 %>" checked />
+              <span class="symbol symbol-40px me-1">
+                    <!--begin::Icon-->
+                    <img src="/assets/onboarding/google-calendar.svg" alt="Google Calendar">
+                <!--end::Icon-->
+                  </span>
+              <label class="form-check-label" for="application-account-<%= index+1 %>">
+                <div class="text-gray-800 fs-5"><%= application_calendar.name %></div>
+              </label>
+            </div>
+          </div>
+        <% end %>
+
+        <% current_client.agenda_apps.where("type=?", "ClassicAgenda").each_with_index do |calendar_account, index| %>
+          <div class="d-flex fv-row mb-4">
+            <div class="form-check form-check-custom form-check-solid">
+              <input class="form-check-input me-3" name="calendar_account" type="radio" value="<%= calendar_account.cronofy_profile_name %>" id="account-<%= index+1 %>" />
+              <span class="symbol symbol-40px me-1">
+                    <!--begin::Icon-->
+                    <img src="/assets/onboarding/google-calendar.svg" alt="Google Calendar">
+                <!--end::Icon-->
+                  </span>
+              <label class="form-check-label" for="account-<%= index+1 %>">
+                <div class="text-gray-800 fs-5"><%= calendar_account.cronofy_profile_name %></div>
+              </label>
+            </div>
+          </div>
+        <% end %>
+
+        <div class="d-flex fv-row">
+          <div class="form-check form-check-custom form-check-solid">
+            <input class="form-check-input me-3" name="calendar_account" type="radio" value="none" id="account-0" />
+            <label class="form-check-label" for="account-0">
+              <div class="text-gray-800 fs-5"><%= t('calendar_connection.add_to_calendar.donot_add_an_event') %></div>
+            </label>
+          </div>
+        </div>
+
+        <div id="calendar_section">
+          <div class="separator separator-dashed my-5"></div>
+
+          <div class="add_calendar_section">
+            <label class="form-check-label fs-4 fw-bolder my-3 add-to-calendar-label"><%= t('calendar_connection.add_to_calendar.caption') %></label>
+            <select class="form-select add-to-calendar" name="calendar_id" data-control="select2" data-placeholder="<%= t('calendar_connection.add_to_calendar.caption') %>">
+
+            </select>
+          </div>
+
+          <label class="form-check-label fs-4 fw-bolder mt-8 mb-5"><%= t('calendar_connection.add_to_calendar.sync_cancellations') %></label>
+          <div class="form-check form-check-custom form-check-solid">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked/>
+            <label class="form-check-label fs-5" for="flexCheckDefault">
+              <%= t('calendar_connection.add_to_calendar.cancel_event') %>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal"><%= t('common.button.close') %></button>
+        <button type="button" class="btn btn-primary update-add-calendar" ><%= t('common.button.update') %></button>
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+<!--end::Add to calendar-->
+
+<div class="modal fade" id="kt_modal_no_calendars" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-dialog-centered mw-500px">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('services.no_calendars_modal.title') %></h5>
+
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+		            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+		              <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+		                <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1"/>
+		                <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                          x="0" y="7" width="16" height="2" rx="1"/>
+		              </g>
+		            </svg>
+		          </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+
+      <div class="modal-body">
+        <%= raw t('services.no_calendars_modal.content') %>
+      </div>
+
+      <div class="modal-footer">
+        <a class="btn btn-primary" href="javascript:;" id="no_calendars_confirm"><%= raw t('services.no_calendars_modal.button') %></a>
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+
+<script>
+    function saveResource(button_obj) {
+
+        if ($('input#resource_ename').val() == '') {
+            showMessage('error', '<%= t('services.resources.required_name') %>');
+        }
+        else {
+            const resource_id = $('input#selected_resource_id').val();
+            const user_action = resource_id == '' ? 'create' : 'update';
+
+            button_obj.disabled = true;
+            button_obj.setAttribute('data-kt-indicator', 'on');
+
+            $('form#resource_modal_form').ajaxSubmit({
+                success: function(response) {
+                    button_obj.disabled = false;
+                    button_obj.removeAttribute('data-kt-indicator');
+
+                    $('div#kt_modal_add_new_resource').modal('hide');
+                    showMessage(response.result, response.message);
+                    if (response.result == 'success') {
+                        if (user_action == 'create') {
+                            let new_card = `
+                                <div class="col-md-6 col-lg-3 mb-6">
+                                    <div class="position-relative h-md-100">
+                                      <!--begin::Mixed Widget-->
+                                      <div class="card resource-card h-md-100 bg-light rounded-bottom-0 border-bottom border-4 border-light-dark" data-resource-id="` + response.resource_id + `">
+                                        <div class="card-header min-h-50px border-0 pt-4 px-6">
+                                          <div class="card-title">
+                                            <div class="card-label text-muted">` + $('input#resource_ename').val() + `</div>
+                                          </div>
+                                          <div class="card-toolbar">
+                                            <a href="javascript:;" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
+                                              <i class="card_edit_symbol bi bi-pencil-square text-dark"></i>
+                                            </a>
+
+                                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-200px py-3 mt-4" data-kt-menu="true">
+                                              <div class="menu-item px-3">
+                                                <a href="#kt_modal_add_new_resource" class="edit-resource menu-link px-3" data-bs-toggle="modal" onclick="editResource(` + response.resource_id + `)">` + "<%= t('services.button.edit') %>" + `</a>
+                                              </div>
+                                              <div class="menu-item px-3">
+                                                <a href="#" class="menu-link px-3" data-resource-id="` + response.resource_id + `" onclick="removeResource(this, ` + response.resource_id + `)">` + "<%= t('services.button.remove') %>" + `</a>
+                                              </div>
+
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <!--begin::Body-->
+                                        <div class="card-body pt-0 pb-4 px-6">
+                                              <span class="d-block text-muted fw-bold fs-6">
+                                                ` + "<%= t('services.resources.schedule') %>" + `
+                                                ` + (response.calendar_id ? "<%= t('services.resources.calendar') %>" : "") + `
+                                              </span>
+                                        </div>
+                                        <!--end::Body-->
+                                        <!--begin::Footer-->
+                                        <div class="card-footer d-flex border-0 py-4 px-6">
+                                          <button class="btn btn-primary btn-sm" type="button" data-turn-status="off" onclick="toggleResource(this, ` + response.resource_id + `)">
+                                            <i class="bi-toggle-on"></i>
+                                            ` + "<%= t('services.button.turn_on') %>" + `
+                                          </button>
+                                        </div>
+                                        <!--end::Footer-->
+
+                                      </div>
+                                      <!--end::Mixed Widget-->
+                                    </div>
+                                </div>
+                            `;
+                            $('div.new_resource_card').before(new_card);
+                            $('input#resource_ename').val('');
+                            KTMenu.createInstances();
+                            $('#add_resource').attr('resources', parseInt($('#add_resource').attr('resources')) + 1);
+                        }
+                        if (user_action == 'update') {
+                            $('div.resource-card[data-resource-id=' + resource_id + '] div.card-label').html($('input#resource_ename').val());
+                        }
+                    }
+                }
+            });
+
+        }
+
+    }
+
+    function getSchduleAvailabilites(schedule_id) {
+        $.ajax({
+            method: "post",
+            url: "<%= get_availablities_resources_path %>",
+            data: {
+                schedule_id: schedule_id
+            },
+            success: function(response) {
+                const availabilities = response['availabilities'];
+                const overrides = response['overrides'];
+
+                let availabilities_content = '';
+                availabilities_content += getAvailabilitesOfDay(availabilities, 'mon', "<%= full_day_name('mon') %>");
+                availabilities_content += getAvailabilitesOfDay(availabilities, 'tue', "<%= full_day_name('tue') %>");
+                availabilities_content += getAvailabilitesOfDay(availabilities, 'wed', "<%= full_day_name('wed') %>");
+                availabilities_content += getAvailabilitesOfDay(availabilities, 'thu', "<%= full_day_name('thu') %>");
+                availabilities_content += getAvailabilitesOfDay(availabilities, 'fri', "<%= full_day_name('fri') %>");
+                availabilities_content += getAvailabilitesOfDay(availabilities, 'sat', "<%= full_day_name('sat') %>");
+                availabilities_content += getAvailabilitesOfDay(availabilities, 'sun', "<%= full_day_name('sun') %>");
+                $('div.default_availability_section').html(availabilities_content);
+
+                let overrides_content = '';
+                $.each(overrides, function(date, override) {
+                    let time_slot_content = '';
+                    $.each(override, function(index, time_slot) {
+                        time_slot_content += `<span class="d-block" >` + time_slot['from'] + ` - ` + time_slot['to'] + `</span>`
+                    })
+                    overrides_content += `
+                        <div class="row mb-2">
+                          <div class="col-6 pt-2">` + date + `</div>
+                          <div class="col-6 pt-2">` + time_slot_content + `</div>
+                        </div>`
+                })
+
+                $('div.default_overrides_section').html(overrides_content);
+            }
+        });
+    }
+
+    function getAvailabilitesOfDay(availabilities, short_day, full_day) {
+        let content = '';
+        const availability = availabilities[short_day];
+        if (availability) {
+            $.each(availability, function(index, time_slot) {
+                content += `
+                    <div class="row gx-4 ` + (index == availability.length - 1 ? 'mb-6' : 'mb-2')+ `">
+                      <div class="col-md-auto text-muted fs-8 ls-1 text-uppercase w-md-150px">`+ (index == 0 ? full_day : '') + `</div>
+                      <div class="col-md text-dark">` + time_slot['from'] + ` - ` + time_slot['to'] + `</div>
+                    </div>`
+            })
+        }
+        else {
+            content = `<div class="row gx-4 mb-6">
+                        <div class="col-md-auto text-muted fs-8 ls-1 text-uppercase w-md-150px">`+ full_day + `</div>
+                        <div class="col-md text-muted fs-8 text-uppercase"> <%= t('availabilities.unavailable') %> </div>
+                      </div>`;
+        }
+        return content;
+    }
+
+    function showConflictDialog(obj, calendar_account, provider_name, calendar_id, calendar_name) {
+        const auth = $('[name="csrf-token"]')[0].content;
+        $('div.conflict-calendars').html('');
+        $('div#kt_modal_check_for_conflicts span.profile-name').html(calendar_account);
+
+        const conflict_calendars_ids = $(obj).parent().next().attr('data-calendar-ids');
+        const conflict_calendars_conflicts = $(obj).parent().next().attr('data-calendar-conflicts');
+
+        if (provider_name == 'application') $('div#kt_modal_check_for_conflicts span.symbol').html('<i class="bi bi-calendar text-primary me-2" style="font-size: 35px; line-height: 1.5;"></i>');
+        else {
+            $('div#kt_modal_check_for_conflicts span.symbol').html('<img class="provider-icon" alt="Google Calendar">');
+            const icon_obj = $('div#kt_modal_check_for_conflicts img.provider-icon');
+            if (provider_name == 'apple') $(icon_obj).attr('src', '/assets/onboarding/icloud-calendar.svg');
+            if (provider_name == 'exchange') $(icon_obj).attr('src', '/assets/onboarding/exchange-calendar.svg');
+            if (provider_name == 'office365') $(icon_obj).attr('src', '/assets/onboarding/office-365-calendar.svg');
+            if (provider_name == 'live_connect') $(icon_obj).attr('src', '/assets/onboarding/outlook-plug-in.svg');
+            if (provider_name == 'google') $(icon_obj).attr('src', '/assets/onboarding/google-calendar.svg');
+        }
+
+        if (provider_name == 'application') {
+            const checked = conflict_calendars_ids ? 'checked' : '';
+            const conflicts_calendars = '<label class="form-check form-check-custom form-check-solid my-3">' +
+                '<input class="form-check-input" type="checkbox" name="conflict_calendar[]" value="' + calendar_id + '"' + checked + ' />' +
+                '<span class="form-check-label">' + (calendar_name.substring(0, 8) == 'cronofy_' ? ('voxiplan_calendar_' + calendar_name.slice(-12)) : calendar_name) + '</span>' +
+                '</label>';
+            $('div.conflict-calendars').html(conflicts_calendars);
+            $('input[name=selected_calendar_account]').val(calendar_name);
+            $('input[name=calendar_type]').val('application');
+            $('div#kt_modal_check_for_conflicts').modal('show');
+        } else {
+            $('div.loader-body').show();
+            $.ajax({
+                url: "/agenda_app/get_calendars_of_agenda",
+                type: "POST",
+                data: {
+                    authenticity_token: auth,
+                    calendar_account: calendar_account
+                },
+                success: function(response) {
+                    $('div.loader-body').hide();
+
+                    let conflicts_calendars = "";
+                    const conflict_calendars_list = conflict_calendars_ids.split(',');
+
+                    response.calendars.forEach((calendar) => {
+                        let existed_conflict = false;
+                        for (let i = 0; i < conflict_calendars_list.length; i++) {
+                            if (conflict_calendars_list[i] == calendar[1]) {
+                                existed_conflict = true;
+                                break;
+                            }
+                        }
+
+                        const checked = existed_conflict ? 'checked' : '';
+                        conflicts_calendars += '<label class="form-check form-check-custom form-check-solid my-3">' +
+                            '<input class="form-check-input" type="checkbox" name="conflict_calendar[]" value="' + calendar[1] + '" ' + checked + ' />' +
+                            '<span class="form-check-label">' + calendar[0] + '</span>' +
+                            '</label>'
+                    })
+                    $('div.conflict-calendars').html(conflicts_calendars);
+                    $('input[name=selected_calendar_account]').val(calendar_account);
+                    $('input[name=calendar_type]').val('external');
+                    $('div#kt_modal_check_for_conflicts').modal('show');
+                },
+                error: function(data) {
+                    $('div.loader-body').hide();
+                }
+            });
+        }
+    }
+
+    function showAddedCalendarDialog(obj, flag) {
+        const added_calendars_ids = $(obj).parent().next().attr('data-calendar-ids');
+        const added_calendars_account = $(obj).parent().next().attr('data-calendar-account');
+
+        // check calendar account that has "add to calendar"
+        $.each($('input[name=calendar_account]'), function(key, input_calendar_account) {
+            if ($(input_calendar_account).val() == added_calendars_account)
+                $(input_calendar_account).prop('checked', true);
+        })
+
+        if (flag == 'account') {
+            $('select.add-to-calendar').select2().val(added_calendars_ids).trigger('change');
+        }
+        $('div#kt_modal_add_to_calendar').modal('show');
+    }
+
+    getSchduleAvailabilites(0);
+
+    $('select#team_calendar').on('change', function() {
+        if ($(this).find(':selected').attr('calendars') == 'false') $('#kt_modal_no_calendars').modal('show');
+    });
+
+    $('#no_calendars_confirm').click(function() {
+        $("#team_calendar").val("").trigger("change");
+        $('#kt_modal_no_calendars').modal('hide');
+    });
+
+    // event for change schedule template
+    $('select#resource_schedule_templates').on('change', function() {
+        getSchduleAvailabilites($(this).val())
+    });
+
+    // event for change calendar type ('application calendar', 'my calendar', 'team calendar')
+    $('select#kt_option_my_calendar').on('change', function() {
+        if ($(this).val() == 'my_calendar') {
+            $('div.loader-body').show();
+            const url = $('input#selected_resource_id').val() == '' ? '<%= get_calendar_info_of_default_resources_path %>' : '<%= get_calendar_info_of_resource_resource_path %>';
+            $.ajax({
+                url: url,
+                type: "POST",
+                data: {
+                    current_service_id: $('input[name=current_service_id]').val(),
+                    resource_id: $('input#selected_resource_id').val()
+                },
+                success: function (response) {
+                    $('div.loader-body').hide();
+
+                    let content = '';
+                    let calendar_ids = [];
+                    $.each(response.conflict_calendars, function(key, value) {
+                        console.log('calendar_id = ' + value.calendar_id);
+                        if (value.calendar_id != '') calendar_ids.push(value.calendar_id);
+                        const profile = value.provider == "application" ? value.calendar[0] : value.profile;
+                        content += `
+                            <div class="col-md-6 mt-4">
+                                <div class="bg-light h-md-100 rounded-2 pt-4 pb-3 px-4">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <span class="text-dark fs-6 me-1">` + '<%= t('calendar_connection.check_conflicts.check') %>' + `</span>
+                                        <span class="text-dark fw-bold fs-6 text-truncaten calendar-profile" title="" data-bs-toggle="tooltip">` + value.profile + `</span>
+                                        <a class="d-inline-block text-muted ms-2" style="cursor:pointer" onclick="showConflictDialog(this, '` + value.profile + `', '` + value.provider + `', '` + value.calendar_id[0] + `', '` + value.calendar[0] + `')">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </a>
+                                    </div>
+                                    <div class="d-flex flex-wrap conflict-calendar-ids" data-calendar-account="` + profile +`" data-calendar-ids="` + value.calendar_id + `" data-calendar-conflicts="` + value.conflict_calendars + `">`
+                        if (value.calendar.length == 0 || value.provider == 'application' && value.conflict_calendars.length == 0) {
+                            content += `
+                                <div class="bg-light-warning h-md-100 rounded-2 pt-4 pb-3 px-4">
+                                    <span class="text-warning fw-bold fs-6 mt-1 me-2">` + '<%= t('calendar_connection.check_conflicts.donot_check_conflict') %>' + `</span>
+                                </div>`
+                        }
+                        else {
+                            $.each(value.calendar, function(index, calendar) {
+                                content += `<span class="badge badge-light-primary my-1 me-2">` + (calendar.substring(0, 8) == 'cronofy_' ? ('voxiplan_calendar_' + calendar.slice(-12)) : calendar) + `</span>`
+                            });
+                        }
+                        content += `</div></div></div>`
+                    });
+
+                    $('div.check-conflict-list').html(content);
+                    $('input[name=conflict_calendar_ids]').val(calendar_ids.toString());
+
+                    // show info of "add to calendar"
+                    content = '';
+                    if (response.added_calendars == null) {
+                        content = `<div class='added-calendar-account-section'>
+                            <div class="alert bg-transparent border border-warning d-flex align-items-center flex-column flex-sm-row w-100 py-3 px-5 mt-4 mb-0">
+                              <!--begin::Content-->
+                              <div class="d-flex flex-column">
+                                              <span class="fw-bold text-warning">` + '<%= t('calendar_connection.add_to_calendar.there_is_no_calendar') %>' + `</span>
+                              </div>
+                              <!--end::Content-->
+                            </div>
+                            <!--end::Alert-->
+                            <!--begin::Items-->
+                            <div class="row">
+                              <div class="col-md-6 mt-4">
+                                <div class="bg-light-warning h-md-100 rounded-2 pt-4 pb-3 px-4">
+                                  <div class="d-flex mb-2">
+                                    <span class="text-warning fw-bold fs-6 mt-1 me-2">
+                                                    <span class="text-uppercase">` + '<%= t('calendar_connection.add_to_calendar.calendar_not_selected') %>' + `</span>
+                                                    <br />` + '<%= t('calendar_connection.add_to_calendar.donot_add_any_event') %>' +`
+                                                  </span>
+                                    <a class="d-inline-block text-warning ms-auto" style="cursor:pointer" onclick="showAddedCalendarDialog(this, 'none')">
+                                      <i class="bi bi-pencil-square"></i>
+                                    </a>
+
+                                  </div>
+                                  <div class="d-flex flex-wrap added-calendar-ids">
+                                  </div>
+                                </div>
+                              </div>
+                            </div></div>`
+                    }
+                    else {
+                        let profile, calendar_id, calendar;
+                        if (response.added_calendars == null) {
+                            profile = response.added_application_calendar.name;
+                            calendar_id = response.added_application_calendar.calendar_id;
+                            calendar = response.added_application_calendar.calendar_name;
+                        } else {
+                            profile = response.added_calendars.profile ? response.added_calendars.profile : response.added_calendars.name;
+                            calendar_id = response.added_calendars.calendar_id;
+                            calendar = response.added_calendars.calendar ? response.added_calendars.calendar : response.added_calendars.calendar_name;
+
+                            if (response.added_calendars.name) {
+                                $('.add_calendar_section').hide();
+                            }
+                        }
+                        content = `<div class='added-calendar-account-section'>
+                            <div class="row">
+                              <div class="col-md-6 mt-4">
+                                <div class="bg-light h-md-100 rounded-2 pt-4 pb-3 px-4">
+                                  <div class="d-flex align-items-center mb-2">
+                                    <span class="text-dark fs-6 text-nowrap me-1">` + '<%= t('calendar_connection.add_to_calendar.add_to') %>' + `</span>
+                                    <span class="text-dark fw-bold fs-6 text-truncate" data-bs-toggle="tooltip">
+                                                  ` + profile + `
+                                          </span>
+                                    <a class="d-inline-block text-muted ms-2" style="cursor:pointer" onclick="showAddedCalendarDialog(this, 'account')">
+                                      <i class="bi bi-pencil-square"></i>
+                                    </a>
+
+                                  </div>
+
+                                  <div class="d-flex flex-wrap added-calendar-ids" data-calendar-account="` + profile +`" data-calendar-ids="` +  calendar_id + `">
+                                    <span class="badge badge-light-primary my-1 me-2">` + (calendar.substring(0, 8) == 'cronofy_' ? ('voxiplan_calendar_' + calendar.slice(-12)) : calendar) + `</span>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div></div>`
+                    }
+
+                    $('div.added-calendar-list').html(content);
+                    $('input[name=added_calendar_ids]').val(response.added_calendars ? response.added_calendars.calendar_id : response.added_application_calendar.calendar_id);
+
+                    // check calendar account that has "add to calendar"
+                    if (response.added_calendars != null && response.added_calendars.calendars) {
+                        $.each($('input[name=calendar_account]'), function (key, input_calendar_account) {
+                            if ($(input_calendar_account).val() == response.added_calendars.profile)
+                                $(input_calendar_account).prop('checked', true);
+                        })
+
+                        // make drop list of selected calendar account
+                        let calendars = [];
+                        response.added_calendars.calendars.forEach((calendar) => {
+                            let element = [];
+                            element['id'] = calendar[1];
+                            element['text'] = calendar[0];
+                            calendars.push(element);
+                        })
+                        $('select.add-to-calendar').select2({ data: calendars});
+                        $("div#calendar_section").show();
+                    }
+                    else {
+                        $.each($('input[name=calendar_account]'), function (key, input_calendar_account) {
+                            if ($(input_calendar_account).val() == 'none')
+                                $(input_calendar_account).prop('checked', true);
+                        })
+                        $("div#calendar_section").hide();
+                    }
+                },
+                error: function(data) {
+                    $('div.loader-body').hide();
+                }
+            })
+        }
+    })
+
+    // event for change the calendar account on "add to calendar" calendar
+    $('input[name=calendar_account]').on('change', function() {
+        if ($(this).val() == 'none')
+            $("div#calendar_section").hide();
+        else {
+            $("div#calendar_section").show();
+
+            if ($(this).val().includes('cronofy_calendar_')) $('.add_calendar_section').hide();
+            else {
+                $('.add_calendar_section').show();
+
+                $('select.add-to-calendar').html('');
+                $('div.loader-body').show();
+
+                const auth = $('[name="csrf-token"]')[0].content;
+                const calendar_account = $(this).val();
+                $.ajax({
+                    url: "<%= get_calendars_of_agenda_agenda_app_path %>",
+                    type: "POST",
+                    data: {
+                        authenticity_token: auth,
+                        calendar_account: calendar_account
+                    },
+                    success: function(response) {
+                        $('div.loader-body').hide();
+
+                        let calendars = [];
+                        response.calendars.forEach((calendar) => {
+                            let element = [];
+                            element['id'] = calendar[1];
+                            element['text'] = calendar[0];
+                            calendars.push(element);
+                        })
+                        $('select.add-to-calendar').select2({ data: calendars});
+                    },
+                    error: function(data) {
+                        $('div.loader-body').hide();
+                    }
+                });
+            }
+        }
+    })
+
+    $('button.update-add-calendar').click(function() {
+        let selected_calendar_account = $('input[name=calendar_account]:checked').val();
+        const selected_calendar_data = $('select.add-to-calendar').select2('data');
+        let selected_calendar_name = '';
+        let selected_calendar_id = '';
+        if (selected_calendar_account !== 'none') {
+            if ($('.add_calendar_section').is(":visible")) {
+                selected_calendar_id = selected_calendar_data[0].id;
+                selected_calendar_name = selected_calendar_data[0].text;
+            }
+            else {
+                selected_calendar_id = $('input[name=application_calendar_id]').val();
+                selected_calendar_name = selected_calendar_account;
+                selected_calendar_account = $('input[name=application_name]').val();
+            }
+        }
+        console.log(selected_calendar_id, 'selected_calendar_id')
+
+        if (selected_calendar_account == 'none') {
+            $('div.modal div.added-calendar-account-section').html(`<div class="alert bg-transparent border border-warning d-flex align-items-center flex-column flex-sm-row w-100 py-3 px-5 mt-4 mb-0">
+                              <!--begin::Content-->
+                              <div class="d-flex flex-column">
+                                              <span class="fw-bold text-warning">` + '<%= t('calendar_connection.add_to_calendar.there_is_no_calendar') %>' + `
+                                              </span>
+                              </div>
+                              <!--end::Content-->
+                            </div>
+                            <!--end::Alert-->
+                            <!--begin::Items-->
+                            <div class="row">
+                              <div class="col-md-6 mt-4">
+                                <div class="bg-light-warning h-md-100 rounded-2 pt-4 pb-3 px-4">
+                                  <div class="d-flex mb-2">
+                                    <span class="text-warning fw-bold fs-6 mt-1 me-2">
+                                                    <span class="text-uppercase">` + '<%= t('calendar_connection.add_to_calendar.calendar_not_selected') %>' + `</span>
+                                                    <br />` + '<%= t('donot_add_any_event') %>' + `
+                                                  </span>
+                                    <a class="d-inline-block text-warning ms-auto" style="cursor:pointer" onclick="showAddedCalendarDialog(this, 'none')">
+                                      <i class="bi bi-pencil-square"></i>
+                                    </a>
+
+                                  </div>
+                                  <div class="d-flex flex-wrap added-calendar-ids">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>`);
+        }
+        else {
+            $('div.modal div.added-calendar-account-section').html(`<div class="row">
+                              <div class="col-md-6 mt-4">
+                                <div class="bg-light h-md-100 rounded-2 pt-4 pb-3 px-4">
+                                  <div class="d-flex align-items-center mb-2">
+                                    <span class="text-dark fs-6 text-nowrap me-1">` + '<%= t('calendar_connection.add_to_calendar.add_to') %>' + `</span>
+                                    <span class="text-dark fw-bold fs-6 text-truncate" data-bs-toggle="tooltip">
+                                                  ` + selected_calendar_account + `
+                                          </span>
+                                    <a class="d-inline-block text-muted ms-2" style="cursor:pointer" onclick="showAddedCalendarDialog(this, 'account')">
+                                      <i class="bi bi-pencil-square"></i>
+                                    </a>
+                                  </div>
+
+                                  <div class="d-flex flex-wrap added-calendar-ids" data-calendar-account="` + selected_calendar_account +`" data-calendar-ids="` + selected_calendar_id + `">
+                                    <span class="badge badge-light-primary my-1 me-2">` + (selected_calendar_name.substring(0, 8) == 'cronofy_' ? ('voxiplan_calendar_' + selected_calendar_name.slice(-12)) : selected_calendar_name) + `</span>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>`);
+        }
+
+        $('input[name=added_calendar_ids]').val(selected_calendar_id);
+        $('div#kt_modal_add_to_calendar').modal('hide');
+    })
+
+    $('button.update-conflict-calendar').click(function() {
+        const selected_calendar_account = $('input[name=selected_calendar_account]').val();
+
+        let checked_calendar_name = [];
+        let checked_calendar_ids = [];
+        $.each($('div.conflict-calendars').find('input.form-check-input:checked'), function(key, obj) {
+            checked_calendar_ids.push($(obj).val());
+            checked_calendar_name.push($(obj).next().html());
+        });
+
+        const conflict_calendar_section = $('div.check-conflict-list').find('div[data-calendar-account="' + selected_calendar_account + '"]').filter('.conflict-calendar-ids');
+
+        let content = '';
+        $.each(checked_calendar_name, function(key, calendar) {
+            content += '<span class="badge badge-light-primary my-1 me-2">' + (calendar.substring(0, 8) == 'cronofy_' ? ('voxiplan_calendar_' + calendar.slice(-12)) : calendar) + '</span>';
+        });
+        if (content == '') {
+            $(conflict_calendar_section).html(`<div class="bg-light-warning h-md-100 rounded-2 pt-4 pb-3 px-4">
+                                    <span class="text-warning fw-bold fs-6 mt-1 me-2">` + '<%= t('calendar_connection.check_conflicts.donot_check_conflict') %>' + `</span>
+                                </div>`);
+        }
+        else {
+            $(conflict_calendar_section).html(content);
+        }
+
+        $(conflict_calendar_section).attr('data-calendar-ids', checked_calendar_ids.toString());
+
+        // get id of conflict calendars that checked
+        let total_checked_calendar_ids = [];
+        $.each($('div.check-conflict-list').find('div.conflict-calendar-ids'), function(key, conflict_calendar_ids) {
+            if ($(conflict_calendar_ids).attr('data-calendar-ids') != '') {
+                total_checked_calendar_ids.push($(conflict_calendar_ids).attr('data-calendar-ids'));
+            }
+        });
+        $('input[name=conflict_calendar_ids]').val(total_checked_calendar_ids.toString());
+        $('div#kt_modal_check_for_conflicts').modal('hide');
+    });
+
+    $('.resource-calendar-link').click(function() {
+        $("#team_calendar").val($('#team_calendar_client_id').val()).trigger("change");
+    });
+</script>

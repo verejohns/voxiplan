@@ -1,0 +1,118 @@
+{
+  "name": "voxiplan",
+  "stack": "heroku-20",
+  "scripts": {
+    "postdeploy": "bash ./postdeploy-script.sh"
+  },
+  "env": {
+    "DEV_DATABASE_URL": {
+      "required": true
+    },
+    "BUNDLE_GITHUB__COM": {
+      "required": true
+    },
+    "AWS_ACCESS_KEY_ID": {
+      "required": true
+    },
+    "AWS_SECRET_ACCESS_KEY": {
+      "required": true
+    },
+    "AWS_REGION": {
+      "required": true
+    },
+    "S3_BUCKET_NAME": {
+      "required": true
+    },
+    "ERROR_MAIL_RECIPIENTS": {
+      "required": true
+    },
+    "DEFAULT_EMAIL_FROM": {
+      "required": true
+    },
+    "MAIL_BCC": {
+      "required": true
+    },
+    "LANG": {
+      "required": true
+    },
+    "RACK_ENV": {
+      "required": true
+    },
+    "RAILS_ENV": {
+      "required": true
+    },
+    "RAILS_LOG_TO_STDOUT": {
+      "required": true
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "required": true
+    },
+    "SECRET_KEY_BASE": {
+      "required": true
+    },
+    "SENDGRID_PASSWORD": {
+      "required": true
+    },
+    "SENDGRID_USERNAME": {
+      "required": true
+    },
+    "TROPO_MESSAGING_API_KEY": {
+      "required": true
+    },
+    "VOXINESS_CONFIRMATION_SMS_SENDER": {
+      "required": true
+    },
+    "SKYLIGHT_AUTHENTICATION": {
+      "required": true
+    },
+    "SS_SCHEDULE_ID": {
+      "required": true
+    },
+    "SS_CHECKSUM": {
+      "required": true
+    },
+    "VOXIPLAN_SECRET_KEY": {
+      "required": true
+    },
+    "VOXIPLAN_API_KEY": {
+      "required": true
+    },
+    "TWILIO_DEFAULT_SMS_FROM": {
+      "required": false
+    },
+    "CRONOFY_ACCESS_TOKEN": {
+      "required": false
+    },
+    "CRONOFY_ACCOUNT_ID": {
+      "required": true
+    },
+    "CRONOFY_CLIENT_ID": {
+      "required": true
+    },
+    "CRONOFY_CLIENT_SECRET": {
+      "required": true
+    },
+    "GOOGLE_APPLICATION_CREDENTIALS": {
+      "required": true
+    },
+    "IPdata_key": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/stomita/heroku-buildpack-phantomjs"
+    },
+    {
+      "url": "heroku/ruby"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+(function() {
+    setTimeout(function() {
+        $('input#resource_name').val("<%= @resource.name %>");
+        $('input#resource_ename').val("<%= @resource.ename %>");
+
+        // set default or customize hours
+        const resource_schedule_id = "<%= @resource.schedule_template_id %>";
+        const selected_resource_schedule_id = "<%= @selected_resource_schedule_id %>";
+
+        if (resource_schedule_id == 0) {
+            $('input#resource_availability_customize').prop('checked', true);
+            $('input#resource_availability_category').val('customize');
+        }
+        else {
+            $('input#resource_availability_default').prop('checked', true);
+            $('input#resource_availability_category').val('default');
+        }
+
+        const $default_hours_radio = document.querySelector('#resource_availability_default');
+        const $default_hours_content = document.querySelector('#resource_availability_default_content');
+        const default_hours_collapse = new bootstrap.Collapse($default_hours_content, {
+            toggle: false
+        });
+        const $customize_hours_radio = document.querySelector('#resource_availability_customize');
+        const $customize_hours_content = document.querySelector('#resource_availability_customize_content');
+        const customize_hours_collapse = new bootstrap.Collapse($customize_hours_content, {
+            toggle: false
+        });
+        if ($default_hours_radio.checked) {
+            default_hours_collapse.show();
+            customize_hours_collapse.hide();
+        } else if ($customize_hours_radio.checked) {
+            customize_hours_collapse.show();
+            default_hours_collapse.hide();
+        } else {
+            default_hours_collapse.hide();
+            customize_hours_collapse.hide();
+        }
+        $('select#resource_schedule_templates').select2().val(selected_resource_schedule_id).trigger('change');
+
+        $('div.availability_week').html(<%= render('shared/availability_week', availability: @resource_customize_availability).to_json.html_safe %>);
+        $('div.availability_date_override').html(<%= render('shared/availability_date_override', overrides: @resource_customize_overrides).to_json.html_safe %>);
+
+        // setting resource calendar
+        const calendar_type = "<%= @resource.calendar_type %>";
+        const my_calendar_type = "<%= @resource.my_calendar_type %>";
+        $('select#kt_option_my_calendar').select2().val(calendar_type).trigger('change');
+        $('input#my_calendar_type').val(my_calendar_type);
+        $('input#team_calendar_client_id').val("<%= @resource.team_calendar_client_id %>");
+        if (my_calendar_type == 'default') {
+            $('input#kt_checkbox_set_a_default_configuration').prop('checked', true);
+            $('input#kt_checkbox_set_a_default_configuration').trigger('change');
+        }
+
+        if (my_calendar_type == 'customize') {
+            $('input#kt_checkbox_set_a_custom_configuration').prop('checked', true);
+            $('input#kt_checkbox_set_a_custom_configuration').trigger('change');
+        }
+
+    }, 200);
+})();

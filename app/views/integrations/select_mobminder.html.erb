@@ -1,0 +1,115 @@
+
+<!--begin::Toolbar-->
+<div class="toolbar" id="kt_toolbar">
+  <!--begin::Container-->
+  <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+    <!--begin::Page title-->
+    <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
+         data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
+         class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
+      <!--begin::Title-->
+      <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3"><%= t('select_agenda.mobminder.caption') %></h1>
+      <!--end::Title-->
+    </div>
+    <!--end::Page title-->
+    <!--begin::Actions-->
+    <div class="d-flex align-items-center py-1"></div>
+    <!--end::Actions-->
+  </div>
+  <!--end::Container-->
+</div>
+<!--end::Toolbar-->
+
+<!--begin::Post-->
+<div class="post d-flex flex-column-fluid" id="kt_post">
+  <!--begin::Container-->
+  <div id="kt_content_container" class="container">
+    <%= form_for(@first_agenda, as: :agenda_app, :url => save_mobminder_agenda_app_path, method: :post, html: {class: "card mobminder_form"}) do |f| %>
+      <input type="hidden" name="agenda_id" value="<%= @first_agenda.id %>" />
+      <div class="card-header">
+        <div class="card-toolbar">
+          <div class="symbol symbol-40px me-3">
+            <img class="rounded-0 w-auto" src="/assets/integration/mobminder.png" alt="<%= t('select_agenda.mobminder.caption') %>">
+          </div>
+          <h3 class="fw-bold fs-4 mb-0"><%= t('select_agenda.mobminder.caption') %></h3>
+          <span class="badge <%= @first_agenda.type == 'Mobminder' ? 'badge-light-primary' : 'badge-light-danger' %> ms-3"><%= @first_agenda.type == 'Mobminder' ? t('common.badge.connected') : t('common.badge.disconnected') %></span>
+        </div>
+        <div class="card-toolbar">
+          <a class="btn btn-outline btn-outline-primary btn-color-primary btn-active-color-white" href="#">
+            <%=  t('select_agenda.sign_up') %>
+          </a>
+          <a class="btn btn-outline btn-outline-primary btn-color-primary btn-active-color-white ms-4" href="<%= select_agenda_integrations_path %>">
+            <!--begin::Svg Icon | path: icons/duotune/arrows/arr022.svg-->
+            <span class="svg-icon svg-icon-1x me-1">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+												<path d="M17.6 4L9.6 12L17.6 20H13.6L6.3 12.7C5.9 12.3 5.9 11.7 6.3 11.3L13.6 4H17.6Z" fill="black"/>
+											</svg>
+										</span>
+            <!--begin::Svg Icon | path: icons/duotune/arrows/arr022.svg-->
+            <%= t('select_agenda.back_selection') %>
+          </a>
+        </div>
+      </div>
+      <div class="card-body">
+        <!--begin::Input group-->
+        <div class="row mb-6">
+          <label class="col-lg-4 col-form-label fw-bold fs-6"><%= t('select_agenda.mobminder.login') %></label>
+          <div class="col-lg-8 fv-row">
+            <%= f.text_field :mm_login, class: 'form-control form-control-lg form-control-solid', required: true %>
+          </div>
+        </div>
+        <div class="row mb-6">
+          <label class="col-lg-4 col-form-label fw-bold fs-6"><%= t('select_agenda.mobminder.password') %></label>
+          <div class="col-lg-8 fv-row">
+            <%= f.text_field :mm_pwd, class: 'form-control form-control-lg form-control-solid', required: true %>
+          </div>
+        </div>
+        <div class="row">
+          <label class="col-lg-4 col-form-label fw-bold fs-6"><%= t('select_agenda.mobminder.autrization_key') %></label>
+          <div class="col-lg-8 fv-row">
+            <%= f.text_field :mm_kid, class: 'form-control form-control-lg form-control-solid', required: true %>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer d-flex justify-content-end">
+        <button type="button" class="btn btn-sm btn-primary me-3 save_mobminder" data-kt-stepper-action="submit">
+          <span class="indicator-label"><%= @first_agenda.type == 'Mobminder' ? t('common.button.disconnect') : t('common.button.connect') %></span>
+          <span class="indicator-progress"><%= t('common.please_wait') %>
+            <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+        </button>
+      </div>
+    <% end %>
+  </div>
+  <!--end::Container-->
+</div>
+<!--end::Post-->
+<script>
+  $('button.save_mobminder').click(function() {
+      const submit_button = $('button.save_mobminder');
+      $(submit_button).attr('data-kt-indicator', 'on');
+      $(submit_button).attr('disabled', 'disabled');
+
+      $('form.mobminder_form').ajaxSubmit({
+          success: function(response) {
+              Swal.fire({
+                  text: response.message,
+                  icon: response.type,
+                  buttonsStyling: false,
+                  allowOutsideClick: false,
+                  confirmButtonText: "<%= t('sweetalert.ok_got_it') %>",
+                  customClass: {
+                      confirmButton: "btn btn-primary"
+                  }
+              }).then(function () {
+                  window.location.href = "<%= select_agenda_integrations_path %>";
+              });
+          },
+          error: function() {
+              alert('There are some errors.');
+              window.location.reload();
+          }
+
+      })
+  })
+
+</script>

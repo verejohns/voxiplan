@@ -1,0 +1,29 @@
+<!--begin::Wrapper-->
+<div class="w-100">
+  <!--begin::Heading-->
+  <div class="pb-10 pb-lg-12">
+    <!--begin::Title-->
+    <h2 class="fw-bolder text-dark"><%= t('onboarding.set_availability.title') %></h2>
+    <!--end::Title-->
+    <!--begin::Notice-->
+    <div class="text-muted fw-bold fs-6"><%= t('onboarding.set_availability.title_description') %></div>
+    <!--end::Notice-->
+  </div>
+  <!--end::Heading-->
+
+  <div id="availability_customize_content" >
+    <div class="card card-bordered">
+      <div class="card-body p-0">
+        <div class="row gx-0">
+          <div class="col-md">
+            <%= render 'shared/availability_week', availability: @customize_availability %>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-outline btn-outline-primary btn-color-primary btn-active-color-white ms-5 d-none" id="save_default_hours"><%= t('button.save') %></button>
+    </div>
+  </div>
+
+</div>
+<!--end::Wrapper-->

@@ -1,0 +1,16 @@
+---
+- id: 478728
+  name: Meeting
+  count: 1
+  start: !ruby/object:DateTime 2018-04-23 09:30:00.000000000 Z
+  finish: !ruby/object:DateTime 2018-04-23 10:30:00.000000000 Z
+- id: 478728
+  name: Meeting
+  count: 1
+  start: !ruby/object:DateTime 2018-04-23 10:00:00.000000000 Z
+  finish: !ruby/object:DateTime 2018-04-23 11:00:00.000000000 Z
+- id: 478728
+  name: Meeting
+  count: 1
+  start: !ruby/object:DateTime 2018-04-23 10:30:00.000000000 Z
+  finish: !ruby/object:DateTime 2018-04-23 11:30:00.000000000 Z

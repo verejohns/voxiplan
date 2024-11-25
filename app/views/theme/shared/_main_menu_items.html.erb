@@ -1,0 +1,10 @@
+<ul class="kt-nav kt-nav--bold kt-nav--md-space kt-margin-t-20 kt-margin-b-20">
+  <% main_menu_items.each do |item| %>
+    <li class="kt-nav__item">
+      <a class="kt-nav__link" href="<%= item.path %>">
+        <span class="kt-nav__link-icon"><i class="flaticon-feed"></i></span>
+        <span class="kt-nav__link-text"><%= item.label %></span>
+      </a>
+    </li>
+  <% end %>
+</ul>

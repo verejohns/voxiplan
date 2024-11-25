@@ -1,0 +1,12 @@
+<li class="kt-menu__item kt-menu__item--open kt-menu__item--here kt-menu__item--submenu kt-menu__item--rel kt-menu__item--open kt-menu__item--here" data-ktmenu-submenu-toggle="click" aria-haspopup="true">
+  <a href="<%= item.path %>" class="kt-menu__link"><span class="kt-menu__link-text"><%= item.label %></span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+
+  <!-- TODO delete since we don't use nested items -->
+  <% if item.children.present? %>
+    <div class="kt-menu__submenu kt-menu__submenu--classic kt-menu__submenu--left">
+      <ul class="kt-menu__subnav">
+        <%= render partial: 'theme/shared/header_menu_item_sub_item', collection: item.children || [], as: :item %>
+      </ul>
+    </div>
+  <% end %>
+</li>

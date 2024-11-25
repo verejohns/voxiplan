@@ -1,0 +1,805 @@
+<style>
+	.bg-opacity-20 {
+		background-color: rgba(24, 28, 50, 0.2) !important;
+		opacity: 1 !important;
+	}
+</style>
+<div class="toolbar" id="kt_toolbar">
+  <!--begin::Container-->
+  <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+    <div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
+         class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
+      <h1 class="d-flex align-items-center text-dark fw-bolder my-1 fs-3"><%= t('billing.title') %></h1>
+    </div>
+    <div class="d-flex align-items-center py-1"></div>
+  </div>
+</div>
+
+<input type="hidden" name="client_billing_path" id="client_billing_path" value="<%= billing_client_path(current_client.id) %>" />
+<div class="post d-flex flex-column-fluid" id="kt_post">
+  <div id="kt_content_container" class="container">
+    <% if @subscription_plan == 'trial' %>
+      <!--begin::Alert-->
+      <div class="alert alert-dismissible bg-white d-flex flex-center flex-column py-10 px-10 px-lg-20 mb-10">
+        <!--begin::Wrapper-->
+        <div class="text-center">
+          <h1 class="fw-bolder"><%= t('billing.billing_plan.want_upgrade_account') %></h1>
+          <div class="separator separator-dashed border-dark opacity-25 my-10"></div>
+          <div class="fs-4 text-dark mb-10">
+            <div class="mb-2"><%= t('billing.billing_plan.you_enjoying') %> <span class="fw-bolder"><%= t('billing.billing_plan.trail_plan') %></span>.</div>
+            <div class="mb-0"><%= t('common.on') %> <%= @trial_end_date %> <%= t('billing.billing_plan.you_downgraded') %> <span class="fw-bold"><%= t('billing.billing_plan.free_plan') %></span>.</div>
+          </div>
+
+          <div class="d-flex flex-center flex-wrap">
+            <a href="#kt_modal_upgrade_plan" class="btn btn-lg btn-primary d-block w-200px rounded-3" data-bs-toggle="modal"><%= t('billing.billing_plan.upgrade_now') %></a>
+          </div>
+        </div>
+        <!--end::Wrapper-->
+      </div>
+      <!--end::Alert-->
+    <% end %>
+
+    <% if @subscription_plan == 'free' %>
+      <!--begin::Alert-->
+      <div class="alert alert-dismissible bg-white d-flex flex-center flex-column py-10 px-10 px-lg-20 mb-10">
+        <!--begin::Wrapper-->
+        <div class="text-center">
+          <h1 class="fw-bolder"><%= t('billing.billing_plan.want_upgrade_account') %></h1>
+          <div class="separator separator-dashed border-dark opacity-25 my-10"></div>
+          <div class="fs-4 text-dark mb-10">
+            <div class="mb-2"><%= t('billing.billing_plan.you_on') %> <span class="fw-bolder"><%= t('billing.billing_plan.free_plan') %></span>.</div>
+            <div class="mb-0"><%= t('billing.billing_plan.you_trial_end') %> <span class="fw-bold"><%= @trial_end_date %></span>.</div>
+          </div>
+
+          <div class="d-flex flex-center flex-wrap">
+            <a href="#kt_modal_upgrade_plan" class="btn btn-lg btn-primary d-block w-200px rounded-3" data-bs-toggle="modal"><%= t('billing.billing_plan.upgrade_now') %></a>
+          </div>
+        </div>
+        <!--end::Wrapper-->
+      </div>
+      <!--end::Alert-->
+    <% end %>
+  </div>
+</div>
+
+
+<!--begin::Modals-->
+<!--begin::Upgrade Plan-->
+<div class="modal fade" id="kt_modal_upgrade_plan" tabindex="-1" aria-hidden="true">
+  <!--begin::Modal dialog-->
+  <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+    <!--begin::Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t('billing.upgrade_plan.choose_subscription') %></h5>
+
+        <!--begin::Close-->
+        <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+          <!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+          <span class="svg-icon svg-icon-1">
+		            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+		              <g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+		                <rect fill="#000000" x="0" y="7" width="16" height="2" rx="1" />
+		                <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+                      x="0" y="7" width="16" height="2" rx="1" />
+		              </g>
+		            </svg>
+		          </span>
+          <!--end::Svg Icon-->
+        </div>
+        <!--end::Close-->
+      </div>
+
+      <div class="modal-body">
+        <div class="container">
+          <!--begin::Plans-->
+          <!--begin::Row-->
+          <div class="row justify-content-center g-10 mb-10">
+            <!--begin::Col-->
+            <div class="col-xl-4 d-none">
+              <!--begin::Option-->
+              <div class="w-100 h-100 d-flex flex-column rounded-3 bg-light bg-opacity-75 py-15 px-10">
+                <!--begin::Heading-->
+                <div class="mb-5">
+                  <!--begin::Title-->
+                  <h1 class="d-flex align-items-center justify-content-between fw-boldest text-dark mb-2"><%= t('billing.upgrade_plan.always_free') %>
+                    <span class="d-flex align-items-center">
+													<!--begin::Svg Icon | path: assets/media/icons/duotune/communication/com013.svg-->
+													<span class="svg-icon svg-icon-dark svg-icon-2qx me-1">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+															<path d="M6.28548 15.0861C7.34369 13.1814 9.35142 12 11.5304 12H12.4696C14.6486 12 16.6563 13.1814 17.7145 15.0861L19.3493 18.0287C20.0899 19.3618 19.1259 21 17.601 21H6.39903C4.87406 21 3.91012 19.3618 4.65071 18.0287L6.28548 15.0861Z" fill="black" />
+															<rect opacity="0.3" x="8" y="3" width="8" height="8" rx="4" fill="black" />
+														</svg>
+													</span>
+                      <!--end::Svg Icon-->
+													<span class="fw-bold fs-3">1</span>
+												</span>
+                  </h1>
+                  <!--end::Title-->
+                  <!--begin::Price-->
+                  <div class="d-flex align-items-baseline min-h-40px lh-1">
+                    <span class="fw-bold fs-5 text-primary me-1"><%= session[:currency_symbol] %></span>
+                    <span class="position-relative fw-bolder fs-3x text-primary me-1" style="bottom: -2px;">0</span>
+                    <span class="fw-bold fs-7 opacity-50"><%= t('billing.upgrade_plan.per_seat_month') %></span>
+                    <span class="badge badge-primary ms-auto"><%= t('billing.upgrade_plan.billed_yearly') %></span>
+                  </div>
+                  <!--end::Price-->
+                </div>
+                <!--end::Heading-->
+                <!--begin::Select-->
+                <a href="#" class="btn btn-primary d-block w-100 mb-7 membership" data-plan="free" ><%= t('billing.upgrade_plan.select') %></a>
+                <!--end::Select-->
+                <!--begin::Features-->
+                <div class="w-100">
+                  <div class="fw-bolder text-primary mb-5"><%= t('billing.upgrade_plan.booking_widget') %>:</div>
+                  <!--begin::Item-->
+                  <div class="d-flex mb-5">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
+                    <span class="svg-icon svg-icon-1 svg-icon-success me-3">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
+														<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"/>
+														<path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="black" />
+													</svg>
+												</span>
+                    <!--end::Svg Icon-->
+                    <span class="flex-grow-1 align-self-center fw-bold fs-6 text-gray-800 ptc-1"><%= t('billing.upgrade_plan.unlimted_appointments') %></span>
+                  </div>
+                  <!--end::Item-->
+                  <!--begin::Item-->
+                  <div class="d-flex mb-5">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
+                    <span class="svg-icon svg-icon-1 svg-icon-success me-3">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
+														<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"/>
+														<path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="black" />
+													</svg>
+												</span>
+                    <!--end::Svg Icon-->
+                    <span class="flex-grow-1 align-self-center fw-bold fs-6 text-gray-800 ptc-1">1 <%= t('billing.upgrade_plan.active_event_type') %></span>
+                  </div>
+                  <!--end::Item-->
+                  <!--begin::Item-->
+                  <div class="d-flex mb-0">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
+                    <span class="svg-icon svg-icon-1 svg-icon-success me-3">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
+														<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"/>
+														<path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="black" />
+													</svg>
+												</span>
+                    <!--end::Svg Icon-->
+                    <span class="flex-grow-1 align-self-center fw-bold fs-6 text-gray-800 ptc-1"><%= t('billing.upgrade_plan.automated_event_notifications') %></span>
+                  </div>
+                  <!--end::Item-->
+                </div>
+                <!--end::Features-->
+              </div>
+              <!--end::Option-->
+            </div>
+            <!--end::Col-->
+            <!--begin::Col-->
+            <div class="col-xl-6">
+              <!--begin::Option-->
+              <div class="w-100 h-100 d-flex flex-column rounded-3 bg-light bg-opacity-75 py-15 px-10">
+                <!--begin::Heading-->
+                <div class="mb-5">
+                  <!--begin::Title-->
+                  <h1 class="d-flex align-items-center justify-content-between fw-boldest text-dark mb-2"><%= t('billing.upgrade_plan.basic') %>
+                    <span class="d-flex align-items-center">
+													<!--begin::Svg Icon | path: assets/media/icons/duotune/communication/com013.svg-->
+													<span class="svg-icon svg-icon-dark svg-icon-2qx me-1">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+															<path d="M6.28548 15.0861C7.34369 13.1814 9.35142 12 11.5304 12H12.4696C14.6486 12 16.6563 13.1814 17.7145 15.0861L19.3493 18.0287C20.0899 19.3618 19.1259 21 17.601 21H6.39903C4.87406 21 3.91012 19.3618 4.65071 18.0287L6.28548 15.0861Z" fill="black" />
+															<rect opacity="0.3" x="8" y="3" width="8" height="8" rx="4" fill="black" />
+														</svg>
+													</span>
+                      <!--end::Svg Icon-->
+													<span class="fw-bold fs-3">1+</span>
+												</span>
+                  </h1>
+                  <!--end::Title-->
+                  <!--begin::Price-->
+                  <div class="d-flex align-items-baseline min-h-40px lh-1">
+                    <span class="fw-bold fs-5 text-primary me-1"><%= session[:currency_symbol] %></span>
+                    <span class="position-relative fw-bolder fs-3x text-primary me-1" style="bottom: -2px;">8</span>
+                    <span class="fw-bold fs-7 opacity-50"><%= t('billing.upgrade_plan.per_seat_month') %></span>
+                    <span class="badge badge-primary ms-auto"><%= t('billing.upgrade_plan.billed_yearly') %></span>
+                  </div>
+                  <!--end::Price-->
+                </div>
+                <!--end::Heading-->
+                <!--begin::Select-->
+                <a href="#kt_modal_upgrade_to" class="btn btn-primary d-block w-100 mb-7 membership" data-plan="basic" data-bs-toggle="modal"><%= t('billing.upgrade_plan.select') %></a>
+                <!--end::Select-->
+                <!--begin::Features-->
+                <div class="w-100">
+                  <div class="fw-bolder text-primary mb-5"><%= t('billing.upgrade_plan.free_features_plus') %>:</div>
+                  <div class="fw-bolder text-primary mb-5"><%= t('billing.upgrade_plan.booking_widget') %>:</div>
+                  <!--begin::Item-->
+                  <div class="d-flex mb-5">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
+                    <span class="svg-icon svg-icon-1 svg-icon-success me-3">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
+														<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"/>
+														<path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="black" />
+													</svg>
+												</span>
+                    <!--end::Svg Icon-->
+                    <span class="flex-grow-1 align-self-center fw-bold fs-6 text-gray-800 ptc-1"><%= t('billing.upgrade_plan.unlimited_event_types') %></span>
+                  </div>
+                  <!--end::Item-->
+                  <!--begin::Item-->
+                  <div class="d-flex mb-5">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
+                    <span class="svg-icon svg-icon-1 svg-icon-success me-3">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
+														<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"/>
+														<path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="black" />
+													</svg>
+												</span>
+                    <!--end::Svg Icon-->
+                    <span class="flex-grow-1 align-self-center fw-bold fs-6 text-gray-800 ptc-1"><%= t('billing.upgrade_plan.connect_agenda') %></span>
+                  </div>
+                  <!--end::Item-->
+                  <!--begin::Item-->
+                  <div class="d-flex mb-5">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
+                    <span class="svg-icon svg-icon-1 svg-icon-success me-3">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
+														<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"/>
+														<path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="black" />
+													</svg>
+												</span>
+                    <!--end::Svg Icon-->
+                    <span class="flex-grow-1 align-self-center fw-bold fs-6 text-gray-800 ptc-1"><%= t('billing.upgrade_plan.email_reminder') %></span>
+                  </div>
+                  <!--end::Item-->
+                  <!--begin::Item-->
+                  <div class="d-flex mb-5">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
+                    <span class="svg-icon svg-icon-1 svg-icon-success me-3">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
+														<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"/>
+														<path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="black" />
+													</svg>
+												</span>
+                    <!--end::Svg Icon-->
+                    <span class="flex-grow-1 align-self-center fw-bold fs-6 text-gray-800 ptc-1"><%= t('billing.upgrade_plan.custom_questions') %></span>
+                  </div>
+                  <!--end::Item-->
+                  <!--begin::Item-->
+                  <div class="d-flex mb-5">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
+                    <span class="svg-icon svg-icon-1 svg-icon-success me-3">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
+														<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"/>
+														<path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="black" />
+													</svg>
+												</span>
+                    <!--end::Svg Icon-->
+                    <span class="flex-grow-1 align-self-center fw-bold fs-6 text-gray-800 ptc-1"><%= t('billing.upgrade_plan.config_service_integration') %></span>
+                  </div>
+                  <!--end::Item-->
+                  <!--begin::Item-->
+                  <div class="d-flex mb-5">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
+                    <span class="svg-icon svg-icon-1 svg-icon-success me-3">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
+														<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"/>
+														<path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="black" />
+													</svg>
+												</span>
+                    <!--end::Svg Icon-->
+                    <span class="flex-grow-1 align-self-center fw-bold fs-6 text-gray-800 ptc-1"><%= t('billing.upgrade_plan.send_sms_campaigns') %> (<%= t('common.coming_soon') %>!)</span>
+                  </div>
+                  <!--end::Item-->
+
+                  <div class="fw-bolder text-primary mb-5"><%= t('pricing.phone') %>:</div>
+
+                  <!--begin::Item-->
+                  <div class="d-flex mb-5">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
+                    <span class="svg-icon svg-icon-1 svg-icon-success me-3">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
+														<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"/>
+														<path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="black" />
+													</svg>
+												</span>
+                    <!--end::Svg Icon-->
+                    <span class="flex-grow-1 align-self-center fw-bold fs-6 text-gray-800 ptc-1"><%= t('billing.upgrade_plan.phone_menu_tech') %></span>
+                  </div>
+                  <!--end::Item-->
+                  <!--begin::Item-->
+                  <div class="d-flex mb-5">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
+                    <span class="svg-icon svg-icon-1 svg-icon-success me-3">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
+														<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"/>
+														<path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="black" />
+													</svg>
+												</span>
+                    <!--end::Svg Icon-->
+                    <span class="flex-grow-1 align-self-center fw-bold fs-6 text-gray-800 ptc-1"><%= t('billing.upgrade_plan.phone_single_channel') %></span>
+                  </div>
+                  <!--end::Item-->
+                  <!--begin::Item-->
+                  <div class="d-flex mb-5">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
+                    <span class="svg-icon svg-icon-1 svg-icon-success me-3">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
+														<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"/>
+														<path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="black" />
+													</svg>
+												</span>
+                    <!--end::Svg Icon-->
+                    <span class="flex-grow-1 align-self-center fw-bold fs-6 text-gray-800 ptc-1">51 <%= t('billing.upgrade_plan.languages') %></span>
+                  </div>
+                  <!--end::Item-->
+                  <!--begin::Item-->
+                  <div class="d-flex mb-5">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
+                    <span class="svg-icon svg-icon-1 svg-icon-success me-3">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
+														<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"/>
+														<path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="black" />
+													</svg>
+												</span>
+                    <!--end::Svg Icon-->
+                    <span class="flex-grow-1 align-self-center fw-bold fs-6 text-gray-800 ptc-1"><%= t('billing.upgrade_plan.receptionist') %></span>
+                  </div>
+                  <!--end::Item-->
+                  <!--begin::Item-->
+                  <div class="d-flex mb-5">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
+                    <span class="svg-icon svg-icon-1 svg-icon-success me-3">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
+														<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"/>
+														<path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="black" />
+													</svg>
+												</span>
+                    <!--end::Svg Icon-->
+                    <span class="flex-grow-1 align-self-center fw-bold fs-6 text-gray-800 ptc-1"><%= t('billing.upgrade_plan.appointment_scheduling') %></span>
+                  </div>
+                  <!--end::Item-->
+                  <!--begin::Item-->
+                  <div class="d-flex mb-0">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
+                    <span class="svg-icon svg-icon-1 svg-icon-success me-3">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
+														<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"/>
+														<path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="black" />
+													</svg>
+												</span>
+                    <!--end::Svg Icon-->
+                    <span class="flex-grow-1 align-self-center fw-bold fs-6 text-gray-800 ptc-1"><%= t('billing.upgrade_plan.call_recovery_followup') %></span>
+                  </div>
+                  <!--end::Item-->
+                </div>
+                <!--end::Features-->
+              </div>
+              <!--end::Option-->
+            </div>
+            <!--end::Col-->
+            <!--begin::Col-->
+            <div class="col-xl-6">
+              <!--begin::Option-->
+              <div class="ribbon ribbon-top w-100 h-100 d-flex flex-column rounded-3 bg-light bg-opacity-75 py-15 px-10">
+                <div class="ribbon-label bg-success"><%= t('billing.upgrade_plan.most_popular') %></div>
+                <!--begin::Heading-->
+                <div class="mb-5">
+                  <!--begin::Title-->
+                  <h1 class="d-flex align-items-center justify-content-between fw-boldest text-dark mb-2"><%= t('billing.upgrade_plan.premium') %>
+                    <span class="d-flex align-items-center">
+													<!--begin::Svg Icon | path: assets/media/icons/duotune/communication/com013.svg-->
+													<span class="svg-icon svg-icon-dark svg-icon-2qx me-1">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+															<path d="M6.28548 15.0861C7.34369 13.1814 9.35142 12 11.5304 12H12.4696C14.6486 12 16.6563 13.1814 17.7145 15.0861L19.3493 18.0287C20.0899 19.3618 19.1259 21 17.601 21H6.39903C4.87406 21 3.91012 19.3618 4.65071 18.0287L6.28548 15.0861Z" fill="black" />
+															<rect opacity="0.3" x="8" y="3" width="8" height="8" rx="4" fill="black" />
+														</svg>
+													</span>
+                      <!--end::Svg Icon-->
+													<span class="fw-bold fs-3">1+</span>
+												</span>
+                  </h1>
+                  <!--end::Title-->
+                  <!--begin::Price-->
+                  <div class="d-flex align-items-baseline min-h-40px lh-1">
+                    <span class="fw-bold fs-5 text-primary me-1"><%= session[:currency_symbol] %></span>
+                    <span class="position-relative fw-bolder fs-3x text-primary me-1" style="bottom: -2px;">12</span>
+                    <span class="fw-bold fs-7 opacity-50"><%= t('billing.upgrade_plan.per_seat_month') %></span>
+                    <span class="badge badge-primary ms-auto"><%= t('billing.upgrade_plan.billed_yearly') %></span>
+                  </div>
+                  <!--end::Price-->
+                </div>
+                <!--end::Heading-->
+                <!--begin::Select-->
+                <a href="#kt_modal_upgrade_to" class="btn btn-primary d-block w-100 mb-7 membership" data-plan="premium" data-bs-toggle="modal"><%= t('billing.upgrade_plan.select') %></a>
+                <!--end::Select-->
+                <!--begin::Features-->
+                <div class="w-100">
+                  <div class="fw-bolder text-primary mb-5"><%= t('billing.upgrade_plan.basic_features_plus') %>:</div>
+                  <div class="fw-bolder text-primary mb-5"><%= t('billing.upgrade_plan.booking_widget') %>:</div>
+                  <!--begin::Item-->
+                  <div class="d-flex mb-5">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
+                    <span class="svg-icon svg-icon-1 svg-icon-success me-3">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
+														<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"/>
+														<path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="black" />
+													</svg>
+												</span>
+                    <!--end::Svg Icon-->
+                    <span class="flex-grow-1 align-self-center fw-bold fs-6 text-gray-800 ptc-1"><%= t('billing.upgrade_plan.customize_notifications') %></span>
+                  </div>
+                  <!--end::Item-->
+                  <!--begin::Item-->
+                  <div class="d-flex mb-5">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
+                    <span class="svg-icon svg-icon-1 svg-icon-success me-3">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
+														<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"/>
+														<path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="black" />
+													</svg>
+												</span>
+                    <!--end::Svg Icon-->
+                    <span class="flex-grow-1 align-self-center fw-bold fs-6 text-gray-800 ptc-1"><%= t('billing.upgrade_plan.remove_voxiplan_branding') %></span>
+                  </div>
+                  <!--end::Item-->
+                  <!--begin::Item-->
+                  <div class="d-flex mb-5">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
+                    <span class="svg-icon svg-icon-1 svg-icon-success me-3">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
+														<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"/>
+														<path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="black" />
+													</svg>
+												</span>
+                    <!--end::Svg Icon-->
+                    <span class="flex-grow-1 align-self-center fw-bold fs-6 text-gray-800 ptc-1"><%= t('billing.upgrade_plan.redirect_after_booking') %> (<%= t('common.coming_soon') %>!)</span>
+                  </div>
+                  <!--end::Item-->
+                  <!--begin::Item-->
+                  <div class="d-flex mb-5">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
+                    <span class="svg-icon svg-icon-1 svg-icon-success me-3">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
+														<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"/>
+														<path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="black" />
+													</svg>
+												</span>
+                    <!--end::Svg Icon-->
+                    <span class="flex-grow-1 align-self-center fw-bold fs-6 text-gray-800 ptc-1"><%= t('billing.upgrade_plan.payment_stripe') %> (<%= t('common.coming_soon') %>!)</span>
+                  </div>
+                  <!--end::Item-->
+
+                  <div class="fw-bolder text-primary mb-5"><%= t('billing.upgrade_plan.ai_assistant') %>:</div>
+
+                  <!--begin::Item-->
+                  <div class="d-flex mb-5">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
+                    <span class="svg-icon svg-icon-1 svg-icon-success me-3">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
+														<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"/>
+														<path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="black" />
+													</svg>
+												</span>
+                    <!--end::Svg Icon-->
+                    <span class="flex-grow-1 align-self-center fw-bold fs-6 text-gray-800 ptc-1"><%= t('billing.upgrade_plan.conversation_ai_tech') %></span>
+                  </div>
+                  <!--end::Item-->
+                  <!--begin::Item-->
+                  <div class="d-flex mb-5">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
+                    <span class="svg-icon svg-icon-1 svg-icon-success me-3">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
+														<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"/>
+														<path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="black" />
+													</svg>
+												</span>
+                    <!--end::Svg Icon-->
+                    <span class="flex-grow-1 align-self-center fw-bold fs-6 text-gray-800 ptc-1"><%= t('billing.upgrade_plan.redirect_your_invitee') %></span>
+                  </div>
+                  <!--end::Item-->
+                  <!--begin::Item-->
+                  <div class="d-flex mb-5">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
+                    <span class="svg-icon svg-icon-1 svg-icon-success me-3">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
+														<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"/>
+														<path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="black" />
+													</svg>
+												</span>
+                    <!--end::Svg Icon-->
+                    <span class="flex-grow-1 align-self-center fw-bold fs-6 text-gray-800 ptc-1"><%= t('billing.upgrade_plan.multi_channel') %> (<%= t('common.coming_soon') %>!)</span>
+                  </div>
+                  <!--end::Item-->
+                  <!--begin::Item-->
+                  <div class="d-flex mb-5">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
+                    <span class="svg-icon svg-icon-1 svg-icon-success me-3">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
+														<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"/>
+														<path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="black" />
+													</svg>
+												</span>
+                    <!--end::Svg Icon-->
+                    <span class="flex-grow-1 align-self-center fw-bold fs-6 text-gray-800 ptc-1">3 <%= t('billing.upgrade_plan.languages') %></span>
+                  </div>
+                  <!--end::Item-->
+                  <!--begin::Item-->
+                  <div class="d-flex mb-0">
+                    <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
+                    <span class="svg-icon svg-icon-1 svg-icon-success me-3">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" >
+														<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"/>
+														<path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="black" />
+													</svg>
+												</span>
+                    <!--end::Svg Icon-->
+                    <span class="flex-grow-1 align-self-center fw-bold fs-6 text-gray-800 ptc-1"><%= t('billing.upgrade_plan.no_shows_recovery') %> (<%= t('common.coming_soon') %>!)</span>
+                  </div>
+                  <!--end::Item-->
+                </div>
+                <!--end::Features-->
+              </div>
+              <!--end::Option-->
+            </div>
+            <!--end::Col-->
+          </div>
+          <!--end::Row-->
+
+          <div class="separator separator-dotted separator-content border-dark my-15">
+            <span class="h2 mb-0"><%= t('common.or') %></span>
+          </div>
+
+          <div class="row justify-content-center g-10 mb-10">
+            <div class="col-xl-4">
+              <!--begin::Option-->
+              <div class="w-100 d-flex flex-column rounded-3 bg-light bg-opacity-75 py-15 px-10">
+                <!--begin::Heading-->
+                <div class="mb-5">
+                  <!--begin::Title-->
+                  <h1 class="d-flex align-items-center justify-content-between fw-boldest text-dark mb-2"><%= t('billing.upgrade_plan.enterprise') %>
+                    <span class="d-flex align-items-center">
+													<!--begin::Svg Icon | path: assets/media/icons/duotune/communication/com013.svg-->
+													<span class="svg-icon svg-icon-dark svg-icon-2qx me-1">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+															<path d="M6.28548 15.0861C7.34369 13.1814 9.35142 12 11.5304 12H12.4696C14.6486 12 16.6563 13.1814 17.7145 15.0861L19.3493 18.0287C20.0899 19.3618 19.1259 21 17.601 21H6.39903C4.87406 21 3.91012 19.3618 4.65071 18.0287L6.28548 15.0861Z" fill="black" />
+															<rect opacity="0.3" x="8" y="3" width="8" height="8" rx="4" fill="black" />
+														</svg>
+													</span>
+                      <!--end::Svg Icon-->
+													<span class="fw-bold fs-3">30+</span>
+												</span>
+                  </h1>
+                  <!--end::Title-->
+                </div>
+                <!--end::Heading-->
+                <!--begin::Select-->
+                <a href="<%= contact_us_path %>" class="btn btn-primary d-block w-100 mb-7"><%= t('services.common.button.contact_us') %></a>
+                <!--end::Select-->
+                <!--begin::Features-->
+                <div class="w-100">
+                  <div class="fw-bold fs-6 text-center"><%= t('billing.upgrade_plan.features_seats_individual') %></div>
+                </div>
+                <!--end::Features-->
+              </div>
+              <!--end::Option-->
+            </div>
+          </div>
+
+          <div class="alert bg-light-info border border-info d-flex flex-column flex-sm-row w-100 p-5 mb-0">
+            <!--begin::Content-->
+            <div class="d-flex flex-column pe-0 pe-sm-10">
+              <h5 class="text-info mb-2"><%= t('billing.upgrade_plan.pricing_euro') %>.</h5>
+              <p class="text-info mb-0">
+                <sub class="lh-1 fs-2">*</sub> - <%= raw t('pricing.pay_per_use_desc') %>.
+              </p>
+            </div>
+            <!--end::Content-->
+          </div>
+          <!--end::Plans-->
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal"><%= t('common.button.cancel') %></button>
+      </div>
+    </div>
+    <!--end::Modal content-->
+  </div>
+  <!--end::Modal dialog-->
+</div>
+<!--end::Upgrade Plan-->
+
+<!--begin::Upgrade Plan To-->
+<div class="modal bg-dark bg-opacity-20 fade"	id="kt_modal_upgrade_to" tabindex="-1" aria-hidden="true">
+	<!--begin::Modal dialog-->
+	<div class="modal-dialog modal-dialog-centered">
+		<!--begin::Modal content-->
+
+		<div class="modal-content">
+			<form class="form" action="<%= billing_client_path %>" method="post" id="kt_modal_upgrade_plan_form">
+				<input type="hidden" name="membership_plan" id="membership_plan" />
+				<div class="modal-header">
+					<h5 class="modal-title"><%= t('billing.add_seat.upgrade_essential') %><br />
+						<span class="fs-7 opacity-50"><%= t('billing.add_seat.price_usd', currency: current_client.currency_code) %></span>
+					</h5>
+
+					<!--begin::Close-->
+					<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+						<!--begin::Svg Icon | path: icons/duotone/Navigation/Close.svg-->
+						<span class="svg-icon svg-icon-1">
+									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+										<g transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)" fill="#000000">
+											<rect fill="#000000" x="0" y="7" width="16" height="2" rx="1"/>
+											<rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)"
+														x="0" y="7" width="16" height="2" rx="1"/>
+										</g>
+									</svg>
+								</span>
+						<!--end::Svg Icon-->
+					</div>
+					<!--end::Close-->
+				</div>
+
+				<div class="modal-body">
+					<div class="container">
+						<div class="mb-10">
+							<label class="form-label"><%= t('billing.add_seat.add_seats') %></label>
+							<input type="number" class="form-control" value="1" name="seat_nums" id="seat_nums" min="1">
+						</div>
+						<div class="mb-10">
+							<label class="form-check form-check-custom form-check-solid me-10">
+								<input class="form-check-input h-30px w-30px" name="user_memebership" id="user_membership_monthly" type="radio" value="monthly"/>
+								<span class="form-check-label ms-3">
+											<span class="fw-bold"><%= session[:currency_symbol] %><span id="monthly_price">10</span></span> <%= t('billing.add_seat.usd_monthly') %> <br />
+											<span class="fs-7 opacity-50"><%= session[:currency_symbol] %><span id="monthly_amount">10</span> <%= t('billing.add_seat.due_today') %></span>
+										</span>
+							</label>
+						</div>
+						<div class="mb-0">
+							<label class="form-check form-check-custom form-check-solid me-10">
+								<input class="form-check-input h-30px w-30px" name="user_memebership" id="user_membership_annually" type="radio" value="annually" checked />
+								<span class="form-check-label ms-3">
+											<span class="fw-bold"><%= session[:currency_symbol] %><span id="annually_price">8</span></span> <%= t('billing.add_seat.usd_annually') %> <br />
+											<span class="fs-7 opacity-50"><%= session[:currency_symbol] %><span id="annually_amount">96</span> <%= t('billing.add_seat.due_today') %></span> <br />
+											<span class="fs-7 text-primary"><%= t('billing.add_seat.save') %>
+												<span class="fw-bold"><%= session[:currency_symbol] %><span id="annually_save_amount">24</span></span> <%= t('billing.add_seat.per_year') %>
+											</span>
+										</span>
+							</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-light" data-bs-dismiss="modal"><%= t('common.button.cancel') %></button>
+					<button type="submit" class="btn btn-primary" id="upgrade-plan">
+						<span class="indicator-label"><%= t('common.button.upgrade') %></span>
+						<span class="indicator-progress"><%= t('common.please_wait') %>
+							<span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+						</span>
+					</button>
+				</div>
+			</form>
+		</div>
+
+		<!--end::Modal content-->
+	</div>
+	<!--end::Modal dialog-->
+</div>
+<!--end::Upgrade Plan To-->
+<!-- end::Modals -->
+
+<script src="https://js.chargebee.com/v2/chargebee.js"></script>
+<script>
+		const cbInstance = window.Chargebee.init({site: "<%= ENV['CHARGEBEE_SITE'] %>"});
+		let checkout_step = "";
+		let monthly_price = 10;
+		let annually_price = 8;
+
+		$('a.membership').on('click', function() {
+				if ($(this).data('plan') == 'free') {
+						openCheckout('monthly', 'free', 1);
+				}
+				else {
+						$('input#membership_plan').val($(this).data('plan'));
+						$('input#seat_nums').val(<%=current_client.resources.active.count %>);
+						if ($(this).data('plan') == 'basic') {
+							monthly_price = 10;
+							annually_price = 8;
+						}
+
+						if ($(this).data('plan') == 'premium') {
+							monthly_price = 15;
+							annually_price = 12;
+						}
+
+						$('span#monthly_price').html(monthly_price);
+						$('span#monthly_amount').html(monthly_price);
+						$('span#annually_price').html(annually_price);
+						$('span#annually_amount').html(annually_price * 12)
+						$('span#annually_save_amount').html((monthly_price - annually_price) * 12);
+				}
+		})
+		$('input#seat_nums').on('keyup', function() {
+				$('span#monthly_amount').html(monthly_price * $(this).val());
+				$('span#annually_amount').html(annually_price * $(this).val() * 12);
+				$('span#annually_save_amount').html((monthly_price - annually_price) * 12 * $(this).val());
+		})
+		$('input#seat_nums').on('change', function() {
+			$('span#monthly_amount').html(monthly_price * $(this).val());
+			$('span#annually_amount').html(annually_price * $(this).val() * 12);
+			$('span#annually_save_amount').html((monthly_price - annually_price) * 12 * $(this).val());
+		})
+
+		$('button#upgrade-plan').on('click', function(e) {
+				e.preventDefault();
+				const upgrade_button = document.getElementById('upgrade-plan');
+				upgrade_button.disabled = true;
+				upgrade_button.setAttribute('data-kt-indicator', 'on');
+
+				const membership_period = $('input#user_membership_monthly').prop('checked') ? 'monthly' : 'annually';
+				openCheckout(membership_period, $('input#membership_plan').val(), $('input#seat_nums').val())
+		})
+
+		function openCheckout(period, plan, seat_nums) {
+				cbInstance.openCheckout({
+						hostedPage: function() {
+								// Hit your end point that returns hosted page object as response
+								// This sample end point will call the below api
+								// You can pass hosted page object created as a result of checkout_new, checkout_existing, manage_payment_sources
+								// https://apidocs.chargebee.com/docs/api/hosted_pages#checkout_new_subscription
+								// https://apidocs.chargebee.com/docs/api/hosted_pages#checkout_existing_subscription
+								// https://apidocs.chargebee.com/docs/api/hosted_pages#manage_payment_sources
+								// If you want to use paypal, go cardless and plaid, pass embed parameter as false
+								const membership_period = $('input#user_membership_monthly').prop('checked') ? 'monthly' : 'annually';
+								return $.ajax({
+										method: "post",
+										url: "<%= billing_client_path %>",
+										data: {
+												'membership_period': period,
+												'membership_plan': plan,
+												'seat_nums' : seat_nums
+										}
+								});
+						},
+						loaded: function() {
+								console.log("checkout opened");
+						},
+						error: function() {
+						},
+						close: function() {
+								console.log("checkout closed");
+								if (checkout_step == 'thankyou_screen') {
+										if (plan == 'free')
+												window.location.href = $('input#client_billing_path').val();
+										else
+												window.location.href = "<%= aggregates_reports_path %>";
+								}
+								else {
+										const upgrade_button = document.getElementById('upgrade-plan');
+										upgrade_button.disabled = false;
+										upgrade_button.removeAttribute('data-kt-indicator');
+										$('div#kt_modal_upgrade_to').modal('hide');
+								}
+
+						},
+						success: function(hostedPageId) {
+								console.log('success');
+								console.log(hostedPageId);
+								// Hosted page id will be unique token for the checkout that happened
+								// You can pass this hosted page id to your backend
+								// and then call our retrieve hosted page api to get subscription details
+								// https://apidocs.chargebee.com/docs/api/hosted_pages#retrieve_a_hosted_page
+						},
+						step: function(value) {
+								// value -> which step in checkout
+								console.log('step = ' + value);
+								checkout_step = value;
+
+						}
+				});
+		}
+</script>
